@@ -173,7 +173,8 @@ SELECT
 FROM staging.cities_v2 c
 LEFT JOIN p ON p.src_province_id = c.province_id
 LEFT JOIN menuca_v3.cities mc
-  ON lower(mc.name) = lower(c.name)
+  ON lower(regexp_replace(regexp_replace(mc.name, '(?i)\bsaint\b','st','g'), '[\.\-''’\s]+','', 'g'))
+   = lower(regexp_replace(regexp_replace(c.name, '(?i)\bsaint\b','st','g'), '[\.\-''’\s]+','', 'g'))
  AND mc.province_id IS NOT DISTINCT FROM p.v3_province_id
 WHERE mc.id IS NULL;
 
@@ -186,9 +187,19 @@ UPDATE menuca_v3.cities mc
 SET province_id = p.v3_province_id
 FROM staging.cities_v2 c
 JOIN p ON TRUE
-WHERE lower(mc.name) = lower(c.name)
+WHERE lower(regexp_replace(regexp_replace(mc.name, '(?i)\bsaint\b','st','g'), '[\.\-''’\s]+','', 'g'))
+  = lower(regexp_replace(regexp_replace(c.name, '(?i)\bsaint\b','st','g'), '[\.\-''’\s]+','', 'g'))
   AND p.v3_province_id = c.province_id
   AND (mc.province_id IS DISTINCT FROM p.v3_province_id);
+
+-- Backfill province from v1 for remaining NULLs using normalized name match
+UPDATE menuca_v3.cities mc
+SET province_id = scv1.province_id
+FROM staging.cities_v1 scv1
+WHERE mc.province_id IS NULL
+  AND scv1.province_id IS NOT NULL
+  AND lower(regexp_replace(regexp_replace(mc.name, '(?i)\bsaint\b','st','g'), '[\.\-''’\s]+','', 'g'))
+    = lower(regexp_replace(regexp_replace(scv1.name, '(?i)\bsaint\b','st','g'), '[\.\-''’\s]+','', 'g'));
 
 -- Insert remaining v1 cities (no reliable province in v1 CSV); avoid duplicates by name
 INSERT INTO menuca_v3.cities (name, display_name, province_id, lat, lng, timezone)
@@ -285,24 +296,99 @@ COMMIT;
 
 ### 5) Verification
 ```sql
--- Count locations per restaurant (expect 1 primary row per restaurant)
-SELECT restaurant_id, COUNT(*) AS locs
-FROM menuca_v3.restaurant_locations
-GROUP BY restaurant_id
-ORDER BY locs DESC
-LIMIT 50;
 
--- Missing links check
-SELECT v1.id
+-- B) Verify for duplicates
+WITH norm AS (
+  SELECT
+    restaurant_id,
+    lower(trim(regexp_replace(regexp_replace(COALESCE(street_address, ''), '\.', '', 'g'), '\s+', ' ', 'g'))) AS addr_norm,
+    replace(upper(COALESCE(postal_code, '')), ' ', '') AS postal_norm
+  FROM menuca_v3.restaurant_locations
+)
+SELECT restaurant_id, addr_norm, postal_norm, COUNT(*) AS cnt
+FROM norm
+GROUP BY restaurant_id, addr_norm, postal_norm
+HAVING COUNT(*) > 1
+ORDER BY restaurant_id, addr_norm, postal_norm;
+
+-- C) Missing restaurant links from V1 staging (should be zero before insert)
+SELECT v1.id AS v1_city_restaurant_id
 FROM staging.v1_restaurants_locations v1
 LEFT JOIN menuca_v3.restaurants r ON r.legacy_v1_id = v1.id
 WHERE r.id IS NULL
 LIMIT 50;
 
--- Null address sanity
-SELECT COUNT(*) AS no_address
+-- D) City FK sanity: city_id should reference an existing city
+SELECT rl.id, rl.city_id
+FROM menuca_v3.restaurant_locations rl
+LEFT JOIN menuca_v3.cities c ON c.id = rl.city_id
+WHERE rl.city_id IS NOT NULL AND c.id IS NULL
+LIMIT 50;
+
+-- E) Phone format (canonical (###) ###-#### or NULL)
+SELECT COUNT(*) AS bad_phones
+FROM menuca_v3.restaurant_locations
+WHERE phone IS NOT NULL AND phone !~ '^\(\d{3}\) \d{3}-\d{4}$';
+
+-- F) Postal code (optional Canadian format A1A 1A1)
+SELECT COUNT(*) AS bad_postal_codes
+FROM menuca_v3.restaurant_locations
+WHERE postal_code IS NOT NULL AND postal_code !~ '^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$';
+
+-- G) Coordinates range
+SELECT COUNT(*) AS bad_coords
+FROM menuca_v3.restaurant_locations
+WHERE (latitude  IS NOT NULL AND (latitude  < -90 OR latitude  > 90))
+   OR (longitude IS NOT NULL AND (longitude < -180 OR longitude > 180));
+
+-- H) Index presence (performance & constraints)
+SELECT indexname
+FROM pg_indexes
+WHERE schemaname = 'menuca_v3'
+  AND tablename  = 'restaurant_locations'
+  AND indexname IN ('idx_locations_restaurant','idx_locations_coords','idx_locations_city_id');
+
+-- I) City/province consistency on a sample (ensure city has province where expected)
+SELECT rl.id AS location_id, rl.city_id, c.province_id AS city_province_id
+FROM menuca_v3.restaurant_locations rl
+JOIN menuca_v3.cities c ON c.id = rl.city_id
+WHERE rl.city_id IS NOT NULL
+ORDER BY rl.id
+LIMIT 50;
+
+-- J) Null address sanity (flag rows missing both address and coordinates)
+SELECT COUNT(*) AS missing_address_and_coords
 FROM menuca_v3.restaurant_locations
 WHERE street_address IS NULL AND (latitude IS NULL OR longitude IS NULL);
+
+-- K) All v2 cities should exist in v3 with same province_id
+SELECT COUNT(*) AS missing_v2_cities
+FROM staging.cities_v2 c
+LEFT JOIN menuca_v3.cities mc
+  ON lower(mc.name)=lower(c.name) AND mc.province_id = c.province_id
+WHERE mc.id IS NULL;
+
+-- L) Locations must have valid restaurant and city links
+SELECT COUNT(*) AS bad_location_links
+FROM menuca_v3.restaurant_locations rl
+LEFT JOIN menuca_v3.restaurants r ON r.id = rl.restaurant_id
+LEFT JOIN menuca_v3.cities c       ON c.id = rl.city_id
+WHERE r.id IS NULL OR (rl.city_id IS NOT NULL AND c.id IS NULL);
+
+-- M) Duplicate cities by name/province (should be zero)
+SELECT lower(name) AS name_l, COALESCE(province_id,0) AS prov, COUNT(*) AS dupes
+FROM menuca_v3.cities
+GROUP BY name_l, prov HAVING COUNT(*) > 1;
+
+-- N) V2 locations inserted/updated should carry a city_id (should be zero)
+SELECT COUNT(*) AS v2_locations_missing_city
+FROM staging.v2_restaurants_locations v2
+JOIN menuca_v3.restaurants r ON r.legacy_v2_id = v2.id OR (v2.v1_id IS NOT NULL AND r.legacy_v1_id = v2.v1_id)
+LEFT JOIN menuca_v3.restaurant_locations rl ON rl.restaurant_id = r.id AND rl.is_primary = TRUE
+WHERE rl.city_id IS NULL;
+
+-- O) (Optional) Validate FKs after data looks good
+-- ALTER TABLE menuca_v3.restaurant_locations VALIDATE CONSTRAINT restaurant_locations_city_id_fkey;
 ```
 
 ### Notes

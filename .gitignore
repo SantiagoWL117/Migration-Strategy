@@ -1,0 +1,7 @@
+.tmp_pg/
+.vscode/
+*.dll
+*.exe
+*.zip
+tools/php/
+
