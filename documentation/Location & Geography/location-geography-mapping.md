@@ -7,9 +7,8 @@ This document maps essential fields from V1/V2 Location & Geography tables to th
 **V1 Tables:** 
 - `addresses` - Geocoded address searches
 - `ca` - Canadian postal code reference
-- `us` - US ZIP code reference  
 - `cities` - City master data
-- `counties` - Province/state data (legacy name)
+- `counties` - Province data (legacy name)
 - `neighbourhood` - Neighborhood boundaries
 - `restaurant_delivery_areas` - Restaurant delivery zones
 - `restaurant_areas` - Restaurant coverage areas
