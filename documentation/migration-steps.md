@@ -1,6 +1,6 @@
 Purpose: 
 Extract step:
-    1. (AI responsibility) Field mapping:
+    1. (AI responsibility) F    ield mapping:
     2. (User responsibility)Review other possible tables that could be useful in V1 and V2
     3. (User responsibility)Based on field mapping, add Dump of the required data to the Project for further analysis.
     4. (AI responsibility) Preconditions: Create the menuca_v3 tables according to the columns and format of the data dumps.
