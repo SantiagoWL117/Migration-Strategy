@@ -9,8 +9,8 @@ This document lists the core business entities identified across V1 and V2 of th
 
 ### Location & Geography
 - Purpose: Physical address, geocoding, and area coverage details.
-- V1 Tables: `addresses`, `ca`, `us`, `cities`, `counties`, `neighbourhood`, `restaurant_delivery_areas`, `restaurant_areas`, `restaurant_locations`.
-- V2 Tables: `cities`, `provinces`, `address_searches`, `restaurants_delivery_areas`.
+- V1 Tables: `restaurant_delivery_areas`, `restaurant_areas`, `restaurant_locations`.
+- V2 Tables: `restaurants_delivery_areas`.
 
 ### Service Configuration & Schedules
 - Purpose: Service capabilities (delivery/takeout), business hours, and special schedules.
