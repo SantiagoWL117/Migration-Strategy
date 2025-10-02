@@ -1,17 +1,17 @@
 Purpose: 
 Extract step:
-    1. (AI responsibility) F    ield mapping:
-    2. (User responsibility)Review other possible tables that could be useful in V1 and V2
-    3. (User responsibility)Based on field mapping, add Dump of the required data to the Project for further analysis.
-    4. (AI responsibility) Preconditions: Create the menuca_v3 tables according to the columns and format of the data dumps.
-    5. (User responsibility) Extract data as CSV from the tables and columns defined in step 1 (Field mapping) 
-    6. (AI responsibility) Based on the CSV data build the staging tables.
+    1.    Field mapping:
+    2. Verification: Review other possible tables that could be useful in V1 and V2
+    3. Santiago step: Based on field mapping, add Dump of the required data to the Project for further analysis.
+    4. Create the menuca_v3 tables according to the columns and format of the data dumps.
+    5.  Extract data as CSV from the tables and columns defined in step 1 (Field mapping) 
+    6.  Based on the CSV data build the staging tables. please suggest p[olicies for me to review before implimenting
 Transform Step:
     1. Verify format discrepencies accoross the CSV file
 Load step: 
-    1. Build a Transform and Upsert step to load the data from the staging tables to the menuca_v3 tables
+    1. Build a transaction for the Transform and Upsert step to load the data from the staging tables to the menuca_v3 tables
 Verification step: 
-    (AI responsibility) Create verification queries that verify data integrity and that ensure that all the relevant data was migrated from the staging tables to menuca_v3 tables. Always include an explanation of the query and the expected outcome.
+     Create verification queries that verify data integrity and that ensure that all the relevant data was migrated from the staging tables to menuca_v3 tables. Always include an explanation of the query and the expected outcome.
 
 
 -- Prompt -----------------------------------------------------------------------------------------------------------------------------------
