@@ -1,6 +1,0 @@
-TRUNCATE TABLE `restaurants_special_schedule`;
-INSERT INTO `restaurants_special_schedule` (`restaurant_id`,`special_date`,`time_start`,`time_stop`,`enabled`) VALUES (642,'2016-07-01','15:00:00','21:00:00','y');
-INSERT INTO `restaurants_special_schedule` (`restaurant_id`,`special_date`,`time_start`,`time_stop`,`enabled`) VALUES (642,'2016-07-01','15:00:00','21:00:00','y');
-INSERT INTO `restaurants_special_schedule` (`restaurant_id`,`special_date`,`time_start`,`time_stop`,`enabled`) VALUES (642,'2016-09-05','15:00:00','22:00:00','y');
-INSERT INTO `restaurants_special_schedule` (`restaurant_id`,`special_date`,`time_start`,`time_stop`,`enabled`) VALUES (931,'2020-12-25','16:00:00','22:00:00','y');
-INSERT INTO `restaurants_special_schedule` (`restaurant_id`,`special_date`,`time_start`,`time_stop`,`enabled`) VALUES (931,'2021-01-01','16:00:00','22:00:00','y');
