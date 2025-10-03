@@ -239,9 +239,24 @@ All V3 tables created with:
 
 ---
 
-### Phase 2: Data Extraction
+### Phase 2: Data Extraction ⏳ PENDING DUMPS
 
-#### Extract V1 Data
+**Status**: Waiting for table dumps to be added to the project
+
+**Required Dumps**:
+
+#### V1 Tables Needed:
+1. `restaurants_schedule_normalized` - Structure + sample data (10-20 rows)
+
+#### V2 Tables Needed:
+1. `restaurants_schedule` - Structure + sample data (10-20 rows)
+2. `restaurants_special_schedule` - Structure + sample data (10-20 rows)
+3. `restaurants_configs` - Structure + sample data (10-20 rows)
+4. `restaurants_time_periods` - Structure + ALL data (only 15 rows total)
+
+**Note**: Once dumps are added, accurate extraction scripts will be created based on actual column names and data formats.
+
+#### Extract V1 Data (Example - Will be updated)
 ```powershell
 # Regular schedules (pre-normalized)
 mysql -u root -p menuca_v1 -e "SELECT * FROM restaurants_schedule_normalized" > v1_schedules.csv
