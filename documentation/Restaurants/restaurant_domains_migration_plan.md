@@ -138,13 +138,18 @@ SELECT v3_restaurant_id,
 FROM v1_norm
 WHERE rn = 1
 ON CONFLICT (restaurant_id, lower(domain)) DO UPDATE
-SET is_enabled  = EXCLUDED.is_enabled,
+SET 
+    -- ✅ FIXED (2025-10-02): Preserve existing is_enabled to prevent V1 from re-enabling V2-disabled domains
+    -- CRITICAL: Use COALESCE to preserve existing is_enabled status (idempotency fix)
+    -- Previous: is_enabled = EXCLUDED.is_enabled (would overwrite V2's FALSE with V1's TRUE)
+    -- Fixed: is_enabled = COALESCE(existing, new) (preserves V2's decisions)
+    is_enabled  = COALESCE(menuca_v3.restaurant_domains.is_enabled, EXCLUDED.is_enabled),
     domain_type = COALESCE(menuca_v3.restaurant_domains.domain_type, EXCLUDED.domain_type),
     added_by    = COALESCE(menuca_v3.restaurant_domains.added_by, EXCLUDED.added_by),
     disabled_by = COALESCE(EXCLUDED.disabled_by, menuca_v3.restaurant_domains.disabled_by),
     disabled_at = COALESCE(EXCLUDED.disabled_at, menuca_v3.restaurant_domains.disabled_at),
     updated_at  = COALESCE(EXCLUDED.updated_at, menuca_v3.restaurant_domains.updated_at)
-WHERE menuca_v3.restaurant_domains.is_enabled  IS DISTINCT FROM EXCLUDED.is_enabled
+WHERE menuca_v3.restaurant_domains.is_enabled  IS DISTINCT FROM COALESCE(menuca_v3.restaurant_domains.is_enabled, EXCLUDED.is_enabled)
    OR menuca_v3.restaurant_domains.domain_type IS DISTINCT FROM EXCLUDED.domain_type
    OR menuca_v3.restaurant_domains.added_by    IS DISTINCT FROM EXCLUDED.added_by
    OR menuca_v3.restaurant_domains.disabled_at IS DISTINCT FROM EXCLUDED.disabled_at
