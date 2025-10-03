@@ -1,0 +1,15 @@
+﻿"id","restaurant_id","language_id","name","description","display_order","time_period"
+16384,1,1,"Pizza","Small pizza 4 slices, Medium pizza 6 slices, Large pizza 8 slices, X-Large 10 slices. Choose between Thick Crust, Thin Crust and Gluten Free Crust at $4.00.",0,0
+16385,1,1,"Gourmet Pizza","Gourmet Pizza not available with any coupons or any other offers. Choose between Thick Crust, Thin Crust and Gluten Free Crust",0,0
+16386,1,1,"Appetizers","",0,0
+16387,1,1,"Salads","Dressing Available: Ranch, Italian, Greek and Creamy Garlic",0,0
+16388,1,1,"Platters","Platters served with fries and gravy",0,0
+16389,1,1,"Donairs","Served with lettuce, tomatoes, pickles and your choice of sauce: garlic, hot or sweet and sour. Platters served with fries and gravy",0,0
+16390,1,1,"Subs","All subs are 12\\"" and they are  served with cheese,mayonnaise, lettuce, tomatoes and pickles",0,0
+16391,1,1,"Pasta","",0,0
+16392,1,1,"Specials","<a href=\'#f_pizza\' id=\'bannerclick\'><img src=\'http://menu.ca/clientimages/milano/pizza.png\'/></a>",0,0
+16393,1,1,"2 Pizza Deal","Place your toppings on your twin pizza any way you like.(For example if you order 2 toppings you get a total of 2 toppings that you can divide between the 2 pizza in the pop up window. Once you dress your 1st pizza you can place what\\\'s left on the next",0,0
+16394,1,1,"Unlisted Dishes","",0,0
+16395,1,1,"Drinks","",0,0
+16396,1,1,"Pizza","",0,0
+16397,1,1,"Special-test","This is a test",0,0
