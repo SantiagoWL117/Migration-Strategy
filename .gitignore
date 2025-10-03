@@ -15,4 +15,5 @@ tools/php/
 
 # Large database dump files (exceed GitHub's 100MB limit)
 Database/Users_&_Access/dumps/menuca_v1_users.sql
+Database/Users_&_Access/dumps/users dump/menuca_v1_users.sql
 
