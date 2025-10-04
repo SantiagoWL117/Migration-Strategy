@@ -5,7 +5,7 @@
 *.zip
 tools/php/
 
-# Environment variables (contains sensitive keys)
+# Environment variablPes (contains sensitive keys)
 .env
 .env.local
 .env.*.local
@@ -19,6 +19,5 @@ Database/Users_&_Access/dumps/users dump/menuca_v1_users.sql
 
 # Large CSV files (exceed or close to GitHub's limits)
 Database/Users_&_Access/CSV/menuca_v1_users.csv
-Database/Users_&_Access/CSV/menuca_v1_users_part1.csv
-Database/Users_&_Access/CSV/menuca_v1_users_part2.csv
+
 
