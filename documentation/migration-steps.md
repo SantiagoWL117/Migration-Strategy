@@ -29,7 +29,7 @@ Verification step:
 - [x] **restaurant_admin_users** - Admin access and authentication
 - [] **restaurant_schedules** - Business hours and service availability (See dedicated plan)
 
-### 2. Service Configuration & Schedules ✅ (Schema Complete)
+### 2. Service Configuration & Schedules 🔄 (In Progress - Phase 2 Complete)
 **Documentation**: `Service Configuration & Schedules/SERVICE_SCHEDULES_MIGRATION_GUIDE.md`
 
 **V3 Schema Created** (2025-10-03):
@@ -38,11 +38,19 @@ Verification step:
 - [x] `restaurant_service_configs` - Service capabilities
 - [x] `restaurant_time_periods` - Named time windows (Lunch, Dinner)
 
-**Data Sources**:
-- V1: `restaurants_schedule_normalized` (pre-normalized), service flags
-- V2: `restaurants_schedule`, `restaurants_special_schedule`, `restaurants_configs`, `restaurants_time_periods`
+**Data Extraction Completed** (2025-10-04):
+- [x] Phase 1: Schema Creation ✅
+- [x] Phase 2: Data Extraction ✅ (9,898 rows extracted to CSV)
+- [ ] Phase 3: Staging Tables (Next)
+- [ ] Phase 4: Data Transformation
+- [ ] Phase 5: Load to V3
+- [ ] Phase 6: Verification
 
-**Status**: ⏳ Ready for data extraction and ETL  
+**Data Sources**:
+- V1: `restaurants_schedule_normalized` (6,341 rows), service flags (847 restaurants)
+- V2: `restaurants_schedule` (1,984 rows), `restaurants_special_schedule` (84 rows), `restaurants_time_periods` (8 rows), service flags (629 restaurants)
+
+**Status**: ✅ Ready for Phase 3: Staging Tables  
 **Timeline**: 6-8 days | **Complexity**: 🟢 LOW-MEDIUM
 
 ### 3. Location & Geography 🔄 (In Progress)

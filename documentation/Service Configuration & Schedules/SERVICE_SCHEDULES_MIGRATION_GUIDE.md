@@ -239,22 +239,54 @@ All V3 tables created with:
 
 ---
 
-### Phase 2: Data Extraction ⏳ PENDING DUMPS
+### Phase 2: Data Extraction ✅ COMPLETE
 
-**Status**: Waiting for table dumps to be added to the project
+**Status**: All CSV conversions completed successfully (2025-10-04)
 
-**Required Dumps**:
+**Completed CSV Conversions** (Verified 2025-10-04):
+1. ✅ `menuca_v1_restaurants_schedule_normalized_dump.csv` - **6,341 rows** ✓ Complete
+2. ✅ `menuca_v1_restaurants_special_schedule_dump.csv` - **5 rows** ✓ Complete  
+3. ✅ `menuca_v2_restaurants_schedule.csv` - **1,984 rows** ✓ Complete
+4. ✅ `menuca_v2_restaurants_special_schedule.csv` - **84 rows** ✓ Complete
+5. ✅ `menuca_v2_restaurants_time_periods.csv` - **8 rows** ✓ Complete
+6. ✅ `migration_db_menuca_v1_restaurants_service_flags.csv` - **847 rows** ✓ Complete
+7. ✅ `migration_db_menuca_v2_restaurants_service_flags.csv` - **629 rows** ✓ Complete
 
-#### V1 Tables Needed:
-1. `restaurants_schedule_normalized` - Structure + sample data (10-20 rows)
+**Total Records Extracted**: **9,898 rows** across 7 CSV files  
+**Data Integrity**: ✅ All data successfully converted with no loss
 
-#### V2 Tables Needed:
-1. `restaurants_schedule` - Structure + sample data (10-20 rows)
-2. `restaurants_special_schedule` - Structure + sample data (10-20 rows)
-3. `restaurants_configs` - Structure + sample data (10-20 rows)
-4. `restaurants_time_periods` - Structure + ALL data (only 15 rows total)
+**Excluded - BLOB Column Issue**:
+8. ⚠️ `menuca_v2_restaurants_configs.sql` - **Contains `custom_meta` BLOB column**
+   - **Status**: ✅ EXCLUDED - Data deemed irrelevant for migration
+   - **Decision Date**: 2025-10-04
+   - **Rationale**: Analysis revealed only 4 out of 165 restaurants (2.4%) contain custom metadata
+     - 3 restaurants: Custom H1/H2/Footer branding text (cosmetic, not functional)
+     - 1 restaurant: Test data with generic key-value pairs
+   - **Impact**: None. This data represents legacy custom branding that is not part of V3 service configuration model
 
-**Note**: Once dumps are added, accurate extraction scripts will be created based on actual column names and data formats.
+#### 🔍 BLOB Column Analysis - restaurants_configs.custom_meta
+
+**File**: `menuca_v2_restaurants_configs.sql`  
+**Column**: `custom_meta` BLOB (JSON in binary format)  
+**Analysis Date**: 2025-10-04
+
+**Findings**:
+- **Total Records**: 165
+- **Records with Data**: 4 (2.4%)
+- **Records Empty**: 161 (97.6%)
+
+**Data Content**:
+| Restaurant ID | Metadata Type | Purpose |
+|---------------|---------------|---------|
+| 1595 | Test data | Generic key-value pairs ("1"→"2", "3"→"4") |
+| 1611 | Branding | "All Out Burger" H1/H2 text |
+| 1171 | Branding | Vietnamese restaurant tagline |
+| 1636 | Branding | "All Out Burger" H1/H2/Footer |
+
+**Decision**: ❌ **DO NOT MIGRATE**
+- Custom branding text is not part of V3 service configuration schema
+- Only 4 restaurants affected (can be manually re-entered if needed)
+- V3 uses separate content management approach for branding
 
 #### Extract V1 Data (Example - Will be updated)
 ```powershell
@@ -293,250 +325,562 @@ FROM restaurants" > v2_service_flags.csv
 
 ---
 
-### Phase 3: Create Staging Tables
+### Phase 3: Create Staging Tables ✅ COMPLETE
 
+**Status**: All staging tables successfully created in Supabase (2025-10-04)
+
+**SQL Script**: `Database/Service Configuration & Schedules/create_staging_tables.sql`  
+**Migration Applied**: `create_service_schedules_staging_tables`
+
+**Staging Tables Created** (in `staging` schema):
+1. ✅ `staging.v1_restaurants_schedule_normalized` - V1 regular schedules (6,342 rows expected)
+2. ✅ `staging.v1_restaurants_special_schedule` - V1 special schedules (5 rows, historical)
+3. ✅ `staging.v2_restaurants_schedule` - V2 regular schedules (1,984 rows expected)
+4. ✅ `staging.v2_restaurants_special_schedule` - V2 special schedules (84 rows expected)
+5. ✅ `staging.v2_restaurants_time_periods` - V2 time periods (8 rows expected)
+6. ✅ `staging.v1_restaurants_service_flags` - V1 service configuration flags (847 rows expected)
+7. ✅ `staging.v2_restaurants_service_flags` - V2 service configuration flags (629 rows expected)
+
+**Key Design Decisions**:
+- **Schema**: Using `staging` (not `menuca_v3_staging`)
+- **Column Preservation**: Staging tables preserve source column names and data types from CSV files
+- **ETL Metadata**: Each table includes `loaded_at`, `notes`, `is_processed` for tracking
+- **Indexing**: Indexes on `restaurant_id` for efficient lookups during transformation
+
+**Table Structure Pattern**:
 ```sql
--- Staging for regular schedules
-CREATE TABLE menuca_v3_staging.restaurant_schedules_staging (
+CREATE TABLE staging.{source_table_name} (
     staging_id BIGSERIAL PRIMARY KEY,
-    source_system VARCHAR(10), -- 'v1' or 'v2'
+    -- Source columns (matching CSV exactly)
     source_id INTEGER,
-    restaurant_id BIGINT,
-    type VARCHAR(20),
-    day_start SMALLINT,
-    day_stop SMALLINT,
-    time_start TIME,
-    time_stop TIME,
-    is_enabled BOOLEAN,
+    restaurant_id INTEGER,
+    [source columns...]
+    -- ETL metadata
+    loaded_at TIMESTAMP DEFAULT NOW(),
     notes TEXT,
-    created_at TIMESTAMP DEFAULT NOW()
-);
-
--- Staging for special schedules
-CREATE TABLE menuca_v3_staging.special_schedules_staging (
-    staging_id BIGSERIAL PRIMARY KEY,
-    source_system VARCHAR(10),
-    source_id INTEGER,
-    restaurant_id BIGINT,
-    schedule_type VARCHAR(20),
-    date_start DATE,
-    date_stop DATE,
-    time_start TIME,
-    time_stop TIME,
-    reason VARCHAR(50),
-    apply_to VARCHAR(20),
-    notes TEXT,
-    is_active BOOLEAN,
-    created_at TIMESTAMP DEFAULT NOW()
-);
-
--- Staging for service configs
-CREATE TABLE menuca_v3_staging.service_configs_staging (
-    staging_id BIGSERIAL PRIMARY KEY,
-    source_system VARCHAR(10),
-    restaurant_id BIGINT,
-    delivery_enabled BOOLEAN,
-    delivery_time_minutes INTEGER,
-    delivery_min_order NUMERIC(10,2),
-    takeout_enabled BOOLEAN,
-    takeout_time_minutes INTEGER,
-    takeout_discount_enabled BOOLEAN,
-    takeout_discount_type VARCHAR(20),
-    takeout_discount_value NUMERIC(10,2),
-    allow_preorders BOOLEAN,
-    preorder_time_frame_hours INTEGER,
-    is_bilingual BOOLEAN,
-    default_language VARCHAR(5),
-    created_at TIMESTAMP DEFAULT NOW()
-);
-
--- Staging for time periods
-CREATE TABLE menuca_v3_staging.time_periods_staging (
-    staging_id BIGSERIAL PRIMARY KEY,
-    source_system VARCHAR(10),
-    source_id INTEGER,
-    restaurant_id BIGINT,
-    name VARCHAR(50),
-    time_start TIME,
-    time_stop TIME,
-    is_enabled BOOLEAN,
-    display_order INTEGER,
-    created_at TIMESTAMP DEFAULT NOW()
+    is_processed BOOLEAN DEFAULT FALSE
 );
 ```
+
+**See**: Full SQL in `Database/Service Configuration & Schedules/create_staging_tables.sql`
 
 ---
 
-### Phase 4: Load Data into Staging
+### Phase 4: Data Transformation & Load to V3 ⏳ NEXT
 
-#### 4.1 Load V1 Regular Schedules
+**Status**: Ready to transform staging data and load into V3 tables
+
+**Overview**: Transform staging data (handle date conversions, enum mappings, conflict resolution) and load into final V3 tables.
+
+---
+
+#### 4.1 Transform & Load V1 Regular Schedules
+
+**Purpose**: Convert V1 schedules from staging to V3 format with proper type mappings
+
 ```sql
-INSERT INTO menuca_v3_staging.restaurant_schedules_staging 
-    (source_system, source_id, restaurant_id, type, 
-     day_start, day_stop, time_start, time_stop, is_enabled)
-SELECT 
-    'v1',
-    id,
-    restaurant_id,
-    CASE type
-        WHEN 'd' THEN 'delivery'
-        WHEN 't' THEN 'takeout'
-    END,
-    day_start,
-    day_stop,
-    time_start,
-    time_stop,
-    CASE enabled WHEN 'y' THEN true ELSE false END
-FROM menuca_v1.restaurants_schedule_normalized
-WHERE restaurant_id IN (
-    SELECT legacy_v1_id 
-    FROM menuca_v3.restaurants 
+-- Transform V1 schedules into V3 format
+WITH restaurant_mapping AS (
+    SELECT id as v3_id, legacy_v1_id
+    FROM menuca_v3.restaurants
     WHERE legacy_v1_id IS NOT NULL
-);
-```
-
-#### 4.2 Load V2 Regular Schedules
-```sql
-INSERT INTO menuca_v3_staging.restaurant_schedules_staging 
-    (source_system, source_id, restaurant_id, type, 
-     day_start, day_stop, time_start, time_stop, is_enabled)
-SELECT 
-    'v2',
-    id,
-    restaurant_id,
-    CASE type
-        WHEN 'd' THEN 'delivery'
-        WHEN 't' THEN 'takeout'
+)
+INSERT INTO menuca_v3.restaurant_schedules 
+    (restaurant_id, type, day_start, day_stop, time_start, time_stop, is_enabled, notes, created_at)
+SELECT DISTINCT
+    rm.v3_id,
+    CASE s.type
+        WHEN 'd' THEN 'delivery'::public.service_type
+        WHEN 't' THEN 'takeout'::public.service_type
     END,
-    day_start,
-    day_stop,
-    time_start,
-    time_stop,
-    CASE enabled WHEN 'y' THEN true ELSE false END
-FROM menuca_v2.restaurants_schedule
-WHERE restaurant_id IN (
-    SELECT legacy_v2_id 
-    FROM menuca_v3.restaurants 
-    WHERE legacy_v2_id IS NOT NULL
+    s.day_start,
+    s.day_stop,
+    s.time_start,
+    s.time_stop,
+    CASE s.enabled WHEN 'y' THEN true ELSE false END,
+    'Migrated from V1 (source_id: ' || s.id || ')',
+    NOW()
+FROM staging.v1_restaurants_schedule_normalized s
+JOIN restaurant_mapping rm ON rm.legacy_v1_id = s.restaurant_id
+WHERE s.type IN ('d', 't')
+AND s.day_start BETWEEN 1 AND 7
+AND s.day_stop BETWEEN 1 AND 7
+AND s.time_start IS NOT NULL
+AND s.time_stop IS NOT NULL
+-- Avoid duplicates
+ON CONFLICT (restaurant_id, type, day_start, time_start, time_stop) DO NOTHING;
+
+-- Mark as processed
+UPDATE staging.v1_restaurants_schedule_normalized
+SET is_processed = TRUE, notes = 'Loaded to V3'
+WHERE id IN (
+    SELECT s.id FROM staging.v1_restaurants_schedule_normalized s
+    JOIN menuca_v3.restaurants r ON r.legacy_v1_id = s.restaurant_id
 );
 ```
 
-#### 4.3 Load V2 Special Schedules
+#### 4.2 Transform & Load V2 Regular Schedules (OVERWRITES V1)
+
+**Purpose**: Load V2 schedules with UPSERT logic - V2 data wins conflicts with V1
+
 ```sql
-INSERT INTO menuca_v3_staging.special_schedules_staging 
-    (source_system, source_id, restaurant_id, schedule_type,
-     date_start, date_stop, time_start, time_stop, reason, apply_to, is_active)
+-- Transform V2 schedules into V3 format (UPSERT: V2 wins)
+WITH restaurant_mapping AS (
+    SELECT id as v3_id, legacy_v2_id
+    FROM menuca_v3.restaurants
+    WHERE legacy_v2_id IS NOT NULL
+)
+INSERT INTO menuca_v3.restaurant_schedules 
+    (restaurant_id, type, day_start, day_stop, time_start, time_stop, is_enabled, notes, created_at)
+SELECT DISTINCT
+    rm.v3_id,
+    CASE s.type
+        WHEN 'd' THEN 'delivery'::public.service_type
+        WHEN 't' THEN 'takeout'::public.service_type
+    END,
+    s.day_start,
+    s.day_stop,
+    s.time_start,
+    s.time_stop,
+    CASE s.enabled WHEN 'y' THEN true WHEN 'n' THEN false ELSE false END,
+    'Migrated from V2 (source_id: ' || s.id || ')',
+    NOW()
+FROM staging.v2_restaurants_schedule s
+JOIN restaurant_mapping rm ON rm.legacy_v2_id = s.restaurant_id
+WHERE s.type IN ('d', 't')
+AND s.day_start BETWEEN 1 AND 7
+AND s.day_stop BETWEEN 1 AND 7
+AND s.time_start IS NOT NULL
+AND s.time_stop IS NOT NULL
+-- V2 WINS: Update existing records if conflict
+ON CONFLICT (restaurant_id, type, day_start, time_start, time_stop) 
+DO UPDATE SET
+    day_stop = EXCLUDED.day_stop,
+    is_enabled = EXCLUDED.is_enabled,
+    notes = EXCLUDED.notes || ' [V2 overwrote V1]',
+    updated_at = NOW();
+
+-- Mark as processed
+UPDATE staging.v2_restaurants_schedule
+SET is_processed = TRUE, notes = 'Loaded to V3'
+WHERE id IN (
+    SELECT s.id FROM staging.v2_restaurants_schedule s
+    JOIN menuca_v3.restaurants r ON r.legacy_v2_id = s.restaurant_id
+);
+```
+
+#### 4.3 Transform & Load V2 Special Schedules
+
+**Purpose**: Load special schedules (holidays, closures) from V2 only (V1 excluded)
+
+```sql
+-- Transform V2 special schedules into V3 format
+WITH restaurant_mapping AS (
+    SELECT id as v3_id, legacy_v2_id
+    FROM menuca_v3.restaurants
+    WHERE legacy_v2_id IS NOT NULL
+)
+INSERT INTO menuca_v3.restaurant_special_schedules 
+    (restaurant_id, schedule_type, date_start, date_stop, time_start, time_stop, 
+     reason, apply_to, notes, is_active, created_at)
 SELECT 
-    'v2',
-    id,
-    restaurant_id,
-    CASE schedule_type
+    rm.v3_id,
+    CASE s.schedule_type
         WHEN 'c' THEN 'closed'
         WHEN 'o' THEN 'open'
         ELSE 'modified'
     END,
-    DATE(date_start),
-    DATE(date_stop),
-    TIME(date_start),
-    TIME(date_stop),
-    reason,
-    CASE apply_to
+    DATE(s.date_start),
+    DATE(s.date_stop),
+    NULLIF(TIME(s.date_start), '00:00:00'),  -- NULL if midnight (all-day closure)
+    NULLIF(TIME(s.date_stop), '00:00:00'),
+    s.reason,
+    CASE s.apply_to
         WHEN 'd' THEN 'delivery'
         WHEN 't' THEN 'takeout'
         ELSE 'both'
     END,
-    CASE enabled WHEN 'y' THEN true ELSE false END
-FROM menuca_v2.restaurants_special_schedule
-WHERE restaurant_id IN (
-    SELECT legacy_v2_id 
-    FROM menuca_v3.restaurants 
-    WHERE legacy_v2_id IS NOT NULL
-);
+    'Migrated from V2 (source_id: ' || s.id || ')',
+    CASE s.enabled WHEN 'y' THEN true ELSE false END,
+    NOW()
+FROM staging.v2_restaurants_special_schedule s
+JOIN restaurant_mapping rm ON rm.legacy_v2_id = s.restaurant_id
+WHERE s.date_start IS NOT NULL
+AND s.date_stop IS NOT NULL
+AND DATE(s.date_stop) >= DATE(s.date_start);
+
+-- Mark as processed
+UPDATE staging.v2_restaurants_special_schedule
+SET is_processed = TRUE, notes = 'Loaded to V3';
 ```
 
-#### 4.4 Load V2 Service Configs
+#### 4.4 Transform & Load Service Configs (V1 + V2 merged)
+
+**Purpose**: Merge service configuration from both V1 and V2, prioritizing V2 when both exist
+
 ```sql
-INSERT INTO menuca_v3_staging.service_configs_staging 
-    (source_system, restaurant_id, delivery_enabled, delivery_time_minutes, 
-     delivery_min_order, takeout_enabled, takeout_time_minutes, 
-     takeout_discount_enabled, takeout_discount_type, takeout_discount_value,
-     allow_preorders, preorder_time_frame_hours, is_bilingual, default_language)
+-- Transform and merge service configs from V1 and V2
+WITH restaurant_mapping AS (
+    SELECT id as v3_id, legacy_v1_id, legacy_v2_id
+    FROM menuca_v3.restaurants
+),
+v1_configs AS (
+    SELECT 
+        rm.v3_id as restaurant_id,
+        CASE v1.delivery WHEN '1' THEN true ELSE false END as delivery_enabled,
+        v1.delivery_time as delivery_time_minutes,
+        NULL::NUMERIC(10,2) as delivery_min_order,
+        CASE v1.takeout WHEN '1' THEN true ELSE false END as takeout_enabled,
+        v1.takeout_time as takeout_time_minutes,
+        false as takeout_discount_enabled,
+        NULL::VARCHAR(20) as takeout_discount_type,
+        NULL::NUMERIC(10,2) as takeout_discount_value,
+        false as allow_preorders,
+        NULL::INTEGER as preorder_time_frame_hours,
+        false as is_bilingual,
+        'en'::VARCHAR(5) as default_language,
+        false as accepts_tips,
+        false as requires_phone,
+        'v1' as source_system
+    FROM staging.v1_restaurants_service_flags v1
+    JOIN restaurant_mapping rm ON rm.legacy_v1_id = v1.id
+),
+v2_configs AS (
+    SELECT 
+        rm.v3_id as restaurant_id,
+        CASE v2.delivery WHEN 'y' THEN true ELSE false END as delivery_enabled,
+        v2.delivery_time as delivery_time_minutes,
+        v2.min_delivery as delivery_min_order,
+        CASE v2.takeout WHEN 'y' THEN true ELSE false END as takeout_enabled,
+        v2.takeout_time as takeout_time_minutes,
+        CASE v2.takeout_discount WHEN 'y' THEN true ELSE false END as takeout_discount_enabled,
+        CASE v2.takeout_remove_type 
+            WHEN 'p' THEN 'percentage'
+            WHEN 'v' THEN 'fixed'
+        END as takeout_discount_type,
+        COALESCE(v2.takeout_remove, v2.takeout_remove_percent, v2.takeout_remove_value) as takeout_discount_value,
+        CASE v2.allow_preorders WHEN 'y' THEN true ELSE false END as allow_preorders,
+        v2.preorders_time_frame as preorder_time_frame_hours,
+        CASE v2.bilingual WHEN 'y' THEN true ELSE false END as is_bilingual,
+        CASE CAST(v2.default_language AS INTEGER)
+            WHEN 1 THEN 'en'
+            WHEN 2 THEN 'fr'
+            ELSE 'en'
+        END as default_language,
+        true as accepts_tips,
+        false as requires_phone,
+        'v2' as source_system
+    FROM staging.v2_restaurants_configs v2
+    JOIN restaurant_mapping rm ON rm.legacy_v2_id = v2.restaurant_id
+)
+INSERT INTO menuca_v3.restaurant_service_configs 
+    (restaurant_id, delivery_enabled, delivery_time_minutes, delivery_min_order,
+     takeout_enabled, takeout_time_minutes, takeout_discount_enabled,
+     takeout_discount_type, takeout_discount_value, allow_preorders, 
+     preorder_time_frame_hours, is_bilingual, default_language, 
+     accepts_tips, requires_phone, created_at)
 SELECT 
-    'v2',
-    restaurant_id,
-    CASE delivery WHEN 'y' THEN true ELSE false END,
-    delivery_time,
-    min_delivery,
-    CASE takeout WHEN 'y' THEN true ELSE false END,
-    takeout_time,
-    CASE takeout_discount WHEN 'y' THEN true ELSE false END,
-    CASE takeout_remove_type 
-        WHEN 'p' THEN 'percentage'
-        WHEN 'v' THEN 'fixed'
-    END,
-    COALESCE(takeout_remove, takeout_remove_percent, takeout_remove_value),
-    CASE allow_preorders WHEN 'y' THEN true ELSE false END,
-    preorders_time_frame,
-    CASE bilingual WHEN 'y' THEN true ELSE false END,
-    CASE default_language
-        WHEN 1 THEN 'en'
-        WHEN 2 THEN 'fr'
-        ELSE 'en'
-    END
-FROM menuca_v2.restaurants_configs
-WHERE restaurant_id IN (
-    SELECT legacy_v2_id 
-    FROM menuca_v3.restaurants 
-    WHERE legacy_v2_id IS NOT NULL
-);
+    COALESCE(v2.restaurant_id, v1.restaurant_id) as restaurant_id,
+    COALESCE(v2.delivery_enabled, v1.delivery_enabled) as delivery_enabled,
+    COALESCE(v2.delivery_time_minutes, v1.delivery_time_minutes) as delivery_time_minutes,
+    COALESCE(v2.delivery_min_order, v1.delivery_min_order) as delivery_min_order,
+    COALESCE(v2.takeout_enabled, v1.takeout_enabled) as takeout_enabled,
+    COALESCE(v2.takeout_time_minutes, v1.takeout_time_minutes) as takeout_time_minutes,
+    COALESCE(v2.takeout_discount_enabled, v1.takeout_discount_enabled) as takeout_discount_enabled,
+    COALESCE(v2.takeout_discount_type, v1.takeout_discount_type) as takeout_discount_type,
+    COALESCE(v2.takeout_discount_value, v1.takeout_discount_value) as takeout_discount_value,
+    COALESCE(v2.allow_preorders, v1.allow_preorders) as allow_preorders,
+    COALESCE(v2.preorder_time_frame_hours, v1.preorder_time_frame_hours) as preorder_time_frame_hours,
+    COALESCE(v2.is_bilingual, v1.is_bilingual) as is_bilingual,
+    COALESCE(v2.default_language, v1.default_language) as default_language,
+    COALESCE(v2.accepts_tips, v1.accepts_tips) as accepts_tips,
+    COALESCE(v2.requires_phone, v1.requires_phone) as requires_phone,
+    NOW()
+FROM v1_configs v1
+FULL OUTER JOIN v2_configs v2 ON v2.restaurant_id = v1.restaurant_id;
+
+-- Mark as processed
+UPDATE staging.v1_restaurants_service_flags SET is_processed = TRUE;
+UPDATE staging.v2_restaurants_configs SET is_processed = TRUE;
 ```
 
-#### 4.5 Load V2 Time Periods
+#### 4.5 Transform & Load Time Periods
+
+**Purpose**: Load named time windows (Lunch, Dinner) for menu item availability
+
 ```sql
-INSERT INTO menuca_v3_staging.time_periods_staging 
-    (source_system, source_id, restaurant_id, name, 
-     time_start, time_stop, is_enabled, display_order)
-SELECT 
-    'v2',
-    id,
-    restaurant_id,
-    name,
-    time_start,
-    time_stop,
-    CASE enabled WHEN 'y' THEN true ELSE false END,
-    COALESCE(display_order, 0)
-FROM menuca_v2.restaurants_time_periods
-WHERE restaurant_id IN (
-    SELECT legacy_v2_id 
-    FROM menuca_v3.restaurants 
+-- Transform V2 time periods into V3 format
+WITH restaurant_mapping AS (
+    SELECT id as v3_id, legacy_v2_id
+    FROM menuca_v3.restaurants
     WHERE legacy_v2_id IS NOT NULL
-);
+)
+INSERT INTO menuca_v3.restaurant_time_periods 
+    (restaurant_id, name, time_start, time_stop, is_enabled, display_order, created_at)
+SELECT 
+    rm.v3_id,
+    s.name,
+    s.start,  -- CSV column is 'start' not 'time_start'
+    s.stop,   -- CSV column is 'stop' not 'time_stop'
+    CASE s.enabled WHEN 'y' THEN true ELSE false END,
+    0,  -- Default display_order (can be updated later by admin)
+    NOW()
+FROM staging.v2_restaurants_time_periods s
+JOIN restaurant_mapping rm ON rm.legacy_v2_id = s.restaurant_id
+WHERE s.start IS NOT NULL
+AND s.stop IS NOT NULL
+AND s.stop > s.start;
+
+-- Mark as processed
+UPDATE staging.v2_restaurants_time_periods
+SET is_processed = TRUE, notes = 'Loaded to V3';
 ```
 
 ---
 
-### Phase 5: Handle Conflicts (V2 Wins)
+### Phase 5: Verification & Data Quality Checks ⏳ AFTER PHASE 4
+
+**Purpose**: Verify data integrity, completeness, and identify any issues before finalizing
+
+---
+
+#### 5.1 Row Count Verification
+
+**Check that data loaded correctly from staging to V3**
 
 ```sql
--- Mark V1 records that conflict with V2 as superseded
-UPDATE menuca_v3_staging.restaurant_schedules_staging s1
-SET notes = '[SUPERSEDED by V2]'
-WHERE source_system = 'v1'
-AND EXISTS (
-    SELECT 1 
-    FROM menuca_v3_staging.restaurant_schedules_staging s2
-    WHERE s2.source_system = 'v2'
-    AND s2.restaurant_id = s1.restaurant_id
-    AND s2.type = s1.type
-    AND s2.day_start = s1.day_start
-    AND s2.time_start = s1.time_start
-    AND s2.time_stop = s1.time_stop
-);
+-- Compare staging vs V3 row counts
+SELECT 
+    'V1 Schedules (Staging)' as source,
+    COUNT(*) as count
+FROM staging.v1_restaurants_schedule_normalized
+WHERE is_processed = TRUE
+
+UNION ALL
+
+SELECT 'V2 Schedules (Staging)', COUNT(*)
+FROM staging.v2_restaurants_schedule
+WHERE is_processed = TRUE
+
+UNION ALL
+
+SELECT 'V3 Schedules (Final)', COUNT(*)
+FROM menuca_v3.restaurant_schedules
+
+UNION ALL
+
+SELECT 'V2 Special Schedules (Staging)', COUNT(*)
+FROM staging.v2_restaurants_special_schedule
+WHERE is_processed = TRUE
+
+UNION ALL
+
+SELECT 'V3 Special Schedules (Final)', COUNT(*)
+FROM menuca_v3.restaurant_special_schedules
+
+UNION ALL
+
+SELECT 'V3 Service Configs (Final)', COUNT(*)
+FROM menuca_v3.restaurant_service_configs
+
+UNION ALL
+
+SELECT 'V2 Time Periods (Staging)', COUNT(*)
+FROM staging.v2_restaurants_time_periods
+WHERE is_processed = TRUE
+
+UNION ALL
+
+SELECT 'V3 Time Periods (Final)', COUNT(*)
+FROM menuca_v3.restaurant_time_periods;
+```
+
+**Expected Results**:
+- V3 Schedules should be close to V1 + V2 combined (with some overlap/conflicts resolved)
+- V3 Special Schedules = V2 Staging count (84 rows expected)
+- V3 Service Configs = Number of restaurants with configs
+- V3 Time Periods = V2 Staging count (8 rows expected)
+
+---
+
+#### 5.2 Data Integrity Checks
+
+**Verify no orphaned records or constraint violations**
+
+```sql
+-- Check for orphaned schedules (no restaurant exists)
+SELECT 'Orphaned Schedules' as check_name, COUNT(*) as issue_count
+FROM menuca_v3.restaurant_schedules s
+LEFT JOIN menuca_v3.restaurants r ON r.id = s.restaurant_id
+WHERE r.id IS NULL
+
+UNION ALL
+
+-- Check for invalid day ranges
+SELECT 'Invalid Day Ranges', COUNT(*)
+FROM menuca_v3.restaurant_schedules
+WHERE day_start NOT BETWEEN 1 AND 7
+   OR day_stop NOT BETWEEN 1 AND 7
+
+UNION ALL
+
+-- Check for NULL times
+SELECT 'NULL Time Fields', COUNT(*)
+FROM menuca_v3.restaurant_schedules
+WHERE time_start IS NOT NULL
+AND time_stop IS NULL
+
+UNION ALL
+
+-- Check special schedules date validity
+SELECT 'Invalid Special Date Ranges', COUNT(*)
+FROM menuca_v3.restaurant_special_schedules
+WHERE date_stop < date_start
+
+UNION ALL
+
+-- Check for duplicate schedules (same restaurant, type, day, times)
+SELECT 'Duplicate Schedules', COUNT(*) - COUNT(DISTINCT (restaurant_id, type, day_start, time_start, time_stop))
+FROM menuca_v3.restaurant_schedules;
+```
+
+**Expected**: All checks should return `0` issues
+
+---
+
+#### 5.3 Business Logic Validation
+
+**Verify restaurants have consistent configuration**
+
+```sql
+-- Restaurants with no schedules (should investigate)
+SELECT 
+    'Restaurants with no schedules' as check_name,
+    COUNT(*) as count,
+    array_agg(r.id) as restaurant_ids
+FROM menuca_v3.restaurants r
+LEFT JOIN menuca_v3.restaurant_schedules s ON s.restaurant_id = r.id
+WHERE s.id IS NULL
+AND r.status IN ('active', 'pending')
+GROUP BY check_name
+
+UNION ALL
+
+-- Restaurants with delivery enabled but no delivery schedule
+SELECT 
+    'Delivery enabled, no delivery schedule',
+    COUNT(*),
+    array_agg(c.restaurant_id)
+FROM menuca_v3.restaurant_service_configs c
+LEFT JOIN menuca_v3.restaurant_schedules s 
+    ON s.restaurant_id = c.restaurant_id AND s.type = 'delivery'
+WHERE c.delivery_enabled = true
+AND s.id IS NULL
+GROUP BY check_name
+
+UNION ALL
+
+-- Restaurants with takeout enabled but no takeout schedule
+SELECT 
+    'Takeout enabled, no takeout schedule',
+    COUNT(*),
+    array_agg(c.restaurant_id)
+FROM menuca_v3.restaurant_service_configs c
+LEFT JOIN menuca_v3.restaurant_schedules s 
+    ON s.restaurant_id = c.restaurant_id AND s.type = 'takeout'
+WHERE c.takeout_enabled = true
+AND s.id IS NULL;
 ```
 
 ---
 
-### Phase 6: Load to V3 Tables
+#### 5.4 Sample Data Spot Checks
+
+**Manual verification of specific restaurants**
+
+```sql
+-- Check restaurants with time periods have correct data
+SELECT 
+    r.id,
+    r.name,
+    COUNT(DISTINCT s.id) as schedule_count,
+    COUNT(DISTINCT sp.id) as special_schedule_count,
+    CASE WHEN c.id IS NOT NULL THEN 'Yes' ELSE 'No' END as has_config,
+    COUNT(DISTINCT tp.id) as time_period_count,
+    json_agg(DISTINCT tp.name) as time_period_names
+FROM menuca_v3.restaurants r
+LEFT JOIN menuca_v3.restaurant_schedules s ON s.restaurant_id = r.id
+LEFT JOIN menuca_v3.restaurant_special_schedules sp ON sp.restaurant_id = r.id
+LEFT JOIN menuca_v3.restaurant_service_configs c ON c.restaurant_id = r.id
+LEFT JOIN menuca_v3.restaurant_time_periods tp ON tp.restaurant_id = r.id
+WHERE r.legacy_v2_id IN (1603, 1634, 1656, 1665, 1641, 1668)  -- Known restaurants with time periods
+GROUP BY r.id, r.name, c.id
+ORDER BY r.id;
+```
+
+**Expected**: All 7 restaurants (1603, 1634, 1656, 1665, 1641, 1668) should have time periods
+
+---
+
+#### 5.5 Data Quality Report
+
+**Generate summary report for stakeholders**
+
+```sql
+SELECT 
+    'Total Restaurants' as metric,
+    COUNT(*) as value
+FROM menuca_v3.restaurants
+
+UNION ALL
+
+SELECT 'Restaurants with Schedules', COUNT(DISTINCT restaurant_id)
+FROM menuca_v3.restaurant_schedules
+
+UNION ALL
+
+SELECT 'Total Schedule Entries', COUNT(*)
+FROM menuca_v3.restaurant_schedules
+
+UNION ALL
+
+SELECT 'Delivery Schedules', COUNT(*)
+FROM menuca_v3.restaurant_schedules WHERE type = 'delivery'
+
+UNION ALL
+
+SELECT 'Takeout Schedules', COUNT(*)
+FROM menuca_v3.restaurant_schedules WHERE type = 'takeout'
+
+UNION ALL
+
+SELECT 'Special Schedules', COUNT(*)
+FROM menuca_v3.restaurant_special_schedules
+
+UNION ALL
+
+SELECT 'Service Configs', COUNT(*)
+FROM menuca_v3.restaurant_service_configs
+
+UNION ALL
+
+SELECT 'Time Periods', COUNT(*)
+FROM menuca_v3.restaurant_time_periods
+
+UNION ALL
+
+SELECT 'Restaurants with Delivery', COUNT(*)
+FROM menuca_v3.restaurant_service_configs WHERE delivery_enabled = true
+
+UNION ALL
+
+SELECT 'Restaurants with Takeout', COUNT(*)
+FROM menuca_v3.restaurant_service_configs WHERE takeout_enabled = true;
+```
+
+---
+
+### Phase 6: Final Sign-Off ⏳ PENDING
 
 #### 6.1 Migrate Regular Schedules
 ```sql
