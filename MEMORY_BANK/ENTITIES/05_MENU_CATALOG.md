@@ -588,3 +588,115 @@ staging.v1_* + v2_* → staging.v3_* → Validation → production.*
 **Production Ready:** ✅ YES - All 201,759 rows validated and loaded
 
 **Reference:** See `PHASE_4_BLOB_DESERIALIZATION_COMPLETE.md` for complete 43-page report
+
+---
+
+## 🔧 PHASE 5: SCHEMA CORRECTION - menu_v3 → menuca_v3 ✅ **COMPLETE**
+
+**Status:** ✅ **SUCCESS** - All Menu Data Migrated to Correct Schema (2025-10-03)  
+**Migration:** menu_v3 → menuca_v3 (production schema)  
+**Total Rows Migrated:** 121,149 rows  
+**Data Integrity:** 100% (zero orphaned FKs)
+
+### Critical Issue Resolved: Wrong Schema Deployment
+
+**Problem:** Phase 4 data deployed to `menu_v3` (temporary) instead of `menuca_v3` (production)  
+**Impact:** Menu data isolated from restaurant management system  
+**Solution:** 5-phase transactional migration to move all data to correct schema  
+**Result:** ✅ Menu tables now properly integrated with `menuca_v3.restaurants`
+
+### Migration Summary
+
+**Phase 1: Schema Creation** ✅
+- Created 8 menu tables in `menuca_v3` schema
+- Established FK relationships with `menuca_v3.restaurants`
+- Indexes and constraints applied
+
+**Phase 2: Restaurant ID Mapping** ✅
+- Mapped 944 restaurants (V1 legacy_id → V3 new_id)
+- Identified orphaned records (ghost/deleted restaurants)
+- Created temporary mapping table for transformations
+
+**Phase 3: Data Migration** ✅
+- Migrated 121,149 rows across 8 tables
+- Applied restaurant_id transformations
+- Excluded 80,610 orphaned records (ghost/test restaurants)
+
+**Phase 4: Validation** ✅
+- Row counts: 100% match expected (after orphan exclusion)
+- FK integrity: 0 violations
+- JSONB structures: 100% valid
+- Restaurant mapping: 0 V1 legacy IDs remain
+
+**Phase 5: Cleanup** ✅
+- Dropped old `menu_v3` schema
+- Generated orphan exclusion report
+- Updated memory bank
+
+### Final Production Tables in menuca_v3
+
+| Table | Migrated | Excluded | Total Source |
+|-------|----------|----------|--------------|
+| courses | 12,194 | 1,445 | 13,639 |
+| ingredient_groups | 9,572 | 3,826 | 13,398 |
+| ingredients | 45,176 | 7,129 | 52,305 |
+| combo_groups | 12,576 | 49,811 | 62,387 |
+| dishes | 42,930 | 10,879 | 53,809 |
+| combo_items | 2,317 | 0 | 2,317 |
+| dish_customizations | 310 | 3,556 | 3,866 |
+| dish_modifiers | 8 | 30 | 38 |
+| **TOTAL** | **121,149** | **80,610** | **201,759** |
+
+### Orphan Data Analysis
+
+**385 Excluded Restaurants Breakdown:**
+- ✅ **339 Records:** Ghost restaurants (deleted from V1 before 2020 export - unrecoverable)
+- ✅ **44 Records:** Inactive/suspended restaurants (correctly excluded)
+- ✅ **2 Records:** Test restaurants (correctly excluded)
+- ⚠️ **0 Active Restaurants Missing:** All 230 V1 active + 32 V2 active accounted for
+
+**Why 385 Not 80,610?**
+- 80,610 = Total exclusions including **combo_groups** (49,811 orphaned = 79.8%)
+- 385 = Unique **restaurants** that owned the excluded data
+- Ghost restaurants = 97% of orphaned combo_groups (deleted pre-2020)
+
+### Data Quality Achievements
+
+**100% Success Criteria:**
+1. ✅ Zero active restaurant data lost
+2. ✅ Zero FK violations in final schema
+3. ✅ 100% restaurant_id mapping accuracy
+4. ✅ All JSONB structures validated
+5. ✅ Proper schema integration with menuca_v3.restaurants
+
+**Ghost Data Handling:**
+- Identified and excluded 339 deleted restaurants
+- Prevented 80,610 orphaned records from polluting production
+- Created comprehensive exclusion report for audit trail
+
+### Key Deliverables
+
+**Scripts & SQL:**
+- ✅ Phase 1: `CREATE TABLE` DDL for 8 menu tables
+- ✅ Phase 2: Restaurant ID mapping queries
+- ✅ Phase 3: Data migration `INSERT INTO ... SELECT` statements
+- ✅ Phase 4: Validation queries (row counts, FK checks, JSONB validation)
+- ✅ Phase 5: `DROP SCHEMA menu_v3 CASCADE`
+
+**Documentation:**
+- ✅ `MENU_V3_TO_MENUCA_V3_MIGRATION_PLAN.md` - 30-page migration plan
+- ✅ `SCHEMA_CORRECTION_COMPLETE.md` - Migration completion report
+- ✅ `ORPHAN_EXCLUSION_REPORT.md` - Detailed orphan analysis
+- ✅ Memory bank updates
+
+### Integration Notes
+
+**Time-Based Availability (Not Migrated):**
+- `v1_courses.time_period` → `restaurants_time_periods` relationship
+- Being handled by separate developer (Configuration & Schedules Entity)
+- Menu system ready for FK connection when time_periods table migrated
+- Day-based availability already implemented via `availability_schedule` JSONB
+
+**Production Ready:** ✅ YES - All 121,149 rows in correct schema with perfect data integrity
+
+**Reference:** See `SCHEMA_CORRECTION_COMPLETE.md` for complete migration report

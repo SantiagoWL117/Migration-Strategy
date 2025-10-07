@@ -1,8 +1,8 @@
 # Project Status - menuca_v3 Migration
 
-**Last Updated:** 2025-10-02  
-**Current Phase:** Entity Migrations Complete - Phase 4 SUCCESS!  
-**Overall Progress:** 2/12 entities complete (16.7%) - Menu & Catalog FULLY COMPLETE with 201,759 rows!
+**Last Updated:** 2025-10-07  
+**Current Phase:** Orders & Checkout Entity - Starting Phase 1  
+**Overall Progress:** 4/12 entities complete (33.3%) - Location, Menu, Restaurant, Users COMPLETE!
 
 ---
 
@@ -14,18 +14,20 @@ Migrate legacy MySQL databases (menuca_v1 and menuca_v2) to a modern, normalized
 
 ## 📊 Entity Status Matrix
 
-### ✅ Completed Entities (2)
+### ✅ Completed Entities (4)
 
 | Entity | Tables Migrated | Completion Date | Blocks Released |
 |--------|----------------|-----------------|-----------------|
 | **Location & Geography** | provinces, cities | 2025-09-30 | Restaurant Mgmt, Delivery Ops, Users |
-| **Menu & Catalog** | 8 tables: courses (13,639), dishes (53,809), ingredients (52,305), ingredient_groups (13,398), combo_groups (62,387), combo_items (2,317), dish_customizations (3,866), dish_modifiers (38) = **201,759 rows** | 2025-10-02 | Orders & Checkout ✅ |
+| **Menu & Catalog** | 8 tables in menuca_v3: courses (12,194), dishes (42,930), ingredients (45,176), ingredient_groups (9,572), combo_groups (12,576), combo_items (2,317), dish_customizations (310), dish_modifiers (8) = **121,149 rows** (80,610 ghost/orphaned records excluded) | 2025-10-03 | Orders & Checkout ✅ |
+| **Restaurant Management** | restaurants, restaurant_locations, restaurant_domains, restaurant_contacts | 2025-10-06 | Service Schedules, Marketing, Vendors, Devices |
+| **Users & Access** | users (32,349), admin_users (51), admin_user_restaurants (91), + 4 auxiliary tables | 2025-10-06 | Orders & Checkout ✅ |
 
 ### 🔄 In Progress (1)
 
 | Entity | Developer | Status | Dependencies |
 |--------|-----------|--------|--------------|
-| **Restaurant Management** | Other Dev | In Progress | Location & Geography ✅ |
+| **Orders & Checkout** | AI (Brian) | Starting Phase 1 | Menu ✅, Users ✅, Restaurant ✅ |
 
 ### ⏳ Not Started (9)
 
@@ -52,7 +54,7 @@ Location & Geography (DONE ✅)
     │   ├── Marketing & Promotions
     │   ├── Vendors & Franchises
     │   └── Devices & Infrastructure
-    ├── Menu & Catalog (100% COMPLETE 🎉)
+    ├── Menu & Catalog (100% COMPLETE 🎉) - Now in menuca_v3 schema
     │   └── Orders & Checkout (50% UNBLOCKED - Needs Users)
     │       ├── Payments
     │       └── Accounting & Reporting
@@ -87,11 +89,12 @@ Based on completed dependencies, these entities can start immediately:
 
 ## 📈 Progress Metrics
 
-- **Entities Complete:** 2/12 (16.7%) - Location & Geography, Menu & Catalog (201,759 rows)
+- **Entities Complete:** 2/12 (16.7%) - Location & Geography, Menu & Catalog (121,149 rows in production)
 - **Entities In Progress:** 1/12 (8%) - Restaurant Management
 - **Entities Blocked:** 6/12 (50%)
 - **Entities Ready to Start:** 2/12 (17%) - Users & Access, Delivery Operations
 - **BLOB Deserialization:** ✅ 144,377 BLOBs processed (98.6% success)
+- **Schema Correction:** ✅ 121,149 rows migrated to menuca_v3 (100% FK integrity)
 
 ---
 
