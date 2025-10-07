@@ -1,8 +1,8 @@
 # Next Steps - Immediate Actions
 
-**Last Updated:** 2025-10-03  
-**Current Status:** Menu & Catalog Entity 100% COMPLETE! 🎉🎉🎉  
-**Current Phase:** Ready for Next Entity  
+**Last Updated:** 2025-10-07  
+**Current Status:** Orders & Checkout Entity STARTED! 🚀  
+**Current Phase:** Phase 1 - Schema Design & Mapping COMPLETE  
 **Phase 1 Complete:** ✅ V1+V2 Data Loading & Remediation (91.7% clean data)  
 **Phase 2 Complete:** ✅ V3 Schema, Transformation, Validation, & Fixes (99.47% data quality)  
 **Phase 3 Complete:** ✅ Production Deployment (64,913 rows, 100% integrity)  
@@ -14,7 +14,25 @@
 
 ## ✅ Just Completed
 
-**Menu & Catalog Entity - ALL 5 PHASES COMPLETE!** 🎉🎉🎉 (2025-10-03)
+**Orders & Checkout Entity - Phase 1 Schema Design!** 🎉 (2025-10-07)
+
+**Completed Today:**
+- ✅ Analyzed V1/V2 order table structures (6 V1 tables, 7 V2 tables)
+- ✅ Designed V3 order schema (7 new tables)
+- ✅ Created comprehensive field mapping document
+- ✅ Updated project status (4/12 entities complete - 33.3%)
+- ✅ Created entity file and folder structure
+
+**Schema Created:**
+- `menuca_v3.orders` - Main order records (~3.8M estimated)
+- `menuca_v3.order_items` - Line items (~500k estimated)
+- `menuca_v3.order_item_modifiers` - Customizations (~300k estimated)
+- `menuca_v3.order_delivery_addresses` - Address snapshots (~80k estimated)
+- `menuca_v3.order_discounts` - Coupons/deals (~50k estimated)
+- `menuca_v3.order_status_history` - Audit trail
+- `menuca_v3.order_pdfs` - Receipt files (~13k)
+
+**Previous:** Menu & Catalog Entity - ALL 5 PHASES COMPLETE! 🎉🎉🎉 (2025-10-03)
 
 **Final Production Status (menuca_v3 schema):**
 - ✅ **120,848 rows migrated** across 8 tables
