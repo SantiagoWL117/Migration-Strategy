@@ -1,188 +1,197 @@
 # Next Steps - Immediate Actions
 
-**Last Updated:** 2025-10-02  
-**Current Status:** Menu & Catalog PRODUCTION DEPLOYMENT COMPLETE! 🎉  
-**Current Phase:** Choosing between Phase 4 (BLOB work) OR Next Entity  
-**Phase 1 Complete:** ✅ V1+V2 Data Loading & Remediation (84.2% clean data)  
+**Last Updated:** 2025-10-07  
+**Current Status:** Orders & Checkout Entity STARTED! 🚀  
+**Current Phase:** Phase 1 - Schema Design & Mapping COMPLETE  
+**Phase 1 Complete:** ✅ V1+V2 Data Loading & Remediation (91.7% clean data)  
 **Phase 2 Complete:** ✅ V3 Schema, Transformation, Validation, & Fixes (99.47% data quality)  
-**Phase 3 Complete:** ✅ Production Deployment (64,913 rows, 100% integrity)
+**Phase 3 Complete:** ✅ Production Deployment (64,913 rows, 100% integrity)  
+**Phase 3.5 Complete:** ✅ V1 Data Reload & Escaping Fix (91.4% completeness)  
+**Phase 4 Complete:** ✅ BLOB Deserialization (144,377 BLOBs → JSONB, 98.6% success)  
+**Phase 5 Complete:** ✅ Schema Correction (menu_v3 → menuca_v3, 120,848 rows migrated)
 
 ---
 
 ## ✅ Just Completed
 
-**Menu & Catalog Entity - Phase 3 COMPLETE! Production Live!** 🎉 (2025-10-02)
+**Orders & Checkout Entity - Phase 1 Schema Design!** 🎉 (2025-10-07)
 
-**Production Deployment:**
-- ✅ Schema created: `menu_v3` in production
-- ✅ **64,913 rows deployed** successfully
-- ✅ 6 tables: courses, dishes, dish_customizations, ingredient_groups, combo_groups, combo_items
-- ✅ **100% data integrity** - Zero orphaned records
-- ✅ **100% FK integrity** - All relationships valid
-- ✅ Transaction-based deployment (atomic operations)
-- ✅ No rollbacks required
-- ✅ Deployment time: ~10 minutes
+**Completed Today:**
+- ✅ Analyzed V1/V2 order table structures (6 V1 tables, 7 V2 tables)
+- ✅ Designed V3 order schema (7 new tables)
+- ✅ Created comprehensive field mapping document
+- ✅ Updated project status (4/12 entities complete - 33.3%)
+- ✅ Created entity file and folder structure
 
-**Validation Results:**
-- ✅ Row count: 100% match (64,913/64,913)
-- ✅ FK integrity: 100% pass (0 violations)
-- ✅ Data quality: 100% (all dishes have valid prices)
-- ✅ Sample validation: PASS (pricing, languages, availability)
+**Schema Created:**
+- `menuca_v3.orders` - Main order records (~3.8M estimated)
+- `menuca_v3.order_items` - Line items (~500k estimated)
+- `menuca_v3.order_item_modifiers` - Customizations (~300k estimated)
+- `menuca_v3.order_delivery_addresses` - Address snapshots (~80k estimated)
+- `menuca_v3.order_discounts` - Coupons/deals (~50k estimated)
+- `menuca_v3.order_status_history` - Audit trail
+- `menuca_v3.order_pdfs` - Receipt files (~13k)
 
-**Documentation Created:**
-- 📄 PRODUCTION_DEPLOYMENT_COMPLETE.md
-- 📄 PHASE_4_BLOB_DESERIALIZATION_PLAN.md
-- ✅ Memory bank updated (ENTITIES/05_MENU_CATALOG.md)
+**Previous:** Menu & Catalog Entity - ALL 5 PHASES COMPLETE! 🎉🎉🎉 (2025-10-03)
 
-**Issue Resolved:**
-- ⚠️ `ingredient_groups` constraint too restrictive (8 types vs 19 actual)
-- ✅ Removed constraint to support all evolved group_type values
-- ✅ No data corruption, all data valid
+**Final Production Status (menuca_v3 schema):**
+- ✅ **120,848 rows migrated** across 8 tables
+- ✅ **100% FK integrity** with menuca_v3.restaurants
+- ✅ **144,377 PHP BLOBs** deserialized (98.6% success)
+- ✅ **944 restaurants** mapped (V1 legacy_id → V3 new_id)
+- ✅ **80,610 ghost records** properly excluded
+- ✅ **Zero FK violations** in final production
 
----
+**All 8 Tables Complete:**
+| Table | Rows | Status |
+|-------|------|--------|
+| courses | 12,194 | ✅ |
+| dishes | 42,930 | ✅ |
+| ingredients | 45,176 | ✅ |
+| ingredient_groups | 9,572 | ✅ |
+| combo_groups | 8,341 | ✅ |
+| combo_items | 2,317 | ✅ |
+| dish_customizations | 310 | ✅ |
+| dish_modifiers | 8 | ✅ |
 
-## 🎯 Decision Point: Phase 4 OR Next Entity?
+**Complete Migration Journey:**
+- ✅ Phase 1: Data Loading & Remediation (235,050 rows)
+- ✅ Phase 2: V3 Schema & Transformation (64,913 rows)
+- ✅ Phase 3: Production Deployment to menu_v3
+- ✅ Phase 3.5: V1 Data Reload & Escaping Fix (+40,305 rows)
+- ✅ Phase 4: BLOB Deserialization (144,377 BLOBs → JSONB)
+- ✅ Phase 5: Schema Correction (menu_v3 → menuca_v3)
 
-### Option 1: Phase 4 - BLOB Deserialization (Enhancement) 🔴 **RECOMMENDED FOR PERFECTION**
+**Documentation Created (24 reports):**
+- 📄 MENU_CATALOG_ENTITY_COMPLETE.md - Full entity handoff report
+- 📄 SCHEMA_CORRECTION_COMPLETE.md - Phase 5 migration details
+- 📄 PHASE_4_BLOB_DESERIALIZATION_COMPLETE.md - 43-page Phase 4 report
+- 📄 Plus 21 additional reports (quality, validation, transformation)
+- ✅ Memory bank fully updated
+- ✅ Pushed to Git (commit f598187)
 
-**Why Phase 4:**
-- ✅ Complete Menu & Catalog 100% (not just 99%)
-- ✅ Add 70,381+ missing menu items (sides, drinks, extras)
-- ✅ Enable ingredient selection (3,000 ingredients)
-- ✅ Add availability schedules (58,057 dishes)
-- ✅ Complete combo configurations (52,999 records)
-- ✅ "Make it perfect before importing more" - Your words!
-
-**Phase 4 Work (4 BLOB Types):**
-
-**Priority 1: HIGH IMPACT** 🔴
-1. **v1_menuothers.content** (70,381 rows) - **TOP PRIORITY**
-   - Side dishes, extras, drinks with pricing
-   - 17 MB of data
-   - Critical missing menu content
-   - Target: menu_v3.dishes (INSERT new records)
-
-2. **v1_ingredient_groups.item** (2,992 rows) - **HIGH PRIORITY**
-   - Individual ingredients within groups
-   - 181 KB of data
-   - No ingredient selection without this
-   - Target: menu_v3.ingredients (INSERT new records)
-
-**Priority 2: MEDIUM IMPACT** 🟡
-3. **v1_menu.hideondays** (58,057 rows) - **MEDIUM PRIORITY**
-   - Day/time-based availability restrictions
-   - 113 KB of data
-   - Dishes show as always available without this
-   - Target: menu_v3.dishes.availability_schedule (UPDATE existing)
-
-**Priority 3: LOW IMPACT** 🟢
-4. **v1_combo_groups.options** (52,999 rows) - **LOW PRIORITY**
-   - Combo meal configuration (steps, rules)
-   - 443 KB of data
-   - Basic combos work, advanced config missing
-   - Target: menu_v3.combo_groups.config (UPDATE existing)
-
-**Estimated Time:** 4-6 days (1-2 days per BLOB type)
-
-**Technical Approach:**
-- Python script with `phpserialize` library
-- PostgreSQL staging → Python deserialize → Transform → Production
-- Transaction-based (safe rollback)
-- Batch processing (1000 records/batch)
-- Comprehensive error handling
-
-**Success Criteria:**
-- ✅ 99%+ deserialization success rate
-- ✅ 100% FK integrity maintained
-- ✅ 0 production data corruption
-- ✅ 100% JSONB validation pass
-
-**Recommendation:** **START NEW CHAT** for Phase 4
-- Clean context for complex BLOB work
-- Fresh focus on deserialization
-- Already at 84k tokens in this chat
+**Integration Status:**
+- ✅ Ready for Orders & Checkout integration
+- ✅ Customer-facing ordering system ready
+- ✅ Restaurant menu management ready
+- ✅ Time-based availability ready for FK connection (handled by other dev)
 
 ---
 
-### Option 2: Next Entity - Users & Access (Move Forward) ✨
+## 🎯 Next Entity Selection
+
+### Option 1: Users & Access ⭐ **RECOMMENDED - HIGH PRIORITY**
 
 **Why Users & Access:**
 - ✅ HIGH PRIORITY entity
 - ✅ Not blocked (dependencies complete)
-- ✅ Needed for Orders & Checkout
-- ✅ Menu & Catalog "good enough" (99% complete)
-- ✅ Can return to Phase 4 later
+- ✅ Unlocks Orders & Checkout (with Menu & Catalog ✅ ready)
+- ✅ Foundation for customer accounts and order history
+- ✅ Enables restaurant admin access control
 
 **Users & Access Tables:**
-- `site_users` - Customer accounts
-- `admin_users` - Staff/admin accounts
-- `user_delivery_addresses` - Saved addresses
+- `site_users` - Customer accounts (~50k+ users)
+- `admin_users` - Restaurant staff/admin accounts
+- `user_delivery_addresses` - Saved customer addresses
+
+**Dependencies:**
+- ✅ Location & Geography (COMPLETE) - For address validation
+- ✅ No blockers - Ready to start!
 
 **Estimated Time:** 3-5 days
 
-**Blocks:** Orders & Checkout (when combined with Menu & Catalog)
+**What This Unlocks:**
+- 50% of Orders & Checkout (when combined with Menu & Catalog ✅)
+- Customer login and registration
+- Order history tracking
+- Restaurant admin dashboards
 
-**Recommendation:** Also **START NEW CHAT**
-- Different entity, different context
-- Clean slate for Users work
+**Recommendation:** **START NEW CHAT** for Users & Access
+- Different entity, fresh context
+- Clean slate for authentication/authorization work
 
 ---
 
-## 💡 **RECOMMENDATION: Phase 4 BLOB Deserialization** 🔴
+### Option 2: Delivery Operations 🚚 **ALSO READY**
+
+**Why Delivery Operations:**
+- ✅ Not blocked (Location & Geography COMPLETE)
+- ✅ Independent from other migrations
+- ✅ Can work in parallel with Users & Access
+- ✅ Important for order fulfillment
+
+**Delivery Operations Tables:**
+- `restaurant_delivery_areas` - Delivery zones
+- `delivery_fees` - Fee structures
+- `delivery_info` - Delivery configurations
+
+**Dependencies:**
+- ✅ Location & Geography (COMPLETE) - For delivery area definitions
+- ✅ No blockers - Ready to start!
+
+**Estimated Time:** 2-4 days
+
+**Recommendation:** Could start this OR wait for Restaurant Management to complete
+
+---
+
+## 💡 **RECOMMENDATION: Users & Access** ⭐
 
 **Reasoning:**
-1. ✅ **Your Requirement:** "These have to be perfect before we import anything more"
-2. ✅ **Complete the Job:** Menu & Catalog at 100% vs 99%
-3. ✅ **High Impact:** 70,381 missing menu items is significant
-4. ✅ **Customer Value:** More complete menus = better customer experience
-5. ✅ **Technical Momentum:** Context fresh, Python setup straightforward
-6. ✅ **Risk Management:** Better to fix BLOB data now than later
-
-**Phase 4 adds 184,430+ data points to production:**
-- 70,381 menuothers → new dishes
-- 2,992 ingredient_groups → ~3,000 ingredients
-- 58,057 availability schedules
-- 52,999 combo configurations
+1. ✅ **High Priority:** Required for Orders & Checkout
+2. ✅ **Complete Dependency Chain:** Menu ✅ + Users ✅ = Orders ready
+3. ✅ **Customer Value:** Enable account creation and login
+4. ✅ **Foundation Work:** Authentication system needed for all user-facing features
+5. ✅ **Clear Scope:** Well-defined tables, straightforward migration
 
 ---
 
 ## 🚀 Next Actions
 
-### Immediate (Before New Chat):
-1. ✅ Review PHASE_4_BLOB_DESERIALIZATION_PLAN.md
-2. ✅ Memory bank updated
-3. ⏳ Commit current work to Git (if desired)
+### Immediate (Before Starting Next Entity):
+1. ✅ Menu & Catalog entity complete and pushed to Git
+2. ✅ Memory bank updated (all files)
+3. ✅ MENU_CATALOG_ENTITY_COMPLETE.md created
+4. ⏳ Decide on next entity (Users & Access recommended)
+5. ⏳ **START NEW CHAT** when ready
 
-### New Chat Opening Message:
+### Recommended New Chat Opening Message (Users & Access):
 
 ```
-Ready to start Phase 4: BLOB Deserialization for Menu & Catalog. Production deployment complete (64,913 rows live with 100% integrity). 
+Ready to start Users & Access Entity migration. Menu & Catalog is 100% complete (120,848 rows in menuca_v3 with 100% FK integrity).
 
-Need to deserialize 4 types of PHP BLOBs to make Menu & Catalog perfect:
+Users & Access Tables to Migrate:
+1. site_users - Customer accounts (~50k+ users)
+2. admin_users - Restaurant staff/admin accounts  
+3. user_delivery_addresses - Saved customer addresses
 
-**Priority 1 (HIGH):**
-1. v1_menuothers.content (70,381 rows) - TOP PRIORITY - Missing menu items
-2. v1_ingredient_groups.item (2,992 rows) - Ingredient selection
+Dependencies:
+✅ Location & Geography COMPLETE (cities/provinces for address validation)
+✅ Menu & Catalog COMPLETE (ready for Orders & Checkout)
 
-**Priority 2-3 (MEDIUM/LOW):**
-3. v1_menu.hideondays (58,057 rows) - Availability schedules
-4. v1_combo_groups.options (52,999 rows) - Combo configurations
+This entity unlocks Orders & Checkout when complete.
 
-Starting with menuothers. Have PHASE_4_BLOB_DESERIALIZATION_PLAN.md ready. 
+Let's follow the proven 5-phase methodology:
+Phase 1: Data Loading & Remediation
+Phase 2: V3 Schema & Transformation
+Phase 3: Production Deployment
+Phase 4: Data Quality Validation
+Phase 5: Integration Testing
 
-Python + phpserialize approach. Must be perfect - can't corrupt existing 64,913 production rows. Let's start!
+Ready to start Phase 1: Analysis of V1/V2 user tables and data quality assessment!
 ```
 
 ---
 
 ## 📁 Quick Reference
 
-- **Current Entity Status:** See `PROJECT_STATUS.md` (updated: Menu & Catalog COMPLETE)
-- **Menu & Catalog Details:** See `ENTITIES/05_MENU_CATALOG.md` (Phase 3 complete, Phase 4 ready)
-- **Phase 4 Plan:** See `Database/Menu & Catalog Entity/PHASE_4_BLOB_DESERIALIZATION_PLAN.md`
-- **Deployment Report:** See `Database/Menu & Catalog Entity/PRODUCTION_DEPLOYMENT_COMPLETE.md`
+- **Current Entity Status:** See `PROJECT_STATUS.md` (2/12 entities complete)
+- **Menu & Catalog Complete:** See `ENTITIES/05_MENU_CATALOG.md` (All 5 phases ✅)
+- **Entity Completion Report:** See `Database/Menu & Catalog Entity/MENU_CATALOG_ENTITY_COMPLETE.md`
+- **Next Entity Options:** See this file (NEXT_STEPS.md)
 - **ETL Process:** See `ETL_METHODOLOGY.md`
+- **Completed Entities:** Location & Geography ✅, Menu & Catalog ✅
 
 ---
 
-**Status:** ✅ Phase 3 Complete (Production Live!) | 🎯 **Recommended: Phase 4 BLOB Deserialization in NEW CHAT**
+**Status:** ✅ Menu & Catalog 100% COMPLETE (120,848 rows in menuca_v3) | 🎯 **Recommended: Users & Access Entity in NEW CHAT**
