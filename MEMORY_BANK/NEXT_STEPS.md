@@ -1,20 +1,46 @@
 # Next Steps - Immediate Actions
 
 **Last Updated:** 2025-10-07  
-**Current Status:** Orders & Checkout Entity STARTED! 🚀  
-**Current Phase:** Phase 1 - Schema Design & Mapping COMPLETE  
-**Phase 1 Complete:** ✅ V1+V2 Data Loading & Remediation (91.7% clean data)  
-**Phase 2 Complete:** ✅ V3 Schema, Transformation, Validation, & Fixes (99.47% data quality)  
-**Phase 3 Complete:** ✅ Production Deployment (64,913 rows, 100% integrity)  
-**Phase 3.5 Complete:** ✅ V1 Data Reload & Escaping Fix (91.4% completeness)  
-**Phase 4 Complete:** ✅ BLOB Deserialization (144,377 BLOBs → JSONB, 98.6% success)  
-**Phase 5 Complete:** ✅ Schema Correction (menu_v3 → menuca_v3, 120,848 rows migrated)
+**Current Status:** Marketing & Promotions Entity - PHASE 1 COMPLETE! 🎉  
+**Orders & Checkout:** Phase 1 Started  
+**Marketing & Promotions:** ✅ Phase 1 Complete - Schema Design & Field Mapping
 
 ---
 
 ## ✅ Just Completed
 
-**Orders & Checkout Entity - Phase 1 Schema Design!** 🎉 (2025-10-07)
+**Marketing & Promotions Entity - Phase 1 Analysis Complete!** 🎉 (2025-10-07)
+
+**Completed Today:**
+- ✅ Pulled latest changes from GitHub (Santiago's 15 dump files)
+- ✅ Analyzed V1/V2 Marketing & Promotions schemas (15 tables reviewed)
+- ✅ Identified 7 core marketing tables + 8 excluded (belong to other entities)
+- ✅ Designed V3 schemas for all 7 target tables
+- ✅ Created comprehensive field mapping document (130+ field mappings)
+- ✅ Identified BLOB deserialization requirements (3 fields in deals table)
+- ✅ Catalogued V2 JSON fields (6 native JSON fields - direct migration)
+- ✅ Generated CSV export queries for Phase 2
+- ✅ Updated memory bank and project status
+
+**Tables Analyzed:**
+- ✅ **deals** (V1) → **restaurants_deals** (V2) → `promotional_deals` (V3)
+- ✅ **coupons** (V1 & V2) → `promotional_coupons` (V3)
+- ✅ **user_coupons** (V1) → `customer_coupons` (V3)
+- ✅ **tags** (V1 & V2) → `marketing_tags` + `restaurant_tag_associations` (V3)
+- ✅ **landing_pages** (V2) → `landing_pages` + `landing_page_restaurants` (V3)
+- ⚠️ **nav/permissions** (V2) → TBD (admin UI config - need decision)
+
+**BLOB Deserialization Identified:**
+- V1 `deals.exceptions` - PHP serialized course/dish exclusions
+- V1 `deals.active_days` - PHP serialized day-of-week arrays
+- V1 `deals.items` - PHP serialized item arrays
+- **Complexity:** 🟢 LOW (proven pattern from Menu entity)
+
+**Documentation Created:**
+- 📄 `/documentation/Marketing & Promotions/marketing-promotions-mapping.md` (Complete field mappings)
+- 📄 `/MEMORY_BANK/ENTITIES/07_MARKETING_PROMOTIONS.md` (Entity status tracking)
+
+**Previous:** Orders & Checkout Entity - Phase 1 Schema Design! 🎉 (2025-10-07)
 
 **Completed Today:**
 - ✅ Analyzed V1/V2 order table structures (6 V1 tables, 7 V2 tables)
