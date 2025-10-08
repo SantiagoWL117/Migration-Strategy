@@ -1,0 +1,2 @@
+INSERT INTO staging.v1_coupons VALUES
+ON CONFLICT (id) DO NOTHING;
