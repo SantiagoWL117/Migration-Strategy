@@ -3,8 +3,9 @@
 This document lists the remaining core business entities that need to be migrated from V1 and V2 of the Menu.ca databases to V3.
 
 **Migration Status Summary**:
-- ✅ **Completed**: Restaurant Management, Menu & Catalog, Service Configuration & Schedules
-- 🔄 **In Progress**: Users & Access
+- ✅ **Completed & Tested**: Restaurant Management, Service Configuration & Schedules, Delivery Operations, Users & Access
+- 🧪 **Testing**: Menu & Catalog
+- 🔄 **In Progress**: Marketing & Promotions
 - ❌ **Not Needed**: Location & Geography (handled differently in V3), Orders & Checkout, Payments, Accounting & Reporting
 
 ### Delivery Operations
@@ -58,7 +59,7 @@ This document lists the remaining core business entities that need to be migrate
 - V2 Tables: `payment_clients`, `payments`, `stripe_payment_clients`, `stripe_payments_intents`.
 - **Status**: Migration not required
 
-### Marketing & Promotions - ❌ NOT NEEDED
+### Marketing & Promotions
 - Purpose: Coupons, deals, landing pages, tags, and navigation metadata.
 - V1 Tables: `coupons`, `deals`, `user_coupons`, `banners`, `autoresponders`, `tags`, `redirects`.
 - V2 Tables: `coupons`, `restaurants_deals`, `restaurants_deals_splits`, `landing_pages`, `landing_pages_restaurants`, `tags`, `restaurants_tags`, `nav`, `nav_subitems`, `permissions_list`.
@@ -79,4 +80,30 @@ This document lists the remaining core business entities that need to be migrate
 - V1 Tables: `tablets`, `tablet_orders`, `ci_sessions`, `groups`, `groups_permissions`, `themes`, `theme_*`.
 - V2 Tables: `tablets`, `tablet_orders`, `ci_sessions`, `groups`, `groups_permissions`, `phinxlog`.
 
+---
+
+## 📋 Pending Migrations
+
+The following business entities have not been started yet and are pending migration:
+
+### Vendors & Franchises ⏳ PENDING
+- Purpose: Vendor relationships, franchise groupings, and splits/templates.
+- V1 Tables: `vendors`, `vendors_restaurants`, `vendor_users`, vendor report files.
+- V2 Tables: `vendors`, `francizes`, `vendor_sites`, `vendor_splits`, `vendor_splits_templates`, `vendor_reports`, `vendor_reports_numbers`, `vendor_invoices`.
+- **Status**: Not started
+
+### Devices & Infrastructure ⏳ PENDING
+- Purpose: Restaurant tablets and supporting runtime/system metadata.
+- V1 Tables: `tablets`, `tablet_orders`, `ci_sessions`, `groups`, `groups_permissions`, `themes`, `theme_*`.
+- V2 Tables: `tablets`, `tablet_orders`, `ci_sessions`, `groups`, `groups_permissions`, `phinxlog`.
+- **Status**: Not started
+
+---
+
+**Total Entities by Status**:
+- ✅ Completed & Tested: 4
+- 🧪 Testing: 1
+- 🔄 In Progress: 1
+- ⏳ Pending: 2
+- ❌ Not Needed: 4
 
