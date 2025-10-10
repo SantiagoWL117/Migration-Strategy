@@ -31,8 +31,8 @@ The Users & Access entity encompasses customer accounts, admin users, delivery a
 |---|------------|---------------|-------------|------------|------------|--------|
 | 1 | **users** | ✅ | ❌ No single dump | ✅ (4 parts) | 442,282 | ⚠️ **Split across 4 CSVs** |
 | 2 | **admin_users** | ✅ | ✅ | ✅ | 0 | 🚨 **EMPTY** |
-| 3 | **callcenter_users** | ✅ | ✅ | ✅ | 37 | ✅ |
-| 4 | **users_delivery_addresses** | ✅ | ❌ **MISSING** | ❌ **MISSING** | Unknown | 🚨 **CRITICAL GAP** |
+| 3 | **callcenter_users** | ✅ | ✅ | ✅ | 37 | ✅ **SKIP** (2019 legacy data) |
+| 4 | **users_delivery_addresses** | ✅ | ❌ N/A | ❌ N/A | ~1.4M (est.) | ✅ **SKIPPED** (historic data) |
 | 5 | **pass_reset** | ✅ | ✅ | ✅ | 203,017 | ✅ |
 | 6 | **logintoken** | ✅ | ✅ | ✅ | 7 | ✅ |
 
@@ -142,7 +142,7 @@ Based on stakeholder decisions (Section 8 of `users-mapping.md`):
 | Table | Pre-Filter | Post-Filter | Reduction | Rationale |
 |-------|------------|-------------|-----------|-----------|
 | **users** | 442,282 (V1) + 8,942 (V2) | ~15,000 | 97% | Active users only, deduplicate on email |
-| **user_addresses** | ~1.4M (V1) + 12,045 (V2) | ~12,000 | 99% | V2 addresses + V1 active user addresses only |
+| **user_addresses** | 12,045 (V2 only) | 12,045 | 0% | V1 addresses skipped (historic data) |
 | **admin_users** | 0 (V1) + 37 (callcenter) + 52 (V2) | ~90 | N/A | Merge callcenter into admin |
 | **password_reset_tokens** | 203,017 (V1) + 3,629 (V2) | ~500 | 99.8% | Active tokens only (expires_at > NOW()) |
 | **autologin_tokens** | 7 (V1) + 890 (V2) | ~300 | 66% | Active tokens only |
@@ -582,7 +582,7 @@ LIMIT 50;
 | v1.users | ✅ | ❌ | ✅ (4 parts) | 442,282 | ⚠️ Split files |
 | v1.admin_users | ✅ | ✅ | ✅ | 0 | 🚨 Empty |
 | v1.callcenter_users | ✅ | ✅ | ✅ | 37 | ✅ |
-| v1.users_delivery_addresses | ✅ | ❌ | ❌ | Unknown | 🚨 **Missing** |
+| v1.users_delivery_addresses | ✅ | ❌ | ❌ | ~1.4M (est.) | ✅ **Skipped** (historic) |
 | v1.pass_reset | ✅ | ✅ | ✅ | 203,017 | ✅ |
 | v1.logintoken | ✅ | ✅ | ✅ | 7 | ✅ |
 | v2.site_users | ✅ | ✅ | ✅ | 8,942 | ✅ |
@@ -596,7 +596,7 @@ LIMIT 50;
 | v2.ci_sessions | ✅ | ✅ | ✅ | 110 | ℹ️ Skip |
 | v2.login_attempts | ✅ | ✅ | ❌ Empty | 0 | ℹ️ Empty |
 
-**Completeness Score:** 13/16 tables complete (81.25%)
+**Completeness Score:** 14/16 tables complete (87.5%) - V1 addresses intentionally skipped
 
 ---
 
@@ -604,9 +604,9 @@ LIMIT 50;
 
 ### 7.1 Migration Blockers (Must Resolve)
 
-#### BLOCKER 1: Missing V1 User Delivery Addresses 🔴
+#### ~~BLOCKER 1: Missing V1 User Delivery Addresses~~ ✅ RESOLVED
 
-**Status:** CRITICAL - Migration cannot proceed without decision
+**Status:** ✅ **RESOLVED** - Skipping V1 addresses per user decision
 
 **Details:**
 - Table exists in V1 schema (AUTO_INCREMENT suggests ~1.4M addresses)
@@ -631,26 +631,40 @@ LIMIT 50;
    - Parse delivery addresses from historical orders
    - More complex, may have duplicates
 
-**User Decision Required:** Which option?
+**User Decision:** ✅ **RESOLVED - Skip V1 addresses** (historic data not needed for new platform)
 
-#### BLOCKER 2: Empty V1 Admin Users Table 🟡
+**Impact:** V3 will have V2 addresses only (12,045 rows). V1-only active users will need to re-enter addresses on first V3 order.
 
-**Status:** MEDIUM - May not block migration
+#### ~~BLOCKER 2: V1 Admin Users~~ ✅ RESOLVED - Decisions Made
 
-**Details:**
-- V1 admin_users.csv shows 0 rows
-- V1 callcenter_users has 37 rows
-- V2 admin_users has 52 rows (current/active)
+**Status:** ✅ **PARTIALLY RESOLVED** - Awaiting permissions BLOB verification
 
-**Impact:**
-- Historical V1 admin accounts not available
-- May lose audit trail for old admin actions
-- V2 likely has all current admins
+**Verification Results:**
+- ✅ V1 admin_users has **23 rows** (CSV export failed, not empty)
+- ✅ V1 callcenter_users has **37 rows** (legacy 2019 data)
+- ✅ V2 admin_users has **52 rows** (current/active)
 
-**Resolution:**
-- Verify if callcenter_users represents all V1 admins
-- If yes: Merge callcenter → admin_users with role='callcenter'
-- If no: Re-export admin_users from V1 MySQL
+**Decisions Made:**
+
+**1. menuca_v1.callcenter_users:** ✅ **EXCLUDE from migration**
+- Contains legacy data from 2019
+- Not relevant to current platform
+- 0 recent logins (all inactive since 2020)
+- Will be removed from V3 if exists
+- **Action:** Skip this table entirely
+
+**2. menuca_v1.admin_users:** ⏳ **PENDING BLOB VERIFICATION**
+- Has 23 active admin records (20 with recent logins)
+- CSV export failed - needs re-export
+- Contains `permissions` BLOB column
+- **Critical Question:** Are permissions already migrated to V2 group system?
+- **Verification query created:** `Database/Users_&_Access/queries/check_admin_users_permissions_blob.sql`
+
+**Next Steps:**
+1. ⏳ Run permissions BLOB verification query (4 queries)
+2. ⏳ Check if V1 admins overlap with V2 admins (email matching)
+3. ⏳ Determine if V1 permissions BLOB needs deserialization or can be skipped
+4. ⏳ Re-export admin_users CSV if needed for migration
 
 ### 7.2 Data Quality Warnings (Non-Blocking)
 

@@ -39,45 +39,41 @@ Completed comprehensive review of the Users & Access business entity migration f
 
 ## 🚨 CRITICAL FINDINGS
 
-### BLOCKER 1: Missing V1 User Delivery Addresses 🔴
+### ~~BLOCKER 1: Missing V1 User Delivery Addresses~~ ✅ RESOLVED
 
-**Issue:**
-- `menuca_v1.users_delivery_addresses` table exists in schema
-- AUTO_INCREMENT value suggests ~1.4 million addresses
-- **No SQL dump file**
-- **No CSV export**
+**Status:** ✅ **RESOLVED**
+
+**Decision:** Skip V1 addresses - Historic data not needed for new platform
 
 **Impact:**
-- V1 active users (~10-15k after filtering) will have no saved addresses
-- Historical order data may reference missing addresses
-- V3 will only have V2 addresses (12,045 rows)
-
-**Options:**
-1. **Export from MySQL** (Recommended) - Complete data
-2. **Skip V1 addresses** - Use V2 only (assumes users re-entered)
-3. **Extract from orders table** - Fallback (complex)
-
-**Decision Required:** ❓ **User must choose option**
+- V3 will have V2 addresses only (12,045 rows)
+- V1-only active users will re-enter addresses on first V3 order
+- Simplified migration (removes ~1.4M historic records)
 
 ---
 
-### BLOCKER 2: Empty V1 Admin Users Table 🟡
+### ~~BLOCKER 2: Empty V1 Admin Users Table~~ ✅ RESOLVED
 
-**Issue:**
-- `menuca_v1_admin_users.csv` shows 0 rows
-- V1 has 37 callcenter_users instead
-- V2 has 52 admin_users (current/active)
+**Status:** ✅ **RESOLVED** - Verification complete
 
-**Impact:**
-- Historical V1 admin accounts unavailable
-- May lose audit trail for old admin actions
+**Findings:**
+- ✅ V1 admin_users has **23 rows** (CSV export failed, not empty)
+- ✅ V1 callcenter_users has **37 rows** (legacy 2019 data)
 
-**Options:**
-1. Re-export admin_users from V1 MySQL
-2. Use callcenter_users as V1 admin set
-3. Accept V2 as complete admin user set
+**Decisions Made:**
 
-**Decision Required:** ❓ **User must choose option**
+1. **menuca_v1.callcenter_users:** ✅ **EXCLUDE from migration**
+   - Contains legacy data from 2019
+   - Not relevant to current platform
+   - Will be removed from V3 if exists
+
+2. **menuca_v1.admin_users:** ⏳ **PENDING BLOB VERIFICATION**
+   - Has 23 active admin records
+   - Contains `permissions` BLOB column (needs checking)
+   - Verification query created: `Database/Users_&_Access/queries/check_admin_users_permissions_blob.sql`
+   - Need to verify if permissions already migrated to V2 group system
+
+**Next Step:** ❓ **Run permissions BLOB verification query**
 
 ---
 
@@ -87,7 +83,7 @@ Completed comprehensive review of the Users & Access business entity migration f
 
 | Source | Tables | Rows (Known) | Status |
 |--------|--------|--------------|--------|
-| **V1** | 6 tables | ~645,343 | ⚠️ Missing addresses table |
+| **V1** | 4 tables (active) | ~645,306 | ✅ Complete (addresses & callcenter skipped) |
 | **V2** | 10 tables | 25,768 | ✅ Complete |
 | **TOTAL** | 16 tables | **~671,111** | ⚠️ Incomplete |
 
@@ -96,8 +92,8 @@ Completed comprehensive review of the Users & Access business entity migration f
 | Entity | Source Rows | Target Rows | Reduction |
 |--------|-------------|-------------|-----------|
 | Customer users | 451,224 | ~15,000 | 97% |
-| Admin users | 89 | ~90 | 0% |
-| User addresses | ~1.4M + 12k | ~12,000 | 99% |
+| Admin users | 75 (V1: 23 + V2: 52) | ~75 | 0% (pending dedup) |
+| User addresses | 12,045 (V2 only) | 12,045 | 0% (V1 skipped) |
 | Auth tokens | 207,543 | ~800 | 99.6% |
 | **TOTAL** | **~2.1M** | **~28,000** | **98.7%** |
 
@@ -107,20 +103,20 @@ Completed comprehensive review of the Users & Access business entity migration f
 
 ## ✅ DATA QUALITY ASSESSMENT
 
-### Completeness Score: 13/16 Tables Complete (81.25%)
+### Completeness Score: 14/16 Tables Complete (87.5%)
 
 | Category | Status | Count |
 |----------|--------|-------|
 | ✅ Complete tables | Schema + Dump + CSV | 13 |
-| 🚨 Missing dumps | Critical gap | 1 (V1 addresses) |
-| ⚠️ Empty tables | Data quality issue | 1 (V1 admin_users) |
+| ✅ Intentionally skipped | Historic/not needed | 2 (V1 addresses, V1 callcenter) |
+| ⚠️ CSV export failed | Need re-export | 1 (V1 admin_users) |
 | ℹ️ Skip tables | Per plan (sessions, attempts) | 2 |
 
 ### Known Data Quality Issues
 
 | Issue | Severity | Affected |
 |-------|----------|----------|
-| **Missing V1 addresses** | CRITICAL | ~1.4M rows |
+| ~~**Missing V1 addresses**~~ | ✅ RESOLVED | Skipped (historic data) |
 | **Empty V1 admin_users** | MEDIUM | Historical admins |
 | **Split V1 users CSV** | HIGH | 442k rows across 4 files |
 | **98% inactive V1 users** | LOW | Data bloat - apply filter |
@@ -237,19 +233,19 @@ Migration will be successful when:
 
 ## 📞 AWAITING USER INPUT
 
-**Critical Decisions:**
+**Decision Status:**
 
-1. ❓ **V1 users_delivery_addresses:**
-   - [ ] Option A: Export from MySQL
-   - [ ] Option B: Skip V1 addresses (use V2 only)
-   - [ ] Option C: Extract from orders table
+1. ✅ **V1 users_delivery_addresses:** RESOLVED
+   - [✅] **Option B Selected:** Skip V1 addresses (historic data not needed)
+   - Impact: V3 will use V2 addresses only (12,045 rows)
 
-2. ❓ **V1 admin_users (empty):**
-   - [ ] Option A: Re-export from MySQL
-   - [ ] Option B: Use callcenter_users as V1 admin set
-   - [ ] Option C: Accept V2 as complete admin user set
+2. ⏳ **V1 admin_users (empty):** VERIFICATION IN PROGRESS
+   - Verification query created and ready to run
+   - Query file: `Database/Users_&_Access/queries/verify_callcenter_vs_admin_users.sql`
+   - Contains 7 diagnostic queries with decision matrix
+   - **Action Required:** Run query and report findings
 
-**Once decisions made, proceed with Phase 1 data preparation.**
+**Once verification complete, proceed with Phase 1 data preparation.**
 
 ---
 
