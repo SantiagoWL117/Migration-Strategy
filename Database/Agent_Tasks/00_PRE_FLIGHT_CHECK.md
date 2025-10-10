@@ -28,27 +28,28 @@ Validate that all required tools, files, credentials, and configurations are in 
 
 ```bash
 # Check that all source files exist
-ls -la /Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Performance/add_critical_indexes.sql
+ls -la /Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Performance/add_critical_indexes_FIXED.sql
 ls -la /Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Security/create_rls_policies.sql
 ls -la /Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Security/test_rls_policies.sql
 ls -la "/Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Menu & Catalog Entity/combos/fix_combo_items_migration.sql"
 ls -la "/Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Menu & Catalog Entity/combos/validate_combo_fix.sql"
 
 # Expected: All files should exist and be readable
+# ⚠️ NOTE: Use add_critical_indexes_FIXED.sql (not the original, which has transaction conflicts)
 ```
 
 ### Step 2: Check File Sizes
 
 ```bash
 # Verify SQL scripts are not empty
-wc -l /Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Performance/add_critical_indexes.sql
+wc -l /Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Performance/add_critical_indexes_FIXED.sql
 wc -l /Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Security/create_rls_policies.sql
 wc -l /Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Security/test_rls_policies.sql
 wc -l "/Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Menu & Catalog Entity/combos/fix_combo_items_migration.sql"
 wc -l "/Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Menu & Catalog Entity/combos/validate_combo_fix.sql"
 
 # Expected:
-# - add_critical_indexes.sql: ~417 lines
+# - add_critical_indexes_FIXED.sql: ~379 lines (FIXED version without transaction blocks)
 # - create_rls_policies.sql: ~769 lines
 # - test_rls_policies.sql: ~407 lines
 # - fix_combo_items_migration.sql: ~328 lines

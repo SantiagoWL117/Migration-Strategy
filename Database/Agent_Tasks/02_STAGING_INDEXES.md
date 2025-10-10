@@ -88,7 +88,9 @@ LIMIT 100;
 
 **Agent Action:** Run the full index creation script
 
-**File:** `/Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Performance/add_critical_indexes.sql`
+**File:** `/Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Performance/add_critical_indexes_FIXED.sql`
+
+**⚠️ CRITICAL:** Use the FIXED version - the original has `BEGIN/COMMIT` conflicts with `CONCURRENTLY`
 
 **Execution Method:**
 
@@ -102,29 +104,28 @@ LIMIT 100;
 
 **Agent Decision:** 
 - If MCP tools support file upload, use apply_migration
-- Otherwise, read file content and execute in sections
+- Otherwise, read file content and execute as a single script
 
-**IMPORTANT:** The script uses `BEGIN;` and `COMMIT;` blocks. Execute each section separately:
+**Script Structure:**
+The FIXED script runs linearly without transaction blocks:
+1. **Section 1: Critical Menu Indexes** (~6 indexes)
+2. **Section 2: Modifier System Indexes** (~6 indexes)
+3. **Section 3: Ingredient Group Indexes** (~6 indexes)
+4. **Section 4: Combo System Indexes** (~7 indexes)
+5. **Section 5: Restaurant Management Indexes** (~8 indexes)
+6. **Section 6: Delivery & Service Indexes** (~6 indexes)
+7. **Section 7: Marketing & Promotions Indexes** (~6 indexes)
+8. **Section 8: User Indexes** (~7 indexes)
+9. **Section 9: JSONB GIN Indexes** (~4 indexes)
+10. **Section 10: Devices & Infrastructure** (~2 indexes)
 
-1. **Section 1: Critical Menu Indexes** (lines 16-44)
-2. **Section 2: Modifier System Indexes** (lines 46-74)
-3. **Section 3: Ingredient Group Indexes** (lines 76-103)
-4. **Section 4: Combo System Indexes** (lines 105-138)
-5. **Section 5: Restaurant Management Indexes** (lines 140-177)
-6. **Section 6: Delivery & Service Indexes** (lines 179-207)
-7. **Section 7: Marketing & Promotions Indexes** (lines 209-237)
-8. **Section 8: User Indexes** (lines 239-271)
-9. **Section 9: JSONB GIN Indexes** (lines 273-300)
-10. **Section 10: Devices & Infrastructure** (lines 302-316)
-
-**Expected Output per Section:**
+**Expected Output:**
 ```
-BEGIN
 CREATE INDEX
 CREATE INDEX
 CREATE INDEX
 ...
-COMMIT
+(45+ CREATE INDEX statements, some may show NOTICE if already exists)
 ```
 
 **If Error Occurs:**
@@ -261,7 +262,7 @@ LIMIT 20;
 
 ### Step 9: Run Validation Queries from Script
 
-**Agent Action:** Execute validation queries from lines 318-375 of add_critical_indexes.sql
+**Agent Action:** Execute validation queries from lines 280-335 of add_critical_indexes_FIXED.sql
 
 ```sql
 -- 1. Test critical menu query (from line 333)

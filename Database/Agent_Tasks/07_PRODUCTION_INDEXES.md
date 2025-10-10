@@ -74,9 +74,11 @@ LIMIT 100;
 
 ### Step 3: Deploy Index Script (Same as Ticket 02)
 
-**File:** `/Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Performance/add_critical_indexes.sql`
+**File:** `/Users/brianlapp/Documents/GitHub/Migration-Strategy/Database/Performance/add_critical_indexes_FIXED.sql`
 
-**Execute all 10 sections as in Ticket 02.**
+**⚠️ CRITICAL:** Use the FIXED version - the original has `BEGIN/COMMIT` conflicts with `CONCURRENTLY`
+
+**Execute the script as in Ticket 02.**
 
 **⚠️ Production Monitoring:**
 
