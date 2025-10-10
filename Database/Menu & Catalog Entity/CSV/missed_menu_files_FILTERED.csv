@@ -1,0 +1,3671 @@
+id,course,restaurant,sku,name
+4150,693,79,,Combination For 2
+4151,693,79,,Combination For 3
+4152,693,79,,Combination For 4
+4153,693,79,,Combination For 5
+4154,693,79,,Combination For 6
+4934,806,99,,3 Toppings
+5005,821,100,,1 Topping
+5006,821,100,,2 Toppings
+5007,821,100,,3 Toppings
+5255,847,102,,1 Topping
+5256,847,102,,2 Toppings
+5257,847,102,,3 Toppings
+5328,862,103,,1 Topping
+5329,862,103,,2 Toppings
+5330,862,103,,3 Toppings
+5401,877,104,,1 Topping
+5402,877,104,,2 Toppings
+5403,877,104,,3 Toppings
+5404,884,95,,2 Subs Deal with 2 Drinks HIDE
+5405,885,104,,2 Subs Deal
+5406,886,102,,2 Subs Deal
+5407,887,103,,2 Subs Deal
+5478,896,105,,1 Topping
+5479,896,105,,2 Toppings
+5480,896,105,,3 Toppings
+5481,897,105,,2 Subs Deal
+5730,884,95,,Medium Pizza & Cheesy Bread HIDE
+6279,994,114,,6 Toppings Combined
+6281,993,114,,Large Pizza Special
+6282,993,114,,2 Pasta Special
+6684,1079,120,,Deal No.3
+6687,1079,120,,Deal No.6 HIDE
+7057,1099,123,,Family BBQ Special No.1
+7061,735,94,,One Item Pizza
+7464,1158,122,,Combo Box
+8448,1275,135,,Preston Pizza’s Special
+8449,1275,135,, Steak
+8450,1275,135,, Steak and Pepperoni
+8451,1275,135,, Club
+8454,1275,135,, Ham and Cheese
+8455,1275,135,,Pepperoni and Cheese
+9038,1291,125,,1 Large Pizza Everyday Special
+10369,1556,127,,Medium 3 Toppings
+10370,1556,127,,Large 3 Toppings
+11287,1695,172,,2 Pizza Deal 1 Topping
+11288,1695,172,,2 Pizza Deal 2 Toppings
+11289,1695,172,,2 Pizza Deal 3 Toppings
+11290,1694,172,,Medium Pizza 3 Toppings
+11291,1694,172,,Large Pizza 3 Toppings
+11296,1403,146,,Large Pizza 3 Toppings
+11297,1403,146,,Medium Pizza 3 Toppings
+11298,1403,146,,Small Pizza 3 Toppings
+11299,1403,146,,2 Large Pizza 3 Toppings
+11300,1403,146,,2 Medium Pizza 3 Toppings
+11306,1402,146,,2 Medium Pizza 2 Toppings
+13294,1961,132,,2 Moyennes Pizza
+13714,2030,192,,One Topping Pizza
+15193,2233,206,,1 Ingrédient
+15194,2233,206,,2 Ingrédients
+15244,2242,205,,1 Topping
+15245,2242,205,,2 Toppings
+15246,2242,205,,3 Toppings
+15935,2328,153,,2 Large Pizzas + Garlic sauce
+15936,2328,153,,2 XLarge Pizzas + Garlic sauce
+15937,2328,153,,1 Small Pizza & 10 Wings
+15938,2328,153,,1 Medium Pizza & 15 Wings
+15940,2328,153,,1 XLarge Pizza & 30 Wings
+15944,2330,153,,Donair Combo
+15946,2330,153,,Sub Combo + Fries & Pop
+15947,2330,153,,2 Italian Platters
+17581,2557,231,,L’Hawaïenne
+17668,2564,231,,1 Moyenne et Ailes
+17782,2585,228,,1 Topping
+18265,2646,245,,1 Topping Pizza Deal
+18267,2646,245,,2 Toppings Pizza Deal
+18268,2646,245,,3 Toppings Pizza Deal
+18523,2678,236,,Small and 10 Wings
+18524,2678,236,,Medium and 15 Wings
+18525,2678,236,,Large and 20 Wings
+18546,2680,236,,Petite et 10 Ailes
+18547,2680,236,,Moyenne et 15 Ailes
+18548,2680,236,,Grande et 20 Ailes
+18623,2522,237,,Online Only Special #1
+18639,2692,247,,One Topping
+21513,2972,274,,Souvlaki and Pizza Special
+23383,3260,275,,Small Pizza with Wings
+23385,3260,275,,Medium Pizza with Wings
+23386,3260,275,,Large Pizza with Wings
+23387,3260,275,,X-Large Pizza with Wings
+23389,3261,275,,2 Small Pizza and Wings
+23390,3261,275,,2 Medium Pizza and Wings
+23391,3261,275,,2 Large Pizza with Wings
+23396,3263,284,,One Topping Double Pizza Special
+23397,3264,275,,Two Medium Pizza with 5 Toppings HIDE
+23398,3264,275,,Two Large Pizza with 5 Toppings HIDE
+23399,3264,275,,Two X-Large Pizza with 5 Toppings HIDE
+23401,3263,284,,Two Toppings Double Pizza Special
+23402,3263,284,,Three Toppings Double Pizza Special
+23403,3263,284,,Four Toppings Double Pizza Special
+24248,3376,303,,10 Wings
+24249,3376,303,,20 Wings
+24250,3376,303,,30 Wings
+24251,3376,303,,40 Wings
+24306,3382,303,,Large Pizza 3 Toppings Special
+24307,3382,303,,Medium Pizza 3 Toppings Special
+24309,3381,295,,Stir Fried Broccoli
+24310,3381,295,,Broccoli with Straw Mushroom
+24311,3381,295,,Kong Pao Chicken
+24312,3381,295,,General Tao’s Chicken
+24313,3381,295,,Sweet and Sour Pork
+24315,3381,295,,Sichuan Beef
+24317,3381,295,,Orange Peel Beef
+24318,3381,295,,Sichuan Shrimp
+24319,3381,295,,Shrimps a la Ding
+25830,3583,320,,"2 Pizzas 12"";Avec 10 ailes, 1 frite familiale, 1 sauce BBQ, 1 salade de chou et 4 canettes."""
+25831,3583,320,,"2 Pizzas 14"";Avec 1 poutine familiale et 4 canettes."""
+25832,3583,320,,"2 Pizzas 16"";Avec 1 frite familiale et 4 canettes."""
+25954,3601,236,,Deal No1
+25955,3601,236,,Deal No2
+25956,3601,236,,Deal No3
+25957,3601,236,,Deal No4
+25968,3601,236,,Deal No5 - With 2 Sandwiches
+25969,3601,236,,Deal No5 - With 2 Wraps
+25982,3606,236,,Spécial No1
+26005,3606,236,,Spécial No2
+26006,3606,236,,Spécial No3
+26007,3606,236,,Spécial No4
+26008,3606,236,,Spécial No5- Avec 2 Sandwiches
+26009,3606,236,,Spécial No5- Avec 2 Wraps
+26137,3535,292,,Tapas
+26179,3631,257,,Small Pizza and Wings HIDE
+26180,3631,257,,Medium Pizza and Poutine HIDE
+26181,3631,257,,Medium Pizza and Wings Special HIDE
+26182,3631,257,,Large Pizza Special HIDE
+26350,3643,332,,Tapas HIDE
+26368,3642,325,,Design your own Pizza
+26465,3665,330,,Nature
+26466,3665,330,,Pepperoni
+26467,3665,330,,Hawaïenne
+26468,3665,330,,Toute Garnie
+26469,3665,330,,Pizza Poussin
+26470,3665,330,,Québécoise
+26471,3665,330,,Spéciale Dorval Pizza
+26472,3665,330,,Mexicaine
+26473,3665,330,,Végétarienne
+26474,3665,330,,Deluxe
+26475,3665,330,,Fou De La Viande
+26476,3665,330,,Pizza du Chef
+26477,3665,330,,Poulet
+26478,3665,330,,1 Ingrédient
+26479,3665,330,,2 Ingrédients
+26480,3665,330,,3 Ingrédients
+26579,3678,330,,2 Pizzas Moyennes
+26581,3678,330,,2 Pizzas Grande
+26582,3678,330,,2 Pizzas X-Grande
+26591,3683,330,,2 Petites Pizzas et 2 Boissons Gazeuses
+26598,3683,330,,2 Moyennes Pizzas et 2 Boissons Gazeuses
+26599,3683,330,,2 Grandes Pizzas et 3 Boissons Gazeuses
+26600,3683,330,,2 Extra Grande Pizzas et 4 Boissons Gazeuses
+26604,3683,330,,1 Petite Pizza avec Sous-Marin
+26605,3683,330,,1 Moyenne Pizza avec Sous-Marin
+26606,3685,330,,Numéro 1
+26608,3685,330,,Numéro 2 
+26609,3685,330,, Numéro 3 
+26611,3685,330,, Numéro 4 
+26612,3685,330,, Numéro 5 
+26614,3685,330,,Numéro 6
+26615,3685,330,,Numéro 7 
+26616,3685,330,,Numéro 8
+26618,3687,330,,Plain Pizza
+26619,3687,330,,Pepperoni Pizza
+26620,3687,330,,Hawaiian Pizza 
+26621,3687,330,,All Dressed Pizza
+26622,3687,330,,Chick Pizza 
+26623,3687,330,,Quebecoise Pizza
+26624,3687,330,,Dorval Special Pizza
+26625,3687,330,,Mexican Pizza
+26626,3687,330,,Vegetarian Pizza
+26627,3687,330,,Deluxe Pizza
+26628,3687,330,,Meat Lovers Pizza
+26629,3687,330,,Chefs Pizza
+26630,3687,330,,Chicken Pizza
+26631,3687,330,,1 Topping Pizza 
+26632,3687,330,,2 Toppings Pizza
+26633,3687,330,,3 Toppings Two Pizza Deal
+26665,3686,326,,One Topping
+26670,3686,326,,Two Toppings
+26671,3686,326,,Three Toppings
+26711,3701,330,,2 Medium Pizzas with Wings
+26712,3701,330,,2 Large Pizzas with Poutine
+26713,3701,330,,2 X-Large Pizzas with Fries
+26714,3702,330,,Number 1
+26715,3702,330,,Number 2
+26716,3702,330,, Number 3
+26717,3702,330,,Number 4
+26719,3702,330,,Number 5
+26721,3702,330,,Number 6
+";20.49;0;;N;NULL;0;0;0;2;N;NULL;0;0;0;5;Y;Drinks;2;2;0;6;N;NULL;0;0;0;7;N;N;N;N;NULL;1;N;NULL;0;0;0;3;N;NULL;0;0;0;4;N;NULL;0;1;0;0;Y;Y;0;0;8;;NULL;en;Y;N;N;n
+26722;3702;330;NULL;Number 7""","1 large pizza 14 (maximum of 3 toppings), 15 chicken wings or 4 pieces chicken and 3 soft drinks 355ml.""",25.49,0,
+26723,3702,330,,Number 8
+26741,3705,330,,2 Small Pizzas and 2 Soft Drinks
+26742,3705,330,,2 Medium Pizzas and 2 Soft Drinks
+26744,3705,330,,2 Large Pizzas and 3 Soft Drinks
+26745,3705,330,,2 Extra Large Pizzas and 4 Soft Drinks
+26748,3705,330,,1 Small Pizza with Salad
+26751,3705,330,,1 Medium Pizza with Salad
+26758,3705,330,,1 Small Pizza with Submarine
+26761,3705,330,,1 Medium Pizza with Submarine
+27509,3804,334,,1 Topping
+27512,3805,326,,Al’s Big Hit
+27814,3839,320,,Petite Pizza Super Promo
+27815,3839,320,,Moyenne Pizza Super Combo
+27816,3839,320,,Grande Pizza Super Promo
+27817,3839,320,,X-Grande Pizza Super Promo
+27828,3843,340,,Small Pizza 2 Toppings and Wings
+27829,3843,340,,Small Pizza Unlimited Toppings and Wings
+27830,3843,340,,Medium Pizza 2 Toppings and Wings
+27831,3843,340,,Medium Pizza Unlimited Toppings and Wings
+27832,3843,340,,Large Pizza 2 Toppings and Wings
+27833,3843,340,,Large Pizza Unlimited Toppings and Wings
+29319,4048,350,,Lundi et Mardi En Folie
+29479,4074,353,,Spéciaux #14
+29564,4076,356,,Pizza Santé
+32348,4493,398,,!!!Special E
+37966,5214,421,,Combo 6
+43957,5980,486,,3 Pizzas with 1 Topping
+49311,1934,190,,Three Toppings HIDE
+49318,1933,190,,Donair Special
+49812,6702,534,,Salmon Teriyaki
+51566,6922,535,,Two Toppings
+51567,6922,535,,Four Toppings
+51568,6922,535,,Six Toppings
+51569,6923,535,,Large Pizza and Wings
+51570,6923,535,,Medium Pizza and Wings
+51572,6923,535,,Shawarma and Donair Special
+51573,6923,535,,Family Pasta Special
+51865,6962,527,,Petite Pizza 2 Garnitures HIDE
+51867,6962,527,,Moyenne Pizza 2 Garnitures HIDE
+51869,6962,527,,Grande Pizza 2 Garnitures HIDE
+51871,6962,527,,X-Grande Pizza 2 Garnitures HIDE
+51873,6963,527,,2 Petite Pizzas 2 Garnitures avec Frite et Breuvage HIDE
+51874,6963,527,,2 Petite Pizzas Toute Garnie avec Frite et Breuvage HIDE
+51875,6963,527,,2 Moyenne Pizzas 2 Garnitures avec Frite et Breuvage HIDE
+51876,6963,527,,2 Moyenne Pizzas Toute Garnie avec Frite et Breuvage HIDE
+51879,6963,527,,2 Larges Pizzas 2 Garnitures avec Frite et Breuvage HIDE
+51880,6963,527,,2 Larges Pizzas Toute Garnie avec Frite et Breuvage HIDE
+51881,6963,527,,2 X-Larges Pizzas 2 Garnitures avec Frite et Breuvage HIDE
+51882,6963,527,,2 X-Larges Pizzas Toute Garnie avec Frite et Breuvage HIDE
+51894,6967,527,,2 Pizzas 2 Garnitures HIDE
+51895,6967,527,,2 Pizzas Toute Garnie HIDE
+51897,6216,504,,Meal For One
+51898,5593,305,,Dinner For One
+51900,6969,416,,Two for 25
+51901,6969,416,,Three For 35
+51904,6969,416,,Family Meal
+51905,6971,451,,Two For 20
+51906,6971,451,,Three For 30
+51909,6971,451,,Family Meal
+51912,6976,452,,Two For 25 HIDE
+51913,6976,452,,Three For 35 HIDE
+51914,6976,452,,Family Meal HIDE
+51917,6978,453,,Two For 25 HIDE
+51918,6978,453,,Three For 35 HIDE
+51919,6978,453,,Family Meal HIDE
+51922,6981,477,,Two For 20
+51923,6981,477,,Three For 30
+51924,6981,477,,Family Meal
+51927,6983,483,,Two For 25
+51928,6983,483,,Three For 35
+51929,6983,483,,Family Meal
+51950,2330,153,,2 Large Donairs or Shawarma
+51964,1079,120,,Deal No.6A
+51974,1079,120,,Gyro Special
+52012,5814,473,,Large 3 Toppings HIDE
+52017,6991,132,,Mega Bouffe HIDE
+52055,5368,441,,Triple Threat Large
+52117,4135,346,,1 Petite et Ailes
+52118,4135,346,,1 Moyenne et Ailes
+52119,4135,346,,1 Grande et Ailes
+52120,7010,346,,1 Petite et Ailes HIDE
+52121,7010,346,, 1 Moyenne et Ailes HIDE
+52122,7010,346,,1 Grande et Ailes HIDE
+52123,7011,346,,1 Petite et Nachos
+52124,7011,346,,1 Moyenne et Nachos
+52125,7011,346,,1 Grande et Nachos
+52126,7012,346,,1 Petite et Nachos HIDE
+52127,7012,346,,1 Moyenne et Nachos HIDE
+52128,7012,346,,1 Grande et Nachos HIDE
+52129,7013,346,,2 Moyennes No1
+52130,7013,346,,2 Moyennes No 2 HIDE
+52131,7013,346,,2 Grandes No1
+52132,7013,346,,2 Grandes No2 HIDE
+52133,7014,346,,2 Moyennes No 1
+52134,7014,346,,2 Moyennes No 2 HIDE
+52135,7014,346,,2 Grandes No 1
+52136,7014,346,,2 Grandes No 2 HIDE
+52137,7015,346,,2 Moyennes No 1
+52138,7015,346,,2 Moyennes No 2 HIDE
+52139,7015,346,,2 Grandes No 1
+52140,7015,346,,2 Grandes No 2 HIDE
+52141,7016,346,,1 Grande Pizza Garnie et Ailes
+52145,4129,346,,Une Garniture
+52148,4129,346,,Le Jeune Hockeyeur
+52150,4129,346,,La Gatinoise Combinée
+52152,4129,346,,La Classico Italiano
+52154,4129,346,,L’Hawaïenne
+52156,4129,346,,La 4 Saisons Végétarienne
+52157,4129,346,,La Mexicaine
+52158,4129,346,,La Tianna
+52159,4129,346,,La Poulet BBQ
+52161,4129,346,,La Québécoise Spécial Maison
+52163,4129,346,,La Meat Lover
+52164,4129,346,,La Canadienne
+52165,4129,346,,La Française
+52166,4129,346,,La Geo
+52167,4129,346,,La Grecque
+52168,4129,346,,L’Americaine
+52169,4129,346,,La Dani
+52170,4129,346,,La Chicago
+52171,4129,346,,La Club
+52172,4129,346,,Style Maniwaki
+52173,4129,346,,La Montrealaise
+52207,7005,551,,1 Topping
+52208,7005,551,,2 Toppings
+52209,7005,551,,3 Toppings
+52210,7017,551,,Best Combo 2
+52211,7017,551,,Best Combo 1 
+52212,7017,551,,The Family Choice
+52408,7199,549,,Create Your Own Pizza
+52409,7199,549,,2 Toppings HIDE
+52424,7060,549,,2 Toppings Pizzas
+52425,7060,549,,4 Toppings Pizzas
+52426,7060,549,,6 Toppings Pizzas
+52433,7061,549,,Large Pizza
+52436,7061,549,,Medium Pizza
+52439,7061,549,,2 Large Pizzas
+52441,7061,549,,2 Medium Pizzas
+52711,7200,547,,1 Topping
+52712,7200,547,,2 Toppings
+52720,7123,547,,1 Topping
+52721,7123,547,,2 Toppings
+52722,7123,547,,3 Toppings
+52730,7125,547,,Large Pizza and Wings
+52731,7125,547,,Medium Pizza and Wings
+52738,7125,547,,2 Large Pizza and Wings
+52740,7125,547,,2 Medium Pizza and Wings
+52844,7133,195,,Medium Pizza 2 Toppings HIDE
+52845,7134,195,,Moyenne Pizza avec 2 Ingrédients HIDE
+52846,7134,195,,2 Grande Pizza Tout Garnie HIDE
+52847,7134,195,,2 Grande Pizza 2 Ingrédients HIDE
+52848,7133,195,,2 Large Pizza All Dressed HIDE
+52849,7133,195,,2 Large Pizzas 2 Toppings HIDE
+52938,5815,473,,2. Family Deal with Wedges
+53019,7175,565,,2 Assiettes et 2 Pitas
+53216,2223,207,,2 Large Donairs
+53217,2223,207,,2 Chicken Wraps HIDE
+53328,7215,211,,Large 3 Toppings Pizza HIDE
+53858,7273,572,,1 Topping
+53860,7273,572,,2 Toppings
+53871,7273,572,,3 Toppings
+53872,7290,567,,Mr.Mozzarella
+53873,7290,567,,The Canadian
+53874,7290,567,,The Deli
+53875,7290,567,,The Vegetarian
+53876,7290,567,,The Greek
+53877,7290,567,,The Hawaiian Delight
+53878,7290,567,,The Katrina
+53879,7290,567,,The Jordanna
+53880,7290,567,,The New Orleans
+53881,7290,567,,The Chicken Parmesan
+53882,7290,567,,The Barbecued Chicken
+53883,7290,567,,The Poutine Pizza
+53884,7290,567,,The Mexican Pizza
+53885,7290,567,,The Philly Cheese Steak
+53886,7290,567,,The Tex-Mex
+53887,7290,567,,The Shawarma Pizza
+53888,7290,567,,The Bacon Double Cheeseburger
+53889,7290,567,,The Pepperoni Double Decker
+53890,7290,567,,The Pizza Lover’s Dream
+53891,7290,567,,The Chicken Garlic Gourmet
+53892,7290,567,,The Maui Zaui
+53893,7290,567,,The Italian Garlic Supreme
+53894,7290,567,,Julius Caesar
+53895,7290,567,,The Burger pizza
+53896,7290,567,,Thai Style Pizza
+53897,7290,567,,Butter Chicken
+53898,7290,567,,Santa Fe HIDE
+53899,7290,567,,Smokin Italy
+53900,7290,567,,Santorini Island HIDE
+53901,7290,567,,Calgary Stampede
+53902,7290,567,,Mamas Garden
+53903,7290,567,,Alfredo Za
+53904,7290,567,,Nacho Pizza
+53905,7290,567,,Buffalo Chicken
+53906,7290,567,,Club Za
+53907,7291,567,,Cheese and Sauce
+53908,7291,567,,One Item Pizza
+53909,7291,567,,Two Items Pizza
+53910,7291,567,,Three Items Pizza
+53911,7292,567,,Cheese and Sauce
+53912,7293,567,,Combo 1
+53913,7293,567,,Combo 2
+53914,7293,567,,Combo 3
+53915,7293,567,,Combo 4
+53918,7295,567,,Party 1
+53919,7295,567,,Party 2
+53920,7295,567,,Party 3
+53937,7272,572,,Special 4
+53938,7272,572,,Special 5
+53939,7272,572,,Special 6
+53941,7272,572,,Special 7
+53947,7271,572,,Greek Special
+54422,7346,571,,Classique - TRIO
+54424,7346,571,,Traditionnelle - TRIO
+54426,7346,571,,Mer Totale - TRIO
+54428,7346,571,,Végétarienne - TRIO
+54430,7346,571,,Poulet Sud Ouest - TRIO
+54432,7346,571,,Poulet Chévre - TRIO
+54434,7346,571,,Bavaroise - TRIO
+54436,7346,571,,Californienne - TRIO
+54438,7347,571,,Poulet Mango aux Épinards - TRIO
+54440,7347,571,,César au Poulet Grillé - TRIO
+54442,7347,571,,Jardinière au Chèvre - TRIO
+54444,7347,571,,Orientale aux Crevettes - TRIO
+54454,7348,571,,Poulet - TRIO
+54458,7348,571,,Boeuf - TRIO
+54463,7348,571,,Crevettes - TRIO
+54468,7349,571,,Alfredo
+54469,7349,571,,Alfredo - TRIO
+54470,7349,571,,Arrabiata
+54471,7349,571,,Arrabiata - TRIO
+54472,7349,571,,Bolognaise
+54473,7349,571,,Bolognaise - TRIO
+54474,7349,571,,Pinky
+54475,7349,571,,Pinky - TRIO
+54476,7349,571,,Napolitaine
+54477,7349,571,,Napolitaine - TRIO
+54478,7349,571,,Pesto
+54479,7349,571,,Pesto - TRIO
+54480,7350,571,,Carbonara
+54481,7350,571,,Carbonara - TRIO
+54482,7350,571,,Boulettes de Viande
+54483,7350,571,,Boulettes de Viande - TRIO
+54484,7351,571,,Jardin Sauté
+54485,7351,571,,Jardin Sauté - TRIO
+54486,7351,571,,Forestière aux Épinards
+54487,7351,571,,Forestière aux Épinards - TRIO
+54488,7351,571,,Thai Crémeux
+54489,7351,571,,Thai Crémeux - TRIO
+54490,7351,571,,Primavera Pesto
+54491,7351,571,,Primavera Pesto - TRIO
+54492,7352,571,,Chèvre Florentine
+54493,7352,571,,Chèvre Florentine - TRIO
+54494,7352,571,,Pesto Fromagé
+54495,7352,571,,Pesto Fromagé - TRIO
+54496,7353,571,,Bavaroise
+54497,7353,571,,Bavaroise - TRIO
+54498,7353,571,,Calabrese
+54499,7353,571,,Calabrese - TRIO
+54500,7353,571,,Cochon Rose
+54501,7353,571,,Cochon Rose - TRIO
+54502,7353,571,,Poulet Bayou
+54503,7353,571,,Poulet Bayou - TRIO
+54504,7353,571,,Poulet Pesto
+54505,7353,571,,Poulet Pesto - TRIO
+54506,7353,571,,Smoke Meat
+54507,7353,571,,Smoke Meat - TRIO
+54508,7353,571,,Boeuf Chipotle
+54509,7353,571,,Boeuf Chipotle - TRIO
+54510,7354,571,,Crevette Belzébuth
+54511,7354,571,,Crevette Belzébuth - TRIO
+54512,7354,571,,St Jacques
+54513,7354,571,,St Jacques - TRIO
+54514,7354,571,,Saumon Boucané
+54515,7354,571,,Saumon Boucané - TRIO
+54516,7354,571,,Mer Totale
+54517,7354,571,,Mer Totale - TRIO
+54518,7355,571,,Coco-Thai
+54519,7355,571,,Coco-Thai - TRIO
+54520,7355,571,,Général Mia
+54521,7355,571,,Général Mia - TRIO
+54522,7355,571,,Le Teriyaki
+54523,7355,571,,Le Teriyaki - TRIO
+54524,7355,571,,Pad Thai
+54525,7355,571,,Pad Thai - TRIO
+54526,7355,571,,X-Treme Pinnoté
+54527,7355,571,,X-Treme Pinnoté - TRIO
+54590,7196,553,,One Topping
+54591,7196,553,,Two Toppings
+54606,7377,553,,Calzone
+54610,7377,553,,Large Pizza and Wings
+54611,7377,553,,Twin Pizzas
+54613,7374,577,,2 House Special Pizzas
+54615,7374,577,,2 Vegetarian Pizzas
+54616,7374,577,,Spicy Chicken Delight 
+54617,7374,577,,2 Spicy Chicken Delight Pizzas
+54619,7374,577,,2 Catalina Special Pizzas
+54621,7374,577,,2 Chef's Special Pizzas
+54623,7374,577,,2 The Greek Pizzas
+55205,6967,527,,2 Pizzas 2 Garnitures HIDED
+55206,6967,527,,2 Pizzas Toute Garnie HIDED
+55528,7516,562,,6 Plus 6 Free
+55529,7516,562,,12 Plus 12 Free
+55530,7516,562,,18 Plus 18 Free
+55531,7516,562,,24 Plus 24 Free
+55532,7516,562,,36 Plus 36 Free
+55572,7499,590,,Pizza Combo 1
+55574,7499,590,,Pizza Combo 2
+55575,7499,590,,Pizza Combo 3
+55576,7499,590,,Pizza Combo 4
+55583,7500,590,,Create Your Own Pizza
+55586,7501,590,,2 for 1 Pizza
+55625,7531,562,,Small Pizza and Wings
+55626,7531,562,,2 Small Pizzas and Wings
+55627,7531,562,,Medium Pizza and Wings
+55628,7531,562,,2 Medium Pizzas with Wings
+55629,7531,562,,Large Pizza with Wings
+55630,7531,562,,2 Large Pizzas with Wings
+55766,7555,585,,Petit Combo
+55767,7555,585,,Duo Combo
+55771,7555,585,,Boîte Express
+55780,7555,585,,Combo Familial
+55784,7555,585,,Combo Gourmet
+55909,7579,585,,Small Combo
+55917,7579,585,,Duo Combo
+55923,7579,585,,Express Box
+55933,7579,585,,Combo Familial
+55939,7579,585,,Combo Gourmet
+56054,7593,562,,2 for 1 Deal One Topping Pizza
+56055,7593,562,,2 for 1 Deal Two Toppings Pizza
+56056,7593,562,,2 for 1 Deal Three Toppings Pizza
+56071,7111,557,,Combo 2
+56072,7111,557,,Combo 1
+56077,7801,562,,Any 2 Sandwiches
+56541,7661,596,,Double with 5 Toppings
+56546,7661,596,,Triple with 5 Toppings
+56548,7662,596,,Combinations with 6 Toppings
+56549,7662,596,,Combination with 6 Toppings
+56593,7670,564,,Combo 2 pizzas classiques 
+56594,7670,564,,Combo 2 pizzas Spécialités 
+56877,7703,600,,1 Topping
+56878,7703,600,,2 Toppings
+56879,7703,600,,3 Toppings
+56895,7704,600,,Family Deal with Fries
+56896,7704,600,,Large Pizza Deal With Papa Box
+56898,7704,600,,Small Pizza Combo with Poutine
+56899,7704,600,,Small Pizza Combo with Wings
+56900,7704,600,,Family Deal with Chef Salad
+56901,7704,600,,Medium Pizza Combo with Poutine
+56902,7704,600,,Medium Pizza Combo with Wings
+56903,7707,600,,Mini Feast HIDE
+56906,7695,600,,One Topping
+56907,7707,600,,Feast HIDE
+56908,7707,600,,Great Feast HIDE
+56922,7708,577,,Family Pack 1
+56925,3631,257,,Donair Special HIDE
+56927,7708,577,,3 Pizzas with 2 Toppings
+56928,7708,577,,Family Pack 2
+56929,7708,577,,Family Pack 3
+56930,7708,577,,Family Pack 4
+56932,7708,577,,Combo 1
+56933,7708,577,,Double Deal 1
+56934,7708,577,,Double Deal 2
+56935,7708,577,,Double Deal 3
+56936,3513,257,,Dani Boy Special
+56937,3513,257,,Seafood Deluxe HIDE
+56941,3513,257,,Nacho Pizza
+56944,3513,257,,Poutine Pizza
+56956,7708,577,,Combo 3
+56964,7374,577,,2 All Meat Pizzas
+56965,7708,577,,Combo 4
+56970,7708,577,,Combo 5
+56971,7708,577,,Combo 6
+57058,7727,601,,2 Pitas
+57067,7727,601,,4 Pitas
+57227,7757,601,,2 Pitas
+57229,7757,601,,4 Pitas
+57428,2280,210,,Chicken Shawarma Special
+57599,7778,589,,Meal For 1
+57600,7778,589,,Meal For 2
+57601,7778,589,,Meal For 4
+57602,7778,589,,Meal For 6
+57643,2862,255,,2 Small Donairs and Wings HIDE
+57645,2862,255,,2 Small Halifax Donairs
+57648,2862,255,,2 Small Donairs and Garlic Fingers
+58127,7708,577,,2 X-Large Pizzas with 5 Toppings
+58128,7708,577,,2 Large Pizzas
+58129,7708,577,,2 Medium Pizzas
+58130,7708,577,,2 X-Large Pizzas with 2 Toppings
+58132,7708,577,,2 Medium Pizzas with 3 Toppings
+58444,7883,592,,Create Your Own Pizza
+58487,7911,618,,2 Panzerottis
+58661,7938,614,,2 Vanier Burgers
+58716,7481,587,,Poulet Entier
+58717,7949,231,,1 Petite Pizza avec 1 Poutine
+58718,7949,231,,1 Moyenne Pizza avec 1 Poutine
+58719,7949,231,,1 Grande Pizza avec 2 Poutines
+58720,7950,231,,1 Petite Pizza et 1 Canette HIDE
+58721,7950,231,,1 Moyennes Pizza et 2 Canettes HIDE
+58722,7950,231,,1 Grande Pizza et 2 Canettes HIDE
+58723,7951,346,,1 Petite Pizza avec 1 Poutine
+58724,7951,346,,1 Moyenne Pizza avec 1 Poutine
+58725,7951,346,,1 Grande Pizza avec 2 Poutines
+58726,7952,346,,1 Petite Pizza et 1 Canette HIDE
+58727,7952,346,,1 Moyennes et 1 Canette HIDE
+58728,7952,346,,1 Grande Pizza et 2 Canettes HIDE
+58758,7962,624,,One Topping  HIDE
+58759,7962,624,,Two Toppings HIDE
+58760,7962,624,,Three Toppings HIDE
+58761,7962,624,,Four Toppings  HIDE
+58762,7962,624,,Five Toppings  HIDE
+58763,7962,624,,Plain HIDE
+58784,7964,624,,Large Pizza
+58785,7964,624,,X - Large Pizza
+58786,7964,624,,2 Medium Pizza
+58792,2763,238,,Two Large Donairs  HIDE
+58862,7966,623,,1 Garniture
+58863,7966,623,,2 Garnitures
+58879,7976,623,,1 Garniture
+58880,7976,623,,2 Garnitures
+58881,7976,623,,3 Garnitures
+58883,7979,623,,1 Topping
+58884,7979,623,,2 Toppings
+58966,7990,623,,1 Topping
+58967,7990,623,,2 Toppings
+58968,7990,623,,3 Toppings
+58992,7938,614,,Dinner For 1
+58993,7938,614,,Dinner For 2
+59002,7989,623,,Special 1
+59003,7989,623,,Special 2
+59004,7989,623,,Special 3
+59005,7991,623,,Family Deal 1
+59009,7983,623,,Hamburger Platter
+59011,7983,623,,Cheeseburger Platter
+59012,7983,623,,Bacon Cheeseburger Platter
+59013,7983,623,,Chicken Burger Platter
+59023,7969,623,,Assiette Hamburger
+59024,7969,623,,Assiette Cheeseburger
+59025,7969,623,,Assiette Cheeseburger au Bacon
+59026,7969,623,,Assiette Burger au Poulet 
+59027,7977,623,,Special 1 
+59028,7977,623,,Special 2
+59031,7977,623,,Special 3
+59032,7978,623,,Spécial Familiale 1
+59095,8013,626,,2 Panzerottis
+59137,8023,627,,2 Panzerottis
+59161,4895,405,,No 6. 
+59162,4895,405,,Party Special
+59163,4894,405,,No 11. Two Burgers Special
+59208,8035,184,,2 Moyennes avec Trempettes
+59209,8035,184,,2 Grandes avec Trempettes
+59248,7945,616,,Regular Trio for 1
+59249,7945,616,,Regular Trio for 2
+59250,7945,616,,Large Trio for 1
+59251,7945,616,,Large Trio for 2
+59252,7945,616,,Combo No.3
+59253,7945,616,,Combo No.4
+59254,7945,616,,Combo No.5
+59258,8040,618,,Wednesday
+59263,8040,618,,Friday
+59284,8044,627,,Wednesday
+59286,8044,627,,Friday
+59355,8052,629,,Regular Trio for 1
+59356,8052,629,,Regular Trio for 2
+59357,8052,629,,Large Trio for 1
+59358,8052,629,,Large Trio for 2
+59359,8052,629,,Combo No.3
+59360,8052,629,,Combo No.4
+59361,8052,629,,Combo No.5
+59388,8060,626,,Wednesday
+59486,8060,626,,Friday
+59548,8079,631,,Pizza with Unlimited Toppings and 10 Wings
+59549,8080,631,,2 Pizzas with Unlimited Toppings
+59550,8081,631,,2 Large Pizza and 10 Wings
+59551,8081,631,,X-Large Pizza and 20 Wings
+59552,8081,631,,Party Pizza and 30 Wings
+59553,8081,631,,!!!2 Can dine for.....
+59693,8092,630,,3 Pizzas
+59732,8108,638,,Double with 5 Toppings
+59733,8108,638,,Triple with 5 Toppings
+59734,8109,638,,Combinations with 6 Toppings
+59735,8109,638,,Combination with 6 Toppings
+59795,8123,633,,1 Topping
+59796,8123,633,,2 Toppings
+59797,8123,633,,3 Toppings
+59798,8123,633,,4 Toppings
+59799,8125,633,,Mega Combo
+59800,8125,633,,Manager Special
+59801,8125,633,,Pizza and Wings
+59802,8126,633,,Grillers Classic
+59815,8128,236,,Any Pita
+59821,8129,236,,Choix de Pita
+59843,7017,551,,4 Shawarma Sandwiches
+60157,12448,637,,Dinner For Two
+60269,8203,646,,Regular Trio for 1
+60270,8203,646,,Regular Trio for 2
+60271,8203,646,,Large Trio for 1
+60272,8203,646,,Large Trio for 2
+60273,8203,646,,Combo No.3
+60274,8203,646,,Combo No.4
+60275,8203,646,,Combo No.5
+60516,8239,649,,Regular Trio for 1
+60517,8239,649,,Regular Trio for 2
+60518,8239,649,,Large Trio for 1
+60519,8239,649,,Large Trio for 2
+60520,8239,649,,Combo No.3
+60521,8239,649,,Combo No.4
+60522,8239,649,,Combo No.5
+60597,8251,650,,Regular Trio for 1
+60598,8251,650,,Regular Trio for 2
+60599,8251,650,,Large Trio for 1
+60600,8251,650,,Large Trio for 2
+60601,8251,650,,Combo No.3
+60602,8251,650,,Combo No.4
+60603,8251,650,,Combo No.5
+60891,8308,644,,Soup
+60892,8310,644,,Rice
+60893,8310,644,,Vermicelli
+60902,8179,637,,Double Trouble
+60919,8184,637,,Pizza and 10 Wings
+60924,8184,637,,Family Special HIDE
+60995,7938,614,,2 Bacon Cheese Dogs
+61224,4027,350,,La Pizza-Ghetti
+61226,8178,637,,Tops Special
+61242,8353,607,,Burrito
+61243,8353,607,,Vegetarian Burrito
+61244,8354,607,,Quesadilla
+61245,8354,607,,Vegetarian Quesadilla
+61246,8355,607,,Nachos
+61247,8355,607,,Vegetarian Nachos
+61248,8356,607,,1 Taco
+61250,8356,607,,2 Tacos
+61251,8356,607,,3 Tacos
+61252,8356,607,,1 Vegetarian Taco
+61253,8356,607,,2 Vegetarian Tacos
+61254,8356,607,,3 Vegetarian Tacos
+61259,8359,607,,Vegetarian Salad Bowl
+61284,8126,633,,Bonus Pack HIDED
+61285,8126,633,,Store Special HIDED
+61290,7093,559,,Alfredo
+61291,7093,559,,Alfredo - TRIO
+61294,7093,559,,Arrabiata
+61295,7093,559,,Arrabiata - TRIO
+61296,7093,559,,Bolognaise
+61297,7093,559,,Bolognaise - TRIO
+61298,7093,559,,Pinky
+61299,7093,559,,Pinky - TRIO
+61300,7093,559,,Napolitaine
+61301,7093,559,,Napolitaine - TRIO
+61302,7093,559,,Pesto
+61303,7093,559,,Pesto - TRIO
+61304,7094,559,,Carbonara
+61305,7094,559,,Carbonara - TRIO
+61306,7094,559,,Boulettes de Viande
+61307,7094,559,,Boulettes de Viande - TRIO
+61308,7095,559,,Jardin Sauté
+61309,7095,559,,Jardin Sauté - TRIO
+61310,7095,559,,Forestière aux Épinards
+61311,7095,559,,Forestière aux Épinards - TRIO
+61312,7095,559,,Thai Crémeux
+61313,7095,559,,Thai Crémeux - TRIO
+61314,7095,559,,Primavera Pesto
+61315,7095,559,,Primavera Pesto - TRIO
+61316,7101,559,,Chèvre Florentine
+61317,7101,559,,Chèvre Florentine - TRIO
+61318,7101,559,,Pesto Fromagé
+61319,7101,559,,Pesto Fromagé - TRIO
+61320,7103,559,,Bavaroise
+61321,7103,559,,Bavaroise - TRIO
+61322,7103,559,,Calabrese
+61323,7103,559,,Calabrese - TRIO
+61324,7103,559,,Cochon Rose
+61325,7103,559,,Cochon Rose - TRIO
+61326,7103,559,,Poulet Bayou
+61656,8393,652,,S6. Traditional Vietnamese Hot and Sour Soup
+61803,8416,591,,Any 2 Pizzas
+61810,7533,591,,2 Spicy Chicken Delight Pizzas
+61811,7533,591,,2 Vegetarian Pizzas
+61812,7533,591,,2 Kim's Special Pizzas
+61813,7533,591,,2 The Greek Pizzas
+61814,7533,591,,2 Chef's Special Pizzas
+61815,7533,591,,2 House Special Pizzas
+61821,8418,591,,2 Kid's Lasagna
+61822,8418,591,,3 Kid's Lasagna
+61823,8418,591,,2 Baked Lasagna 
+61824,8418,591,,3 Baked Lasagna
+61825,8418,591,,2 Baked Spaghetti
+61826,8418,591,,3 Baked Spaghetti
+61827,8418,591,,2 Ravioli
+61828,8418,591,,3 Ravioli
+61831,7533,591,,2 Spinach Delight
+61833,7542,591,,2 Veal Cutlets with Spaghetti and Garlic Toast
+61835,7542,591,,2 Veal Parmigiana with Spaghetti and Garlic Toast
+61837,7542,591,,2 Half BBQ Chicken with Spaghetti or Lasagna and Garlic Toast
+61839,7542,591,,2 BBQ Chicken with Spaghetti or Lasagna and Garlic Toast
+61841,7540,591,,2 Baked Lasagna or Spaghetti and Garlic Toast
+61842,7540,591,,3 Baked Lasagna or Spaghetti with Garlic Toast
+61843,7540,591,,2 Baked Ravioli and Garlic Toast
+61844,7540,591,,3 Baked Ravioli with Garlic Toast
+61845,7540,591,,Medium Pizza with 2 Toppings and Lasagna with 1 Can Pop
+61846,7540,591,,Large Pizza with 2 Toppings and Lasagna with 2 Cans Pop
+61847,7540,591,,2 Pizzas with 3 Toppings and 15 Wings
+61848,7540,591,,2 Lasagna or Spaghetti and 24 Wings
+61849,7540,591,,2 Ravioli and 24 Wings
+61850,7540,591,,2 Pizzas with 4 Toppings
+61851,7540,591,,2 Medium Pizzas with 3 Toppings
+61852,7540,591,,2 Pizzas with 2 Toppings
+61853,7540,591,,2 Medium Donair Pizzas
+61854,7541,591,,Family Pack 1
+61855,7541,591,,Family Pack 2
+61856,7541,591,,Family Pack 3
+61857,7541,591,,Family Pack 4
+61858,7540,591,,Pizza with 2 Toppings and 15 Wings
+61859,7540,591,,Unlimited Topping Pizzas
+61860,7540,591,,X-Large Pizza with 2 Toppings and Lasagna with 2L Pop
+62082,8430,657,,Combo for 1 HIDE
+62784,8539,661,,1 Topping
+62785,8539,661,,2 Toppings
+62786,8539,661,,3 Toppings
+62787,8539,661,,4 Toppings
+62788,8539,661,,5 Toppings
+62789,8539,661,,6 Toppings
+62790,8539,661,,Adonis Delight
+62810,7989,623,,Special 4
+62811,7989,623,,Large Pizza 3 Toppings and Wings
+62813,7989,623,,2 Large Pepperoni Pizzas with Drinks
+62814,7989,623,,2 Shawarma Plates
+62815,7989,623,,4 Small Trios
+62816,7977,623,,Spécial 4
+62817,7977,623,,1 Grande Pizza 3 Garnitures et Ailes
+62819,7977,623,,2 Grandes Pizzas Pepperoni
+62820,7977,623,,2 Assiettes Shawarma et Ailes
+62821,7977,623,,4 Petites Trios
+63038,8567,665,,Build Your Own Burger with Side
+63068,8540,665,,Tonimoes Iron Man Breakfast 
+63069,8540,665,,Greek Omelette 
+63070,8540,665,,Western Omelette
+63071,8540,665,,Canadian Omelette 
+63072,8540,665,,Steak and Eggs 
+63075,8540,665,,The Tonimoes FIVE-NINE-FIVE
+63118,8575,666,,Build Your Own Burger with Side
+63189,2304,209,,Donair Special HIDE
+63190,2304,209,,2 Chicken Shawarma Special HIDE
+63200,8575,666,,Build Your Own Burger without Side
+63201,8567,665,,Build Your Own Burger without Side
+63204,1738,131,,Offere Exceptionelle HIDE
+63210,3601,236,,Deal No5 - With 2 Pitas
+63211,3606,236,,Spécial No5- Avec 2 Pitas
+63222,2267,208,,Donair Special HIDE
+63266,5570,458,,Delux Combo
+63267,5570,458,,Friends Combo
+63268,5570,458,,Family Combo
+63269,5570,458,,Party Combo
+63635,8627,670,,Single Pizza & Wings Combo
+63636,8627,670,,Double Pizza & Wings Combo
+63637,8627,670,,Jumbo Pack
+63638,8627,670,,Triple Pizza Special
+63639,8627,670,,Salad & Pizza Special
+63641,8627,670,,Family Special HIDE
+63654,8627,670,,Hot & Cool Special
+63655,8627,670,,Party Pizza HIDE
+63883,8659,673,,1 Garniture
+63884,8659,673,,2 Garnitures
+63900,8669,673,,1 Garniture
+63901,8669,673,,2 Garnitures
+63902,8669,673,,3 Garnitures
+63904,8672,673,,1 Topping
+63905,8672,673,,2 Toppings
+63983,8683,673,,1 Topping
+63984,8683,673,,2 Toppings
+63985,8683,673,,3 Toppings
+63996,8682,673,,Special 3
+63997,8684,673,,Family Deal 1
+64001,8676,673,,Hamburger Platter
+64003,8676,673,,Cheeseburger Platter
+64004,8676,673,,Bacon Cheeseburger Platter
+64005,8676,673,,Chicken Burger Platter
+64015,8662,673,,Assiette Hamburger
+64016,8662,673,,Assiette Cheeseburger
+64017,8662,673,,Assiette Cheeseburger au Bacon
+64018,8662,673,,Assiette Burger au Poulet 
+64021,8670,673,,Special 3
+64022,8671,673,,Spécial Familiale 1
+66120,756,96,,One Topping
+66121,8954,384,,Meat Lovers Burger
+66122,8954,384,,Meat Lovers Burger Combo
+66123,8954,384,,Juicy Lucy Burger
+66124,8954,384,,Juicy Lucy Burger Combo
+66125,8954,384,,New Orleans Burger
+66126,8954,384,,New Orleans Burger Combo
+66127,8954,384,,Pow Burger
+66128,8954,384,,Pow Burger Combo
+66129,8954,384,,Donny’s Burger
+66130,8954,384,,Donny’s Burger Combo
+66131,8954,384,,The Greek
+66132,8954,384,,The Greek Combo
+66133,8954,384,,The Question Mark
+66134,8954,384,,The Question Mark Combo
+66135,8954,384,,The Plane Jane
+66149,8955,384,,1 Topping Pizza
+66150,8956,384,,2 Toppings Dual Pizza HIDE
+66151,8956,384,,4 Toppings Dual Pizza HIDE
+66152,8956,384,,6 Toppings Dual Pizza HIDE
+66153,8957,384,,Family Meal Deal
+66154,8957,384,,Pasta Duo Special HIDE
+66241,757,96,,Poutinzza
+66274,8976,683,,1 Ingrédient
+66339,8984,683,,Pizza Petite avec Poutine et Pepsi
+66340,8984,683,,"Pizza Moyenne avec Ailes, Frites et Pepsi"
+66341,8984,683,,Pizza Grande avec Poutines et Pepsi
+66342,8984,683,,Pizza Petite avec Ailes et Frites et Pepsi
+66343,8984,683,,Pizza Moyenne avec Sous-Marin Steak et Frites et Pepsi
+66344,8984,683,,Pizza Grande avec Ailes et Frites et Pepsi
+66345,8984,683,,Pizza Moyenne avec Poutines et Pepsi
+66346,8984,683,,2 Burgers Maison avec Poutines et Pepsi
+66360,8987,684,,2. Vegan
+66361,8987,684,,3. Sweet and Sour Pork
+66362,8987,684,,4. Surf and Turf
+66363,8987,684,,5. Teriyaki Chicken
+66364,8987,684,,6. Stir Fried Turkey
+66365,8987,684,,7. Mongolian BBQ Beef
+66371,8987,684,,1. Create Your Own Stir Fry
+66471,9007,670,,1 Topping HIDE
+66472,9007,670,,2 Toppings HIDE
+66473,9007,670,,3 Toppings HIDE
+66553,8984,683,,Spécial 2 Pizza
+66639,2348,215,,Family Meal Deal
+67670,2901,199,,Spaghatti Pizza
+67834,8045,629,,Kids Special
+67835,8196,646,,Kids Special
+67836,7935,616,,Kids Special
+67838,8232,649,,Kids Special
+67840,8244,650,,Kids Special
+68079,5815,473,,Two Shararmas & Two Pops
+68130,9193,697,,Burrito
+68131,9193,697,,Vegetarian Burrito
+68132,9194,697,,Quesadilla
+68133,9194,697,,Vegetarian Quesadilla
+68134,9195,697,,Nachos
+68135,9195,697,,Vegetarian Nachos
+68136,9196,697,,1 Taco
+68137,9196,697,,2 Tacos
+68138,9196,697,,3 Tacos
+68139,9196,697,,1 Vegetarian Taco
+68140,9196,697,,2 Vegetarian Tacos
+68141,9196,697,,3 Vegetarian Tacos
+68145,9198,697,,Vegetarian Salad Bowl
+68440,9262,391,,Combo 1
+68441,9262,391,,Combo 2
+68670,9293,703,,Sous Marin avec Canette et Frite
+68674,9295,703,,1 Petite et Ailes
+68675,9295,703,,1 Moyenne et Ailes
+68676,9295,703,,1 Grande et Ailes
+68677,9296,703,,1 Petite et Ailes HIDE
+68678,9296,703,, 1 Moyenne et Ailes HIDE
+68679,9296,703,,1 Grande et Ailes HIDE
+68680,9297,703,,1 Petite et Nachos
+68681,9297,703,,1 Moyenne et Nachos
+68682,9297,703,,1 Grande et Nachos
+68683,9298,703,,1 Petite et Nachos HIDE
+68684,9298,703,,1 Moyenne et Nachos HIDE
+68685,9298,703,,1 Grande et Nachos HIDE
+68686,9299,703,,2 Moyennes No1
+68687,9299,703,,2 Moyennes No 2 HIDE
+68688,9299,703,,2 Grandes No1
+68689,9299,703,,2 Grandes No2 HIDE
+68690,9300,703,,2 Moyennes No 2
+68691,9300,703,,2 Moyennes No 2 HIDE
+68692,9300,703,,2 Grandes No 2
+68693,9300,703,,2 Grandes No 2 HIDE
+68694,9301,703,,2 Moyennes No 3
+68695,9301,703,,2 Moyennes No 2 HIDE
+68696,9301,703,,2 Grandes No 3
+68697,9301,703,,2 Grandes No 2 HIDE
+68698,9302,703,,1 Grande Pizza Garnie et Ailes
+68699,9289,703,,Une Garniture
+68700,9289,703,,Le Jeune Hockeyeur
+68701,9289,703,,La Gatinoise Combinée
+68702,9289,703,,La Classico Italiano
+68703,9289,703,,L’Hawaïenne
+68704,9289,703,,La 4 Saisons Végétarienne
+68705,9289,703,,La Mexicaine
+68706,9289,703,,La Tianna
+68707,9289,703,,La Poulet BBQ
+68708,9289,703,,La Québécoise Spécial Maison
+68709,9289,703,,La Meat Lover
+68710,9289,703,,La Canadienne
+68711,9289,703,,La Française
+68712,9289,703,, La Geo
+68713,9289,703,,La Grecque
+68714,9289,703,,L’Americaine
+68715,9289,703,,La Dani
+68716,9289,703,,La Chicago
+68717,9289,703,,La Club
+68718,9289,703,,Style Maniwaki
+68719,9289,703,,La Montrealaise
+68739,9307,703,,1 Petite Pizza avec 1 Poutine
+68740,9307,703,,1 Moyenne Pizza avec 1 Poutine
+68741,9307,703,,1 Grande Pizza avec 2 Poutines
+68742,9308,703,,1 Petite Pizza et 1 Canette HIDE
+68743,9308,703,,1 Moyennes et 2 Canettes HIDE
+68744,9308,703,,1 Grande Pizza et 2 Canettes HIDE
+68760,9313,704,,One Topping 
+68761,9313,704,,Two Toppings
+68762,9313,704,,Three Toppings
+68763,9313,704,,Four Toppings 
+68764,9313,704,,Five Toppings 
+68765,9313,704,,Plain
+68786,9315,704,,Large Pizza
+68787,9315,704,,X - Large Pizza
+68788,9315,704,,2 Medium Pizza
+68890,9326,701,,Thali (Vegetarian)
+68891,9326,701,,Dinner For Two (Vegetarian)
+68892,9326,701,,Prawn Thali (Seawood)
+68893,9326,701,,Thali (Non-Vegetarian)
+68894,9326,701,,Dinner For Two (Non-Vegetarian)
+68895,9326,701,,Rangoli Dinner
+69004,9342,234,,2 Small Pizza Special HIDE
+69005,9342,234,,2 Medium Pizza Special HIDE
+69006,9342,234,,2 Large Pizza Special HIDE
+69008,3099,234,,2 Grandes Pizza
+69009,3099,234,,2 Shawarmas au Boeuf
+69012,9342,234,,2 Beef Shawarmas HIDE
+69647,9390,708,,Bubble Tea Smoothie
+69660,9416,710,,Cheese Pizza
+69661,9416,710,,Pepperoni Pizza
+69662,9416,710,,Works Pizza
+69663,9416,710,,All Meat Pizza
+69664,9416,710,,Greek Pizza
+69665,9416,710,,Veggie Pizza
+69666,9416,710,,Hawaiian Pizza
+69667,9416,710,,Donair Pizza
+69671,9418,710,,1 Topping Pizza
+69672,9418,710,,2 Toppings Pizza
+69673,9418,710,,3 Toppings Pizza
+69674,9418,710,,4 Toppings Pizza
+69675,9418,710,,5 Toppings Pizza
+69676,9416,710,,Panzerotti
+69677,9419,710,,Special No.1
+69678,9419,710,,Special No.2
+69679,9419,710,,Special No.3
+69680,9420,710,,Special Meal No.1
+69681,9420,710,,Special Meal No.2
+69682,9420,710,,Special Meal No.3
+69683,9419,710,,Patricio Combo
+69684,9419,710,,Party Combo
+69706,9422,710,,3 Small Pizza
+69707,9422,710,,3 Medium Pizza
+69708,9422,710,,3 Large Pizza
+69709,9422,710,,3 X-Large Pizza
+70106,9468,712,,One Topping
+70107,9468,712,,Two Toppings
+70189,9478,255,,2 Small Pizza Special
+70190,9478,255,,2 Medium Pizza Special
+70191,9478,255,,2 Large Pizza Special
+70385,4506,389,,2 Moyennes Pizza Spécial Parenteau
+70387,9193,697,,Burrito Platter
+70389,9196,697,,1 Fish Taco
+70390,9196,697,,2 Fish Taco 
+70391,9196,697,,3 Fish Tacos
+70400,8353,607,,Burrito Platter
+70401,8356,607,,1 Fish Taco
+70402,8356,607,,2 Fish Taco 
+70403,8356,607,,3 Fish Tacos
+70863,9545,425,,Family Pack
+70864,9545,425,,2 Large Donairs Special
+71059,8682,673,,Special 1
+71060,8682,673,,Special 2
+71064,8670,673,,Special 1
+71065,8670,673,,Special 2
+71474,9630,717,,Cheese Pizza
+71475,9630,717,,Classic Pepperoni 
+71476,9630,717,,Ultra Thin New York Pizza 
+71477,9630,717,,1 for 1 Margarita
+71478,9630,717,,Hawaiian
+71479,10422,717,,Pesto Classic
+71480,9630,717,,Supreme Hawaiian
+71481,10422,717,,BBQ Chicken
+71482,10422,717,,White Pizza
+71483,9630,717,,Combination
+71484,9630,717,,Canadian
+71485,9630,717,,Four Seasons
+71486,9630,717,,Vegetarian
+71487,10422,717,,Steak House
+71488,10422,717,,Supreme Gourmet
+71489,10422,717,,Greek
+71490,10422,717,,Tropical Pesto
+71491,9630,717,,Mexican
+71492,9630,717,,Meat Lovers
+71493,9630,717,,Deluxe
+71494,9630,717,,Veggie Lovers
+71495,9623,717,,Small Pizza and Wings
+71496,9623,717,,Medium Pizza and Wings
+71497,9623,717,,Large pizza and Wings
+71498,9623,717,,X-Large Pizza and Wings
+71499,9621,717,,Triple Threat - Medium
+71500,9621,717,,Sub-Tacular
+71501,9621,717,,Singleton - Medium
+71502,9621,717,,Singleton - Large
+71503,9621,717,,Crowd Pleaser- Medium Pizza and Large Fries
+71504,9621,717,,Crowd Pleaser- Large Pizza and Large Fries
+71505,9621,717,,Great Canadian Classic
+71506,9621,717,,Great Canadian Classic - Medium
+71533,9621,717,,Triple Threat - Large
+71667,4106,358,,Personal Pizza 
+71794,9655,718,,One Topping
+71795,9655,718,,Two Toppings
+71820,9657,718,,2 Toppings
+71821,9657,718,,4 Toppings
+71822,9657,718,,6 Toppings
+71823,9658,718,,Large Pizza Special
+71824,9658,718,,Medium Pizza Special
+71914,1921,181,,Medium Pizza with Dessert Deal
+71962,9677,722,,1 Item Pizza
+71963,9677,722,,2 Items Pizza
+71964,9677,722,,3 Items Pizza
+71965,9677,722,,4 Items Pizza
+71966,9677,722,,5 Items Pizza
+71996,2242,205,,4 Toppings
+72048,9693,726,,1 Item Pizza
+72174,9708,726,,Family Meal Deal
+72175,9708,726,,Medium Pizza Deal HIDE
+72176,9708,726,,Large Pizza 1 Topping HIDE
+72330,9733,721,,One Item Pizza
+72331,9733,721,,Two Items Pizza
+72332,9733,721,,Three Items Pizza
+72333,9733,721,,Four Items Pizza HIDE
+72334,9734,721,,One Item HIDE
+72335,9734,721,,Two Items HIDE
+72336,9734,721,,Three Items HIDE
+72337,9734,721,,Four Items HIDE
+72338,9735,721,,Family Special
+72546,1320,145,,1 Large Pizza Special HIDE
+72572,9778,200,,Buddy Pack (2 Free Garlic Sauces)
+72573,9778,200,,Party Pack 1 (2 Free Garlic Sauces)
+72574,9778,200,,Party Pack 2 (3 Free Garlic Sauces)
+72575,9778,200,,Spaghetti For 2 HIDE
+72589,9692,724,,The Best Deal
+72590,9692,724,,Best of Both
+72591,9692,724,,Value Meal Deal
+72592,9692,724,,Party Starter
+72594,9692,724,,Family Feeder
+72629,9787,729,,1 Topping
+72630,9787,729,,2 Toppings HIDE
+72631,9787,729,,3 Toppings HIDE
+72650,9789,729,,2 Toppings Combined
+72651,9789,729,,4 Toppings Combined
+72652,9789,729,,6 Toppings Combined
+72743,9802,729,,2 Large Pizza & Wings  HIDE
+72744,14981,729,,Large Pizza & Wings
+72745,14981,729,,Medium Pizza & Wings
+72930,9831,157,,1 Topping
+72931,9831,157,,2 Toppings
+72932,9831,157,,3 Toppings
+73003,9845,527,,Nature
+73004,9845,527,,Pepperoni
+73005,9845,527,,Toute Garnie
+73006,9845,527,,Mexicaine
+73007,9845,527,,Végétarienne
+73008,9845,527,,Hawïenne
+73009,9845,527,,Amateur de Viande
+73010,9845,527,,Québécoise
+73011,9845,527,,Poulet Champignons HIDE
+73012,9845,527,,Deluxe
+73063,9853,732,,Nature
+73064,9853,732,,Pepperoni
+73065,9853,732,,Hawaïenne
+73066,9853,732,,Toute garnie
+73067,9853,732,,Deluxe
+73068,9853,732,,Québécoise
+73069,9853,732,,Végétarienne
+73070,9853,732,,Fou de la viande
+73071,9853,732,,Spécial Chef
+73072,9853,732,,Spécial Estrie
+73073,9853,732,,Spécial Magog
+73074,9854,732,,Party 2
+73075,9854,732,,Familial
+73076,9854,732,,Duo
+73077,9854,732,,Solo
+73079,7046,549,,2 Souvlaki Platters
+73080,7046,549,,3 Souvlaki Platters HIDE
+73081,7046,549,,4 Souvlaki Platters HIDE
+73082,7046,549,,5 Souvlaki Platters HIDE
+73100,8180,637,,"One 18 Pizza HIDE"""
+73101,8180,637,,"One 18 Pizza with Salad HIDE"""
+73102,8180,637,,Wednesday Special HIDE
+73103,8180,637,,Friday Special HIDE
+73104,8180,637,,Saturday Specials HIDE
+73200,9856,733,,Small Mix Platter (5 people)
+73201,9856,733,,Small Mix Platter Combo (5 people)
+73202,9856,733,,Medium Mix Platter (12-14 people)
+73203,9856,733,,Medium Mix Platter Combo (12-14 people)
+73204,9856,733,,Large Mix Platter (25-28 people)
+73205,9856,733,,Large Mix Platter Combo (25-28 people)
+73286,9872,734,,One Item Pizza
+73287,9872,734,,Two Items Pizza
+73288,9872,734,,Three Items Pizza
+73289,9873,734,,Twins Pizzas
+73363,9885,734,,4 Large Pizza Deal
+73366,9885,734,,2 Large Pizzas Deal
+73367,9887,734,,Small Pizza & Wings
+73368,9887,734,,Medium Pizza & Wings
+73369,9887,734,,Large Pizza & Wings
+73370,9887,734,,2 Medium Pizzas & Wings
+73433,1150,134,,Pasta Special
+73665,9937,737,,Twins 2 Toppings
+73666,9937,737,,Twins 4 Toppings
+73667,9937,737,,Twins 6 Toppings
+73671,9939,737,,One Medium Pizza and 15 Wings
+73672,9939,737,,One Large Pizza and 18 Wings
+73673,9940,737,,One Small Pizza and Nachos
+73674,9940,737,,One Medium Pizza and Nachos
+73675,9940,737,,One Large Pizza and Nachos
+73681,9942,96,,1 Topping
+73682,9942,96,,2 Toppings
+73683,9942,96,,3 Toppings
+73684,9943,96,,Medium Pizza and Wings Deal
+73704,9943,96,,Large Pizza and Wings Deal
+74054,9978,738,,Beef Donair Special
+74055,9978,738,,Any 3 Small Sandwiches
+74056,9978,738,,Any 2 Medium Sandwiches
+74057,9978,738,,Any 2 Large Sandwiches
+74062,9978,738,,Two Sandwich Platter Small
+74193,7773,604,,Spécial 4 Assiettes
+74467,6892,532,,2 Spaghetti with 2 Cans of Pop
+74468,6892,532,,2 Lasagna with 2 Cans of Pop
+74610,1749,173,,Spécial Roula
+74611,1749,173,,Spécial Poutine HIDE
+74612,1749,173,,Les Spécialites Roulas HIDE
+74619,10057,213,,Lunchtime Special HIDE
+74788,10087,757,,Regular Combo 1 for 1
+74789,10087,757,,Regular Combo 1 for 2
+74790,10087,757,,Large Combo 2 for 1
+74791,10087,757,,Large Combo 2 for 2
+74792,10087,757,,Combo No.3
+74793,10087,757,,Combo No.4
+74794,10087,757,,Combo No.5
+74802,10082,757,,Kids Special HIDED
+75028,5815,473,,10. Wing Box
+75031,5815,473,,Tuesday Special HIDE
+75032,5815,473,,Wednesday Special HIDE
+75033,5815,473,,Thursday Special HIDE
+75187,10133,754,,Twins Pizza
+75188,10133,754,,Small Pizza with Poutine
+75189,10133,754,,Medium Pizza with Wings
+75190,10133,754,,Large Pizza with Wings
+75191,10133,754,,Large Pizza with Fries and Salad
+75192,10133,754,,Big Game Special
+75251,10140,756,,1 Moyenne Pizza Classique avec 2 Canettes
+75252,10140,756,,1 Grande Pizza Classique avec 2L Boisson
+75253,14334,756,,1 Moyenne Pizza Classique avec 12 Ailes et 2 Canettes
+75254,14334,756,,1 Grande Pizza Classique avec 18 Ailes et 2L Pepsi
+75264,14334,756,,Deux Pizza Classiques (Moyenne) avec 18 Ailes et Grande Frites et 2L de Pepsi
+75330,10147,756,,1 Medium Pizza with 591ml Pop HIDE
+75331,10147,756,,1 Large Pizza with Two 591ml Pop HIDE
+75332,14336,756,,1 Medium Classic Pizza with 12 Wings and Pop
+75333,14336,756,,1 Large Classic Pizza with 18 Wings and Pop
+75334,10147,756,,2 Small Pizza with 2 Cans of Pop (from 1 to 15) HIDE
+75335,10147,756,,2 Small Pizza with 2 Cans of Pop (from 16 to 35) HIDE
+75336,10147,756,,2 Medium Pizza with 2 Liters of Pop (from 1 to 15) HIDE
+75337,10147,756,,2 Medium Pizza with 2 Liters of Pop (from 16 to 35) HIDE
+75338,10147,756,,2 Large Pizza with 2 Liters of Pop (from 1 to 15) HIDE
+75339,10147,756,,2 Large Pizza with 2 Liters of Pop (from 16 to 35) HIDE
+75342,10141,756,,Any 2 Classic Pizza (Small) HIDE
+75343,14336,756,,Any 2 Classic Pizza (Medium) with 18 Wings and Large Fries
+75344,14336,756,,Any 2 Classic Pizza (Large) with 24 Wings and Large Fries
+75345,10142,756,,Any 2 Specialties Pizza (Small) HIDE
+75346,14336,756,,Any 2 Specialties Pizza (Medium) with 18 Wings and Large Fries HIDE
+75347,14336,756,,Any 2 Specialties Pizza (Large) with 24 Wings and Large Fries HIDE
+75348,10143,756,,Any 2 Gourmet Pizza (Small) HIDE
+75349,14336,756,,Any 2 Gourmet Pizza (Medium) with 18 Wings and Large Fries HIDE
+75350,14336,756,,Any 2 Gourmet Pizza (Large) with 24 Wings and Large Fries HIDE
+75675,10202,763,,Spécial #5
+75693,10204,763,,2 Pizzas
+75709,10203,763,,Pizza-Ghetti
+75710,10203,763,,Pizza-César
+75711,10202,763,,Spécial #1
+75712,10202,763,,Spécial #6
+75727,10208,763,,Combo 1
+75728,10208,763,,Combo 2
+76003,10237,766,,Regular Combo 1 for 1
+76004,10237,766,,Regular Combo 1 for 2
+76005,10237,766,,Large Combo 2 for 1
+76006,10237,766,,Large Combo 2 for 2
+76007,10237,766,,Combo No.3
+76008,10237,766,,Combo No.4
+76009,10237,766,,Combo No.5
+76384,10302,764,,2 Pasta Special
+76428,5368,441,,30th Anniversary Medium
+76429,5368,441,,30th Anniversary Large
+76430,5368,441,,Fan Favourite Medium
+76431,5368,441,,Fan Favourite Large
+76432,5368,441,,Fan Favourite X-Large
+76435,5368,441,,Chicken Feast Small
+76436,5368,441,,Chicken Feast Large
+76442,5451,441,,Potato
+76443,5451,441,,Poutine EH
+76444,5451,441,,Bacon Cheese Burger
+76445,10308,441,,Chicken Club
+76446,10308,441,,Chicken Bacon Ranch
+76458,5368,441,,XL-Special
+76683,10341,718,,"15 Large Pizza plus Large Chef Salad HIDE"""
+76684,10341,718,,"15 Large Pizza plus 10 Wings HIDE"""
+76685,10341,718,,"15 Large Pizza plus Zucchini Sticks and Onion Rings HIDE"""
+76686,10342,512,,Combo No.1 HIDED
+76687,10342,512,,Combo No.2 HIDED
+76688,10344,513,,Combo No.1 HIDED
+76689,10344,513,,Combo No.2 HIDED
+76690,10345,328,,Combo No.1 HIDED
+76691,10345,328,,Combo No.2 HIDED
+76692,10346,112,,Combo No.1 HIDED
+76693,10346,112,,Combo No.2 HIDED
+76694,10347,127,,Combo No.1 HIDED
+76695,10347,127,,Combo No.2 HIDED
+76696,10348,411,,Combo No.1 HIDED
+76697,10348,411,,Combo No.2 HIDED
+76698,10349,161,,Combo No.1 HIDED
+76699,10349,161,,Combo No.2 HIDED
+76700,10350,164,,Combo No.1 HIDED
+76701,10350,164,,Combo No.2 HIDED
+76702,10351,172,,Combo No.1 HIDED
+76703,10351,172,,Combo No.2 HIDED
+76704,10352,181,,Combo No.1 HIDED
+76705,10352,181,,Combo No.2 HIDED
+76706,10353,190,,Combo No.1 HIDED
+76707,10353,190,,Combo No.2 HIDED
+76708,10354,204,,Combo No.1 HIDED
+76709,10354,204,,Combo No.2 HIDED
+76710,10355,205,,Combo No.1 HIDED
+76711,10355,205,,Combo No.2 HIDED
+76712,10356,205,,Combo No.1 HIDED
+76713,10356,205,,Combo No.2 HIDED
+76714,10357,206,,Combo No.1 HIDED
+76715,10357,206,,Combo No.2 HIDED
+76716,10358,207,,Combo No.1 HIDED
+76717,10358,207,,Combo No.2 HIDED
+76718,10359,208,,Combo No.1 HIDED
+76719,10359,208,,Combo No.2 HIDED
+76720,10360,209,,Combo No.1 HIDED
+76721,10360,209,,Combo No.2 HIDED
+76722,10361,210,,Combo No.1 HIDED
+76723,10361,210,,Combo No.2 HIDED
+76724,10362,211,,Combo No.1 HIDED
+76725,10362,211,,Combo No.2 HIDED
+76726,10363,213,,Combo No.1 HIDED
+76727,10363,213,,Combo No.2 HIDED
+76728,10364,215,,Combo No.1 HIDED
+76729,10364,215,,Combo No.2 HIDED
+76730,10365,245,,Combo No.1 HIDED
+76731,10365,245,,Combo No.2 HIDED
+76911,7377,553,,2 Large Doairs and 2 Cans of Pop
+76912,7377,553,,2 Large Shawarma and 2 Cans of Pop
+76918,10423,527,,Petite Pizza 2 Garnitures et 1 Sous Marin HIDE
+76919,10423,527,,Petite Pizza Toute Garnie et 1 Sous Marin HIDE
+76920,10423,527,,Moyenne Pizza 2 Garnitures et 1 Sous Marin HIDE
+76921,10423,527,,Moyenne Pizza Toute Garnie et 1 Sous Marin HIDE
+76922,10423,527,,Grande Pizza 2 Garnitures et 1 Sous Marin HIDE
+76923,10423,527,,Grande Pizza Toute Garnie et 1 Sous Marin HIDE
+76924,10423,527,,X-Grande Pizza 2 Garnitures et 1 Sous Marin HIDE
+76925,10423,527,,X-Grande Pizza Toute Garnie et 1 Sous Marin HIDE
+76947,10392,769,,Ultimate Basket
+76949,10393,769,,Canadian
+76950,10393,769,,Breakfast
+76951,10393,769,,Mediterranean
+76952,10393,769,,King Burger
+76953,10393,769,,Veggie Delight
+76954,10393,769,,Original
+76955,10393,769,,Sweet & Spicy
+76956,10393,769,,The Big Bison
+76957,10393,769,,Salmon Supreme
+76958,10393,769,,The Smokey RedBlack
+76959,10394,769,,Meltdown
+76960,10394,769,,Mushroom Madness
+76961,10395,769,,Build Your Own Burger
+77119,9621,717,,25th Anniversary Medium
+77120,9621,717,,25th Anniversary Large
+77121,9621,717,,XL-Special
+77122,9621,717,,Fan Favourite Medium
+77123,9621,717,,Fan Favourite Large
+77124,9621,717,,Fan Favourite X-Large
+77127,9621,717,,Chicken Feast Small
+77128,9621,717,,Chicken Feast Large
+77134,9630,717,,Potato
+77135,9630,717,,Poutine EH
+77136,9630,717,,Bacon Cheese Burger
+77137,10422,717,,Chicken Club
+77138,10422,717,,Chicken Bacon Ranch
+77151,9692,724,,Season Special WOW
+77168,939,109,,Special Shawarma
+77169,939,109,,Large Pizza 3 Toppings and 2 Drinks
+77264,10443,776,,Two Shawarma Trios
+77265,10444,776,,Twins 1 Topping
+77266,10444,776,,Twins 2 Toppings
+77267,10444,776,,Twins 3 Toppings
+77268,10443,776,,Large Pizza 3 Toppings
+77272,10445,776,,Two Shawarma Platters
+77273,10445,776,,Pasta Pair
+77274,10445,776,,Pizza and Wings Combo
+77582,10480,783,,Pepperoni
+77583,10480,783,,Margherita
+77584,10480,783,,Veggie Pizza
+77585,10480,783,,Canadian Pizza
+77586,10480,783,,Italian Pizza
+77587,10480,783,,Hawaiian
+77588,10480,783,,Chicken Parmesan
+77589,10480,783,,Meat Lovers
+77590,10480,783,,Shrimp Alfredo
+77591,10480,783,,Chicken Alfredo
+77592,10480,783,,The Works
+77593,10480,783,,Rio Ranch
+77594,10480,783,,Mediterranean
+77595,10480,783,,Buffalo Chicken
+77596,10480,783,,Primavera
+77597,10480,783,,Chicken Bruschetta
+77598,10480,783,,Roma Spinach
+77599,10480,783,,Chicken Diabolo
+77600,10481,783,,FY's Special Deluxe
+77601,10481,783,,FY's Super
+77602,10481,783,,The Big Works
+77603,10481,783,,Lasagna Pizza
+77604,10482,783,,Basic
+77730,10494,184,,1 Petite avec Poutine et 1 Canette Pepsi
+77731,10494,184,,1 Moyenne avec Grande Poutines et 2 Canettes Pepsi
+77732,10494,184,,1 Grande avec Grande Poutines et 3 Canettes Pepsi
+77779,10501,778,,Dinner for 2 with 2 Main Dishes
+77780,10501,778,,Dinner for 2 with 6 Tacos
+77781,10501,778,,Dinner for 4 with 4 Main Dishes
+77782,10501,778,,Dinner for 4 with 12 Tacos
+77840,10508,131,,Combo 4 HIDE
+77898,1520,157,,One Item Pizza
+77916,1529,157,,Large Pizza Special
+77917,1529,157,,2 Large Beef Donair
+77918,1529,157,,2 Large Chicken Shawarma
+78259,2210,204,,The Perfect Combo Deal with PopCurds
+78260,6583,512,,The Perfect Combo Deal with PopCurds
+78261,4828,411,,The Perfect Combo Deal with PopCurds
+78262,2280,210,,The Perfect Combo Deal with PopCurds
+78263,1933,190,,The Perfect Combo Deal with PopCurds
+78264,1547,161,,The Perfect Combo Deal with PopCurds
+78265,2304,209,,The Perfect Combo Deal with PopCurds
+78267,10560,782,,1 Ingrédient
+78268,10560,782,,2 Ingrédients
+78341,10570,782,,2 Moyennes Pizza
+78342,10570,782,,2 Grandes Pizza
+78343,10571,782,,Petite Pizza et Ailes
+78344,10571,782,,Moyenne Pizza et Ailes
+78345,10571,782,,Grande Pizza et Ailes
+78378,1694,172,,The Perfect Combo Deal with PopCurds
+78453,10583,780,,2 Moyennes Pizza avec Salade et Frite
+78454,10583,780,,2 Grandes Pizza avec Salade et Frite
+78455,10583,780,,2 Petites Pizza 3 Garnitures
+78456,10583,780,,2 Moyenne Pizza 3 Garnitures
+78457,10583,780,,2 Grandes Pizza 3 Garnitures
+78458,10583,780,,2 XGrandes Pizza 3 Garnitures
+78459,10583,780,,1 Petite Pizza avec Ailes
+78460,10583,780,,1 Moyenne Pizza avec Ailes
+78461,10583,780,,1 Grande Pizza avec Ailes
+78462,10583,780,,1 XGrande Pizza avec Ailes
+78655,10599,785,,One Topping HIDE
+78656,10599,785,,Two Toppings HIDE
+78708,10606,785,,Two Pizza 1 Topping
+78709,10606,785,,Two Pizza 2 Toppings
+78710,10606,785,,Two Pizza 3 Toppings
+78711,10605,785,,Large Pizza Deal
+78712,10605,785,,Medium Pizza Deal
+78713,10605,785,,Donair Special HIDE
+78714,10605,785,,2 Chicken Shawarma Special HIDE
+78716,10607,788,,Burrito
+78717,10607,788,,Vegetarian Burrito
+78718,10608,788,,Quesadilla
+78719,10608,788,,Vegetarian Quesadilla
+78720,10609,788,,Nachos
+78721,10609,788,,Vegetarian Nachos
+78722,10610,788,,1 Taco
+78723,10610,788,,2 Tacos
+78724,10610,788,,3 Tacos
+78725,10610,788,,1 Vegetarian Taco
+78726,10610,788,,2 Vegetarian Tacos
+78727,10610,788,,3 Vegetarian Tacos
+78730,10612,788,,Vegetarian Salad Bowl
+78745,10607,788,,Burrito Platter
+78746,10610,788,,1 Fish Taco
+78747,10610,788,,2 Fish Taco 
+78748,10610,788,,3 Fish Tacos
+78775,10620,207,,Small Perfect Combo Deal with PopCurds
+78776,10620,207,,Medium Perfect Combo Deal with PopCurds
+78777,10620,207,,Large Perfect Combo Deal with PopCurds
+78782,2223,207,,Pizza Wings and Pepsi
+78906,10637,789,,One Topping HIDE
+78907,10637,789,,Two Toppings HIDE
+78944,10641,789,,2 Pizza Deal 1 Topping
+78945,10641,789,,2 Pizza Deal 2 Toppings
+78946,10641,789,,2 Pizza Deal 3 Toppings
+78947,10642,789,,Large Pizza Deal
+78948,10642,789,,Medium Pizza Deal
+78949,10642,789,,The Perfect Combo Deal with PopCurds
+78952,10642,789,,Shawarma Special HIDED
+78955,8123,633,,5 Toppings
+78959,3776,328,,The Perfect Combo Deal with PopCurds
+79000,5384,439,,Tempura Vegetables
+79087,10655,787,,Cheese HIDE
+79088,10655,787,,Pepperoni HIDE
+79089,10655,787,,Canadian HIDE
+79090,10655,787,,Vegetarian HIDE
+79091,10655,787,,Hawaiian HIDE
+79092,10655,787,,Mexican HIDE
+79093,10655,787,,Italian HIDE
+79094,10655,787,,Formagio HIDE
+79095,10655,787,,Greco HIDE
+79096,10655,787,,Mediterranean HIDE
+79097,10655,787,,Genoa HIDE
+79098,10655,787,,Pollo HIDE
+79099,10655,787,,Colonel HIDE
+79100,10655,787,,Gourmand HIDE
+79101,10655,787,,Chicken BBQ HIDE
+79102,10655,787,,Veggie Extreme HIDE
+79103,10656,787,,Pizza Combo HIDE
+79104,10656,787,,Family Meal HIDE
+79105,10656,787,,Party Pack HIDE
+79106,10656,787,,Wingstravaganza HIDE
+79108,10656,787,,Two for Two Panini
+79109,10656,787,,Two for Two Burgers
+79266,10675,792,,Spécial 4 Pizzas Grande
+79274,10675,792,,Spécial No1
+79275,10675,792,,Spécial No2
+79279,7290,567,,The Big Cheese
+79280,7290,567,,Pizza Romano
+79281,7290,567,,Mediterranean Chicken
+79413,10693,790,,Pizza Une Garniture
+79524,10704,791,,Plain Pizza
+79525,10704,791,,1 Topping Pizza
+79526,10704,791,,2 Toppings Pizza
+79527,10704,791,,3 Toppings Pizza
+79528,10704,791,,4 Toppings Pizza
+79529,10704,791,,5 Toppings Pizza
+79606,11203,791,,1 Large Pizza 3 Toppings 
+79607,11205,791,,2 Large Pizzas
+79608,10720,791,,Small Pizza with Wings
+79609,10720,791,,Medium Pizza and Wings
+79610,10720,791,,Large Pizza and Wings
+79611,10720,791,,2 Large Pizzas and Wings HIDE
+79632,2179,195,,2 Ingrédients
+79634,7134,195,,2 Moyenne Pizzas Toute Garnie HIDE
+79635,7134,195,,2 Moyenne Pizza 2 Ingrédients HIDE
+79636,7134,195,,1 Moyenne Pizza avec Ailes
+79637,7134,195,,2 Moyenne Pizzas
+79638,7134,195,,2 Grande Pizzas
+79639,7134,195,,1 Grande Pizza avec Ailes
+79655,2170,195,,2 Ingredients Pizza
+79658,7133,195,,2 Medium Pizza All Dressed HIDE
+79659,7133,195,,2 Medium Pizza 2 Toppings HIDE
+79660,7133,195,,1 Medium Pizza with Wings
+79661,7133,195,,2 Medium Pizza
+79662,7133,195,,2 Large Pizza
+79663,7133,195,,1 Large Pizza with Wings
+79692,10725,790,,2 Petites Pizza 3 Garnitures
+79693,10725,790,,2 Moyennes Pizza 3 Garnitures
+79694,10725,790,,2 Grandes Pizza 3 Garnitures
+79695,10725,790,,2 X-Grandes Pizza 3 Garnitures HIDE
+79698,10726,228,,2 Medium Pizza with 3 Toppings HIDE
+79699,10726,228,,2 Large Pizza with 3 Toppings HIDE
+79701,2594,228,,2 Moyenne Pizza 3 Garnitures HIDE
+79702,2594,228,,2 Grandes Pizza 3 Garnitures HIDE
+79743,9939,737,,One Small Pizza and 10 Wings
+79744,9939,737,,Group Special
+80048,10751,795,,1 Topping 
+80049,10751,795,,2 Toppings
+80050,10751,795,,3 Toppings
+80051,10760,795,,2 Toppings
+80052,10760,795,,4 Toppings
+80053,10760,795,,6 Toppings
+80054,10761,795,,Deal 1
+80055,10761,795,,Deal 2
+80056,10761,795,,Deal 3 - XTreme 3S
+80069,10762,795,,2 Spaghetti with 2 Cans of Pop
+80070,10762,795,,2 Lasagna with 2 Cans of Pop
+80338,10805,732,,Moyenne Pizza et Poutine
+80339,10805,732,,Grande Pizza et Poutine
+80340,10805,732,,X-Grande Pizza et Poutine
+80907,10878,807,,1 Topping Pizza
+80908,10878,807,,2 Toppings Pizza
+80929,10880,807,,1 Topping Pizza Deal
+80930,10880,807,,2 Toppings Pizza Deal
+80931,10880,807,,3 Toppings Pizza Deal
+80942,10881,807,,Medium Pizza Deal with Wings & Pop
+80943,10881,807,,Large Pizza Deal with Wings & Pop
+81053,10901,808,,One Topping HIDE
+81054,10901,808,,Two Toppings HIDE
+81123,10911,808,,1 Topping 2 Pizza Deal
+81124,10911,808,,2 Toppings 2 Pizza Deal
+81125,10911,808,,3 Toppings 2 Pizza Deal
+81126,10912,808,,Medium Pizza Deal
+81127,10912,808,,Large Pizza Deal
+81136,10912,808,,Donair Special HIDE
+81147,10912,808,,Chicken Shawarma Special HIDE
+81170,10918,808,,Large 3 Toppings Pizza HIDE
+81751,11006,815,,One Topping
+81752,11006,815,,Two Toppings
+81956,11027,817,,1 Topping 
+81957,11027,817,,2 Toppings
+81959,11036,817,,2 Toppings
+81960,11036,817,,4 Toppings
+81961,11036,817,,6 Toppings
+81962,11037,817,,Supreme Pizza Deal 1
+81963,11037,817,,Supreme Pizza Deal 2
+81964,11037,817,,Xtreme 3's HIDE
+81977,11038,817,,2 Spaghetti with 2 Cans of Pop
+81978,11038,817,,2 Lasagna with 2 Cans of Pop
+82024,11049,816,,1 Topping Pizza
+82025,11049,816,,2 Toppings Pizza
+82026,11049,816,,3 Toppings Pizza
+82028,11049,816,,4 Toppings Pizza HIDE
+82029,11050,816,,Twins 2 Toppings
+82030,11050,816,,Twins 4 Toppings
+82031,11050,816,,Twins 6 Toppings
+82045,11053,816,,Selfie Special
+82046,11053,816,,Buddy Special
+82047,11053,816,,Groupie Special
+82355,9545,425,,Hungry People Deal
+82402,10656,787,,Sub Special
+82814,747,94,,Mama's Solid Meal Deal
+82849,11153,821,,One Topping
+82852,11153,821,,Two Toppings
+82931,11164,821,,Family Deal Large Pizza
+82932,11164,821,,Two Large Pizza Deal with Wings
+82934,11164,821,,Large Pizza Deal
+82937,9919,735,,Sultani Kabab
+83134,10302,764,,1 Signature Burger with Small Poutine
+83135,10302,764,,1 Signature Burger with 5 Chicken Wings
+83136,10302,764,,2 Signature Burgers with Large Fries and 2 Pops
+83137,10302,764,,2 Signature Burgers with Large Onion Rings and 2 Pops
+83138,10302,764,,1 Signature Burger with 4 Mozzarella Sticks
+83139,10302,764,,1 Signature Burger with 4 Jalapeno Slammers
+83140,10302,764,,1 Signature Burger with 4 Chicken Bites and Pop
+83141,10302,764,,4 Cheeseburgers 4oz
+83828,11258,827,,1 Topping Pizza
+83853,11260,827,,1 Topping
+83854,11260,827,,2 Toppings
+83855,11260,827,,3 Toppings
+83860,11262,827,,Small Pizza Special
+83861,11262,827,,Medium Pizza Special
+83862,11262,827,,Large Pizza Special
+83969,11282,826,,One Item
+83970,11282,826,,Two Items
+83971,11282,826,,Three Items
+84077,11295,826,,1 Topping Pizzas HIDE
+84078,11295,826,,2 Toppings Pizzas HIDE
+84079,11295,826,,3 Toppings Pizzas HIDE
+84080,11296,826,,Large Pizza & Wings HIDE
+84081,11296,826,,Medium Pizza & Wings HIDE
+84082,11296,826,,Small Pizza & Wings HIDE
+84083,11297,826,,Large Pizza and Chef Salad HIDE
+84084,11297,826,,Large Pizza and Caesar Salad HIDE
+84085,11297,826,,Medium Pizza and Chef Salad HIDE
+84086,11297,826,,Medium Pizza and Caesar Salad HIDE
+84142,11310,832,,One Topping
+84143,11310,832,,Two Toppings
+84144,11311,832,,Twins 1 Topping
+84145,11311,832,,Twins 2 Toppings
+84146,11311,832,,Twins 3 Toppings
+84200,11319,832,,Large Pizza Special
+84201,11319,832,,Medium Pizza Special
+84202,11319,832,,2 Large Pizza Special
+84203,11319,832,,2 Medium Pizza Special
+84322,11220,824,,The Perfect Combo Deal with PopCurds
+84328,11328,527,,2 Petite Pizzas 2 Garnitures avec Ailes et Breuvage HIDE
+84329,11328,527,,2 Petite Pizzas Toute Garnie avec Ailes et Breuvage HIDE
+84330,11328,527,,2 Moyenne Pizzas 2 Garnitures avec Ailes et Breuvage HIDE
+84331,11328,527,,2 Moyenne Pizzas Toute Garnie avec Ailes et Breuvage HIDE
+84332,11328,527,,2 Larges Pizzas 2 Garnitures avec Ailes et Breuvage HIDE
+84333,11328,527,,2 Larges Pizzas Toute Garnie avec Ailes et Breuvage HIDE
+84334,11328,527,,2 X-Larges Pizzas 2 Garnitures avec Ailes et Breuvage HIDE
+84335,11328,527,,2 X-Larges Pizzas Toute Garnie avec Ailes et Breuvage HIDE
+84336,6967,527,,1 Moyenne Pizza Poutine HIDE
+84380,5815,473,,6. Tandori Chicken Shawarma Pizza HIDE
+84381,5815,473,,10. Pizza & Salad with Garlic Bread HIDE
+84382,5815,473,,10. Pizza & Salad with Potato Wedges HIDE
+84384,10656,787,,Medium Pizza with Wings and Drinks
+84386,10656,787,,Large Pizza with Wings and Drinks
+84387,10656,787,,Two Large Pizza with Wings and Drinks
+84388,11333,787,,Twins Plain
+84389,11333,787,,Twins 1 Topping
+84390,11333,787,,Twins 2 Toppings
+84391,11333,787,,Twins 3 Toppings
+84392,11333,787,,Twins 4 Toppings
+84393,11333,787,,Twins 5 Toppings
+84456,11346,834,,Cheese Pizza
+84457,11346,834,,Classic Pepperoni 
+84458,11346,834,,Ultra Thin New York Pizza 
+84459,11346,834,,1 for 1 Margarita
+84460,11346,834,,Hawaiian
+84461,11348,834,,Pesto Classic
+84462,11346,834,,Supreme Hawaiian
+84463,11348,834,,BBQ Chicken
+84464,11348,834,,White Pizza
+84465,11346,834,,Combination
+84466,11346,834,,Canadian
+84467,11346,834,,Four Seasons
+84468,11346,834,,Vegetarian
+84469,11348,834,,Steak House
+84470,11348,834,,Supreme Gourmet
+84471,11348,834,,Greek
+84472,11348,834,,Tropical Pesto
+84473,11346,834,,Mexican
+84474,11346,834,,Meat Lovers
+84475,11346,834,,Deluxe
+84476,11346,834,,Veggie Lovers
+84477,11339,834,,Small Pizza and Wings
+84478,11339,834,,Medium Pizza and Wings
+84479,11339,834,,Large pizza and Wings
+84480,11339,834,,X-Large Pizza and Wings
+84481,11337,834,,Triple Threat - Medium
+84482,11337,834,,Sub-Tacular
+84483,11337,834,,Singleton - Medium
+84484,11337,834,,Singleton - Large
+84485,11337,834,,Crowd Pleaser- Medium Pizza and Large Fries
+84486,11337,834,,Crowd Pleaser- Large Pizza and Large Fries
+84487,11337,834,,Great Canadian Classic
+84488,11337,834,,Great Canadian Classic - Medium
+84513,11337,834,,Triple Threat - Large
+84514,11337,834,,30th Anniversary Medium
+84515,11337,834,,30th Anniversary Large
+84516,11337,834,,Fan Favourite Medium
+84517,11337,834,,Fan Favourite Large
+84518,11337,834,,Fan Favourite X-Large
+84521,11337,834,,Chicken Feast Small
+84522,11337,834,,Chicken Feast Large
+84528,11346,834,,Potato
+84529,11346,834,,Poutine EH
+84530,11346,834,,Bacon Cheese Burger
+84531,11348,834,,Chicken Club
+84532,11348,834,,Chicken Bacon Ranch
+84544,11337,834,,XL-Special
+84580,9658,718,,Two Donairs Special
+84589,11354,126,,Large Pizza with Wings and Pops and 1 piece of lemon meringue pie
+84590,11354,126,,Two Spaghettis with Pops and Garlic Bread
+84591,11354,126,,Two Lasagnas with Pops and Garlic Bread
+84592,11355,838,,Pepperoni & Fromage
+84593,11355,838,,Pepperoni & Bacon
+84594,11355,838,,POB
+84595,11355,838,,Garnie
+84596,11355,838,,Hawaïenne
+84597,11355,838,,Végétarienne
+84598,11355,838,,Mexicaine
+84599,11355,838,,Paco
+84600,11355,838,,Poulet BBQ
+84601,11355,838,,Grecque
+84602,11355,838,,Marina Spéciale
+84603,11355,838,,Carne
+84604,11355,838,,Evo
+84628,11360,838,,1 Petite Pizza et 1 Poutine
+84629,11360,838,,1 Moyenne Pizza et 2 Petites Poutines
+84630,11360,838,,1 Grande Pizza et 2 Poutines
+84631,11361,838,,1 Petit Pizza et 10 Ailes
+84632,11361,838,,1 Moyenne Pizza et 15 Ailes
+84633,11361,838,,1 Grande Pizza et 20 Ailes
+84634,11361,838,,Moyenne Pizza avec Frites Familiale
+84635,11361,838,,Grande Pizza avec Frites Familiale
+84636,11357,838,,Spéciale Combo
+84659,11365,839,,Pepperoni & Fromage
+84660,11365,839,,Pepperoni & Bacon
+84661,11365,839,,POB
+84662,11365,839,,Garnie
+84663,11365,839,,Hawaïenne
+84664,11365,839,,Végétarienne
+84665,11365,839,,Mexicaine
+84666,11365,839,,Paco
+84667,11365,839,,Poulet BBQ
+84668,11365,839,,Grecque
+84669,11365,839,,Marina Spéciale
+84670,11365,839,,Carne
+84671,11365,839,,Evo
+84695,11370,839,,1 Petite Pizza et 1 Poutine
+84696,11370,839,,1 Moyenne Pizza et 2 Petites Poutines
+84697,11370,839,,1 Grande Pizza et 2 Poutines
+84698,11371,839,,1 Petit Pizza et 10 Ailes
+84699,11371,839,,1 Moyenne Pizza et 15 Ailes
+84700,11371,839,,1 Grande Pizza et 20 Ailes
+84701,11371,839,,Moyenne Pizza avec Frites Familiale
+84702,11371,839,,Grande Pizza avec Frites Familiale
+84703,11371,839,,Spéciale Combo
+84846,9832,248,,The Perfect Combo Deal with PopCurds
+84996,9845,527,,Everest
+84997,9845,527,,Hot-Dog
+84998,9845,527,,Poulet & Cham
+84999,9845,527,,Canadienne
+85000,9845,527,,New Orleans
+85001,9845,527,,Italian
+85002,9845,527,,Brooklyn
+85003,9845,527,,Sicilienne
+85004,9845,527,,Mondiale
+85005,9845,527,,Irlandaise
+85006,9845,527,,Australienne
+85007,9845,527,,Africaine
+85212,2249,205,,The Perfect Combo Deal with PopCurds
+85213,2647,245,,The Perfect Combo Deal with PopCurds
+85402,11485,790,,1 Petite avec 3 Garnitures et Ailes HIDE
+85475,11498,849,,Cheese Pizza
+85476,11498,849,,Classic Pepperoni 
+85477,11498,849,,Ultra Thin New York Pizza 
+85478,11498,849,,1 for 1 Margarita
+85479,11498,849,,Hawaiian
+85480,11500,849,,Pesto Classic
+85481,11498,849,,Supreme Hawaiian
+85482,11500,849,,BBQ Chicken
+85483,11500,849,,White Pizza
+85484,11498,849,,Combination
+85485,11498,849,,Canadian
+85486,11498,849,,Four Seasons
+85487,11498,849,,Vegetarian
+85488,11500,849,,Steak House
+85489,11500,849,,Supreme Gourmet
+85490,11500,849,,Greek
+85491,11500,849,,Tropical Pesto
+85492,11498,849,,Mexican
+85493,11498,849,,Meat Lovers
+85494,11498,849,,Deluxe
+85495,11498,849,,Veggie Lovers
+85496,11491,849,,Small Pizza and Wings
+85497,11491,849,,Medium Pizza and Wings
+85498,11491,849,,Large pizza and Wings
+85499,11491,849,,X-Large Pizza and Wings
+85500,11489,849,,Triple Threat - Medium
+85501,11489,849,,Sub-Tacular
+85502,11489,849,,Singleton - Medium
+85503,11489,849,,Singleton - Large
+85504,11489,849,,Crowd Pleaser- Medium Pizza and Large Fries
+85505,11489,849,,Crowd Pleaser- Large Pizza and Large Fries
+85506,11489,849,,Great Canadian Classic - Small
+85507,11489,849,,Great Canadian Classic - Medium
+85532,11489,849,,Triple Threat - Large
+85533,11489,849,,30th Anniversary Medium
+85534,11489,849,,30th Anniversary Large
+85535,11489,849,,Fan Favourite Medium
+85536,11489,849,,Fan Favourite Large
+85537,11489,849,,Fan Favourite X-Large
+85540,11489,849,,Chicken Feast Small
+85541,11489,849,,Chicken Feast Large
+85547,11498,849,,Potato
+85548,11498,849,,Poutine EH
+85549,11498,849,,Bacon Cheese Burger
+85550,11500,849,,Chicken Club
+85551,11500,849,,Chicken Bacon Ranch
+85563,11489,849,,XL-Special
+85565,11501,206,,The Perfect Combo Deal with PopCurds
+85578,8954,384,,Veggie Burger
+85579,8954,384,,Veggie Burger Combo
+85581,8984,683,,Spécial Familiale
+85749,11526,833,,One Topping Pizza
+85750,11526,833,,Two Toppings HIDE
+85841,11535,850,,1 Topping Pizza HIDE
+85842,11535,850,,2 Toppings Pizza HIDE
+85907,11547,850,,Pizza 1 Ingrédient
+85908,11547,850,,Pizza 2 Ingrédients
+85933,11553,851,,2 Tacos
+85934,11553,851,,3 Tacos
+85935,11553,851,,Taco Combo
+85945,11557,851,,Fiesta for 2 with Tacos HIDE
+85947,11557,851,,Fiesta for 4 with Tacos HIDE
+85995,11565,833,,Family Deal HIDE
+85996,11565,833,,Medium Pizza & Wings Deal
+85997,11565,833,,Large Pizza & Wings Deal
+86000,11565,833,,Donair Special HIDE
+86001,11565,833,,The Perfect Combo Deal
+86002,11566,833,,2 Pizza Deal 1 Topping
+86003,11566,833,,2 Pizza Deal 2 Toppings
+86004,11566,833,,2 Pizza Deal 3 Toppings
+86006,11567,833,,1 Medium Pizza & Wings HIDE
+86007,11567,833,,2 Medium Pizzas & Wings HIDE
+86008,11567,833,,1 Large Pizza & Wings HIDE
+86009,11567,833,,2 Large Pizzas & Wings HIDE
+86017,11569,852,,1 Ingredient Pizza
+86071,11580,852,,Pizza Deal 1 Topping
+86072,11580,852,,Pizza Deal 2 Toppings
+86073,11580,852,,Pizza Deal 3 Toppings
+86075,11581,852,,Large Pizza & 12 Wings
+86129,11586,853,,1 Ingredient Pizza
+86183,11597,853,,Pizza Deal 1 Topping
+86184,11597,853,,Pizza Deal 2 Toppings
+86185,11597,853,,Pizza Deal 3 Toppings
+86187,11598,853,,Large Pizza & 12 Wings
+86202,11600,854,,1 Ingredient Pizza
+86256,11611,854,,Pizza Deal 1 Topping
+86257,11611,854,,Pizza Deal 2 Toppings
+86258,11611,854,,Pizza Deal 3 Toppings
+86260,11612,854,,Combo
+86275,11614,855,,1 Ingredient Pizza
+86329,11625,855,,Pizza Deal 1 Topping
+86330,11625,855,,Pizza Deal 2 Toppings
+86331,11625,855,,Pizza Deal 3 Toppings
+86333,11626,855,,Large Pizza & 12 Wings
+86816,14981,729,,XLarge Pizza and Wings
+86833,11695,193,,Grandma's HIDE
+86835,11694,193,,Calzone
+86878,11701,193,,1 Medium Pizza Special with 10 Wings
+86879,11701,193,,1 Large Pizza with chicken parmesan dinner and salad. HIDE
+86880,11701,193,,2 Large Pizza Special with 20 Wings
+86881,11701,193,,2 Medium Pizzas with 10 Wings
+86882,11701,193,,1 Large Pizza Special with 10 Wings
+86883,11702,193,,"1  Large Pizza with 20 Wings, Large poutine and caesar Salad HIDE"
+86884,11702,193,,"2 Large Pizzas, Chicken Parmesan Dinner and Large Caesar Salad HIDE"
+86885,11702,193,,2 Medium Pizza with 20 Wings & Lasagna HIDE
+86886,11702,193,,2 Medium Pizza with 20 Wings & Large Poutine HIDE
+86887,11702,193,,1 Large Pizza Special with 10 Wings & Baked ziti pasta HIDE
+86888,11702,193,,2 XLarge Pizza with chicken parmesan dinner and veal parmesan dinner HIDE
+87013,5368,441,,Singleton - XLarge
+87015,9621,717,,Singleton - XLarge
+87017,11337,834,,Singleton - XLarge
+87020,11489,849,,Singleton - XLarge
+87021,2598,229,,Meal Deal
+87136,11262,827,,X-Large Pizza Special
+87139,11739,863,,1 Topping Pizza
+87374,11769,816,,Family Deal No1
+87375,11769,816,,Family Deal No2
+87388,11053,816,,Double Up Deal No1
+87389,11053,816,,Double Up Special No2
+87699,1150,134,,Small Pizza Special with Wings and Pop
+87700,1150,134,,Large Pizza Special with Poutine and Pop
+87704,1547,161,,Small Pizza Deal HIDE
+87728,660,89,,One Topping
+87729,660,89,,Two Toppings
+87730,660,89,,Three Toppings
+87799,15626,863,,Two Pizzas 3 Toppings HIDE
+87927,11626,855,,Customer Appreciation HIDE
+87928,11581,852,,Customer Appreciation HIDE
+87929,11598,853,,Customer Appreciation HIDE
+88149,11164,821,,Two Medium Pizza Special HIDE
+88154,8184,637,,Pizza and 20 Wings HIDE
+88165,11739,863,,2 Toppings Pizza HIDE
+88170,11626,855,,The Best Combo Meal Deal with PopCurds
+88171,11581,852,,The Best Combo Meal Deal with PopCurds
+88172,11598,853,,The Best Combo Meal Deal with PopCurds
+88173,4048,350,,Nouveauté 3 Pizza Bambino
+88517,1675,164,,The Perfect Combo Deal with PopCurds
+88521,7377,553,,Large Pizza with 3 Toppings
+88603,11933,870,,Small Pizza & Wings
+88604,11933,870,,Medium Pizza & Wings
+88605,11933,870,,Large Pizza & Wings
+88606,11934,870,,3 Medium Pizza Special
+88607,11934,870,,3 Large Pizza Special
+88611,1749,173,,Spécial Familial
+88629,9708,726,,Large Pizza 3 Toppings
+88631,9708,726,,2 Large Subs & 2 Cans of Pop
+88637,6991,132,,Party Pizza HIDE
+88709,11948,872,,2 Petite Pizza
+88710,11948,872,,1 Petite Pizza et 10 Ailes 
+88711,11948,872,,1 Petite Pizza et Poutine HIDE
+88712,11949,872,,2 Moyennes Pizza
+88713,11949,872,,1 Moyenne Pizza et 14 Ailes
+88714,11949,872,,1 Moyenne Pizza et 2 Poutines
+88715,11950,872,,2 Grandes Pizza
+88716,11950,872,,1 Grande Pizza et 18 Ailes
+88717,11950,872,,1 Grande Pizza et 3 Poutines
+88718,11951,872,,2 Xtra Grande Pizza
+88719,11951,872,,1 Xtra Grande Pizza et 22 Ailes
+88720,11951,872,,1 Xtra Grande Pizza et 3 Poutines
+88721,15850,872,,Mega Bouffe
+88739,11952,872,,Party Pizza HIDE
+88747,11959,807,,Small Perfect Combo Deal with PopCurds
+88748,11959,807,,Medium Perfect Combo Deal with PopCurds
+88749,11959,807,,Large Perfect Combo Deal with PopCurds
+88756,11960,513,,Small Perfect Combo Deal with PopCurds
+88757,11960,513,,Medium Perfect Combo Deal with PopCurds
+88758,11960,513,,Large Perfect Combo Deal with PopCurds
+89038,10583,780,,2 X-Grandes Pizza avec Salade et Frite
+89039,11993,780,,Petit Pizza avec Poutine
+89040,11993,780,,Moyenne Pizza avec Poutine
+89041,11993,780,,Grande Pizza avec Poutine
+89261,2578,225,,A. Large Pizza All Dressed
+89262,2578,225,,B. Jumbo Pizza All Dressed
+89263,2578,225,,C. Two Medium Combination Pizza
+89264,2578,225,,D. Two Large Combination Pizza
+89267,2582,225,,A. Grande Pizza Toute Garnie
+89268,2582,225,,B. Pizza Jumbo Toute Garnie
+89269,2582,225,,C. Deux Pizzas Moyenne Combination
+89270,2582,225,,D. Deux Grandes Pizzas Combination
+89273,11702,193,,"Hockey Night Special - 2 L Pizzas, 20 Wings, Large Poutine HIDE"
+89301,10605,785,,2 Spaghetti Special HIDE
+89302,10605,785,,2 Lasagnas Special HIDE
+89303,10605,785,,2 Veal Parmesan Special HIDE
+89304,10605,785,,2 Chicken Parmesan Special HIDE
+89338,11626,855,,2 Shawarma Special
+89339,11626,855,,2 Donair Special
+89341,11581,852,,2 Shawarma Special
+89342,11581,852,,2 Donair Special
+89344,11598,853,,2 Shawarma Special
+89345,11598,853,,2 Donair Special
+89844,12107,878,,Pizza Deal No1 HIDE
+89845,12107,878,,Pizza Deal No2 HIDE
+89846,12107,878,,Pizza Deal No3 HIDE
+89847,12107,878,,Pizza Deal No4 HIDE
+89848,12107,878,,Pizza Deal No5 HIDE
+89849,12107,878,,Pizza Deal No6 HIDE
+89850,12107,878,,Pizza Deal No7 HIDE
+89851,12107,878,,Pizza Deal No8 HIDE
+89852,12107,878,,Pizza Deal No9 HIDE
+89853,12107,878,,Pizza Deal No10 HIDE
+89854,12107,878,,Pizza Deal No10 with 10 Wings HIDE
+89855,12107,878,,Pizza Deal No11 HIDE
+89856,12107,878,,Pizza Deal No12 HIDE
+89863,12109,879,,One Topping HIDE
+89864,12109,879,,Two Toppings HIDE
+89933,12119,879,,1 Topping 2 Pizza Deal
+89934,12119,879,,2 Toppings 2 Pizza Deal
+89935,12119,879,,3 Toppings 2 Pizza Deal
+89936,12120,879,,Medium Pizza Deal HIDE
+89937,12120,879,,Large Pizza Deal HIDE
+89946,12120,879,,Donair Special HIDE
+89957,12120,879,,Chicken Shawarma Special HIDE
+89979,12126,879,,Large 3 Toppings Pizza HIDE
+90045,12120,879,,The Perfect Combo Deal with PopCurds HIDE
+90111,1556,127,,The Perfect Combo Deal with PopCurds
+90122,3513,257,,Garlic Lovers Pizza
+90128,3631,257,,Small Pizza and Poutine HIDE
+90129,2763,238,,Small Pizza & Wings  hid
+90130,2763,238,,Medium Pizza & Wings hid
+90131,2763,238,,Large Pizza & Wings  hid
+90132,2763,238,,2 Small Pizza & Wings hid
+90133,2763,238,,2 Medium Pizza & Wings hid
+90134,2763,238,,2 Large Pizza & Wings hid
+90150,12139,883,,1 Topping Pizza
+90151,12139,883,,2 Toppings Pizza
+90152,12139,883,,3 Toppings Pizza
+90164,12140,883,,Pairs 1 Topping
+90165,12140,883,,Pairs 2 Toppings
+90166,12140,883,,Pairs 3 Toppings
+90284,12159,883,,Downtown Deal No1
+90285,12159,883,,Downtown Deal No2
+90286,12159,883,,Downtown Deal No3
+90287,12159,883,,Shawarma & Donair Deal
+90377,1738,131,,2 Moyennes Pizza Canadien avec Pepsi et Trempettes HIDE
+90378,1738,131,,Grande Pizza Margherita HIDE
+90396,8115,635,,Big Combo Deal
+90397,8115,635,,Junction Combo Box
+90398,8115,635,,Junction Snack Box
+90399,8115,635,,Party Size Deal HIDE
+90400,8115,635,,Combo No2
+90401,8115,635,,Combo No3
+90402,8115,635,,Combo No1
+90403,8115,635,,Combo No4
+90404,8115,635,,Combo No5
+90405,8115,635,,Combo No6
+90406,8115,635,,Combo No7 HIDE
+90478,12189,884,,Cheese Pizza
+90479,12189,884,,Classic Pepperoni 
+90480,12189,884,,Ultra Thin New York Pizza 
+90481,12189,884,,1 for 1 Margarita
+90482,12189,884,,Hawaiian
+90483,12191,884,,Pesto Classic
+90484,12189,884,,Supreme Hawaiian
+90485,12191,884,,BBQ Chicken
+90486,12191,884,,White Pizza
+90487,12189,884,,Combination
+90488,12189,884,,Canadian
+90489,12189,884,,Four Seasons
+90490,12189,884,,Vegetarian
+90491,12191,884,,Steak House
+90492,12191,884,,Supreme Gourmet
+90493,12191,884,,Greek
+90494,12191,884,,Tropical Pesto
+90495,12189,884,,Mexican
+90496,12189,884,,Meat Lovers
+90497,12189,884,,Deluxe
+90498,12189,884,,Veggie Lovers
+90499,12182,884,,Small Pizza and Wings
+90500,12182,884,,Medium Pizza and Wings
+90501,12182,884,,Large pizza and Wings
+90502,12182,884,,X-Large Pizza and Wings
+90503,12180,884,,Triple Threat
+90504,12180,884,,Sub-Tacular
+90505,12180,884,,Singleton - Medium
+90506,12180,884,,Singleton - Large
+90507,12180,884,,Crowd Pleaser- Medium Pizza and Large Fries
+90508,12180,884,,Crowd Pleaser- Large Pizza and Large Fries
+90509,12180,884,,Great Canadian Classic
+90510,12180,884,,Great Canadian Classic - Medium
+90535,12180,884,,Triple Threat Large
+90536,12180,884,,25th Anniversary Medium
+90537,12180,884,,25th Anniversary Large
+90538,12180,884,,Fan Favourite Medium
+90539,12180,884,,Fan Favourite Large
+90540,12180,884,,Fan Favourite X-Large
+90543,12180,884,,Bock-Bock Box Small
+90544,12180,884,,Bock-Bock Box Large
+90550,12189,884,,Potato
+90551,12189,884,,Poutine EH
+90552,12189,884,,Bacon Cheese Burger
+90553,12191,884,,Chicken Club
+90554,12191,884,,Chicken Bacon Ranch
+90566,12180,884,,XL-Special
+90568,12180,884,,Singleton - XLarge
+90569,11625,855,,Pizza Deal Plain Cheese
+90571,11580,852,,Pizza Deal Plain Cheese
+90573,11597,853,,Pizza Deal Plain Cheese
+90651,12202,210,,Large Lunch Pizza Special
+91026,2210,204,,Shawarma Special HIDE
+91047,9784,211,,The Perfect Combo Deal with PopCurds
+91209,12250,887,,CD1 Choice of rice noodle in beef broth (M size) and Spring roll
+91210,12250,887,,CD2 Choice of rice/ egg noodle in chicken broth (M size) and Spring roll
+91211,12250,887,,CD3 Choice of vermicelli and Shrimp wonton soup
+91212,12250,887,,CD4 Choice of rice dish and Shrimp wonton soup
+91213,12250,887,,CD5 Choice of stir fry and Shrimp wonton soup
+91214,12250,887,,CD6 Choice of fried rice or crunchy egg noodle and Shrimp wonton soup
+91415,2267,208,,The Perfect Combo Deal with PopCurds
+91416,10605,785,,The Perfect Combo Deal with PopCurds
+91417,2952,213,,The Perfect Combo Deal with PopCurds
+91424,11739,863,,1-2-3 Special HIDE
+91435,15626,863,,Medium Pizza & Poutine Deal HIDE
+91436,15626,863,,Large Pizza & Poutine Deal HIDE
+91440,7950,231,,1 X-Grande Pizza et 2 Canettes HIDE
+91441,11361,838,,Spéciale Sportif
+91453,11739,863,,Mom's Night Off with 10 pcs Fried Chicken HIDE
+91454,15626,863,,Wing Boy HIDE
+91455,15626,863,,Wing Man HIDE
+91463,12261,378,,Small Pizza & Wings
+91464,12261,378,,Medium Pizza & Wings
+91465,12261,378,,Large Pizza & Wings
+91467,12261,378,,Italian Special
+91468,2598,229,,Pizza Mia Family Special
+91470,12263,888,,Small Burrito
+91471,12263,888,,Regular Burrito
+91472,12264,888,,Small Quesadilla
+91473,12264,888,,Regular Quesadilla
+91474,12265,888,,One Taco
+91475,12265,888,,Two Tacos HIDE
+91476,12265,888,,Three Tacos HIDE
+91477,12266,888,,Nachos
+91478,12267,888,,Burrito Bowl
+91479,12267,888,,Grande Bowl
+91480,12267,888,,Grande Burrito Bowl Vegetarian
+91481,12268,888,,Taco Salad
+91482,12268,888,,Taco Salad Vegetarian
+91483,12269,888,,Kids Size Burrito
+91484,12269,888,,Kids Size Quesadilla
+91485,12269,888,,Kids Taco
+91515,1694,172,,Hot Customer Appreciation Deal HIDE
+91672,12289,886,,Asian Tacos (3 pcs)
+91673,11781,855,,Crustless Pizza
+91674,11782,852,,Crustless Pizza
+91675,11783,853,,Crustless Pizza
+91680,11037,817,,Supreme Family Feast
+91681,12293,532,,Super Bowl Large Pizza Deal HIDE
+91682,12294,817,,Super Bowl Deal HIDE
+91683,12295,795,,Super Bowl Deal HIDE
+91773,11781,855,,Heart Shape Pizza HIDE
+91774,11782,852,,Heart Shape Pizza HIDE
+91775,11783,853,,Heart Shape Pizza HIDE
+91797,12304,700,,2 Medium Pizza Special
+91826,10540,780,,Une Garniture
+91827,10583,780,,Special Sportif
+91829,10583,780,,Spécial Couple
+91878,9263,700,,1 Topping Pizza
+91886,12309,238,,Catering No9 - Two Medium Pizza
+91887,12309,238,,Catering No10 - Two Large Pizza
+91896,7704,600,,Medium Pizza & Crazy Bread
+91948,12311,157,,Medium Pizza & Wings
+91949,12311,157,,Medium Pizza & Poutine
+91950,12311,157,,Large Pizza & Wings
+91951,12311,157,,Large Pizza & Poutine
+91952,12311,157,,X-Large Pizza & Wings
+91953,12311,157,,X-Large Pizza & Poutine
+91988,12314,205,,1 Topping Pizza Deal
+91989,12314,205,,2 Toppings Pizza Deal
+91990,12314,205,,3 Toppings Pizza Deal
+92226,12344,172,,2 Pizza Deal 1 Topping (V)
+92227,12344,172,,2 Pizza Deal 2 Toppings (V)
+92228,12344,172,,2 Pizza Deal 3 Toppings (V)
+92240,9853,732,,Spécial 2 Go
+92241,12345,732,,"1 Pizza 10 avec Ailes"""
+92242,12345,732,,"1 Pizza 12 avec Ailes"""
+92243,12345,732,,"1 Pizza 14 avec Ailes"""
+92244,12345,732,,"1 Pizza 16 avec Ailes"""
+92245,12345,732,,"2 Pizzas 10 avec Frites"""
+92246,12345,732,,"2 Pizzas 12 avec Frites"""
+92247,12345,732,,"2 Pizzas 14 avec Ailes et Poutine"""
+92248,12345,732,,"2 Pizzas 16 avec Ailes et Frites"""
+92424,9128,692,,Medium Pizza 2 Toppings
+92430,12369,164,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+92431,12369,164,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+92432,12369,164,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+92478,9927,670,,Build Your Own Pizza 
+92490,8627,670,,Twins Pizza Special
+92519,12377,210,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+92520,12377,210,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+92521,12377,210,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+92534,12378,789,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+92535,12378,789,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+92536,12378,789,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+92549,12379,161,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+92550,12379,161,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+92551,12379,161,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+92619,12384,190,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V) HIDE
+92620,12384,190,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V) HIDE
+92621,12384,190,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V) HIDE
+93306,12469,248,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+93307,12469,248,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+93308,12469,248,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+93398,12478,889,,One Topping
+93399,12478,889,,Two Toppings
+93440,12483,889,,Large Pizza Deal
+93441,12483,889,,Medium Pizza Deal
+93443,12484,889,,1 Topping Pizza Deal
+93444,12484,889,,2 Toppings Pizza Deal
+93445,12484,889,,3 Toppings Pizza Deal
+93476,4195,367,,Willy's Combo
+93479,4191,367,,Two Toppings HIDE
+93529,12489,898,,"6 Wrap with Potatoes or Rice"""
+93530,12489,898,,"6 Wrap with Salad"""
+93531,12489,898,,"6 Wrap with Two Side Dishes HIDE"""
+93583,12497,898,,"6 Wrap avec Patates ou Riz"""
+93584,12497,898,,"6 Wrap avec Salade"""
+93585,12497,898,,"6 Wrap avec Deux Plats d'accompagnement HIDE"""
+93692,11739,863,,Drumstick Meal with Small Poutine & Drink HIDE
+93693,12508,901,,One Topping Pizza
+93816,12522,901,,Twins Pizza 1 Topping
+93817,12522,901,,Twins Pizza 2 Toppings
+93818,12522,901,,Twins Pizza 3 Toppings
+93819,12523,901,,Family Meal Deal with Poutine
+93820,12523,901,,Family Meal Deal with Chef's Salad
+93821,12523,901,,Large Pizza Deal
+93822,12523,901,,Two Large Subs Special
+93837,12524,207,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+93838,12524,207,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+93839,12524,207,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+93854,12525,211,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+93855,12525,211,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+93856,12525,211,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+93882,12526,855,,Pizza Deal Plain Vegan Cheese (V)
+93883,12526,855,,Pizza Deal 1 Topping (V)
+93884,12526,855,,Pizza Deal 2 Toppings (V)
+93885,12526,855,,Pizza Deal 3 Toppings (V)
+93896,12527,852,,Pizza Deal Plain Vegan Cheese (V)
+93897,12527,852,,Pizza Deal 1 Topping (V)
+93898,12527,852,,Pizza Deal 2 Toppings (V)
+93899,12527,852,,Pizza Deal 3 Toppings (V)
+93911,12528,853,,Pizza Deal Plain Vegan Cheese (V)
+93912,12528,853,,Pizza Deal 1 Topping (V)
+93913,12528,853,,Pizza Deal 2 Toppings (V)
+93914,12528,853,,Pizza Deal 3 Toppings (V)
+93933,12529,204,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+93934,12529,204,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+93935,12529,204,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+94024,12136,878,,Create Your Own Pizza
+94025,12107,878,,Deal For ONE
+94026,12107,878,,Deal For TWO
+94027,12107,878,,Deal For THREE with Wings
+94028,12107,878,,Deal For THREE with Salad
+94029,12107,878,,Double Double
+94030,12107,878,,Triple Triple
+94031,12107,878,,Wing Man Special
+94056,12535,833,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V) HIDE
+94057,12535,833,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V) HIDE
+94058,12535,833,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V) HIDE
+94096,12540,902,,One Topping
+94097,12540,902,,Two Toppings
+94127,11537,850,,Large Pizza Deal
+94128,11537,850,,Medium Pizza Deal
+94158,11549,850,,Pizza Grande Spécial
+94159,11549,850,,Pizza Moyen Spécial
+94237,12559,902,,Jumbo Pizza Family Special
+94238,12559,902,,Large Pizza Special
+94239,12559,902,,Medium Pizza Special
+94271,12564,905,,One Topping
+94272,12564,905,,Two Toppings
+94316,12570,905,,Jumbo Pizza Family Special
+94317,12570,905,,Large Pizza Special
+94318,12570,905,,Medium Pizza Special
+94421,11739,863,,3 Toppings Pizza
+94425,2119,192,,Two Small Pizzas 2 Toppings and 2 Drinks HIDE
+94426,2119,192,,Two Medium Pizzas 2 Toppings and 4 Drinks HIDE
+94427,2119,192,,Two Large Pizzas 2 Toppings and 6 Drinks HIDE
+94485,12590,889,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+94486,12590,889,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+94487,12590,889,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+94491,12304,700,,2 Pizza Specials HIDE
+94541,12599,907,,One Topping Pizza
+94542,12599,907,,Two Toppings Pizza
+94543,12599,907,,Three Toppings Pizza
+94689,12615,907,,2 Pizza Deal 1 Topping
+94690,12615,907,,2 Pizza Deal 2 Toppings
+94691,12615,907,,2 Pizza Deal 3 Toppings
+94692,12616,907,,Large Pizza & Wings Deal
+94693,12616,907,,Medium Pizza & Wings Deal
+94694,12616,907,,Small Pizza & Wings Deal HIDE
+96000,12797,127,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+96001,12797,127,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+96002,12797,127,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+96095,12483,889,,The Perfect Combo Deal with PopCurds
+96097,12809,912,,1 Topping Pizza
+96098,12809,912,,2 Toppings Pizza
+96143,12813,912,,Large Pizza Deal
+96144,12813,912,,Medium Pizza Deal
+96145,12813,912,,Corner 3'S
+96147,12813,912,,Corner Donair Deal
+96148,12813,912,,Corner Shawarm Deal
+96176,12796,324,,Large Pizza with 2L Pop
+96177,12796,324,,XLarge Pizza with 2L Pop
+96306,12829,913,,Combinaison parfaite avec pop curds HIDE
+96307,12829,913,,"Trio gande pizza, 1lb ailes et 2 breuvages HIDE"
+96308,12829,913,,"Trio moyenne pizza, 1lb ailes et 2 breuvages HIDE"
+96310,12829,913,,Entrée Gourmet HIDE
+96311,12830,913,,2 Pizzas 1 Garniture HIDE
+96312,12830,913,,2 Pizzas 2 Garnitures HIDE
+96313,12830,913,,2 Pizzas 3 Garnitures HIDE
+96314,13545,913,,VEGAN 2 Pizzas 1 Garniture & 2 Breuvages 591ml (V) HIDE
+96402,12837,804,,1 X-Grande Pizza avec 2 Ingrédients HIDE
+96403,12837,804,,Grande Pizza Spéciaux
+96404,12838,804,,1 Petit Pizza avec 2 Ingrédients et Frites HIDE
+96405,12838,804,,2 Petites Pizzas avec 2 Ingrédients HIDE
+96406,12838,804,,2 Moyennes Pizzas avec 2 Ingrédients HIDE
+96407,12838,804,,1 Grande Pizza avec 2 Ingrédients et Frites HIDE
+96408,12838,804,,2 Grandes Pizzas avec 2 Ingrédients HIDE
+96409,12838,804,,2 X- Grandes Pizzas avec 2 Ingrédients HIDE
+96410,12838,804,,1 X- Grande Pizza avec 2 Ingrédients et Frites HIDE
+96510,12849,918,,MAKE YOUR OWN POUTINE
+96521,15626,863,,Halle's Special HIDE
+96522,15626,863,,Kayla's Special HIDE
+96523,15626,863,,Joey's Special HIDE
+96578,12857,917,,Cheese Pizza
+96579,12857,917,,Margerita
+96580,12857,917,,Combination Pizza
+96581,12857,917,,Canadian Pizza
+96582,12857,917,,Meat Lovers
+96583,12857,917,,Hawaiian Pizza
+96584,12857,917,,Vegetarian Pizza
+96585,12857,917,,Greek Pizza
+96586,12857,917,,Smokin Steak
+96587,12857,917,,Diablo Pizza
+96588,12857,917,,Pollo Pizza
+96589,12857,917,,Goat Cheese Pizza
+96590,12857,917,,Cali Pizza
+96591,12857,917,,Buffalo Pizza
+96592,12857,917,,The Italian Job
+96593,12857,917,,Pesto Shrimp Pizza
+96594,12858,917,,1 Topping Pizza
+96595,12858,917,,2 Toppings Pizza
+96596,12858,917,,3 Toppings Pizza
+96597,12859,917,,1 Topping Pairs
+96598,12859,917,,2 Toppings Pairs
+96599,12859,917,,3 Toppings Pairs
+96600,12860,917,,Party Combo
+96617,12860,917,,Family Combo
+96663,12867,913,,2 Pizza Deal 1 Topping HIDE
+96664,12867,913,,2 Pizza Deal 2 Toppings HIDE
+96665,12867,913,,2 Pizza Deal 3 Toppings HIDE
+96666,12868,913,,The Perfect Combo Deal with PopCurds HIDE
+96667,12868,913,,Large Pizza Deal HIDE
+96668,12868,913,,Medium Pizza Deal HIDE
+96772,13541,913,,VEGAN 2 Pizza Deal 1 Topping & Two 591ml Drinks (V) HIDE
+96773,13541,913,,VEGAN 2 Pizza Deal 2 Toppings & Two 591ml Drinks (V) HIDE
+96774,13541,913,,VEGAN 2 Pizza Deal 3 Toppings & Two 591ml Drinks (V) HIDE
+96835,12891,914,,LA SICILIENNE
+96836,12891,914,,PIZZA PEPPERONI
+96837,12891,914,,LA HAWAIIENNE
+96838,12891,914,,LA COMBINAISON
+96839,12891,914,,LA OPA’S
+96840,12891,914,,LA CANADIENNE
+96841,12891,914,,LA CLUB
+96842,12891,914,,AMATEUR DE VIANDE
+96843,12891,914,,LA MARINARA
+96844,12891,914,,LA BRUSCHETTA
+96845,12891,914,,LA GRECQUE
+96846,12891,914,,LA VEGETARIENNE
+96847,12891,914,,LA MEXICALI
+96848,12891,914,,QUATRE SAISON HIDE
+96849,12891,914,,LA SPECIALITE DU CHEF
+96850,12891,914,,LA DIANA
+96867,12893,914,,1 Petite Pizza et 1 Poutine HIDE
+96868,12893,914,,1 Moyenne Pizza et 1 Poutine HIDE
+96869,12893,914,,1 Grande Pizza et 2 Poutines HIDE
+96870,12894,914,,Petite Pizza avec Ailes
+96871,12894,914,,Petite Pizza avec Plat d’accompagnement HIDE
+96872,12894,914,,Moyenne Pizza avec Ailes
+96873,12894,914,,Moyenne Pizza avec Plat d’accompagnement HIDE
+96874,12894,914,,Grande Pizza avec Ailes
+96875,12894,914,,Grande Pizza avec Plat d’accompagnement HIDE
+96876,12894,914,,Sous Marin Vous
+96915,12159,883,,Downtown Deal No4
+96916,12159,883,,Family Deal
+97003,12904,919,,One Topping HIDE
+97063,12914,919,,Small Pizza & Small Poutine
+97064,12914,919,,Medium Pizza & 2 Small Poutine
+97065,12914,919,,Large Pizza & 2 Small Poutine
+97066,12916,919,,Pizza & Munchies Special
+97180,12929,95,,Large Pizza 3 Toppings HIDE
+97181,12929,95,,Medium Pizza 3 Toppings HIDE
+97182,12929,95,,Small Pizza 3 Toppings HIDE
+97183,12929,95,,Large Pizza & Wings Deal HIDE
+97184,12929,95,,Medium Pizza & Wings Deal HIDE
+97185,12929,95,,2 Large Pizza 6 Toppings Combined HIDE
+97186,12929,95,,2 Medium Pizza 6 Toppings Combined  HIDE
+97194,12931,915,,Two Shawarma Platters & 2 Cans HIDE
+97195,12931,915,,Two Large Trios HIDE
+97198,12931,915,,Two Souvlaki Platters & 2 Cans HIDE
+97200,12931,915,,Two Souvlaki Pita Wrap Trios HIDE
+97201,12931,915,,Two Gyro Trios HIDE
+97261,12935,920,,2 Pizza Deal 1 Topping
+97262,12935,920,,2 Pizza Deal 2 Toppings
+97263,12935,920,,2 Pizza Deal 3 Toppings
+97264,12936,920,,Family Meal Deal
+97265,12936,920,,Large Pizza Special
+97266,12936,920,,Medium Pizza Special
+97267,12936,920,,Two Pita Special
+97280,4114,354,,Sandwich with Pop HIDE
+97290,12938,921,,1 Topping Pizza
+97400,12096,226,,Grande Pizza Spéciaux
+97467,12959,922,,Combo One
+97468,12959,922,,Combo Two
+97469,12959,922,,Combo Three
+97470,12959,922,,Family Meal
+97595,12973,924,,MAKE YOUR OWN POUTINE HIDE
+97617,12976,921,,1 Ingredient
+97923,12937,833,,Heart Shaped Pizza HIDE
+97972,11537,850,,The Perfect Combo Deal with PopCurds
+97973,13015,850,,2 Pizza Deal 1 Topping
+97974,13015,850,,2 Pizza Deal 2 Toppings
+97975,13015,850,,2 Pizza Deal 3 Toppings
+98034,13028,926,,Twin Pack
+98131,13044,929,,Repas familial de pâtes et de pizza
+98132,13044,929,,Repas italien pour deux
+98133,13044,929,,Repas individuel de pâtes
+98385,13081,930,,1 Ingrédient
+98463,13091,930,,Pizza Petite avec Poutine HIDE
+98464,13091,930,,Pizza Moyenne avec Ailes
+98465,13091,930,,Pizza Grande avec Poutines HIDE
+98466,13091,930,,Pizza Petite avec Ailes et Frites
+98467,13091,930,,Pizza Moyenne avec Sous-Marin Steak et Frites
+98468,13091,930,,Pizza Grande avec Ailes et Frites
+98469,13091,930,,Pizza Moyenne avec Poutines HIDE
+98470,13091,930,,2 Burgers Maison avec Poutines
+98471,13091,930,,Spécial 2 Pizza HIDE
+98472,13091,930,,Spécial Familiale
+98535,13109,934,,Create Your Own Pizza
+98536,13109,934,,2 Toppings HIDE
+98551,13104,934,,2 Toppings Pizzas
+98552,13104,934,,4 Toppings Pizzas
+98553,13104,934,,6 Toppings Pizzas
+98554,13105,934,,Large Pizza
+98555,13105,934,,Medium Pizza
+98556,13105,934,,2 Large Pizzas
+98557,13105,934,,2 Medium Pizzas
+98592,13094,934,,2 Souvlaki Platters
+98726,13127,935,,Combinaison parfaite avec pop curds
+98727,13127,935,,"Trio gande pizza, 1lb ailes et 2 breuvages HIDE"
+98728,13127,935,,"Trio moyenne pizza, 1lb ailes et 2 breuvages HIDE"
+98730,13127,935,,Entrée Gourmet
+98731,13128,935,,2 Pizzas 1 Garniture
+98732,13128,935,,2 Pizzas 2 Garnitures
+98733,13128,935,,2 Pizzas 3 Garnitures
+98734,13553,935,,VEGAN 2 Pizzas 1 Garniture & 2 Breuvages 591ml (V)
+98735,13553,935,,VEGAN 2 Pizzas 2 Garnitures & 2 Breuvages 591ml (V)
+98736,13553,935,,VEGAN 2 Pizzas 3 Garnitures & 2 Breuvages 591ml (V)
+98738,13130,935,,2 Pizza Deal 1 Topping
+98739,13130,935,,2 Pizza Deal 2 Toppings
+98740,13130,935,,2 Pizza Deal 3 Toppings
+98741,13131,935,,The Perfect Combo Deal with PopCurds
+98742,13131,935,,Large Pizza Deal HIDE
+98743,13131,935,,Medium Pizza Deal HIDE
+98847,13549,935,,VEGAN 2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+98848,13549,935,,VEGAN 2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+98849,13549,935,,VEGAN 2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+98896,12950,863,,Keto Meal Deal - Cheese Pizza and Wings HIDE
+98897,12950,863,,Keto Meal Deal - Cheese Pizza and Large Salad HIDE
+98898,12950,863,,Keto Meal Deal - Cheese Pizza and Pork Rinds  HIDE
+98899,12950,863,,Keto Meal Deal - Cheese Pizza and Pork Nachos HIDE
+98910,13150,929,,Family Meal Deal with Pasta & Pizza
+98913,13150,929,,Italian Meal for Two
+98914,13150,929,,Individual Pasta Meal
+98936,13143,935,,VEGAN 3 Toppings Pizza (V)
+98960,13123,935,,VEGAN 3 Ingrédients Pizza (V)
+99107,13162,936,,Classic Burger
+99108,13162,936,,Cheese Burger
+99109,13162,936,,The Bull Burger
+99110,13162,936,,Veggie Burger
+99111,13162,936,,Steve the Greek Burger
+99112,13162,936,,Bleu Burger
+99113,13162,936,,Prime Italian Burger
+99114,13162,936,,Salmon Burger
+99115,13162,936,,Cod Burger
+99116,13162,936,,Poutine Burger
+99117,13162,936,,Chipotle Burger
+99118,13162,936,,Hangover Burger
+99119,13162,936,,Sunday BBQ Burger
+99120,13162,936,,Inferno Burger
+99121,13162,936,,Prime Paris Burger
+99122,13162,936,,Prime Portobello Burger
+99123,13162,936,,Butter Chicken Burger
+99124,13162,936,,California Chicken Burger
+99267,13179,937,,The Perfect Combo Deal
+99268,13179,937,,Large Pizza 3 Toppings
+99269,13179,937,,Medium Pizza 3 Toppings
+99272,13180,937,,1 Topping Pizza Deal
+99273,13180,937,,2 Toppings Pizza Deal
+99274,13180,937,,3 Toppings Pizza Deal
+99275,13181,937,,1 Topping Pizza Deal (V)
+99276,13181,937,,2 Toppings Pizza Deal (V)
+99277,13181,937,,3 Toppings Pizza Deal (V)
+99310,13185,131,,Pizza Vino
+99323,1738,131,,Le 222 Pac
+99324,13185,131,,Le 6 Pac
+99436,13207,938,,Enchiladas (3)
+99450,13190,939,,One Topping Pizza
+99491,13211,939,,Twins Pizzas 1 Topping
+99492,13211,939,,Twins Pizzas 2 Toppings
+99493,13211,939,,Twins Pizzas 3 Toppings
+99699,13238,939,,Large Pizza Special
+99700,13238,939,,Medium Pizza Special
+99701,13238,939,,Small Pizza Special
+99736,2249,205,,Large Pizza 3 Toppings
+99737,2249,205,,Medium Pizza 3 Toppings
+99754,13242,943,,1 Topping
+99775,13244,943,,2 Toppings Combined
+99776,13244,943,,4 Toppings Combined
+99777,13244,943,,6 Toppings Combined
+99869,13257,943,,Large Pizza & Wings
+99870,13257,943,,Medium Pizza & Wings
+99889,13257,943,,XLarge Pizza and Wings
+99961,6636,513,,Large Pizza with Boneless Wings
+99962,6636,513,,Medium Pizza with Boneless Wings
+100178,13280,919,,Two Large Sandwiches HIDE
+100180,13280,919,,Two Sandwich Platter with 2 Cans HIDE
+100186,13283,184,,Grande Pizza 1 Garniture et 10 Ailes de Poulet
+100187,13284,184,,Grande Pizza 4 Garnitures
+100188,13285,184,,Moyenne Pizza 3 Garnitures et 2 Trempette
+100189,13285,184,,2 Grande Pizzas 1 Garniture
+100198,13286,807,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+100199,13286,807,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+100200,13286,807,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+100219,13290,205,,1 Topping Pizza Deal (V)
+100220,13290,205,,2 Toppings Pizza Deal (V)
+100221,13290,205,,3 Toppings Pizza Deal (V)
+100379,3381,295,,Sauteed Vegetable
+100380,3381,295,,Cashew Nut Chicken
+100381,3381,295,,Teriyaki Bowl
+100477,12868,913,,Small Pizza & Poutine HIDE
+100478,12868,913,,Medium Pizza & Poutine HIDE
+100479,12868,913,,Large Pizza & Poutine HIDE
+100480,12829,913,,Petit Pizza & Poutine HIDE
+100481,12829,913,,Moyenne Pizza & Poutine HIDE
+100482,12829,913,,Grande Pizza & Poutine HIDE
+100483,13131,935,,Small Pizza & Poutine HIDE
+100484,13131,935,,Medium Pizza & Poutine HIDE
+100485,13131,935,,Large Pizza & Poutine HIDE
+100486,13127,935,,Petit Pizza & Poutine HIDE
+100487,13127,935,,Moyenne Pizza & Poutine HIDE
+100488,13127,935,,Grande Pizza & Poutine HIDE
+100497,13328,947,,Large Pizza 3 Toppings and Free 1L Pepsi
+100498,13328,947,,Jumbo Pizza 3 Toppings and Free 2L Pepsi
+100499,13328,947,,Two Medium Pizza 3 Toppings and Free 2L Pepsi
+100500,13328,947,,Two Large Pizza 3 Toppings and Free 2L Pepsi
+100501,13328,947,,Five Large Pizza 3 Toppings and Two Free 2L Pepsi
+100502,13328,947,,Large Pizza 3 Toppings with 12 Wings and 1L Pepsi
+100503,13328,947,,Medium Pizza 3 Toppings with 12 Wings and 1L Pepsi
+100560,13338,947,,Grande Pizza 3 Garnitures et 1L Pepsi Gratuit
+100561,13338,947,,Jumbo Pizza 3 Garnitures et 2L Pepsi Gratuit
+100562,13338,947,,Deux Moyenne Pizza 3 Garnitures et 2L Pepsi Gratuit
+100563,13338,947,,Deux Grande Pizza 3 Garnitures et 2L Pepsi Gratuit
+100564,13338,947,,Cinq Grands Pizza 3 Garnitures et Deux 2L Pepsi Gratuit
+100565,13338,947,,Moyenne Pizza 3 Garnitures avec 12 Ailes et 1L Pepsi
+100566,13338,947,,Grande Pizza 3 Garnitures avec 12 Ailes et 1L Pepsi
+100762,13366,948,,"No1. 2 Hot Dog, Petite Frite + Breuvage"
+100763,13366,948,,"No2. 2 Pogo, Petite Frite + Breuvage"
+100764,13365,948,,"No15. 2 Mini Pogo, Mini Frite + Jus + Biscuit"
+100765,3264,275,,Large Pizza 3 Toppings
+100784,13369,952,,MAKE YOUR OWN POUTINE
+101191,13424,953,,Un Ingrédient
+101287,13391,949,,Un Ingrédient
+101288,13391,949,,Deux Ingrédients
+101359,13442,949,,Twins Pizzas 1 Ingrédient
+101360,13442,949,,Twins Pizzas 2 Ingrédients
+101361,13442,949,,Twins Pizzas 3 Ingrédients
+101369,13443,949,,Moyenne Pizza avec Ailes et Salade
+101370,13443,949,,Grande Pizza avec Ailes et Salade
+101371,13443,949,,Moyenne Pizza avec Ailes
+101372,13443,949,,Grande Pizza avec Ailes
+101373,13443,949,,Deux Grande Pizza avec Ailes
+101423,11354,126,,One Spaghetti & One Lasagna with Pops and Garlic Bread
+101424,11354,126,,Club Deal #1
+101425,11354,126,,25th Anniversary Special
+101426,11354,126,,Burger Deal
+101427,11354,126,,Two Burger Deal
+101428,11354,126,,Sub Deal #1
+101429,11354,126,,Sub Deal #2
+101430,11354,126,,Sub Deal #3
+101431,11354,126,,Large Pizza Special
+101433,11354,126,,Pair Deals HIDE
+101434,11354,126,,Medium Pizza 2 Toppings Deal HIDE
+101435,11354,126,,Large Pizza 2 Toppings Deal HIDE
+101436,12523,901,,Large Pizza 1 Topping HIDE
+101442,13448,815,,Twins Pizzas 2 Toppings
+101443,13448,815,,Twins Pizzas 4 Toppings
+101444,13448,815,,Twins Pizzas 6 Toppings
+101537,1738,131,,Party Pac
+101712,13479,951,,2 Small Pizzas
+101713,13479,951,,2 Medium Pizzas
+101714,13479,951,,2 Large Pizzas
+101715,13480,951,,Large Pizza & WIngs
+101716,13480,951,,Medium Pizza & Wings
+101718,13481,951,,Beef Donair Special
+101825,9854,732,,Party 1
+101826,9854,732,,Étudiant
+101827,9854,732,,Les Amis
+102035,13523,842,,Small Pizza 3 Toppings with Wings & Pop
+102036,13523,842,,Small Pizza 3 Toppings with Poutine & Pop
+102037,13523,842,,Medium Pizza 3 Toppings with Wings & Pops
+102038,13523,842,,Medium Pizza 3 Toppings with Poutine & Pops
+102039,13523,842,,Large Pizza 3 Toppings with Wings & Pops
+102040,13523,842,,Large Pizza 3 Toppings with Poutine & Pops
+102041,13523,842,,Small Pizza 1 Topping & 1 Poutine
+102042,13523,842,,Medium Pizza 1 Topping & 2 Poutines
+102043,13523,842,,Large Pizza 1 Topping & 2 Poutines
+102044,13523,842,,Large Pizza 3 Toppings with Wings & Large Side
+102045,13523,842,,2 Large Pizzas with 6 Toppings Combined & Wings
+102056,11741,863,,Medium Nacho Fries HIDE
+102075,13527,962,,One Topping
+102097,13529,962,,1 Topping
+102098,13529,962,,2 Toppings
+102099,13529,962,,3 Toppings
+102170,13539,962,,Family Deal with Fries
+102171,13539,962,,Family Deal with Chef Salad
+102172,13539,962,,Large Pizza Deal With Papa Box
+102173,13539,962,,Small Pizza Combo with Poutine
+102174,13539,962,,Small Pizza Combo with Wings
+102175,13539,962,,Medium Pizza Combo with Poutine
+102176,13539,962,,Medium Pizza Combo with Wings
+102177,13539,962,,Medium Pizza & Crazy Bread
+102188,12868,913,,Pizza and Wings Special HIDE
+102189,12868,913,,Pizza and Poutine Special HIDE
+102206,12829,913,,Pizza et Ailes HIDE
+102207,12829,913,,Pizza & Poutine HIDE
+102214,13131,935,,Pizza and Wings Special HIDE
+102215,13131,935,,Pizza and Poutine Special
+102216,13143,935,,VEGAN Pizza and Poutine Special (V)
+102221,13127,935,,"Trio Pizza, 1lb ailes et 2 breuvages HIDE"
+102222,13127,935,,Pizza & Poutine
+102224,13123,935,,VEGAN Pizza & Poutine (V)
+102229,4027,350,,Pizza Chef
+102230,4027,350,,Pizza Thon
+102271,12403,894,,Two Toppings Pizza
+102272,12403,894,,Three Toppings Pizza
+102281,7133,195,,2 Small Pizza
+102282,7133,195,,1 Small Pizza with Wings
+102283,7134,195,,2 Petite Pizzas
+102284,7134,195,,1 Petite Pizza avec Ailes
+102953,11164,821,,Two Large Pizza Deal
+106444,13626,913,,Family Special with Large Fries and 2L Drink HIDE
+106445,13627,913,,Spécial Familiale avec Grande Frite et 2L Boisson HIDE
+106446,13624,935,,Family Special
+106447,13625,935,,Spécial Familiale
+106637,13869,863,,One 12 inch Medium Dough Ball HIDE
+106638,1488,162,,Large Pizza & Large Poutine
+106724,13883,978,,The Perfect Combo Deal with PopCurds HIDE  HIDE
+106725,13883,978,,Large Pizza Deal HIDE
+106726,13883,978,,Medium Pizza Deal HIDE
+106728,13884,978,,1 Topping HIDE
+106729,13884,978,,2 Toppings HIDE
+106730,13884,978,,3 Toppings HIDE
+106731,13885,978,,1 Topping Pizza Deal (V) HIDE
+106732,13885,978,,2 Toppings Pizza Deal (V) HIDE
+106733,13885,978,,3 Toppings Pizza Deal (V) HIDE
+106850,13094,934,,3 Souvlaki Platters HIDE
+107095,13923,218,,Mixed Combo
+107097,13927,218,,Party of 2 (Non-Veg) HIDE
+107098,13927,218,,4 People Platter HIDE
+107100,13927,218,,Family Platter - Vegetables HIDE
+107889,14037,987,,The Perfect Combo Deal with PopCurds
+107890,14037,987,,Large Pizza Deal
+107891,14037,987,,Medium Pizza Deal
+107893,14038,987,,1 Topping
+107894,14038,987,,2 Toppings
+107895,14038,987,,3 Toppings
+107896,14039,987,,1 Topping Pizza Deal (V)
+107897,14039,987,,2 Toppings Pizza Deal (V)
+107898,14039,987,,3 Toppings Pizza Deal (V)
+107985,11222,825,,La Geo
+107986,11222,825,,La Grecque
+107987,11222,825,,L’Americaine
+107988,11222,825,,La Dani
+107989,11222,825,,La Chicago
+107990,11222,825,,La Club
+107991,11222,825,,Style Maniwaki
+107992,11222,825,,La Montrealaise
+108031,14058,825,,1 Petite Pizza avec Nachos
+108032,14058,825,,1 Moyenne Pizza avec Nachos
+108033,14058,825,,1 Grande Pizza avec Nachos
+108034,14059,825,,2 Moyennes Pizzas et Frites Familiale
+108035,14059,825,,2 Grandes Pizzas et Frites Familiale
+108036,14060,825,,2 Moyennes Pizzas et Salade Familiale
+108037,14060,825,,2 Grandes Pizzas et Salade Familiale
+108038,14061,825,,2 Moyennes Pizzas et 14 Ailes
+108039,14061,825,,2 Grandes Pizzas et 24 Ailes
+108066,14064,988,,Plain Pizza HIDE
+108067,14064,988,,Pepperoni Pizza HIDE
+108068,14064,988,,Hawaiian Pizza HIDE
+108069,14064,988,,All Dressed Pizza HIDE
+108070,14064,988,,Canadian Pizza HIDE
+108071,14064,988,,Meat Lovers Pizza HIDE
+108072,14064,988,,Mexican Pizza HIDE
+108074,14064,988,,Pizza Deluxe HIDE
+108075,14064,988,,Vegetarian Pizza HIDE
+108076,14064,988,,BBQ Chicken Pizza HIDE
+108077,14064,988,,Greek Pizza HIDE
+108078,14064,988,,Steak Pizza HIDE
+108128,14073,988,,Combo No1
+108129,14073,988,,Combo No2  (fries included)
+108130,14073,988,,Combo No3 HIDE
+108131,14073,988,,Combo No4 HIDE
+108132,14074,988,,Pizza & Poutine HIDE
+108133,14074,988,,Bob's Special HIDE
+108134,14074,988,,Super Special
+108135,14074,988,,Singleton HIDE
+108136,14074,988,,Pizza & Wings HIDE
+108137,14075,988,,Double Poutines HIDE
+108157,14077,988,,Pizza Fromage HIDE
+108158,14077,988,,Pizza Pepperoni HIDE
+108159,14077,988,,Hawaïenne Pizza HIDE
+108160,14077,988,,Toute Garnie HIDE
+108161,14077,988,,Canadienne HIDE
+108162,14077,988,,Amateur de Viande Pizza HIDE
+108163,14077,988,,Mexicaine Pizza HIDE
+108164,14077,988,,Deluxe Pizza HIDE
+108165,14077,988,,Végétarienne Pizza HIDE
+108166,14077,988,,Poulet au BBQ Pizza HIDE
+108167,14077,988,,Grecque Pizza HIDE
+108168,14077,988,,Filet de Boeuf Pizza HIDE
+108218,14086,988,,Combo No1
+108219,14086,988,,Combo No2
+108220,14086,988,,Combo No3 HIDE
+108221,14086,988,,Combo No4 HIDE
+108222,14087,988,,Pizza & Poutine HIDE
+108223,14087,988,,Bob's Special HIDE
+108224,14087,988,,Spécial Super
+108225,14087,988,,Singleton HIDE
+108226,14087,988,,Pizza et Ailes HIDE
+108227,14088,988,,Double Poutines HIDE
+108230,1749,173,,Trio Poutine
+108231,1749,173,,Trio Sous-Marin
+108234,14090,855,,Medium Pizza & Beer
+108235,14090,855,,Large Pizza & Beer
+108256,2304,209,,Super Sunday
+108257,2304,209,,Twin Thursday
+108292,1569,128,,X-Large Pizza 3 Toppings
+108344,14099,919,,1 Topping Pizzas
+108345,14099,919,,2 Toppings Pizzas
+108346,14099,919,,3 Toppings Pizzas
+108480,14115,989,,Combinaison parfaite avec pop curds
+108481,14115,989,,"Trio gande pizza, 1lb ailes et 2 breuvages"
+108482,14115,989,,"Trio moyenne pizza, 1lb ailes et 2 breuvages"
+108484,14115,989,,Entrée Gourmet
+108485,14116,989,,2 Pizzas 1 Garniture
+108486,14116,989,,2 Pizzas 2 Garnitures
+108487,14116,989,,2 Pizzas 3 Garnitures
+108488,14143,989,,VEGAN 2 Pizzas 1 Garniture & 2 Breuvages 591ml (V)
+108489,14143,989,,VEGAN 2 Pizzas 2 Garnitures & 2 Breuvages 591ml (V)
+108490,14143,989,,VEGAN 2 Pizzas 3 Garnitures & 2 Breuvages 591ml (V)
+108492,14118,989,,2 Pizza Deal 1 Topping
+108493,14118,989,,2 Pizza Deal 2 Toppings
+108494,14118,989,,2 Pizza Deal 3 Toppings
+108495,14119,989,,The Perfect Combo Deal with PopCurds
+108496,14119,989,,Large Pizza & Wings Deal
+108497,14119,989,,Medium Pizza & Wings Deal
+108600,14139,989,,VEGAN 2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+108601,14139,989,,VEGAN 2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+108602,14139,989,,VEGAN 2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+108639,14131,989,,VEGAN 3 Toppings Pizza (V) HIDE
+108661,14111,989,,VEGAN 3 Ingrédients Pizza (V) HIDE
+110045,14147,989,,Family Special with Large Fries and 2L Drink HIDE
+110046,14119,989,,Pizza and Poutine Special
+110078,14131,989,,VEGAN Pizza and Poutine Special (V) HIDE
+110090,14148,989,,Spécial Familiale HIDE
+110091,14115,989,,Pizza & Poutine
+110097,14111,989,,VEGAN Pizza & Poutine (V) HIDE
+110124,13094,934,,Family Meal - HIDE
+110125,7046,549,,Family Meal - HIDE
+110146,10141,756,,Plain Cheese Pizza HIDE
+110147,10141,756,,Pepperoni Pizza HIDE
+110148,10141,756,,All Dressed Pizza HIDE
+110149,10141,756,,The Pol HIDE
+110150,10141,756,,The Bol HIDE
+110151,10141,756,,The Pep-Bacon HIDE
+110152,10141,756,,The Pep-Xtra HIDE
+110153,10141,756,,Hawaiian Pizza HIDE
+110154,10141,756,,Santa Fe Pizza HIDE
+110155,10141,756,,Smoked Meat Pizza HIDE
+110156,10141,756,,The Smokehouse Pizza HIDE
+110157,10141,756,,The Vegetarian Pizza HIDE
+110158,10141,756,,The Four Seasons Pizza HIDE
+110159,10142,756,,The Pep-Bacon-Olives HIDE
+110160,10142,756,,The Mama Special Pizza HIDE
+110161,10142,756,,Deluxe Pizza HIDE
+110162,10142,756,,Deli Pizza HIDE
+110163,10142,756,,New York Pizza HIDE
+110164,10142,756,,The Energy Pizza HIDE
+110165,10142,756,,Pizza La Difference HIDE
+110166,10142,756,,The Taco Pizza HIDE
+110167,10142,756,,The Sicilian Pizza HIDE
+110168,10142,756,,The Tuscany Pizza HIDE
+110169,10142,756,,Italian Pizza HIDE
+110170,10142,756,,The Five Seasons Pizza HIDE
+110171,10143,756,,The Spring Pizza HIDE
+110172,10143,756,,The Gardener Pizza HIDE
+110173,10143,756,,Mexican Pizza HIDE
+110174,10143,756,,Tex-Mex Pizza HIDE
+110175,10143,756,,The Super Pizza HIDE
+110176,10143,756,,The Mongeon Special HIDE
+110177,10143,756,,The Camille Pizza HIDE
+110178,10143,756,,The Gourmand Pizza HIDE
+110179,10143,756,,The Campagnarde Pizza HIDE
+110180,10143,756,,Chicken Asiago Pizza HIDE
+110181,10143,756,,BBQ Chicken Pizza HIDE
+110182,10143,756,,Chicken Pesto Pizza HIDE
+110183,10143,756,,Mediterranean Pizza HIDE
+110184,10143,756,,Philly Steak Pizza HIDE
+110185,10143,756,,The French Pizza HIDE
+110265,14336,756,,1 Medium Specialties Pizza with 12 Wings and Pop
+110266,14336,756,,1 Medium Gourmet Pizza with 12 Wings and Pop
+110267,14336,756,,1 Large Specialties Pizza with 18 Wings and Pop
+110268,14336,756,,1 Large Gourmet Pizza with 18 Wings and Pop
+110269,14332,756,,1 Medium Classic Pizza with 2 Cans
+110270,14332,756,,1 Medium Specialties Pizza with 2 Cans
+110271,14332,756,,1 Medium Gourmet Pizza with 2 Cans
+110272,14332,756,,1 Large Classic Pizza with 2L Pop
+110273,14332,756,,1 Large Specialties Pizza with 2L Pop
+110274,14332,756,,1 Large Gourmet Pizza with 2L Pop
+110275,14332,756,,1 Small Classic Pizza and 1 Can
+110276,14332,756,,1 Small Specialties Pizza and 1 Can
+110277,14332,756,,1 Small Gourmet Pizza and 1 Can
+110278,14337,756,,1 Large Classic Pizza with Large Poutine and 2L Pop 
+110279,14337,756,,1 Large Specialties Pizza with Large Poutine and 2L Pop 
+110280,14337,756,,1 Large Gourmet Pizza with Large Poutine and 2L Pop 
+110281,10134,756,,Pizza Fromage HIDE
+110282,10134,756,,Pizza Pepperoni HIDE
+110283,10134,756,,Toute Garnie HIDE
+110284,10134,756,,La Pol HIDE
+110285,10134,756,,La Bol HIDE
+110286,10134,756,,La Pep-Bacon HIDE
+110287,10134,756,,La Pep-x-tra HIDE
+110288,10134,756,,La Hawaïenne HIDE
+110289,10134,756,,La Santa Fe HIDE
+110290,10134,756,,La Fumée HIDE
+110291,10134,756,,La Boucanière HIDE
+110292,10134,756,,La Végétarienne HIDE
+110293,10134,756,,La Quatre Saisons HIDE
+110294,10135,756,,La Pep-Bacon-Olives HIDE
+110295,10135,756,,La Mama Spéciale HIDE
+110296,10135,756,,La Deluxe HIDE
+110297,10135,756,,La Déli HIDE
+110298,10135,756,,La New-Yorkaise HIDE
+110299,10135,756,,L’Énergie HIDE
+110300,10135,756,,La Différence HIDE
+110301,10135,756,,La Pizza Taco HIDE
+110302,10135,756,,La Sicilienne HIDE
+110303,10135,756,,La Toscane HIDE
+110304,10135,756,,La Tropicale HIDE
+110305,10135,756,,L’Italienne HIDE
+110306,10135,756,,La Cinq Saisons HIDE
+110307,10136,756,,La Printanière HIDE
+110308,10136,756,,La Jardinière HIDE
+110309,10136,756,,La Mexicaine HIDE
+110310,10136,756,,La Tex-mex HIDE
+110311,10136,756,,La Super HIDE
+110312,10136,756,,La Mongeon Spéciale HIDE
+110313,10136,756,,La Camille HIDE
+110314,10136,756,,La Gourmande HIDE
+110315,10136,756,,La Campagnarde HIDE
+110316,10136,756,,Poulet Asiago HIDE
+110317,10136,756,,La Poulet BBQ HIDE
+110318,10136,756,,La Poulet Pesto HIDE
+110319,10136,756,,La Méditeranéenne HIDE
+110320,10136,756,,Steak Philly HIDE
+110321,10136,756,,La Française HIDE
+110363,14334,756,,Deux Pizza Spécialitées (Moyenne) avec 18 Ailes et Grande Frites et 2L de Pepsi HIDE
+110364,14334,756,,Deux Pizza Gourmets (Moyenne) avec 18 Ailes et Grande Frites et 2L de Pepsi HIDE
+110365,14334,756,,Deux Pizza Classiques (Grandes) avec 24 Ailes et Grande Frites et 2L Pepsi
+110366,14334,756,,Deux Pizza Spécialitées (Grandes) avec 24 Ailes et Grande Frites et 2L Pepsi HIDE
+110367,14334,756,,Deux Pizza Gourmets (Grandes) avec 24 Ailes et Grande Frites et 2L Pepsi HIDE
+110368,14334,756,,1 Moyenne Pizza Spécialitées avec 12 Ailes et 2 Canettes
+110369,14334,756,,1 Moyenne Pizza Gourmets avec 12 Ailes et 2 Canettes
+110370,14334,756,,1 Grande Pizza Spécialitées avec 18 Ailes et 2L Pepsi
+110371,14334,756,,1 Grande Pizza Gourmets avec 18 Ailes et 2L Pepsi
+110372,10140,756,,1 Moyenne Pizza Spécialitées avec 2 Canettes
+110373,10140,756,,1 Moyenne Pizza Gourmets avec 2 Canettes
+110374,10140,756,,1 Grande Pizza Spécialitées avec 2L Boisson
+110375,10140,756,,1 Grande Pizza Gourmets avec 2L Boisson
+110376,10140,756,,1 Petite Pizza Classique avec 1 Canette
+110377,10140,756,,1 Petite Pizza Spécialitées avec 1 Canette
+110378,10140,756,,1 Petite Pizza Gourmets avec 1 Canette
+110379,14335,756,,1 Grande Pizza Classique avec Grande Poutine et 2L Boisson
+110380,14335,756,,1 Grande Pizza Spécialitées avec Grande Poutine et 2L Boisson
+110381,14335,756,,1 Grande Pizza Gourmets avec Grande Poutine et 2L Boisson
+110455,14353,997,,1 Moyenne Pizza Classique avec 2 Canettes
+110456,14353,997,,1 Grande Pizza Classique avec 2L Boisson
+110457,14364,997,,1 Moyenne Pizza Classique avec 12 Ailes et 2 Canettes
+110458,14364,997,,1 Grande Pizza Classique avec 18 Ailes et 2L Pepsi
+110459,14364,997,,Deux Pizza Classiques (Moyenne) avec 18 Ailes et Grande Frites et 2L de Pepsi
+110475,14366,997,,1 Medium Classic Pizza with 12 Wings and Pop
+110476,14366,997,,1 Large Classic Pizza with 18 Wings and Pop
+110483,14354,997,,Any 2 Classic Pizza (Small) HIDE
+110484,14366,997,,Any 2 Classic Pizza (Medium) with 18 Wings and Large Fries
+110485,14366,997,,Any 2 Classic Pizza (Large) with 24 Wings and Large Fries
+110486,14355,997,,Any 2 Specialties Pizza (Small) HIDE
+110487,14366,997,,Any 2 Specialties Pizza (Medium) with 18 Wings and Large Fries HIDE
+110488,14366,997,,Any 2 Specialties Pizza (Large) with 24 Wings and Large Fries HIDE
+110489,14356,997,,Any 2 Gourmet Pizza (Small) HIDE
+110490,14366,997,,Any 2 Gourmet Pizza (Medium) with 18 Wings and Large Fries HIDE
+110491,14366,997,,Any 2 Gourmet Pizza (Large) with 24 Wings and Large Fries HIDE
+110504,14354,997,,Plain Cheese Pizza HIDE
+110505,14354,997,,Pepperoni Pizza HIDE
+110506,14354,997,,All Dressed Pizza HIDE
+110507,14354,997,,The Pol HIDE
+110508,14354,997,,The Bol HIDE
+110509,14354,997,,The Pep-Bacon HIDE
+110510,14354,997,,The Pep-Xtra HIDE
+110511,14354,997,,Hawaiian Pizza HIDE
+110512,14354,997,,Santa Fe Pizza HIDE
+110513,14354,997,,Smoked Meat Pizza HIDE
+110514,14354,997,,The Smokehouse Pizza HIDE
+110515,14354,997,,The Vegetarian Pizza HIDE
+110516,14354,997,,The Four Seasons Pizza HIDE
+110517,14355,997,,The Pep-Bacon-Olives HIDE
+110518,14355,997,,The Mama Special Pizza HIDE
+110519,14355,997,,Deluxe Pizza HIDE
+110520,14355,997,,Deli Pizza HIDE
+110521,14355,997,,New York Pizza HIDE
+110522,14355,997,,The Energy Pizza HIDE
+110523,14355,997,,Pizza La Difference HIDE
+110524,14355,997,,The Taco Pizza HIDE
+110525,14355,997,,The Sicilian Pizza HIDE
+110526,14355,997,,The Tuscany Pizza HIDE
+110527,14355,997,,Italian Pizza HIDE
+110528,14355,997,,The Five Seasons Pizza HIDE
+110529,14356,997,,The Spring Pizza HIDE
+110530,14356,997,,The Gardener Pizza HIDE
+110531,14356,997,,Mexican Pizza HIDE
+110532,14356,997,,Tex-Mex Pizza HIDE
+110533,14356,997,,The Super Pizza HIDE
+110534,14356,997,,The Mongeon Special HIDE
+110535,14356,997,,The Camille Pizza HIDE
+110536,14356,997,,The Gourmand Pizza HIDE
+110537,14356,997,,The Campagnarde Pizza HIDE
+110538,14356,997,,Chicken Asiago Pizza HIDE
+110539,14356,997,,BBQ Chicken Pizza HIDE
+110540,14356,997,,Chicken Pesto Pizza HIDE
+110541,14356,997,,Mediterranean Pizza HIDE
+110542,14356,997,,Philly Steak Pizza HIDE
+110543,14356,997,,The French Pizza HIDE
+110588,14366,997,,1 Medium Specialties Pizza with 12 Wings and Pop
+110589,14366,997,,1 Medium Gourmet Pizza with 12 Wings and Pop
+110590,14366,997,,1 Large Specialties Pizza with 18 Wings and Pop
+110591,14366,997,,1 Large Gourmet Pizza with 18 Wings and Pop
+110592,14362,997,,1 Medium Classic Pizza with 2 Cans
+110593,14362,997,,1 Medium Specialties Pizza with 2 Cans
+110594,14362,997,,1 Medium Gourmet Pizza with 2 Cans
+110595,14362,997,,1 Large Classic Pizza with 2L Pop
+110596,14362,997,,1 Large Specialties Pizza with 2L Pop
+110597,14362,997,,1 Large Gourmet Pizza with 2L Pop
+110598,14362,997,,1 Small Classic Pizza and 1 Can
+110599,14362,997,,1 Small Specialties Pizza and 1 Can
+110600,14362,997,,1 Small Gourmet Pizza and 1 Can
+110601,14367,997,,1 Large Classic Pizza with Large Poutine and 2L Pop 
+110602,14367,997,,1 Large Specialties Pizza with Large Poutine and 2L Pop 
+110603,14367,997,,1 Large Gourmet Pizza with Large Poutine and 2L Pop 
+110604,14347,997,,Pizza Fromage HIDE
+110605,14347,997,,Pizza Pepperoni HIDE
+110606,14347,997,,Toute Garnie HIDE
+110607,14347,997,,La Pol HIDE
+110608,14347,997,,La Bol HIDE
+110609,14347,997,,La Pep-Bacon HIDE
+110610,14347,997,,La Pep-x-tra HIDE
+110611,14347,997,,La Hawaïenne HIDE
+110612,14347,997,,La Santa Fe HIDE
+110613,14347,997,,La Fumée HIDE
+110614,14347,997,,La Boucanière HIDE
+110615,14347,997,,La Végétarienne HIDE
+110616,14347,997,,La Quatre Saisons HIDE
+110617,14348,997,,La Pep-Bacon-Olives HIDE
+110618,14348,997,,La Mama Spéciale HIDE
+110619,14348,997,,La Deluxe HIDE
+110620,14348,997,,La Déli HIDE
+110621,14348,997,,La New-Yorkaise HIDE
+110622,14348,997,,L’Énergie HIDE
+110623,14348,997,,La Différence HIDE
+110624,14348,997,,La Pizza Taco HIDE
+110625,14348,997,,La Sicilienne HIDE
+110626,14348,997,,La Toscane HIDE
+110627,14348,997,,La Tropicale HIDE
+110628,14348,997,,L’Italienne HIDE
+110629,14348,997,,La Cinq Saisons HIDE
+110630,14349,997,,La Printanière HIDE
+110631,14349,997,,La Jardinière HIDE
+110632,14349,997,,La Mexicaine HIDE
+110633,14349,997,,La Tex-mex HIDE
+110634,14349,997,,La Super HIDE
+110635,14349,997,,La Mongeon Spéciale HIDE
+110636,14349,997,,La Camille HIDE
+110637,14349,997,,La Gourmande HIDE
+110638,14349,997,,La Campagnarde HIDE
+110639,14349,997,,Poulet Asiago HIDE
+110640,14349,997,,La Poulet BBQ HIDE
+110641,14349,997,,La Poulet Pesto HIDE
+110642,14349,997,,La Méditeranéenne HIDE
+110643,14349,997,,Steak Philly HIDE
+110644,14349,997,,La Française HIDE
+110686,14364,997,,Deux Pizza Spécialitées (Moyenne) avec 18 Ailes et Grande Frites et 2L de Pepsi HIDE
+110687,14364,997,,Deux Pizza Gourmets (Moyenne) avec 18 Ailes et Grande Frites et 2L de Pepsi HIDE
+110688,14364,997,,Deux Pizza Classiques (Grandes) avec 24 Ailes et Grande Frites et 2L Pepsi
+110689,14364,997,,Deux Pizza Spécialitées (Grandes) avec 24 Ailes et Grande Frites et 2L Pepsi HIDE
+110690,14364,997,,Deux Pizza Gourmets (Grandes) avec 24 Ailes et Grande Frites et 2L Pepsi HIDE
+110691,14364,997,,1 Moyenne Pizza Spécialitées avec 12 Ailes et 2 Canettes
+110692,14364,997,,1 Moyenne Pizza Gourmets avec 12 Ailes et 2 Canettes
+110693,14364,997,,1 Grande Pizza Spécialitées avec 18 Ailes et 2L Pepsi
+110694,14364,997,,1 Grande Pizza Gourmets avec 18 Ailes et 2L Pepsi
+110695,14353,997,,1 Moyenne Pizza Spécialitées avec 2 Canettes
+110696,14353,997,,1 Moyenne Pizza Gourmets avec 2 Canettes
+110697,14353,997,,1 Grande Pizza Spécialitées avec 2L Boisson
+110698,14353,997,,1 Grande Pizza Gourmets avec 2L Boisson
+110699,14353,997,,1 Petite Pizza Classique avec 1 Canette
+110700,14353,997,,1 Petite Pizza Spécialitées avec 1 Canette
+110701,14353,997,,1 Petite Pizza Gourmets avec 1 Canette
+110702,14365,997,,1 Grande Pizza Classique avec Grande Poutine et 2L Boisson
+110703,14365,997,,1 Grande Pizza Spécialitées avec Grande Poutine et 2L Boisson
+110704,14365,997,,1 Grande Pizza Gourmets avec Grande Poutine et 2L Boisson
+110829,10141,756,,Any 2 Small Classic Pizzas
+110830,10141,756,,Any 2 Medium Classic Pizzas
+110831,10141,756,,Any 2 Large Classic Pizzas
+110832,10142,756,,Any 2 Small Specialties Pizza
+110833,10142,756,,Any 2 Medium Specialties Pizza
+110834,10142,756,,Any 2 Large Specialties Pizza
+110835,10143,756,,Any 2 Small Gourmet Pizzas
+110836,10143,756,,Any 2 Medium Gourmet Pizzas
+110837,10143,756,,Any 2 Large Gourmet Pizzas
+110838,10134,756,,Deux Petit Pizzas Classic
+110839,10134,756,,Deux Moyenne Pizzas Classic
+110840,10134,756,,Deux Grande Pizzas Classic
+110841,10135,756,,Deux Petit Pizzas Spécialitées
+110842,10135,756,,Deux Moyenne Pizzas Spécialitées
+110843,10135,756,,Deux Grande Pizzas Spécialitées
+110844,10136,756,,Deux Petit Pizzas Gourmets
+110845,10136,756,,Deux Moyenne Pizzas Gourmets
+110846,10136,756,,Deux Grande Pizzas Gourmets
+110847,14354,997,,Any 2 Small Classic Pizzas
+110848,14354,997,,Any 2 Medium Classic Pizzas
+110849,14354,997,,Any 2 Large Classic Pizzas
+110850,14355,997,,Any 2 Small Specialties Pizza
+110851,14355,997,,Any 2 Medium Specialties Pizza
+110852,14355,997,,Any 2 Large Specialties Pizza
+110853,14356,997,,Any 2 Small Gourmet Pizzas
+110854,14356,997,,Any 2 Medium Gourmet Pizzas
+110855,14356,997,,Any 2 Large Gourmet Pizzas
+110856,14347,997,,Deux Petit Pizzas Classic
+110857,14347,997,,Deux Moyenne Pizzas Classic
+110858,14347,997,,Deux Grande Pizzas Classic
+110859,14348,997,,Deux Petit Pizzas Spécialitées
+110860,14348,997,,Deux Moyenne Pizzas Spécialitées
+110861,14348,997,,Deux Grande Pizzas Spécialitées
+110862,14349,997,,Deux Petit Pizzas Gourmets
+110863,14349,997,,Deux Moyenne Pizzas Gourmets
+110864,14349,997,,Deux Grande Pizzas Gourmets
+110872,14064,988,,Poutine Pizza HIDE
+110874,14077,988,,Pizza Poutine HIDE
+110941,3513,257,,Butter Chicken Pizza
+110961,14397,998,,Pita Combo for 2
+110962,14397,998,,Pita Combo for 4
+111211,14434,999,,Special 2 Pizzas Régulières HIDE
+111216,14437,999,,Spécial Combinasion Pizza Ailes Pop Curds et Breuvages
+111217,14437,999,,Trio Pizza Ailes et Breuvages
+111467,14465,1002,,1 Item Pizza
+111468,14465,1002,,2 Items Pizza
+111469,14465,1002,,3 Items Pizza
+111470,14465,1002,,4 Items Pizza
+111471,14465,1002,,5 Items Pizza
+111526,14473,989,,Special 222 HIDE
+111527,14474,989,,Spécial 222 HIDE
+112330,9677,722,,6 Items Pizza
+112437,14064,988,,Pesto Classic HIDE
+112438,14064,988,,Supreme Gourmet HIDE
+112457,14471,913,,February Special HIDE
+112458,14472,913,,Spécial Février HIDE
+112459,14473,989,,February Special HIDE
+112460,14474,989,,Spécial Février HIDE
+112767,14640,1011,,2 Medium Pizzas 3 Toppings
+112768,14640,1011,,2 Large Pizzas 3 Toppings
+112769,14640,1011,,1 Large Pizza with Wings and Salad
+112770,14640,1011,,1 Large Pizza with Wings
+112771,14640,1011,,1 Medium Pizza with Wings
+112783,14643,1011,,2 Pizzas Moyenne 3 Ingrédients
+112784,14643,1011,,2 Pizzas Larges 3 Ingrédients
+112785,14643,1011,,1 Pizza Large avec Ailes et Salade
+112786,14643,1011,,1 Pizza Large avec Ailes
+112787,14643,1011,,1 Pizza Moyenne avec Ailes
+112842,13737,853,,Large Hawaiian
+112843,13737,853,,Large Combination
+112844,13737,853,,Large Canadian
+112845,13737,853,,Large Club Pizza
+112846,13737,853,,Large Tuscan Sun
+112847,13737,853,,Large Tropical Pizza
+112848,13737,853,,Large Buffalo Chicken Pizza
+112849,13737,853,,Large BBQ Chicken Pizza
+112850,13737,853,,Large Manzo Pizza
+112851,13737,853,,Large Pollo Pizza
+112852,13737,853,,Large Garden Vegetable Pizza
+112853,13737,853,,Large Jewel 98.5 Pizza
+112854,13737,853,,Large Vegetarian Pizza
+112855,13737,853,,Large Meat Lover
+112856,13737,853,,Large Mexican Pizza
+112857,13737,853,,Large Spicy Vegetarian Pizza
+112858,13737,853,,Large Jo-Jo's Special Pizza
+112859,13737,853,,Large Greek Pizza
+112860,13737,853,,Large Shawarma Pizza
+112861,14647,549,,Super Bowl Special 2021 HIDE
+112903,14653,1012,,1 Topping Pizza
+112904,14653,1012,,2 Toppings Pizzas
+112905,14653,1012,,3 Toppings Pizzas
+112945,14659,1012,,Twins 2 Toppings
+112946,14659,1012,,Twins 4 Toppings
+112947,14659,1012,,Twins 6 Toppings
+112948,14660,1012,,Deal 1- Large Pizza & Wings
+112949,14660,1012,,Deal 2- Medium Pizza & Wings
+112950,14660,1012,,Deal 3- Two Large Donairs
+112952,14660,1012,,Deal 4- Two Spaghetti & Two Cans of Pop
+112959,14661,549,,Heart Shaped Pizza HIDE
+112963,14661,549,,Two Souvlaki Platters & Macarons HIDE
+113447,14720,978,,Saturday Special HIDE
+113647,11741,863,,Poutine
+113707,14754,1016,,Create Your Own Pizza
+113708,14754,1016,,2 Toppings HIDE
+113723,14749,1016,,2 Toppings Pizzas
+113724,14749,1016,,4 Toppings Pizzas
+113725,14749,1016,,6 Toppings Pizzas
+113726,14750,1016,,Large Pizza
+113727,14750,1016,,Medium Pizza
+113728,14750,1016,,2 Large Pizzas
+113729,14750,1016,,2 Medium Pizzas
+113764,14739,1016,,2 Souvlaki Platters
+113765,14739,1016,,3 Souvlaki Platters HIDE
+113766,14739,1016,,4 Souvlaki Platters HIDE
+113767,14739,1016,,5 Souvlaki Platters HIDE
+113784,14739,1016,,Family Meal - HIDE
+113791,14759,1016,,Super Bowl Special 2021 HIDE
+113792,14760,1016,,Heart Shaped Pizza HIDE
+113793,14760,1016,,Two Souvlaki Platters & Macarons HIDE
+113874,13927,218,,Family Platter - Non Vegetable HIDE
+114187,14847,1023,,1 Topping Pizza
+114267,14858,1023,,1 Small Pizza & Wings
+114268,14858,1023,,1 Medium Pizza & Wings
+114269,14858,1023,,1 Large Pizza & Wings
+114270,14858,1023,,1 XL Pizza & Wings
+114271,14859,1023,,2 Medium Pizzas 6 Toppings Combined & 4 Drinks
+114272,14859,1023,,2 Large Pizzas 6 Toppings Combined & 4 Drinks
+114273,14859,1023,,3 Large Pizzas 3 Toppings
+114274,14859,1023,,Family Deal No1
+114275,14859,1023,,Family Deal No2
+114547,14915,1024,,1 Topping
+114632,14925,1025,,1 Topping
+114802,14945,1027,,1 Topping
+114887,14955,1028,,1 Topping
+114965,14962,1029,,1 Topping Pizza
+114966,14962,1029,,2 Toppings Pizza
+115123,14980,1030,,2 Pizzas
+115129,14981,729,,Small Pizza & Wings
+115201,14660,1012,,Deal 5- Westend Pizza
+115213,15064,877,,Buyld Your Own Poutine
+115233,14991,877,,Build Your Own Pizza
+115569,15032,1032,,Create Your Own Poutine HIDE
+115570,15032,1032,,Classic Poutine
+115571,15032,1032,,Buffalo Poutine
+115572,15032,1032,,Thai Chicken Poutine
+115573,15032,1032,,The Gatinoise
+115574,15032,1032,,Meat Lovers Poutine
+115575,15032,1032,,Philly Cheese Steak Poutine
+115576,15032,1032,,Pop Curds Poutine
+115577,15032,1032,,Poutine with Crispy Chicken
+115578,15032,1032,,Bacon Poutine
+115579,15032,1032,,The Poutine Club
+115580,15032,1032,,Vegetarian Poutine
+115581,15032,1032,,Smoked Meat Poutine
+115582,15032,1032,,Spicy Poutine
+115583,15032,1032,,Donair Poutine
+115611,15036,1032,,Créer votre poutine HIDE
+115612,15036,1032,,Poutine Classique
+115613,15036,1032,,Poutine Buffalo
+115614,15036,1032,,Poutine Poulet Thai
+115615,15036,1032,,La Gatinoise
+115616,15036,1032,,Poutine des Amateurs de Viande
+115617,15036,1032,,Poutine de Steak au Fromage Philly
+115618,15036,1032,,Poutine Pop Curds
+115619,15036,1032,,Poutine au Poulet Croustillant
+115620,15036,1032,,Poutine au Bacon
+115621,15036,1032,,Poutine La Club
+115622,15036,1032,,Poutine Végétarienne
+115623,15036,1032,,Poutine de Viande Fumée
+115624,15036,1032,,Poutine Épicé
+115625,15036,1032,,Poutine Donaire
+115644,15039,1016,,Large Pizza & Pops
+115836,14437,999,,Spécial Familial
+115909,15067,863,,Fish & Chips
+115910,15067,863,,Fish & Chips with Poutine HIDE
+115980,15076,1031,,Small Pizza & Wings
+115981,15076,1031,,Medium Pizza & Wings
+115982,15076,1031,,Large Pizza & Wings
+116051,15088,879,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V) HIDE
+116052,15088,879,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V) HIDE
+116053,15088,879,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V) HIDE
+116070,15091,879,,The Perfect Combo Deal with PopCurds HIDE
+116102,2097,189,,Gathering Deal
+116105,2097,189,,Lovers Deal
+116235,15111,1039,,1 Petite et Ailes
+116236,15111,1039,,1 Moyenne et Ailes
+116237,15111,1039,,1 Grande et Ailes
+116401,15136,512,,VEGAN 2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+116402,15136,512,,VEGAN 2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+116403,15136,512,,VEGAN 2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+116698,15170,1046,,Create Your Own Poutine HIDE
+116699,15170,1046,,Classic Poutine
+116700,15170,1046,,Buffalo Poutine
+116701,15170,1046,,Thai Chicken Poutine
+116702,15170,1046,,The Gatinoise
+116703,15170,1046,,Meat Lovers Poutine
+116704,15170,1046,,Philly Cheese Steak Poutine
+116705,15170,1046,,Pop Curds Poutine
+116706,15170,1046,,Poutine with Crispy Chicken
+116707,15170,1046,,Bacon Poutine
+116708,15170,1046,,The Poutine Club
+116709,15170,1046,,Vegetarian Poutine
+116710,15170,1046,,Smoked Meat Poutine
+116711,15170,1046,,Spicy Poutine
+116712,15170,1046,,Donair Poutine
+116740,15174,1046,,Créer votre poutine HIDE
+116741,15174,1046,,Poutine Classique
+116742,15174,1046,,Poutine Buffalo
+116743,15174,1046,,Poutine Poulet Thai
+116744,15174,1046,,La Gatinoise
+116745,15174,1046,,Poutine des Amateurs de Viande
+116746,15174,1046,,Poutine de Steak au Fromage Philly
+116747,15174,1046,,Poutine Pop Curds
+116748,15174,1046,,Poutine au Poulet Croustillant
+116749,15174,1046,,Poutine au Bacon
+116750,15174,1046,,Poutine La Club
+116751,15174,1046,,Poutine Végétarienne
+116752,15174,1046,,Poutine de Viande Fumée
+116753,15174,1046,,Poutine Épicé
+116754,15174,1046,,Poutine Donaire
+116870,15185,1042,,Pizza au fromage
+116871,15185,1042,,Pepperoni classique
+116872,15185,1042,,Pepperoni extra mince New York
+116873,15185,1042,,Pizza 1 pour 1 Margarita
+116874,15185,1042,,Hawaïenne
+116875,15185,1042,,Quatro Fromages
+116876,15185,1042,,Hawaïenne suprême
+116877,15185,1042,,Toute garnie
+116878,15185,1042,,Canadienne
+116879,15185,1042,,Végetarienne
+116880,15185,1042,,Mexicaine
+116881,15185,1042,,Amateurs de viande
+116882,15185,1042,,Deluxe
+116883,15185,1042,,Amateurs de légumes
+116884,15185,1042,,Fruits de Mer
+116885,15186,1042,,Poulet Bacon Ranch
+116886,15186,1042,,Pizza au poulet BBQ
+116887,15186,1042,,Pesto Classique HIDE
+116888,15186,1042,,Maison Kabyle
+116889,15186,1042,,Pesto tropicale
+116890,15186,1042,,Pizza Grecque
+116891,15186,1042,,Suprème gourmet
+116907,15189,1042,,2 Petites Pizzas avec Trempettes et Boisson
+116908,15189,1042,,2 Moyennes Pizzas avec Trempettes et Boisson
+116909,15189,1042,,2 Grandes Pizzas avec Trempettes et Boisson
+116910,15189,1042,,2 X-Grandes Pizzas avec Trempettes et Boisson
+116911,15190,1042,,Petit Pizza et Ailes
+116912,15190,1042,,Moyenne Pizza et Ailes
+116913,15190,1042,,Grande Pizza et Ailes
+116914,15190,1042,,X-Grande Pizza et Ailes
+116915,15191,1042,,Combo 1
+116916,15191,1042,,Combo 2
+116917,15191,1042,,Combo 3
+116918,15191,1042,,Combo 4
+116920,15191,1042,,Classique Canadienne Magnifique
+116921,15191,1042,,Spéciale T-Grande HIDE
+116923,15192,1039,,2 Petites Pizza
+116924,15192,1039,,2 Moyennes Pizza
+116925,15192,1039,,2 Grandes Pizza
+116954,15196,1024,,Large Pizza 3 Toppings
+116958,15197,855,,Heart Shaped Pizza
+116962,15198,852,,Heart Shaped Pizza
+116966,15199,853,,Heart Shaped Pizza
+116967,13735,855,,Large Hawaiian
+116968,13735,855,,Large Combination
+116969,13735,855,,Large Canadian
+116970,13735,855,,Large Club Pizza
+116971,13735,855,,Large Tuscan Sun
+116972,13735,855,,Large Tropical Pizza
+116973,13735,855,,Large BBQ Chicken Pizza
+116974,13735,855,,Large Manzo Pizza
+116975,13735,855,,Large Pollo Pizza
+116976,13735,855,,Large Garden Vegetable Pizza
+116977,13735,855,,Large Jewel 98.5 Pizza
+116978,13735,855,,Large Vegetarian Pizza
+116979,13735,855,,Large Meat Lover
+116980,13735,855,,Large Mexican Pizza
+116981,13735,855,,Large Spicy Vegetarian Pizza
+116982,13735,855,,Large Jo-Jo's Special Pizza
+116983,13735,855,,Large Greek Pizza
+116984,13735,855,,Large Shawarma Pizza
+116985,13736,852,,Large Hawaiian
+116986,13736,852,,Large Combination
+116987,13736,852,,Large Canadian
+116988,13736,852,,Large Club Pizza
+116989,13736,852,,Large Tuscan Sun
+116990,13736,852,,Large Tropical Pizza
+116991,13736,852,,Large Buffalo Chicken Pizza
+116992,13736,852,,Large BBQ Chicken Pizza
+116993,13736,852,,Large Manzo Pizza
+116994,13736,852,,Large Pollo Pizza
+116995,13736,852,,Large Garden Vegetable Pizza
+116996,13736,852,,Large Jewel 98.5 Pizza
+116997,13736,852,,Large Vegetarian Pizza
+116998,13736,852,,Large Meat Lover
+116999,13736,852,,Large Mexican Pizza
+117000,13736,852,,Large Spicy Vegetarian Pizza
+117001,13736,852,,Large Jo-Jo's Special Pizza
+117002,13736,852,,Large Greek Pizza
+117003,13736,852,,Large Shawarma Pizza
+117083,15209,1044,,1 Topping Pizza
+117084,15209,1044,,2 Toppings Pizza
+117085,15209,1044,,3 Toppings Pizza
+117090,15211,855,,Large Pizza 1 Topping
+117091,15212,852,,Large Pizza 1 Topping
+117092,15213,853,,Large Pizza 1 Topping
+117105,15215,1044,,Two Medium Pizzas and Wings HIDE
+117107,15215,1044,,Medium Pizza and Wings HIDE
+117108,15215,1044,,Large Pizza and Wings HIDE
+117112,2210,204,,Small Pizza Everyday Special
+117113,2210,204,,X-Large Pizza Everyday Special
+117654,15067,863,,Fish & Chips Special HIDE
+117655,15067,863,,Fish & Chips Special with Poutine HIDE
+117656,9679,383,,6 Toppings Pizza
+117665,14073,988,,Combo No1 with 2 Dipping Sauces HIDE
+117666,14073,988,,Combo No2 with 2 Dipping Sauces (fries included) HIDE
+117668,14086,988,,Combo No1 avec  2 Trempettes HIDE
+117669,14086,988,,Combo No2 avec 2 Trempettes HIDE
+117872,15306,1052,,2 Pour 1 - Grandes Pizzas
+117873,15306,1052,,2 Pour 1 - Moyennes Pizzas
+117874,15306,1052,,2 Pour 1 - Petites Pizzas
+117877,15306,1052,,Spécial Party
+117878,15307,1052,,1 Grande Pizza et 16 Ailes
+117879,15307,1052,,1 Moyenne Pizza et 12 Ailes
+117880,15307,1052,,1 Petite Pizza et 8 Ailes
+117949,15314,1053,,2 Pour 1 - Grandes Pizzas
+117950,15314,1053,,2 Pour 1 - Moyennes Pizzas
+117951,15314,1053,,2 Pour 1 - Petites Pizzas
+117952,15314,1053,,Spécial Party
+117953,15315,1053,,1 Grande Pizza et 16 Ailes
+117954,15315,1053,,1 Moyenne Pizza et 12 Ailes
+117955,15315,1053,,1 Petite Pizza et 8 Ailes
+117976,15319,988,,1 Medium Pizza with Dips and Pops HIDE
+117977,15319,988,,1 Large Pizza with Dips and Pops HIDE
+117978,15319,988,,1 XLarge Pizza with Dips and Pops HIDE
+117979,15320,988,,1 Pizza Moyenne avec Trempettes et Canette HIDE
+117980,15320,988,,1 Pizza Grande avec Trempettes et Canette HIDE
+117981,15320,988,,1 Pizza X-Grande avec Trempettes et Canette HIDE
+118012,1976,184,,2 Moyenne Pizzas avec Frites et Pepsi HIDE
+118279,15355,532,,Lunch Deal No2 HIDE
+118282,6891,532,,Small Pizza & Poutine HIDE
+118293,10643,789,,First App $5 Pizza Deal
+120880,15482,1063,,One Topping Pizza
+120881,15482,1063,,Two Toppings Pizza
+120913,15483,1063,,Twins 1 Topping
+120914,15483,1063,,Twins 2 Toppings
+120915,15483,1063,,Twins 3 Toppings
+120916,15486,1063,,Large Pizza Deal
+120917,15486,1063,,Medium Pizza Deal
+120918,15486,1063,,The Perfect Combo Deal with PopCurds
+120981,15494,930,,1 Ingrédient HIDE
+120982,15494,930,,La Jeune Hockeyeur HIDE
+120983,15494,930,,La Gatinoise Combinée HIDE
+120984,15494,930,,La Classico Italiano HIDE
+120985,15494,930,,La Hawaïenne HIDE
+120986,15494,930,,La 4 Saisons Végétarienne HIDE
+120987,15494,930,,La Tianna HIDE
+120988,15494,930,,La Mexicaine HIDE
+120989,15494,930,,La Poulet BBQ HIDE
+120990,15494,930,,La Québécoise Spécial Maison HIDE
+120991,15494,930,,La Meat Lover HIDE
+120992,15494,930,,La Canadienne HIDE
+120993,15494,930,,La Francaise HIDE
+120994,15494,930,,La Geo HIDE
+120995,15494,930,,La Grecque HIDE
+120996,15494,930,,L'Americaine HIDE
+120997,15494,930,,La Dani HIDE
+120998,15494,930,,La Chicago HIDE
+120999,15494,930,,La Club HIDE
+121000,15494,930,,Style Maniwaki HIDE
+121001,15494,930,,La Montrealaise HIDE
+121085,15502,1064,,Une garniture (pepperoni) HIDE
+121086,15502,1064,,Le jeune hockeyeur HIDE
+121087,15502,1064,,La Gatinoise Combinée HIDE
+121088,15502,1064,,La Classico Italiano HIDE
+121089,15502,1064,,L’Hawaïenne HIDE
+121090,15502,1064,,La 4 Saisons Végétarienne HIDE
+121091,15502,1064,,La Tianna HIDE
+121092,15502,1064,,La Mexicaine HIDE
+121093,15502,1064,,La Poulet BBQ HIDE
+121094,15502,1064,,La Québécoise Spécial Maison HIDE
+121095,15502,1064,,La Meat Lover HIDE
+121096,15502,1064,,La Canadienne HIDE
+121097,15502,1064,,La Française HIDE
+121098,15502,1064,,La Geo HIDE
+121099,15502,1064,,La Grecque HIDE
+121100,15502,1064,,L’Americaine HIDE
+121101,15502,1064,,La Dani HIDE
+121102,15502,1064,,La Chicago HIDE
+121103,15502,1064,,La Club HIDE
+121104,15502,1064,,Style Maniwaki HIDE
+121105,15502,1064,,La Montrealaise HIDE
+121129,15505,1064,,Spécial Classique
+121130,15505,1064,,Spécial Familiale
+121131,15505,1064,,Petit Pizza avec Poutine HIDE
+121132,15505,1064,,Petit Pizza et Ailes
+121133,15505,1064,,Moyenne Pizza et Ailes
+121134,15505,1064,,Moyenne Pizza et Sous Marin Steak
+121135,15505,1064,,Moyenne Pizza avec Poutine HIDE
+121136,15505,1064,,Grande Pizza avec Poutines HIDE
+121137,15505,1064,,Grande Pizza et Ailes
+121147,4129,346,,Pizza Dinde
+121216,15513,1065,,One Topping Pizza
+121293,15521,1065,,"Special No1: 1 medium pizza 3 toppings, 1Lb wings, 1 garlic dip, 2 cans of pop"
+121294,15521,1065,,"Special No2: 1 large pizza 3 toppings, 1 1/2 Lb wings, 2 garlic dips, 3 cans of pop"
+121295,15521,1065,,"Special No3: 1 x-large 3 toppings pizza, 2Lbs wings, 3 garlic dips, 4 cans of pop"
+121297,15521,1065,,"Party Pack: 1 x-large 3 toppings pizza, 3Lbs wings, 3 garlic dips, 1 large french fries, garlic cheese bread, 6 cans of pop"
+121421,10642,789,,Family Meal Deal
+121423,2292,211,,Family Meal Deal
+121553,15215,1044,,Medium Pizza and Wings
+121554,15215,1044,,Large Pizza and Wings
+121556,15550,1069,,One Topping HIDE
+121557,15550,1069,,Two Toppings HIDE
+121558,15550,1069,,Three Toppings Pizza HIDE
+121697,13735,855,,XL Half Garlic Finger Half 3 Toppings Pizza
+121699,13736,852,,XL Half Garlic Finger Half 3 Toppings Pizza
+121702,13737,853,,XL Half Garlic Finger Half 3 Toppings Pizza
+121725,12970,923,,1 Topping Pizza
+121726,12970,923,,2 Toppings Pizza
+121754,15569,213,,Medium Pizza Two Toppings HIDE
+121755,15569,213,,Large Pizza Two Toppings HIDE
+121756,15569,213,,Plain XL Pizza and Free Chicken Wings (1lb) HIDE
+121774,15211,855,,Family Special Customer Appreciation
+121775,15212,852,,Family Special Customer Appreciation
+121776,15213,853,,Family Special Customer Appreciation
+121955,15589,855,,Medium Pizza 1 Topping
+121956,15590,852,,Medium Pizza 1 Topping
+121957,15591,853,,Medium Pizza 1 Topping
+122180,15617,1074,,Calzone
+122216,12130,879,,Two For One Plain Cheese Pizza HIDE
+122219,7949,231,,1 Grande Pizza avec 1 Poutine HIDE
+122364,15654,1078,,2x Personal 3 Topper
+122365,15654,1078,,2x Small 3 Topper
+122366,15654,1078,,2x Medium 3 Topper
+122367,15654,1078,,2x Large 3 Topper
+122368,15654,1078,,2x X-Large 3 Topper
+122504,11535,850,,3 Toppings Pizza HIDE
+122536,15673,850,,Twin 1 Topping
+122537,15673,850,,Twin 2 Toppings
+122538,15673,850,,Twin 3 Toppings
+122539,11547,850,,Pizza 3 Ingrédients
+122583,15676,1045,,Small Nachos with Donuts and Drink
+122584,15676,1045,,Small Nachos with Churros and Drinks
+122585,15676,1045,,Two Small Nachos with Drinks
+122587,15677,1045,,Petits Nachos avec Beignets et Boissons
+122588,15677,1045,,Petits Nachos avec Churros et Boissons
+122589,15677,1045,,Deux Petits Nachos avec Boissons
+122591,15678,1033,,Small Nachos with Donuts and Drink
+122592,15678,1033,,Small Nachos with Churros and Drinks
+122593,15678,1033,,Two Small Nachos with Drinks
+122595,15679,1033,,Petits Nachos avec Beignets et Boissons
+122596,15679,1033,,Petits Nachos avec Churros et Boissons
+122597,15679,1033,,Deux Petits Nachos avec Boissons
+122598,15680,1046,,2 Small Poutines with Drinks
+122599,15680,1046,,Special SOLO with Donuts
+122600,15680,1046,,Special SOLO with Churros
+122602,15681,1046,,2 Petites Poutines avec Breuvages
+122603,15681,1046,,Special SOLO avec Beignets
+122604,15681,1046,,Special SOLO avec Churros
+122605,15682,1032,,2 Small Poutines with Drinks
+122606,15682,1032,,Special SOLO with Donuts
+122607,15682,1032,,Special SOLO with Churros
+122608,15683,1032,,2 Petites Poutines avec Breuvages
+122609,15683,1032,,Special SOLO avec Beignets
+122610,15683,1032,,Special SOLO avec Churros
+122652,15125,913,,Medium Pizza with Large Fries and 2L Drink HIDE
+122658,15124,913,,Moyenne Pizza avec grande frite et 2L de Breuvage HIDE
+122796,15703,863,,Friday & Saturday Pizza Special HIDE
+122799,15704,863,,Thumping Thursdays Poutine HIDE
+122800,15705,863,,XL Cheese Pizza and 10 HALF PRICED Wings HIDE
+122801,15705,863,,XL Pizza 1 Topping and 10 HALF PRICED Wings HIDE
+122802,15705,863,,XL Pizza 2 Toppings and 10 HALF PRICED Wings HIDE
+122803,15705,863,,XL Pizza 3 Toppings and 10 HALF PRICED Wings HIDE
+122804,15706,863,,XL Cheese Pizza and 1 HALF PRICED Appetizer HIDE
+122805,15706,863,,XL Pizza 1 Topping and 1 HALF PRICED Appetizer HIDE
+122806,15706,863,,XL Pizza 2 Toppings and 1 HALF PRICED Appetizer HIDE
+122807,15706,863,,XL Pizza 3 Toppings and 1 HALF PRICED Appetizer HIDE
+122851,15626,863,,X-Large Pizza & Poutine Deal HIDE
+122962,15724,1081,,One Topping
+122963,15724,1081,,Two Toppings
+123001,15729,1081,,Large Pizza Deal
+123002,15729,1081,,Medium Pizza Deal
+123004,15730,1081,,1 Topping Pizza Deal
+123005,15729,1081,,The Perfect Combo Deal with PopCurds
+123006,15730,1081,,2 Toppings Pizza Deal
+123007,15730,1081,,3 Toppings Pizza Deal
+123034,15731,1081,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+123035,15731,1081,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+123036,15731,1081,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+123045,15735,1081,,The Perfect Combo Deal with PopCurds
+123047,11227,825,,1 Grande Pizza et 2 Poutines
+123126,15750,1082,,One Topping Pizza
+123127,15750,1082,,Two Toppings Pizza
+123155,15752,1082,,2 Pizza Deal 1 Topping & Two 591ml Drinks HIDE
+123156,15752,1082,,2 Pizza Deal 2 Toppings & Two 591ml Drinks HIDE
+123157,15752,1082,,2 Pizza Deal 3 Toppings & Two 591ml Drinks HIDE
+123158,15753,1082,,Large Pizza Deal HIDE
+123159,15753,1082,,Medium Pizza Deal HIDE
+123160,15753,1082,,The Perfect Combo Deal with PopCurds HIDE
+123192,15611,1038,,Any 3 Burgers Special HIDE
+123193,15612,1071,,Any 3 Burgers Special HIDE
+123194,15702,1080,,Any 3 Burgers Special HIDE
+123195,15613,1013,,Any 3 Burgers Special HIDE
+123246,15766,1063,,March Special 1 Topping Pizzas
+123247,15766,1063,,March Special 2 Toppings Pizzas
+123248,15766,1063,,March Special 3 Toppings Pizzas
+123253,15767,183,,Grande Special
+123254,15768,183,,Grande Spéciale
+123263,2097,189,,Family Deal with X-Large Pizza
+123268,15770,213,,March Special 1 Topping Pizzas HIDE
+123269,15770,213,,March Special 2 Toppings Pizzas HIDE
+123270,15770,213,,March Special 3 Toppings Pizzas HIDE
+123275,15771,204,,Large Pizza with Dip HIDE
+123276,15771,204,,Medium Pizza 1 Topping HIDE
+123307,15773,1082,,TWO Plain Pizzas Special HIDE
+123308,15773,1082,,TWO Tropical Hawaiian Pizza Special HIDE
+123309,15773,1082,,TWO Canadian Pizza Special HIDE
+123310,15773,1082,,TWO BBQ Chicken Pizza Special HIDE
+123311,15773,1082,,TWO Chicken Ranch Pizza Special HIDE
+123312,15773,1082,,TWO Meat Lovers Pizza Special HIDE
+123372,15703,863,,Joes Perfect Party Pack with Large Pizza and 5 Random Chocolate Bars HIDE
+123375,11565,833,,Small Pizza 3 Toppings with Drinks and Dips HIDE
+123376,11565,833,,Medium Pizza 3 Toppings with Drinks and Dips HIDE
+123377,11565,833,,Large Pizza 3 Toppings with Drinks and Dips HIDE
+123378,11565,833,,X-Large Pizza 3 Toppings with Drinks and Dips HIDE
+123379,11565,833,,Small Pizza & Wings Deal HIDE
+123380,11565,833,,X-Large Pizza & Wings Deal HIDE
+123395,15774,1069,,Small Pizza 3 Toppings
+123397,15774,1069,,Mega Meal
+123398,15774,1069,,Tiny Bites
+123399,15774,1069,,Pizza and Wing Combo Deal
+123427,2557,231,,La New Yorkaise
+123428,2557,231,,L'Ontarienne
+123429,2557,231,,La Gaspé
+123485,15780,1084,,One Topping Pizza
+123486,15780,1084,,Two Toppings Pizza
+123510,15784,1084,,1 Topping Pizza Deal
+123511,15784,1084,,2 Toppings Pizza Deal
+123512,15784,1084,,3 Toppings Pizza Deal
+123513,15782,1084,,Large Pizza Deal
+123514,15782,1084,,Medium Pizza Deal
+123515,15782,1084,,The Perfect Combo Deal with Wings
+123598,15794,963,,2 Pizzas 2 Toppings
+123599,15794,963,,2 Pizzas 3 Toppings
+123600,15795,963,,Small Pizza 3 Toppings and Wings
+123601,15795,963,,Medium Pizza 3 Toppings and Wings
+123602,15795,963,,2 Large Pizzas 4 Toppings Combined
+123880,15835,1087,,1 Topping 2 Pizza Deal
+123881,15835,1087,,2 Toppings 2 Pizza Deal
+123882,15835,1087,,3 Toppings 2 Pizza Deal
+123883,15831,1087,,2 Pizza Deal 1 Topping & Two 591ml Drinks (V)
+123884,15831,1087,,2 Pizza Deal 2 Toppings & Two 591ml Drinks (V)
+123885,15831,1087,,2 Pizza Deal 3 Toppings & Two 591ml Drinks (V)
+123978,15847,1088,,Any 3 Burgers Special HIDE
+124003,15849,863,,Moms Night Off (with Family fry and 10 pcs fried chicken)
+124023,15850,872,,Jeurdi - Grande Pizza 1 Ingrédient
+124036,2030,192,,Two Toppings Pizza
+124045,15851,953,,Petite Pizza et Ailes
+124046,15851,953,,Moyenne Pizza et Ailes
+124047,15851,953,,Grande Pizza et Ailes
+124048,15851,953,,Petite Pizza et Poutine
+124049,15851,953,,Moyenne Pizza et Poutine
+124050,15851,953,,Grande Pizza et Poutine
+124052,9737,164,,2 Medium Pizzas 3 Toppings Each HIDE
+124196,15875,1089,,1 Topping Pizza
+124197,15875,1089,,2 Toppings Pizza
+124215,15876,1089,,Twins Pizzas 1 Topping
+124216,15876,1089,,Twins Pizzas 2 Toppings
+124217,15876,1089,,Twins Pizzas 3 Toppings
+124218,15877,1089,,Large Pizza Deal
+124219,15877,1089,,Medium Pizza Deal
+124220,15877,1089,,The Perfect Combo Deal
+124266,9737,164,,Large Pizza 1 Topping HIDE
+124324,15904,863,,Spotlight Special Large Pizza
+124830,15494,930,,Deux Petites 3 Garnitures
+124831,15494,930,,Deux Moyennes 3 Garnitures
+124832,15494,930,,Deux Grandes 3 Garnitures
+124833,1964,184,,Deux Petites 3 Garnitures
+124834,1964,184,,Deux Moyennes 3 Garnitures
+124835,1964,184,,Deux Grandes 3 Garnitures
+124853,15502,1064,,Deux Petites 3 Garnitures
+124854,15502,1064,,Deux Moyennes 3 Garnitures
+124855,15502,1064,,Deux Grandes 3 Garnitures
+124874,15965,863,,Cup & Char Pepperoni Pizza HIDE
+124875,15965,863,,Pepperoni Lovers Pizza HIDE
+124876,15965,863,,Whitewater Pie HIDE
+124877,15965,863,,Plain Pizza HIDE
+124878,15965,863,,1 Topping Pizza HIDE
+124879,15965,863,,3 Toppings Pizza HIDE
+124880,15965,863,,Chicken Bruschetta Pizza HIDE
+124881,15965,863,,The Carnivore HIDE
+124882,15965,863,,Combo Pizza HIDE
+124883,15965,863,,Canadian HIDE
+124884,15965,863,,Deluxe HIDE
+124885,15965,863,,Hawaiian HIDE
+124886,15965,863,,Vegetarian HIDE
+124887,15965,863,,Rita HIDE
+124888,15965,863,,Sweet & Spicy HIDE
+124889,15965,863,,Meat Lovers HIDE
+124890,15965,863,,Big Joe Mufferaw HIDE
+124891,15965,863,,Cindy's BBQ Chicken HIDE
+124911,13598,964,,2 Petites Pizzas avec Frite et Canettes
+124946,11537,850,,2 Large Donairs Special
+124947,11537,850,,2 Large Shawarma Special
+125066,15125,913,,Father’s Day Promo HIDE 
+125067,15124,913,,Promo Fête des Pères HIDE 
+125128,15972,913,,2 Small Pizzas Menu Choice
+125129,15972,913,,2 Medium Pizzas Menu Choice
+125130,15972,913,,2 Large Pizzas Menu Choice
+125131,15972,913,,2 Small VEGAN Pizzas Menu Choice HIDE
+125132,15972,913,,2 Medium VEGAN Pizzas Menu Choice HIDE
+125133,15972,913,,2 Large VEGAN Pizzas Menu Choice HIDE
+125134,15973,913,,Small Pizza and Small Poutine
+125135,15973,913,,Medium Pizza and Medium Poutine
+125136,15973,913,,Large Pizza and Medium Poutine
+125137,15973,913,,Small Pizza VEGAN and Small Poutine HIDE
+125138,15973,913,,Medium Pizza VEGAN and Medium Poutine HIDE
+125139,15973,913,,Large Pizza VEGAN and Medium Poutine HIDE
+125175,15979,913,,Canada Day Special HIDE
+131500,15983,913,,2 Petites Pizzas Choix du Menu
+131501,15983,913,,2 Moyenne Pizzas Choix du Menu
+131502,15983,913,,2 Grandes Pizzas Choix du Menu
+131503,15983,913,,2 Petites VEGAN Pizzas Choix du Menu HIDE
+131504,15983,913,,2 Moyennes VEGAN Pizzas Choix du Menu HIDE
+131505,15983,913,,2 Grandes VEGAN Pizzas Choix du Menu HIDE
+131506,15984,913,,Petite Pizza et Petite Poutine
+131507,15984,913,,Moyenne Pizza et Moyenne Poutine
+131508,15984,913,,Grande Pizza et Moyenne Poutine
+131509,15984,913,,Petite VEGAN Pizza et Petite Poutine HIDE
+131510,15984,913,,Moyenne VEGAN Pizza et Moyenne Poutine HIDE
+131511,15984,913,,Grande VEGAN Pizza et Moyenne Poutine HIDE
+131512,15985,913,,Petite Pizza et Entrée
+131513,15985,913,,Moyenne Pizza et Entrée
+131514,15985,913,,Grande Pizza et Entrée
+131515,15986,913,,2 Moyenne Poutine Gourmet
+131522,15986,913,,2 Combo Sandwich
+131523,15988,913,,6 Moyennes Choix du Menu
+131524,15988,913,,10 Moyennes Choix du Menu
+131525,15988,913,,13 Moyenne Choix du Menu
+141197,15993,913,,Monday & Tuesday Medium Special
+141198,15994,913,,Spécial Lundi et Mardi Moyenne Pizza
+141209,15995,913,,Small Poutine HIDE
+141212,15996,913,,Petite Pizza HIDE
+141213,15996,913,,Petite Poutine HIDE
+141230,2030,192,,Three Toppings Pizza
+141257,15999,192,,Twin Pizzas 2 Toppings
+141258,15999,192,,Twin Pizzas 4 Toppings
+141259,15999,192,,Twin Pizzas 6 Toppings

@@ -1,0 +1,802 @@
+[
+  {
+    "id": "60516",
+    "course": "8239",
+    "restaurant": "649",
+    "sku": null,
+    "name": "Regular Trio for 1",
+    "source_type": "menu"
+  },
+  {
+    "id": "60517",
+    "course": "8239",
+    "restaurant": "649",
+    "sku": null,
+    "name": "Regular Trio for 2",
+    "source_type": "menu"
+  },
+  {
+    "id": "60518",
+    "course": "8239",
+    "restaurant": "649",
+    "sku": null,
+    "name": "Large Trio for 1",
+    "source_type": "menu"
+  },
+  {
+    "id": "60519",
+    "course": "8239",
+    "restaurant": "649",
+    "sku": null,
+    "name": "Large Trio for 2",
+    "source_type": "menu"
+  },
+  {
+    "id": "60520",
+    "course": "8239",
+    "restaurant": "649",
+    "sku": null,
+    "name": "Combo No.3",
+    "source_type": "menu"
+  },
+  {
+    "id": "60521",
+    "course": "8239",
+    "restaurant": "649",
+    "sku": null,
+    "name": "Combo No.4",
+    "source_type": "menu"
+  },
+  {
+    "id": "60522",
+    "course": "8239",
+    "restaurant": "649",
+    "sku": null,
+    "name": "Combo No.5",
+    "source_type": "menu"
+  },
+  {
+    "id": "60597",
+    "course": "8251",
+    "restaurant": "650",
+    "sku": null,
+    "name": "Regular Trio for 1",
+    "source_type": "menu"
+  },
+  {
+    "id": "60598",
+    "course": "8251",
+    "restaurant": "650",
+    "sku": null,
+    "name": "Regular Trio for 2",
+    "source_type": "menu"
+  },
+  {
+    "id": "60599",
+    "course": "8251",
+    "restaurant": "650",
+    "sku": null,
+    "name": "Large Trio for 1",
+    "source_type": "menu"
+  },
+  {
+    "id": "60600",
+    "course": "8251",
+    "restaurant": "650",
+    "sku": null,
+    "name": "Large Trio for 2",
+    "source_type": "menu"
+  },
+  {
+    "id": "60601",
+    "course": "8251",
+    "restaurant": "650",
+    "sku": null,
+    "name": "Combo No.3",
+    "source_type": "menu"
+  },
+  {
+    "id": "60602",
+    "course": "8251",
+    "restaurant": "650",
+    "sku": null,
+    "name": "Combo No.4",
+    "source_type": "menu"
+  },
+  {
+    "id": "60603",
+    "course": "8251",
+    "restaurant": "650",
+    "sku": null,
+    "name": "Combo No.5",
+    "source_type": "menu"
+  },
+  {
+    "id": "60891",
+    "course": "8308",
+    "restaurant": "644",
+    "sku": null,
+    "name": "Soup",
+    "source_type": "menu"
+  },
+  {
+    "id": "60892",
+    "course": "8310",
+    "restaurant": "644",
+    "sku": null,
+    "name": "Rice",
+    "source_type": "menu"
+  },
+  {
+    "id": "60893",
+    "course": "8310",
+    "restaurant": "644",
+    "sku": null,
+    "name": "Vermicelli",
+    "source_type": "menu"
+  },
+  {
+    "id": "60902",
+    "course": "8179",
+    "restaurant": "637",
+    "sku": null,
+    "name": "Double Trouble",
+    "source_type": "menu"
+  },
+  {
+    "id": "60919",
+    "course": "8184",
+    "restaurant": "637",
+    "sku": null,
+    "name": "Pizza and 10 Wings",
+    "source_type": "menu"
+  },
+  {
+    "id": "60924",
+    "course": "8184",
+    "restaurant": "637",
+    "sku": null,
+    "name": "Family Special HIDE",
+    "source_type": "menu"
+  },
+  {
+    "id": "60995",
+    "course": "7938",
+    "restaurant": "614",
+    "sku": null,
+    "name": "2 Bacon Cheese Dogs",
+    "source_type": "menu"
+  },
+  {
+    "id": "61224",
+    "course": "4027",
+    "restaurant": "350",
+    "sku": null,
+    "name": "La Pizza-Ghetti",
+    "source_type": "menu"
+  },
+  {
+    "id": "61226",
+    "course": "8178",
+    "restaurant": "637",
+    "sku": null,
+    "name": "Tops Special",
+    "source_type": "menu"
+  },
+  {
+    "id": "61242",
+    "course": "8353",
+    "restaurant": "607",
+    "sku": null,
+    "name": "Burrito",
+    "source_type": "menu"
+  },
+  {
+    "id": "61243",
+    "course": "8353",
+    "restaurant": "607",
+    "sku": null,
+    "name": "Vegetarian Burrito",
+    "source_type": "menu"
+  },
+  {
+    "id": "61244",
+    "course": "8354",
+    "restaurant": "607",
+    "sku": null,
+    "name": "Quesadilla",
+    "source_type": "menu"
+  },
+  {
+    "id": "61245",
+    "course": "8354",
+    "restaurant": "607",
+    "sku": null,
+    "name": "Vegetarian Quesadilla",
+    "source_type": "menu"
+  },
+  {
+    "id": "61246",
+    "course": "8355",
+    "restaurant": "607",
+    "sku": null,
+    "name": "Nachos",
+    "source_type": "menu"
+  },
+  {
+    "id": "61247",
+    "course": "8355",
+    "restaurant": "607",
+    "sku": null,
+    "name": "Vegetarian Nachos",
+    "source_type": "menu"
+  },
+  {
+    "id": "61248",
+    "course": "8356",
+    "restaurant": "607",
+    "sku": null,
+    "name": "1 Taco",
+    "source_type": "menu"
+  },
+  {
+    "id": "61250",
+    "course": "8356",
+    "restaurant": "607",
+    "sku": null,
+    "name": "2 Tacos",
+    "source_type": "menu"
+  },
+  {
+    "id": "61251",
+    "course": "8356",
+    "restaurant": "607",
+    "sku": null,
+    "name": "3 Tacos",
+    "source_type": "menu"
+  },
+  {
+    "id": "61252",
+    "course": "8356",
+    "restaurant": "607",
+    "sku": null,
+    "name": "1 Vegetarian Taco",
+    "source_type": "menu"
+  },
+  {
+    "id": "61253",
+    "course": "8356",
+    "restaurant": "607",
+    "sku": null,
+    "name": "2 Vegetarian Tacos",
+    "source_type": "menu"
+  },
+  {
+    "id": "61254",
+    "course": "8356",
+    "restaurant": "607",
+    "sku": null,
+    "name": "3 Vegetarian Tacos",
+    "source_type": "menu"
+  },
+  {
+    "id": "61259",
+    "course": "8359",
+    "restaurant": "607",
+    "sku": null,
+    "name": "Vegetarian Salad Bowl",
+    "source_type": "menu"
+  },
+  {
+    "id": "61284",
+    "course": "8126",
+    "restaurant": "633",
+    "sku": null,
+    "name": "Bonus Pack HIDED",
+    "source_type": "menu"
+  },
+  {
+    "id": "61285",
+    "course": "8126",
+    "restaurant": "633",
+    "sku": null,
+    "name": "Store Special HIDED",
+    "source_type": "menu"
+  },
+  {
+    "id": "61290",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Alfredo",
+    "source_type": "menu"
+  },
+  {
+    "id": "61291",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Alfredo - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61294",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Arrabiata",
+    "source_type": "menu"
+  },
+  {
+    "id": "61295",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Arrabiata - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61296",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Bolognaise",
+    "source_type": "menu"
+  },
+  {
+    "id": "61297",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Bolognaise - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61298",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Pinky",
+    "source_type": "menu"
+  },
+  {
+    "id": "61299",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Pinky - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61300",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Napolitaine",
+    "source_type": "menu"
+  },
+  {
+    "id": "61301",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Napolitaine - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61302",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Pesto",
+    "source_type": "menu"
+  },
+  {
+    "id": "61303",
+    "course": "7093",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Pesto - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61304",
+    "course": "7094",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Carbonara",
+    "source_type": "menu"
+  },
+  {
+    "id": "61305",
+    "course": "7094",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Carbonara - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61306",
+    "course": "7094",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Boulettes de Viande",
+    "source_type": "menu"
+  },
+  {
+    "id": "61307",
+    "course": "7094",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Boulettes de Viande - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61308",
+    "course": "7095",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Jardin Sauté",
+    "source_type": "menu"
+  },
+  {
+    "id": "61309",
+    "course": "7095",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Jardin Sauté - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61310",
+    "course": "7095",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Forestière aux Épinards",
+    "source_type": "menu"
+  },
+  {
+    "id": "61311",
+    "course": "7095",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Forestière aux Épinards - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61312",
+    "course": "7095",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Thai Crémeux",
+    "source_type": "menu"
+  },
+  {
+    "id": "61313",
+    "course": "7095",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Thai Crémeux - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61314",
+    "course": "7095",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Primavera Pesto",
+    "source_type": "menu"
+  },
+  {
+    "id": "61315",
+    "course": "7095",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Primavera Pesto - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61316",
+    "course": "7101",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Chèvre Florentine",
+    "source_type": "menu"
+  },
+  {
+    "id": "61317",
+    "course": "7101",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Chèvre Florentine - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61318",
+    "course": "7101",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Pesto Fromagé",
+    "source_type": "menu"
+  },
+  {
+    "id": "61319",
+    "course": "7101",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Pesto Fromagé - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61320",
+    "course": "7103",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Bavaroise",
+    "source_type": "menu"
+  },
+  {
+    "id": "61321",
+    "course": "7103",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Bavaroise - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61322",
+    "course": "7103",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Calabrese",
+    "source_type": "menu"
+  },
+  {
+    "id": "61323",
+    "course": "7103",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Calabrese - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61324",
+    "course": "7103",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Cochon Rose",
+    "source_type": "menu"
+  },
+  {
+    "id": "61325",
+    "course": "7103",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Cochon Rose - TRIO",
+    "source_type": "menu"
+  },
+  {
+    "id": "61326",
+    "course": "7103",
+    "restaurant": "559",
+    "sku": null,
+    "name": "Poulet Bayou",
+    "source_type": "menu"
+  },
+  {
+    "id": "61656",
+    "course": "8393",
+    "restaurant": "652",
+    "sku": null,
+    "name": "S6. Traditional Vietnamese Hot and Sour Soup",
+    "source_type": "menu"
+  },
+  {
+    "id": "61803",
+    "course": "8416",
+    "restaurant": "591",
+    "sku": null,
+    "name": "Any 2 Pizzas",
+    "source_type": "menu"
+  },
+  {
+    "id": "61810",
+    "course": "7533",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Spicy Chicken Delight Pizzas",
+    "source_type": "menu"
+  },
+  {
+    "id": "61811",
+    "course": "7533",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Vegetarian Pizzas",
+    "source_type": "menu"
+  },
+  {
+    "id": "61812",
+    "course": "7533",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Kim's Special Pizzas",
+    "source_type": "menu"
+  },
+  {
+    "id": "61813",
+    "course": "7533",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 The Greek Pizzas",
+    "source_type": "menu"
+  },
+  {
+    "id": "61814",
+    "course": "7533",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Chef's Special Pizzas",
+    "source_type": "menu"
+  },
+  {
+    "id": "61815",
+    "course": "7533",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 House Special Pizzas",
+    "source_type": "menu"
+  },
+  {
+    "id": "61821",
+    "course": "8418",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Kid's Lasagna",
+    "source_type": "menu"
+  },
+  {
+    "id": "61822",
+    "course": "8418",
+    "restaurant": "591",
+    "sku": null,
+    "name": "3 Kid's Lasagna",
+    "source_type": "menu"
+  },
+  {
+    "id": "61823",
+    "course": "8418",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Baked Lasagna ",
+    "source_type": "menu"
+  },
+  {
+    "id": "61824",
+    "course": "8418",
+    "restaurant": "591",
+    "sku": null,
+    "name": "3 Baked Lasagna",
+    "source_type": "menu"
+  },
+  {
+    "id": "61825",
+    "course": "8418",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Baked Spaghetti",
+    "source_type": "menu"
+  },
+  {
+    "id": "61826",
+    "course": "8418",
+    "restaurant": "591",
+    "sku": null,
+    "name": "3 Baked Spaghetti",
+    "source_type": "menu"
+  },
+  {
+    "id": "61827",
+    "course": "8418",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Ravioli",
+    "source_type": "menu"
+  },
+  {
+    "id": "61828",
+    "course": "8418",
+    "restaurant": "591",
+    "sku": null,
+    "name": "3 Ravioli",
+    "source_type": "menu"
+  },
+  {
+    "id": "61831",
+    "course": "7533",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Spinach Delight",
+    "source_type": "menu"
+  },
+  {
+    "id": "61833",
+    "course": "7542",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Veal Cutlets with Spaghetti and Garlic Toast",
+    "source_type": "menu"
+  },
+  {
+    "id": "61835",
+    "course": "7542",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Veal Parmigiana with Spaghetti and Garlic Toast",
+    "source_type": "menu"
+  },
+  {
+    "id": "61837",
+    "course": "7542",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Half BBQ Chicken with Spaghetti or Lasagna and Garlic Toast",
+    "source_type": "menu"
+  },
+  {
+    "id": "61839",
+    "course": "7542",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 BBQ Chicken with Spaghetti or Lasagna and Garlic Toast",
+    "source_type": "menu"
+  },
+  {
+    "id": "61841",
+    "course": "7540",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Baked Lasagna or Spaghetti and Garlic Toast",
+    "source_type": "menu"
+  },
+  {
+    "id": "61842",
+    "course": "7540",
+    "restaurant": "591",
+    "sku": null,
+    "name": "3 Baked Lasagna or Spaghetti with Garlic Toast",
+    "source_type": "menu"
+  },
+  {
+    "id": "61843",
+    "course": "7540",
+    "restaurant": "591",
+    "sku": null,
+    "name": "2 Baked Ravioli and Garlic Toast",
+    "source_type": "menu"
+  },
+  {
+    "id": "61844",
+    "course": "7540",
+    "restaurant": "591",
+    "sku": null,
+    "name": "3 Baked Ravioli with Garlic Toast",
+    "source_type": "menu"
+  },
+  {
+    "id": "61845",
+    "course": "7540",
+    "restaurant": "591",
+    "sku": null,
+    "name": "Medium Pizza with 2 Toppings and Lasagna with 1 Can Pop",
+    "source_type": "menu"
+  },
+  {
+    "id": "61846",
+    "course": "7540",
+    "restaurant": "591",
+    "sku": null,
+    "name": "Large Pizza with 2 Toppings and Lasagna with 2 Cans Pop",
+    "source_type": "menu"
+  }
+]
