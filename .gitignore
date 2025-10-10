@@ -5,6 +5,10 @@
 *.zip
 tools/php/
 
+# Database source folders (contains raw database dumps)
+menuca_v1/
+menuca_v2/
+
 # Environment variablPes (contains sensitive keys)
 .env
 .env.local
