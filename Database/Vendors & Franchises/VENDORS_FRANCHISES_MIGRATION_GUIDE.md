@@ -770,9 +770,843 @@ menuca_v3.vendor_splits_archive
 
 ---
 
-**Document Created**: January 10, 2025  
-**Created By**: Santiago  
-**Status**: 🔍 **ANALYSIS COMPLETE - AWAITING DECISION**
+## Source Code Analysis
 
-**Next Update**: After business review and V3 schema audit
+### 🔍 V1 & V2 Business Logic Deep Dive
+
+**Analysis Date**: January 10, 2025  
+**Code Reviewed**: menuca_v1 & menuca_v2 application source  
+**Purpose**: Understand how vendors/franchises actually work in the current system
+
+---
+
+### System Architecture Discovery
+
+**Critical Finding**: Vendors are **NOT a separate user type**. They are represented as:
+```
+admin_users WHERE group = 12 AND active = 'y'
+```
+
+This means:
+- Vendors use the same `admin_users` table as restaurant owners and staff
+- Distinguished only by `group = 12` field
+- Have special `billing_info` field for invoicing
+- Linked to restaurants via `admin_users_restaurants` junction table
+
+**No separate vendor tables in V2** - The V1 `vendors` table was **deprecated**!
+
+---
+
+### V2 Active Business Logic
+
+#### 1. Vendor User Management
+
+**Location**: `menuca_v2/mca/application/models/Accounting_model.php` (Lines 970-996)
+
+**Function**: `get_vendors()`
+```php
+public function get_vendors(): array
+{
+    $data = $this->db->query(
+        "select `id`,`fname`,`lname`, `billing_info` 
+         from `admin_users` 
+         where `group` = 12 and `active`='y'"
+    )->result();
+    
+    return $return;
+}
+```
+
+**How It Works**:
+- Vendors are admin users with `group = 12`
+- Have `fname`, `lname` for identification
+- `billing_info` field stores invoice details (name, address, etc.)
+- Can manage multiple restaurants via `admin_users_restaurants` table
+
+**Restaurants Without Vendors**:
+```php
+public function not_assigned_restaurants(): array
+{
+    return $this->db->query(
+        "select `id`, `name`, `address`
+         from `restaurants`
+         where `active` = 'y'
+           and id not in (
+               select restaurant_id from admin_users_restaurants
+               join admin_users on admin_users_restaurants.user_id = admin_users.id
+               where admin_users.`group` = 12
+           )"
+    )->result();
+}
+```
+
+---
+
+#### 2. Commission Split Templates
+
+**Location**: `menuca_v2/mca/application/models/Accounting_model.php` (Lines 1002-1081)
+
+**Purpose**: Define how revenue is split between restaurant, vendor, and platform
+
+**Template Structure**:
+```sql
+CREATE TABLE vendor_splits_templates (
+  id int AUTO_INCREMENT,
+  name varchar(125),                    -- Template name (e.g., "percent_commission")
+  commission_from char(15),             -- 'gross', 'net', or 'net_delivery'
+  menuottawa_share decimal(5,2),        -- Platform fixed fee
+  breakdown text,                        -- ⚠️ EXECUTABLE PHP CODE
+  return_info text,                      -- ⚠️ EXECUTABLE PHP CODE
+  file varchar(125),                     -- PDF filename suffix
+  enabled enum('y','n'),
+  added_by int,
+  added_at datetime
+);
+```
+
+**Template Placeholders**:
+- `##total##` - Order total (varies by commission_from)
+- `##restaurant_commission##` - Restaurant's commission %
+- `##restaurant_convenience_fee##` - Convenience fee value
+- `##menuottawa_share##` - MenuOttawa/menu.ca fixed share
+- `##vendor_id##` - Vendor ID
+- `##restaurant_address##`, `##restaurant_name##`, `##restaurant_id##` - Restaurant info
+
+**Example Template** (from database):
+```php
+// Template: "percent_commission"
+// commission_from: 'net'
+// menuottawa_share: 80.00
+
+// breakdown field (EXECUTABLE PHP):
+$tenPercent = ##total##*(##restaurant_commission## / 100);
+$firstSplit = $tenPercent - ##menuottawa_share##;
+$forVendor_0= $firstSplit / 2;
+$forJames=$forVendor_0 / 2;
+
+// return_info field (EXECUTABLE PHP):
+vendor_id => ##vendor_id##
+restaurant_address => ##restaurant_address##
+restaurant_name => ##restaurant_name##
+restaurant_id => ##restaurant_id##
+useTotal=> ##total##,
+forVendor => $forVendor_0
+forJames=>$forJames
+```
+
+**How Templates Are Applied**:
+1. Admin assigns template to restaurant via `vendor_splits` table
+2. Monthly report generation queries `vendor_splits_templates` JOIN `vendor_splits`
+3. System replaces placeholders with actual values
+4. **Uses `eval()` to execute PHP code** (see security section below)
+
+**Functions**:
+```php
+// Add/edit template
+public function handle_vendor_split_templates(array $postData)
+
+// Assign template to restaurant
+public function add_vendor_split(array $postData)
+
+// Get current template for restaurant
+public function get_current_vendor_split(int $restaurant_id)
+
+// Get all templates
+public function get_vendor_splits_templates(): array
+```
+
+---
+
+#### 3. Vendor Report Generation
+
+**Location**: `menuca_v2/mca/application/models/Accounting_model.php` (Lines 1086-1343)
+
+**Function**: `calculate_vendor_reports(array $options = [])`
+
+**Execution**: Monthly cron job on 1st of month for previous month
+
+**Workflow**:
+
+**Step 1: Data Collection**
+```php
+// Get vendors and their restaurants
+$subquery = "select admin_users.fname, admin_users.lname, admin_users.id, 
+                    admin_users_restaurants.restaurant_id
+             from admin_users
+             join admin_users_restaurants on admin_users.id = admin_users_restaurants.user_id
+             where `admin_users`.`group` = 12 and `admin_users`.`active` = 'y'";
+
+// Get order totals for period
+$query = "select r.id, r.name, r.address, vendors.vendor_id,
+                 round(numbers.total_orders_value + if(rc.charges_value is null,0, rc.charges_value), 2) as `total_orders_value`,
+                 round(numbers.total_food_value + if(rc.charges_value is null,0, rc.charges_value), 2) as `total_food_value`,
+                 split.commission_from, split.menuottawa_share, split.breakdown, split.return_info,
+                 fees.convenienceFeeValue, fees.commissionValue
+          from restaurants r
+          join (" . $subquery . ") vendors on r.id = vendors.restaurant_id
+          left join (select sum(`total`) as `total_orders_value`,
+                            sum(`food_value`) as `total_food_value`,
+                            restaurant_id
+                     from `order_details`
+                     where `status` = 'accepted' and `midnight` between ? and ?
+                     group by `restaurant_id`) numbers on r.id = numbers.restaurant_id
+          left join (select commission_from, menuottawa_share, breakdown, return_info, restaurant_id, file
+                     from vendor_splits_templates 
+                     join vendor_splits on vendor_splits_templates.id = vendor_splits.template_id
+                     where `enabled` = 'y') split on r.id = split.restaurant_id";
+```
+
+**Step 2: Commission Calculation** (⚠️ CRITICAL SECURITY ISSUE)
+```php
+foreach ($data as $restaurant) {
+    // Determine which total to use
+    switch ($restaurant->commission_from) {
+        case 'gross':
+            $totalValue = $restaurant->total_orders_value ?? 0;  // Full order total
+            break;
+        case 'net_delivery':
+            $totalValue = $restaurant->total_fv_df ?? 0;         // Food + delivery
+            break;
+        default:
+            $totalValue = $restaurant->total_food_value ?? 0;    // Food only
+            break;
+    }
+    
+    // Replace placeholders in template
+    $breakdown = str_replace(
+        ['##total##', '##restaurant_commission##', '##restaurant_convenience_fee##', 
+         '##menuottawa_share##', '##vendor_id##', '##restaurant_address##', 
+         '##restaurant_name##', '##restaurant_id##'],
+        [$totalValue, $restaurant->commissionValue, $restaurant->convenienceFeeValue, 
+         $restaurant->menuottawa_share, $restaurant->vendor_id, $restaurant->address, 
+         $restaurant->name, $restaurant->id],
+        $restaurant->breakdown
+    );
+    
+    // ⚠️ EXECUTE ARBITRARY PHP CODE FROM DATABASE
+    $formulas = explode("\n", $breakdown);
+    foreach ($formulas as $formula) {
+        eval($formula); // Line 1200 - CRITICAL SECURITY VULNERABILITY
+    }
+    
+    // Process return_info to extract calculated values
+    $return = str_replace([/* same placeholders */], [/* same values */], $restaurant->return_info);
+    
+    foreach (explode("\n", $return) as $item) {
+        if (stripos($item, '=') !== false) {
+            list($key, $value) = explode('=>', $item);
+            if (strpos($value, '$') !== false) {
+                eval("\$tmp = " . trim($value) . ';'); // Line 1226 - ANOTHER eval()
+                $_return[trim($key)] = $tmp > 0 ? $tmp : 0;
+            }
+        }
+    }
+}
+```
+
+**Step 3: Store Results**
+```php
+$_insertData[$restaurant->vendor_id]['to_db'][] = [
+    'restaurant_id' => $restaurant->id,
+    'result' => json_encode($_return),  // JSON with all calculated values
+    'date_added' => $this->calendar->format('Y-m-d'),
+    'vendor_id' => $restaurant->vendor_id,
+    'statement_no' => $statementNumbers[$restaurant->vendor_id] + 1,
+    'start' => $start,
+    'stop' => $stop,
+];
+
+$this->db->insert_batch('vendor_reports', $insert['to_db']);
+```
+
+**Step 4: Generate PDF**
+```php
+// Create PDF report for each vendor
+$filename = $insert['to_file']['file'] . '_' . $start . '_' . $stop . '.pdf';
+$template = file_get_contents(VIEWPATH . 'layout/pdf/vendor_reports.twig');
+
+// Build table of restaurants and commissions
+foreach ($insert['to_file']['data'] as $d) {
+    $table .= '<tr><td>' . implode('</td><td>', $d) . '</td></tr>';
+    $total += $d['commission'];
+}
+
+$page = str_replace(
+    ['<!-- data -->', '##vendor##', '##statementno##', '##start##', '##stop##', '##total##'],
+    [$table, $insert['to_file']['vendor'], $statementNo, $start, $stop, number_format($total, 2)],
+    $template
+);
+
+$this->Mpdf->createPdf(['body' => $page], $filename);
+```
+
+**Step 5: Update Statement Numbers**
+```php
+$this->db->query(
+    "insert into `vendor_reports_numbers`(`statement_no`, `vendor_id`, `file`)
+     values (?, ?, ?)
+     on duplicate key update `statement_no` = ?",
+    [$statementNo, $vendorId, $insert['to_file']['file'], $statementNo]
+);
+```
+
+**Output**:
+- JSON data stored in `vendor_reports` table
+- PDF files: `/vendors/{vendor_file}_{start}_{stop}.pdf`
+- Statement numbers incremented per vendor
+- Results can be viewed in admin interface
+
+---
+
+#### 4. Additional Vendor Features
+
+**Vendor Extra Report** (Lines 1772-1904):
+- Calculates extra commission for delivery orders
+- Uses `vendor_commission_extra` field from `restaurants_fees`
+- Formula: `commission = food_value * (vendor_commission_extra / 100)`
+- Generates separate PDF: `vendor_extra_{start}_{stop}.pdf`
+
+**Tips and Fees Report** (Lines 1661-1769):
+- Not vendor-specific, but related
+- Calculates delivery fees and driver tips
+- For restaurants using delivery companies
+
+**Invoice Generation** (Lines 1421-1499):
+- Create invoices for vendors (`invoice_type = 'vendor'`)
+- Create invoices for menu.ca (`invoice_type = 'menu'`)
+- Stores in `vendor_invoices` table
+- Links to vendor reports via statement number
+
+---
+
+### V1 Legacy Code
+
+**Location**: `menuca_v1/menu-v1/defines.php` (Lines 172-186)
+
+**Remnants Found**:
+```php
+// Commented out code showing V1 vendor structure
+/*$vendor = $db->fetch($db->query("select `name`,`logo`,`restaurants`,`website` from `vendors`"));
+foreach($vendor as $v){
+    $vendorResto = @unserialize($v['restaurants']);  // BLOB deserialization
+    if(in_array($restoInfo['id'], $vendorResto)){
+        $restoInfo['vendorName'] = $v['name'];
+        $websites = @unserialize($v['website']);      // BLOB deserialization
+        if(is_array($websites)){
+            $restoInfo['vendorUrl'] = $websites['url'][$websites['default']];
+        }
+    }
+}*/
+```
+
+**What This Tells Us**:
+- V1 used `vendors` table with BLOB columns
+- BLOBs contained serialized PHP arrays
+- `restaurants` BLOB: Array of restaurant IDs
+- `website` BLOB: Array of URLs with default index
+- This code is **commented out** in production (inactive)
+- V1 vendor system was **deprecated** when V2 was built
+
+**V1 to V2 Migration**:
+- V1: Separate `vendors` table with BLOBs
+- V2: Vendors as `admin_users` (group 12) with junction table
+- Data was likely migrated manually (no migration script found)
+
+---
+
+### UI Components Analysis
+
+#### Admin Interface: Vendor Split Settings
+
+**File**: `menuca_v2/mca/application/views/restaurants/vendor_split.twig`
+
+**Features**:
+1. **Assign Template to Restaurant**:
+   - Dropdown of available templates
+   - One-click assignment
+   - AJAX submission
+
+2. **Create/Edit Templates**:
+   - Template name input
+   - Commission source selection (gross/net/net_delivery)
+   - MenuOttawa share (decimal)
+   - **Breakdown textarea** - Enter raw PHP code with placeholders
+   - **Return info textarea** - Enter PHP variable assignments
+   - File suffix for PDFs
+   - JavaScript loads existing template data for editing
+
+**Security Note**: UI allows admins to enter **arbitrary PHP code** that will be executed via `eval()`.
+
+#### Admin Interface: Vendor Reports
+
+**File**: `menuca_v2/mca/application/views/accounting/vendor_reports_interface.twig`
+
+**Features**:
+- View existing vendor reports (by date range)
+- Generate new reports (manual or scheduled)
+- Download PDF statements
+- Create invoices for vendors
+- View statement numbers per vendor
+
+**JavaScript**: `menuca_v2/mca/public/assets/js/mc/src/vendor_reports_interface.js`
+- Province-based tax calculation
+- Invoice generation forms
+- Dynamic charge/tax row addition
+
+---
+
+### Security Vulnerabilities Found
+
+#### 🔴 CRITICAL: Arbitrary Code Execution
+
+**Location**: `Accounting_model.php` Lines 1200, 1226
+
+**Vulnerability**:
+```php
+eval($formula); //eval is evil, but there's no other way
+```
+
+**Risk Level**: **CRITICAL**
+
+**Attack Vector**:
+1. Attacker gains access to admin account (or account is compromised)
+2. Edits vendor split template via UI
+3. Injects malicious PHP code in `breakdown` field
+4. Code executes when monthly report runs (or manual generation)
+
+**Example Exploit**:
+```php
+// Injected in breakdown field:
+$forVendor = 0; 
+shell_exec('rm -rf /var/www/html/*');  // Delete all files
+file_put_contents('/tmp/backdoor.php', '<?php system($_GET["cmd"]); ?>');
+```
+
+**Potential Impact**:
+- Remote code execution on server
+- Database manipulation
+- File system access
+- Data exfiltration
+- Server compromise
+
+**Current Mitigation**: None (relies on admin account security only)
+
+**Why This Exists**:
+- Developer comment: "eval is evil, but there's no other way"
+- Templates need dynamic calculation logic
+- No safe calculation engine was implemented
+- Technical debt from rapid development
+
+---
+
+#### 🟡 MEDIUM: SQL Injection Risk
+
+**Location**: Template placeholder replacement
+
+**Issue**: If template placeholders are not properly escaped before being used in SQL queries (though current code doesn't show direct SQL in templates)
+
+**Mitigation**: Input validation on placeholder values
+
+---
+
+### Data Flow Diagram
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    VENDOR REPORT WORKFLOW                    │
+└─────────────────────────────────────────────────────────────┘
+
+1. CRON TRIGGER (Monthly)
+   └─> Accounting::vendor_reports()
+       └─> Accounting_model::calculate_vendor_reports()
+
+2. DATA COLLECTION
+   ├─> Query admin_users (group = 12) → Vendors
+   ├─> Query admin_users_restaurants → Restaurant assignments
+   ├─> Query order_details (status='accepted') → Order totals
+   ├─> Query vendor_splits → Template assignments
+   └─> Query vendor_splits_templates → Calculation formulas
+
+3. CALCULATION (PER RESTAURANT)
+   ├─> Determine commission base (gross/net/net+delivery)
+   ├─> Replace template placeholders with actual values
+   ├─> eval() PHP code from breakdown field ⚠️ SECURITY RISK
+   ├─> Extract $forVendor variable
+   └─> Store in $_insertData array
+
+4. PERSISTENCE
+   ├─> INSERT batch into vendor_reports (JSON results)
+   ├─> UPDATE vendor_reports_numbers (increment statement #)
+   └─> Generate PDF files → /vendors/{file}_{start}_{stop}.pdf
+
+5. OUTPUT
+   ├─> PDF reports available for download
+   ├─> JSON data stored for API access
+   └─> Admin UI displays report list
+```
+
+---
+
+### Commission Calculation Examples
+
+#### Example 1: "percent_commission" Template
+
+**Template Data**:
+- `commission_from`: `'net'` (food value only)
+- `menuottawa_share`: `80.00`
+- Restaurant commission: `10%`
+
+**Monthly Totals**:
+- Food value: `$10,000`
+- Delivery fees: `$500` (ignored for 'net')
+
+**Calculation**:
+```php
+$tenPercent = $10000 * (10 / 100);           // = $1,000
+$firstSplit = $1000 - 80.00;                 // = $920
+$forVendor_0 = $920 / 2;                     // = $460
+$forJames = $460 / 2;                        // = $230
+
+// Results:
+// - Vendor receives: $460
+// - "James" receives: $230 (likely MenuOttawa owner)
+// - MenuOttawa platform: $80 (fixed)
+// - Restaurant keeps: $9,000 + $230 = $9,230
+```
+
+#### Example 2: "mazen_milanos" Template
+
+**Template Data**:
+- `commission_from`: `'gross'` (total order value)
+- `menuottawa_share`: `80.00`
+- Restaurant convenience fee: `$2.00` per order
+- 100 orders in month
+
+**Monthly Totals**:
+- Gross total: `$15,000`
+- Convenience fees collected: `100 * $2.00 = $200`
+
+**Calculation**:
+```php
+$forVendor = $15000 * 0.3;                              // = $4,500
+$collection = $15000 * 2.00;                            // = $30,000 (seems wrong - likely bug)
+$forMenuOttawa = ($30000 - $4500 - 80.00) / 2;         // = $12,710
+
+// Note: This template appears to have logic issues
+```
+
+---
+
+### Key Business Rules Discovered
+
+1. **Vendor Representation**:
+   - Vendors are NOT a separate entity
+   - They are admin users with `group = 12`
+   - One vendor can manage multiple restaurants
+   - One restaurant can have only one vendor (unique constraint on `vendor_splits.restaurant_id`)
+
+2. **Commission Calculation**:
+   - Three bases: Gross (full order), Net (food only), Net+Delivery
+   - Custom formulas per template (stored as PHP code)
+   - MenuOttawa/menu.ca takes fixed platform fee
+   - Remaining amount split between vendor and others (often 50/50)
+
+3. **Report Generation**:
+   - Runs monthly (cron job on 1st of month)
+   - Generates PDF statements
+   - Statement numbers increment per vendor per file
+   - Historical data stored as JSON in database
+
+4. **Restaurant Assignment**:
+   - Only 19 of 944 restaurants (2%) use vendor splits
+   - Most restaurants are directly managed (no vendor intermediary)
+   - Restaurants without vendors are tracked via `not_assigned_restaurants()`
+
+5. **Financial Tracking**:
+   - Separate invoicing system for vendors and platform
+   - Invoice numbers auto-increment by type
+   - Links to vendor reports via statement number
+
+---
+
+### Migration Decision Tree
+
+```
+┌─────────────────────────────────────────────┐
+│   Is vendor model still active?             │
+│   (Check with business stakeholders)        │
+└─────────────────┬───────────────────────────┘
+                  │
+         ┌────────┴────────┐
+         │                 │
+        YES               NO
+         │                 │
+         ▼                 ▼
+┌─────────────────┐  ┌──────────────────┐
+│   ACTIVE        │  │   DEPRECATED     │
+│   MIGRATION     │  │   ARCHIVE-ONLY   │
+└─────────────────┘  └──────────────────┘
+         │                 │
+         ▼                 ▼
+┌─────────────────┐  ┌──────────────────┐
+│ MUST REFACTOR:  │  │ Simple Archive:  │
+│                 │  │                  │
+│ 1. Remove eval()│  │ 1. Copy vendor   │
+│    calls        │  │    reports JSON  │
+│                 │  │    to V3         │
+│ 2. Design safe  │  │                  │
+│    calculation  │  │ 2. Read-only     │
+│    engine       │  │    access        │
+│                 │  │                  │
+│ 3. Convert PHP  │  │ 3. No active     │
+│    templates to │  │    features      │
+│    JSON rules   │  │                  │
+│                 │  │                  │
+│ 4. Implement    │  │ Effort: 8-12 hrs │
+│    validation   │  └──────────────────┘
+│                 │
+│ 5. Migrate:     │
+│    - Vendor     │
+│      users      │
+│    - Templates  │
+│    - Assignments│
+│    - Reports    │
+│                 │
+│ Effort: 60-80hrs│
+│ (inc. security) │
+└─────────────────┘
+```
+
+---
+
+### Refactoring Requirements (If Migrating)
+
+#### 1. Replace eval() with Safe Calculation Engine
+
+**Option A**: Expression Parser Library
+```php
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+
+$expressionLanguage = new ExpressionLanguage();
+
+$variables = [
+    'total' => $totalValue,
+    'restaurant_commission' => $commissionValue,
+    'menuottawa_share' => $menuottawaShare,
+    // ... other variables
+];
+
+// Template stored as safe expression string:
+// "total * (restaurant_commission / 100) - menuottawa_share"
+$forVendor = $expressionLanguage->evaluate($templateExpression, $variables);
+```
+
+**Option B**: JSON Rule Engine
+```json
+{
+  "template_id": 2,
+  "name": "percent_commission",
+  "rules": [
+    {
+      "variable": "tenPercent",
+      "operation": "multiply",
+      "operands": [
+        {"type": "var", "value": "total"},
+        {"type": "divide", "operands": [
+          {"type": "var", "value": "restaurant_commission"},
+          {"type": "const", "value": 100}
+        ]}
+      ]
+    },
+    {
+      "variable": "firstSplit",
+      "operation": "subtract",
+      "operands": [
+        {"type": "var", "value": "tenPercent"},
+        {"type": "var", "value": "menuottawa_share"}
+      ]
+    },
+    {
+      "variable": "forVendor",
+      "operation": "divide",
+      "operands": [
+        {"type": "var", "value": "firstSplit"},
+        {"type": "const", "value": 2}
+      ]
+    }
+  ],
+  "return": "forVendor"
+}
+```
+
+**Option C**: Hard-Code Known Templates
+```php
+class VendorCommissionCalculator {
+    public function calculate(string $templateName, array $data): float {
+        switch ($templateName) {
+            case 'percent_commission':
+                return $this->calculatePercentCommission($data);
+            case 'mazen_milanos':
+                return $this->calculateMazenMilanos($data);
+            default:
+                throw new Exception("Unknown template: $templateName");
+        }
+    }
+    
+    private function calculatePercentCommission(array $data): float {
+        $tenPercent = $data['total'] * ($data['restaurant_commission'] / 100);
+        $firstSplit = $tenPercent - $data['menuottawa_share'];
+        return $firstSplit / 2;
+    }
+}
+```
+
+**Recommendation**: Option A (Expression Parser) - Flexible yet safe
+
+---
+
+#### 2. V3 Schema Design (If Active)
+
+```sql
+-- Vendors as admin users (keep existing structure)
+-- No changes to admin_users table needed
+
+-- Commission templates (REFACTORED)
+CREATE TABLE menuca_v3.vendor_commission_templates (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(125) NOT NULL UNIQUE,
+    commission_from VARCHAR(20) NOT NULL,  -- 'gross', 'net', 'net_delivery'
+    platform_share DECIMAL(10,2) NOT NULL,
+    calculation_rules JSONB NOT NULL,       -- Safe JSON rules (no code)
+    enabled BOOLEAN DEFAULT true,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW(),
+    created_by BIGINT REFERENCES menuca_v3.admin_users(id),
+    
+    -- Legacy tracking
+    legacy_v2_id INTEGER,
+    
+    CONSTRAINT valid_commission_from CHECK (commission_from IN ('gross', 'net', 'net_delivery'))
+);
+
+-- Template assignments
+CREATE TABLE menuca_v3.vendor_commission_assignments (
+    id BIGSERIAL PRIMARY KEY,
+    restaurant_id BIGINT NOT NULL REFERENCES menuca_v3.restaurants(id),
+    template_id BIGINT NOT NULL REFERENCES menuca_v3.vendor_commission_templates(id),
+    vendor_user_id BIGINT NOT NULL REFERENCES menuca_v3.admin_users(id),
+    active_from DATE NOT NULL,
+    active_until DATE,
+    
+    UNIQUE(restaurant_id, active_from),  -- One template per restaurant per period
+    
+    -- Legacy tracking
+    legacy_v2_id INTEGER
+);
+
+-- Historical reports (archive)
+CREATE TABLE menuca_v3.vendor_reports_archive (
+    id BIGSERIAL PRIMARY KEY,
+    vendor_user_id BIGINT REFERENCES menuca_v3.admin_users(id),
+    restaurant_id BIGINT REFERENCES menuca_v3.restaurants(id),
+    report_period_start DATE NOT NULL,
+    report_period_end DATE NOT NULL,
+    statement_number INTEGER NOT NULL,
+    calculation_results JSONB NOT NULL,    -- Stored results from V2
+    pdf_filename VARCHAR(255),
+    generated_at DATE,
+    
+    -- Legacy tracking
+    legacy_v2_id INTEGER,
+    source_system VARCHAR(10) DEFAULT 'v2'
+);
+
+-- Statement number tracking
+CREATE TABLE menuca_v3.vendor_statement_numbers (
+    vendor_user_id BIGINT PRIMARY KEY REFERENCES menuca_v3.admin_users(id),
+    current_number INTEGER NOT NULL DEFAULT 0,
+    last_generated_at TIMESTAMPTZ
+);
+
+-- Indexes
+CREATE INDEX idx_vendor_reports_vendor ON menuca_v3.vendor_reports_archive(vendor_user_id);
+CREATE INDEX idx_vendor_reports_period ON menuca_v3.vendor_reports_archive(report_period_start, report_period_end);
+CREATE INDEX idx_commission_assignments_restaurant ON menuca_v3.vendor_commission_assignments(restaurant_id);
+CREATE INDEX idx_commission_assignments_active ON menuca_v3.vendor_commission_assignments(active_from, active_until);
+```
+
+---
+
+#### 3. Migration Scripts Needed (If Active)
+
+**PHP Scripts**:
+```
+1. extract_vendor_templates.php
+   - Read vendor_splits_templates from V2
+   - Parse PHP code to understand logic
+   - Convert to JSON rules format
+   - Output: vendor_templates.json
+
+2. validate_commission_calculations.php
+   - Test new calculation engine
+   - Compare results with existing V2 reports
+   - Ensure accuracy within $0.01
+   - Output: validation_report.txt
+```
+
+**SQL Scripts**:
+```
+1. load_vendor_commission_templates.sql
+   - Load converted templates into V3
+   - Map legacy_v2_id for tracking
+
+2. load_vendor_assignments.sql
+   - Load vendor_splits data
+   - Link to V3 restaurants and templates
+
+3. load_vendor_reports_archive.sql
+   - Load historical vendor_reports
+   - Store as read-only JSON
+
+4. verify_vendor_migration.sql
+   - Check row counts
+   - Validate FK integrity
+   - Confirm no orphaned records
+```
+
+---
+
+### Summary of Findings
+
+**System Status**:
+- ✅ Vendor system is functional in V2
+- ⚠️ Only 2% of restaurants use it (19 of 944)
+- 🔴 Critical security vulnerability (`eval()` calls)
+- 📊 493 historical reports generated
+- 💼 2 active commission templates
+- 👥 Unknown number of active vendors (group 12 admin users)
+
+**Key Decision Factors**:
+1. **Business Activity**: Is vendor model still generating reports?
+2. **Security**: Must fix eval() vulnerability before any new development
+3. **Complexity**: Templates contain executable code (hard to migrate safely)
+4. **Usage**: Very low adoption (2% of restaurants)
+
+**Migration Complexity**:
+- **If Active**: HIGH (security refactoring required)
+- **If Deprecated**: LOW (archive JSON data only)
+
+**Recommendation**: 
+1. **Immediate**: Determine if vendor model is actively used
+2. **If Active**: Prioritize security fix before V3 migration
+3. **If Deprecated**: Simple archive approach is sufficient
+
+---
+
+**Document Created**: January 10, 2025  
+**Code Analysis By**: AI Agent (Claude)  
+**Source Code Reviewed**: menuca_v1 & menuca_v2 complete applications  
+**Status**: 🔍 **CODE ANALYSIS COMPLETE - BUSINESS DECISION REQUIRED**
+
+**Next Update**: After business confirms vendor model status
 
