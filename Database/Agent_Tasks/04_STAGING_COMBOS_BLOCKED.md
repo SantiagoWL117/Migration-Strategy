@@ -1,12 +1,13 @@
 # 🚨 TICKET 04: STAGING COMBOS - BLOCKED BY DATA ISSUE
 
 **Date Blocked:** 2025-10-10  
-**Date Unblocked:** 2025-10-10  
-**Blocking Issue:** ✅ RESOLVED - V1 menu data loaded successfully  
+**Date Partially Unblocked:** 2025-10-10  
+**Blocking Issue:** ⚠️ **PARTIALLY RESOLVED - Need dish migration to complete**  
 **Discovery Agent:** Claude (Schema Optimization Agent Tasks)  
-**Status:** ✅ **UNBLOCKED - READY FOR COMBO MIGRATION**  
-**Final Solution:** Loaded 3,668 missing dishes → 99.98% combo coverage achieved (5,776 of 5,777 dishes)  
-**Result:** Orphan rate reduced from 92.81% to 0.02% - exceeds 95% target!
+**Status:** ⚠️ **PARTIALLY UNBLOCKED - Additional migration required**  
+**Progress:** V1 data loaded (99.98% coverage in staging) → Combo migration executed → Only 7.7% success  
+**Root Cause:** 5,357 dishes (modifiers/toppings) not migrated to menuca_v3.dishes with legacy_v1_id  
+**Next Step:** Migrate missing dishes from staging to V3, then re-run combo migration
 
 ---
 
