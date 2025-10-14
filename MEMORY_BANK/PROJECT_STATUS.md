@@ -1,9 +1,12 @@
 # Project Status - menuca_v3 Migration
 
 **Last Updated:** 2025-10-14  
-**Current Phase:** Combo Migration COMPLETE! 🎉  
-**Overall Progress:** 5/12 entities complete (41.7%) - Location, Menu, Restaurant, Users, Marketing COMPLETE!  
+**Current Phase:** Database Optimization In Progress! 🔧  
+**Overall Progress:** 5/12 entities complete (41.7%) + V3 Schema Optimization underway!  
 **Recent Achievements:** 
+- ✅ V3 Admin Consolidation: 3→2 tables, 456 unified admins, 533 assignments, 100% success (2025-10-14)
+- ✅ V3 Table Archival: 2 tables archived (1,265 rows), cleaner schema (2025-10-14)
+- ✅ V3 Constraints: 14 NOT NULL constraints added, 4 orphaned cities deleted (2025-10-14)
 - ✅ Combo Migration: 99.77% success (16,356 combo_items, 6,878 functional groups) (2025-10-14)
 - ✅ Restaurant Status: 101 restaurants corrected from suspended/pending → active (2025-10-14)
 
@@ -90,13 +93,16 @@ Based on completed dependencies, these entities can start immediately:
 
 ## 📈 Progress Metrics
 
-- **Entities Complete:** 4/12 (33.3%) - Location, Menu, Restaurant, Users ✅
-- **Entities In Progress:** 2/12 (17%) - Orders & Checkout (Phase 1), Marketing & Promotions (Phase 1) 🔄
+- **Entities Complete:** 5/12 (41.7%) - Location, Menu, Restaurant, Users, Marketing ✅
+- **Entities In Progress:** 1/12 (8%) - Orders & Checkout (Phase 1) 🔄
 - **Entities Blocked:** 2/12 (17%) - Payments, Accounting (waiting on Orders)
 - **Entities Ready to Start:** 4/12 (33%) - Service Schedules, Delivery Operations, Vendors, Devices ✅
 - **BLOB Deserialization:** ✅ 144,377 BLOBs processed (98.6% success)
 - **Total Rows Migrated:** ✅ 153,498+ rows in production (Location, Menu, Restaurant, Users)
-- **Recent Data Correction:** ✅ 101 restaurants status corrected (2025-10-14: suspended/pending → active)
+- **Database Optimization:** ✅ 3 phases complete (Admin Consolidation, Table Archival, Constraints) (2025-10-14)
+  - Admin tables: 3→2 (33% reduction), 456 unified admins, 8 duplicates resolved
+  - Archive: 2 legacy tables moved (1,265 rows preserved)
+  - Constraints: 14 NOT NULL added (13 timestamps + 1 FK), 4 orphaned cities cleaned
 
 ---
 
