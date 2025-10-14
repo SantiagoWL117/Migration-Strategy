@@ -6,24 +6,35 @@
 **Context:** Post-combo migration (99.77% success), pre-final production optimization  
 **Goal:** Optimize V3 before locking down schema for production
 
+**📋 Companion Document:** `V3_COMPLETE_TABLE_AUDIT.md` - Full 44-table audit results
+
 ---
 
 ## 🎯 Executive Summary
 
+**Audit Scope:**
+- ✅ **ALL 44 tables** in menuca_v3 analyzed
+- ✅ 16 tables perfect (reference implementations)
+- ⚠️ 28 tables need fixes (varying priority)
+- 📊 **Full results:** See `V3_COMPLETE_TABLE_AUDIT.md`
+
 **Current State:**
 - ✅ Combo migration complete (99.77% success)
 - ✅ Most entity migrations complete (5/12 entities done)
-- ⚠️ Legacy issues "baked into" V3 from V1/V2
-- ⚠️ Redundant table structures need consolidation
-- ⚠️ Missing industry best practices
+- ✅ RLS 100% enabled (excellent security!)
+- ✅ Indexing excellent (avg 6.5 indexes/table)
+- ⚠️ 34 columns with naming inconsistencies
+- ⚠️ 3 redundant admin tables need consolidation
+- ⚠️ Missing industry best practices (constraints, audit logging)
 
-**Proposed Changes:**
+**Proposed Changes (Based on Full Audit):**
 1. 🔴 **HIGH PRIORITY:** Consolidate admin user tables (3 → 2 tables)
-2. 🟡 **MEDIUM:** Standardize column naming conventions
-3. 🟡 **MEDIUM:** Add missing constraints & validation
-4. 🟢 **LOW:** Archive legacy columns after validation period
+2. 🔴 **HIGH PRIORITY:** Standardize 34 column names
+3. 🟡 **MEDIUM:** Add ingredient group constraints (min/max selection)
+4. 🟡 **MEDIUM:** Implement soft delete & audit logging
+5. 🟢 **LOW:** Archive legacy columns (after 6 months)
 
-**Timeline:** 2-3 weeks (can start NOW without blocking Santiago's vendor migration)
+**Timeline:** 2-4 weeks (can start NOW without blocking Santiago's vendor migration)
 
 ---
 
