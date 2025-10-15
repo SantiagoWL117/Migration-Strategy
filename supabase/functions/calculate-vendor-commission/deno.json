@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "test": "deno test --allow-all test_commission_calculator.ts"
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.168.0/"
+  }
+}
+

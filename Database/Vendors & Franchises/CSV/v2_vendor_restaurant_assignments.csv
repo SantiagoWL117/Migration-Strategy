@@ -1,0 +1,32 @@
+id,user_id,restaurant_id,fname,lname,restaurant_name
+371,2,1639,Menu,Ottawa,River Pizza
+372,2,1654,Menu,Ottawa,Cosenza
+374,2,1660,Menu,Ottawa,Chicco Pizza Shawarma Anger
+375,2,1659,Menu,Ottawa,Chicco Pizza & Shawarma Buckingham
+376,2,1663,Menu,Ottawa,Chicco Pizza de l'Hopital
+377,2,1661,Menu,Ottawa,Chicco Pizza Maloney
+378,2,1664,Menu,Ottawa,Chicco Pizza St-Louis
+379,2,1658,Menu,Ottawa,Chicco Shawarma Cantley
+380,2,1662,Menu,Ottawa,Chicco Shawarma Maloney
+381,2,1642,Menu,Ottawa,La Nawab
+382,2,1665,Menu,Ottawa,Zait and Zaatar
+387,2,1671,Menu,Ottawa,Pachino Pizza
+388,2,1673,Menu,Ottawa,Pizza Marie
+389,2,1674,Menu,Ottawa,Capri Pizza
+390,2,1677,Menu,Ottawa,Chef Rad Halal Pizza & Burgers
+410,65,1639,Darrell,Corcoran,River Pizza
+411,65,1654,Darrell,Corcoran,Cosenza
+413,65,1663,Darrell,Corcoran,Chicco Pizza de l'Hopital
+414,65,1658,Darrell,Corcoran,Chicco Shawarma Cantley
+415,65,1660,Darrell,Corcoran,Chicco Pizza Shawarma Anger
+416,65,1661,Darrell,Corcoran,Chicco Pizza Maloney
+417,65,1664,Darrell,Corcoran,Chicco Pizza St-Louis
+418,65,1665,Darrell,Corcoran,Zait and Zaatar
+419,65,1642,Darrell,Corcoran,La Nawab
+420,65,1662,Darrell,Corcoran,Chicco Shawarma Maloney
+421,65,1658,Darrell,Corcoran,Chicco Shawarma Cantley
+422,65,1659,Darrell,Corcoran,Chicco Pizza & Shawarma Buckingham
+423,65,1671,Darrell,Corcoran,Pachino Pizza
+424,65,1677,Darrell,Corcoran,Chef Rad Halal Pizza & Burgers
+425,65,1674,Darrell,Corcoran,Capri Pizza
+426,65,1673,Darrell,Corcoran,Pizza Marie
