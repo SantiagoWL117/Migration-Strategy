@@ -6,7 +6,7 @@
 ## 🎯 **PROJECT OVERVIEW**
 
 **What We're Building:**
-A modern, multi-tenant restaurant ordering platform admin dashboard for 74 restaurants, 32,000+ customers, and millions in annual orders.
+A modern, multi-tenant restaurant ordering platform admin dashboard for 74-500 restaurants, 32,000+ customers, and millions in annual orders.
 
 **Tech Stack:**
 - **Framework:** Next.js 14 (App Router) + TypeScript
