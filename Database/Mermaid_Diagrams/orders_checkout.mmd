@@ -1,0 +1,61 @@
+erDiagram
+    %% ============================================
+    %% ORDERS & CHECKOUT ENTITY
+    %% Status: 🔄 IN PROGRESS (Started: 2025-10-15)
+    %% Purpose: Customer orders, order items, checkout process
+    %% Dependencies: Menu ✅, Users ✅, Restaurant ✅
+    %% ============================================
+
+    %% TODO: Update this diagram as tables are defined and migrated
+
+    restaurants ||--o{ orders : "receives"
+    site_users ||--o{ orders : "places"
+    orders ||--o{ order_items : "contains"
+    dishes ||--o{ order_items : "ordered_as"
+
+    orders {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        bigint user_id FK "→ site_users.id"
+        order_status status "pending|confirmed|preparing|ready|delivered|cancelled"
+        numeric subtotal
+        numeric tax_amount
+        numeric delivery_fee
+        numeric tip_amount
+        numeric total_amount
+        varchar order_type "delivery|takeout"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    order_items {
+        bigint id PK "To be defined"
+        bigint order_id FK "→ orders.id"
+        integer dish_id FK "→ dishes.id"
+        varchar item_name "Snapshot at order time"
+        integer quantity
+        numeric unit_price
+        numeric total_price
+        jsonb customizations "Selected modifiers"
+        text special_instructions
+        timestamptz created_at
+    }
+
+    %% Placeholder references to other entities
+    restaurants {
+        bigint id PK
+        varchar name
+    }
+
+    site_users {
+        bigint id PK
+        varchar email
+    }
+
+    dishes {
+        integer id PK
+        varchar name
+        jsonb prices
+    }
+

@@ -1,0 +1,49 @@
+erDiagram
+    %% ============================================
+    %% DELIVERY OPERATIONS ENTITY
+    %% Status: ⏳ NOT STARTED (Can start: 2025-10-15)
+    %% Purpose: Delivery areas, fees, driver assignments
+    %% Dependencies: Location & Geography ✅
+    %% ============================================
+
+    %% TODO: Update this diagram when migration begins
+
+    restaurants ||--o{ restaurant_delivery_areas : "delivers_to"
+    cities ||--o{ restaurant_delivery_areas : "covered_by"
+    restaurants ||--o{ delivery_fees : "charges"
+
+    restaurant_delivery_areas {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        integer city_id FK "→ cities.id"
+        numeric delivery_fee "Base fee"
+        numeric minimum_order "Minimum order amount"
+        numeric maximum_distance_km
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    delivery_fees {
+        bigint id PK "To be defined"
+        bigint restaurant_id FK "→ restaurants.id"
+        numeric distance_from_km "Range start"
+        numeric distance_to_km "Range end"
+        numeric fee_amount
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    %% Placeholder references
+    restaurants {
+        bigint id PK
+        varchar name
+    }
+
+    cities {
+        integer id PK
+        varchar name
+    }
+

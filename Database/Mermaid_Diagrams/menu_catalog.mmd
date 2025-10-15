@@ -1,0 +1,143 @@
+erDiagram
+    %% ============================================
+    %% MENU & CATALOG ENTITY
+    %% Status: ✅ COMPLETE (2025-10-03) - Phase 4 BLOB Deserialization Complete
+    %% Purpose: Complete menu structure with courses, dishes, ingredients, combos
+    %% Total Rows: 121,149 (excluding 80,610 orphaned ghost restaurant records)
+    %% ============================================
+
+    restaurants ||--o{ courses : "offers"
+    restaurants ||--o{ dishes : "serves"
+    restaurants ||--o{ ingredient_groups : "defines"
+    restaurants ||--o{ ingredients : "stocks"
+    restaurants ||--o{ combo_groups : "offers"
+
+    courses ||--o{ dishes : "organizes"
+    dishes ||--o{ dish_customizations : "allows"
+    dishes ||--o{ dish_modifiers : "has"
+    
+    ingredient_groups ||--o{ dish_customizations : "provides"
+    ingredient_groups ||--o{ ingredients : "contains"
+    ingredient_groups ||--o{ dish_modifiers : "groups"
+    
+    ingredients ||--o{ dish_modifiers : "available_as"
+    
+    combo_groups ||--o{ combo_items : "contains"
+    dishes ||--o{ combo_items : "included_in"
+
+    restaurants {
+        bigint id PK
+        varchar name
+        restaurant_status status
+    }
+
+    courses {
+        integer id PK "Primary Key"
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar name "Course name (Appetizers, Entrees)"
+        text description
+        integer display_order "Sort order"
+        boolean is_global "Template flag"
+        varchar language "en|fr"
+        jsonb availability_schedule "Day-based schedule"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    dishes {
+        integer id PK
+        bigint restaurant_id FK "→ restaurants.id"
+        integer course_id FK "→ courses.id (nullable)"
+        varchar name "Dish name"
+        text description
+        jsonb prices "Multi-size pricing JSONB"
+        varchar language "en|fr"
+        integer display_order
+        boolean is_available
+        jsonb availability_schedule "Day restrictions"
+        varchar image_url
+        varchar source_system "v1|v2"
+        integer source_id "Legacy ID"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    dish_customizations {
+        integer id PK
+        integer dish_id FK "→ dishes.id"
+        integer ingredient_group_id FK "→ ingredient_groups.id"
+        varchar customization_type "8 types from V2"
+        boolean is_required
+        integer min_selections
+        integer max_selections
+        integer display_order
+        varchar source_system
+        integer source_id
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    ingredient_groups {
+        integer id PK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar name "Group name (Toppings, Sauces)"
+        varchar group_type "19 types evolved from 8"
+        boolean is_global
+        varchar language
+        integer display_order
+        varchar source_system
+        integer source_id
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    ingredients {
+        integer id PK
+        bigint restaurant_id FK "→ restaurants.id"
+        integer ingredient_group_id FK "→ ingredient_groups.id"
+        varchar name "Ingredient name"
+        varchar price "Legacy price string"
+        varchar language
+        varchar type
+        integer display_order
+        varchar available_for "BLOB: dishes available for"
+        varchar source_system
+        integer source_id
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    dish_modifiers {
+        integer dish_id PK FK "→ dishes.id"
+        integer ingredient_id PK FK "→ ingredients.id"
+        integer ingredient_group_id FK "→ ingredient_groups.id"
+        jsonb prices "Multi-size pricing"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    combo_groups {
+        integer id PK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar name "Combo name"
+        varchar language
+        integer display_order
+        jsonb config "Combo rules (BLOB deserialized)"
+        varchar source_system
+        integer source_id
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    combo_items {
+        integer id PK
+        integer combo_group_id FK "→ combo_groups.id"
+        integer dish_id FK "→ dishes.id"
+        varchar item_type
+        integer display_order
+        varchar source_system
+        integer source_id
+        timestamptz created_at
+        timestamptz updated_at
+    }
+

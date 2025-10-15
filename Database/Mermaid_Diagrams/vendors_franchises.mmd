@@ -1,0 +1,59 @@
+erDiagram
+    %% ============================================
+    %% VENDORS & FRANCHISES ENTITY
+    %% Status: ⏳ NOT STARTED (Can start: 2025-10-15)
+    %% Purpose: Franchise groups, multi-location management
+    %% Dependencies: Restaurant Management ✅
+    %% ============================================
+
+    %% TODO: Update this diagram when migration begins
+
+    franchise_groups ||--o{ restaurants : "owns"
+    vendors ||--o{ vendor_contracts : "provides_to"
+    restaurants ||--o{ vendor_contracts : "purchases_from"
+
+    franchise_groups {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        varchar name "Franchise name"
+        varchar legal_name
+        text description
+        varchar contact_email
+        varchar contact_phone
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    vendors {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        varchar name "Vendor name"
+        varchar vendor_type "food|beverage|supplies|services"
+        varchar contact_email
+        varchar contact_phone
+        text notes
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    vendor_contracts {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        bigint vendor_id FK "→ vendors.id"
+        bigint restaurant_id FK "→ restaurants.id"
+        date contract_start
+        date contract_end
+        varchar contract_status "active|expired|cancelled"
+        text terms
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    %% Placeholder reference
+    restaurants {
+        bigint id PK
+        varchar name
+    }
+

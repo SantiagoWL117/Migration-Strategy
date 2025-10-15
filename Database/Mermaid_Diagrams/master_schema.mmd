@@ -1,0 +1,240 @@
+erDiagram
+    %% ============================================
+    %% MENUCA V3 MASTER SCHEMA - HIGH-LEVEL OVERVIEW
+    %% Project: menuca_v3 Database Migration
+    %% Purpose: Complete entity relationship diagram showing all major entities
+    %% ============================================
+
+    %% ========== FOUNDATIONAL ENTITIES ==========
+    provinces ||--o{ cities : "contains"
+    
+    %% ========== CORE RESTAURANT ENTITY ==========
+    restaurants ||--o{ restaurant_locations : "has"
+    restaurants ||--o{ restaurant_contacts : "has"
+    restaurants ||--o{ restaurant_domains : "has"
+    restaurants ||--o{ restaurant_admin_users : "managed_by"
+    restaurants ||--|| restaurant_service_configs : "configured_by"
+    restaurants ||--o{ restaurant_schedules : "operates"
+    
+    cities ||--o{ restaurant_locations : "located_in"
+    
+    %% ========== MENU & CATALOG ==========
+    restaurants ||--o{ courses : "offers"
+    restaurants ||--o{ dishes : "serves"
+    restaurants ||--o{ ingredients : "stocks"
+    restaurants ||--o{ ingredient_groups : "defines"
+    restaurants ||--o{ combo_groups : "offers"
+    
+    courses ||--o{ dishes : "organizes"
+    dishes ||--o{ dish_customizations : "allows"
+    dishes ||--o{ dish_modifiers : "has"
+    ingredient_groups ||--o{ ingredients : "contains"
+    combo_groups ||--o{ combo_items : "contains"
+    
+    %% ========== ORDERS & CHECKOUT ==========
+    restaurants ||--o{ orders : "receives"
+    site_users ||--o{ orders : "places"
+    orders ||--o{ order_items : "contains"
+    dishes ||--o{ order_items : "ordered_as"
+    
+    %% ========== USERS & ACCESS ==========
+    site_users ||--o{ user_delivery_addresses : "has"
+    cities ||--o{ user_delivery_addresses : "delivered_to"
+    
+    %% ========== MARKETING & PROMOTIONS ==========
+    restaurants ||--o{ restaurant_tag_associations : "tagged_with"
+    marketing_tags ||--o{ restaurant_tag_associations : "applies_to"
+    restaurants ||--o{ promotional_deals : "offers"
+    restaurants ||--o{ promotional_coupons : "issues"
+    
+    %% ========== DELIVERY OPERATIONS ==========
+    restaurants ||--o{ restaurant_delivery_areas : "delivers_to"
+    cities ||--o{ restaurant_delivery_areas : "covers"
+
+    %% ============================================
+    %% KEY TABLES (Simplified for Overview)
+    %% ============================================
+
+    provinces {
+        smallint id PK
+        varchar name
+        char short_name "ON, QC, etc"
+    }
+
+    cities {
+        integer id PK
+        varchar name
+        smallint province_id FK
+        numeric lat
+        numeric lng
+        varchar timezone
+    }
+
+    restaurants {
+        bigint id PK
+        uuid uuid UK
+        varchar name
+        restaurant_status status "pending|active|suspended|closed"
+        integer legacy_v1_id
+        integer legacy_v2_id
+    }
+
+    restaurant_locations {
+        bigint id PK
+        bigint restaurant_id FK
+        integer city_id FK
+        varchar street_address
+        boolean is_primary
+    }
+
+    restaurant_contacts {
+        bigint id PK
+        bigint restaurant_id FK
+        varchar email
+        varchar phone
+        boolean receives_orders
+    }
+
+    restaurant_domains {
+        bigint id PK
+        bigint restaurant_id FK
+        varchar domain
+        boolean is_enabled
+    }
+
+    restaurant_admin_users {
+        bigint id PK
+        bigint restaurant_id FK
+        varchar email UK
+        boolean is_active
+    }
+
+    restaurant_service_configs {
+        bigint id PK
+        bigint restaurant_id FK UK
+        boolean delivery_enabled
+        boolean takeout_enabled
+    }
+
+    restaurant_schedules {
+        bigint id PK
+        bigint restaurant_id FK
+        schedule_type type
+        smallint day_start
+        time time_start
+    }
+
+    courses {
+        integer id PK
+        bigint restaurant_id FK
+        varchar name
+        integer display_order
+    }
+
+    dishes {
+        integer id PK
+        bigint restaurant_id FK
+        integer course_id FK
+        varchar name
+        jsonb prices
+        boolean is_available
+    }
+
+    ingredients {
+        integer id PK
+        bigint restaurant_id FK
+        varchar name
+    }
+
+    ingredient_groups {
+        integer id PK
+        bigint restaurant_id FK
+        varchar name
+    }
+
+    dish_customizations {
+        integer id PK
+        integer dish_id FK
+        integer ingredient_group_id FK
+    }
+
+    dish_modifiers {
+        integer dish_id PK FK
+        integer ingredient_id PK FK
+        jsonb prices
+    }
+
+    combo_groups {
+        integer id PK
+        bigint restaurant_id FK
+        varchar name
+        jsonb config
+    }
+
+    combo_items {
+        integer id PK
+        integer combo_group_id FK
+        integer dish_id FK
+    }
+
+    site_users {
+        bigint id PK
+        varchar email UK
+        boolean is_active
+    }
+
+    user_delivery_addresses {
+        bigint id PK
+        bigint user_id FK
+        integer city_id FK
+        varchar street_address
+    }
+
+    orders {
+        bigint id PK
+        bigint restaurant_id FK
+        bigint user_id FK
+        order_status status
+        numeric total_amount
+    }
+
+    order_items {
+        bigint id PK
+        bigint order_id FK
+        integer dish_id FK
+        integer quantity
+        numeric price
+    }
+
+    marketing_tags {
+        integer id PK
+        varchar name
+    }
+
+    restaurant_tag_associations {
+        bigint id PK
+        bigint restaurant_id FK
+        integer marketing_tag_id FK
+    }
+
+    promotional_deals {
+        bigint id PK
+        bigint restaurant_id FK
+        varchar name
+        numeric discount_value
+    }
+
+    promotional_coupons {
+        bigint id PK
+        bigint restaurant_id FK
+        varchar coupon_code UK
+        numeric discount_value
+    }
+
+    restaurant_delivery_areas {
+        bigint id PK
+        bigint restaurant_id FK
+        integer city_id FK
+        numeric delivery_fee
+    }
+

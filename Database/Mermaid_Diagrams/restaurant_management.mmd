@@ -1,0 +1,177 @@
+erDiagram
+    %% ============================================
+    %% RESTAURANT MANAGEMENT ENTITY
+    %% Status: ✅ COMPLETE (2025-10-06) + Status Correction (2025-10-14)
+    %% Purpose: Core restaurant data, admin users, contacts, domains
+    %% ============================================
+
+    restaurants ||--o{ restaurant_locations : "has"
+    restaurants ||--o{ restaurant_contacts : "has"
+    restaurants ||--o{ restaurant_domains : "has"
+    restaurants ||--o{ restaurant_admin_users : "managed_by"
+    restaurants ||--o{ restaurant_schedules : "operates"
+    restaurants ||--|| restaurant_service_configs : "configured_by"
+    restaurants ||--o{ restaurant_special_schedules : "has"
+    restaurants ||--o{ restaurant_time_periods : "defines"
+
+    restaurants {
+        bigint id PK "Primary Key"
+        uuid uuid UK "Unique UUID"
+        integer legacy_v1_id "V1 source ID"
+        integer legacy_v2_id "V2 source ID"
+        varchar name "Restaurant name"
+        restaurant_status status "pending|active|suspended|closed"
+        timestamptz activated_at
+        timestamptz suspended_at
+        timestamptz closed_at
+        timestamptz created_at
+        integer created_by
+        timestamptz updated_at
+        integer updated_by
+    }
+
+    restaurant_locations {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        boolean is_primary "Primary location"
+        varchar street_address
+        integer city_id FK "→ cities.id"
+        integer province_id FK "→ provinces.id"
+        varchar postal_code
+        numeric latitude
+        numeric longitude
+        varchar phone
+        varchar email
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    restaurant_contacts {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar title
+        varchar first_name
+        varchar last_name
+        varchar email
+        varchar phone
+        boolean receives_orders
+        boolean receives_statements
+        boolean receives_marketing
+        char preferred_language "en|fr"
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    restaurant_domains {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar domain "Custom domain"
+        text domain_type
+        boolean is_enabled
+        integer added_by
+        timestamptz created_at
+        integer disabled_by
+        timestamptz disabled_at
+        timestamptz updated_at
+    }
+
+    restaurant_admin_users {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar user_type "r=restaurant admin"
+        varchar first_name
+        varchar last_name
+        varchar email UK
+        varchar password_hash
+        timestamptz last_login
+        integer login_count
+        boolean is_active
+        boolean send_statement
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    restaurant_schedules {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        schedule_type type "delivery|takeout|dining"
+        smallint day_start "1-7 (Mon-Sun)"
+        time time_start
+        time time_stop
+        boolean is_enabled
+        timestamptz created_at
+        timestamptz updated_at
+        smallint day_stop "1-7 (Mon-Sun)"
+        text notes
+    }
+
+    restaurant_service_configs {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK UK "→ restaurants.id (1:1)"
+        boolean delivery_enabled
+        integer delivery_time_minutes
+        numeric delivery_min_order
+        numeric delivery_max_distance_km
+        boolean takeout_enabled
+        integer takeout_time_minutes
+        boolean takeout_discount_enabled
+        varchar takeout_discount_type "percentage|fixed"
+        numeric takeout_discount_value
+        boolean allow_preorders
+        integer preorder_time_frame_hours
+        boolean is_bilingual
+        varchar default_language "en|fr|es"
+        boolean accepts_tips
+        boolean requires_phone
+        timestamptz created_at
+        integer created_by
+        timestamptz updated_at
+        integer updated_by
+        text notes
+    }
+
+    restaurant_special_schedules {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar schedule_type "closed|open|modified"
+        date date_start
+        date date_stop
+        time time_start
+        time time_stop
+        varchar reason "Holiday, renovation, etc"
+        varchar apply_to "delivery|takeout|both"
+        text notes
+        boolean is_active
+        timestamptz created_at
+        integer created_by
+        timestamptz updated_at
+        integer updated_by
+    }
+
+    restaurant_time_periods {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar name "Lunch, Dinner, etc"
+        time time_start
+        time time_stop
+        boolean is_enabled
+        integer display_order
+        timestamptz created_at
+        integer created_by
+        timestamptz updated_at
+        integer updated_by
+        timestamptz disabled_at
+        integer disabled_by
+        text notes
+    }
+

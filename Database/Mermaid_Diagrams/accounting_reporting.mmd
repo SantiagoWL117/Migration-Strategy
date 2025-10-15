@@ -1,0 +1,67 @@
+erDiagram
+    %% ============================================
+    %% ACCOUNTING & REPORTING ENTITY
+    %% Status: ⏳ NOT STARTED (BLOCKED by Orders & Payments)
+    %% Purpose: Financial reports, invoices, statements
+    %% Dependencies: Orders ✅, Payments (NOT STARTED)
+    %% ============================================
+
+    %% TODO: Update this diagram when dependencies complete
+
+    restaurants ||--o{ restaurant_invoices : "billed_via"
+    restaurants ||--o{ financial_statements : "receives"
+    orders ||--o{ restaurant_invoices : "included_in"
+    payments ||--o{ financial_statements : "recorded_in"
+
+    restaurant_invoices {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        date invoice_date
+        date period_start
+        date period_end
+        numeric subtotal
+        numeric commission_rate
+        numeric commission_amount
+        numeric tax_amount
+        numeric total_due
+        varchar invoice_status "draft|sent|paid|overdue"
+        timestamptz sent_at
+        timestamptz paid_at
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    financial_statements {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        date statement_date
+        date period_start
+        date period_end
+        numeric total_orders
+        numeric total_revenue
+        numeric total_commissions
+        numeric total_refunds
+        numeric net_amount
+        varchar statement_type "weekly|monthly|custom"
+        timestamptz created_at
+        integer created_by
+    }
+
+    %% Placeholder references
+    restaurants {
+        bigint id PK
+        varchar name
+    }
+
+    orders {
+        bigint id PK
+        numeric total_amount
+    }
+
+    payments {
+        bigint id PK
+        numeric amount
+    }
+

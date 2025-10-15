@@ -1,0 +1,58 @@
+erDiagram
+    %% ============================================
+    %% SERVICE CONFIGURATION & SCHEDULES ENTITY
+    %% Status: ⏳ NOT STARTED (Can start: 2025-10-15)
+    %% Purpose: Restaurant schedules, special hours, time periods
+    %% Dependencies: Restaurant Management ✅
+    %% Note: Some tables already exist in restaurant_management
+    %% ============================================
+
+    %% TODO: Verify if additional tables needed beyond existing:
+    %% - restaurant_schedules (already in schema)
+    %% - restaurant_special_schedules (already in schema)
+    %% - restaurant_time_periods (already in schema)
+    %% - restaurant_service_configs (already in schema)
+
+    restaurants ||--o{ restaurant_schedules : "operates"
+    restaurants ||--o{ restaurant_special_schedules : "has"
+    restaurants ||--o{ restaurant_time_periods : "defines"
+    restaurants ||--|| restaurant_service_configs : "configured_by"
+
+    %% Placeholder - already defined in restaurant_management.mmd
+    restaurants {
+        bigint id PK
+        varchar name
+    }
+
+    restaurant_schedules {
+        bigint id PK
+        bigint restaurant_id FK
+        schedule_type type
+        smallint day_start
+        time time_start
+        boolean is_enabled
+    }
+
+    restaurant_special_schedules {
+        bigint id PK
+        bigint restaurant_id FK
+        varchar schedule_type
+        date date_start
+        date date_stop
+    }
+
+    restaurant_time_periods {
+        bigint id PK
+        bigint restaurant_id FK
+        varchar name
+        time time_start
+        time time_stop
+    }
+
+    restaurant_service_configs {
+        bigint id PK
+        bigint restaurant_id FK
+        boolean delivery_enabled
+        boolean takeout_enabled
+    }
+

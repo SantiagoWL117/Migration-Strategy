@@ -1,0 +1,72 @@
+erDiagram
+    %% ============================================
+    %% MARKETING & PROMOTIONS ENTITY
+    %% Status: ✅ COMPLETE (2025-10-08)
+    %% Purpose: Marketing tags, promotional deals, coupons
+    %% Total Rows: 848
+    %% ============================================
+
+    restaurants ||--o{ restaurant_tag_associations : "tagged_with"
+    marketing_tags ||--o{ restaurant_tag_associations : "applied_to"
+    restaurants ||--o{ promotional_deals : "offers"
+    restaurants ||--o{ promotional_coupons : "issues"
+
+    marketing_tags {
+        integer id PK "Primary Key"
+        varchar name "Tag name"
+        varchar category "Tag category"
+        varchar description
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    restaurant_tag_associations {
+        bigint id PK
+        bigint restaurant_id FK "→ restaurants.id"
+        integer marketing_tag_id FK "→ marketing_tags.id"
+        timestamptz created_at
+        integer created_by
+    }
+
+    promotional_deals {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar name "Deal name"
+        text description
+        varchar deal_type "percentage|fixed|bogo"
+        numeric discount_value
+        numeric minimum_order
+        date valid_from
+        date valid_until
+        boolean is_active
+        jsonb restrictions "JSONB rules"
+        timestamptz created_at
+        integer created_by
+        timestamptz updated_at
+        integer updated_by
+    }
+
+    promotional_coupons {
+        bigint id PK
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar coupon_code UK "Unique code"
+        varchar name
+        text description
+        varchar discount_type "percentage|fixed"
+        numeric discount_value
+        numeric minimum_order
+        integer max_uses
+        integer current_uses
+        date valid_from
+        date valid_until
+        boolean is_active
+        jsonb restrictions
+        timestamptz created_at
+        integer created_by
+        timestamptz updated_at
+        integer updated_by
+    }
+

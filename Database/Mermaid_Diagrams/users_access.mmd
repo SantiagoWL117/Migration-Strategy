@@ -1,0 +1,79 @@
+erDiagram
+    %% ============================================
+    %% USERS & ACCESS ENTITY
+    %% Status: ✅ COMPLETE (2025-10-06)
+    %% Purpose: Customer accounts, admin users, delivery addresses
+    %% ============================================
+
+    %% Note: user tables and admin tables are separate systems
+    %% site_users = customer-facing accounts
+    %% admin_users = platform/restaurant admin access
+
+    cities ||--o{ user_delivery_addresses : "delivered_to"
+    provinces ||--o{ user_delivery_addresses : "located_in"
+
+    site_users {
+        bigint id PK "Primary Key"
+        uuid uuid UK "Unique UUID"
+        varchar email UK "Unique email"
+        varchar password_hash "Hashed password"
+        varchar first_name
+        varchar last_name
+        varchar phone
+        char preferred_language "en|fr"
+        timestamptz last_login
+        integer login_count
+        boolean is_active
+        boolean email_verified
+        timestamptz email_verified_at
+        boolean receives_marketing
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    user_delivery_addresses {
+        bigint id PK
+        uuid uuid UK
+        bigint user_id FK "→ site_users.id"
+        varchar label "Home, Work, etc"
+        varchar street_address
+        varchar unit_number
+        integer city_id FK "→ cities.id"
+        integer province_id FK "→ provinces.id"
+        varchar postal_code
+        varchar delivery_instructions
+        boolean is_default "Default address"
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    admin_users {
+        bigint id PK
+        uuid uuid UK
+        varchar email UK
+        varchar password_hash
+        varchar first_name
+        varchar last_name
+        varchar role "superadmin|admin|support"
+        boolean is_active
+        timestamptz last_login
+        integer login_count
+        timestamptz created_at
+        integer created_by
+        timestamptz updated_at
+        integer updated_by
+    }
+
+    admin_user_restaurants {
+        bigint id PK
+        bigint admin_user_id FK "→ admin_users.id"
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar permission_level "full|readonly"
+        boolean is_active
+        timestamptz created_at
+        integer created_by
+        timestamptz updated_at
+        integer updated_by
+    }
+

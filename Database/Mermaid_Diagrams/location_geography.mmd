@@ -1,0 +1,45 @@
+erDiagram
+    %% ============================================
+    %% LOCATION & GEOGRAPHY ENTITY
+    %% Status: ✅ COMPLETE (2025-09-30)
+    %% Purpose: Canonical geography reference for all location-based tables
+    %% ============================================
+
+    provinces ||--o{ cities : "contains"
+    cities ||--o{ restaurant_locations : "located_in"
+
+    provinces {
+        smallint id PK "Primary Key"
+        varchar name "Full province name"
+        varchar nom_francaise "French name"
+        char short_name "2-letter code (ON, QC)"
+    }
+
+    cities {
+        integer id PK "Primary Key"
+        varchar name "City name"
+        varchar display_name "Display format"
+        smallint province_id FK "→ provinces.id"
+        numeric lat "Latitude (13,10)"
+        numeric lng "Longitude (13,10)"
+        varchar timezone "IANA timezone"
+    }
+
+    restaurant_locations {
+        bigint id PK "Primary Key"
+        uuid uuid UK "Unique UUID"
+        bigint restaurant_id FK "→ restaurants.id"
+        boolean is_primary "Primary location flag"
+        varchar street_address
+        integer city_id FK "→ cities.id"
+        integer province_id FK "→ provinces.id"
+        varchar postal_code
+        numeric latitude
+        numeric longitude
+        varchar phone
+        varchar email
+        boolean is_active "Status flag"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+

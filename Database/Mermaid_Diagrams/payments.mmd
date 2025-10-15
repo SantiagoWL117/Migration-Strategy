@@ -1,0 +1,47 @@
+erDiagram
+    %% ============================================
+    %% PAYMENTS ENTITY
+    %% Status: ⏳ NOT STARTED (BLOCKED by Orders & Checkout)
+    %% Purpose: Payment processing, transactions, refunds
+    %% Dependencies: Orders & Checkout (IN PROGRESS)
+    %% ============================================
+
+    %% TODO: Update this diagram when Orders entity completes
+
+    orders ||--o{ payments : "paid_by"
+    payments ||--o{ payment_refunds : "refunded_via"
+
+    payments {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        bigint order_id FK "→ orders.id"
+        numeric amount
+        varchar payment_method "credit_card|debit|cash|online"
+        varchar payment_status "pending|completed|failed|refunded"
+        varchar transaction_id "Gateway transaction ID"
+        varchar gateway_name "Stripe, PayPal, etc"
+        jsonb gateway_response "Full response"
+        timestamptz processed_at
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    payment_refunds {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        bigint payment_id FK "→ payments.id"
+        numeric refund_amount
+        varchar refund_reason
+        varchar refund_status "pending|completed|failed"
+        varchar refund_transaction_id
+        timestamptz processed_at
+        integer processed_by
+        timestamptz created_at
+    }
+
+    %% Placeholder reference
+    orders {
+        bigint id PK
+        numeric total_amount
+    }
+

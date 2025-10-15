@@ -1,0 +1,52 @@
+erDiagram
+    %% ============================================
+    %% DEVICES & INFRASTRUCTURE ENTITY
+    %% Status: ⏳ NOT STARTED (Can start: 2025-10-15)
+    %% Purpose: Printers, tablets, POS devices, API keys
+    %% Dependencies: Restaurant Management ✅
+    %% ============================================
+
+    %% TODO: Update this diagram when migration begins
+
+    restaurants ||--o{ restaurant_devices : "uses"
+    restaurants ||--o{ api_keys : "authenticated_by"
+
+    restaurant_devices {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar device_type "printer|tablet|pos|kiosk"
+        varchar device_name
+        varchar mac_address UK
+        varchar ip_address
+        jsonb device_config "Device-specific settings"
+        varchar device_status "active|inactive|offline"
+        timestamptz last_seen
+        timestamptz registered_at
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    api_keys {
+        bigint id PK "To be defined"
+        uuid uuid UK
+        bigint restaurant_id FK "→ restaurants.id"
+        varchar key_name "Human-readable name"
+        varchar api_key_hash UK "Hashed key"
+        varchar key_prefix "First 8 chars for identification"
+        jsonb permissions "API access scope"
+        boolean is_active
+        timestamptz last_used_at
+        timestamptz expires_at
+        timestamptz created_at
+        integer created_by
+        timestamptz revoked_at
+        integer revoked_by
+    }
+
+    %% Placeholder reference
+    restaurants {
+        bigint id PK
+        varchar name
+    }
+
