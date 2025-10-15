@@ -70,17 +70,29 @@
 
 ### Row-Level Security (RLS)
 
-- [ ] **Review RLS policies** for vendor tables
-- [ ] **Verify vendor access** is restricted to own data
-- [ ] **Test unauthorized access** prevention
-- [ ] **Document RLS configuration**
+- [x] **Review RLS policies** for vendor tables ✅
+- [x] **Verify vendor access** is restricted to own data ✅
+- [x] **Test unauthorized access** prevention ✅
+- [x] **Document RLS configuration** ✅
+
+**Implementation Summary:**
+- ✅ Created auth.users for both vendors (Menu Ottawa, Darrell Corcoran)
+- ✅ Mapped vendors.auth_user_id to auth.uid()
+- ✅ Enabled RLS on 4 vendor tables
+- ✅ Created 9 RLS policies (SELECT only - vendors view own data)
+- ✅ Policy logic: `auth.uid() = auth_user_id`
 
 ### Authentication
 
-- [ ] **Vendor auth_user_id** mapping ready
+- [x] **Vendor auth_user_id** mapping ready ✅
 - [ ] **API key rotation** scheduled
 - [ ] **Service role key** secured
 - [ ] **Environment variables** configured
+
+**Auth Users Created:**
+- Menu Ottawa: `41d31492-14d1-43d3-a5be-19906a965ae9`
+- Darrell Corcoran: `08922a09-2bd6-473d-9e26-a13a829b01de`
+- ⚠️ **Note:** Temporary passwords set - vendors must reset on first login
 
 ### Data Protection
 
