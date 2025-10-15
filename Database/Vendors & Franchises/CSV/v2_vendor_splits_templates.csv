@@ -1,10 +1,0 @@
-"2","percent_commission","net","80.00","$tenPercent = ##total##*(##restaurant_commission## / 100);\
-$firstSplit = $tenPercent - ##menuottawa_share##;\
-$forVendor_0= $firstSplit / 2;\
-$forJames=$forVendor_0 / 2;","vendor_id => ##vendor_id##\
-restaurant_address => ##restaurant_address##\
-restaurant_name => ##restaurant_name##\
-restaurant_id => ##restaurant_id##\
-useTotal=> ##total##,\
-forVendor => $forVendor_0\
-forJames=>$forJames","_percent","y","1","2024-12-05 10:05:01"

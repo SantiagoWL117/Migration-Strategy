@@ -1,0 +1,4 @@
+id,preferred_language,fname,lname,email,password,group,receive_statements,phone,active,override_restaurants,settings,billing_info,allow_login_to_sites,last_activity,created_by,created_at,disabled_by,disabled_at
+2,1,Menu,Ottawa,mattmenuottawa@gmail.com,$2y$10$khcktnnSIMZK9eYdY0ELAuxUc9FuLGCD8AZYc78Bi.a9qVFGQJ7ei,12,n,,y,y,"{"size": " ", "skin": "smart-style-0", "navigation": " "}",,n,"2025-09-12 08:52:27",1,"2016-09-30 13:35:17",NULL,NULL
+62,1,Chicco,Khalife,chiccokhalife@icloud.com,$2y$10$4hOp2/y1IoPc3HpHs62v4OvOybM/T92coEcTvq.FLzT4zzG9zj4ge,10,y,"(819) 921-0711",y,y,NULL,,y,NULL,45,"2024-03-25 15:43:51",NULL,NULL
+65,1,Darrell,Corcoran,darrellcorcoran1967@gmail.com,$2y$10$0aiFAloS3pJpw/QWWptrYuIIGtdtXBMYy9ZHQzLT5mYM/NGMwWcyy,12,n,,y,y,NULL,,y,"2025-07-22 09:47:08",1,"2024-05-06 11:20:03",NULL,NULL

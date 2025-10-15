@@ -17,7 +17,6 @@ Migrate active vendor system from V1/V2 to V3 with security improvements. The ve
   - `mazen_milanos` (template ID 1) - Gross-based commission split with 30% vendor share
 - Restaurant-vendor assignments (excluding test restaurant 1595)
 - Statement numbers (tracking per vendor)
-- `vendor_commission_extra` field from restaurants_fees
 - **Recent historical reports (last 12 months only)**
 
 **EXCLUDED from Migration:**
@@ -227,50 +226,17 @@ WHERE enabled = 'y';  -- Export BOTH active templates
 
 ---
 
-### 2.4 Extract Commission Assignments to CSV
+### 2.4 Commission Template Configuration (Moved to V3 Schema)
 
-**Source:** menuca_v2.vendor_splits
+**Note:** Commission template assignments (`vendor_splits`) are no longer extracted to CSV. Instead, commission configuration is stored directly in the V3 `vendor_restaurants` table with the following fields:
 
-**MySQL Query:**
+- `commission_template` - 'percent_commission' or 'mazen_milanos'
+- `commission_rate` - Variable percentage per restaurant
+- `commission_type` - 'percentage' or 'fixed'
+- `fixed_platform_fee` - Menu.ca fixed fee (default $80)
+- `delivery_commission_extra` - Extra % for delivery orders
 
-```sql
-SELECT vs.id, vs.template_id, vs.restaurant_id,
-       vst.name as template_name, r.name as restaurant_name
-INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/v2_vendor_splits.csv'
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-FROM menuca_v2.vendor_splits vs
-JOIN menuca_v2.vendor_splits_templates vst ON vs.template_id = vst.id
-JOIN menuca_v2.restaurants r ON vs.restaurant_id = r.id
-WHERE vst.enabled = 'y' 
-  AND r.active = 'y'
-  AND vs.restaurant_id != 1595;  -- Exclude test restaurant
-```
-
-**Alternative (manual export):**
-
-```sql
-SELECT vs.id, vs.template_id, vs.restaurant_id,
-       vst.name as template_name, r.name as restaurant_name
-FROM menuca_v2.vendor_splits vs
-JOIN menuca_v2.vendor_splits_templates vst ON vs.template_id = vst.id
-JOIN menuca_v2.restaurants r ON vs.restaurant_id = r.id
-WHERE vst.enabled = 'y' 
-  AND r.active = 'y'
-  AND vs.restaurant_id != 1595;  -- Exclude test restaurant
-```
-
-**Output:** `Database/Vendors & Franchises/CSV/v2_vendor_splits.csv`
-
-**Expected:** Variable count depending on which restaurants use which template (excluding test restaurant 1595)
-
-**Validation:**
-
-- Ensure template_id exists in V3 (both 1 and 2)
-- Ensure restaurant_id exists in V3
-- One assignment per restaurant (UNIQUE constraint)
-- Exclude restaurant 1595 (test)
+This configuration is passed directly to the Supabase Edge Function at runtime, eliminating the need for a separate commission assignments table.
 
 ---
 
@@ -372,41 +338,7 @@ WHERE au.active = 'y';
 
 **Purpose:** Track incremental statement numbers per vendor
 
----
-
-### 2.7 Extract Vendor Commission Extra to CSV
-
-**Source:** menuca_v2.restaurants_fees.vendor_commission_extra
-
-**MySQL Query:**
-
-```sql
-SELECT rf.restaurant_id, rf.vendor_commission_extra, r.name as restaurant_name
-INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/v2_vendor_commission_extra.csv'
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-FROM menuca_v2.restaurants_fees rf
-JOIN menuca_v2.restaurants r ON rf.restaurant_id = r.id
-WHERE rf.vendor_commission_extra IS NOT NULL 
-  AND rf.vendor_commission_extra > 0
-  AND r.active = 'y';
-```
-
-**Alternative (manual export):**
-
-```sql
-SELECT rf.restaurant_id, rf.vendor_commission_extra, r.name as restaurant_name
-FROM menuca_v2.restaurants_fees rf
-JOIN menuca_v2.restaurants r ON rf.restaurant_id = r.id
-WHERE rf.vendor_commission_extra IS NOT NULL 
-  AND rf.vendor_commission_extra > 0
-  AND r.active = 'y';
-```
-
-**Output:** `Database/Vendors & Franchises/CSV/v2_vendor_commission_extra.csv`
-
-**Purpose:** Extra commission percentage for delivery orders
+**Note:** The `vendor_commission_extra` field from `restaurants_fees` was evaluated but excluded from migration as it only contains values for test restaurant 1595, which is excluded from migration.
 
 ---
 
@@ -415,13 +347,17 @@ WHERE rf.vendor_commission_extra IS NOT NULL
 
 ### 3.1 Extract Existing Templates (Both Templates Migration)
 
-**Template #1: "mazen_milanos"** ✅ ACTIVE - Gross-based commission
+**Template #1: "mazen_milanos"** ✅ ACTIVE - Commission-based with 30% vendor share
 
 ```php
 // V2 breakdown (executed via eval - INSECURE):
-$forVendor = ##total## * 0.3;
-$collection = ##total## * ##restaurant_convenience_fee##;
-$forMenuca = ($collection - $forVendor - ##menuottawa_share##) / 2;
+// CORRECTED FORMULA:
+$totalCommission = ##total## * (##restaurant_commission## / 100);  // Variable % commission
+$forVendor = $totalCommission * 0.3;  // Vendor gets 30% of commission
+$afterVendorShare = $totalCommission - $forVendor;
+$afterFixedFee = $afterVendorShare - ##menuottawa_share##;  // Subtract $80
+$forMenuOttawa = $afterFixedFee / 2;  // Menu Ottawa gets half
+$forMenuca = $afterFixedFee / 2;  // Menu.ca gets half
 
 // return_info:
 vendor_id => ##vendor_id##
@@ -430,13 +366,14 @@ restaurant_name => ##restaurant_name##
 restaurant_id => ##restaurant_id##
 restaurant_commission => ##restaurant_commission##
 forVendor => $forVendor
-forMenuOttawa => $forMenuca
+forMenuOttawa => $forMenuOttawa
 ```
 
-**Calculation Type**: GROSS basis
-- Vendor gets 30% of total upfront
-- Collection calculated from convenience fee multiplier
-- Menu.ca gets half of (collection - vendor - fixed fee)
+**Calculation Type**: Commission-based (NET basis with 30% vendor priority)
+- Variable commission % calculated from order total (per-restaurant setting)
+- Vendor (Mazen) gets 30% of that commission upfront
+- Menu.ca takes fixed $80 from remaining commission
+- Menu Ottawa and Menu.ca split the rest 50/50
 
 ---
 
@@ -486,8 +423,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 interface CommissionInput {
   template_name: string
   total: number
-  restaurant_commission?: number  // Optional: used by percent_commission
-  restaurant_convenience_fee?: number  // Optional: used by mazen_milanos
+  restaurant_commission: number  // Required: used by BOTH templates (variable % per restaurant)
   menuottawa_share: number
   vendor_id: number
   restaurant_id: number
@@ -512,7 +448,8 @@ function calculatePercentCommission(data: CommissionInput): CommissionResult {
   const totalCommission = data.total * ((data.restaurant_commission ?? 10) / 100)
   const afterFixedFee = totalCommission - data.menuottawa_share
   const forVendor = afterFixedFee / 2
-  const forMenuca = afterFixedFee / 2
+  const forMenucaShare = afterFixedFee / 2
+  const forMenucaTotal = data.menuottawa_share + forMenucaShare  // $80 + share
   
   return {
     vendor_id: data.vendor_id,
@@ -521,17 +458,21 @@ function calculatePercentCommission(data: CommissionInput): CommissionResult {
     restaurant_address: data.restaurant_address,
     use_total: Math.round(data.total * 100) / 100,
     for_vendor: Math.round(forVendor * 100) / 100,
-    for_menuca: Math.round(forMenuca * 100) / 100
+    for_menuca: Math.round(forMenucaTotal * 100) / 100
   }
 }
 
 function calculateMazenMilanos(data: CommissionInput): CommissionResult {
-  // Template: mazen_milanos (GROSS basis)
+  // Template: mazen_milanos (Commission-based with 30% vendor priority)
   // Replaces V2 eval() call with safe, typed calculation
   
-  const forVendor = data.total * 0.3  // Vendor gets 30% upfront
-  const collection = data.total * (data.restaurant_convenience_fee ?? 2.00)
-  const forMenuca = (collection - forVendor - data.menuottawa_share) / 2
+  const totalCommission = data.total * (data.restaurant_commission / 100)  // Variable % per restaurant
+  const forVendor = totalCommission * 0.3  // Vendor gets 30% of commission
+  const afterVendorShare = totalCommission - forVendor
+  const afterFixedFee = afterVendorShare - data.menuottawa_share  // Subtract $80
+  const forMenuOttawa = afterFixedFee / 2  // Menu Ottawa gets half
+  const forMenucaShare = afterFixedFee / 2  // Menu.ca gets half
+  const forMenucaTotal = data.menuottawa_share + forMenucaShare  // $80 + share
   
   return {
     vendor_id: data.vendor_id,
@@ -540,7 +481,8 @@ function calculateMazenMilanos(data: CommissionInput): CommissionResult {
     restaurant_address: data.restaurant_address,
     use_total: Math.round(data.total * 100) / 100,
     for_vendor: Math.round(forVendor * 100) / 100,
-    for_menuca: Math.round(forMenuca * 100) / 100
+    for_menu_ottawa: Math.round(forMenuOttawa * 100) / 100,
+    for_menuca: Math.round(forMenucaTotal * 100) / 100
   }
 }
 
@@ -655,16 +597,21 @@ Deno.test("percent_commission calculation accuracy", () => {
   
   const result = calculatePercentCommission(testData)
   
-  // Expected: (10000 * 0.10 - 80) / 2 = 920 / 2 = 460
+  // Expected: 
+  // totalCommission = 10000 * 0.10 = 1000
+  // afterFixedFee = 1000 - 80 = 920
+  // forVendor = 920 / 2 = 460
+  // forMenucaShare = 920 / 2 = 460
+  // forMenucaTotal = 80 + 460 = 540
   assertEquals(result.for_vendor, 460.00, 'Vendor amount calculation failed')
-  assertEquals(result.for_menuca, 460.00, 'Menu.ca amount calculation failed')
+  assertEquals(result.for_menuca, 540.00, 'Menu.ca total (fixed + share) calculation failed')
 })
 
-Deno.test("mazen_milanos calculation accuracy", () => {
+Deno.test("mazen_milanos calculation accuracy - 10% commission", () => {
   const testData = {
     template_name: 'mazen_milanos',
     total: 10000.00,
-    restaurant_convenience_fee: 2.00,
+    restaurant_commission: 10,  // 10% commission rate
     menuottawa_share: 80.00,
     vendor_id: 1,
     restaurant_id: 1171,
@@ -675,11 +622,43 @@ Deno.test("mazen_milanos calculation accuracy", () => {
   const result = calculateMazenMilanos(testData)
   
   // Expected: 
-  // forVendor = 10000 * 0.30 = 3000
-  // collection = 10000 * 2.00 = 20000
-  // forMenuca = (20000 - 3000 - 80) / 2 = 16920 / 2 = 8460
-  assertEquals(result.for_vendor, 3000.00, 'Vendor amount calculation failed')
-  assertEquals(result.for_menuca, 8460.00, 'Menu.ca amount calculation failed')
+  // totalCommission = 10000 * (10 / 100) = 1000
+  // forVendor = 1000 * 0.30 = 300 (Mazen gets 30% of commission)
+  // afterVendorShare = 1000 - 300 = 700
+  // afterFixedFee = 700 - 80 = 620
+  // forMenuOttawa = 620 / 2 = 310
+  // forMenucaShare = 620 / 2 = 310
+  // forMenucaTotal = 80 + 310 = 390
+  assertEquals(result.for_vendor, 300.00, 'Vendor (Mazen) amount calculation failed')
+  assertEquals(result.for_menu_ottawa, 310.00, 'Menu Ottawa amount calculation failed')
+  assertEquals(result.for_menuca, 390.00, 'Menu.ca total (fixed + share) calculation failed')
+})
+
+Deno.test("mazen_milanos calculation accuracy - 15% commission", () => {
+  const testData = {
+    template_name: 'mazen_milanos',
+    total: 10000.00,
+    restaurant_commission: 15,  // 15% commission rate
+    menuottawa_share: 80.00,
+    vendor_id: 1,
+    restaurant_id: 1171,
+    restaurant_name: 'Pho Dau Bo',
+    restaurant_address: '456 King St'
+  }
+  
+  const result = calculateMazenMilanos(testData)
+  
+  // Expected: 
+  // totalCommission = 10000 * (15 / 100) = 1500
+  // forVendor = 1500 * 0.30 = 450
+  // afterVendorShare = 1500 - 450 = 1050
+  // afterFixedFee = 1050 - 80 = 970
+  // forMenuOttawa = 970 / 2 = 485
+  // forMenucaShare = 970 / 2 = 485
+  // forMenucaTotal = 80 + 485 = 565
+  assertEquals(result.for_vendor, 450.00, 'Vendor (Mazen) amount calculation failed')
+  assertEquals(result.for_menu_ottawa, 485.00, 'Menu Ottawa amount calculation failed')
+  assertEquals(result.for_menuca, 565.00, 'Menu.ca total (fixed + share) calculation failed')
 })
 ```
 
@@ -697,6 +676,18 @@ curl -i --location --request POST 'http://localhost:54321/functions/v1/calculate
   --header 'Authorization: Bearer YOUR_ANON_KEY' \
   --header 'Content-Type: application/json' \
   --data '{"template_name":"percent_commission","total":10000,"restaurant_commission":10,"menuottawa_share":80,"vendor_id":2,"restaurant_id":123,"restaurant_name":"Test Restaurant","restaurant_address":"123 Main St"}'
+
+# Test mazen_milanos with 10% commission:
+curl -i --location --request POST 'http://localhost:54321/functions/v1/calculate-vendor-commission' \
+  --header 'Authorization: Bearer YOUR_ANON_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{"template_name":"mazen_milanos","total":10000,"restaurant_commission":10,"menuottawa_share":80,"vendor_id":1,"restaurant_id":1171,"restaurant_name":"Pho Dau Bo","restaurant_address":"456 King St"}'
+
+# Test mazen_milanos with 15% commission:
+curl -i --location --request POST 'http://localhost:54321/functions/v1/calculate-vendor-commission' \
+  --header 'Authorization: Bearer YOUR_ANON_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{"template_name":"mazen_milanos","total":10000,"restaurant_commission":15,"menuottawa_share":80,"vendor_id":1,"restaurant_id":1171,"restaurant_name":"Pho Dau Bo","restaurant_address":"456 King St"}'
 ```
 
 ---
@@ -758,17 +749,8 @@ CREATE TABLE staging.v2_vendor_splits_templates (
     loaded_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 4. Staging: Commission Assignments
-CREATE TABLE staging.v2_vendor_splits (
-    id INTEGER PRIMARY KEY,
-    template_id INTEGER,
-    restaurant_id INTEGER,
-    template_name VARCHAR(125),
-    restaurant_name VARCHAR(255),
-    
-    -- ETL metadata
-    loaded_at TIMESTAMPTZ DEFAULT NOW()
-);
+-- 4. Commission Assignments - NO LONGER NEEDED
+-- Commission configuration stored directly in menuca_v3.vendor_restaurants table
 
 -- 5. Staging: Historical Reports (Recent 12 months)
 CREATE TABLE staging.v2_vendor_reports_recent (
@@ -801,15 +783,9 @@ CREATE TABLE staging.v2_vendor_reports_numbers (
     loaded_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 7. Staging: Vendor Commission Extra
-CREATE TABLE staging.v2_vendor_commission_extra (
-    restaurant_id INTEGER PRIMARY KEY,
-    vendor_commission_extra DECIMAL(5,2),
-    restaurant_name VARCHAR(255),
-    
-    -- ETL metadata
-    loaded_at TIMESTAMPTZ DEFAULT NOW()
-);
+-- 7. Staging: Vendor Commission Extra - EXCLUDED FROM MIGRATION
+-- Reason: Only contains data for test restaurant 1595 (excluded from migration)
+-- See: VENDOR_COMMISSION_EXTRA_EXCLUSION.md
 ```
 
 ---
@@ -822,42 +798,17 @@ CREATE TABLE staging.v2_vendor_commission_extra (
 -- 1. Vendors as admin_users (NO CHANGES - already exists)
 -- admin_users table handles vendors via group = 12
 
--- 2. Commission Templates (NEW - replaces vendor_splits_templates)
-CREATE TABLE menuca_v3.vendor_commission_templates (
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(125) NOT NULL UNIQUE,
-    commission_from VARCHAR(20) NOT NULL,
-    platform_share DECIMAL(10,2) NOT NULL,
-    calculation_metadata JSONB NOT NULL,  -- Metadata only, NOT executable code
-    enabled BOOLEAN DEFAULT true,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    updated_at TIMESTAMPTZ DEFAULT NOW(),
-    created_by BIGINT REFERENCES menuca_v3.admin_users(id),
-    
-    -- Legacy tracking
-    legacy_v2_id INTEGER,
-    source_system VARCHAR(10) DEFAULT 'v2',
-    
-    CONSTRAINT valid_commission_from 
-        CHECK (commission_from IN ('gross', 'net', 'net_delivery'))
-);
+-- 2. Commission Templates - NO LONGER STORED IN DATABASE
+-- Templates implemented as Supabase Edge Functions (TypeScript/Deno):
+--   - calculate-vendor-commission (handles both percent_commission and mazen_milanos)
 
--- 3. Template Assignments (NEW - replaces vendor_splits)
-CREATE TABLE menuca_v3.vendor_commission_assignments (
-    id BIGSERIAL PRIMARY KEY,
-    restaurant_id BIGINT NOT NULL REFERENCES menuca_v3.restaurants(id),
-    template_id BIGINT NOT NULL REFERENCES menuca_v3.vendor_commission_templates(id),
-    vendor_user_id BIGINT NOT NULL REFERENCES menuca_v3.admin_users(id),
-    active_from DATE NOT NULL DEFAULT CURRENT_DATE,
-    active_until DATE,
-    
-    -- One active template per restaurant at a time
-    UNIQUE(restaurant_id, active_from),
-    
-    -- Legacy tracking
-    legacy_v2_id INTEGER,
-    source_system VARCHAR(10) DEFAULT 'v2'
-);
+-- 3. Commission Configuration - NO LONGER A SEPARATE TABLE
+-- Configuration stored directly in menuca_v3.vendor_restaurants:
+--   - commission_template (VARCHAR)
+--   - commission_rate (DECIMAL)
+--   - commission_type (VARCHAR)
+--   - fixed_platform_fee (DECIMAL)
+--   - delivery_commission_extra (DECIMAL)
 
 -- 4. Historical Reports Archive (NEW - replaces vendor_reports)
 CREATE TABLE menuca_v3.vendor_reports_archive (
@@ -889,9 +840,8 @@ CREATE TABLE menuca_v3.vendor_statement_numbers (
     pdf_file_prefix VARCHAR(125)
 );
 
--- 6. Add vendor_commission_extra to restaurants_fees (if missing)
--- ALTER TABLE menuca_v3.restaurants_fees 
--- ADD COLUMN IF NOT EXISTS vendor_commission_extra DECIMAL(5,2);
+-- Note: vendor_commission_extra field from restaurants_fees is NOT migrated
+-- as it only contains values for test restaurant 1595 (excluded from migration)
 ```
 
 ---
@@ -921,10 +871,6 @@ WHERE enabled = 'y'
 
 UNION ALL
 
-SELECT 'Active Split Assignments', COUNT(*)
-FROM staging.v2_vendor_splits
-
-UNION ALL
 
 SELECT 'Recent Historical Reports (12mo)', COUNT(*)
 FROM staging.v2_vendor_reports_recent
@@ -941,7 +887,6 @@ FROM staging.v2_vendor_reports_numbers;
 Active Vendors: ? (unknown)
 Vendor-Restaurant Assignments: ~19
 Active Templates: 2
-Active Split Assignments: 19
 Recent Historical Reports: ~40-50 (was 493 total)
 Statement Numbers: 2
 ```
@@ -952,12 +897,10 @@ Statement Numbers: 2
 
 **MUST follow this sequence to avoid FK violations:**
 
-1. **Vendor Users** → menuca_v3.admin_users (group=12)
-2. **Commission Templates** → menuca_v3.vendor_commission_templates
-3. **Restaurant Assignments** → menuca_v3.admin_users_restaurants
-4. **Commission Assignments** → menuca_v3.vendor_commission_assignments
-5. **Statement Numbers** → menuca_v3.vendor_statement_numbers
-6. **Historical Reports** → menuca_v3.vendor_reports_archive
+1. **Vendor Users** → menuca_v3.vendors
+2. **Vendor-Restaurant Assignments** → menuca_v3.vendor_restaurants (includes commission config)
+3. **Statement Numbers** → menuca_v3.vendor_statement_numbers
+4. **Historical Reports** → menuca_v3.vendor_commission_reports
 
 ---
 
@@ -1016,62 +959,16 @@ COMMIT;
 
 ---
 
-### 6.4 Script 2: Migrate Templates (Staging → V3)
+### 6.4 Script 2: Commission Templates (No Migration Needed)
 
-**File:** `02_migrate_commission_templates.sql`
+**Note:** Commission templates are now implemented as Supabase Edge Functions (TypeScript/Deno), not stored in the database. The two active templates are:
 
-**Note:** Hard-coded PHP functions will be deployed as application code, not stored in DB.
+1. **`percent_commission`** - Deployed in Edge Function `calculate-vendor-commission`
+2. **`mazen_milanos`** - Deployed in Edge Function `calculate-vendor-commission`
 
-```sql
--- Purpose: Migrate commission templates from staging to V3
--- Source: staging.v2_vendor_splits_templates
--- Target: menuca_v3.vendor_commission_templates
+Template configuration is stored per-restaurant in the `menuca_v3.vendor_restaurants` table via the `commission_template` column.
 
-BEGIN;
-
--- Insert template metadata (NOT executable code)
-INSERT INTO menuca_v3.vendor_commission_templates (
-    name, commission_from, platform_share, 
-    calculation_metadata, enabled, created_at, 
-    legacy_v2_id, source_system
-)
-SELECT 
-    name,
-    commission_from,
-    menuottawa_share,
-    jsonb_build_object(
-        'implementation', 
-        CASE 
-            WHEN name = 'percent_commission' THEN 'VendorCommissionCalculator::calculatePercentCommission'
-            WHEN name = 'mazen_milanos' THEN 'VendorCommissionCalculator::calculateMazenMilanos'
-            ELSE 'UNKNOWN'
-        END,
-        'description',
-        CASE 
-            WHEN name = 'percent_commission' THEN '10% commission split 50/50 between vendor and platform after fixed fee'
-            WHEN name = 'mazen_milanos' THEN '30% vendor share with collection-based platform split'
-            ELSE 'Unknown template'
-        END,
-        'original_breakdown', breakdown,
-        'original_return_info', return_info
-    ) as calculation_metadata,
-    CASE WHEN enabled = 'y' THEN true ELSE false END,
-    added_at,
-    id as legacy_v2_id,
-    'v2' as source_system
-FROM staging.v2_vendor_splits_templates
-WHERE enabled = 'y'
-ON CONFLICT (name) DO NOTHING;
-
--- Verification
-SELECT 
-    COUNT(*) as migrated_templates,
-    array_agg(name) as template_names
-FROM menuca_v3.vendor_commission_templates 
-WHERE source_system = 'v2';
-
-COMMIT;
-```
+**No migration script needed for this step.**
 
 ---
 
@@ -1119,55 +1016,17 @@ COMMIT;
 
 ---
 
-### 6.6 Script 4: Migrate Commission Assignments (Staging → V3)
+### 6.6 Script 4: Commission Configuration (No Separate Migration)
 
-**File:** `04_migrate_commission_assignments.sql`
+**Note:** Commission configuration is now stored directly in the `menuca_v3.vendor_restaurants` table during the vendor-restaurant assignment migration (Script 3). Each vendor-restaurant relationship includes:
 
-```sql
--- Purpose: Migrate commission assignments from staging to V3
--- Source: staging.v2_vendor_splits
--- Target: menuca_v3.vendor_commission_assignments
+- `commission_template` - Which Edge Function template to use
+- `commission_rate` - The commission percentage for that restaurant
+- `commission_type` - Whether it's a percentage or fixed amount
+- `fixed_platform_fee` - Fixed fee (default $80)
+- `delivery_commission_extra` - Extra % for delivery
 
-BEGIN;
-
-INSERT INTO menuca_v3.vendor_commission_assignments (
-    restaurant_id, template_id, vendor_user_id,
-    active_from, legacy_v2_id, source_system
-)
-SELECT 
-    v3_resto.id as restaurant_id,
-    v3_template.id as template_id,
-    v3_vendor.id as vendor_user_id,
-    CURRENT_DATE as active_from,
-    vs.id as legacy_v2_id,
-    'v2' as source_system
-FROM staging.v2_vendor_splits vs
--- Map template
-JOIN menuca_v3.vendor_commission_templates v3_template
-    ON vs.template_id = v3_template.legacy_v2_id
-    AND v3_template.source_system = 'v2'
--- Map restaurant
-JOIN menuca_v3.restaurants v3_resto
-    ON vs.restaurant_id = v3_resto.legacy_v2_id
-    AND v3_resto.source_system = 'v2'
--- Find vendor for this restaurant
-JOIN staging.v2_vendor_restaurant_assignments v2_aur
-    ON v2_aur.restaurant_id = vs.restaurant_id
-JOIN menuca_v3.admin_users v3_vendor
-    ON v2_aur.user_id = v3_vendor.legacy_v2_id
-    AND v3_vendor.source_system = 'v2'
-    AND v3_vendor.user_group = 12
-ON CONFLICT (restaurant_id, active_from) DO NOTHING;
-
--- Verification
-SELECT 
-    COUNT(*) as commission_assignments,
-    COUNT(DISTINCT template_id) as unique_templates,
-    COUNT(DISTINCT vendor_user_id) as unique_vendors
-FROM menuca_v3.vendor_commission_assignments;
-
-COMMIT;
-```
+**No separate migration script needed for this step.**
 
 ---
 
@@ -1289,22 +1148,15 @@ SELECT
      
 UNION ALL
 
-SELECT 
-    'Commission Templates',
-    (SELECT COUNT(*) FROM staging.v2_vendor_splits_templates 
-     WHERE enabled = 'y'),
-    (SELECT COUNT(*) FROM menuca_v3.vendor_commission_templates 
-     WHERE source_system = 'v2' AND enabled = true)
-     
-UNION ALL
-
-SELECT 
-    'Commission Assignments',
-    (SELECT COUNT(*) FROM staging.v2_vendor_splits),
-    (SELECT COUNT(*) FROM menuca_v3.vendor_commission_assignments 
-     WHERE source_system = 'v2')
-     
-UNION ALL
+-- Commission Templates validation skipped - now implemented as Edge Functions
+-- SELECT 
+--     'Commission Templates',
+--     (SELECT COUNT(*) FROM staging.v2_vendor_splits_templates 
+--      WHERE enabled = 'y'),
+--     (SELECT COUNT(*) FROM menuca_v3.vendor_commission_templates 
+--      WHERE source_system = 'v2' AND enabled = true)
+--      
+-- UNION ALL
 
 SELECT 
     'Recent Historical Reports (12mo)',
@@ -1328,26 +1180,11 @@ SELECT
 
 ```sql
 -- Check for orphaned records
-SELECT 'Orphaned Commission Assignments' as issue,
-       COUNT(*) as count
-FROM menuca_v3.vendor_commission_assignments vca
-WHERE NOT EXISTS (
-    SELECT 1 FROM menuca_v3.restaurants r 
-    WHERE r.id = vca.restaurant_id
-)
-   OR NOT EXISTS (
-    SELECT 1 FROM menuca_v3.vendor_commission_templates vct 
-    WHERE vct.id = vca.template_id
-)
-   OR NOT EXISTS (
-    SELECT 1 FROM menuca_v3.admin_users au 
-    WHERE au.id = vca.vendor_user_id
-)
-
-UNION ALL
+-- Note: vendor_commission_assignments and vendor_commission_templates tables
+-- no longer exist - commission config stored in vendor_restaurants table
 
 SELECT 'Orphaned Reports',
-       COUNT(*)
+       COUNT(*) as count
 FROM menuca_v3.vendor_reports_archive vra
 WHERE (vra.vendor_user_id IS NOT NULL 
        AND NOT EXISTS (
@@ -1463,31 +1300,26 @@ foreach ($testCases as $test) {
    # Expected: ~? vendors migrated
    ```
 
-6. **Migrate Templates**
+6. **Deploy Edge Functions** (Replaces template migration)
    ```bash
-   psql menuca_v3 < 02_migrate_commission_templates.sql
-   # Expected: 2 templates
+   # Commission templates deployed as Supabase Edge Functions
+   supabase functions deploy calculate-vendor-commission
+   # Templates: percent_commission, mazen_milanos
    ```
 
-7. **Migrate Restaurant-Vendor Links**
+7. **Migrate Restaurant-Vendor Links (includes commission config)**
    ```bash
    psql menuca_v3 < 03_migrate_restaurant_vendor_links.sql
-   # Expected: ~19 links
+   # Expected: ~19 links with commission configuration
    ```
 
-8. **Migrate Commission Assignments**
-   ```bash
-   psql menuca_v3 < 04_migrate_commission_assignments.sql
-   # Expected: 19 assignments
-   ```
-
-9. **Migrate Statement Numbers**
+8. **Migrate Statement Numbers**
    ```bash
    psql menuca_v3 < 05_migrate_statement_numbers.sql
    # Expected: 2 records
    ```
 
-10. **Migrate Historical Reports (12 months only)**
+9. **Migrate Historical Reports (12 months only)**
     ```bash
     psql menuca_v3 < 06_migrate_historical_reports.sql
     # Expected: ~40-50 reports (not 493)
@@ -1555,10 +1387,11 @@ foreach ($testCases as $test) {
 
 1. **DROP all V3 vendor tables**
    ```sql
-   DROP TABLE IF EXISTS menuca_v3.vendor_reports_archive CASCADE;
+   DROP TABLE IF EXISTS menuca_v3.vendor_commission_reports CASCADE;
    DROP TABLE IF EXISTS menuca_v3.vendor_statement_numbers CASCADE;
-   DROP TABLE IF EXISTS menuca_v3.vendor_commission_assignments CASCADE;
-   DROP TABLE IF EXISTS menuca_v3.vendor_commission_templates CASCADE;
+   DROP TABLE IF EXISTS menuca_v3.vendor_restaurants CASCADE;
+   DROP TABLE IF EXISTS menuca_v3.vendors CASCADE;
+   -- Note: Commission templates are Edge Functions (not database tables)
    -- Do NOT drop admin_users (shared table)
    ```
 
@@ -1581,12 +1414,13 @@ foreach ($testCases as $test) {
 
 | Entity | Source | Staging Table | V3 Table | Est. Rows |
 |--------|--------|---------------|----------|-----------|
-| Vendor Users | V2 admin_users (group=12) | staging.v2_vendor_users | admin_users | ? |
-| Restaurant Links | V2 admin_users_restaurants | staging.v2_vendor_restaurant_assignments | admin_users_restaurants | ~19 |
-| Commission Templates | V2 vendor_splits_templates | staging.v2_vendor_splits_templates | vendor_commission_templates | 2 |
-| Commission Assignments | V2 vendor_splits | staging.v2_vendor_splits | vendor_commission_assignments | 19 |
-| Statement Numbers | V2 vendor_reports_numbers | staging.v2_vendor_reports_numbers | vendor_statement_numbers | 2 |
-| Historical Reports | V2 vendor_reports (12mo filter) | staging.v2_vendor_reports_recent | vendor_reports_archive | ~40-50 |
+| Vendor Users | V2 admin_users (group=12) | staging.v2_vendor_users | menuca_v3.vendors | ? |
+| Restaurant Links + Commission Config | V2 admin_users_restaurants + vendor_splits | staging.v2_vendor_restaurant_assignments | menuca_v3.vendor_restaurants | ~19 |
+| Commission Templates | - | - | Edge Function (TypeScript) | 2 |
+| Statement Numbers | V2 vendor_reports_numbers | staging.v2_vendor_reports_numbers | menuca_v3.vendor_statement_numbers | 2 |
+| Historical Reports | V2 vendor_reports (12mo filter) | staging.v2_vendor_reports_recent | menuca_v3.vendor_commission_reports | ~40-50 |
+
+**Note:** `vendor_commission_extra` from `restaurants_fees` is excluded (only applies to test restaurant 1595).
 
 **NOT Migrating:**
 
@@ -1598,6 +1432,7 @@ foreach ($testCases as $test) {
 - Historical reports older than 12 months (available in V2 backup)
 - Test accounts (filtered by active='y')
 - Vendors with zero restaurants
+- `vendor_commission_extra` from `restaurants_fees` (only applies to test restaurant 1595)
 
 **Key Decisions:**
 

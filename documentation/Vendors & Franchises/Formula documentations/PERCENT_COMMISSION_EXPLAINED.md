@@ -77,8 +77,10 @@ From the original **$1,000 commission**:
 | Party | Amount | Calculation | Percentage of Commission |
 |-------|--------|-------------|-------------------------|
 | **Vendor (Menu Ottawa)** | $460 | Half of ($1,000 - $80) | 46% |
-| **Menu.ca Total** | $540 | $80 fixed + Half of ($920) | 54% |
+| **Menu.ca Total** | **$540** | **$80 fixed + $460 share** | **54%** |
 | **Total** | $1,000 | | 100% |
+
+✅ **Important**: Menu.ca receives $540 which includes BOTH the $80 fixed fee AND their $460 share of the split.
 
 ---
 
@@ -97,7 +99,7 @@ Total Commission: $1,000
 
 FINAL:
 - Vendor (Menu Ottawa) gets: $460
-- Menu.ca gets: $80 + $460 = $540
+- Menu.ca gets: $540 (includes $80 fixed + $460 share) ✅
 ```
 
 ---
@@ -259,9 +261,10 @@ function calculatePercentCommission(data: CommissionInput): CommissionResult {
   const totalCommission = data.total * (data.restaurant_commission / 100)
   const afterFixedFee = totalCommission - data.menuottawa_share
   const forVendor = afterFixedFee / 2
-  const forMenuca = afterFixedFee / 2
+  const forMenucaShare = afterFixedFee / 2
+  const forMenucaTotal = data.menuottawa_share + forMenucaShare  // $80 + share ✅
   
-  return { for_vendor: forVendor, for_menuca: forMenuca }
+  return { for_vendor: forVendor, for_menuca: forMenucaTotal }
 }
 ```
 
