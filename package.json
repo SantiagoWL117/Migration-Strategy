@@ -1,0 +1,23 @@
+{
+  "name": "menuca-v3-edge-functions",
+  "version": "1.0.0",
+  "description": "Edge Functions for Menu.ca V3 Restaurant Management",
+  "private": true,
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "netlify build",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
+

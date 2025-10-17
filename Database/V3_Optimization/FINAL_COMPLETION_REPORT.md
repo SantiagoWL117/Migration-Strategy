@@ -34,11 +34,11 @@
 | Priority | Completed | Total | % | Status |
 |----------|-----------|-------|---|--------|
 | **🔴 CRITICAL** | 3 | 3 | **100%** | ✅ DONE |
-| **🟡 HIGH** | 7 | 8 | **87.5%** | ✅ MOSTLY DONE |
+| **🟡 HIGH** | 8 | 8 | **100%** | ✅ DONE |
 | **🟢 MEDIUM** | 11 | 12 | **91.7%** | ✅ MOSTLY DONE |
-| **TOTAL** | **21** | **23** | **91.3%** | ✅ PRODUCTION READY |
+| **TOTAL** | **22** | **23** | **95.7%** | ✅ PRODUCTION READY |
 
-**Remaining Work:** 2 items (Santiago working on soft delete + payments table)
+**Remaining Work:** 1 item (Payments idempotency - will be added during Orders & Payments migration)
 
 ---
 
@@ -243,11 +243,11 @@ ORDER BY km;
 
 ---
 
-### **Fix #1: Soft Delete Pattern** ⏳
-**Status:** 🔄 **IN PROGRESS (Santiago working on this)**  
-**Target Tables:** restaurants, dishes, users  
-**What:** Add `deleted_at`, `deleted_by` columns  
-**Impact:** GDPR compliance, data recovery
+### **Fix #1: Soft Delete Pattern** ✅
+**Status:** ✅ **COMPLETE (2025-10-15)**  
+**Target Tables:** users, restaurants, dishes, promotional_coupons, admin_users  
+**What:** Added `deleted_at`, `deleted_by` columns + indexes + views  
+**Impact:** GDPR compliance, data recovery, audit trail for 49,970 records
 
 ---
 
@@ -537,24 +537,7 @@ All documentation available on GitHub:
 
 ## 🎯 **WHAT'S LEFT FOR SANTIAGO**
 
-### **1. Soft Delete Pattern (HIGH Priority)**
-**Tables:** restaurants, dishes, users  
-**Columns to Add:**
-- `deleted_at` (TIMESTAMPTZ)
-- `deleted_by` (INTEGER)
-
-**Indexes:**
-```sql
-CREATE INDEX idx_{table}_active 
-    ON menuca_v3.{table}(id) 
-    WHERE deleted_at IS NULL;
-```
-
-**Impact:** GDPR compliance, data recovery
-
----
-
-### **2. Payments Idempotency Key (MEDIUM Priority)**
+### **1. Payments Idempotency Key (MEDIUM Priority)**
 **When:** During Orders & Payments migration  
 **What:**
 ```sql
@@ -676,13 +659,13 @@ ALTER TABLE menuca_v3.payments
 ```
 ╔════════════════════════════════════════════════════════════╗
 ║                                                            ║
-║          DATABASE OPTIMIZATION: 91.3% COMPLETE!            ║
+║          DATABASE OPTIMIZATION: 95.7% COMPLETE!            ║
 ║                                                            ║
 ║   ✅ CRITICAL:  3/3   (100%)                               ║
-║   ✅ HIGH:      7/8   (87.5%)                              ║
+║   ✅ HIGH:      8/8   (100%)                               ║
 ║   ✅ MEDIUM:    11/12 (91.7%)                              ║
 ║                                                            ║
-║   📊 TOTAL: 21/23 ITEMS FIXED                              ║
+║   📊 TOTAL: 22/23 ITEMS FIXED                              ║
 ║                                                            ║
 ║   🚀 STATUS: PRODUCTION READY!                             ║
 ║                                                            ║

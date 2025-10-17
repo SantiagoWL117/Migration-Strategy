@@ -3,9 +3,9 @@
 This document lists the remaining core business entities that need to be migrated from V1 and V2 of the Menu.ca databases to V3.
 
 **Migration Status Summary**:
-- ✅ **Completed & Tested**: Restaurant Management, Service Configuration & Schedules, Delivery Operations, Users & Access, Menu & Catalog, Marketing & Promotions
+- ✅ **Completed & Tested**: Restaurant Management, Service Configuration & Schedules, Delivery Operations, Users & Access, Menu & Catalog, Marketing & Promotions, Location & Geography
 - 🔄 **In Progress**: (None currently)
-- ❌ **Not Needed**: Location & Geography (handled differently in V3), Orders & Checkout, Payments, Accounting & Reporting
+- ❌ **Not Needed**: , Orders & Checkout, Payments, Accounting & Reporting
 
 ### Delivery Operations
 - Purpose: Delivery pricing, delivery company integrations, partner configuration, and phone notifications
@@ -70,7 +70,15 @@ This document lists the remaining core business entities that need to be migrate
 - **Excluded Tables** (Documented): `vendors`, `vendor_users`, `vendors_restaurants` (belong to Vendors entity), `ci_sessions` (belongs to Users entity), `nav*`, `permissions_list` (V2 admin UI config)
 - **Status**: ✅ Production ready, fully tested, comprehensive review complete
 
-### Accounting & Reporting - ❌ NOT NEEDED
+### Vendors & Franchises ✅ COMPLETED & TESTED
+- Purpose: Vendor relationships, franchise groupings, and splits/templates.
+- V1 Tables: `vendors`, `vendors_restaurants`, `vendor_users`, vendor report files.
+- V2 Tables: `vendors`, `francizes`, `vendor_sites`, `vendor_splits`, `vendor_splits_templates`, `vendor_reports`, `vendor_reports_numbers`, `vendor_invoices`.
+- **Status**: ✅ Production ready, fully tested, comprehensive review complete
+
+
+#### ❌ NOT NEEDED -
+### Accounting & Reporting - 
 - Purpose: Fees, statements, vendor reports, and financial aggregates.
 - V1 Tables: `restaurant_fees`, `restaurant_fees_stripe`, `restaurant_charges`, `issued_statements`, `statement_info`, `statement_invoices`, `statement_payments`, `statement_carry_values`, `vendors_reports`.
 - V2 Tables: `restaurants_fees`, `restaurants_accounting_fees`, `restaurants_charges`, `statements`, `restaurants_statements`, `vendor_reports`, `vendor_reports_numbers`, `vendor_invoices`, `statement_carry_values`.
@@ -86,23 +94,6 @@ This document lists the remaining core business entities that need to be migrate
 - V1 Tables: `tablets`, `tablet_orders`, `ci_sessions`, `groups`, `groups_permissions`, `themes`, `theme_*`.
 - V2 Tables: `tablets`, `tablet_orders`, `ci_sessions`, `groups`, `groups_permissions`, `phinxlog`.
 
----
-
-## 📋 Pending Migrations
-
-The following business entities have not been started yet and are pending migration:
-
-### Vendors & Franchises ⏳ PENDING
-- Purpose: Vendor relationships, franchise groupings, and splits/templates.
-- V1 Tables: `vendors`, `vendors_restaurants`, `vendor_users`, vendor report files.
-- V2 Tables: `vendors`, `francizes`, `vendor_sites`, `vendor_splits`, `vendor_splits_templates`, `vendor_reports`, `vendor_reports_numbers`, `vendor_invoices`.
-- **Status**: Not started
-
-### Devices & Infrastructure ⏳ PENDING
-- Purpose: Restaurant tablets and supporting runtime/system metadata.
-- V1 Tables: `tablets`, `tablet_orders`, `ci_sessions`, `groups`, `groups_permissions`, `themes`, `theme_*`.
-- V2 Tables: `tablets`, `tablet_orders`, `ci_sessions`, `groups`, `groups_permissions`, `phinxlog`.
-- **Status**: Not started
 
 ---
 
