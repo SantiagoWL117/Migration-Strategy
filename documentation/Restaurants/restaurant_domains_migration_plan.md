@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS menuca_v3.restaurant_domains;
 CREATE TABLE menuca_v3.restaurant_domains (
   id            bigserial PRIMARY KEY,
   uuid          uuid NOT NULL DEFAULT extensions.uuid_generate_v4(),
-  restaurant_id bigint NOT NULL REFERENCES menuca_v3.restaurants(id) ON DELETE CASCADE,
+  restaurant_id bigint NOT NULL REedsFERENCES menuca_v3.restaurants(id) ON DELETE CASCADE,
   domain        varchar(255) NOT NULL,
   domain_type   text,           -- from V2: type ('main'|'other'|'mobile')
   is_enabled    boolean NOT NULL DEFAULT true,

@@ -1,50 +1,60 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 
-// Types
-interface CreateFranchiseParentRequest {
-  name: string;
-  franchise_brand_name: string;
-  city_id: number;
-  province_id: number;
-  timezone?: string;
-  created_by?: number;
-}
-
 // CORS
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type'
 };
 
 // Utilities
-function jsonResponse(data: any, status: number = 200): Response {
+function jsonResponse(data: any, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { 'Content-Type': 'application/json', ...corsHeaders },
+    headers: {
+      'Content-Type': 'application/json',
+      ...corsHeaders
+    }
   });
 }
 
-function badRequest(error: string, details?: any): Response {
-  return jsonResponse({ success: false, error, ...details && { details } }, 400);
+function badRequest(error: string) {
+  return jsonResponse({
+    success: false,
+    error
+  }, 400);
 }
 
-function created(data: any, message?: string): Response {
-  return jsonResponse({ success: true, data, message }, 201);
+function created(data: any, message: string) {
+  return jsonResponse({
+    success: true,
+    data,
+    message
+  }, 201);
 }
 
-function internalError(error: string): Response {
-  return jsonResponse({ success: false, error }, 500);
+function internalError(error: string) {
+  return jsonResponse({
+    success: false,
+    error
+  }, 500);
 }
 
-async function logAdminAction(supabase: any, userId: string, action: string, resourceType: string, resourceId: number, metadata: any) {
+async function logAdminAction(
+  supabase: any,
+  userId: string,
+  action: string,
+  resourceType: string,
+  resourceId: number,
+  metadata: any
+) {
   try {
     await supabase.from('admin_action_logs').insert({
       user_id: userId,
       action,
       resource_type: resourceType,
       resource_id: resourceId,
-      metadata,
+      metadata
     });
   } catch (error) {
     console.error('Failed to log admin action:', error);
@@ -65,7 +75,10 @@ Deno.serve(async (req) => {
     // Auth
     const authHeader = req.headers.get('Authorization');
     if (!authHeader) {
-      return jsonResponse({ success: false, error: 'Missing authorization header' }, 401);
+      return jsonResponse({
+        success: false,
+        error: 'Missing authorization header'
+      }, 401);
     }
 
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
@@ -73,35 +86,42 @@ Deno.serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     // Get user (for audit trail)
-    const userClient = createClient(supabaseUrl, Deno.env.get('SUPABASE_ANON_KEY')!, {
-      global: { headers: { Authorization: authHeader } },
-    });
+    const userClient = createClient(
+      supabaseUrl,
+      Deno.env.get('SUPABASE_ANON_KEY')!,
+      {
+        global: {
+          headers: { Authorization: authHeader }
+        }
+      }
+    );
+
     const { data: { user } } = await userClient.auth.getUser();
-    
     if (!user) {
-      return jsonResponse({ success: false, error: 'Invalid or expired token' }, 401);
+      return jsonResponse({
+        success: false,
+        error: 'Invalid or expired token'
+      }, 401);
     }
 
     // Parse body
-    const body: CreateFranchiseParentRequest = await req.json();
+    const body = await req.json();
 
-    // Validation
-    if (!body.name || !body.franchise_brand_name || !body.city_id || !body.province_id) {
-      return badRequest('Missing required fields: name, franchise_brand_name, city_id, province_id');
+    // Validation (removed city_id and province_id)
+    if (!body.name || !body.franchise_brand_name) {
+      return badRequest('Missing required fields: name, franchise_brand_name');
     }
 
     // Sanitize
     const sanitizedName = body.name.trim().replace(/\s+/g, ' ').substring(0, 255);
     const sanitizedBrandName = body.franchise_brand_name.trim().replace(/\s+/g, ' ').substring(0, 255);
 
-    // Call SQL function
+    // Call SQL function (removed city_id and province_id parameters)
     const { data, error } = await supabase.rpc('create_franchise_parent', {
       p_name: sanitizedName,
       p_franchise_brand_name: sanitizedBrandName,
-      p_city_id: body.city_id,
-      p_province_id: body.province_id,
       p_timezone: body.timezone || 'America/Toronto',
-      p_created_by: body.created_by || null,
+      p_created_by: body.created_by || null
     });
 
     if (error) {
@@ -119,22 +139,26 @@ Deno.serve(async (req) => {
     const result = data[0];
 
     // Audit log (async)
-    logAdminAction(supabase, user.id, 'franchise.create', 'restaurants', result.parent_id, {
-      name: sanitizedName,
-      brand_name: sanitizedBrandName,
-    }).catch(console.error);
-
-    return created(
+    logAdminAction(
+      supabase,
+      user.id,
+      'franchise.create',
+      'restaurants',
+      result.parent_id,
       {
-        parent_id: result.parent_id,
-        brand_name: result.brand_name,
-        name: result.name,
-        status: result.status,
-      },
-      'Franchise parent created successfully'
-    );
+        name: sanitizedName,
+        brand_name: sanitizedBrandName
+      }
+    ).catch(console.error);
 
-  } catch (error: any) {
+    return created({
+      parent_id: result.parent_id,
+      brand_name: result.brand_name,
+      name: result.name,
+      status: result.status
+    }, 'Franchise parent created successfully');
+
+  } catch (error) {
     console.error('Error:', error);
     return internalError('Failed to create franchise parent');
   }
