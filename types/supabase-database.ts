@@ -1,6 +1,7 @@
 /**
- * Auto-generated TypeScript types for menuca_v3 database
- * Generated: October 15, 2025
+ * TypeScript types for menuca_v3 database
+ * Last Verified: October 17, 2025 (Post-Production Audit)
+ * Status: Production-Ready
  * 
  * Usage:
  *   import { Database } from './types/supabase-database'
