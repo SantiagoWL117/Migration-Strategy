@@ -1,8 +1,8 @@
 # Santiago's Master Index - Backend Integration Hub
 
 **Purpose:** Single source of truth for all backend documentation  
-**Last Updated:** January 17, 2025  
-**Status:** 6 entities complete (60% - HALFWAY PLUS!), actively refactoring  
+**Last Updated:** October 17, 2025  
+**Status:** 6 entities complete (60%), 2 migrated but not refactored, 2 pending  
 
 ---
 
@@ -344,10 +344,10 @@ https://github.com/SantiagoWL117/Migration-Strategy/tree/main/Database/Orders_&_
 | Priority | Entity | Status | Dependencies |
 |----------|--------|--------|--------------|
 | 1 | Restaurant Management | ✅ COMPLETE | None |
-| 2 | Users & Access | ✅ COMPLETE | Location & Geography |
+| 2 | Users & Access | ⚠️ MIGRATED (needs refactoring) | Location & Geography |
 | 3 | Menu & Catalog | ✅ COMPLETE | Restaurants |
 | 4 | Service Config & Schedules | ✅ COMPLETE | Restaurants |
-| 5 | Location & Geography | ✅ COMPLETE | None |
+| 5 | Location & Geography | ⚠️ MIGRATED (needs refactoring) | None |
 | 6 | **Marketing & Promotions** | ✅ COMPLETE | Restaurants, Menu |
 | 7 | **Orders & Checkout** | ✅ COMPLETE | Menu, Users, Service Config |
 | 8 | **Delivery Operations** | ✅ COMPLETE | Location, Orders (stub) |
