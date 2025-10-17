@@ -3,6 +3,7 @@
 **Purpose:** Single source of truth for all backend documentation  
 **Last Updated:** October 17, 2025  
 **Status:** 7 entities complete (70%), 1 migrated but needs refactoring, 2 pending  
+**Latest:** ✅ Users & Access refactored (October 17, 2025)  
 
 ---
 
@@ -21,7 +22,7 @@ Then dive into phase-specific docs for deeper technical details.
 
 ---
 
-## ✅ **COMPLETED ENTITIES (6)**
+## ✅ **COMPLETED ENTITIES (7)**
 
 ### **1. Restaurant Management** ✅
 
@@ -40,7 +41,74 @@ https://github.com/SantiagoWL117/Migration-Strategy/tree/main/documentation/Rest
 
 ---
 
-### **2. Menu & Catalog Entity** ✅
+### **2. Users & Access** ✅
+
+**Status:** 🟢 COMPLETE (October 17, 2025)  
+**Priority:** 2 (Foundation for Auth)  
+**Tables:** users, admin_users, admin_user_restaurants, user_delivery_addresses, user_favorite_restaurants  
+**Rows Secured:** Production-ready for millions of users (5 core tables)  
+
+**📂 Main Documentation:**
+- **🌟 START HERE:** [Users & Access - Santiago Backend Integration Guide](./documentation/Users%20&%20Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+
+**Phase Documentation:**
+- Phase 1: [Phase 1 Auth Integration](./Database/Users_&_Access/PHASE_1_AUTH_INTEGRATION_SUMMARY.md) (20 RLS policies, Supabase Auth)
+- Phase 2: [Phase 2 Performance & APIs](./Database/Users_&_Access/PHASE_2_PERFORMANCE_APIS_SUMMARY.md) (7 functions, 38 indexes)
+- Phase 3: [Phase 3 Audit & Schema](./Database/Users_&_Access/PHASE_3_AUDIT_SCHEMA_SUMMARY.md) (3 active views, soft delete)
+- Phase 4: [Phase 4 Real-Time](./Database/Users_&_Access/PHASE_4_REALTIME_SUMMARY.md) (WebSocket subscriptions)
+- Phases 5-7: [Phases 5-7 Completion](./Database/Users_&_Access/PHASE_5_6_7_COMPLETION_SUMMARY.md) (Multi-language, MFA, validation)
+- Complete Report: [Users & Access Completion Report](./Database/Users_&_Access/USERS_ACCESS_COMPLETION_REPORT.md)
+
+**Business Logic Gained:**
+- 7 SQL functions (profile, addresses, favorites, admin access)
+- 20 RLS policies (customers, admins, service_role)
+- Complete customer profile management
+- Delivery address CRUD operations
+- Restaurant favorites system
+- Admin-restaurant access control
+- Multi-factor authentication (admins)
+- Email verification ready
+- Real-time profile updates
+
+**GitHub Path:**
+```
+https://github.com/SantiagoWL117/Migration-Strategy/tree/main/Database/Users_%26_Access
+```
+
+**Backend APIs to Implement:**
+1. `POST /api/auth/signup` - Customer registration
+2. `POST /api/auth/login` - Customer login
+3. `POST /api/auth/logout` - Logout
+4. `GET /api/customers/me` - Get profile
+5. `PUT /api/customers/me` - Update profile
+6. `GET /api/customers/me/addresses` - Get delivery addresses
+7. `POST /api/customers/me/addresses` - Add address
+8. `PUT /api/customers/me/addresses/:id` - Update address
+9. `DELETE /api/customers/me/addresses/:id` - Delete address
+10. `GET /api/customers/me/favorites` - Get favorite restaurants
+11. `POST /api/customers/me/favorites/:id` - Toggle favorite
+12. `POST /api/admin/auth/login` - Admin login
+13. `GET /api/admin/profile` - Get admin profile
+14. `GET /api/admin/restaurants` - Get assigned restaurants
+15. `GET /api/admin/restaurants/:id/access` - Check restaurant access
+
+**Key Features:**
+- 🔐 **Enterprise Security:** 20 RLS policies, customer/admin isolation
+- 👤 **Complete Profile Management:** Name, email, phone, language preferences
+- 📍 **Address Management:** Multiple delivery addresses, geocoding, default address
+- ⭐ **Favorites System:** Add/remove favorite restaurants with one click
+- 🔑 **Admin Access Control:** Multi-restaurant admin assignments
+- 🛡️ **Multi-Factor Auth:** TOTP 2FA for admin accounts
+- ✉️ **Email Verification:** Supabase-managed verification flow
+- 🔔 **Real-Time Updates:** Live profile/address/favorite changes via WebSocket
+- 🌍 **Multi-Language:** EN/FR/ES language preferences
+- 💳 **Payment Ready:** Stripe customer ID integration
+
+**System Rivals:** DoorDash, Uber Eats, Skip the Dishes, Grubhub
+
+---
+
+### **3. Menu & Catalog Entity** ✅
 
 **Status:** 🟢 COMPLETE  
 **Priority:** 3  
@@ -390,10 +458,10 @@ https://github.com/SantiagoWL117/Migration-Strategy/tree/main/Database/Location%
 | Priority | Entity | Status | Dependencies |
 |----------|--------|--------|--------------|
 | 1 | Restaurant Management | ✅ COMPLETE | None |
-| 2 | Users & Access | ⚠️ MIGRATED (needs refactoring) | Location & Geography |
+| 2 | Users & Access | ✅ COMPLETE | Location & Geography |
 | 3 | Menu & Catalog | ✅ COMPLETE | Restaurants |
 | 4 | Service Config & Schedules | ✅ COMPLETE | Restaurants |
-| 5 | Location & Geography | ✅ COMPLETE | None |
+| 5 | Location & Geography | ⚠️ MIGRATED (needs refactoring) | None |
 | 6 | **Marketing & Promotions** | ✅ COMPLETE | Restaurants, Menu |
 | 7 | **Orders & Checkout** | ✅ COMPLETE | Menu, Users, Service Config |
 | 8 | **Delivery Operations** | ✅ COMPLETE | Location, Orders (stub) |

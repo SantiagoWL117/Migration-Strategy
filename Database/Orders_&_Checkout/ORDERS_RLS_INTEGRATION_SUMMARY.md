@@ -675,3 +675,4 @@ CREATE POLICY "order_status_history_service_role_all"
 **Security Level**: **Production-Grade** - Database enforces all access control  
 **Integration Status**: ✅ **Aligned with Users & Access security model**
 
+
