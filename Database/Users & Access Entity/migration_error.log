@@ -1,0 +1,43 @@
+❌ Failed to migrate brian@worklocal.ca: AuthApiError: A user with this email address has already been registered
+    at Qe (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8138)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async Ot (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8983)
+    at async g (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8702)
+    at async K.createUser (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:11924)
+    at async migrateUser (file:///C:/Users/santi/Menu.ca/Legacy Database/Migration Strategy/Database/Users & Access Entity/task_1.1_migrate_users_to_auth.ts:77:50)
+    at async Promise.all (index 0)
+    at async main (file:///C:/Users/santi/Menu.ca/Legacy Database/Migration Strategy/Database/Users & Access Entity/task_1.1_migrate_users_to_auth.ts:180:23) {
+  __isAuthError: [33mtrue[39m,
+  name: [32m"AuthApiError"[39m,
+  status: [33m422[39m,
+  code: [32m"email_exists"[39m
+}
+❌ Failed to migrate if(now()=sysdate(),sleep(15),0): AuthApiError: Unable to validate email address: invalid format
+    at Qe (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8138)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async Ot (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8983)
+    at async g (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8702)
+    at async K.createUser (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:11924)
+    at async migrateUser (file:///C:/Users/santi/Menu.ca/Legacy Database/Migration Strategy/Database/Users & Access Entity/task_1.1_migrate_users_to_auth.ts:77:50)
+    at async Promise.all (index 1)
+    at async main (file:///C:/Users/santi/Menu.ca/Legacy Database/Migration Strategy/Database/Users & Access Entity/task_1.1_migrate_users_to_auth.ts:180:23) {
+  __isAuthError: [33mtrue[39m,
+  name: [32m"AuthApiError"[39m,
+  status: [33m400[39m,
+  code: [32m"validation_failed"[39m
+}
+❌ Failed to migrate mattmenuottawa@gmail.com: AuthApiError: Database error checking email
+    at Qe (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8138)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async Ot (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8983)
+    at async g (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8702)
+    at async K.createUser (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:11924)
+    at async migrateUser (file:///C:/Users/santi/Menu.ca/Legacy Database/Migration Strategy/Database/Users & Access Entity/task_1.1_migrate_users_to_auth.ts:77:50)
+    at async Promise.all (index 2)
+    at async main (file:///C:/Users/santi/Menu.ca/Legacy Database/Migration Strategy/Database/Users & Access Entity/task_1.1_migrate_users_to_auth.ts:180:23) {
+  __isAuthError: [33mtrue[39m,
+  name: [32m"AuthApiError"[39m,
+  status: [33m500[39m,
+  code: [32m"unexpected_failure"[39m
+}
+❌ Error fetching users: { message: [32m'{"'[39m }

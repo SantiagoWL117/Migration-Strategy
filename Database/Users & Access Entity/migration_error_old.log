@@ -1,0 +1,13 @@
+❌ Failed to migrate if(now()=sysdate(),sleep(15),0): AuthApiError: Unable to validate email address: invalid format
+    at Qe (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8138)
+    at eventLoopTick (ext:core/01_core.js:179:7)
+    at async Ot (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8983)
+    at async g (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:8702)
+    at async K.createUser (https://esm.sh/@supabase/auth-js@2.75.0/denonext/auth-js.mjs:3:11924)
+    at async migrateUser (file:///C:/Users/santi/Menu.ca/Legacy Database/Migration Strategy/Database/Users & Access Entity/task_1.1_migrate_users_to_auth.ts:76:50)
+    at async main (file:///C:/Users/santi/Menu.ca/Legacy Database/Migration Strategy/Database/Users & Access Entity/task_1.1_migrate_users_to_auth.ts:176:22) {
+  __isAuthError: true,
+  name: "AuthApiError",
+  status: 400,
+  code: "validation_failed"
+}

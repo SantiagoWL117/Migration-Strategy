@@ -1,0 +1,39 @@
+# Netlify Configuration for Menu.ca V3
+
+[build]
+  functions = "netlify/functions"
+  publish = "public"
+
+# Environment variables (set in Netlify UI)
+# SUPABASE_URL
+# SUPABASE_SERVICE_KEY
+# CRON_SECRET
+# SLACK_WEBHOOK_URL (optional)
+
+# Scheduled function: Domain verification (daily at 2 AM UTC)
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Cron job configuration
+[[functions."cron/verify-domains"]]
+  schedule = "0 2 * * *"  # Daily at 2 AM UTC
+
+# Function timeout (30 seconds for cron jobs)
+[functions."cron/verify-domains"]
+  timeout = 30
+
+# API routes
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+
