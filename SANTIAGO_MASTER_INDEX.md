@@ -2,8 +2,8 @@
 
 **Purpose:** Single source of truth for all backend documentation  
 **Last Updated:** October 17, 2025  
-**Status:** 8 entities complete (80% - ALMOST DONE!), 2 pending  
-**Latest:** ✅ Users & Access + Location & Geography refactored (October 17, 2025)  
+**Status:** 9 entities complete (90% - ONE LEFT!), 1 pending  
+**Latest:** ✅ Users & Access + Location & Geography + Devices & Infrastructure refactored (October 17, 2025)  
 
 ---
 
@@ -22,7 +22,7 @@ Then dive into phase-specific docs for deeper technical details.
 
 ---
 
-## ✅ **COMPLETED ENTITIES (8 - 80% COMPLETE!)**
+## ✅ **COMPLETED ENTITIES (9 - 90% COMPLETE!)**
 
 ### **1. Restaurant Management** ✅
 
@@ -204,7 +204,7 @@ https://github.com/SantiagoWL117/Migration-Strategy/tree/main/Database/Service%2
 
 ---
 
-### **4. Delivery Operations** ✅
+### **9. Delivery Operations** ✅
 
 **Status:** 🟢 COMPLETE (January 17, 2025)  
 **Priority:** 8  
@@ -315,9 +315,56 @@ https://github.com/SantiagoWL117/Migration-Strategy/tree/main/Database/Location%
 
 ---
 
-### **6. Marketing & Promotions** ✅
+### **6. Devices & Infrastructure** ✅
 
-**Status:** 🟢 COMPLETE (January 17, 2025)  
+**Status:** 🟢 COMPLETE (October 17, 2025)  
+**Priority:** 9  
+**Tables:** devices  
+**Rows Secured:** 981 devices (404 assigned + 577 orphaned)  
+
+**📂 Main Documentation:**
+- **🌟 START HERE:** [Devices & Infrastructure - Santiago Backend Integration Guide](./documentation/Devices%20&%20Infrastructure/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+
+**Phase Documentation:**
+- Complete Report: [Devices & Infrastructure Completion Report](./Database/Devices%20&%20Infrastructure%20Entity/DEVICES_INFRASTRUCTURE_COMPLETION_REPORT.md)
+
+**Business Logic Gained:**
+- 3 SQL functions (device management, authentication, heartbeat)
+- 4 RLS policies (modernized from legacy JWT to Supabase Auth)
+- 13 performance indexes (existing, verified)
+- Device registration & management
+- Secure key-based device authentication
+- Heartbeat monitoring for connectivity
+- Orphaned device security (577 devices)
+
+**GitHub Path:**
+```
+https://github.com/SantiagoWL117/Migration-Strategy/tree/main/Database/Devices%20%26%20Infrastructure%20Entity
+```
+
+**Backend APIs to Implement:**
+1. `GET /api/admin/devices` - Get devices for admin's restaurants
+2. `POST /api/admin/devices` - Register new device
+3. `PUT /api/admin/devices/:id` - Update device settings
+4. `POST /api/devices/auth` - Authenticate device by key hash
+5. `POST /api/devices/heartbeat` - Device heartbeat (last-check update)
+
+**Key Features:**
+- 🖨️ **Device Management:** POS tablets, printers, displays, kiosks
+- 🔐 **Secure Authentication:** Hash-based device key auth
+- 📡 **Heartbeat Monitoring:** Track device connectivity & status
+- 🏢 **Restaurant Isolation:** Admins only see their devices
+- ⚙️ **Capability Flags:** Printing support, config editing permissions
+- 🔒 **Orphaned Device Security:** 577 orphaned devices (service-role only)
+- ⚡ **Performance:** All queries < 100ms, heartbeat < 10ms
+
+**System Rivals:** Square POS, Toast POS, Clover, Lightspeed
+
+---
+
+### **7. Marketing & Promotions** ✅
+
+**Status:** 🟢 COMPLETE (October 17, 2025)  
 **Priority:** 6  
 **Tables:** promotional_deals, promotional_coupons, marketing_tags, restaurant_tag_associations, coupon_usage_log, translation tables (3)  
 **Rows Secured:** Ready for production (8 core tables)  
@@ -387,7 +434,7 @@ https://github.com/SantiagoWL117/Migration-Strategy/tree/main/Database/Marketing
 
 ---
 
-### **6. Orders & Checkout** ✅
+### **8. Orders & Checkout** ✅
 
 **Status:** 🟢 COMPLETE (January 17, 2025)  
 **Priority:** 7 (Revenue Engine!)  
@@ -512,7 +559,7 @@ https://github.com/SantiagoWL117/Migration-Strategy/tree/main/Database/Location%
 | 6 | **Marketing & Promotions** | ✅ COMPLETE | Restaurants, Menu |
 | 7 | **Orders & Checkout** | ✅ COMPLETE | Menu, Users, Service Config |
 | 8 | **Delivery Operations** | ✅ COMPLETE | Location, Orders (stub) |
-| 9 | Devices & Infrastructure | ⏳ READY | Restaurants |
+| 9 | Devices & Infrastructure | ✅ COMPLETE | Restaurants |
 | 10 | Vendors & Franchises | ⏳ READY | Restaurants |
 
 ---
