@@ -19,6 +19,139 @@ Enable management of franchise brands with multiple locations:
 
 ---
 
+## Business Logic & Rules
+
+### Logic 1: Creating Franchise Parents
+
+**Business Logic:**
+```
+New franchise brand wants to join platform
+├── Step 1: Create parent restaurant record
+│   ├── Set is_franchise_parent = true
+│   ├── Set franchise_brand_name = "Brand Name"
+│   ├── Populate basic info (address, phone, email)
+│   └── Status = 'active' (parent always active)
+│
+├── Step 2: Parent gets unique ID (e.g., 986)
+│   └── This ID used to link all child locations
+│
+└── Step 3: Parent visible in admin dashboard
+    └── Ready to add child locations
+
+Decision Tree:
+1. Is this a franchise/chain?
+   NO → Create as independent restaurant
+   YES → Continue to step 2
+
+2. Does parent record exist?
+   YES → Use existing parent_id
+   NO → Create parent first
+
+3. How many locations?
+   1 location → Independent (no parent needed)
+   2+ locations → Create parent + children
+```
+
+**Validation Rules:**
+- ✅ `franchise_brand_name` required if `is_franchise_parent = true`
+- ✅ Parent cannot have `parent_restaurant_id` (must be null)
+- ✅ Parent must have valid contact info
+- ✅ `is_franchise_parent = true` is immutable (can't change after creation)
+
+---
+
+### Logic 2: Linking Children to Parents
+
+**Business Logic:**
+```
+Existing restaurant becomes franchise location
+├── Step 1: Identify all locations belonging to brand
+│   └── Example: 48 Milano restaurants (IDs: 3,7,11,...)
+│
+├── Step 2: Update each location's parent_restaurant_id
+│   ├── SET parent_restaurant_id = 986
+│   └── Child restaurants keep their own:
+│       ├── Unique ID
+│       ├── Name (can be different from parent)
+│       ├── Address (different locations)
+│       ├── Status (active/suspended/pending)
+│       └── Operational details
+│
+└── Step 3: Verify relationship
+    ├── Child count matches expected
+    ├── No orphaned children
+    └── No circular references
+
+Inheritance Model:
+├── Children INHERIT from parent:
+│   ├── Brand name
+│   ├── Logo/imagery (future)
+│   ├── Menu template (future)
+│   └── Feature flags (future)
+│
+└── Children KEEP their own:
+    ├── Physical address
+    ├── Operating hours
+    ├── Staff/contacts
+    ├── Local promotions
+    └── Individual status
+```
+
+**Safety Checks:**
+```typescript
+// Check 1: No self-references
+const { data: selfRefs } = await supabase.rpc('validate_franchise_hierarchy');
+// Expected: 0 issues ✅
+
+// Check 2: All parents exist (no orphaned children)
+// Check 3: No circular references (depth check)
+```
+
+---
+
+### Logic 3: Brand Management
+
+**Business Logic:**
+```
+Franchise brand controls all locations
+├── Parent Dashboard Shows:
+│   ├── Total locations: 48
+│   ├── Active locations: 43
+│   ├── Pending setup: 0
+│   ├── Suspended: 5
+│   └── Geographic distribution: 24 ON, 24 AB
+│
+├── Bulk Operations Available:
+│   ├── Update menu across all locations
+│   ├── Enable/disable features franchise-wide
+│   ├── Set pricing rules for all children
+│   └── Apply promotions to all locations
+│
+└── Reporting & Analytics:
+    ├── Aggregate revenue across all locations
+    ├── Performance comparison by location
+    ├── Customer reviews aggregated
+    └── Order volume trends by region
+```
+
+**Dashboard Query Example:**
+```typescript
+// Get franchise performance summary
+const { data: analytics } = await supabase.rpc('get_franchise_analytics', {
+  p_parent_id: 986,  // Milano Pizza
+  p_period_days: 30
+});
+
+console.log(`Total Revenue: $${analytics.total_revenue}`);
+console.log(`Total Orders: ${analytics.total_orders}`);
+console.log(`Avg Order Value: $${analytics.avg_order_value}`);
+console.log(`Top Performer: ${analytics.top_location_name}`);
+```
+
+---
+
+## API Features
+
 ### Feature 1.1: Create Franchise Parent
 
 **Purpose:** Create a new franchise brand/parent restaurant

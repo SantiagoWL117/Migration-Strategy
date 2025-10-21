@@ -14,6 +14,57 @@ Comprehensive 8-step onboarding system with SQL functions and Edge Functions to 
 - **Progress Tracking:** Automatic integration with onboarding tracking system
 - **Payment Skip:** Handles Stripe integration separately (Brian's work)
 
+---
+
+## Business Logic & Rules
+
+### Logic 1: 8-Step Onboarding Workflow
+
+**Business Logic:**
+```
+Guide restaurant from signup to activation
+├── Step 1: Basic Info → Create restaurant record
+├── Step 2: Location → Add geolocation, timezone
+├── Step 3: Contact → Add primary contact
+├── Step 4: Schedule → Apply template (1-click) or custom
+├── Step 5: Menu → Add dishes OR copy from franchise parent
+├── Step 6: Payment → Stripe integration (separate flow)
+├── Step 7: Delivery → Create delivery zones
+└── Step 8: Testing → Complete onboarding, set status=active
+
+Each step updates onboarding_tracking table automatically
+```
+
+---
+
+### Logic 2: Template Application
+
+**Business Logic:**
+```
+Apply schedule template (solves 14-form nightmare)
+├── 4 pre-built templates: standard, late_night, early_bird, 24_7
+├── 1-click application copies all 14 schedule entries
+├── Reduces setup time: 45 minutes → 30 seconds
+└── Auto-marks schedule_completed = true
+```
+
+---
+
+### Logic 3: Franchise Menu Copying
+
+**Business Logic:**
+```
+Copy menu from franchise parent
+├── Validate: Restaurant must be franchise child
+├── Copy: All dishes, prices, photos from parent
+├── Link: Maintain parent-child dish relationships
+└── Result: 50+ dishes copied in seconds vs hours of manual entry
+```
+
+---
+
+## API Features
+
 ### 8-Step Onboarding Flow
 
 | Step | Function | Complexity | Auto-Tracked |

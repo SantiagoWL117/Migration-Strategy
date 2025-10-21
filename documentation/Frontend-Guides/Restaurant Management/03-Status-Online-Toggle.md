@@ -13,6 +13,144 @@ Restaurant status management and online ordering toggle system that enables:
 - Temporary closures without status changes
 - Instant availability checks (<1ms)
 
+---
+
+## Business Logic & Rules
+
+### Logic 1: Status Lifecycle Management
+
+**Business Logic:**
+```
+New Restaurant Registration
+├── 1. Create account with status = 'pending'
+│   └── online_ordering_enabled = true (default)
+│
+├── 2. Restaurant completes onboarding
+│   └── Status remains 'pending' (awaiting approval)
+│
+├── 3. Admin reviews and approves
+│   └── UPDATE status = 'active'
+│   └── Restaurant can now accept orders ✅
+│
+├── 4. (Optional) Restaurant toggles online ordering
+│   └── Remains 'active', but enabled = false
+│   └── Temporarily closed for private event
+│
+└── 5. (If needed) Admin suspends account
+    └── UPDATE status = 'suspended'
+    └── online_ordering_enabled forced to false
+    └── Cannot accept orders until reactivated
+
+State Transitions:
+pending → active (admin approval)
+active → suspended (violation)
+suspended → active (appeal approved)
+active → pending (NOT ALLOWED - irreversible action)
+```
+
+**Validation Rules:**
+- ✅ Only `pending → active` transitions allowed without approval
+- ✅ Suspended restaurants must have `online_ordering_enabled = false`
+- ✅ Cannot revert active restaurants to pending status
+
+---
+
+### Logic 2: Temporary Closure (Toggle)
+
+**Business Logic:**
+```
+Owner needs to temporarily close
+├── Scenario 1: Equipment failure
+│   ├── Click "Temporarily Close"
+│   ├── Reason: "Oven repair - back in 2 hours"
+│   └── System: online_ordering_enabled = false
+│
+├── Scenario 2: Staff shortage
+│   ├── Click "Temporarily Close"
+│   ├── Reason: "Unexpected staff absence - closed today"
+│   └── System: online_ordering_enabled = false
+│
+├── Scenario 3: Private event
+│   ├── Click "Temporarily Close"
+│   ├── Reason: "Private event - reopen tomorrow 11 AM"
+│   └── System: online_ordering_enabled = false
+│
+└── Reopen when ready
+    ├── Click "Reopen"
+    └── System: online_ordering_enabled = true
+
+Business Rules:
+1. Can only toggle if status = 'active'
+   └── Suspended/pending accounts cannot toggle
+2. Must provide reason when closing
+   └── Shown to customers and support
+3. Timestamp automatically set
+   └── Track closure duration for analytics
+4. Audit log created
+   └── Who closed, when, why
+```
+
+**Closure Duration Tracking:**
+```typescript
+// Calculate how long restaurant was closed
+const { data } = await supabase.rpc('get_closure_analytics', {
+  p_restaurant_id: 561,
+  p_period_days: 30
+});
+
+console.log(`Closed ${data.total_closures} times for ${data.total_hours} hours`);
+```
+
+---
+
+### Logic 3: Emergency Shutdown
+
+**Business Logic:**
+```
+Health inspector orders immediate closure
+├── 1. Owner receives shutdown order
+│   └── Must stop serving immediately
+│
+├── 2. Owner clicks "Emergency Close"
+│   ├── Reason: "Health inspection - refrigeration failure"
+│   ├── System: online_ordering_enabled = false (instant)
+│   └── System: Alert sent to active orders
+│
+├── 3. Active orders handled
+│   ├── "Preparing" orders → Refunded automatically
+│   ├── "Out for delivery" orders → Completed (already cooked)
+│   └── Customers notified: "Restaurant closed unexpectedly"
+│
+└── 4. Audit log created
+    └── Reason, timestamp, affected orders logged
+
+Emergency Close vs Regular Close:
+├── Emergency: Immediate effect (0 seconds)
+├── Emergency: Active orders refunded
+├── Emergency: Manager dashboard alert
+└── Regular: Graceful shutdown (finish active orders)
+```
+
+**Emergency Handler Example:**
+```typescript
+// Emergency closure with order handling
+const { data } = await supabase.functions.invoke('toggle-online-ordering', {
+  body: {
+    restaurant_id: 561,
+    enabled: false,
+    is_emergency: true,
+    reason: 'EMERGENCY: Health inspection - refrigeration failure'
+  }
+});
+
+// Returns list of affected orders that were refunded
+console.log(`Refunded ${data.affected_orders.length} active orders`);
+```
+
+---
+
+## API Features
+
 ### Features
 
 #### 3.1. Check Restaurant Availability

@@ -20,6 +20,112 @@ Restaurant categorization and discovery system that enables:
 
 ---
 
+## Business Logic & Rules
+
+### Logic 1: Cuisine Assignment
+
+**Business Logic:**
+```
+Assign cuisine to restaurant
+├── 1. Validate cuisine exists and is active
+├── 2. Check if already assigned (prevent duplicates)
+├── 3. Determine if primary or secondary
+│   ├── If first cuisine → Set as primary
+│   └── If additional → Set as secondary
+└── 4. Insert cuisine assignment
+
+Primary cuisine rules:
+├── Every restaurant should have exactly ONE primary
+├── First cuisine assigned = primary (auto)
+├── Can change primary later (requires update)
+└── Primary used for default filtering/sorting
+```
+
+**Assignment Example:**
+```typescript
+// Add Italian as primary cuisine (first cuisine for restaurant)
+const { data } = await supabase.functions.invoke('add-restaurant-cuisine', {
+  body: {
+    restaurant_id: 561,
+    cuisine_name: 'Italian'
+  }
+});
+
+// System automatically sets as primary: is_primary = true ✅
+```
+
+---
+
+### Logic 2: Tag Assignment
+
+**Business Logic:**
+```
+Assign tag to restaurant
+├── 1. Validate tag exists and is active
+├── 2. Check if already assigned
+├── 3. Validate tag makes sense for restaurant
+│   └── Example: Don't tag "Vegan Options" on steakhouse
+└── 4. Insert tag assignment
+
+Tag categories:
+├── dietary: Filter by food restrictions
+├── service: Filter by ordering method
+├── atmosphere: Filter by dining experience
+├── feature: Filter by amenities
+└── payment: Filter by payment options
+```
+
+**Tag Example:**
+```typescript
+// Add Vegan Options tag
+const { data } = await supabase.functions.invoke('add-restaurant-tag', {
+  body: {
+    restaurant_id: 561,
+    tag_name: 'Vegan Options'
+  }
+});
+```
+
+---
+
+### Logic 3: Restaurant Discovery
+
+**Business Logic:**
+```
+Find restaurants by criteria
+├── Filter by cuisine (Italian, Thai, Chinese, etc.)
+├── Filter by tags (Vegan, Gluten-Free, WiFi, etc.)
+├── Filter by location (within X km)
+├── Filter by status (active only)
+└── Sort by relevance/distance/rating
+
+Combined filters (AND logic):
+Example: "Italian restaurants with Vegan Options within 5km"
+├── cuisine = Italian
+├── tag = Vegan Options
+├── distance < 5km
+└── Returns: Matching restaurants only
+```
+
+**Discovery Query:**
+```typescript
+// Find Italian restaurants with Vegan Options nearby
+const { data } = await supabase
+  .from('v_restaurant_categorization')
+  .select('*')
+  .eq('primary_cuisine', 'Italian')
+  .contains('tags', ['Vegan Options'])
+  .eq('status', 'active');
+
+// Returns restaurants matching all criteria
+```
+
+---
+
+## API Features
+
+---
+
 ### Feature 7.1: Get Restaurant Categorization
 
 **Purpose:** Get all cuisines and tags assigned to a restaurant.

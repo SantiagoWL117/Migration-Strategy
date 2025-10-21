@@ -122,7 +122,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 1 (Foundation) | **Status:** ✅ COMPLETE
 
 **📂 Frontend Documentation:**
-- **[Restaurant Management - Frontend Developer Guide](./documentation/Frontend-Guides/01-Restaurant-Management-Frontend-Guide.md)** ⭐
+- **[Restaurant Management - Frontend Developer Guide](./01-Restaurant-Management-Frontend-Guide.md)** ⭐
 
 **Components Implemented:**
 1. **Franchise/Chain Hierarchy** (13 SQL + 3 Edge Functions)
@@ -190,7 +190,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - ✅ Real-time availability
 
 **Frontend APIs:**
-- All documented in the [Restaurant Management Frontend Guide](./documentation/Frontend-Guides/01-Restaurant-Management-Frontend-Guide.md)
+- All documented in the [Restaurant Management Frontend Guide](./01-Restaurant-Management-Frontend-Guide.md)
 - Complete request/response examples
 - Authentication patterns
 - Error handling strategies
@@ -202,7 +202,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 2 (Authentication) | **Status:** 📋 PENDING
 
 **📂 Frontend Documentation:**
-- **[Users & Access - Frontend Developer Guide](./documentation/Frontend-Guides/02-Users-Access-Frontend-Guide.md)**
+- **[Users & Access - Frontend Developer Guide](./02-Users-Access-Frontend-Guide.md)**
 
 **Planned Features:**
 - Customer profile management
@@ -212,7 +212,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - Multi-factor authentication (2FA)
 
 **Backend Reference:**
-- [Users & Access - Santiago Backend Integration Guide](./documentation/Users%20&%20Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+- [Users & Access - Santiago Backend Integration Guide](../../documentation/Users%20&%20Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
 
 **Status:** 🚧 To be implemented
 
@@ -222,7 +222,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 3 | **Status:** 📋 PENDING
 
 **📂 Frontend Documentation:**
-- **[Menu & Catalog - Frontend Developer Guide](./documentation/Frontend-Guides/03-Menu-Catalog-Frontend-Guide.md)**
+- **[Menu & Catalog - Frontend Developer Guide](./03-Menu-Catalog-Frontend-Guide.md)**
 
 **Planned Features:**
 - Menu management and display
@@ -232,7 +232,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - Dynamic pricing
 
 **Backend Reference:**
-- [Menu & Catalog - Santiago Backend Integration Guide](./documentation/Menu%20&%20Catalog/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+- [Menu & Catalog - Santiago Backend Integration Guide](../../documentation/Menu%20&%20Catalog/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
 
 **Status:** 🚧 To be implemented
 
@@ -242,7 +242,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 4 | **Status:** 📋 PENDING
 
 **📂 Frontend Documentation:**
-- **[Service Configuration - Frontend Developer Guide](./documentation/Frontend-Guides/04-Service-Configuration-Frontend-Guide.md)**
+- **[Service Configuration - Frontend Developer Guide](./04-Service-Configuration-Frontend-Guide.md)**
 
 **Planned Features:**
 - Operating hours management
@@ -252,7 +252,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - Timezone support
 
 **Backend Reference:**
-- [Service Configuration - Completion Report](./Database/Service%20Configuration%20&%20Schedules/SERVICE_SCHEDULES_COMPLETION_REPORT.md)
+- [Service Configuration - Completion Report](../../Database/Service%20Configuration%20&%20Schedules/SERVICE_SCHEDULES_COMPLETION_REPORT.md)
 
 **Status:** 🚧 To be implemented
 
@@ -262,7 +262,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 5 | **Status:** 📋 PENDING
 
 **📂 Frontend Documentation:**
-- **[Location & Geography - Frontend Developer Guide](./documentation/Frontend-Guides/05-Location-Geography-Frontend-Guide.md)**
+- **[Location & Geography - Frontend Developer Guide](./05-Location-Geography-Frontend-Guide.md)**
 
 **Planned Features:**
 - Geospatial restaurant search
@@ -272,7 +272,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - PostGIS integration
 
 **Backend Reference:**
-- [Location & Geography - Santiago Backend Integration Guide](./documentation/Location%20&%20Geography/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+- [Location & Geography - Santiago Backend Integration Guide](../../documentation/Location%20&%20Geography/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
 
 **Status:** 🚧 To be implemented
 
@@ -282,7 +282,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 6 | **Status:** 📋 PENDING
 
 **📂 Frontend Documentation:**
-- **[Marketing & Promotions - Frontend Developer Guide](./documentation/Frontend-Guides/06-Marketing-Promotions-Frontend-Guide.md)**
+- **[Marketing & Promotions - Frontend Developer Guide](./06-Marketing-Promotions-Frontend-Guide.md)**
 
 **Planned Features:**
 - Deal and promotion management
@@ -292,7 +292,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - Time-based promotions
 
 **Backend Reference:**
-- [Marketing & Promotions - Santiago Backend Integration Guide](./documentation/Marketing%20&%20Promotions/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+- [Marketing & Promotions - Santiago Backend Integration Guide](../../documentation/Marketing%20&%20Promotions/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
 
 **Status:** 🚧 To be implemented
 
@@ -302,7 +302,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 7 | **Status:** 📋 PENDING
 
 **📂 Frontend Documentation:**
-- **[Orders & Checkout - Frontend Developer Guide](./documentation/Frontend-Guides/07-Orders-Checkout-Frontend-Guide.md)**
+- **[Orders & Checkout - Frontend Developer Guide](./07-Orders-Checkout-Frontend-Guide.md)**
 
 **Planned Features:**
 - Order creation and management
@@ -312,7 +312,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - Order history and receipts
 
 **Backend Reference:**
-- [Orders & Checkout - Completion Report](./Database/Orders_&_Checkout/ORDERS_CHECKOUT_COMPLETION_REPORT.md)
+- [Orders & Checkout - Completion Report](../../Database/Orders_&_Checkout/ORDERS_CHECKOUT_COMPLETION_REPORT.md)
 
 **Status:** 🚧 To be implemented
 
@@ -322,7 +322,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 8 | **Status:** 📋 PENDING
 
 **📂 Frontend Documentation:**
-- **[Delivery Operations - Frontend Developer Guide](./documentation/Frontend-Guides/08-Delivery-Operations-Frontend-Guide.md)**
+- **[Delivery Operations - Frontend Developer Guide](./08-Delivery-Operations-Frontend-Guide.md)**
 
 **Planned Features:**
 - 3rd-party delivery integration (Skip, Uber Eats, DoorDash)
@@ -332,7 +332,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - Delivery status updates
 
 **Backend Reference:**
-- [Delivery Operations - Honest Assessment](./Database/Delivery%20Operations/HONEST_ASSESSMENT.md)
+- [Delivery Operations - Honest Assessment](../../Database/Delivery%20Operations/HONEST_ASSESSMENT.md)
 
 **Status:** 🚧 To be implemented
 
@@ -342,7 +342,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 9 | **Status:** 📋 PENDING
 
 **📂 Frontend Documentation:**
-- **[Devices & Infrastructure - Frontend Developer Guide](./documentation/Frontend-Guides/09-Devices-Infrastructure-Frontend-Guide.md)**
+- **[Devices & Infrastructure - Frontend Developer Guide](./09-Devices-Infrastructure-Frontend-Guide.md)**
 
 **Planned Features:**
 - Device registration and management
@@ -352,7 +352,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - Device heartbeat monitoring
 
 **Backend Reference:**
-- [Devices & Infrastructure - Santiago Backend Integration Guide](./documentation/Devices%20&%20Infrastructure/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+- [Devices & Infrastructure - Santiago Backend Integration Guide](../../documentation/Devices%20&%20Infrastructure/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
 
 **Status:** 🚧 To be implemented
 
@@ -362,7 +362,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 **Priority:** 10 | **Status:** 📋 PENDING
 
 **📂 Frontend Documentation:**
-- **[Vendors & Franchises - Frontend Developer Guide](./documentation/Frontend-Guides/10-Vendors-Franchises-Frontend-Guide.md)**
+- **[Vendors & Franchises - Frontend Developer Guide](./10-Vendors-Franchises-Frontend-Guide.md)**
 
 **Planned Features:**
 - Vendor profile management
@@ -372,7 +372,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - Franchise-wide reporting
 
 **Backend Reference:**
-- [Vendors & Franchises - Completion Report](./Database/Vendors%20&%20Franchises/VENDORS_FRANCHISES_COMPLETION_REPORT.md)
+- [Vendors & Franchises - Completion Report](../../Database/Vendors%20&%20Franchises/VENDORS_FRANCHISES_COMPLETION_REPORT.md)
 
 **Status:** 🚧 To be implemented
 
@@ -492,5 +492,5 @@ https://nthpbtdjhhnwfxqsxbvy.supabase.co
 
 **Last Updated:** October 21, 2025  
 **Current Focus:** Restaurant Management Entity (Complete) | Next: Users & Access Entity  
-**For Backend Implementation Details:** See [SANTIAGO_MASTER_INDEX.md](./SANTIAGO_MASTER_INDEX.md)
+**For Backend Implementation Details:** See [SANTIAGO_MASTER_INDEX.md](../../SANTIAGO_MASTER_INDEX.md)
 

@@ -22,6 +22,98 @@ Production-ready SEO and search system that enables:
 
 ---
 
+## Business Logic & Rules
+
+### Logic 1: SEO URL Generation
+
+**Business Logic:**
+```
+Generate SEO-friendly URL for restaurant
+├── 1. Take restaurant name
+├── 2. Convert to lowercase
+├── 3. Remove special characters (keep letters, numbers, hyphens)
+├── 4. Replace spaces with hyphens
+├── 5. Remove consecutive hyphens
+├── 6. Append restaurant ID (ensures uniqueness)
+└── 7. Store as slug column
+
+Examples:
+"Milano's Pizza" → "milanos-pizza-561"
+"Papa Joe's (Downtown)" → "papa-joes-downtown-13"
+
+URL format: https://menu.ca/restaurants/{slug}
+```
+
+---
+
+### Logic 2: Full-Text Search with Ranking
+
+**Business Logic:**
+```
+Search restaurants by query
+├── 1. Parse query string ("italian pizza downtown")
+├── 2. Convert to tsquery (search query format)
+├── 3. Match against search_vector (@@operator)
+├── 4. Calculate relevance rank (ts_rank)
+├── 5. Sort by relevance or distance
+└── 6. Return top N results
+
+Ranking factors:
+├── Weight A (name) matches = highest rank
+├── Weight B (description) matches = medium rank
+├── Weight C (cuisines) matches = lower rank
+└── Multiple word matches = boost rank
+```
+
+**Search Example:**
+```typescript
+const { data } = await supabase.rpc('search_restaurants', {
+  p_search_query: 'italian pizza',
+  p_limit: 20
+});
+
+// Returns restaurants sorted by relevance:
+// Milano's Pizza (rank: 0.87) ⭐⭐⭐
+// Pizza Palace (rank: 0.45) ⭐⭐
+```
+
+---
+
+### Logic 3: Geospatial Search Integration
+
+**Business Logic:**
+```
+Search with location awareness
+├── 1. Get customer location (lat, lng)
+├── 2. Perform full-text search
+├── 3. Filter by proximity (within X km)
+├── 4. Calculate distance for each result
+├── 5. Sort by: distance (if nearby) OR rank (if far)
+└── 6. Return sorted results
+
+Sorting strategy:
+├── If restaurants within 2km → Sort by distance
+├── If no restaurants within 2km → Sort by relevance
+└── Always show distance for context
+```
+
+**Combined Search:**
+```typescript
+const { data } = await supabase.rpc('search_restaurants', {
+  p_search_query: 'pizza',
+  p_latitude: 45.4215,
+  p_longitude: -75.6972,
+  p_radius_km: 10,
+  p_limit: 20
+});
+
+// Returns: Milano's Pizza (0.8km away) - closest match ✅
+```
+
+---
+
+## API Features
+
 ### Feature 7.1: Full-Text Restaurant Search
 
 **Purpose:** Search restaurants by name, description, or cuisine with intelligent relevance ranking.

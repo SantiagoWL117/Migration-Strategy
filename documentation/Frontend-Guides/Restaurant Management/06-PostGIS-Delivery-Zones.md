@@ -26,6 +26,108 @@ Production-ready geospatial delivery zone system using PostGIS that enables:
 
 ---
 
+## Business Logic & Rules
+
+### Logic 1: Point-in-Polygon Delivery Check
+
+**Business Logic:**
+```
+Customer places order from address
+├── 1. Convert address to coordinates (lat, lng)
+├── 2. Query: Which delivery zones contain this point?
+├── 3. If multiple zones → Return cheapest zone
+├── 4. Return: Fee, minimum order, ETA
+└── 5. If no zones → Cannot deliver
+
+Decision Tree:
+1. Is point in ANY active zone?
+   YES → Return cheapest zone
+   NO → Return empty (cannot deliver)
+
+2. Does customer meet minimum order?
+   YES → Proceed to checkout
+   NO → Show "Add $X more for delivery"
+```
+
+**SQL Query:**
+```typescript
+const { data } = await supabase.rpc('is_address_in_delivery_zone', {
+  p_restaurant_id: 561,
+  p_latitude: 45.4215,
+  p_longitude: -75.6972
+});
+
+// Returns: { zone_name: "Downtown", delivery_fee_cents: 299, minimum_order_cents: 1500, eta: 25 }
+// Or null if outside delivery area
+```
+
+---
+
+### Logic 2: Proximity Restaurant Search
+
+**Business Logic:**
+```
+Customer enters address → Find nearby restaurants
+├── 1. Geocode to coordinates
+├── 2. Search within radius (5km default)
+├── 3. Filter: active + accepting orders
+├── 4. Calculate exact distance for each
+├── 5. Check: Can each deliver to customer?
+└── 6. Sort by distance (closest first)
+
+Performance:
+├── GIST index for fast spatial queries
+├── Geography cast for Earth's curvature
+└── Sub-100ms response time
+```
+
+**Query Example:**
+```typescript
+const { data } = await supabase.rpc('find_nearby_restaurants', {
+  p_latitude: 45.4215,
+  p_longitude: -75.6972,
+  p_radius_km: 5,
+  p_limit: 20
+});
+
+// Returns restaurants sorted by distance with can_deliver flag
+```
+
+---
+
+### Logic 3: Zone Area Analytics
+
+**Business Logic:**
+```
+Calculate zone profitability
+├── Area: 25.43 sq km
+├── Orders/week: 120
+├── Orders per sq km: 4.72
+├── Revenue per sq km: $14.11/week
+├── Cost per sq km: $8.50/week
+└── Net profit: $5.61/week → Keep zone ✅
+
+Capacity Planning:
+├── Small zone (< 10 sq km): 1 driver
+├── Medium zone (10-30 sq km): 2-3 drivers
+└── Large zone (> 30 sq km): 4+ drivers, consider splitting
+```
+
+**Analytics Query:**
+```typescript
+const { data } = await supabase.rpc('get_delivery_zone_area_sq_km', {
+  p_zone_id: 123
+});
+
+console.log(`Zone covers ${data} sq km`);
+```
+
+---
+
+## API Features
+
+---
+
 ### Feature 6.1: Check Delivery Availability
 
 **Purpose:** Determine if a restaurant can deliver to a customer address and get delivery details.

@@ -12,6 +12,127 @@ Audit-compliant soft delete system for restaurant child tables that enables:
 - Zero data loss on accidental deletions
 - Historical analysis of deleted records
 
+---
+
+## Business Logic & Rules
+
+### Logic 1: Soft Delete Operation
+
+**Business Logic:**
+```
+User requests deletion of record
+├── Step 1: Check if user has permission to delete
+│   └── Verify admin role or ownership
+│
+├── Step 2: Mark record as deleted (soft delete)
+│   ├── SET deleted_at = NOW()
+│   ├── SET deleted_by = current_admin_user_id
+│   └── KEEP all other data intact
+│
+├── Step 3: Record is now hidden from active queries
+│   ├── WHERE deleted_at IS NULL filters it out
+│   └── Still exists in database (recoverable)
+│
+└── Step 4: Optional - Schedule permanent purge
+    └── After 30/60/90 days (configurable)
+
+Recovery Window:
+├── 0-30 days: Immediate recovery via admin dashboard
+├── 30-60 days: Recovery requires manager approval
+├── 60-90 days: Recovery requires executive approval
+└── 90+ days: Permanent purge (GDPR compliance)
+```
+
+**Validation Rules:**
+- ✅ Cannot soft delete already deleted record
+- ✅ Must provide `deleted_by` (admin_user_id)
+- ✅ `deleted_at` must be <= NOW() (no future deletions)
+- ✅ Cannot delete if dependent records exist (enforce FK constraints)
+
+---
+
+### Logic 2: Data Recovery (Undo Deletion)
+
+**Business Logic:**
+```
+User requests restoration of deleted record
+├── Step 1: Verify record is soft-deleted
+│   └── WHERE deleted_at IS NOT NULL
+│
+├── Step 2: Check recovery window (30/60/90 days)
+│   └── If expired, require higher approval
+│
+├── Step 3: Restore record (undo soft delete)
+│   ├── SET deleted_at = NULL
+│   ├── SET deleted_by = NULL
+│   └── Record becomes active again
+│
+└── Step 4: Log restoration event
+    └── Audit: "Restored by admin X at timestamp Y"
+
+Restoration Hierarchy:
+├── Child records: Restore automatically with parent
+├── Parent records: Restore only if children exist
+└── Independent records: Restore individually
+```
+
+**Bulk Restoration Example:**
+```typescript
+// Restore all locations for a restaurant (within 30-day window)
+const { data, error } = await supabase.functions.invoke('restore-deleted-record', {
+  body: {
+    table_name: 'restaurant_locations',
+    restaurant_id: 986,  // Restore all locations for this restaurant
+    max_age_days: 30
+  }
+});
+```
+
+---
+
+### Logic 3: Permanent Purge (GDPR Compliance)
+
+**Business Logic:**
+```
+Automatic purge of old soft-deleted records
+├── Step 1: Identify records older than retention period
+│   └── WHERE deleted_at < (NOW() - INTERVAL '90 days')
+│
+├── Step 2: Verify no dependencies exist
+│   └── Check foreign key references
+│
+├── Step 3: Log purge event (before deletion)
+│   └── Record: id, table, deleted_at, deleted_by, purged_at
+│
+└── Step 4: Permanent DELETE from database
+    └── DELETE FROM table WHERE id IN (...)
+
+Purge Schedule (GDPR-compliant):
+├── Daily cron job: 02:00 UTC
+├── Batch size: 1,000 records per run
+├── Retention period: 90 days default
+└── Logging: All purges logged to audit table
+```
+
+**Purge Query Example:**
+```sql
+-- Identify records ready for permanent purge
+SELECT 
+    id,
+    restaurant_id,
+    deleted_at,
+    deleted_by,
+    EXTRACT(DAY FROM NOW() - deleted_at) as days_deleted
+FROM menuca_v3.restaurant_locations
+WHERE deleted_at IS NOT NULL
+  AND deleted_at < NOW() - INTERVAL '90 days'
+LIMIT 1000;
+```
+
+---
+
+## API Features
+
 ### Features
 
 #### 2.1. Soft Delete Record

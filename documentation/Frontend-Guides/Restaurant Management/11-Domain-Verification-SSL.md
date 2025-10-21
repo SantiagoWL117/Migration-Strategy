@@ -20,6 +20,70 @@ Automated SSL and DNS verification system to prevent downtime and ensure restaur
 
 ---
 
+## Business Logic & Rules
+
+### Logic 1: Automated Daily Verification (Cron)
+
+**Business Logic:**
+```
+Daily automated verification cycle
+├── 1. Cron trigger at 2 AM UTC
+├── 2. Fetch domains needing check (last_checked_at > 24 hrs)
+├── 3. Limit to 100 domains per run (rate limiting)
+├── 4. For each domain:
+│   ├── Verify SSL certificate (connect :443, check expiration)
+│   ├── Verify DNS records (resolve A/CNAME records)
+│   ├── Update database (mark_domain_verified)
+│   └── Check for expiring certificates (< 30 days → alert)
+└── 5. Rate limit: Wait 500ms between requests
+
+Alert Thresholds:
+├── 🚨 CRITICAL: SSL expires ≤ 7 days
+├── ⚠️ WARNING: SSL expires ≤ 30 days
+└── ❌ ERROR: SSL/DNS verification failed
+```
+
+---
+
+### Logic 2: SSL Certificate Monitoring
+
+**Business Logic:**
+```
+Prevent SSL expiration outages
+├── Check expiration date daily
+├── Send alert if expires < 30 days
+├── Escalate if expires < 7 days (critical)
+└── Track issuer (Let's Encrypt, DigiCert, etc.)
+
+Impact:
+Before: 23 SSL outages/year (customer-reported)
+After: 0 SSL outages/year (proactive renewal)
+```
+
+---
+
+### Logic 3: DNS Health Checks
+
+**Business Logic:**
+```
+Monitor DNS configuration
+├── Resolve A records (IPv4 addresses)
+├── Resolve CNAME records (aliases)
+├── Verify at least one exists
+└── Alert if resolution fails
+
+Use Cases:
+- Detect when domain expires
+- Detect when DNS provider changes
+- Detect misconfiguration after transfer
+```
+
+---
+
+## API Features
+
+---
+
 ### Feature 11.1: Get Domain Verification Summary
 
 **Purpose:** Dashboard view of all domain verification statuses

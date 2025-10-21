@@ -12,6 +12,148 @@ Contact priority and type system that enables:
 - Duplicate prevention (unique constraint per type)
 - Multi-contact restaurant support
 
+---
+
+## Business Logic & Rules
+
+### Logic 1: Primary Contact Retrieval
+
+**Business Logic:**
+```
+Get primary contact for restaurant
+├── 1. Specify contact type (owner, billing, general, etc.)
+├── 2. Query for priority=1 + type match
+├── 3. Filter: active + not deleted
+└── 4. Return first match (should only be 1)
+
+Fallback logic:
+├── If no primary of specified type → Try 'general'
+├── If no 'general' → Try location fallback
+└── If no location → Return error (should never happen)
+```
+
+**Priority System:**
+```typescript
+// Example: Get primary billing contact
+const { data } = await supabase.rpc('get_restaurant_primary_contact', {
+  p_restaurant_id: 561,
+  p_contact_type: 'billing'
+});
+
+// Returns:
+// id: 9012
+// email: billing@milano.com
+// phone: (613) 555-5678
+// first_name: Maria
+// last_name: Smith
+// contact_type: billing
+// is_active: true
+```
+
+---
+
+### Logic 2: Contact Hierarchy Management
+
+**Business Logic:**
+```
+Add new contact to restaurant
+├── 1. Determine contact type (owner, billing, etc.)
+├── 2. Determine priority:
+│   ├── New primary? → Set priority=1
+│   │   └── Check: Does primary already exist for this type?
+│   │       ├── YES → Demote existing to priority=2
+│   │       └── NO → Proceed with priority=1
+│   └── New backup? → Set priority=2 or 3
+│
+└── 3. Insert contact record
+
+Update contact priority:
+├── Promote secondary to primary
+│   └── Demote old primary to secondary
+├── Demote primary to secondary
+│   └── Promote new primary
+└── Remove contact (soft delete)
+    └── If was primary → Promote secondary to primary
+```
+
+**Hierarchy Management Example:**
+```typescript
+// Add new primary billing contact (demotes existing)
+const { data } = await supabase.functions.invoke('add-restaurant-contact', {
+  body: {
+    restaurant_id: 561,
+    email: 'newbilling@milano.com',
+    phone: '(613) 555-9999',
+    first_name: 'Jane',
+    last_name: 'Accountant',
+    contact_type: 'billing',
+    contact_priority: 1,  // Will demote existing primary to priority=2
+    is_active: true
+  }
+});
+
+// System automatically:
+// 1. Finds existing primary billing contact (if any)
+// 2. Demotes it to priority=2
+// 3. Creates new contact as priority=1
+```
+
+---
+
+### Logic 3: Contact Fallback System
+
+**Business Logic:**
+```
+Get effective contact for restaurant
+├── 1. Try primary contact (dedicated record)
+│   └── Query: restaurant_contacts WHERE priority=1 AND type='general'
+│
+├── 2. If no contact found → Try location fallback
+│   └── Query: restaurant_locations.email, .phone
+│
+└── 3. Return whichever is available
+    ├── Mark source: 'contact' or 'location'
+    └── Always returns result (100% coverage)
+
+Priority of fallback:
+1. Dedicated contact (preferred) - 72.1% of restaurants
+2. Location contact (fallback) - 27.9% of restaurants
+3. Error (should never happen) - 0% of restaurants
+```
+
+**Fallback Query Example:**
+```typescript
+// Get effective contact with fallback (via view)
+const { data } = await supabase
+  .from('v_restaurant_contact_info')
+  .select('*')
+  .eq('restaurant_id', 234)
+  .single();
+
+// Returns (if no dedicated contact):
+// restaurant_id: 234
+// restaurant_name: Sushi Express
+// effective_email: info@sushiexpress.com (from location)
+// effective_phone: (613) 555-9876 (from location)
+// contact_source: 'location' ✅
+
+// Returns (if dedicated contact exists):
+// restaurant_id: 561
+// restaurant_name: Milano's Pizza
+// effective_email: john@milano.com (from contact)
+// effective_phone: (613) 555-1234 (from contact)
+// contact_source: 'contact' ✅
+```
+
+**Contact Coverage:**
+- ✅ 100% of restaurants have contact info (either dedicated or location fallback)
+- ✅ 72.1% have dedicated contacts (preferred method)
+- ✅ 27.9% use location fallback (still reliable)
+
+---
+
+## API Features
+
 ### Features
 
 #### 5.1. Get Primary Contact

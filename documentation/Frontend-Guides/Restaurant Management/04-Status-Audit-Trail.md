@@ -12,6 +12,129 @@ Complete audit trail system for restaurant status changes that enables:
 - Historical analytics and reporting
 - V1/V2 logic elimination (single source of truth)
 
+---
+
+## Business Logic & Rules
+
+### Logic 1: Status Change With Audit
+
+**Business Logic:**
+```
+Admin changes restaurant status
+├── 1. Validate status transition is allowed
+│   ├── pending → active (approval)
+│   ├── active → suspended (violation)
+│   ├── suspended → active (appeal approved)
+│   └── ❌ active → pending (NOT ALLOWED)
+│
+├── 2. Execute UPDATE query with reason
+│   ├── UPDATE restaurants SET status = 'suspended'
+│   ├── Include updated_by = admin_user_id
+│   └── Optionally: SET notes in separate query
+│
+├── 3. Trigger automatically creates audit record
+│   ├── Logs old_status → new_status
+│   ├── Records changed_by, changed_at
+│   └── Stores notes if provided
+│
+└── 4. Notify affected parties
+    ├── Restaurant owner (email/SMS)
+    ├── Support team (dashboard alert)
+    └── Compliance team (if suspension)
+```
+
+**Example Audit Flow:**
+```typescript
+// Admin suspends restaurant (via Edge Function)
+const { data } = await supabase.functions.invoke('update-restaurant-status', {
+  body: {
+    restaurant_id: 561,
+    new_status: 'suspended',
+    reason: 'Health inspection failure - refrigeration unit temperature violation',
+    updated_by: adminUserId
+  }
+});
+
+// Audit record automatically created by database trigger
+// No manual INSERT needed! ✅
+```
+
+---
+
+### Logic 2: Status Change History Query
+
+**Business Logic:**
+```
+View complete status history for restaurant
+├── Show all status transitions
+├── Include who made each change
+├── Include timestamps and reasons
+└── Order chronologically (newest first)
+
+Use cases:
+├── Support: "Why was this restaurant suspended?"
+├── Compliance: "Show suspension history"
+├── Owner: "When was I approved?"
+└── Analytics: "How long in pending status?"
+```
+
+**Timeline Example:**
+```typescript
+// Get status history for Milano's Pizza
+const { data } = await supabase.rpc('get_restaurant_status_timeline', {
+  p_restaurant_id: 561
+});
+
+// Returns chronological timeline:
+// 2024-03-15: NULL → pending (System: Initial registration) - 12 days
+// 2024-03-27: pending → active (Admin: John - Onboarding complete) - 172 days
+// 2024-09-15: active → suspended (Admin: Sarah - Health inspection fail) - 18 days
+// 2024-10-03: suspended → active (Admin: Sarah - Reinspection passed) - current
+```
+
+---
+
+### Logic 3: Status Analytics
+
+**Business Logic:**
+```
+Generate status reports for management
+├── Current status distribution
+├── Status change trends (monthly)
+├── Average time in each status
+├── Suspension/reactivation rates
+└── Most common transition patterns
+
+Reporting frequency:
+├── Real-time: Dashboard widgets
+├── Daily: Email digest to management
+├── Monthly: Board meeting reports
+└── Annual: Investor presentations
+```
+
+**Analytics Query Example:**
+```typescript
+// Get status distribution
+const { data: distribution } = await supabase.rpc('get_status_distribution');
+
+// Returns:
+// suspended: 685 (71.13%)
+// active: 277 (28.77%)
+// pending: 1 (0.10%)
+
+// Get average duration in each status
+const { data: durations } = await supabase.rpc('get_average_status_durations');
+
+// Returns:
+// pending: 14 days (2 weeks to approve)
+// active: 245 days (8 months before suspension)
+// suspended: 21 days (3 weeks to reactivate)
+```
+
+---
+
+## API Features
+
 ### Features
 
 #### 4.1. Get Status Timeline

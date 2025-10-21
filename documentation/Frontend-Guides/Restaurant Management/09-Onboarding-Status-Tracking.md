@@ -17,6 +17,56 @@ Track restaurant onboarding progress through an 8-step process with auto-calcula
 - Abandonment rate: **77% → 12%** (84% reduction)
 - Annual value: **$4.44M** from faster onboarding and higher retention
 
+---
+
+## Business Logic & Rules
+
+### Logic 1: Step Completion Tracking
+
+**Business Logic:**
+```
+Track restaurant onboarding progress
+├── 1. Restaurant signs up → Create onboarding record
+├── 2. Restaurant completes step → Mark boolean TRUE
+├── 3. Trigger auto-sets timestamp → Know when completed
+├── 4. GENERATED column recalculates → Update percentage
+└── 5. Dashboard updates → Operations team sees progress
+
+8 Steps: Basic Info, Location, Contact, Schedule, Menu, Payment, Delivery, Testing
+Completion: (completed_steps / 8) * 100
+```
+
+---
+
+### Logic 2: Progress Monitoring
+
+**Business Logic:**
+```
+Monitor which restaurants need help
+├── Calculate priority score per restaurant
+├── Sort by priority (highest first)
+└── Operations team helps high-priority restaurants
+
+Priority = (completion_% * 0.4) + (days_stuck * 2) + (steps_remaining * -5)
+```
+
+---
+
+### Logic 3: Performance Analytics
+
+**Business Logic:**
+```
+Analyze onboarding performance
+├── Completion rate per step
+├── Average time per step
+├── Identify bottlenecks
+└── Optimize stuck steps
+```
+
+---
+
+## API Features
+
 ### Production Data
 
 ```sql
