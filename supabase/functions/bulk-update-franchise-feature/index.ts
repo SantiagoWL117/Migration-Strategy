@@ -25,12 +25,12 @@ function badRequest(error: string) {
   }, 400);
 }
 
-function created(data: any, message: string) {
+function successResponse(data: any, message: string) {
   return jsonResponse({
     success: true,
     data,
     message
-  }, 201);
+  }, 200);
 }
 
 function internalError(error: string) {
@@ -107,59 +107,82 @@ Deno.serve(async (req) => {
     // Parse body
     const body = await req.json();
 
-    // Validation (removed city_id and province_id)
-    if (!body.name || !body.franchise_brand_name) {
-      return badRequest('Missing required fields: name, franchise_brand_name');
+    // Validation
+    if (!body.parent_restaurant_id || !body.feature_key || body.is_enabled === undefined) {
+      return badRequest('Missing required fields: parent_restaurant_id, feature_key, is_enabled');
     }
 
-    // Sanitize
-    const sanitizedName = body.name.trim().replace(/\s+/g, ' ').substring(0, 255);
-    const sanitizedBrandName = body.franchise_brand_name.trim().replace(/\s+/g, ' ').substring(0, 255);
+    // Validate feature_key format
+    const validFeatureKeys = [
+      'online_ordering',
+      'delivery',
+      'pickup',
+      'loyalty_program',
+      'reservations',
+      'gift_cards',
+      'catering',
+      'table_booking'
+    ];
 
-    // Call SQL function (removed city_id and province_id parameters)
-    const { data, error } = await supabase.rpc('create_franchise_parent', {
-      p_name: sanitizedName,
-      p_franchise_brand_name: sanitizedBrandName,
-      p_timezone: body.timezone || 'America/Toronto',
-      p_created_by: body.created_by || null
+    if (!validFeatureKeys.includes(body.feature_key)) {
+      return badRequest(`Invalid feature_key. Must be one of: ${validFeatureKeys.join(', ')}`);
+    }
+
+    // Validate parent_restaurant_id is a franchise parent
+    const { data: parentCheck } = await supabase
+      .from('restaurants')
+      .select('id, franchise_brand_name, is_franchise_parent')
+      .eq('id', body.parent_restaurant_id)
+      .eq('is_franchise_parent', true)
+      .is('deleted_at', null)
+      .single();
+
+    if (!parentCheck) {
+      return badRequest('Invalid parent_restaurant_id or not a franchise parent');
+    }
+
+    // Call SQL function
+    const { data, error } = await supabase.rpc('bulk_update_franchise_feature', {
+      p_parent_id: body.parent_restaurant_id,
+      p_feature_key: body.feature_key,
+      p_is_enabled: body.is_enabled,
+      p_updated_by: body.updated_by || null
     });
 
     if (error) {
       console.error('SQL error:', error);
-      if (error.message.includes('already exists')) {
-        return badRequest(`Franchise brand name already exists: ${sanitizedBrandName}`);
-      }
       throw error;
     }
 
-    if (!data || data.length === 0) {
-      return badRequest('Failed to create franchise parent');
-    }
-
-    const result = data[0];
+    const updatedCount = data || 0;
 
     // Audit log (async)
     logAdminAction(
       supabase,
       user.id,
-      'franchise.create',
+      'franchise.bulk_update_feature',
       'restaurants',
-      result.parent_id,
+      body.parent_restaurant_id,
       {
-        name: sanitizedName,
-        brand_name: sanitizedBrandName
+        feature_key: body.feature_key,
+        is_enabled: body.is_enabled,
+        updated_count: updatedCount,
+        brand_name: parentCheck.franchise_brand_name
       }
     ).catch(console.error);
 
-    return created({
-      parent_id: result.parent_id,
-      brand_name: result.brand_name,
-      name: result.name,
-      status: result.status
-    }, 'Franchise parent created successfully');
+    return successResponse({
+      parent_restaurant_id: body.parent_restaurant_id,
+      brand_name: parentCheck.franchise_brand_name,
+      feature_key: body.feature_key,
+      is_enabled: body.is_enabled,
+      updated_count: updatedCount
+    }, `Successfully updated ${body.feature_key} for ${updatedCount} franchise location(s)`);
 
   } catch (error) {
     console.error('Error:', error);
-    return internalError('Failed to create franchise parent');
+    return internalError('Failed to update franchise feature');
   }
 });
+
+
