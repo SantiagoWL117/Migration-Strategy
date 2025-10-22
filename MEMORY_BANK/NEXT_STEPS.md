@@ -1,298 +1,434 @@
-# Next Steps - Immediate Actions
+# Next Steps - Backend API Development
 
-**Last Updated:** 2025-01-16  
-**Current Status:** Service Configuration & Schedules COMPLETE! 🎉  
-**Recent Work:** 3 entities refactored to enterprise standards  
-**In Progress:** Marketing & Promotions Phase 1  
-**Documentation:** Santiago Master Index created ⭐
-
----
-
-## 🌟 **IMPORTANT: SANTIAGO'S MASTER INDEX**
-
-**For all new agents:** Read `/MEMORY_BANK/DOCUMENTATION_WORKFLOW.md` first!
-
-**Santiago's North Star:** `/SANTIAGO_MASTER_INDEX.md`
-- Single URL Santiago bookmarks
-- Links to all backend documentation
-- Progress tracker for all entities
-- Backend API checklists
-
-**Always update the master index after completing an entity!**
+**Last Updated:** 2025-10-21  
+**Current Status:** Database Complete - Backend API Development In Progress  
+**Team:** Santiago (Backend APIs) + Brian (Frontend - Customer Ordering App)  
+**Documentation:** All integration guides complete in SANTIAGO_MASTER_INDEX.md
 
 ---
 
-## ✅ Just Completed
+## ✅ Just Completed: Database Layer (Phase 1 & 2)
 
-**Service Configuration & Schedules - Enterprise Refactoring COMPLETE!** 🎉 (2025-01-16)
+**Phase 1 & 2 - COMPLETE (2025-10-17):**
+- ✅ All 10 entities migrated (100%)
+- ✅ 8 optimization phases complete
+- ✅ 192 modern RLS policies (zero legacy JWT)
+- ✅ 105 SQL functions verified
+- ✅ 621 performance indexes
+- ✅ Phase 8 production audit: PRODUCTION SIGN-OFF
+- ✅ Complete documentation created (see SANTIAGO_MASTER_INDEX.md)
 
 **What Was Built:**
-- ✅ All 6 phases of enterprise refactoring completed
-- ✅ 1,999 rows secured with `tenant_id` across 4 tables
-- ✅ 16 RLS policies implemented (100% multi-tenant isolation)
-- ✅ 11 production-ready SQL functions created
-- ✅ 15+ performance indexes added (6-8x faster queries)
-- ✅ Supabase Realtime enabled on all tables
-- ✅ Multi-language support (EN, ES, FR)
-
-**Documentation Created:**
-- ✅ `SANTIAGO_BACKEND_INTEGRATION_GUIDE.md` (master summary)
-- ✅ 4 phase-specific backend documentation files
-- ✅ Complete API integration examples (11 endpoints)
-- ✅ TypeScript code examples for all functions
-
-**Business Logic Delivered:**
-- 3 core APIs: `is_restaurant_open_now()`, `get_restaurant_hours()`, `get_restaurant_config()`
-- 5 admin functions: soft delete, restore, conflict check, bulk toggle, clone
-- 3 i18n functions: `get_day_name()`, `get_restaurant_hours_i18n()`, `get_upcoming_schedule_changes()`
-
-**New Workflow Established:**
-- ✅ Created `SANTIAGO_MASTER_INDEX.md` (single source of truth)
-- ✅ Created `DOCUMENTATION_WORKFLOW.md` (guide for new agents)
-- ✅ Standardized phase documentation format
-- ✅ Santiago now has one bookmark for all docs
-
-**Files Location:**
-- Database: `/Database/Service Configuration & Schedules/`
-- Documentation: `/documentation/Service Configuration & Schedules/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`
-- Master Index: `/SANTIAGO_MASTER_INDEX.md`
+- menuca_v3 schema: 89 tables (71 production + 18 staging)
+- 191 migrations tracked
+- Enterprise security (multi-tenant RLS)
+- Business logic layer (SQL functions)
+- Real-time capabilities (Supabase Realtime enabled)
+- Multi-language support (EN, ES, FR)
+- PostGIS geospatial features
+- Complete audit trails
 
 ---
 
-**Previous:** Restaurant Status Correction - Data Fix COMPLETE! 🎉 (2025-10-14)
+## 🚀 Current Phase: Backend API Development (Phase 3)
 
-**Problem Solved:**
-- V2 data overwrote V1 during migration
-- 99% of restaurants stayed operational in V1
-- V2 marked them inactive (never completed migration)
-- 101 restaurants incorrectly showed as suspended/pending in V3
+### Backend API Progress: 1/10 Entities Complete
 
-**Solution Applied:**
-- ✅ Priority rule: "If active in V1 OR V2 → active in V3"
-- ✅ 101 restaurants updated (87 suspended→active, 14 pending→active)
-- ✅ Status distribution: 259 active (was 158), 649 suspended (was 736)
-- ✅ 3 suspended_at timestamps cleared
-- ✅ Full audit trail in staging.active_restaurant_corrections
+#### ✅ **1. Restaurant Management APIs** - **COMPLETE** ✅
+**Status:** All APIs implemented and tested (2025-10-21)
 
-**Files Created:**
-- `ACTIVE_STATUS_CORRECTION_SUMMARY.md` - Analysis & plan
-- `EXECUTION_REPORT_ACTIVE_STATUS_CORRECTION.md` - Final report
-- `update_active_status_corrections.sql` - Execution script
-- `RESTAURANT_STATUS_CORRECTION_2025_10_14.md` - Memory Bank summary
+**Completed APIs:**
+- ✅ `GET /api/restaurants` - List/search restaurants
+- ✅ `GET /api/restaurants/:id` - Get restaurant details  
+- ✅ `GET /api/restaurants/near?lat=X&lng=Y` - Geospatial search
+- ✅ `POST /api/admin/restaurants` - Create restaurant (admin)
+- ✅ `PUT /api/admin/restaurants/:id` - Update restaurant (admin)
+- ✅ `GET /api/restaurants/:id/contacts` - Get contacts
+- ✅ `POST /api/admin/restaurants/:id/contacts` - Add contact
+- ✅ `GET /api/restaurants/:id/domains` - Get domains
+- ✅ `GET /api/restaurants/slug/:slug` - Get by custom domain
+- ✅ All franchise hierarchy endpoints
+- ✅ All status management endpoints
+- ✅ All delivery zone management endpoints
 
-**Verification:** ✅ All 101 corrections applied, FK integrity maintained, transaction committed
-
----
-
-**Previous:** Marketing & Promotions Entity - Phase 1 Analysis Complete! 🎉 (2025-10-07)
-
-**Completed Today:**
-- ✅ Pulled latest changes from GitHub (Santiago's 15 dump files)
-- ✅ Analyzed V1/V2 Marketing & Promotions schemas (15 tables reviewed)
-- ✅ Identified 7 core marketing tables + 8 excluded (belong to other entities)
-- ✅ Designed V3 schemas for all 7 target tables
-- ✅ Created comprehensive field mapping document (130+ field mappings)
-- ✅ Identified BLOB deserialization requirements (3 fields in deals table)
-- ✅ Catalogued V2 JSON fields (6 native JSON fields - direct migration)
-- ✅ Generated CSV export queries for Phase 2
-- ✅ Updated memory bank and project status
-
-**Tables Analyzed:**
-- ✅ **deals** (V1) → **restaurants_deals** (V2) → `promotional_deals` (V3)
-- ✅ **coupons** (V1 & V2) → `promotional_coupons` (V3)
-- ✅ **user_coupons** (V1) → `customer_coupons` (V3)
-- ✅ **tags** (V1 & V2) → `marketing_tags` + `restaurant_tag_associations` (V3)
-- ✅ **landing_pages** (V2) → `landing_pages` + `landing_page_restaurants` (V3)
-- ⚠️ **nav/permissions** (V2) → TBD (admin UI config - need decision)
-
-**BLOB Deserialization Identified:**
-- V1 `deals.exceptions` - PHP serialized course/dish exclusions
-- V1 `deals.active_days` - PHP serialized day-of-week arrays
-- V1 `deals.items` - PHP serialized item arrays
-- **Complexity:** 🟢 LOW (proven pattern from Menu entity)
-
-**Documentation Created:**
-- 📄 `/documentation/Marketing & Promotions/marketing-promotions-mapping.md` (Complete field mappings)
-- 📄 `/MEMORY_BANK/ENTITIES/07_MARKETING_PROMOTIONS.md` (Entity status tracking)
-
-**Previous:** Orders & Checkout Entity - Phase 1 Schema Design! 🎉 (2025-10-07)
-
-**Completed Today:**
-- ✅ Analyzed V1/V2 order table structures (6 V1 tables, 7 V2 tables)
-- ✅ Designed V3 order schema (7 new tables)
-- ✅ Created comprehensive field mapping document
-- ✅ Updated project status (4/12 entities complete - 33.3%)
-- ✅ Created entity file and folder structure
-
-**Schema Created:**
-- `menuca_v3.orders` - Main order records (~3.8M estimated)
-- `menuca_v3.order_items` - Line items (~500k estimated)
-- `menuca_v3.order_item_modifiers` - Customizations (~300k estimated)
-- `menuca_v3.order_delivery_addresses` - Address snapshots (~80k estimated)
-- `menuca_v3.order_discounts` - Coupons/deals (~50k estimated)
-- `menuca_v3.order_status_history` - Audit trail
-- `menuca_v3.order_pdfs` - Receipt files (~13k)
-
-**Previous:** Menu & Catalog Entity - ALL 5 PHASES COMPLETE! 🎉🎉🎉 (2025-10-03)
-
-**Final Production Status (menuca_v3 schema):**
-- ✅ **120,848 rows migrated** across 8 tables
-- ✅ **100% FK integrity** with menuca_v3.restaurants
-- ✅ **144,377 PHP BLOBs** deserialized (98.6% success)
-- ✅ **944 restaurants** mapped (V1 legacy_id → V3 new_id)
-- ✅ **80,610 ghost records** properly excluded
-- ✅ **Zero FK violations** in final production
-
-**All 8 Tables Complete:**
-| Table | Rows | Status |
-|-------|------|--------|
-| courses | 12,194 | ✅ |
-| dishes | 42,930 | ✅ |
-| ingredients | 45,176 | ✅ |
-| ingredient_groups | 9,572 | ✅ |
-| combo_groups | 8,341 | ✅ |
-| combo_items | 2,317 | ✅ |
-| dish_customizations | 310 | ✅ |
-| dish_modifiers | 8 | ✅ |
-
-**Complete Migration Journey:**
-- ✅ Phase 1: Data Loading & Remediation (235,050 rows)
-- ✅ Phase 2: V3 Schema & Transformation (64,913 rows)
-- ✅ Phase 3: Production Deployment to menu_v3
-- ✅ Phase 3.5: V1 Data Reload & Escaping Fix (+40,305 rows)
-- ✅ Phase 4: BLOB Deserialization (144,377 BLOBs → JSONB)
-- ✅ Phase 5: Schema Correction (menu_v3 → menuca_v3)
-
-**Documentation Created (24 reports):**
-- 📄 MENU_CATALOG_ENTITY_COMPLETE.md - Full entity handoff report
-- 📄 SCHEMA_CORRECTION_COMPLETE.md - Phase 5 migration details
-- 📄 PHASE_4_BLOB_DESERIALIZATION_COMPLETE.md - 43-page Phase 4 report
-- 📄 Plus 21 additional reports (quality, validation, transformation)
-- ✅ Memory bank fully updated
-- ✅ Pushed to Git (commit f598187)
-
-**Integration Status:**
-- ✅ Ready for Orders & Checkout integration
-- ✅ Customer-facing ordering system ready
-- ✅ Restaurant menu management ready
-- ✅ Time-based availability ready for FK connection (handled by other dev)
+**Edge Functions Used:**
+- ✅ 13 restaurant management functions deployed
+- ✅ 6 franchise operation functions
+- ✅ 5 delivery zone management functions
 
 ---
 
-## 🎯 Next Entity Selection
+#### 🚀 **2. Users & Access APIs** - **IN PROGRESS** ← Current Focus
+**Why Next:** Required for authentication before any user-facing features
 
-### Option 1: Users & Access ⭐ **RECOMMENDED - HIGH PRIORITY**
+**📖 Documentation:** [Users & Access Backend Guide](../documentation/Users%20&%20Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
 
-**Why Users & Access:**
-- ✅ HIGH PRIORITY entity
-- ✅ Not blocked (dependencies complete)
-- ✅ Unlocks Orders & Checkout (with Menu & Catalog ✅ ready)
-- ✅ Foundation for customer accounts and order history
-- ✅ Enables restaurant admin access control
+**APIs to Build:**
+1. `POST /api/auth/signup` - Customer registration
+2. `POST /api/auth/login` - Customer/admin login
+3. `GET /api/customers/me` - Get customer profile
+4. `PUT /api/customers/me` - Update profile
+5. `GET /api/customers/me/addresses` - Get delivery addresses
+6. `POST /api/customers/me/addresses` - Add address
+7. `PUT /api/customers/me/addresses/:id` - Update address
+8. `DELETE /api/customers/me/addresses/:id` - Delete address
+9. `GET /api/customers/me/favorites` - Get favorite restaurants
+10. `POST /api/customers/me/favorites/:rid` - Toggle favorite
+11. `POST /api/admin/auth/login` - Admin login
+12. `GET /api/admin/restaurants` - Get assigned restaurants (admin)
 
-**Users & Access Tables:**
-- `site_users` - Customer accounts (~50k+ users)
-- `admin_users` - Restaurant staff/admin accounts
-- `user_delivery_addresses` - Saved customer addresses
-
-**Dependencies:**
-- ✅ Location & Geography (COMPLETE) - For address validation
-- ✅ No blockers - Ready to start!
-
-**Estimated Time:** 3-5 days
-
-**What This Unlocks:**
-- 50% of Orders & Checkout (when combined with Menu & Catalog ✅)
-- Customer login and registration
-- Order history tracking
-- Restaurant admin dashboards
-
-**Recommendation:** **START NEW CHAT** for Users & Access
-- Different entity, fresh context
-- Clean slate for authentication/authorization work
+**Authentication Features:**
+- Email/password authentication (Supabase Auth)
+- JWT tokens (Supabase handles automatically)
+- RLS policies enforce access control
+- Admin multi-restaurant access
+- Customer self-service profile management
 
 ---
 
-### Option 2: Delivery Operations 🚚 **ALSO READY**
+#### ⏳ **3. Menu & Catalog APIs** - **PENDING**
+**Why Third:** Core ordering feature - customers need to browse menus
 
-**Why Delivery Operations:**
-- ✅ Not blocked (Location & Geography COMPLETE)
-- ✅ Independent from other migrations
-- ✅ Can work in parallel with Users & Access
-- ✅ Important for order fulfillment
+**📖 Documentation:** [Menu & Catalog Backend Guide](../documentation/Menu%20&%20Catalog/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
 
-**Delivery Operations Tables:**
-- `restaurant_delivery_areas` - Delivery zones
-- `delivery_fees` - Fee structures
-- `delivery_info` - Delivery configurations
+**APIs to Build:**
+1. `GET /api/restaurants/:id/menu?lang=en` - Get full menu (multi-language)
+2. `GET /api/dishes/:id` - Get dish details
+3. `GET /api/dishes/:id/availability` - Check real-time availability
+4. `POST /api/admin/dishes` - Create dish (admin)
+5. `PUT /api/admin/dishes/:id` - Update dish (admin)
+6. `PUT /api/admin/dishes/:id/inventory` - Update inventory
+7. `GET /api/courses/:id/dishes` - Get dishes in course
 
-**Dependencies:**
-- ✅ Location & Geography (COMPLETE) - For delivery area definitions
-- ✅ No blockers - Ready to start!
-
-**Estimated Time:** 2-4 days
-
-**Recommendation:** Could start this OR wait for Restaurant Management to complete
+**Key Features:**
+- Real-time inventory tracking
+- Multi-language support (EN, ES, FR)
+- Dynamic pricing (size-based)
+- Dish modifiers/customizations
+- Combo meals support
 
 ---
 
-## 💡 **RECOMMENDATION: Users & Access** ⭐
+#### ⏳ **4. Service Configuration APIs** - **PENDING**
+**Why Fourth:** Customers need to know if restaurant is open before ordering
 
-**Reasoning:**
-1. ✅ **High Priority:** Required for Orders & Checkout
-2. ✅ **Complete Dependency Chain:** Menu ✅ + Users ✅ = Orders ready
-3. ✅ **Customer Value:** Enable account creation and login
-4. ✅ **Foundation Work:** Authentication system needed for all user-facing features
-5. ✅ **Clear Scope:** Well-defined tables, straightforward migration
+**📖 Documentation:** [Service Configuration Backend Guide](../Database/Service%20Configuration%20&%20Schedules/SERVICE_SCHEDULES_COMPLETION_REPORT.md)
+
+**APIs to Build:**
+1. `GET /api/restaurants/:id/is-open?service_type=delivery` - Check if open now (< 50ms)
+2. `GET /api/restaurants/:id/hours` - Get operating hours
+3. `GET /api/restaurants/:id/config` - Get service configuration
+4. `POST /api/admin/restaurants/:id/schedules` - Create schedule (admin)
+5. `PUT /api/admin/restaurants/:id/schedules/:sid` - Update hours (admin)
+6. WebSocket: `restaurant:${id}:schedules` - Live schedule updates
+
+**Key Features:**
+- Real-time open/closed status
+- Timezone awareness
+- Holiday schedules
+- Special hours (vacation, events)
+- Separate delivery/takeout hours
+
+---
+
+#### ⏳ **5. Location & Geography APIs** - **PENDING**
+**Why Fifth:** Supports geospatial search and address validation
+
+**📖 Documentation:** [Location & Geography Backend Guide](../documentation/Location%20&%20Geography/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+
+**APIs to Build:**
+1. `GET /api/restaurants/near?lat=X&lng=Y&radius=10` - Find nearby restaurants (PostGIS)
+2. `GET /api/cities/search?term=Ottawa&lang=en` - Search cities (trigram fuzzy search)
+3. `GET /api/provinces/:id/cities` - Get cities in province
+4. `GET /api/provinces?lang=fr` - Get all provinces (bilingual EN/FR)
+
+**Key Features:**
+- PostGIS-powered distance calculations
+- Bilingual support (EN + FR for Canadian provinces)
+- Fuzzy text search (trigrams)
+- Performance < 100ms with GIST indexes
+
+---
+
+#### ⏳ **6. Marketing & Promotions APIs** - **PENDING**
+**Why Sixth:** Enhances ordering experience with deals and coupons
+
+**📖 Documentation:** [Marketing & Promotions Backend Guide](../documentation/Marketing%20&%20Promotions/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+
+**APIs to Build:**
+1. `GET /api/restaurants/:id/deals?lang=es` - Get active deals (multi-language)
+2. `POST /api/deals/:id/validate` - Validate deal eligibility
+3. `POST /api/coupons/validate` - Validate coupon code
+4. `GET /api/tags/:id/restaurants` - Filter restaurants by tag
+5. `POST /api/admin/restaurants/:id/deals` - Create deal (admin)
+6. `PUT /api/admin/restaurants/:id/deals/:did` - Update deal (admin)
+
+**Key Features:**
+- Smart deals (percentage, fixed, BOGO, time-based)
+- Advanced coupons (unique codes, usage limits)
+- Marketing tags (cuisine, dietary, features)
+- Multi-language support
+
+---
+
+#### ⏳ **7. Orders & Checkout APIs** - **PENDING** (After 1-4)
+**Why Seventh:** Core transaction flow - depends on menu, users, restaurants
+
+**📖 Documentation:** [Orders & Checkout Backend Guide](../Database/Orders_&_Checkout/ORDERS_CHECKOUT_COMPLETION_REPORT.md)
+
+**APIs to Build:**
+1. `POST /api/orders` - Create order
+2. `GET /api/orders/:id` - Get order details
+3. `GET /api/orders/me` - My order history
+4. `PUT /api/orders/:id/cancel` - Cancel order
+5. `GET /api/restaurants/:rid/orders` - Order queue (admin)
+6. `PUT /api/restaurants/:rid/orders/:id/accept` - Accept order (admin)
+7. `POST /api/orders/:id/payment` - Process payment (Stripe integration)
+8. WebSocket: `restaurant:${rid}:orders` - Real-time order notifications
+
+**Key Features:**
+- Complete order lifecycle management
+- Multi-party RLS (customer, restaurant, service)
+- Payment integration (Stripe stubs ready)
+- Real-time tracking (WebSocket)
+- Status history audit trail
+
+---
+
+#### ⏳ **8. Delivery Operations APIs** - **PENDING**
+**Why Eighth:** Configuration for 3rd-party delivery providers
+
+**📖 Documentation:** [Delivery Operations Backend Guide](../Database/Delivery%20Operations/HONEST_ASSESSMENT.md)
+
+**APIs to Build:**
+1. `GET /api/restaurants/:id/delivery/config` - Get delivery settings
+2. `PUT /api/admin/restaurants/:id/delivery/config` - Update config (admin)
+3. `GET /api/restaurants/:id/delivery/areas` - Get delivery zones
+
+**Edge Functions Available:**
+- 5 delivery zone management functions deployed
+
+---
+
+#### ⏳ **9. Devices & Infrastructure APIs** - **PENDING**
+**Why Ninth:** Admin-only device management for restaurant hardware
+
+**📖 Documentation:** [Devices & Infrastructure Backend Guide](../documentation/Devices%20&%20Infrastructure/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+
+**APIs to Build:**
+1. `GET /api/admin/devices` - Get devices for admin's restaurants
+2. `POST /api/admin/devices` - Register new device
+3. `POST /api/devices/auth` - Authenticate device
+4. `POST /api/devices/heartbeat` - Device heartbeat
+
+---
+
+#### ⏳ **10. Vendors & Franchises APIs** - **PENDING**
+**Why Last:** Multi-location chain management for enterprise customers
+
+**📖 Documentation:** [Vendors & Franchises Backend Guide](../Database/Vendors%20&%20Franchises/VENDORS_FRANCHISES_COMPLETION_REPORT.md)
+
+**APIs to Build:**
+1. `GET /api/vendors` - List all vendors
+2. `GET /api/vendors/:id/locations` - Get franchise locations
+3. `GET /api/restaurants/:uuid/vendor` - Check restaurant vendor
+4. `POST /api/admin/vendors` - Create vendor (admin)
+5. `POST /api/admin/vendors/:id/restaurants` - Assign restaurant to vendor
+
+**Edge Functions Available:**
+- 6 franchise operation functions deployed
+
+---
+
+## 🎯 Recommended Development Approach
+
+### **Week 1-2: Foundation (Santiago)** ← Currently Here
+**Priority:** Get core restaurant & user APIs working
+1. ✅ Set up backend project structure (Node.js/TypeScript or your preferred stack)
+2. ✅ Configure Supabase client with API keys
+3. ✅ Implement Restaurant Management APIs (Priority 1) - **COMPLETE**
+4. 🚀 Implement Users & Access APIs (Priority 2) - **IN PROGRESS**
+5. ⏳ Set up authentication middleware
+6. ⏳ Test restaurant search + user login flows
+
+### **Week 3-4: Ordering Core (Santiago)**
+**Priority:** Enable menu browsing and basic ordering
+1. Implement Menu & Catalog APIs (Priority 3)
+2. Implement Service Configuration APIs (Priority 4)
+3. Connect Brian's frontend to backend APIs
+4. Test end-to-end: Browse menu → Check if open → Place order (placeholder)
+
+### **Week 5-6: Complete Ordering Flow (Santiago)**
+**Priority:** Full transaction capability
+1. Implement Orders & Checkout APIs (Priority 7)
+2. Integrate Stripe payment processing
+3. Set up WebSocket server for real-time updates
+4. Test complete ordering flow with Brian's frontend
+
+### **Week 7-8: Polish & Features (Santiago)**
+**Priority:** Additional features and optimization
+1. Implement Location & Geography APIs (Priority 5)
+2. Implement Marketing & Promotions APIs (Priority 6)
+3. Add remaining entities (Delivery, Devices, Vendors)
+4. Performance optimization
+5. Error handling improvements
+6. API documentation (OpenAPI/Swagger)
+
+---
+
+## 📋 Technical Requirements
+
+### **Backend Stack Recommendations:**
+- **Runtime:** Node.js 18+ or Deno
+- **Language:** TypeScript (type safety + better docs)
+- **Framework:** Express.js, Fastify, or Hono
+- **Supabase Client:** `@supabase/supabase-js`
+- **Real-time:** Supabase Realtime (WebSocket built-in)
+- **Payment:** Stripe SDK
+- **Testing:** Jest or Vitest
+- **API Docs:** Swagger/OpenAPI
+
+### **Authentication Pattern:**
+```typescript
+// Supabase handles auth automatically via RLS
+// Just pass user JWT to Supabase client
+
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_ANON_KEY!
+)
+
+// For authenticated requests, pass user token:
+const { data, error } = await supabase
+  .from('restaurants')
+  .select('*')
+  .auth(userJWT) // RLS policies automatically enforced
+```
+
+### **Error Handling Pattern:**
+```typescript
+try {
+  const { data, error } = await supabase.from('table').select('*')
+  
+  if (error) {
+    // Handle Supabase error
+    return res.status(400).json({ error: error.message })
+  }
+  
+  return res.json({ data })
+} catch (err) {
+  // Handle unexpected errors
+  return res.status(500).json({ error: 'Internal server error' })
+}
+```
+
+### **Real-time Subscriptions:**
+```typescript
+// Client-side WebSocket subscription
+const subscription = supabase
+  .channel(`restaurant:${restaurantId}:orders`)
+  .on('postgres_changes', {
+    event: 'INSERT',
+    schema: 'menuca_v3',
+    table: 'orders',
+    filter: `restaurant_id=eq.${restaurantId}`
+  }, (payload) => {
+    console.log('New order:', payload.new)
+  })
+  .subscribe()
+```
+
+---
+
+## 📖 Documentation References
+
+**Master Index:**
+- [SANTIAGO_MASTER_INDEX.md](../SANTIAGO_MASTER_INDEX.md) - Single source of truth for all backend docs
+
+**Entity-Specific Guides:**
+- All 10 entities have complete backend integration guides
+- Each guide includes: Business problem → Solution → SQL functions → API endpoints → Schema
+
+**SQL Functions:**
+- 105 functions already deployed in Supabase
+- Call directly from backend using `supabase.rpc('function_name', params)`
+
+**RLS Policies:**
+- 192 policies enforce security automatically
+- No need to write WHERE clauses for multi-tenant isolation
+- Just pass correct JWT and RLS handles access control
+
+**Edge Functions:**
+- 27 functions deployed for complex business logic
+- Call using `supabase.functions.invoke('function-name', { body })`
+
+---
+
+## 🔧 Tools & Resources
+
+**Supabase Dashboard:**
+- SQL Editor: Write/test queries
+- Table Editor: Browse data
+- Auth: Manage users
+- Edge Functions: Deploy serverless functions
+- Logs: Debug issues
+
+**Development Tools:**
+- Supabase CLI: `npx supabase` for local development
+- PostgreSQL GUI: DBeaver, pgAdmin, or TablePlus
+- API Testing: Postman, Insomnia, or Thunder Client (VS Code)
+- WebSocket Testing: wscat or Postman WebSocket
+
+**Performance Monitoring:**
+- Supabase Dashboard → Reports
+- Check query performance (should be < 200ms)
+- Monitor RLS policy overhead (< 10ms typical)
+
+---
+
+## ✅ Success Criteria
+
+**Backend APIs Ready When:**
+1. All Priority 1-4 APIs implemented and tested
+2. Authentication working (customer + admin login)
+3. Restaurant search functional (geospatial queries)
+4. Menu browsing working (multi-language)
+5. Real-time updates configured (WebSocket)
+6. Error handling comprehensive
+7. API documentation generated
+8. Integration tests passing
+9. Brian's frontend successfully connected
 
 ---
 
 ## 🚀 Next Actions
 
-### Immediate (Before Starting Next Entity):
-1. ✅ Menu & Catalog entity complete and pushed to Git
-2. ✅ Memory bank updated (all files)
-3. ✅ MENU_CATALOG_ENTITY_COMPLETE.md created
-4. ⏳ Decide on next entity (Users & Access recommended)
-5. ⏳ **START NEW CHAT** when ready
+**Santiago (Backend):**
+1. ✅ Review SANTIAGO_MASTER_INDEX.md
+2. ✅ Read backend integration guides for Priority 1-4 entities
+3. ✅ Set up backend project structure
+4. ✅ Configure Supabase client
+5. ✅ Implement Restaurant Management APIs (Priority 1) - **COMPLETE**
+6. 🚀 Implement Users & Access APIs (Priority 2) - **IN PROGRESS** ← Current Focus
+7. ⏳ Test authentication flows with Brian's frontend
+8. ⏳ Implement Menu & Catalog APIs (Priority 3) - Next
+9. ⏳ Continue through Priority 4-10
 
-### Recommended New Chat Opening Message (Users & Access):
-
-```
-Ready to start Users & Access Entity migration. Menu & Catalog is 100% complete (120,848 rows in menuca_v3 with 100% FK integrity).
-
-Users & Access Tables to Migrate:
-1. site_users - Customer accounts (~50k+ users)
-2. admin_users - Restaurant staff/admin accounts  
-3. user_delivery_addresses - Saved customer addresses
-
-Dependencies:
-✅ Location & Geography COMPLETE (cities/provinces for address validation)
-✅ Menu & Catalog COMPLETE (ready for Orders & Checkout)
-
-This entity unlocks Orders & Checkout when complete.
-
-Let's follow the proven 5-phase methodology:
-Phase 1: Data Loading & Remediation
-Phase 2: V3 Schema & Transformation
-Phase 3: Production Deployment
-Phase 4: Data Quality Validation
-Phase 5: Integration Testing
-
-Ready to start Phase 1: Analysis of V1/V2 user tables and data quality assessment!
-```
+**Brian (Frontend):**
+1. ✅ Review Customer Ordering App requirements
+2. 🔄 Build UI components
+3. ⏳ Connect to Santiago's backend APIs (when ready)
+4. ⏳ Implement real-time order tracking
+5. ⏳ Test end-to-end ordering flow
 
 ---
 
-## 📁 Quick Reference
+**Status:** Database layer 100% complete. Backend APIs: 1/10 entities complete (Restaurant Mgmt ✅). Users & Access in progress. Frontend build in progress.
 
-- **Current Entity Status:** See `PROJECT_STATUS.md` (2/12 entities complete)
-- **Menu & Catalog Complete:** See `ENTITIES/05_MENU_CATALOG.md` (All 5 phases ✅)
-- **Entity Completion Report:** See `Database/Menu & Catalog Entity/MENU_CATALOG_ENTITY_COMPLETE.md`
-- **Next Entity Options:** See this file (NEXT_STEPS.md)
-- **ETL Process:** See `ETL_METHODOLOGY.md`
-- **Completed Entities:** Location & Geography ✅, Menu & Catalog ✅
+**Current Focus:** Users & Access Backend APIs (Priority 2) - Customer signup/login, admin authentication, profile management.
 
----
+**Timeline:** Week 1-2 (Restaurant + Users). Currently completing Users & Access. Then move to Priority 3-4 (Menu + Service Config).
 
-**Status:** ✅ Menu & Catalog 100% COMPLETE (120,848 rows in menuca_v3) | 🎯 **Recommended: Users & Access Entity in NEW CHAT**
+**Documentation:** All guides complete in SANTIAGO_MASTER_INDEX.md.
