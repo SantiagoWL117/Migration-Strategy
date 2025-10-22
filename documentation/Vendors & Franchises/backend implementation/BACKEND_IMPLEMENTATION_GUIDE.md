@@ -1,82 +1,55 @@
 # Backend Implementation Guide: Commission Report Generation
 
-**Document Version:** 1.0  
-**Last Updated:** October 15, 2025  
 **Status:** Ready for Implementation  
 **Priority:** Required after migration completion
 
 ---
 
-## 🎯 Purpose
+## 🎯 PURPOSE
 
-This document provides the complete specification for implementing commission report generation in the Supabase backend. This will be implemented **after all migration phases are complete**.
+Complete specification for implementing commission report generation in Supabase backend after all migration phases complete.
 
----
-
-## 📋 Prerequisites
-
-Before implementing this backend logic, ensure:
-
-- ✅ Phase 6 migration is complete (all vendor data in V3)
-- ✅ Supabase Edge Function `calculate-vendor-commission` is deployed
-- ✅ Database schema is finalized with all tables and triggers
-- ✅ Authentication and authorization are configured
+**Prerequisites:**
+- ✅ Phase 6 migration complete
+- ✅ Edge Function `calculate-vendor-commission` deployed
+- ✅ Database schema finalized
+- ✅ Auth/authz configured
 
 ---
 
-## 🔄 Complete Workflow Overview
+## 🔄 WORKFLOW OVERVIEW
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                    COMMISSION REPORT WORKFLOW                │
-├──────────────────────────────────────────────────────────────┤
-│ 1. User initiates report generation (frontend)              │
-│ 2. Backend fetches vendor-restaurant assignments            │
-│ 3. Backend calculates order totals per restaurant           │
-│ 4. Backend gets next statement number                       │
-│ 5. Backend sends preview data to client                     │
-│ 6. Client displays preview form with last used rates        │
-│ 7. User reviews/adjusts rates and confirms                  │
-│ 8. Client calls Edge Function for each restaurant           │
-│ 9. Edge Function calculates commission amounts              │
-│ 10. Client saves all reports to database                    │
-│ 11. Database trigger updates last_commission_rate_used      │
-│ 12. Backend generates PDF reports (MANDATORY)               │
-│ 13. Backend updates statement number (MANDATORY)            │
-│ 14. Backend sends reports to vendor (MANDATORY)             │
-└──────────────────────────────────────────────────────────────┘
+1. User initiates → 2. Fetch vendor-restaurant assignments
+3. Calculate order totals → 4. Get next statement number
+5. Preview to client → 6. User reviews/adjusts rates
+7. Client calls Edge Function per restaurant → 8. Calculate commissions
+9. Save reports → 10. Trigger updates last_commission_rate_used
+11. Generate PDFs (MANDATORY) → 12. Update statement number (MANDATORY)
+13. Send to vendor (MANDATORY)
 ```
 
 ---
 
-## 📡 Required Backend API Endpoints
+## 💻 BACKEND API ENDPOINTS
+
+### **Quick Reference**
+- **Endpoints:** 5 (1 preview, 4 post-generation mandatory)
+- **Mandatory Steps:** PDF generation, statement increment, email send
+- **Libraries Needed:** jsPDF (or puppeteer), email service (Resend/SendGrid)
+
+---
 
 ### **1. Get Commission Report Preview**
 
-Fetch all data needed to generate commission reports for a vendor.
+**Endpoint:** `GET /api/vendors/:vendorId/commission-report-preview?period_start=YYYY-MM-DD&period_end=YYYY-MM-DD`
 
-#### **Endpoint**
-```
-GET /api/vendors/:vendorId/commission-report-preview
-```
+**Purpose:** Fetch all data needed to generate commission reports for a vendor.
 
-#### **Query Parameters**
+**Usage Pattern:**
 ```typescript
-{
-  period_start: string;  // ISO date: "2025-01-01"
-  period_end: string;    // ISO date: "2025-01-31"
-}
-```
-
-#### **Implementation**
-
-```typescript
-async function getCommissionReportPreview(
-  vendorId: string,
-  periodStart: string,
-  periodEnd: string
-) {
-  // Step 1: Fetch vendor details
+async function getCommissionReportPreview(vendorId: string, periodStart: string, periodEnd: string) {
+  // 1. Fetch vendor details
   const { data: vendor } = await supabase
     .from('vendors')
     .select('id, business_name, email, contact_first_name, contact_last_name')
@@ -84,20 +57,15 @@ async function getCommissionReportPreview(
     .eq('is_active', true)
     .single();
   
-  if (!vendor) {
-    throw new Error('Vendor not found or inactive');
-  }
-  
-  // Step 2: Fetch vendor-restaurant assignments with last used rates
+  // 2. Fetch vendor-restaurant assignments with last used rates
   const { data: assignments } = await supabase
     .from('v_active_vendor_restaurants')
     .select('*')
     .eq('vendor_id', vendorId);
   
-  // Step 3: Calculate order totals for each restaurant
+  // 3. Calculate order totals per restaurant
   const restaurantsWithTotals = await Promise.all(
     assignments.map(async (assignment) => {
-      // Get completed orders for this restaurant in the period
       const { data: orders } = await supabase
         .from('orders')
         .select('total')
@@ -108,102 +76,47 @@ async function getCommissionReportPreview(
       
       const orderTotal = orders?.reduce((sum, order) => sum + order.total, 0) || 0;
       
-      // Get restaurant address
-      const { data: restaurant } = await supabase
-        .from('restaurants')
-        .select('address, city, province, postal_code')
-        .eq('uuid', assignment.restaurant_uuid)
-        .single();
-      
-      const fullAddress = [
-        restaurant?.address,
-        restaurant?.city,
-        restaurant?.province,
-        restaurant?.postal_code
-      ].filter(Boolean).join(', ');
-      
       return {
         uuid: assignment.restaurant_uuid,
         name: assignment.restaurant_name,
-        address: fullAddress,
         order_total: orderTotal,
-        commission_template: assignment.commission_template,
         last_commission_rate_used: assignment.last_commission_rate_used || 10.0,
         last_commission_type_used: assignment.last_commission_type_used || 'percentage'
       };
     })
   );
   
-  // Step 4: Get next statement number
+  // 4. Get next statement number
   const { data: statementTracker } = await supabase
     .from('vendor_statement_numbers')
     .select('current_statement_number')
     .eq('vendor_id', vendorId)
     .single();
   
-  const nextStatementNumber = (statementTracker?.current_statement_number || 0) + 1;
-  
-  // Step 5: Return preview data
   return {
-    vendor: {
-      id: vendor.id,
-      business_name: vendor.business_name,
-      email: vendor.email,
-      contact_name: `${vendor.contact_first_name} ${vendor.contact_last_name}`
-    },
-    period: {
-      start: periodStart,
-      end: periodEnd
-    },
-    next_statement_number: nextStatementNumber,
-    restaurants: restaurantsWithTotals,
-    summary: {
-      total_restaurants: restaurantsWithTotals.length,
-      total_orders: restaurantsWithTotals.reduce((sum, r) => sum + r.order_total, 0)
-    }
+    vendor: { id: vendor.id, business_name: vendor.business_name, email: vendor.email },
+    period: { start: periodStart, end: periodEnd },
+    next_statement_number: (statementTracker?.current_statement_number || 0) + 1,
+    restaurants: restaurantsWithTotals
   };
 }
 ```
 
-#### **Response Format**
-
+**Response:**
 ```json
 {
-  "vendor": {
-    "id": "uuid-vendor-1",
-    "business_name": "Menu Ottawa",
-    "email": "vendor@example.com",
-    "contact_name": "John Smith"
-  },
-  "period": {
-    "start": "2025-01-01",
-    "end": "2025-01-31"
-  },
+  "vendor": { "id": "uuid", "business_name": "Menu Ottawa", "email": "vendor@example.com" },
+  "period": { "start": "2025-01-01", "end": "2025-01-31" },
   "next_statement_number": 22,
   "restaurants": [
     {
       "uuid": "uuid-rest-1",
       "name": "River Pizza",
-      "address": "123 Main St, Ottawa, ON, K1A 0A1",
       "order_total": 10000.00,
-      "commission_template": "percent_commission",
       "last_commission_rate_used": 10.0,
       "last_commission_type_used": "percentage"
-    },
-    {
-      "uuid": "uuid-rest-2",
-      "name": "Cosenza",
-      "address": "456 Bank St, Ottawa, ON, K1B 1B1",
-      "order_total": 15000.00,
-      "commission_template": "percent_commission",
-      "last_commission_rate_used": 12.0,
-      "last_commission_type_used": "percentage"
     }
-  ],
-  "summary": {
-    "total_restaurants": 2,
-    "total_orders": 25000.00
-  }
+  ]
 }
 ```
 
@@ -211,41 +124,32 @@ async function getCommissionReportPreview(
 
 ### **2. Generate Commission Reports**
 
-Process and save all commission reports for a vendor.
+**Endpoint:** `POST /api/vendors/:vendorId/commission-reports/generate`
 
-#### **Endpoint**
-```
-POST /api/vendors/:vendorId/commission-reports/generate
-```
+**Purpose:** Save all commission reports to database.
 
-#### **Request Body**
-
+**Request Body:**
 ```typescript
 {
-  period_start: string;      // "2025-01-01"
-  period_end: string;        // "2025-01-31"
-  statement_number: number;  // 22
+  period_start: "2025-01-01",
+  period_end: "2025-01-31",
+  statement_number: 22,
   restaurants: [
     {
-      uuid: string;
-      commission_rate: number;      // User-provided or last used
-      commission_type: string;      // "percentage" or "fixed"
-      calculation_result: object;   // Result from Edge Function
+      uuid: string,
+      commission_rate: number,
+      commission_type: "percentage" | "fixed",
+      calculation_result: object  // From Edge Function
     }
   ]
 }
 ```
 
-#### **Implementation**
-
+**Usage Pattern:**
 ```typescript
-async function generateCommissionReports(
-  vendorId: string,
-  requestBody: GenerateReportsRequest
-) {
+async function generateCommissionReports(vendorId: string, requestBody: GenerateReportsRequest) {
   const { period_start, period_end, statement_number, restaurants } = requestBody;
   
-  // Start transaction
   const { data: savedReports, error } = await supabase
     .from('vendor_commission_reports')
     .insert(
@@ -255,19 +159,15 @@ async function generateCommissionReports(
         statement_number: statement_number,
         report_period_start: period_start,
         report_period_end: period_end,
-        calculation_template: restaurant.calculation_result.template_name || 'percent_commission',
         calculation_input: {
-          template_name: restaurant.calculation_result.template_name || 'percent_commission',
+          template_name: restaurant.calculation_result.template_name,
           total: restaurant.calculation_result.use_total,
           restaurant_commission: restaurant.commission_rate,
-          commission_type: restaurant.commission_type,
-          menuottawa_share: 80.00
+          commission_type: restaurant.commission_type
         },
         calculation_result: restaurant.calculation_result,
         total_order_amount: restaurant.calculation_result.use_total,
         vendor_commission_amount: restaurant.calculation_result.for_vendor,
-        platform_fee_amount: 80.00,
-        menu_ottawa_amount: restaurant.calculation_result.for_menu_ottawa || null,
         commission_rate_used: restaurant.commission_rate,
         commission_type_used: restaurant.commission_type,
         report_status: 'finalized',
@@ -276,13 +176,9 @@ async function generateCommissionReports(
     )
     .select();
   
-  if (error) {
-    throw new Error(`Failed to save reports: ${error.message}`);
-  }
+  if (error) throw new Error(`Failed to save reports: ${error.message}`);
   
-  // Trigger automatically updates last_commission_rate_used
-  
-  return savedReports;
+  return savedReports; // Trigger auto-updates last_commission_rate_used
 }
 ```
 
@@ -290,38 +186,25 @@ async function generateCommissionReports(
 
 ### **3. Generate PDF Reports (MANDATORY)**
 
-Generate PDF files for all commission reports.
+**Endpoint:** `POST /api/vendors/:vendorId/commission-reports/:statementNumber/generate-pdfs`
 
-#### **Endpoint**
-```
-POST /api/vendors/:vendorId/commission-reports/:statementNumber/generate-pdfs
-```
+**Purpose:** Generate PDF files for all reports and upload to Supabase Storage.
 
-#### **Implementation**
-
+**Usage Pattern:**
 ```typescript
 import { jsPDF } from 'jspdf';
-// OR use your preferred PDF library (puppeteer, pdfkit, etc.)
 
-async function generatePDFReports(
-  vendorId: string,
-  statementNumber: number
-) {
-  // Fetch all reports for this statement
+async function generatePDFReports(vendorId: string, statementNumber: number) {
   const { data: reports } = await supabase
     .from('vendor_commission_reports')
-    .select(`
-      *,
-      vendor:vendors(*),
-      restaurant:restaurants(*)
-    `)
+    .select('*, vendor:vendors(*), restaurant:restaurants(*)')
     .eq('vendor_id', vendorId)
     .eq('statement_number', statementNumber);
   
   const pdfUrls = [];
   
   for (const report of reports) {
-    // Generate PDF content
+    // Generate PDF
     const pdfBuffer = await generatePDFContent({
       vendor: report.vendor,
       restaurant: report.restaurant,
@@ -331,26 +214,18 @@ async function generatePDFReports(
         period_end: report.report_period_end,
         order_total: report.total_order_amount,
         commission_rate: report.commission_rate_used,
-        commission_type: report.commission_type_used,
-        vendor_commission: report.vendor_commission_amount,
-        platform_fee: report.platform_fee_amount,
-        calculation_breakdown: report.calculation_result
+        vendor_commission: report.vendor_commission_amount
       }
     });
     
-    // Upload to Supabase Storage
+    // Upload to Storage
     const fileName = `statements/${vendorId}/${statementNumber}/${report.restaurant_uuid}.pdf`;
     
-    const { data: uploadResult, error: uploadError } = await supabase.storage
+    const { error: uploadError } = await supabase.storage
       .from('commission-reports')
-      .upload(fileName, pdfBuffer, {
-        contentType: 'application/pdf',
-        upsert: true
-      });
+      .upload(fileName, pdfBuffer, { contentType: 'application/pdf', upsert: true });
     
-    if (uploadError) {
-      throw new Error(`Failed to upload PDF: ${uploadError.message}`);
-    }
+    if (uploadError) throw new Error(`Failed to upload PDF: ${uploadError.message}`);
     
     // Get public URL
     const { data: urlData } = supabase.storage
@@ -363,47 +238,33 @@ async function generatePDFReports(
       .update({ pdf_file_url: urlData.publicUrl })
       .eq('id', report.id);
     
-    pdfUrls.push({
-      report_id: report.id,
-      restaurant_name: report.restaurant.name,
-      pdf_url: urlData.publicUrl
-    });
+    pdfUrls.push({ report_id: report.id, pdf_url: urlData.publicUrl });
   }
   
   return pdfUrls;
 }
 
-// PDF content generation
+// PDF generation helper
 async function generatePDFContent(data: PDFData): Promise<Buffer> {
   const doc = new jsPDF();
   
-  // Header
   doc.setFontSize(20);
   doc.text('Commission Report', 105, 20, { align: 'center' });
   
-  // Statement info
   doc.setFontSize(12);
   doc.text(`Statement #${data.report.statement_number}`, 20, 40);
   doc.text(`Period: ${data.report.period_start} to ${data.report.period_end}`, 20, 50);
   
-  // Vendor info
   doc.text('Vendor:', 20, 70);
   doc.text(data.vendor.business_name, 20, 80);
-  doc.text(data.vendor.email, 20, 90);
   
-  // Restaurant info
   doc.text('Restaurant:', 120, 70);
   doc.text(data.restaurant.name, 120, 80);
-  doc.text(data.restaurant.address, 120, 90);
   
-  // Commission breakdown
   doc.text('Commission Breakdown:', 20, 120);
   doc.text(`Order Total: $${data.report.order_total.toFixed(2)}`, 20, 130);
-  doc.text(`Commission Rate: ${data.report.commission_rate}${data.report.commission_type === 'percentage' ? '%' : ' (fixed)'}`, 20, 140);
-  doc.text(`Platform Fee: $${data.report.platform_fee.toFixed(2)}`, 20, 150);
-  doc.text(`Vendor Commission: $${data.report.vendor_commission.toFixed(2)}`, 20, 160);
+  doc.text(`Vendor Commission: $${data.report.vendor_commission.toFixed(2)}`, 20, 140);
   
-  // Footer
   doc.setFontSize(10);
   doc.text(`Generated on ${new Date().toLocaleDateString()}`, 105, 280, { align: 'center' });
   
@@ -415,21 +276,14 @@ async function generatePDFContent(data: PDFData): Promise<Buffer> {
 
 ### **4. Update Statement Number (MANDATORY)**
 
-Increment the statement number after all reports are generated.
+**Endpoint:** `POST /api/vendors/:vendorId/statement-numbers/increment`
 
-#### **Endpoint**
-```
-POST /api/vendors/:vendorId/statement-numbers/increment
-```
+**Purpose:** Increment statement number after all reports generated.
 
-#### **Implementation**
-
+**Usage Pattern:**
 ```typescript
-async function incrementStatementNumber(
-  vendorId: string,
-  statementNumber: number
-) {
-  const { data, error } = await supabase
+async function incrementStatementNumber(vendorId: string, statementNumber: number) {
+  const { error } = await supabase
     .from('vendor_statement_numbers')
     .update({
       current_statement_number: statementNumber,
@@ -437,9 +291,7 @@ async function incrementStatementNumber(
     })
     .eq('vendor_id', vendorId);
   
-  if (error) {
-    throw new Error(`Failed to update statement number: ${error.message}`);
-  }
+  if (error) throw new Error(`Failed to update statement number: ${error.message}`);
   
   return {
     vendor_id: vendorId,
@@ -453,136 +305,83 @@ async function incrementStatementNumber(
 
 ### **5. Send Reports to Vendor (MANDATORY)**
 
-Email the commission reports to the vendor.
+**Endpoint:** `POST /api/vendors/:vendorId/commission-reports/:statementNumber/send`
 
-#### **Endpoint**
-```
-POST /api/vendors/:vendorId/commission-reports/:statementNumber/send
-```
+**Purpose:** Email commission reports to vendor with PDF links.
 
-#### **Implementation**
-
+**Usage Pattern:**
 ```typescript
-async function sendCommissionReports(
-  vendorId: string,
-  statementNumber: number
-) {
-  // Fetch vendor details
+async function sendCommissionReports(vendorId: string, statementNumber: number) {
+  // Fetch vendor + reports
   const { data: vendor } = await supabase
     .from('vendors')
     .select('business_name, email, contact_first_name')
     .eq('id', vendorId)
     .single();
   
-  // Fetch all reports with PDFs
   const { data: reports } = await supabase
     .from('vendor_commission_reports')
-    .select(`
-      *,
-      restaurant:restaurants(name)
-    `)
+    .select('*, restaurant:restaurants(name)')
     .eq('vendor_id', vendorId)
     .eq('statement_number', statementNumber);
   
-  if (!reports || reports.length === 0) {
-    throw new Error('No reports found');
-  }
-  
-  // Calculate totals
-  const totalCommission = reports.reduce(
-    (sum, r) => sum + r.vendor_commission_amount,
-    0
-  );
-  const totalOrders = reports.reduce(
-    (sum, r) => sum + r.total_order_amount,
-    0
-  );
+  const totalCommission = reports.reduce((sum, r) => sum + r.vendor_commission_amount, 0);
   
   // Prepare email
-  const emailSubject = `Commission Report #${statementNumber} - ${vendor.business_name}`;
-  
   const emailBody = `
-    <html>
-      <body>
-        <h2>Commission Report #${statementNumber}</h2>
-        
-        <p>Dear ${vendor.contact_first_name},</p>
-        
-        <p>Your commission report for the period ${reports[0].report_period_start} to ${reports[0].report_period_end} is now available.</p>
-        
-        <h3>Summary</h3>
-        <ul>
-          <li>Total Restaurants: ${reports.length}</li>
-          <li>Total Orders: $${totalOrders.toFixed(2)}</li>
-          <li>Total Commission: $${totalCommission.toFixed(2)}</li>
-        </ul>
-        
-        <h3>Individual Reports</h3>
-        <table border="1" cellpadding="5" style="border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th>Restaurant</th>
-              <th>Order Total</th>
-              <th>Commission</th>
-              <th>PDF Report</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${reports.map(r => `
-              <tr>
-                <td>${r.restaurant.name}</td>
-                <td>$${r.total_order_amount.toFixed(2)}</td>
-                <td>$${r.vendor_commission_amount.toFixed(2)}</td>
-                <td><a href="${r.pdf_file_url}">Download</a></td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
-        
-        <p>Best regards,<br/>Menu.ca Team</p>
-      </body>
-    </html>
+    <h2>Commission Report #${statementNumber}</h2>
+    <p>Dear ${vendor.contact_first_name},</p>
+    <p>Your commission report is now available.</p>
+    
+    <h3>Summary</h3>
+    <ul>
+      <li>Total Restaurants: ${reports.length}</li>
+      <li>Total Commission: $${totalCommission.toFixed(2)}</li>
+    </ul>
+    
+    <table border="1">
+      <thead>
+        <tr><th>Restaurant</th><th>Commission</th><th>PDF</th></tr>
+      </thead>
+      <tbody>
+        ${reports.map(r => `
+          <tr>
+            <td>${r.restaurant.name}</td>
+            <td>$${r.vendor_commission_amount.toFixed(2)}</td>
+            <td><a href="${r.pdf_file_url}">Download</a></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
   `;
   
-  // Send email using Supabase Edge Function or external service
-  const { data: emailResult, error: emailError } = await supabase.functions.invoke('send-email', {
+  // Send via Edge Function
+  const { error: emailError } = await supabase.functions.invoke('send-email', {
     body: {
       to: vendor.email,
-      subject: emailSubject,
+      subject: `Commission Report #${statementNumber} - ${vendor.business_name}`,
       html: emailBody
     }
   });
   
-  if (emailError) {
-    throw new Error(`Failed to send email: ${emailError.message}`);
-  }
+  if (emailError) throw new Error(`Failed to send email: ${emailError.message}`);
   
-  // Update all reports as sent
+  // Mark as sent
   await supabase
     .from('vendor_commission_reports')
-    .update({
-      report_status: 'sent',
-      sent_at: new Date().toISOString()
-    })
+    .update({ report_status: 'sent', sent_at: new Date().toISOString() })
     .eq('vendor_id', vendorId)
     .eq('statement_number', statementNumber);
   
-  return {
-    success: true,
-    vendor_email: vendor.email,
-    reports_count: reports.length,
-    total_commission: totalCommission
-  };
+  return { success: true, vendor_email: vendor.email, total_commission: totalCommission };
 }
 ```
 
 ---
 
-## 🔄 Complete Backend Workflow
+## 🔄 COMPLETE WORKFLOW CONTROLLER
 
-### **Main Controller Function**
-
-This orchestrates the entire report generation process.
+**Orchestrates entire process:**
 
 ```typescript
 async function completeCommissionReportWorkflow(
@@ -592,7 +391,7 @@ async function completeCommissionReportWorkflow(
   restaurants: RestaurantCommissionData[]
 ) {
   try {
-    // Step 1: Get next statement number
+    // 1. Get next statement number
     const { data: statementTracker } = await supabase
       .from('vendor_statement_numbers')
       .select('current_statement_number')
@@ -601,39 +400,37 @@ async function completeCommissionReportWorkflow(
     
     const nextStatementNumber = (statementTracker?.current_statement_number || 0) + 1;
     
-    // Step 2: Generate and save all reports
+    // 2. Save reports
     console.log('Generating commission reports...');
     const savedReports = await generateCommissionReports(vendorId, {
       period_start: periodStart,
       period_end: periodEnd,
       statement_number: nextStatementNumber,
-      restaurants: restaurants
+      restaurants
     });
-    
     console.log(`✅ Saved ${savedReports.length} reports`);
     
-    // Step 3: Generate PDF files (MANDATORY)
+    // 3. Generate PDFs (MANDATORY)
     console.log('Generating PDF files...');
     const pdfUrls = await generatePDFReports(vendorId, nextStatementNumber);
-    console.log(`✅ Generated ${pdfUrls.length} PDF files`);
+    console.log(`✅ Generated ${pdfUrls.length} PDFs`);
     
-    // Step 4: Update statement number (MANDATORY)
+    // 4. Update statement number (MANDATORY)
     console.log('Updating statement number...');
     await incrementStatementNumber(vendorId, nextStatementNumber);
-    console.log(`✅ Statement number updated to ${nextStatementNumber}`);
+    console.log(`✅ Updated to ${nextStatementNumber}`);
     
-    // Step 5: Send reports to vendor (MANDATORY)
+    // 5. Send to vendor (MANDATORY)
     console.log('Sending reports to vendor...');
     const emailResult = await sendCommissionReports(vendorId, nextStatementNumber);
-    console.log(`✅ Reports sent to ${emailResult.vendor_email}`);
+    console.log(`✅ Sent to ${emailResult.vendor_email}`);
     
     return {
       success: true,
       statement_number: nextStatementNumber,
       reports_count: savedReports.length,
       pdf_urls: pdfUrls,
-      email_sent: true,
-      total_commission: savedReports.reduce((sum, r) => sum + r.vendor_commission_amount, 0)
+      email_sent: true
     };
     
   } catch (error) {
@@ -645,63 +442,10 @@ async function completeCommissionReportWorkflow(
 
 ---
 
-## 📋 Implementation Checklist
+## 🔒 SECURITY
 
-### Phase 1: Setup ✅
-- [ ] Verify all migration phases complete
-- [ ] Confirm Edge Function deployed
-- [ ] Set up Supabase Storage bucket `commission-reports`
-- [ ] Configure email service (Resend, SendGrid, or Supabase Email)
-
-### Phase 2: API Endpoints
-- [ ] Implement `GET /api/vendors/:vendorId/commission-report-preview`
-- [ ] Implement `POST /api/vendors/:vendorId/commission-reports/generate`
-- [ ] Add authentication/authorization checks
-- [ ] Add request validation
-
-### Phase 3: PDF Generation (MANDATORY)
-- [ ] Implement `POST /api/vendors/:vendorId/commission-reports/:statementNumber/generate-pdfs`
-- [ ] Choose PDF library (jsPDF, puppeteer, pdfkit)
-- [ ] Design PDF template
-- [ ] Test PDF generation with sample data
-- [ ] Set up Supabase Storage integration
-
-### Phase 4: Statement Management (MANDATORY)
-- [ ] Implement `POST /api/vendors/:vendorId/statement-numbers/increment`
-- [ ] Add rollback logic if email fails
-
-### Phase 5: Email Notification (MANDATORY)
-- [ ] Implement `POST /api/vendors/:vendorId/commission-reports/:statementNumber/send`
-- [ ] Create email template (HTML)
-- [ ] Configure email service
-- [ ] Test email sending with sample data
-- [ ] Add email retry logic
-
-### Phase 6: Orchestration
-- [ ] Implement main workflow controller
-- [ ] Add transaction handling
-- [ ] Add error recovery
-- [ ] Add logging/monitoring
-
-### Phase 7: Testing
-- [ ] Unit tests for each endpoint
-- [ ] Integration tests for complete workflow
-- [ ] Test with real V2 data
-- [ ] Performance testing with multiple restaurants
-
-### Phase 8: Documentation
-- [ ] API documentation (OpenAPI/Swagger)
-- [ ] Frontend integration guide
-- [ ] Error handling guide
-- [ ] Deployment guide
-
----
-
-## 🔒 Security Considerations
-
-### Authentication
+**Authentication Check:**
 ```typescript
-// Verify user has permission to generate reports for this vendor
 async function checkVendorAccess(userId: string, vendorId: string) {
   const { data: vendor } = await supabase
     .from('vendors')
@@ -715,74 +459,91 @@ async function checkVendorAccess(userId: string, vendorId: string) {
 }
 ```
 
-### Rate Limiting
-```typescript
-// Prevent abuse - limit report generation to once per day per vendor
-const rateLimitKey = `commission_reports:${vendorId}:${new Date().toDateString()}`;
-// Implement rate limiting logic
-```
+**Rate Limiting:**
+- Limit report generation to once per day per vendor
+- Prevent abuse with rate limiting middleware
 
 ---
 
-## 🎯 Success Criteria
+## ✅ IMPLEMENTATION CHECKLIST
 
-A successful implementation must:
+### **Setup**
+- [ ] Verify migration phases complete
+- [ ] Confirm Edge Function deployed
+- [ ] Create Supabase Storage bucket `commission-reports`
+- [ ] Configure email service (Resend/SendGrid)
 
-1. ✅ Generate accurate commission calculations
-2. ✅ Save all reports to database with correct data
-3. ✅ Trigger automatically updates `last_commission_rate_used`
+### **API Endpoints**
+- [ ] Implement preview endpoint
+- [ ] Implement generate reports endpoint
+- [ ] Add auth/validation checks
+
+### **PDF Generation (MANDATORY)**
+- [ ] Implement PDF generation endpoint
+- [ ] Choose PDF library (jsPDF/puppeteer/pdfkit)
+- [ ] Design PDF template
+- [ ] Set up Storage integration
+
+### **Statement Management (MANDATORY)**
+- [ ] Implement statement increment endpoint
+- [ ] Add rollback logic if email fails
+
+### **Email Notification (MANDATORY)**
+- [ ] Implement send endpoint
+- [ ] Create HTML email template
+- [ ] Configure email service
+- [ ] Add retry logic
+
+### **Orchestration**
+- [ ] Implement main workflow controller
+- [ ] Add transaction handling
+- [ ] Add error recovery
+- [ ] Add logging/monitoring
+
+### **Testing**
+- [ ] Unit tests for each endpoint
+- [ ] Integration tests for complete workflow
+- [ ] Test with real V2 data
+- [ ] Performance testing
+
+---
+
+## 📊 SUCCESS CRITERIA
+
+Implementation must:
+1. ✅ Generate accurate calculations
+2. ✅ Save all reports correctly
+3. ✅ Trigger updates `last_commission_rate_used`
 4. ✅ Generate PDF for every report (MANDATORY)
-5. ✅ Update statement number correctly (MANDATORY)
-6. ✅ Send email to vendor with all PDFs (MANDATORY)
-7. ✅ Handle errors gracefully with rollback
-8. ✅ Complete within reasonable time (<2 minutes for 30 restaurants)
+5. ✅ Update statement number (MANDATORY)
+6. ✅ Send email with PDFs (MANDATORY)
+7. ✅ Handle errors with rollback
+8. ✅ Complete < 2 minutes for 30 restaurants
 
 ---
 
-## 📊 Monitoring & Logging
+## 📈 MONITORING & LOGGING
 
-Implement logging for:
-
+**Log Key Events:**
 ```typescript
-// Log key events
 await supabase.from('commission_report_logs').insert({
   vendor_id: vendorId,
   statement_number: statementNumber,
-  action: 'reports_generated',
-  reports_count: savedReports.length,
-  total_commission: totalCommission,
-  timestamp: new Date().toISOString()
-});
-
-await supabase.from('commission_report_logs').insert({
-  vendor_id: vendorId,
-  statement_number: statementNumber,
-  action: 'pdfs_generated',
-  pdf_count: pdfUrls.length,
-  timestamp: new Date().toISOString()
-});
-
-await supabase.from('commission_report_logs').insert({
-  vendor_id: vendorId,
-  statement_number: statementNumber,
-  action: 'email_sent',
-  recipient: vendor.email,
+  action: 'reports_generated' | 'pdfs_generated' | 'email_sent',
   timestamp: new Date().toISOString()
 });
 ```
 
 ---
 
-## 🎉 Summary
+## 🎉 SUMMARY
 
-This backend implementation will provide a complete, automated commission report generation system:
-
+**Complete automated system:**
 1. **Preview** - Shows last used rates, allows adjustments
-2. **Calculate** - Uses Edge Function for accurate calculations
+2. **Calculate** - Uses Edge Function for accuracy
 3. **Save** - Stores reports with audit trail
-4. **Generate PDFs** - Creates professional reports (MANDATORY)
+4. **Generate PDFs** - Professional reports (MANDATORY)
 5. **Update State** - Increments statement number (MANDATORY)
-6. **Notify** - Sends email to vendor (MANDATORY)
+6. **Notify** - Emails vendor (MANDATORY)
 
-**Status:** Ready for implementation after migration completion.
-
+**Status:** ✅ Ready for implementation after migration completion
