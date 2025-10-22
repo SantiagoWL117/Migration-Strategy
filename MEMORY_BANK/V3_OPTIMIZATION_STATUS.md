@@ -120,8 +120,6 @@ All entities follow:
 - Production readiness checklists
 - Git commit discipline
 
-**Documentation Workflow:** `/MEMORY_BANK/DOCUMENTATION_WORKFLOW.md`
-
 ---
 
 **Status:** ✅ Strong progress, 30% complete, maintaining quality standards

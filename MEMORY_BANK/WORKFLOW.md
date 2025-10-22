@@ -13,17 +13,13 @@
 - 📖 Check `/MEMORY_BANK/PROJECT_STATUS.md` - What's the overall status?
 
 **Step 2: Understand the Context**
-- 📖 Read relevant entity file in `/MEMORY_BANK/ENTITIES/XX_ENTITY_NAME.md`
+- 📖 Read relevant backend integration guide in `/documentation/[Entity]/`
+- 📖 Review SANTIAGO_MASTER_INDEX.md for entity overview
 - 📖 Check dependencies - Are all required entities complete?
-- 📖 Review blockers - Is anything preventing this work?
 
-**Step 3: Review the Process**
-- 📖 Read `/MEMORY_BANK/ETL_METHODOLOGY.md` - How do I execute this?
-- 📖 Review previous completed entity in `/MEMORY_BANK/COMPLETED/` - Learn from examples
-
-**Step 4: Plan the Work**
+**Step 3: Plan the Work**
 - 📝 Create TODO list with clear, actionable steps
-- 📝 Identify what files need to be created/updated
+- 📝 Identify what APIs need to be built
 - 📝 Understand expected outcomes
 
 ---
@@ -84,29 +80,28 @@
 
 ## 📋 Quick Reference Checklist
 
-### Starting a New Entity?
+### Starting a New Backend Entity?
 - [ ] Read `/MEMORY_BANK/NEXT_STEPS.md`
-- [ ] Read `/MEMORY_BANK/ENTITIES/XX_ENTITY.md`
-- [ ] Review `/MEMORY_BANK/ETL_METHODOLOGY.md`
+- [ ] Read entity backend integration guide in `/documentation/[Entity]/`
+- [ ] Review `/SANTIAGO_MASTER_INDEX.md` for entity overview
 - [ ] Check dependencies in `/MEMORY_BANK/PROJECT_STATUS.md`
-- [ ] Review last completed entity in `/MEMORY_BANK/COMPLETED/`
+- [ ] Review SQL functions and Edge Functions available
 - [ ] Create TODO list
 - [ ] Begin work
 
-### Completed a Migration Step?
+### Completed an API Endpoint?
 - [ ] Update TODO list (mark complete)
-- [ ] Update entity file with progress
+- [ ] Test endpoint thoroughly
+- [ ] Document any issues
 - [ ] Commit changes to git
-- [ ] Read context before next step
+- [ ] Read context before next endpoint
 
-### Completed an Entity?
-- [ ] Update entity file (status → completed)
-- [ ] Create completion summary in `/MEMORY_BANK/COMPLETED/`
-- [ ] Update `/MEMORY_BANK/NEXT_STEPS.md`
-- [ ] Update `/MEMORY_BANK/PROJECT_STATUS.md`
-- [ ] Update AI memory
+### Completed a Backend Entity?
+- [ ] Update `/MEMORY_BANK/NEXT_STEPS.md` (mark entity complete)
+- [ ] Update `/MEMORY_BANK/PROJECT_STATUS.md` (progress metrics)
+- [ ] Test all endpoints for the entity
+- [ ] Document completion
 - [ ] Commit all changes
-- [ ] Check what's unblocked
 - [ ] Read context before choosing next entity
 
 ---
@@ -137,43 +132,44 @@
 | `WORKFLOW.md` | Every task start | Never (reference only) |
 | `NEXT_STEPS.md` | **BEFORE every task** | **AFTER every task** |
 | `PROJECT_STATUS.md` | Before starting entity | After completing entity |
-| `ETL_METHODOLOGY.md` | Before creating migration plan | Never (reference only) |
-| `ENTITIES/XX_*.md` | Before working on entity | During & after entity work |
-| `COMPLETED/*.md` | For reference/learning | After completing entity |
+| `PROJECT_CONTEXT.md` | For strategic overview | When phases complete |
+| `ETL_METHODOLOGY.md` | Historical reference (Phase 1 & 2) | Never (Phase 1 & 2 complete) |
+| `ENTITIES/XX_*.md` | Historical migration notes | Never (Phase 1 & 2 complete) |
+| `COMPLETED/*.md` | Historical reference | Never (Phase 1 & 2 complete) |
 
 ---
 
-## 🔁 Example Workflow
+## 🔁 Example Workflow (Phase 3: Backend APIs)
 
-**Scenario:** Starting Users & Access entity
+**Scenario:** Starting Users & Access Backend APIs
 
 ### BEFORE:
-1. ✅ Read `NEXT_STEPS.md` → Confirms Users & Access is recommended
-2. ✅ Read `ENTITIES/08_USERS_ACCESS.md` → Understand scope and dependencies
-3. ✅ Check `PROJECT_STATUS.md` → Confirm Location & Geography complete (dependency ✅)
-4. ✅ Read `ETL_METHODOLOGY.md` → Remember the process
-5. ✅ Review `COMPLETED/LOCATION_GEOGRAPHY_SUMMARY.md` → Learn from example
-6. ✅ Create TODO list → Plan the work
+1. ✅ Read `NEXT_STEPS.md` → Confirms Users & Access is Priority 2
+2. ✅ Read `/documentation/Users & Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`
+3. ✅ Check `PROJECT_STATUS.md` → Confirm Restaurant Management APIs complete
+4. ✅ Review `SANTIAGO_MASTER_INDEX.md` for Users & Access overview
+5. ✅ Check available SQL functions and Edge Functions
+6. ✅ Create TODO list → Plan API endpoints
 
 ### DURING:
-- Work on mapping document
-- Work on migration plans
-- Execute migrations
-- Run verifications
+- Implement authentication endpoints
+- Build customer profile APIs
+- Create address management endpoints
+- Test each endpoint
+- Document usage
 
-### AFTER (each step):
-- ✅ Update `ENTITIES/08_USERS_ACCESS.md` with progress
+### AFTER (each endpoint):
 - ✅ Update TODO list
+- ✅ Test endpoint
 - ✅ Commit changes
 
 ### AFTER (entity complete):
-1. ✅ Update `ENTITIES/08_USERS_ACCESS.md` → Status: COMPLETE ✅
-2. ✅ Create `COMPLETED/USERS_ACCESS_SUMMARY.md` → Full summary
-3. ✅ Update `NEXT_STEPS.md` → Mark complete, identify next entity
-4. ✅ Update `PROJECT_STATUS.md` → Update metrics, unblock Orders & Checkout
-5. ✅ Update AI memory → Key learnings
-6. ✅ Commit everything
-7. ✅ Read context before next entity
+1. ✅ Update `NEXT_STEPS.md` → Mark Users & Access complete, identify Menu & Catalog as next
+2. ✅ Update `PROJECT_STATUS.md` → Update progress (2/10 entities complete)
+3. ✅ Update `PROJECT_CONTEXT.md` → Update Phase 3 checklist
+4. ✅ Test integration with Brian's frontend
+5. ✅ Commit everything
+6. ✅ Read context before next entity
 
 ---
 

@@ -1,842 +1,521 @@
-# Agent Context & Workflow Guide
-## How to Maintain Persistent Context Across AI Agents and Tasks
+# Agent Context & Workflow Guide - Phase 3: Backend Verification
 
-**Created:** October 21, 2025  
-**For:** Santiago & Team Members  
-**Purpose:** Share successful patterns for AI-assisted development with persistent context  
-**Success Rate:** Proven effective across 6+ major entities, 200+ files, 40+ phases
+**Last Updated:** October 22, 2025 | **Phase:** Backend API Development | **For:** Santiago + AI Agents
 
 ---
 
-## 🎯 THE PROBLEM WE SOLVED
+## 🎯 PURPOSE
 
-**Common AI Agent Issues:**
-- ❌ Agents forget previous work
-- ❌ Duplicate effort across sessions
-- ❌ Inconsistent approaches
-- ❌ Lost context between tasks
-- ❌ No visibility into what's already done
-- ❌ Difficulty picking up where you left off
-
-**Our Solution:**
-- ✅ Memory Bank system for persistent knowledge
-- ✅ Handoff files between agents/tasks
-- ✅ Comprehensive documentation workflow
-- ✅ Clear status tracking
-- ✅ Entity-based organization
-- ✅ Read context BEFORE acting
+**Solve:** Context window overload, inconsistent workflows, lost progress  
+**How:** Minimal context loading → Verify backend objects → Document → Update memory bank
 
 ---
 
-## 📚 CORE PRINCIPLE: PLAN → READ → ACT → DOCUMENT
+## 📊 PROJECT STATE
 
-### **The Golden Rule:**
-> **"Always read the full context before starting any task. Update the memory bank when finishing."**
+| Phase | Status | Progress |
+|-------|--------|----------|
+| **Phase 1 & 2: Database** | ✅ Complete | 100% - All 10 entities migrated & optimized |
+| **Phase 3: Backend** | 🚀 In Progress | 1/10 - Restaurant Mgmt complete, Users & Access in progress |
+| **Frontend** | 🚀 In Progress | Brian building Customer Ordering App |
 
-### **Every Task Follows This Pattern:**
-
-```
-1. PLAN
-   └─ What am I trying to accomplish?
-   └─ What context do I need?
-   └─ Where is existing documentation?
-
-2. READ (Context Loading)
-   └─ Read MEMORY_BANK/PROJECT_STATUS.md
-   └─ Read MEMORY_BANK/ENTITIES/<relevant_entity>.md
-   └─ Read any handoff files for this task
-   └─ Check Database/<Entity>/ for prior work
-
-3. ACT (Execute Task)
-   └─ Follow established patterns
-   └─ Use existing methodology
-   └─ Build on prior work, don't duplicate
-   └─ Keep notes as you work
-
-4. DOCUMENT (Preserve Knowledge)
-   └─ Update completion reports
-   └─ Update memory bank status
-   └─ Create handoff files if needed
-   └─ Commit documentation with code
-```
+**Key Metrics:** 192 RLS policies, 105 SQL functions, 621 indexes deployed
 
 ---
 
-## 🗂️ PROJECT STRUCTURE OVERVIEW
+## 🗺️ KEY FILES
 
-### **Key Directories:**
+| File | Purpose | When to Read |
+|------|---------|--------------|
+| `MEMORY_BANK/PROJECT_STATUS.md` | ⭐ Single source of truth | Start of every session |
+| `MEMORY_BANK/NEXT_STEPS.md` | Current entity & roadmap | Start of every session |
+| `SANTIAGO_MASTER_INDEX.md` | Backend specifications | Reference only |
+| `BRIAN_MASTER_INDEX.md` | Frontend handoff docs | Update after completion |
+| `documentation/{Entity}/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md` | Entity-specific specs | When working on that entity |
 
+---
+
+## 🔄 4-STEP WORKFLOW (Repeat for Each Entity)
+
+### **STEP 1: LOAD CONTEXT** (5 min)
+
+**Read in order:**
+1. `/MEMORY_BANK/PROJECT_STATUS.md` → Which entity is in progress?
+2. `/MEMORY_BANK/NEXT_STEPS.md` → What needs to be built?
+3. `/documentation/{Entity}/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md` → Full specs
+
+**Agent Prompt:**
 ```
-Migration-Strategy/
-├── MEMORY_BANK/                    # ⭐ START HERE
-│   ├── README.md                   # How to use memory bank
-│   ├── PROJECT_STATUS.md           # Current state of project
-│   ├── PROJECT_CONTEXT.md          # Overall project context
-│   ├── WORKFLOW.md                 # Standard workflows
-│   ├── ENTITIES/                   # Entity-specific knowledge
-│   │   ├── 01_RESTAURANT_MANAGEMENT.md
-│   │   ├── 02_MENU_CATALOG.md
-│   │   ├── 03_SERVICE_CONFIG.md
-│   │   ├── 04_USERS_ACCESS.md
-│   │   ├── 05_LOCATION_GEOGRAPHY.md
-│   │   ├── 06_ORDERS_CHECKOUT.md
-│   │   └── [etc...]
-│   └── COMPLETED/                  # Archive of finished phases
-│
-├── Database/                       # All database work
-│   ├── <Entity Name>/              # One folder per entity
-│   │   ├── PHASE_1_*.sql          # Migration scripts
-│   │   ├── PHASE_1_*.md           # Documentation
-│   │   ├── *_COMPLETION_REPORT.md # Final summary
-│   │   └── SANTIAGO_*.md          # Backend handoff files
-│   └── AUDIT_REPORTS/             # Quality audits
-│
-├── documentation/                  # User-facing docs
-│   └── <Entity Name>/             # Entity documentation
-│       ├── *_migration_plan.md
-│       └── SANTIAGO_BACKEND_INTEGRATION_GUIDE.md
-│
-└── AGENT_*_PROMPT.md              # Agent-specific instructions
+I'm starting [ENTITY NAME] (Entity X/10).
+
+Read these 3 files:
+1. /MEMORY_BANK/PROJECT_STATUS.md
+2. /MEMORY_BANK/NEXT_STEPS.md  
+3. /documentation/{Entity}/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md
+
+Summarize:
+- Current progress (X/10 complete)
+- SQL Functions & Edge Functions to verify
+- Dependencies
 ```
 
 ---
 
-## 📖 STEP-BY-STEP: HOW TO START ANY TASK
+### **STEP 2: VERIFY & BUILD BACKEND**
 
-### **Step 1: Read the Memory Bank (5 minutes)**
+#### **2.1: Verify SQL Objects** (Using Supabase MCP)
 
-**Always start here:**
+**Verify Checklist:**
+- [ ] SQL functions exist
+- [ ] Indexes exist
+- [ ] Triggers exist
+- [ ] Views exist
+- [ ] RLS policies exist
 
-```bash
-# Read these files FIRST, EVERY TIME
-1. /MEMORY_BANK/README.md
-2. /MEMORY_BANK/PROJECT_STATUS.md
+**MCP Commands:**
+```sql
+-- Check SQL functions
+mcp_supabase_execute_sql: 
+SELECT routine_name FROM information_schema.routines 
+WHERE routine_schema = 'menuca_v3' AND routine_name LIKE '%{entity}%';
+
+-- Check indexes
+SELECT indexname, tablename FROM pg_indexes 
+WHERE schemaname = 'menuca_v3' AND tablename IN (...);
+
+-- Check triggers
+SELECT trigger_name, event_object_table FROM information_schema.triggers 
+WHERE trigger_schema = 'menuca_v3';
+```
+
+**Create Missing Objects:**
+```
+mcp_supabase_apply_migration:
+  name: "add_{entity}_functions"
+  query: "[SQL from integration guide]"
+```
+
+**Test:**
+```sql
+SELECT {function_name}(test_params);
+EXPLAIN ANALYZE SELECT * FROM {table} WHERE {indexed_column} = 'value';
+```
+
+**🚨 CHECKPOINT:** Report verification results → Wait for approval
+
+**Agent Prompt:**
+```
+Verify database objects for [ENTITY]:
+1. List SQL functions mentioned in guide
+2. Check which exist using mcp_supabase_execute_sql
+3. Show missing objects (don't create yet)
+4. Show test plan
+
+Wait for approval before creating anything.
+```
+
+---
+
+#### **2.2: Verify Edge Functions** (Using Supabase MCP)
+
+**MCP Commands:**
+```
+mcp_supabase_list_edge_functions
+mcp_supabase_get_edge_function: function_slug="function-name"
+```
+
+**Deploy Missing:**
+```
+mcp_supabase_deploy_edge_function:
+  name: "function-name"
+  entrypoint_path: "index.ts"
+  files: [{ name: "index.ts", content: "..." }]
+```
+
+**Test:** Call each function with valid/invalid data, test auth
+
+**🚨 CHECKPOINT:** Report Edge Functions status → Wait for approval
+
+**Agent Prompt:**
+```
+Verify Edge Functions for [ENTITY]:
+1. List all Edge Functions from guide
+2. Check which are deployed using mcp_supabase_list_edge_functions
+3. Show missing functions (don't deploy yet)
+4. Show test plan
+
+Wait for approval before deploying.
+```
+
+---
+
+#### **2.3: Document Frontend Integration** (After Approval)
+
+**🚨 CRITICAL CONSTRAINT: MAX 500 LINES PER DOCUMENT**
+
+All documentation created after Step 2.2 MUST be optimized for agent consumption:
+- **BRIAN_MASTER_INDEX.md entity sections:** MAX 150 lines per entity
+- **SANTIAGO_BACKEND_INTEGRATION_GUIDE.md:** MAX 500 lines total
+- **Memory bank updates:** Concise summaries only
+
+**Current Status Audit:**
+- ✅ `BRIAN_MASTER_INDEX.md`: 366 lines (GOOD)
+- ❌ `Marketing & Promotions/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 519 lines (EXCEEDS LIMIT)
+- ❌ `Service Configuration/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 563 lines (EXCEEDS LIMIT)
+- ❌ `backend implementation/BACKEND_IMPLEMENTATION_GUIDE.md`: 704 lines (EXCEEDS LIMIT)
+- ✅ `Users & Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 404 lines (GOOD)
+- ✅ `Orders & Checkout/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 226 lines (GOOD)
+- ✅ `Devices & Infrastructure/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 196 lines (GOOD)
+
+**Architecture:**
+```
+Frontend → supabase.rpc('function_name', params)        [SQL Functions]
+Frontend → supabase.functions.invoke('fn', { body })   [Edge Functions]
+```
+
+**When to Use What:**
+
+| Type | Use For |
+|------|---------|
+| **SQL Functions** | CRUD operations, simple queries, single-table ops, performance-critical |
+| **Edge Functions** | Auth/authz logic, 3rd-party APIs, webhooks, complex multi-step ops, rate limiting, cron jobs |
+
+**CONDENSED Documentation Template (Keep Under 500 Lines):**
+```markdown
+## {Entity Name} Backend Integration
+
+### Quick Reference
+- SQL Functions: {count}
+- Edge Functions: {count}
+- Tables: {count}
+
+### Core Operations
+{Group by functionality - 3-5 groups max}
+
+#### 1. {Operation Group Name}
+**Functions:**
+- `function_1(params)` - One-line description
+- `function_2(params)` - One-line description
+
+**Frontend Usage:**
+```typescript
+// Show ONLY most common pattern
+const { data } = await supabase.rpc('function_name', { p_param: value });
+```
+
+#### 2. {Next Operation Group}
+...
+
+### Authentication & Security
+- Auth: {brief summary}
+- RLS: {brief summary}
+
+### Error Handling
+{Common errors only - 3-5 max}
+
+### Performance Notes
+{Only critical performance considerations}
+```
+
+**Optimization Strategies:**
+1. **Remove verbose explanations** - Keep descriptions to 1-2 lines max
+2. **Group similar functions** - Don't document each function separately
+3. **Show patterns, not repetition** - One example per pattern type
+4. **Remove duplicate context** - Entity overview should be 10 lines max
+5. **Use tables instead of prose** - More information density
+6. **Link to external docs** - For deep dives, don't embed everything
+7. **Remove historical context** - Agents don't need "why we migrated"
+8. **Consolidate examples** - Show one comprehensive example, not 10 similar ones
+
+**Agent Prompt:**
+```
+Document frontend integration for [ENTITY] with MAX 500 LINES:
+
+1. Check existing SANTIAGO_BACKEND_INTEGRATION_GUIDE.md line count
+2. If > 500 lines, condense using optimization strategies above
+3. Create BRIAN_MASTER_INDEX.md section (MAX 150 lines)
+4. Focus: Function reference + usage patterns, not explanations
+5. Use tables and compact formatting
+6. Group functions by operation type
+
+Show proposed content BEFORE writing.
+```
+
+---
+
+### **STEP 3: UPDATE BRIAN_MASTER_INDEX.md** (10 min)
+
+**🚨 CONSTRAINT: MAX 150 LINES PER ENTITY SECTION**
+
+**Update Entity Section (Compact Format):**
+```markdown
+## X. {Entity Name}
+**Priority:** X | **Status:** ✅ BACKEND COMPLETE | **Date:** 2025-XX-XX
+
+### Quick Stats
+- SQL Functions: {count} | Edge Functions: {count} | Tables: {count}
+
+### Core Operations
+
+#### {Operation Group 1} ({function count})
+```typescript
+// Pattern example
+const { data } = await supabase.rpc('primary_function', { p_param: value });
+```
+Functions: `func1`, `func2`, `func3`
+
+#### {Operation Group 2} ({function count})
+```typescript
+// Pattern example
+const { data } = await supabase.functions.invoke('edge-function', { body });
+```
+Functions: `edge-fn-1`, `edge-fn-2`
+
+### Security
+- Auth: JWT via Supabase Auth
+- RLS: {brief policy summary}
+
+### Common Errors
+| Code | Solution |
+|------|----------|
+| `23503` | Check foreign key exists |
+| `42501` | Insufficient permissions |
+```
+
+**Formatting Rules:**
+1. **Use tables** - More compact than lists
+2. **Group functions** - Don't list each individually unless < 10 total
+3. **Show patterns** - One code example per operation type
+4. **No verbose descriptions** - 1 line max per item
+5. **Collapse similar operations** - "6 CRUD functions" instead of listing all 6
+6. **Remove boilerplate** - No "how to install Supabase" repeated in every section
+
+**Agent Prompt:**
+```
+Update /documentation/Frontend-Guides/BRIAN_MASTER_INDEX.md for [ENTITY]:
+
+CONSTRAINT: Keep entity section under 150 lines
+
+1. Check current BRIAN_MASTER_INDEX.md total line count
+2. Add entity section using compact format above
+3. Group functions by operation type (3-5 groups max)
+4. Use tables for error codes, parameters, etc.
+5. Show one code pattern per operation type
+6. Mark status "✅ BACKEND COMPLETE" with date
+
+Show proposed section BEFORE adding.
+```
+
+---
+
+### **STEP 4: UPDATE MEMORY BANK** (5 min)
+
+**Update 3 Files:**
+
+| File | Change |
+|------|--------|
+| `PROJECT_STATUS.md` | [ENTITY] IN PROGRESS → COMPLETE, update metrics (X/10) |
+| `NEXT_STEPS.md` | Mark [ENTITY] complete, set next entity to IN PROGRESS |
+| `PROJECT_CONTEXT.md` | Check off [ENTITY] in Phase 3 checklist |
+
+**Agent Prompt:**
+```
+Update Memory Bank for [ENTITY] completion:
+
+1. /MEMORY_BANK/PROJECT_STATUS.md
+   - Change [ENTITY] to COMPLETE
+   - Update "X/10 entities complete"
+   - Move focus to next entity
+
+2. /MEMORY_BANK/NEXT_STEPS.md
+   - Mark [ENTITY] COMPLETE with date
+   - Change next entity to IN PROGRESS
+
 3. /MEMORY_BANK/PROJECT_CONTEXT.md
-4. /MEMORY_BANK/ENTITIES/<relevant_entity>.md
+   - Check off [ENTITY] in Phase 3
+
+Show changes before writing.
 ```
 
-**Example Agent Prompt:**
-```
-"I'm about to work on [TASK]. Before I start, please read:
-- /MEMORY_BANK/PROJECT_STATUS.md
-- /MEMORY_BANK/ENTITIES/06_ORDERS_CHECKOUT.md
-- /Database/Orders_&_Checkout/*_COMPLETION_REPORT.md
+**Then:** Git commit → Move to next entity
 
-Then summarize what's already done and what I should focus on."
+---
+
+## 🚨 CONTEXT MANAGEMENT
+
+### **When Context Reaches 70%:**
+1. Checkpoint progress
+2. Update BRIAN_MASTER_INDEX.md
+3. Update MEMORY_BANK
+4. Git commit
+5. Close chat
+
+### **Starting Fresh Chat:**
+```
+Continuing MenuCA V3 backend development.
+
+Read:
+1. /MEMORY_BANK/PROJECT_STATUS.md
+2. /MEMORY_BANK/NEXT_STEPS.md
+
+Tell me:
+- Last completed entity
+- Current entity to work on
+- What to verify/build next
 ```
 
 ---
 
-### **Step 2: Check for Existing Work (3 minutes)**
+## 📋 QUICK TEMPLATES
 
-**Before creating anything new, search for existing files:**
+### **Starting Entity:**
+```
+I'm starting [ENTITY NAME] Backend (Entity X/10).
 
-```bash
-# Example: Working on Orders entity
-cd /Database/Orders_&_Checkout/
+STEP 1: Read context files (PROJECT_STATUS, NEXT_STEPS, integration guide)
+STEP 2.1: Verify SQL objects - show what exists/missing (don't create yet)
 
-# Check what exists
-ls -la
-
-# Read completion reports
-cat *_COMPLETION_REPORT.md
-
-# Check for handoff files
-cat SANTIAGO_*.md
+Wait for approval.
 ```
 
-**Agent Prompt:**
+### **After Approval:**
 ```
-"List all files in /Database/Orders_&_Checkout/ and tell me:
-1. What phases are complete?
-2. What's the last completion report?
-3. Are there any handoff files for backend?"
-```
+✅ Approved - create missing SQL objects
 
----
+[Create using mcp_supabase_apply_migration]
+[Test all functions]
 
-### **Step 3: Follow Established Patterns (Critical!)**
+STEP 2.2: Verify Edge Functions - show status (don't deploy yet)
 
-**Our Proven 7-Phase Methodology:**
-
-Every entity follows this pattern:
-
-```
-Phase 1: Auth & Security (RLS Policies)
-  ├─ Enable RLS on tables
-  ├─ Create access control policies
-  └─ Document security model
-
-Phase 2: Performance & Core APIs (SQL Functions)
-  ├─ Create business logic functions
-  ├─ Add performance indexes
-  └─ Benchmark query performance
-
-Phase 3: Schema Optimization (Audit Trails)
-  ├─ Add audit columns
-  ├─ Implement soft delete
-  └─ Create status history tracking
-
-Phase 4: Real-Time Updates (Supabase Realtime)
-  ├─ Enable Realtime on tables
-  ├─ Create pg_notify triggers
-  └─ Document WebSocket patterns
-
-Phase 5: Payment/Language/Features (Entity-Specific)
-  ├─ Add entity-specific features
-  ├─ Integrate with other entities
-  └─ Create specialized functions
-
-Phase 6: Advanced Features
-  ├─ Complex business logic
-  ├─ Multi-table operations
-  └─ Analytics functions
-
-Phase 7: Testing & Validation
-  ├─ Comprehensive test suite
-  ├─ Performance benchmarks
-  └─ Production readiness checklist
+Wait for approval.
 ```
 
-**Each Phase Produces:**
-- ✅ `PHASE_X_MIGRATION_SCRIPT.sql` - Executable SQL
-- ✅ `PHASE_X_BACKEND_DOCUMENTATION.md` - Implementation guide
-- ✅ `PHASE_X_SUMMARY.md` (optional) - Quick overview
+### **Completing Entity:**
+```
+✅ [ENTITY NAME] Backend Complete (Entity X/10)
 
----
+STEP 2.3: Create integration docs (MAX 500 lines)
+STEP 3: Update BRIAN_MASTER_INDEX.md (MAX 150 lines per entity)
+STEP 4: Update MEMORY_BANK (PROJECT_STATUS, NEXT_STEPS, PROJECT_CONTEXT)
 
-### **Step 4: Create Handoff Files for Backend (Santiago)**
+Verify line counts before committing:
+- Integration guide: < 500 lines ✓
+- BRIAN section: < 150 lines ✓
 
-**Every database entity needs a Santiago handoff file:**
-
-**Template:** `SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`
-
-```markdown
-# [Entity] - Santiago Backend Integration Guide
-
-## 🚨 Business Problem & Solution
-[What problem does this solve?]
-
-## 🧩 Complete Business Logic Components
-[List all SQL functions created]
-
-## 💻 Backend APIs to Implement
-[Specific API endpoints with code examples]
-
-## 🔄 Real-Time Integration
-[WebSocket subscription examples]
-
-## 🗄️ Complete Schema Modifications
-[Tables, columns, relationships]
-
-## ✅ Testing Checklist
-[What to test]
-
-## 📊 Summary Metrics
-[Functions, policies, tables, etc.]
-
-## 🎯 Implementation Priority
-[Week 1, Week 2 breakdown]
+Show changes before writing.
 ```
 
-**Location Pattern:**
-- `/Database/<Entity>/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`
-- `/documentation/<Entity>/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`
+### **Check Documentation Line Counts (PowerShell):**
+```powershell
+# Check specific file
+(Get-Content "documentation\[Entity]\SANTIAGO_BACKEND_INTEGRATION_GUIDE.md" | Measure-Object -Line).Lines
 
----
+# Check BRIAN_MASTER_INDEX.md
+(Get-Content "documentation\Frontend-Guides\BRIAN_MASTER_INDEX.md" | Measure-Object -Line).Lines
 
-### **Step 5: Update Memory Bank When Done**
-
-**After completing ANY task, update:**
-
-1. **Entity Status File:**
-```markdown
-# Update: /MEMORY_BANK/ENTITIES/<entity>.md
-
-## Status
-- ✅ Phase X Complete (Date)
-- 🔄 Phase Y In Progress
-- ⏳ Phase Z Pending
-
-## What We Built
-[Summary of deliverables]
-
-## Next Steps
-[What comes next]
-```
-
-2. **Project Status:**
-```markdown
-# Update: /MEMORY_BANK/PROJECT_STATUS.md
-
-## Current Progress
-- Entity Name: Phase X/7 Complete (XX%)
-```
-
-3. **Completion Report:**
-```markdown
-# Create: /Database/<Entity>/<ENTITY>_COMPLETION_REPORT.md
-
-# Executive Summary
-# What Was Built
-# Metrics
-# Deliverables
-# Backend Integration Guide
-# Production Readiness
+# Audit all integration guides
+Get-ChildItem "documentation" -Recurse -Filter "SANTIAGO_BACKEND_INTEGRATION_GUIDE.md" | 
+  ForEach-Object { 
+    "$($_.Directory.Name): $((Get-Content $_.FullName | Measure-Object -Line).Lines) lines" 
+  }
 ```
 
 ---
 
-## 🎨 BEST PRACTICES FROM 60+ COMPLETED PHASES
+## 📏 DOCUMENTATION SIZE MANAGEMENT
 
-### **1. Always Read Before Writing**
+### **Current Over-Limit Documents (Remediation Needed)**
 
-**Bad:**
+| Document | Current Lines | Target | Action Required |
+|----------|--------------|--------|-----------------|
+| `Service Configuration/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md` | 563 | 500 | Condense by 63 lines |
+| `Marketing & Promotions/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md` | 519 | 500 | Condense by 19 lines |
+| `backend implementation/BACKEND_IMPLEMENTATION_GUIDE.md` | 704 | 500 | Condense by 204 lines |
+
+### **Remediation Strategy (Run Once)**
+
+**Agent Prompt for Cleanup:**
 ```
-Agent: "I'll create the orders schema now."
+DOCUMENTATION CLEANUP TASK:
+
+Condense these over-limit documents to < 500 lines:
+
+1. Service Configuration/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md (563 → 500)
+2. Marketing & Promotions/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md (519 → 500)
+3. backend implementation/BACKEND_IMPLEMENTATION_GUIDE.md (704 → 500)
+
+For each file:
+1. Read full file
+2. Apply optimization strategies from Step 2.3:
+   - Remove verbose explanations (1-2 lines max)
+   - Group similar functions (don't list individually)
+   - Remove duplicate context/boilerplate
+   - Convert prose to tables
+   - Remove historical/migration context
+   - Keep only: Quick reference + Function patterns + Security + Errors
+3. Verify line count < 500
+4. Show diff before writing
+
+DO NOT change functionality, only formatting/verbosity.
 ```
 
-**Good:**
-```
-You: "Read /Database/Orders_&_Checkout/01_create_v3_order_schema.sql 
-     and tell me what already exists."
+### **Prevention (For Future Entities)**
 
-Agent: "The schema exists with 7 tables. Should I enhance it 
-        or start on Phase 2 (SQL functions)?"
-```
+**Before Writing Any Documentation:**
+1. Check line count target (500 for integration guides, 150 for BRIAN sections)
+2. Use compact templates from Step 2.3 and Step 3
+3. Group functions, don't list individually
+4. One code example per pattern type
+5. Tables > prose
+6. Verify line count after writing
 
 ---
 
-### **2. Use Completion Reports as Checkpoints**
+## ✅ SUCCESS CHECKLIST
 
-**Every entity should have a completion report:**
+**Per Entity:**
+- [ ] Context loaded (3 files: STATUS, NEXT_STEPS, integration guide)
+- [ ] SQL objects verified/created and tested
+- [ ] Edge Functions verified/deployed and tested
+- [ ] Frontend integration documented **(<500 lines)**
+- [ ] BRIAN_MASTER_INDEX.md updated **(<150 lines per entity)**
+- [ ] Line counts verified (use `Measure-Object -Line`)
+- [ ] MEMORY_BANK updated (3 files)
+- [ ] Git commit
 
-```
-/Database/<Entity>/<ENTITY>_COMPLETION_REPORT.md
-```
-
-**Contents:**
-- ✅ Executive Summary
-- ✅ All 7 phases documented
-- ✅ Complete deliverables list
-- ✅ Metrics (tables, functions, policies, tests)
-- ✅ Backend integration checklist
-- ✅ Production readiness status
-
----
-
-### **3. Follow Naming Conventions**
-
-**Migration Scripts:**
-```
-PHASE_1_MIGRATION_SCRIPT.sql
-PHASE_2_MIGRATION_SCRIPT.sql
-[etc...]
-```
-
-**Documentation:**
-```
-PHASE_1_BACKEND_DOCUMENTATION.md
-PHASE_2_BACKEND_DOCUMENTATION.md
-[etc...]
-```
-
-**Summaries:**
-```
-<ENTITY>_COMPLETION_REPORT.md
-<ENTITY>_SANTIAGO_GUIDE.md
-SANTIAGO_BACKEND_INTEGRATION_GUIDE.md
-```
+**Overall Progress:**
+- [ ] 10/10 entities complete
+- [ ] BRIAN_MASTER_INDEX.md fully populated
+- [ ] All integration guides < 500 lines
+- [ ] All BRIAN sections < 150 lines
+- [ ] Brian can build frontend with all backend functions documented
 
 ---
 
-### **4. Create Master Index Files**
+## 🎯 BEST PRACTICES
 
-**Example: Santiago Master Index**
-
-```markdown
-# SANTIAGO_MASTER_INDEX.md
-
-## All Backend Integration Guides
-
-### ✅ Complete Entities:
-1. [Restaurant Management](Database/Restaurant Management/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
-2. [Menu & Catalog](Database/Menu & Catalog/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
-3. [Users & Access](documentation/Users & Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
-[etc...]
-
-### Entity Completion Summary:
-- Restaurant Management: ✅ 100% (7/7 phases)
-- Menu & Catalog: ✅ 100% (7/7 phases)
-- Orders & Checkout: ✅ 100% (7/7 phases)
-```
+1. **Minimal Context:** Only load 3 files per session (STATUS, NEXT_STEPS, entity guide)
+2. **Wait for Approval:** Never create/deploy without explicit approval
+3. **Test Everything:** Verify functions work before documenting
+4. **Document Immediately:** Update BRIAN_MASTER_INDEX.md right after completion
+5. **Checkpoint Often:** At 70% context, save progress and start fresh
+6. **One Entity at a Time:** Complete 100% before moving to next
+7. **🆕 Documentation Size Limits:** Integration guides < 500 lines, BRIAN sections < 150 lines
+8. **🆕 Verify Line Counts:** Always check with `Measure-Object -Line` before committing
+9. **🆕 Optimize for Agents:** Use compact formatting, tables, grouped functions, minimal prose
 
 ---
 
-### **5. Use Agent-Specific Prompts**
+## 📊 CURRENT STATUS
 
-**Create reusable prompt files:**
+**Completed:** 1/10 (Restaurant Management ✅)  
+**In Progress:** 2/10 (Users & Access 🚀)  
+**Next:** 3/10 (Menu & Catalog)
 
-```
-AGENT_1_ORDERS_CHECKOUT_PROMPT.md
-AGENT_2_MARKETING_PROMOTIONS_PROMPT.md
-[etc...]
-```
-
-**Include in prompt:**
-- Entity scope
-- Phase instructions
-- Table lists
-- Function requirements
-- RLS policy patterns
-- Testing requirements
-- Handoff file template
+**Next Session:** Read PROJECT_STATUS.md → Verify Users & Access backend objects
 
 ---
 
-## 🚀 AGENT PROMPT TEMPLATES
-
-### **Starting a New Task:**
-
-```markdown
-I need to work on [ENTITY/TASK].
-
-Before we start, please:
-1. Read /MEMORY_BANK/PROJECT_STATUS.md
-2. Read /MEMORY_BANK/ENTITIES/<entity>.md
-3. Check /Database/<Entity>/ for existing files
-4. Tell me:
-   - What phases are complete?
-   - What's the next logical step?
-   - What files already exist that I should build on?
-
-Then let's plan our approach together.
-```
-
----
-
-### **Finishing a Phase:**
-
-```markdown
-We just completed Phase X for [ENTITY].
-
-Please:
-1. Create PHASE_X_MIGRATION_SCRIPT.sql (if not exists)
-2. Create PHASE_X_BACKEND_DOCUMENTATION.md
-3. Update /MEMORY_BANK/ENTITIES/<entity>.md with completion status
-4. If this was Phase 7, create <ENTITY>_COMPLETION_REPORT.md
-
-Show me what you're updating before you write files.
-```
-
----
-
-### **Creating Backend Handoff:**
-
-```markdown
-Create a SANTIAGO_BACKEND_INTEGRATION_GUIDE.md for [ENTITY].
-
-Please read these files first:
-- /Database/<Entity>/PHASE_*_BACKEND_DOCUMENTATION.md (all phases)
-- /Database/<Entity>/<ENTITY>_COMPLETION_REPORT.md
-
-Then create a comprehensive guide including:
-- Business problem & solution
-- All SQL functions with examples
-- API endpoints to implement (with TypeScript code)
-- Real-time subscription patterns
-- Schema overview
-- Testing checklist
-- Implementation priority (Week 1, Week 2)
-
-Use existing guides as reference:
-- /documentation/Users & Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md
-```
-
----
-
-## 📊 TRACKING PROGRESS
-
-### **Daily Status Update Pattern:**
-
-**At end of each session:**
-
-```markdown
-Today I completed:
-- ✅ [Task 1]
-- ✅ [Task 2]
-- 🔄 [Task 3 - in progress]
-
-Files created/updated:
-- /Database/<Entity>/PHASE_X_*.sql
-- /Database/<Entity>/PHASE_X_*.md
-- /MEMORY_BANK/ENTITIES/<entity>.md
-
-Next session should:
-- [ ] Continue Phase X
-- [ ] Create handoff file
-- [ ] Update completion report
-```
-
-**Save this in:** `/MEMORY_BANK/COMPLETED/<date>_session_notes.md`
-
----
-
-## 🎯 SANTIAGO'S QUICK START CHECKLIST
-
-**First Time Setup:**
-
-- [ ] Clone the repo: `git clone [repo_url]`
-- [ ] Read `/MEMORY_BANK/README.md`
-- [ ] Read `/MEMORY_BANK/PROJECT_STATUS.md`
-- [ ] Read `/MEMORY_BANK/PROJECT_CONTEXT.md`
-- [ ] Review `/SANTIAGO_MASTER_INDEX.md` (if exists)
-- [ ] Scan entity folders in `/Database/`
-- [ ] Note which entities have `SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`
-
-**Every New Task:**
-
-- [ ] Read relevant entity file in `/MEMORY_BANK/ENTITIES/`
-- [ ] Check `/Database/<Entity>/` for completion reports
-- [ ] Read any `SANTIAGO_*.md` files
-- [ ] Ask agent to summarize what's done before starting
-- [ ] Work in phases, don't skip ahead
-- [ ] Update memory bank when done
-- [ ] Create handoff files for backend work
-
-**Before Each Cursor Session:**
-
-- [ ] Pull latest: `git pull origin main`
-- [ ] Read memory bank for entity you're working on
-- [ ] Review last session's notes
-- [ ] Tell agent what context to load
-
-**After Each Cursor Session:**
-
-- [ ] Update entity status in memory bank
-- [ ] Create/update completion reports
-- [ ] Commit with descriptive messages
-- [ ] Push to main: `git push origin main`
-
----
-
-## 💡 PRO TIPS FROM SUCCESSFUL PATTERN
-
-### **1. Batch Read Context at Start**
-
-**Instead of:**
-```
-Agent: Creates file
-You: Wait, does this exist?
-Agent: Let me check...
-```
-
-**Do this:**
-```
-You: "Read these 5 files first, then summarize what exists:
-     - /MEMORY_BANK/ENTITIES/06_ORDERS_CHECKOUT.md
-     - /Database/Orders_&_Checkout/*_COMPLETION_REPORT.md
-     - /Database/Orders_&_Checkout/PHASE_*.md
-     
-     Then tell me what phase we should work on next."
-```
-
----
-
-### **2. Use Completion Reports as Single Source of Truth**
-
-**Each entity's completion report contains:**
-- Executive summary
-- All phases documented
-- Complete deliverables
-- Metrics (tables, functions, policies)
-- Backend integration checklist
-- Production readiness status
-
-**Pattern:**
-```
-"Read <ENTITY>_COMPLETION_REPORT.md and tell me if Phase 5 is done."
-```
-
----
-
-### **3. Create Handoff Files Early**
-
-**Don't wait until end to document:**
-
-**After Phase 2:**
-```
-Create: PHASE_2_BACKEND_DOCUMENTATION.md
-  └─ SQL function examples
-  └─ TypeScript integration code
-  └─ API endpoint patterns
-```
-
-**After Phase 7:**
-```
-Consolidate: SANTIAGO_BACKEND_INTEGRATION_GUIDE.md
-  └─ Combines all phase docs
-  └─ Adds implementation priority
-  └─ Includes testing checklist
-```
-
----
-
-### **4. Follow the 7-Phase Pattern Religiously**
-
-**Why it works:**
-- ✅ Security first (RLS in Phase 1)
-- ✅ Performance built in (Indexes in Phase 2)
-- ✅ Audit trails from start (Phase 3)
-- ✅ Real-time ready (Phase 4)
-- ✅ Feature completeness (Phase 5-6)
-- ✅ Production quality (Phase 7 tests)
-
-**Don't skip phases or do out of order!**
-
----
-
-### **5. Use Grep to Find Existing Patterns**
-
-**Before implementing anything:**
-
-```bash
-# Find how RLS was implemented elsewhere
-grep -r "CREATE POLICY" Database/
-
-# Find SQL function patterns
-grep -r "CREATE FUNCTION" Database/
-
-# Find backend documentation
-find . -name "SANTIAGO_*.md"
-
-# Find completion reports
-find . -name "*_COMPLETION_REPORT.md"
-```
-
-**Agent Prompt:**
-```
-"Search for all files containing 'CREATE POLICY' and show me 
-how RLS was implemented in Users & Access entity."
-```
-
----
-
-## 🔄 WORKFLOW COMPARISON
-
-### **❌ Without This System:**
-
-```
-Session 1: Create schema
-Session 2: Agent forgot, recreates schema differently
-Session 3: Add functions, no documentation
-Session 4: Agent doesn't know what functions exist
-Session 5: Start over, lost context
-Result: Chaos, duplication, inconsistency
-```
-
-### **✅ With This System:**
-
-```
-Session 1: Phase 1 (RLS) + PHASE_1_MIGRATION_SCRIPT.sql + docs + memory bank update
-Session 2: Read memory bank → Phase 2 (Functions) + docs
-Session 3: Read memory bank → Phase 3 (Audit) + docs
-Session 4: Read memory bank → Continue Phase 4...
-Result: Consistent, traceable, complete
-```
-
----
-
-## 📝 SAMPLE SESSION TRANSCRIPT
-
-**Good Session Pattern:**
-
-```
-You: "I need to work on Orders & Checkout, Phase 3 (Audit Trails).
-     First, read /MEMORY_BANK/ENTITIES/06_ORDERS_CHECKOUT.md 
-     and /Database/Orders_&_Checkout/*_COMPLETION_REPORT.md.
-     Tell me what phases are done."
-
-Agent: "Phases 1-2 are complete. Phase 1 created 40+ RLS policies.
-        Phase 2 created 9 SQL functions and 15+ indexes.
-        Phase 3 (Audit Trails) is next. Shall we start?"
-
-You: "Yes. Read PHASE_2_MIGRATION_SCRIPT.sql to see table structure,
-     then create Phase 3 following the same patterns."
-
-Agent: [Creates PHASE_3_MIGRATION_SCRIPT.sql with audit columns]
-
-You: "Good! Now create PHASE_3_BACKEND_DOCUMENTATION.md explaining
-     how to use the audit trail functions."
-
-Agent: [Creates documentation with examples]
-
-You: "Perfect! Now update /MEMORY_BANK/ENTITIES/06_ORDERS_CHECKOUT.md
-     to show Phase 3 is complete."
-
-Agent: [Updates memory bank]
-
-You: "Great session! Let's commit."
-```
-
----
-
-## 🎓 LEARNING FROM MISTAKES
-
-### **Common Pitfalls We Solved:**
-
-**Pitfall 1: "Just start coding"**
-- ❌ Results in duplicated work
-- ✅ Solution: Always read memory bank first
-
-**Pitfall 2: "Agent will remember"**
-- ❌ Context resets between sessions
-- ✅ Solution: Document everything, update memory bank
-
-**Pitfall 3: "I'll document later"**
-- ❌ Never happens, knowledge lost
-- ✅ Solution: Document as you go, phase by phase
-
-**Pitfall 4: "One big file for everything"**
-- ❌ Overwhelming, hard to navigate
-- ✅ Solution: One file per phase, clear naming
-
-**Pitfall 5: "Backend can figure it out"**
-- ❌ Wastes Santiago's time
-- ✅ Solution: Create detailed handoff files with examples
-
----
-
-## 📚 RECOMMENDED READING ORDER
-
-**First Time Using This System:**
-
-1. This file (you are here!)
-2. `/MEMORY_BANK/README.md`
-3. `/MEMORY_BANK/PROJECT_STATUS.md`
-4. `/MEMORY_BANK/PROJECT_CONTEXT.md`
-5. Pick one complete entity's completion report
-6. Review that entity's SANTIAGO guide
-7. Start applying the patterns
-
-**Before Working on Specific Entity:**
-
-1. `/MEMORY_BANK/ENTITIES/<entity>.md`
-2. `/Database/<Entity>/*_COMPLETION_REPORT.md`
-3. `/Database/<Entity>/SANTIAGO_*.md`
-4. Latest PHASE_* files in entity folder
-
----
-
-## 🎯 SUCCESS METRICS
-
-**How You Know It's Working:**
-
-✅ **Context Persistence:**
-- Agent picks up where last session left off
-- No duplicate work
-- Consistent patterns across entities
-
-✅ **Velocity:**
-- Complete entity in 30-40 hours (7 phases)
-- Backend integration guides ready immediately
-- No "what did we decide?" questions
-
-✅ **Quality:**
-- 100% test pass rate in Phase 7
-- Production-ready code
-- Comprehensive documentation
-
-✅ **Team Alignment:**
-- Backend knows exactly what to implement
-- Clear handoff points
-- Fewer Slack messages asking "where's the docs?"
-
----
-
-## 🔗 KEY FILES TO BOOKMARK
-
-**Always Start Here:**
-- `/MEMORY_BANK/PROJECT_STATUS.md`
-- `/MEMORY_BANK/ENTITIES/`
-
-**Reference These:**
-- `/SANTIAGO_MASTER_INDEX.md`
-- Any `*_COMPLETION_REPORT.md`
-- Any `SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`
-
-**Templates:**
-- This file (for workflow)
-- Any existing `PHASE_*` files (for patterns)
-
----
-
-## 🚀 GETTING STARTED TODAY
-
-### **Santiago's First Session Template:**
-
-```markdown
-I'm Santiago, working on [ENTITY/FEATURE] for MenuCA V3.
-
-This is my first time using the context system. Please help me:
-
-1. Read /MEMORY_BANK/PROJECT_STATUS.md
-2. Read /AGENT_CONTEXT_WORKFLOW_GUIDE.md (this file)
-3. List all entities and their completion status
-4. Show me which entities have SANTIAGO_BACKEND_INTEGRATION_GUIDE.md
-5. Recommend which entity I should start implementing first
-
-Then let's review the handoff documentation for that entity together.
-```
-
----
-
-## 💪 YOU'VE GOT THIS!
-
-**This system has successfully managed:**
-- ✅ 6+ major entities (Restaurant, Menu, Users, Orders, Location, Service Config)
-- ✅ 40+ phases (7 phases × 6 entities)
-- ✅ 200+ files with perfect consistency
-- ✅ Zero lost context between sessions
-- ✅ Complete backend handoff documentation
-
-**The secret:** 
-1. Read context before acting
-2. Follow established patterns
-3. Document as you go
-4. Update memory bank when done
-
-**Welcome to the system!** 🎉
-
----
-
-## 📞 NEED HELP?
-
-**If you get stuck:**
-
-1. Read this file again (seriously, it helps!)
-2. Check `/MEMORY_BANK/README.md`
-3. Look at a completed entity for reference patterns
-4. Ask Brian - he built this system
-
-**Remember:** The memory bank is your friend. Use it!
-
----
-
-**Version:** 1.0  
-**Last Updated:** October 21, 2025  
-**Maintained By:** Brian (Agent Success Pattern Extraction)  
-**Status:** ✅ ACTIVE - Use this for all work!
-
----
-
-**Next Steps for Santiago:**
-1. ✅ Read this file (you just did!)
-2. ⏳ Read `/MEMORY_BANK/PROJECT_STATUS.md`
-3. ⏳ Pick first entity to implement
-4. ⏳ Read that entity's `SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`
-5. ⏳ Start implementing APIs following the guide
-6. ⏳ Update memory bank when done
-
-**Let's build something amazing! 🚀**
-
+**Version:** 3.0 (Optimized)  
+**Last Updated:** October 22, 2025  
+**Status:** ✅ ACTIVE
