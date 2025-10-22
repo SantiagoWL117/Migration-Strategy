@@ -4,6 +4,10 @@
 
 **Workspace:** Open `/Frontend-build/` as your project root in Cursor
 
+**Your Role:** Orchestrator Agent (strategic decision maker)
+
+**Full Context:** Read `ORCHESTRATOR_CONTEXT.md` (comprehensive handoff with EVERYTHING)
+
 **Current Task:** Audit Phase 0 Ticket 01 (Guest Checkout)
 
 ---
