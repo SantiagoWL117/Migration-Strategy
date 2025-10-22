@@ -1,5 +1,0 @@
-{
-  "message": "All 194 V1 deals exported from staging.v1_deals",
-  "note": "Run the deserialize_all_deals.py script to process this data",
-  "next_step": "Due to the size of the dataset, I'll create a focused processing script in the next turn"
-}
