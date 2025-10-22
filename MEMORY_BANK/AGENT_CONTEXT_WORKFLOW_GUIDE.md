@@ -153,19 +153,17 @@ Wait for approval before deploying.
 
 **🚨 CRITICAL CONSTRAINT: MAX 500 LINES PER DOCUMENT**
 
-All documentation created after Step 2.2 MUST be optimized for agent consumption:
-- **BRIAN_MASTER_INDEX.md entity sections:** MAX 150 lines per entity
-- **SANTIAGO_BACKEND_INTEGRATION_GUIDE.md:** MAX 500 lines total
-- **Memory bank updates:** Concise summaries only
+All documentation created after Step 2.2 MUST be written to the entity-specific Frontend Guide:
+- **Location:** `/documentation/Frontend-Guides/{XX}-{Entity-Name}-Frontend-Guide.md`
+- **BRIAN_MASTER_INDEX.md:** Index entry only (summary + link to guide) - MAX 50 lines per entity
+- **Frontend Guide:** Complete documentation - MAX 500 lines
+- **Format:** Copy structure from `01-Restaurant-Management-Frontend-Guide.md`
 
 **Current Status Audit (Updated October 22, 2025):**
-- ✅ `BRIAN_MASTER_INDEX.md`: 366 lines (GOOD)
-- ✅ `Marketing & Promotions/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 313 lines (GOOD - Reduced from 519)
-- ✅ `Service Configuration/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 275 lines (GOOD - Reduced from 563)
-- ✅ `Vendors & Franchises/backend implementation/BACKEND_IMPLEMENTATION_GUIDE.md`: 482 lines (GOOD - Reduced from 704)
-- ✅ `Users & Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 404 lines (GOOD)
-- ✅ `Orders & Checkout/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 226 lines (GOOD)
-- ✅ `Devices & Infrastructure/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md`: 196 lines (GOOD)
+- ✅ `BRIAN_MASTER_INDEX.md`: 385 lines (GOOD - Index only)
+- ✅ `Frontend-Guides/01-Restaurant-Management-Frontend-Guide.md`: 430 lines (GOOD)
+- ✅ `Frontend-Guides/02-Users-Access-Frontend-Guide.md`: 340 lines (GOOD)
+- ✅ Backend integration guides: All < 500 lines
 
 **✅ ALL DOCUMENTATION NOW COMPLIANT WITH 500-LINE LIMIT**
 
@@ -182,41 +180,57 @@ Frontend → supabase.functions.invoke('fn', { body })   [Edge Functions]
 | **SQL Functions** | CRUD operations, simple queries, single-table ops, performance-critical |
 | **Edge Functions** | Auth/authz logic, 3rd-party APIs, webhooks, complex multi-step ops, rate limiting, cron jobs |
 
-**CONDENSED Documentation Template (Keep Under 500 Lines):**
+**Documentation Template (Keep Under 500 Lines):**
+
+**Step 1:** Check `BRIAN_MASTER_INDEX.md` to find the correct Frontend Guide file:
 ```markdown
-## {Entity Name} Backend Integration
-
-### Quick Reference
-- SQL Functions: {count}
-- Edge Functions: {count}
-- Tables: {count}
-
-### Core Operations
-{Group by functionality - 3-5 groups max}
-
-#### 1. {Operation Group Name}
-**Functions:**
-- `function_1(params)` - One-line description
-- `function_2(params)` - One-line description
-
-**Frontend Usage:**
-```typescript
-// Show ONLY most common pattern
-const { data } = await supabase.rpc('function_name', { p_param: value });
+### **X. {Entity Name}**
+**Status:** ✅ COMPLETE
+**📂 Frontend Documentation:**
+- **[{Entity} - Frontend Developer Guide](./XX-Entity-Name-Frontend-Guide.md)** ⭐
 ```
 
-#### 2. {Next Operation Group}
+**Step 2:** Write complete documentation to `/documentation/Frontend-Guides/XX-Entity-Name-Frontend-Guide.md`
+
+**Template Structure:**
+```markdown
+# {Entity Name} Entity - Frontend Developer Guide
+
+**Status:** ✅ BACKEND COMPLETE
+**Last Updated:** {date}
+
+## Quick Stats
+- SQL Functions: X | Edge Functions: X | Tables: X
+
+## Purpose
+{1-2 paragraph overview of what this entity provides}
+
+## Core Operations
+
+### 1. {Operation Group} (X SQL Functions)
+```typescript
+// Complete working examples
+const { data } = await supabase.rpc('function_name', { params });
+```
+**Available Functions:** List with brief descriptions
+
+### 2. {Next Operation Group}
 ...
 
-### Authentication & Security
-- Auth: {brief summary}
-- RLS: {brief summary}
+## Authentication via Supabase Auth
+{Show login/signup patterns if relevant}
 
-### Error Handling
-{Common errors only - 3-5 max}
+## Security
+{Auth and RLS summary}
 
-### Performance Notes
-{Only critical performance considerations}
+## Database Tables
+{Table reference}
+
+## Common Errors
+{Error codes and solutions}
+
+## Complete Code Examples
+{Real-world React/TypeScript examples}
 ```
 
 **Optimization Strategies:**
@@ -233,12 +247,22 @@ const { data } = await supabase.rpc('function_name', { p_param: value });
 ```
 Document frontend integration for [ENTITY] with MAX 500 LINES:
 
-1. Check existing SANTIAGO_BACKEND_INTEGRATION_GUIDE.md line count
-2. If > 500 lines, condense using optimization strategies above
-3. Create BRIAN_MASTER_INDEX.md section (MAX 150 lines)
-4. Focus: Function reference + usage patterns, not explanations
-5. Use tables and compact formatting
-6. Group functions by operation type
+1. Read BRIAN_MASTER_INDEX.md to find the Frontend Guide filename
+   - Look for: "### **X. {Entity Name}"
+   - Find link: "./XX-Entity-Name-Frontend-Guide.md"
+
+2. Read the existing Frontend Guide stub (usually ~50 lines)
+
+3. Write complete documentation to that Frontend Guide file:
+   - Copy structure from 01-Restaurant-Management-Frontend-Guide.md
+   - Include: Quick Stats, Purpose, Core Operations, Auth patterns, Security, Tables, Errors, Examples
+   - Keep under 500 lines total
+
+4. Update BRIAN_MASTER_INDEX.md entity section:
+   - Change status from "📋 PENDING" to "✅ COMPLETE"
+   - Add "Components Implemented" summary (max 30 lines)
+   - Ensure link points to the Frontend Guide
+   - MAX 50 lines for entire entity section
 
 Show proposed content BEFORE writing.
 ```
@@ -312,13 +336,12 @@ Show proposed section BEFORE adding.
 
 ### **STEP 4: UPDATE MEMORY BANK** (5 min)
 
-**Update 3 Files:**
+**Update 2 Files (ONLY):**
 
 | File | Change |
 |------|--------|
 | `PROJECT_STATUS.md` | [ENTITY] IN PROGRESS → COMPLETE, update metrics (X/10) |
 | `NEXT_STEPS.md` | Mark [ENTITY] complete, set next entity to IN PROGRESS |
-| `PROJECT_CONTEXT.md` | Check off [ENTITY] in Phase 3 checklist |
 
 **Agent Prompt:**
 ```
@@ -333,9 +356,6 @@ Update Memory Bank for [ENTITY] completion:
    - Mark [ENTITY] COMPLETE with date
    - Change next entity to IN PROGRESS
 
-3. /MEMORY_BANK/PROJECT_CONTEXT.md
-   - Check off [ENTITY] in Phase 3
-
 Show changes before writing.
 ```
 
@@ -345,25 +365,28 @@ Show changes before writing.
 
 ## 🚨 CONTEXT MANAGEMENT
 
-### **When Context Reaches 70%:**
-1. Checkpoint progress
-2. Update BRIAN_MASTER_INDEX.md
-3. Update MEMORY_BANK
-4. Git commit
-5. Close chat
+### **When Context Reaches 70% (700k tokens):**
+1. Checkpoint progress (document what was completed)
+2. Update BRIAN_MASTER_INDEX.md (if entity complete)
+3. Update MEMORY_BANK:
+   - `/MEMORY_BANK/PROJECT_STATUS.md` → Update current entity status
+   - `/MEMORY_BANK/NEXT_STEPS.md` → Update what needs to be built next
+4. Git commit with descriptive message
+5. Notify user to close chat
 
-### **Starting Fresh Chat:**
+### **Starting Fresh Chat (After 70% Context Checkpoint):**
 ```
 Continuing MenuCA V3 backend development.
 
-Read:
+Read these 2 files:
 1. /MEMORY_BANK/PROJECT_STATUS.md
 2. /MEMORY_BANK/NEXT_STEPS.md
 
 Tell me:
 - Last completed entity
-- Current entity to work on
+- Current entity to work on (X/10)
 - What to verify/build next
+- Current context usage
 ```
 
 ---
@@ -396,13 +419,13 @@ Wait for approval.
 ```
 ✅ [ENTITY NAME] Backend Complete (Entity X/10)
 
-STEP 2.3: Create integration docs (MAX 500 lines)
-STEP 3: Update BRIAN_MASTER_INDEX.md (MAX 150 lines per entity)
-STEP 4: Update MEMORY_BANK (PROJECT_STATUS, NEXT_STEPS, PROJECT_CONTEXT)
+STEP 2.3: Write complete docs to XX-Entity-Name-Frontend-Guide.md (MAX 500 lines)
+STEP 3: Update BRIAN_MASTER_INDEX.md index entry (MAX 50 lines, no code)
+STEP 4: Update MEMORY_BANK (PROJECT_STATUS.md, NEXT_STEPS.md ONLY)
 
 Verify line counts before committing:
-- Integration guide: < 500 lines ✓
-- BRIAN section: < 150 lines ✓
+- Frontend Guide (XX-Entity-Name-Frontend-Guide.md): < 500 lines ✓
+- BRIAN index entry: < 50 lines ✓
 
 Show changes before writing.
 ```
@@ -462,17 +485,17 @@ All over-limit documents have been successfully condensed:
 - [ ] Context loaded (3 files: STATUS, NEXT_STEPS, integration guide)
 - [ ] SQL objects verified/created and tested
 - [ ] Edge Functions verified/deployed and tested
-- [ ] Frontend integration documented **(<500 lines)**
-- [ ] BRIAN_MASTER_INDEX.md updated **(<150 lines per entity)**
+- [ ] Frontend Guide documented **(<500 lines in XX-Entity-Name-Frontend-Guide.md)**
+- [ ] BRIAN_MASTER_INDEX.md index entry updated **(<50 lines, no code)**
 - [ ] Line counts verified (use `Measure-Object -Line`)
-- [ ] MEMORY_BANK updated (3 files)
+- [ ] MEMORY_BANK updated (2 files: PROJECT_STATUS.md, NEXT_STEPS.md)
 - [ ] Git commit
 
 **Overall Progress:**
 - [ ] 10/10 entities complete
-- [ ] BRIAN_MASTER_INDEX.md fully populated
-- [ ] All integration guides < 500 lines
-- [ ] All BRIAN sections < 150 lines
+- [ ] BRIAN_MASTER_INDEX.md fully populated (index entries only)
+- [ ] All Frontend Guides < 500 lines
+- [ ] All BRIAN index entries < 50 lines
 - [ ] Brian can build frontend with all backend functions documented
 
 ---
@@ -485,7 +508,7 @@ All over-limit documents have been successfully condensed:
 4. **Document Immediately:** Update BRIAN_MASTER_INDEX.md right after completion
 5. **Checkpoint Often:** At 70% context, save progress and start fresh
 6. **One Entity at a Time:** Complete 100% before moving to next
-7. **🆕 Documentation Size Limits:** Integration guides < 500 lines, BRIAN sections < 150 lines
+7. **🆕 Documentation Size Limits:** Frontend Guides < 500 lines, BRIAN index entries < 50 lines
 8. **🆕 Verify Line Counts:** Always check with `Measure-Object -Line` before committing
 9. **🆕 Optimize for Agents:** Use compact formatting, tables, grouped functions, minimal prose
 

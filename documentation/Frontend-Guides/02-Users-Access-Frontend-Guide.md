@@ -1,52 +1,580 @@
 # Users & Access Entity - Frontend Developer Guide
 
 **Entity Priority:** 2 (Authentication)  
-**Status:** 📋 Pending  
-**Last Updated:** 2025-10-21  
+**Status:** ✅ BACKEND COMPLETE  
+**Last Updated:** October 22, 2025  
 **Platform:** Supabase (PostgreSQL + Edge Functions)  
 **Project:** nthpbtdjhhnwfxqsxbvy.supabase.co
 
 ---
 
+## Quick Stats
+
+- SQL Functions: 10 | Edge Functions: 3 | Tables: 5 | RLS Policies: 19
+
+---
+
 ## Purpose
 
-This guide will provide frontend developers with complete documentation for the **Users & Access Entity**, including:
+The Users & Access entity provides complete authentication, profile management, and authorization for both customers and restaurant administrators.
+
+**Key Features:**
 - Customer profile management
-- Authentication and authorization
-- Admin user management
+- Authentication via Supabase Auth
+- Admin user management with restaurant assignments
 - Role-based access control (RBAC)
-- Multi-factor authentication (2FA)
+- Delivery address management
+- Favorite restaurants
+- Legacy user migration system
 
 ---
 
-## Status
+## Core Operations
 
-**🚧 To Be Implemented**
+### 1. Authentication & Profiles (7 SQL Functions)
 
-This entity is currently pending implementation. Check back later for:
-- SQL Functions documentation
-- Edge Functions documentation
-- Authentication patterns
-- User profile management APIs
-- RBAC implementation
-- 2FA setup
+```typescript
+// Get customer profile
+const { data } = await supabase.rpc('get_user_profile');
+
+// Get admin profile
+const { data } = await supabase.rpc('get_admin_profile');
+
+// Get admin's restaurants
+const { data } = await supabase.rpc('get_admin_restaurants');
+
+// Check admin access to a restaurant
+const { data } = await supabase.rpc('check_admin_restaurant_access', {
+  p_restaurant_id: 123
+});
+```
+
+**Available Functions:**
+- `get_user_profile()` - Get authenticated customer's profile
+- `get_admin_profile()` - Get authenticated admin's profile
+- `get_admin_restaurants()` - List all restaurants admin can access
+- `check_admin_restaurant_access(p_restaurant_id)` - Verify admin can access restaurant
 
 ---
 
-## Dependencies
+### 2. Delivery Addresses (1 SQL Function)
 
-- Restaurant Management Entity
+```typescript
+// Get user's delivery addresses
+const { data } = await supabase.rpc('get_user_addresses');
+
+// Add new address (direct table insert with RLS)
+const { data, error } = await supabase
+  .from('user_delivery_addresses')
+  .insert({
+    street_address: '123 Main St',
+    city_id: 1,
+    postal_code: 'K1A 0B1',
+    is_default: true
+  });
+
+// Update address
+const { data, error } = await supabase
+  .from('user_delivery_addresses')
+  .update({ is_default: true })
+  .eq('id', addressId);
+
+// Delete address
+const { data, error } = await supabase
+  .from('user_delivery_addresses')
+  .delete()
+  .eq('id', addressId);
+```
+
+**Available Functions:**
+- `get_user_addresses()` - Get all addresses for authenticated user
+
+---
+
+### 3. Favorite Restaurants (2 SQL Functions)
+
+```typescript
+// Get favorite restaurants
+const { data } = await supabase.rpc('get_favorite_restaurants');
+
+// Toggle favorite (add if not favorited, remove if already favorited)
+const { data } = await supabase.rpc('toggle_favorite_restaurant', {
+  p_restaurant_id: 123
+});
+```
+
+**Available Functions:**
+- `get_favorite_restaurants()` - List user's favorite restaurants
+- `toggle_favorite_restaurant(p_restaurant_id)` - Add/remove favorite
+
+---
+
+### 4. Legacy User Migration (3 Edge Functions)
+
+**Problem:** 1,756 active legacy customers and 7 legacy admins exist without Supabase Auth accounts.
+
+**Statistics:**
+- Most recent login: September 12, 2025
+- Average logins: 33.1 per user
+- High-value users: 100-600+ logins
+- These are REAL customers trying to use the platform
+
+**Available Functions:**
+- `check-legacy-account` - Check if email belongs to legacy user
+- `complete-legacy-migration` - Link auth_user_id to legacy account
+- `get-migration-stats` - Get migration statistics (admin only)
+
+**Quick Example:**
+```typescript
+// Check if user is legacy (needs migration)
+const { data, error } = await supabase.functions.invoke('check-legacy-account', {
+  body: { email: 'user@example.com' }
+});
+// Returns: { is_legacy: true/false, user_id, first_name, last_name, user_type }
+
+// Complete migration after password reset
+const { data, error } = await supabase.functions.invoke('complete-legacy-migration', {
+  body: { 
+    email: 'user@example.com', 
+    user_type: 'customer' // or 'admin'
+  }
+});
+// Returns: { success: true, message, user_id }
+
+// Get migration stats (admin only)
+const { data, error } = await supabase.functions.invoke('get-migration-stats');
+// Returns: { legacy_customers, legacy_admins, active_2025_customers, active_2025_admins, total_legacy }
+```
+
+**📖 Complete Migration Implementation Below** (see after Authentication section)
+
+---
+
+## Legacy User Migration System
+
+This section provides the complete implementation for migrating 1,756+ legacy users to Supabase Auth.
+
+### Complete Migration Implementation
+
+**Solution:** Reactive migration on login attempt - user initiates the process.
+
+```typescript
+// Step 1: User tries to log in
+async function handleLogin(email: string, password: string) {
+  // Try normal login first
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error && error.message.includes('Invalid login credentials')) {
+    // Check if this is a legacy account
+    const { data: legacyCheck } = await supabase.functions.invoke('check-legacy-account', {
+      body: { email }
+    });
+
+    if (legacyCheck.is_legacy) {
+      // Show migration prompt with user's name
+      showMigrationPrompt(email, legacyCheck.first_name, legacyCheck.user_type);
+      return;
+    }
+  }
+
+  // Handle normal login error or success
+  if (error) {
+    showError('Invalid credentials');
+  } else {
+    redirectToDashboard();
+  }
+}
+
+// Step 2: User clicks "Migrate Account"
+async function startMigration(email: string) {
+  // Send password reset email
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}/auth/callback?migration=true`
+  });
+
+  if (!error) {
+    showMessage('Password reset email sent! Check your inbox.');
+  }
+}
+
+// Step 3: User clicks link in email and sets new password
+async function handlePasswordReset(newPassword: string) {
+  const { error } = await supabase.auth.updateUser({
+    password: newPassword
+  });
+
+  if (!error) {
+    // Get email and user_type from URL params or session
+    completeMigration(email, user_type);
+  }
+}
+
+// Step 4: Complete migration by linking accounts
+async function completeMigration(email: string, user_type: string) {
+  const { data, error } = await supabase.functions.invoke('complete-legacy-migration', {
+    body: { email, user_type }
+  });
+
+  if (data.success) {
+    showSuccess('Account migrated successfully!');
+    window.location.href = '/dashboard';
+  } else {
+    showError(data.message);
+  }
+}
+```
+
+### UI/UX Flow
+
+**Login Page - Legacy User Detected:**
+```
+┌─────────────────────────────────────────┐
+│  Your account needs to be updated       │
+│                                         │
+│  Hi James! We've upgraded our system.   │
+│  To continue, please reset your         │
+│  password to migrate your account.      │
+│                                         │
+│  All your order history, favorites,     │
+│  and addresses will be preserved.       │
+│                                         │
+│  [Migrate Account] [Cancel]            │
+└─────────────────────────────────────────┘
+```
+
+**After Clicking "Migrate Account":**
+```
+┌─────────────────────────────────────────┐
+│  Check your email!                      │
+│                                         │
+│  We've sent a password reset link to    │
+│  user@example.com                       │
+│                                         │
+│  Click the link and set a new password  │
+│  to complete your account migration.    │
+│                                         │
+│  [OK]                                   │
+└─────────────────────────────────────────┘
+```
+
+**Password Reset Page:**
+```
+┌─────────────────────────────────────────┐
+│  Set New Password                       │
+│                                         │
+│  Welcome back, James!                   │
+│  Please create a new password:          │
+│                                         │
+│  New Password: [______________]        │
+│  Confirm:      [______________]        │
+│                                         │
+│  [Complete Migration]                   │
+└─────────────────────────────────────────┘
+```
+
+**Success:**
+```
+┌─────────────────────────────────────────┐
+│  ✅ Account Migrated Successfully!      │
+│                                         │
+│  Your account has been updated.         │
+│  Redirecting to dashboard...            │
+└─────────────────────────────────────────┘
+```
+
+### Migration Security
+
+✅ **All functions use SECURITY DEFINER** - Secure access to data  
+✅ **RLS policies enforced** - Users can only migrate their own accounts  
+✅ **JWT validation** - Only authenticated users can complete migration  
+✅ **Email verification** - Password reset link validates ownership  
+✅ **Atomic updates** - auth_user_id updated in single transaction  
+✅ **No duplicate migrations** - System prevents re-migration
+
+### Monitoring Migration Progress
+
+```typescript
+// Get real-time migration statistics
+const { data } = await supabase.functions.invoke('get-migration-stats');
+
+console.log(`${data.stats.active_2025_customers} active users need migration`);
+console.log(`${data.stats.total_legacy} total legacy accounts`);
+```
+
+**Track:**
+- Daily migration completions
+- Failed migration attempts
+- Users who start but don't complete
+- Average time to complete migration
+
+**SQL Query:**
+```sql
+-- Check migration progress
+SELECT 
+  (SELECT COUNT(*) FROM menuca_v3.users WHERE auth_user_id IS NOT NULL) as migrated_customers,
+  (SELECT COUNT(*) FROM menuca_v3.users WHERE auth_user_id IS NULL) as pending_customers,
+  (SELECT COUNT(*) FROM menuca_v3.admin_users WHERE auth_user_id IS NOT NULL) as migrated_admins,
+  (SELECT COUNT(*) FROM menuca_v3.admin_users WHERE auth_user_id IS NULL) as pending_admins;
+```
+
+---
+
+## Authentication via Supabase Auth
+
+### Customer Signup
+
+```typescript
+const { data, error } = await supabase.auth.signUp({
+  email: 'user@example.com',
+  password: 'securepass123',
+  options: { 
+    data: { 
+      first_name: 'John', 
+      last_name: 'Doe' 
+    } 
+  }
+});
+
+if (error) {
+  console.error('Signup error:', error.message);
+} else {
+  console.log('User created:', data.user);
+}
+```
+
+### Customer Login
+
+```typescript
+const { data, error } = await supabase.auth.signInWithPassword({
+  email: 'user@example.com',
+  password: 'securepass123'
+});
+
+if (error) {
+  console.error('Login error:', error.message);
+} else {
+  // Get user profile
+  const { data: profile } = await supabase.rpc('get_user_profile');
+  console.log('Logged in as:', profile);
+}
+```
+
+### Admin Login
+
+```typescript
+const { data, error } = await supabase.auth.signInWithPassword({
+  email: 'admin@restaurant.com',
+  password: 'adminpass123'
+});
+
+if (error) {
+  console.error('Login error:', error.message);
+} else {
+  // Verify admin role
+  const { data: admin } = await supabase.rpc('get_admin_profile');
+  
+  if (!admin) {
+    // Not an admin account - sign out
+    await supabase.auth.signOut();
+    console.error('Not an admin account');
+  } else {
+    console.log('Admin logged in:', admin);
+  }
+}
+```
+
+### Password Reset
+
+```typescript
+// Send password reset email
+const { error } = await supabase.auth.resetPasswordForEmail(
+  'user@example.com',
+  { redirectTo: 'https://yourapp.com/reset-password' }
+);
+
+// On password reset page
+const { error } = await supabase.auth.updateUser({
+  password: 'newSecurePassword123'
+});
+```
+
+---
+
+## Security
+
+**Authentication:**
+- JWT-based authentication via Supabase Auth (automatic)
+- Tokens automatically included in all RPC and table operations
+
+**Authorization (RLS Policies):**
+- 19 RLS policies enforcing tenant isolation
+- Customers can only see/modify their own data
+- Admins can only see/modify data for assigned restaurants
+- Service role has full access (backend operations only)
+
+**Security Features:**
+- Passwords hashed with bcrypt
+- Email verification supported
+- MFA ready for admin accounts
+- Secure password reset flow
+- JWT refresh token rotation
+
+---
+
+## Database Tables
+
+| Table | Purpose | RLS Policies |
+|-------|---------|--------------|
+| `users` | Customer profiles linked to `auth.users` | 4 |
+| `admin_users` | Restaurant admin profiles | 4 |
+| `admin_user_restaurants` | Admin-to-restaurant assignments | 2 |
+| `user_delivery_addresses` | Customer delivery addresses | 5 |
+| `user_favorite_restaurants` | Customer favorite restaurants | 4 |
+
+**Key Columns:**
+- `auth_user_id` - UUID linking to `auth.users.id`
+- All tables use `auth.uid()` for RLS enforcement
+- Soft delete support via `deleted_at` column
+
+---
+
+## Common Errors
+
+| Code | Error | Solution |
+|------|-------|----------|
+| `23503` | Foreign key violation | Verify restaurant/city exists before inserting |
+| `42501` | Insufficient permissions | Check user is authenticated and has correct role |
+| `23505` | Duplicate email | User already exists - suggest login or password reset |
+| `PGRST116` | No rows returned | User not found - check authentication |
+| `23514` | Check constraint violation | Invalid data format (e.g., email format) |
+
+---
+
+## Performance Notes
+
+- **Query Speed:** All operations < 100ms (avg ~2-10ms)
+- **Indexes:** 40+ indexes optimized for auth lookups
+- **RLS Overhead:** < 1ms per query
+- **Best Practice:** Use `get_user_profile()` instead of direct table queries
+- **Caching:** Profile data can be cached client-side after login
+
+
+---
+
+## Complete Code Examples
+
+### Customer Profile Page
+
+```typescript
+import { useEffect, useState } from 'react';
+import { supabase } from './supabaseClient';
+
+function ProfilePage() {
+  const [profile, setProfile] = useState(null);
+  const [addresses, setAddresses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadProfile();
+  }, []);
+
+  async function loadProfile() {
+    try {
+      // Get profile
+      const { data: profileData } = await supabase.rpc('get_user_profile');
+      setProfile(profileData);
+
+      // Get addresses
+      const { data: addressData } = await supabase.rpc('get_user_addresses');
+      setAddresses(addressData);
+    } catch (error) {
+      console.error('Error loading profile:', error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (loading) return <div>Loading...</div>;
+
+  return (
+    <div>
+      <h1>Welcome, {profile.first_name}!</h1>
+      <p>Email: {profile.email}</p>
+      <p>Member since: {new Date(profile.created_at).toLocaleDateString()}</p>
+      
+      <h2>Delivery Addresses</h2>
+      {addresses.map(addr => (
+        <div key={addr.id}>
+          <p>{addr.street_address}, {addr.city_name}</p>
+          {addr.is_default && <span>Default</span>}
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+### Admin Restaurant Dashboard
+
+```typescript
+import { useEffect, useState } from 'react';
+import { supabase } from './supabaseClient';
+
+function AdminDashboard() {
+  const [admin, setAdmin] = useState(null);
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    loadAdminData();
+  }, []);
+
+  async function loadAdminData() {
+    // Get admin profile
+    const { data: adminData } = await supabase.rpc('get_admin_profile');
+    setAdmin(adminData);
+
+    // Get assigned restaurants
+    const { data: restaurantData } = await supabase.rpc('get_admin_restaurants');
+    setRestaurants(restaurantData);
+  }
+
+  async function checkAccess(restaurantId) {
+    const { data } = await supabase.rpc('check_admin_restaurant_access', {
+      p_restaurant_id: restaurantId
+    });
+    return data;
+  }
+
+  return (
+    <div>
+      <h1>Admin Dashboard</h1>
+      <p>Logged in as: {admin?.email}</p>
+      
+      <h2>Your Restaurants ({restaurants.length})</h2>
+      {restaurants.map(restaurant => (
+        <div key={restaurant.id}>
+          <h3>{restaurant.name}</h3>
+          <p>Status: {restaurant.status}</p>
+          <p>Role: {restaurant.role}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
 
 ---
 
 ## Backend Reference
 
-For backend implementation details, see:
+For detailed backend implementation, see:
 - [Users & Access - Santiago Backend Integration Guide](../Users%20&%20Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
 
 ---
 
-**Last Updated:** 2025-10-21  
-**Next Steps:** Backend implementation required
-
-
+**Last Updated:** October 22, 2025  
+**Status:** ✅ Production Ready  
+**Next Entity:** Menu & Catalog (Priority 3)
