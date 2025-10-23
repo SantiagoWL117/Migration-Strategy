@@ -365,7 +365,7 @@ Show changes before writing.
 
 ## 🚨 CONTEXT MANAGEMENT
 
-### **When Context Reaches 70% (700k tokens):**
+### **When Context Reaches 80%:**
 1. Checkpoint progress (document what was completed)
 2. Update BRIAN_MASTER_INDEX.md (if entity complete)
 3. Update MEMORY_BANK:
