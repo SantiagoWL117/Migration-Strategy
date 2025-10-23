@@ -283,7 +283,7 @@ async function completeMigration(email: string, user_type: string) {
 └─────────────────────────────────────────┘
 ```
 
-**Password Reset Page:**
+**Password Reset Page:** ⚠️ **MUST BE BUILT**
 ```
 ┌─────────────────────────────────────────┐
 │  Set New Password                       │
@@ -292,10 +292,18 @@ async function completeMigration(email: string, user_type: string) {
 │  Please create a new password:          │
 │                                         │
 │  New Password: [______________]        │
+│                 (min 8 characters)      │
 │  Confirm:      [______________]        │
+│                                         │
+│  Password Strength: [████░░░░] Strong  │
 │                                         │
 │  [Complete Migration]                   │
 └─────────────────────────────────────────┘
+
+🚨 CRITICAL: This page does NOT exist yet!
+Route: /reset-password
+Component: app/reset-password/page.tsx (or pages/reset-password.tsx)
+Required: Parse URL token, validate password, call supabase.auth.updateUser()
 ```
 
 **Success:**
@@ -413,18 +421,104 @@ if (error) {
 
 ### Password Reset
 
+⚠️ **CRITICAL: Password Reset Page Must Be Built**
+
+**Status:** NOT BUILT - Frontend work required  
+**Priority:** HIGH - Blocks legacy user migration  
+**Issue:** Password reset emails currently redirect to an error page
+
+**Current Issue:**
+```
+Email link redirects to:
+https://menuca-rebuild-pro.vercel.app/#error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired
+
+Expected:
+https://menuca-rebuild-pro.vercel.app/reset-password?token=...
+```
+
+**Required Implementation:**
+
 ```typescript
-// Send password reset email
+// Step 1: Send password reset email
 const { error } = await supabase.auth.resetPasswordForEmail(
   'user@example.com',
-  { redirectTo: 'https://yourapp.com/reset-password' }
+  { redirectTo: `${window.location.origin}/reset-password` }
 );
 
-// On password reset page
-const { error } = await supabase.auth.updateUser({
-  password: 'newSecurePassword123'
-});
+if (!error) {
+  showMessage('Check your email for the password reset link');
+}
+
+// Step 2: Create /reset-password page to handle the redirect
+// This page MUST:
+// - Parse the token from URL parameters
+// - Display password input fields (new password + confirm)
+// - Include password strength validation
+// - Call supabase.auth.updateUser({ password }) when submitted
+// - Handle errors gracefully
+// - Redirect to login/dashboard on success
+
+// Example /reset-password page:
+export default function ResetPasswordPage() {
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  async function handleResetPassword(e: FormEvent) {
+    e.preventDefault();
+    
+    if (newPassword !== confirmPassword) {
+      showError('Passwords do not match');
+      return;
+    }
+
+    if (newPassword.length < 8) {
+      showError('Password must be at least 8 characters');
+      return;
+    }
+
+    setLoading(true);
+    const { error } = await supabase.auth.updateUser({
+      password: newPassword
+    });
+    setLoading(false);
+
+    if (error) {
+      showError(error.message);
+    } else {
+      showSuccess('Password updated successfully!');
+      // For legacy users: Call complete-legacy-migration here
+      router.push('/dashboard');
+    }
+  }
+
+  return (
+    <form onSubmit={handleResetPassword}>
+      <h1>Set New Password</h1>
+      <input 
+        type="password" 
+        value={newPassword}
+        onChange={(e) => setNewPassword(e.target.value)}
+        placeholder="New password"
+        required
+      />
+      <input 
+        type="password" 
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        placeholder="Confirm password"
+        required
+      />
+      <button type="submit" disabled={loading}>
+        {loading ? 'Updating...' : 'Reset Password'}
+      </button>
+    </form>
+  );
+}
 ```
+
+**Integration with Legacy Migration:**
+After password reset, the page should automatically call `complete-legacy-migration` Edge Function for legacy users. See "Legacy User Migration System" section below for complete implementation.
 
 ---
 
@@ -624,3 +718,41 @@ For detailed backend implementation, see:
 - **Verified:** Password reset email flow working correctly
 - **Verified:** Account linking (auth_user_id → menuca_v3.users) operational
 - **Created:** Local copies of all 3 Edge Functions for version control
+- **⚠️ IDENTIFIED:** Password reset page does NOT exist - Frontend must build `/reset-password` route
+
+---
+
+## 🚨 CRITICAL FRONTEND TODO
+
+### Password Reset Page - MUST BE BUILT
+
+**Status:** ❌ NOT BUILT  
+**Priority:** 🔴 HIGH - Blocking legacy user migration  
+**Impact:** 1,756 legacy users cannot complete password reset
+
+**What's Missing:**
+1. `/reset-password` route/page component
+2. Password input form with validation
+3. Token parsing from URL parameters
+4. Integration with `supabase.auth.updateUser()`
+5. Error handling for expired tokens
+6. Success redirect to dashboard
+7. Integration with `complete-legacy-migration` for legacy users
+
+**Implementation Required:**
+- See "Password Reset" section above for complete code example
+- Page must handle both new users and legacy migration flows
+- Must include password strength validation
+- Must parse Supabase auth token from URL
+
+**Testing Checklist:**
+- [ ] Password reset email sends successfully
+- [ ] Email link redirects to `/reset-password` page (not error page)
+- [ ] Token is parsed correctly from URL
+- [ ] Password validation works (min 8 chars, strength meter)
+- [ ] Password confirmation matches
+- [ ] `supabase.auth.updateUser()` successfully updates password
+- [ ] Success message displays
+- [ ] Redirects to appropriate page (login/dashboard)
+- [ ] For legacy users: `complete-legacy-migration` is called automatically
+- [ ] Error handling for expired/invalid tokens
