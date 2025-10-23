@@ -132,12 +132,15 @@ Every phase completion report follows this structure to help AI developers and h
 
 **📂 Main Documentation:**
 - [Users & Access - Santiago Backend Integration Guide](./documentation/Users%20&%20Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+- [Two-Step Signup Implementation Guide for Brian](../BRIAN_TWO_STEP_SIGNUP_IMPLEMENTATION.md) - Frontend signup implementation
+- [Function Access & Direct Query Guide](../FUNCTION_ACCESS_FIX.md) - Query examples (functions not exposed via REST API)
 
 **Business Logic:**
 - 7 SQL functions (profile, addresses, favorites, admin access)
 - 20 RLS policies (customers, admins, service_role)
 - Complete customer profile management
 - Multi-factor authentication (TOTP 2FA for admins)
+- **Note:** SQL functions accessible via direct SQL only (use table queries for REST API)
 
 **Backend APIs:**
 1. `POST /api/auth/signup` - Customer registration
