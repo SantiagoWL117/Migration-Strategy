@@ -204,39 +204,50 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 
 **📂 Frontend Documentation:**
 - **[Users & Access - Frontend Developer Guide](./02-Users-Access-Frontend-Guide.md)** ⭐
+- **[Two-Step Signup Implementation Guide](../../BRIAN_TWO_STEP_SIGNUP_IMPLEMENTATION.md)** - Complete signup flow with profile creation
+- **[Direct Table Queries Implementation](../../DIRECT_TABLE_QUERIES_IMPLEMENTATION.md)** - Query patterns and API client
+- **[Function Access & Workaround Guide](../../FUNCTION_ACCESS_FIX.md)** - Why SQL functions return 404 via REST API
+- **[Customer Profile Inspection Report](../../CUSTOMER_PROFILE_INSPECTION_REPORT.md)** - Testing results and findings
 
 **Components Implemented:**
 1. **Authentication & Profiles** (7 SQL Functions)
    - Customer and admin authentication via Supabase Auth
    - Profile management for customers and admins
    - Admin restaurant access control
+   - **Two-step signup** (auth creation + profile update)
 
 2. **Delivery Addresses** (1 SQL Function + Direct Table Access)
    - Customer address management with RLS
    - CRUD operations via direct table access
+   - City and province relationships
 
 3. **Favorite Restaurants** (2 SQL Functions)
    - Add/remove favorite restaurants
-   - List user favorites
+   - List user favorites with restaurant details
 
 4. **Legacy User Migration** (3 Edge Functions)
    - Reactive migration for 1,756 legacy users
    - Password reset flow integration
    - Migration statistics tracking
+   - **1,756 auth accounts created proactively** ✅
 
 **Key Features:**
 - ✅ 10 SQL functions (read operations)
 - ✅ 3 Edge Functions (migration system)
-- ✅ JWT-based authentication
-- ✅ 19 RLS policies
+- ✅ JWT-based authentication (60-min access, 30-day refresh)
+- ✅ 20 RLS policies (all verified)
 - ✅ Tenant isolation (customers & admins)
+- ✅ Direct table queries (recommended approach)
+- ✅ Complete implementation guides
 
 **Frontend APIs:**
 - All documented in the [Users & Access Frontend Guide](./02-Users-Access-Frontend-Guide.md)
-- Complete authentication examples
-- Profile and address management
+- Complete authentication examples (signup, login, logout)
+- Two-step signup pattern (fully documented)
+- Profile and address management (direct queries)
 - Legacy user migration flow
 - Error handling strategies
+- Reusable API client patterns
 
 ---
 
