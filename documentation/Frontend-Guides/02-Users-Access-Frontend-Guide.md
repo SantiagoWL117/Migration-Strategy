@@ -1,8 +1,8 @@
 # Users & Access Entity - Frontend Developer Guide
 
 **Entity Priority:** 2 (Authentication)  
-**Status:** ✅ BACKEND COMPLETE  
-**Last Updated:** October 22, 2025  
+**Status:** ✅ PRODUCTION READY  
+**Last Updated:** October 23, 2025  
 **Platform:** Supabase (PostgreSQL + Edge Functions)  
 **Project:** nthpbtdjhhnwfxqsxbvy.supabase.co
 
@@ -109,20 +109,27 @@ const { data } = await supabase.rpc('toggle_favorite_restaurant', {
 
 ---
 
-### 4. Legacy User Migration (3 Edge Functions)
+### 4. Legacy User Migration (3 Edge Functions) ✅ FIXED
+
+**Update (Oct 23, 2025):** `complete-legacy-migration` Edge Function has been **fixed and deployed (v2)**. The function now properly handles SQL TABLE return types and includes robust error handling.
 
 **Problem:** 1,756 active legacy customers and 7 legacy admins exist without Supabase Auth accounts.
+
+**Solution Implemented:**
+- ✅ Proactive auth account creation: All 1,756 legacy users now have `auth.users` records
+- ✅ Reactive migration system: Users can migrate on login
+- ✅ Fixed Edge Function: `complete-legacy-migration` v2 deployed and operational
 
 **Statistics:**
 - Most recent login: September 12, 2025
 - Average logins: 33.1 per user
 - High-value users: 100-600+ logins
-- These are REAL customers trying to use the platform
+- Auth accounts created: 1,756 (100% success rate)
 
 **Available Functions:**
-- `check-legacy-account` - Check if email belongs to legacy user
-- `complete-legacy-migration` - Link auth_user_id to legacy account
-- `get-migration-stats` - Get migration statistics (admin only)
+- `check-legacy-account` - Check if email belongs to legacy user ✅
+- `complete-legacy-migration` - Link auth_user_id to legacy account ✅ **FIXED (v2)**
+- `get-migration-stats` - Get migration statistics (admin only) ✅
 
 **Quick Example:**
 ```typescript
@@ -132,14 +139,15 @@ const { data, error } = await supabase.functions.invoke('check-legacy-account', 
 });
 // Returns: { is_legacy: true/false, user_id, first_name, last_name, user_type }
 
-// Complete migration after password reset
+// Complete migration after password reset (requires user's JWT token)
 const { data, error } = await supabase.functions.invoke('complete-legacy-migration', {
   body: { 
     email: 'user@example.com', 
     user_type: 'customer' // or 'admin'
   }
 });
-// Returns: { success: true, message, user_id }
+// Returns: { success: true, message, user_id, auth_user_id }
+// Note: Edge Function v2 (Oct 23, 2025) - Fixed TABLE return type handling
 
 // Get migration stats (admin only)
 const { data, error } = await supabase.functions.invoke('get-migration-stats');
@@ -150,9 +158,16 @@ const { data, error } = await supabase.functions.invoke('get-migration-stats');
 
 ---
 
-## Legacy User Migration System
+## Legacy User Migration System ✅ PRODUCTION READY
 
 This section provides the complete implementation for migrating 1,756+ legacy users to Supabase Auth.
+
+**Status Update (October 23, 2025):**
+- ✅ All 1,756 legacy users have auth accounts created (proactive migration)
+- ✅ `complete-legacy-migration` Edge Function fixed and deployed (v2)
+- ✅ Password reset flow tested and working
+- ✅ Account linking verified
+- ✅ System is production-ready for frontend integration
 
 ### Complete Migration Implementation
 
@@ -214,15 +229,23 @@ async function handlePasswordReset(newPassword: string) {
 
 // Step 4: Complete migration by linking accounts
 async function completeMigration(email: string, user_type: string) {
+  // Note: User must be authenticated (have JWT token) for this to work
   const { data, error } = await supabase.functions.invoke('complete-legacy-migration', {
     body: { email, user_type }
   });
 
+  if (error) {
+    console.error('Migration error:', error);
+    showError('Failed to complete migration. Please try again.');
+    return;
+  }
+
   if (data.success) {
     showSuccess('Account migrated successfully!');
+    console.log('Migration complete:', data.user_id, data.auth_user_id);
     window.location.href = '/dashboard';
   } else {
-    showError(data.message);
+    showError(data.message || 'Migration failed');
   }
 }
 ```
@@ -292,7 +315,9 @@ async function completeMigration(email: string, user_type: string) {
 ✅ **JWT validation** - Only authenticated users can complete migration  
 ✅ **Email verification** - Password reset link validates ownership  
 ✅ **Atomic updates** - auth_user_id updated in single transaction  
-✅ **No duplicate migrations** - System prevents re-migration
+✅ **No duplicate migrations** - System prevents re-migration  
+✅ **Type-safe responses** - Edge Function v2 includes robust error handling  
+✅ **Detailed error messages** - Better debugging for failed migrations
 
 ### Monitoring Migration Progress
 
@@ -575,6 +600,27 @@ For detailed backend implementation, see:
 
 ---
 
-**Last Updated:** October 22, 2025  
-**Status:** ✅ Production Ready  
+**Last Updated:** October 23, 2025  
+**Status:** ✅ Production Ready (Edge Function Fix Deployed v2)  
+**Recent Updates:**
+- Oct 23, 2025: Fixed `complete-legacy-migration` Edge Function (v2)
+- Oct 23, 2025: Tested and verified password reset flow
+- Oct 23, 2025: All 1,756 legacy auth accounts created
+
 **Next Entity:** Menu & Catalog (Priority 3)
+
+---
+
+## Change Log
+
+### October 23, 2025
+- **Fixed:** `complete-legacy-migration` Edge Function (v2)
+  - **Issue:** Function was returning 500 error due to improper SQL TABLE return type handling
+  - **Fix:** Added robust array validation with `Array.isArray()` check
+  - **Improvement:** Enhanced error handling with detailed error messages
+  - **Improvement:** Added TypeScript interfaces for type safety
+  - **Status:** Deployed to production and verified working
+  - **Details:** See `/EDGE_FUNCTION_FIX_REPORT.md` for complete technical analysis
+- **Verified:** Password reset email flow working correctly
+- **Verified:** Account linking (auth_user_id → menuca_v3.users) operational
+- **Created:** Local copies of all 3 Edge Functions for version control
