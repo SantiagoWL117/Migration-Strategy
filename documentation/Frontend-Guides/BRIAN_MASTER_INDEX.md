@@ -1,8 +1,8 @@
 # Brian's Master Index - Frontend Integration Hub
 
 **Purpose:** Single source of truth for all frontend development documentation  
-**Last Updated:** October 21, 2025  
-**Status:** Restaurant Management Complete | 9 Entities Pending  
+**Last Updated:** October 23, 2025  
+**Status:** Restaurant Management Complete | Users & Access Complete (Auth Migration Ready) | 8 Entities Pending  
 **Platform:** Supabase (PostgreSQL + Edge Functions)
 
 ---
@@ -49,12 +49,12 @@ Every entity guide follows this structure to help frontend developers understand
 
 ## **ENTITY STATUS OVERVIEW**
 
-**Progress:** 1 of 10 Entities Complete (10%)
+**Progress:** 2 of 10 Entities Complete (20%)
 
 | Entity | Status | Priority | Components | SQL Functions | Edge Functions |
 |--------|--------|----------|------------|---------------|----------------|
 | Restaurant Management | ✅ COMPLETE | 1 | 11 | 50+ | 29 |
-| Users & Access | 📋 PENDING | 2 | - | - | - |
+| Users & Access | ✅ COMPLETE | 2 | 5 | 10 | 3 |
 | Menu & Catalog | 📋 PENDING | 3 | - | - | - |
 | Service Configuration | 📋 PENDING | 4 | - | - | - |
 | Location & Geography | 📋 PENDING | 5 | - | - | - |
@@ -64,7 +64,8 @@ Every entity guide follows this structure to help frontend developers understand
 | Devices & Infrastructure | 📋 PENDING | 9 | - | - | - |
 | Vendors & Franchises | 📋 PENDING | 10 | - | - | - |
 
-**Restaurant Management Total:** 50+ SQL functions | 29 Edge Functions | Production-Ready ✅
+**Restaurant Management:** 50+ SQL functions | 29 Edge Functions | Production-Ready ✅  
+**Users & Access:** 10 SQL functions | 3 Edge Functions | 1,756 Auth Accounts Created | Production-Ready ✅
 
 ---
 
@@ -199,22 +200,54 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 ---
 
 ### **2. Users & Access**
-**Priority:** 2 (Authentication) | **Status:** 📋 PENDING
+**Priority:** 2 (Authentication) | **Status:** ✅ COMPLETE
 
 **📂 Frontend Documentation:**
-- **[Users & Access - Frontend Developer Guide](./02-Users-Access-Frontend-Guide.md)**
+- **[Users & Access - Frontend Developer Guide](./02-Users-Access-Frontend-Guide.md)** ⭐
+- **[Two-Step Signup Implementation Guide](../../BRIAN_TWO_STEP_SIGNUP_IMPLEMENTATION.md)** - Complete signup flow with profile creation
+- **[Direct Table Queries Implementation](../../DIRECT_TABLE_QUERIES_IMPLEMENTATION.md)** - Query patterns and API client
+- **[Function Access & Workaround Guide](../../FUNCTION_ACCESS_FIX.md)** - Why SQL functions return 404 via REST API
+- **[Customer Profile Inspection Report](../../CUSTOMER_PROFILE_INSPECTION_REPORT.md)** - Testing results and findings
 
-**Planned Features:**
-- Customer profile management
-- Authentication and authorization
-- Admin user management
-- Role-based access control (RBAC)
-- Multi-factor authentication (2FA)
+**Components Implemented:**
+1. **Authentication & Profiles** (7 SQL Functions)
+   - Customer and admin authentication via Supabase Auth
+   - Profile management for customers and admins
+   - Admin restaurant access control
+   - **Two-step signup** (auth creation + profile update)
 
-**Backend Reference:**
-- [Users & Access - Santiago Backend Integration Guide](../../documentation/Users%20&%20Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+2. **Delivery Addresses** (1 SQL Function + Direct Table Access)
+   - Customer address management with RLS
+   - CRUD operations via direct table access
+   - City and province relationships
 
-**Status:** 🚧 To be implemented
+3. **Favorite Restaurants** (2 SQL Functions)
+   - Add/remove favorite restaurants
+   - List user favorites with restaurant details
+
+4. **Legacy User Migration** (3 Edge Functions)
+   - Reactive migration for 1,756 legacy users
+   - Password reset flow integration
+   - Migration statistics tracking
+   - **1,756 auth accounts created proactively** ✅
+
+**Key Features:**
+- ✅ 10 SQL functions (read operations)
+- ✅ 3 Edge Functions (migration system)
+- ✅ JWT-based authentication (60-min access, 30-day refresh)
+- ✅ 20 RLS policies (all verified)
+- ✅ Tenant isolation (customers & admins)
+- ✅ Direct table queries (recommended approach)
+- ✅ Complete implementation guides
+
+**Frontend APIs:**
+- All documented in the [Users & Access Frontend Guide](./02-Users-Access-Frontend-Guide.md)
+- Complete authentication examples (signup, login, logout)
+- Two-step signup pattern (fully documented)
+- Profile and address management (direct queries)
+- Legacy user migration flow
+- Error handling strategies
+- Reusable API client patterns
 
 ---
 
@@ -430,7 +463,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 
 ### **🟡 Frontend (IN PROGRESS):**
 - [x] **Restaurant Management** - Complete guide with all APIs documented
-- [ ] **Users & Access** - Pending implementation
+- [x] **Users & Access** - Complete guide with all APIs documented
 - [ ] **Menu & Catalog** - Pending implementation
 - [ ] **Service Configuration** - Pending implementation
 - [ ] **Location & Geography** - Pending implementation
@@ -490,7 +523,6 @@ https://nthpbtdjhhnwfxqsxbvy.supabase.co
 
 ---
 
-**Last Updated:** October 21, 2025  
-**Current Focus:** Restaurant Management Entity (Complete) | Next: Users & Access Entity  
+**Last Updated:** October 22, 2025  
+**Current Focus:** Users & Access Entity (Complete) | Next: Menu & Catalog Entity  
 **For Backend Implementation Details:** See [SANTIAGO_MASTER_INDEX.md](../../SANTIAGO_MASTER_INDEX.md)
-

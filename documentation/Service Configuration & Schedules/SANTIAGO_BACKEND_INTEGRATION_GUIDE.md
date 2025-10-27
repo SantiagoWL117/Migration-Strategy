@@ -1,353 +1,100 @@
 # Service Configuration & Schedules - Backend Integration Guide
 
 **Entity:** Service Configuration & Schedules  
-**Status:** ✅ COMPLETE - All 6 Phases  
-**Date:** January 16, 2025  
-**For:** Santiago (Backend Developer)  
+**Status:** ✅ COMPLETE  
+**For:** Santiago (Backend Developer)
 
 ---
 
-## 📋 **TABLE OF CONTENTS**
+## 🚨 BUSINESS PROBLEM
 
-1. [Business Problem Summary](#business-problem-summary)
-2. [The Solution](#the-solution)
-3. [Gained Business Logic Components](#gained-business-logic-components)
-4. [Backend Functionality Requirements](#backend-functionality-requirements)
-5. [menuca_v3 Schema Modifications](#menuca_v3-schema-modifications)
-6. [API Integration Examples](#api-integration-examples)
-7. [Testing Checklist](#testing-checklist)
+**Critical Issues:**
+- ❌ No RLS, multi-tenant isolation, or audit trails
+- ❌ No soft delete, slow queries (80-120ms), English-only
+- ❌ Competitors could disable schedules, data loss, wrong hours shown
 
----
-
-## 🚨 **BUSINESS PROBLEM SUMMARY**
-
-### **Critical Security Vulnerabilities**
-
-**BEFORE Refactoring:**
-- ❌ **No Row-Level Security:** Any user could view/modify any restaurant's schedules
-- ❌ **No Multi-tenant Isolation:** Restaurant A could access Restaurant B's data
-- ❌ **No Audit Trail:** Couldn't track who changed schedules or when
-- ❌ **No Soft Delete:** Accidental deletions were permanent
-- ❌ **No Conflict Prevention:** Overlapping schedules caused database corruption
-- ❌ **No Real-time Updates:** Customers saw stale hours (required page refresh)
-- ❌ **Slow Queries:** No indexes, 80-120ms average query time
-- ❌ **No Multi-language:** English-only, couldn't serve Spanish/French customers
-
-### **Business Impact**
-
-- **Security Risk:** Competitors could disable restaurant schedules
-- **Data Loss:** Accidental deletions couldn't be recovered
-- **Poor UX:** Customers saw wrong hours, placed orders when closed
-- **Performance:** Slow API responses frustrated users
-- **Limited Market:** Couldn't expand to non-English markets
+**Impact:** Security risk, poor UX, performance issues, limited market expansion
 
 ---
 
-## ✅ **THE SOLUTION**
+## ✅ THE SOLUTION
 
-### **6-Phase Enterprise Refactoring**
-
-We completely transformed the Service Configuration & Schedules entity to meet enterprise standards (Uber Eats, DoorDash, Skip level).
-
-| Phase | Focus | Result |
-|-------|-------|--------|
-| **Phase 1** | Auth & Security | RLS enabled, 16 policies, 100% tenant isolation |
-| **Phase 2** | Performance & APIs | 3 production APIs, 15+ indexes, 6-8x faster |
-| **Phase 3** | Schema Optimization | Audit trails, soft delete, conflict prevention |
-| **Phase 4** | Real-time Updates | WebSocket subscriptions, pg_notify triggers |
-| **Phase 5** | Multi-language | Spanish/French support, i18n functions |
-| **Phase 6** | Testing & Validation | All systems verified, production-ready |
+6-phase enterprise refactoring delivered:
+- **Security:** 16 RLS policies, 100% tenant isolation
+- **Performance:** 6-8x faster (10-15ms queries), 15+ indexes
+- **Features:** Real-time WebSocket, multi-language (EN/ES/FR), soft delete
+- **Data Integrity:** Audit trails, conflict prevention, auto-timestamps
 
 ---
 
-## 🧩 **GAINED BUSINESS LOGIC COMPONENTS**
+## 🧩 CORE FUNCTIONALITY
 
-### **1. Core Schedule APIs (3)**
-
-| API | Purpose | Response Time |
-|-----|---------|---------------|
-| `is_restaurant_open_now()` | Check if restaurant open right now | ~10ms |
-| `get_restaurant_hours()` | Get all operating hours | ~15ms |
-| `get_restaurant_config()` | Get delivery/takeout settings | ~5ms |
-
-**Business Value:**
-- Customers see accurate hours instantly
-- "Open Now" badge updates in real-time
-- Prevent orders when restaurant closed
+### **Quick Reference**
+- **SQL Functions:** 11 (3 public APIs, 5 admin, 2 i18n, 1 real-time)
+- **Tables:** 4 (schedules, special_schedules, service_configs, time_periods)
+- **RLS Policies:** 16 (4 per table)
+- **API Endpoints:** 11 (4 public, 7 admin)
+- **Languages:** EN, ES, FR
 
 ---
 
-### **2. Admin Management Functions (5)**
+## 💻 BACKEND API REQUIREMENTS
 
-| Function | Purpose | Use Case |
-|----------|---------|----------|
-| `soft_delete_schedule()` | Safe deletion | Remove schedule without data loss |
-| `restore_schedule()` | Undelete | Recover accidentally deleted schedule |
-| `has_schedule_conflict()` | Conflict check | Validate before insert/update |
-| `bulk_toggle_schedules()` | Bulk on/off | Disable all delivery schedules |
-| `clone_schedule_to_day()` | Duplicate | Copy Monday hours to Tuesday |
+### **1. Public APIs (No Auth)**
 
-**Business Value:**
-- Prevent data loss with soft delete
-- Fast schedule management for admins
-- Automatic conflict detection
+| Endpoint | Function | Response Time | Returns |
+|----------|----------|---------------|---------|
+| `GET /api/restaurants/:id/is-open?service=delivery` | `is_restaurant_open_now()` | ~10ms | `{ is_open: true, checked_at }` |
+| `GET /api/restaurants/:id/hours?lang=es` | `get_restaurant_hours_i18n()` | ~15ms | Localized schedule array |
+| `GET /api/restaurants/:id/config` | `get_restaurant_config()` | ~5ms | Service settings object |
+| `GET /api/restaurants/:id/upcoming-changes?hours=168` | `get_upcoming_schedule_changes()` | ~20ms | Upcoming closures array |
 
----
-
-### **3. Real-time Subscriptions (4 Tables)**
-
-| Table | Realtime Enabled | Use Case |
-|-------|------------------|----------|
-| `restaurant_schedules` | ✅ | Live schedule updates |
-| `restaurant_service_configs` | ✅ | Live delivery/takeout toggle |
-| `restaurant_special_schedules` | ✅ | Holiday closure alerts |
-| `restaurant_time_periods` | ✅ | Time period changes |
-
-**Business Value:**
-- Zero page refreshes needed
-- Instant closure notifications
-- Live "Open/Closed" status
-
----
-
-### **4. Multi-language Support (2 Functions)**
-
-| Function | Purpose | Languages |
-|----------|---------|-----------|
-| `get_day_name()` | Translate day names | EN, ES, FR |
-| `get_restaurant_hours_i18n()` | Localized hours | EN, ES, FR |
-
-**Business Value:**
-- Serve Spanish/French customers
-- Expand to new markets
-- Better UX for bilingual restaurants
-
----
-
-### **5. Security & Isolation**
-
-| Component | Count | Purpose |
-|-----------|-------|---------|
-| RLS Policies | 16 | Enforce tenant isolation |
-| `tenant_id` Columns | 4 tables | Fast multi-tenant filtering |
-| Indexes | 15+ | Optimize RLS queries |
-| JWT Claims | 2 | `restaurant_id`, `role` |
-
-**Business Value:**
-- Restaurant A cannot access Restaurant B's data
-- 100% data isolation
-- Enterprise-grade security
-
----
-
-### **6. Data Integrity**
-
-| Feature | Implementation | Purpose |
-|---------|----------------|---------|
-| Audit Trail | 6 columns per table | Track who/when changes |
-| Soft Delete | `deleted_at` column | Never lose data |
-| Conflict Prevention | Overlap trigger | Prevent double-booking |
-| Auto-timestamps | Update triggers | Automatic change tracking |
-
-**Business Value:**
-- Full audit history for compliance
-- Recover from mistakes
-- Prevent database corruption
-
----
-
-## 💻 **BACKEND FUNCTIONALITY REQUIREMENTS**
-
-### **Public Endpoints (No Auth Required)**
-
-#### **1. Check if Restaurant is Open**
-```http
-GET /api/restaurants/:id/is-open?service=delivery
+**Usage Pattern:**
+```typescript
+// Check if open + get hours in parallel
+const [isOpen, hours] = await Promise.all([
+  fetch(`/api/restaurants/${id}/is-open?service=delivery`).then(r => r.json()),
+  fetch(`/api/restaurants/${id}/hours?lang=es`).then(r => r.json())
+]);
 ```
-**Calls:** `is_restaurant_open_now()`  
-**Returns:**
-```json
-{
-  "restaurant_id": 950,
-  "service_type": "delivery",
-  "is_open": true,
-  "checked_at": "2025-01-16T18:30:00Z"
+
+---
+
+### **2. Admin APIs (Auth Required - RLS Enforced)**
+
+| Endpoint | Method | Function | Purpose |
+|----------|--------|----------|---------|
+| `/api/admin/restaurants/:id/schedules` | POST | Direct insert | Create schedule |
+| `/api/admin/restaurants/:id/schedules/:sid` | PUT | Direct update | Update schedule |
+| `/api/admin/restaurants/:id/schedules/:sid` | DELETE | `soft_delete_schedule()` | Safe deletion |
+| `/api/admin/restaurants/:id/schedules/:sid/restore` | POST | `restore_schedule()` | Undelete |
+| `/api/admin/restaurants/:id/schedules/check-conflict` | POST | `has_schedule_conflict()` | Validate before insert |
+| `/api/admin/restaurants/:id/schedules/bulk-toggle` | PATCH | `bulk_toggle_schedules()` | Enable/disable by type |
+| `/api/admin/restaurants/:id/schedules/:sid/clone` | POST | `clone_schedule_to_day()` | Duplicate schedule |
+
+**Usage Pattern:**
+```typescript
+// Always check conflicts before creating
+const conflict = await supabase.rpc('has_schedule_conflict', {
+  p_restaurant_id: id,
+  p_service_type: 'delivery',
+  p_day_start: 1,
+  p_day_stop: 5,
+  p_time_start: '11:00',
+  p_time_stop: '22:00'
+});
+
+if (!conflict.has_conflict) {
+  // Create schedule
+  await supabase.from('restaurant_schedules').insert({...});
 }
 ```
 
 ---
 
-#### **2. Get Restaurant Hours**
-```http
-GET /api/restaurants/:id/hours?lang=es
-```
-**Calls:** `get_restaurant_hours_i18n()`  
-**Returns:**
-```json
-{
-  "delivery": [
-    { "day": "Lunes", "opens": "11:00", "closes": "23:00" },
-    { "day": "Martes", "opens": "11:00", "closes": "23:00" }
-  ],
-  "takeout": [
-    { "day": "Lunes", "opens": "10:00", "closes": "22:00" }
-  ]
-}
-```
+### **3. Real-time WebSocket Subscriptions**
 
----
-
-#### **3. Get Service Configuration**
-```http
-GET /api/restaurants/:id/config
-```
-**Calls:** `get_restaurant_config()`  
-**Returns:**
-```json
-{
-  "delivery": {
-    "enabled": true,
-    "eta_minutes": 45,
-    "min_order": 15.00
-  },
-  "takeout": {
-    "enabled": true,
-    "eta_minutes": 20,
-    "discount": { "type": "percentage", "value": 10 }
-  }
-}
-```
-
----
-
-#### **4. Get Upcoming Schedule Changes**
-```http
-GET /api/restaurants/:id/upcoming-changes?hours=168
-```
-**Calls:** `get_upcoming_schedule_changes()`  
-**Returns:**
-```json
-{
-  "changes": [
-    {
-      "change_type": "special_schedule",
-      "change_time": "2025-01-20T00:00:00Z",
-      "description": "Restaurant closed: Christmas Day"
-    }
-  ]
-}
-```
-
----
-
-### **Admin Endpoints (Auth Required)**
-
-#### **5. Create Schedule**
-```http
-POST /api/admin/restaurants/:id/schedules
-```
-**Body:**
-```json
-{
-  "type": "delivery",
-  "day_start": 1,
-  "day_stop": 5,
-  "time_start": "11:00:00",
-  "time_stop": "22:00:00"
-}
-```
-**RLS:** Automatically filters by `tenant_id` from JWT
-
----
-
-#### **6. Update Schedule**
-```http
-PUT /api/admin/restaurants/:id/schedules/:sid
-```
-**Body:**
-```json
-{
-  "time_start": "10:00:00",
-  "is_enabled": true
-}
-```
-**Validation:** `has_schedule_conflict()` before update  
-**Audit:** `updated_at`, `updated_by` auto-populated
-
----
-
-#### **7. Delete Schedule (Soft Delete)**
-```http
-DELETE /api/admin/restaurants/:id/schedules/:sid
-```
-**Calls:** `soft_delete_schedule()`  
-**Result:** Schedule hidden, not destroyed (recoverable)
-
----
-
-#### **8. Restore Schedule**
-```http
-POST /api/admin/restaurants/:id/schedules/:sid/restore
-```
-**Calls:** `restore_schedule()`  
-**Result:** Un-deletes schedule
-
----
-
-#### **9. Check for Conflicts**
-```http
-POST /api/admin/restaurants/:id/schedules/check-conflict
-```
-**Body:**
-```json
-{
-  "service_type": "delivery",
-  "day_start": 1,
-  "day_stop": 5,
-  "time_start": "11:00:00",
-  "time_stop": "22:00:00"
-}
-```
-**Calls:** `has_schedule_conflict()`  
-**Returns:** `{ "has_conflict": false, "can_insert": true }`
-
----
-
-#### **10. Bulk Toggle Schedules**
-```http
-PATCH /api/admin/restaurants/:id/schedules/bulk-toggle
-```
-**Body:**
-```json
-{
-  "service_type": "delivery",
-  "enabled": false
-}
-```
-**Calls:** `bulk_toggle_schedules()`  
-**Result:** Disables all delivery schedules
-
----
-
-#### **11. Clone Schedule**
-```http
-POST /api/admin/restaurants/:id/schedules/:sid/clone
-```
-**Body:**
-```json
-{
-  "day_start": 2,
-  "day_stop": 2
-}
-```
-**Calls:** `clone_schedule_to_day()`  
-**Result:** Duplicates schedule to new day
-
----
-
-### **Real-time WebSocket Subscriptions**
-
-#### **12. Subscribe to Schedule Changes**
+**Subscribe to schedule changes:**
 ```typescript
 supabase
   .channel(`restaurant-${restaurantId}`)
@@ -357,168 +104,82 @@ supabase
     table: 'restaurant_schedules',
     filter: `restaurant_id=eq.${restaurantId}`
   }, (payload) => {
-    // Handle schedule change
-    refetchSchedules();
+    refetchSchedules(); // Live "Open/Closed" badge update
   })
   .subscribe();
 ```
 
-**Use Cases:**
-- Live "Open/Closed" badge updates
-- Admin dashboard real-time sync
-- Customer alerts for closures
+**Realtime Tables:** `restaurant_schedules`, `restaurant_service_configs`, `restaurant_special_schedules`, `restaurant_time_periods`
 
 ---
 
-## 🗄️ **MENUCA_V3 SCHEMA MODIFICATIONS**
+## 🗄️ SCHEMA ENHANCEMENTS
 
-### **Tables Modified (4)**
+### **Tables Enhanced (4)**
+All tables have: `tenant_id`, `created_by`, `updated_by`, `deleted_at`, `deleted_by`
 
-1. **restaurant_schedules**
-2. **restaurant_special_schedules**
-3. **restaurant_service_configs**
-4. **restaurant_time_periods**
-
----
-
-### **Columns Added to All 4 Tables**
-
-| Column | Type | Purpose |
-|--------|------|---------|
-| `tenant_id` | UUID NOT NULL | Multi-tenant isolation (FK to restaurants.uuid) |
-| `created_by` | INTEGER | User who created (if missing) |
-| `updated_by` | INTEGER | User who last modified |
-| `deleted_at` | TIMESTAMPTZ | Soft delete timestamp |
-| `deleted_by` | BIGINT | User who soft-deleted |
-
-**Total Rows Affected:** 1,999 rows across 4 tables
-
----
-
-### **Indexes Added (15+)**
-
+### **Key Indexes (15+)**
 ```sql
--- Tenant filtering (fast RLS)
-CREATE INDEX idx_restaurant_schedules_tenant ON restaurant_schedules(tenant_id);
-CREATE INDEX idx_restaurant_service_configs_tenant ON restaurant_service_configs(tenant_id);
-CREATE INDEX idx_restaurant_special_schedules_tenant ON restaurant_special_schedules(tenant_id);
-CREATE INDEX idx_restaurant_time_periods_tenant ON restaurant_time_periods(tenant_id);
+-- Tenant filtering (RLS optimization)
+idx_restaurant_schedules_tenant(tenant_id)
+idx_restaurant_service_configs_tenant(tenant_id)
+idx_restaurant_special_schedules_tenant(tenant_id)
+idx_restaurant_time_periods_tenant(tenant_id)
 
 -- Schedule lookups
-CREATE INDEX idx_schedules_restaurant_type_day ON restaurant_schedules(restaurant_id, type, day_start);
-CREATE INDEX idx_schedules_enabled ON restaurant_schedules(restaurant_id, is_enabled) WHERE is_enabled = true;
-
--- Special schedule date ranges
-CREATE INDEX idx_special_schedules_dates ON restaurant_special_schedules(restaurant_id, date_start, date_stop) WHERE is_active = true;
-
--- Unique config per restaurant
-CREATE UNIQUE INDEX idx_service_configs_restaurant ON restaurant_service_configs(restaurant_id);
+idx_schedules_restaurant_type_day(restaurant_id, type, day_start)
+idx_schedules_enabled(restaurant_id, is_enabled) WHERE is_enabled = true
+idx_special_schedules_dates(restaurant_id, date_start, date_stop)
+idx_service_configs_restaurant(restaurant_id) UNIQUE
 ```
 
-**Performance Improvement:** 6-8x faster queries
+### **RLS Policies (16 total - 4 per table)**
+
+| Policy | Access | Filter |
+|--------|--------|--------|
+| Public Read | Anonymous | `is_enabled = true` AND restaurant active |
+| Tenant Manage | Restaurant admins | `tenant_id = JWT restaurant_id` |
+| Admin Access | Super admins | `JWT role = 'super_admin'` |
+| Public Config | Anyone | No filter (public data) |
+
+### **Triggers (12)**
+
+| Type | Count | Purpose |
+|------|-------|---------|
+| Audit Triggers | 4 | Auto-update `updated_at`, `updated_by` |
+| Realtime Notify | 4 | Send pg_notify for WebSocket |
+| Validation | 1 | Prevent overlapping schedules |
+| Legacy FK | 3 | System-managed constraints |
+
+### **SQL Functions (11)**
+
+**Core APIs (3):**
+- `is_restaurant_open_now(p_restaurant_id, p_service_type, p_check_time)` → boolean
+- `get_restaurant_hours(p_restaurant_id)` → schedule array
+- `get_restaurant_config(p_restaurant_id)` → config object
+
+**Admin Tools (5):**
+- `soft_delete_schedule(p_schedule_id, p_deleted_by)` → void
+- `restore_schedule(p_schedule_id)` → void
+- `has_schedule_conflict(...)` → boolean
+- `bulk_toggle_schedules(p_restaurant_id, p_service_type, p_enabled)` → int
+- `clone_schedule_to_day(p_schedule_id, p_day_start, p_day_stop)` → schedule_id
+
+**Multi-language (2):**
+- `get_day_name(p_day_number, p_lang)` → translated day name
+- `get_restaurant_hours_i18n(p_restaurant_id, p_lang)` → localized schedule
+
+**Real-time (1):**
+- `get_upcoming_schedule_changes(p_restaurant_id, p_hours_ahead)` → changes array
 
 ---
 
-### **RLS Policies Added (16)**
+## 🔌 INTEGRATION EXAMPLES
 
-**Per Table (4 policies each):**
-
-1. **Public Read Policy**
-   - Anonymous users can view active schedules
-   - Filters: `is_enabled = true`, restaurant `status = 'active'`
-
-2. **Tenant Manage Policy**
-   - Restaurant admins can manage their own schedules
-   - Filters: `tenant_id = JWT restaurant_id`
-
-3. **Admin Access Policy**
-   - Super admins can manage all schedules
-   - Filters: `JWT role = 'super_admin'`
-
-4. **Public Config Read**
-   - Anyone can read service configs
-   - No filters (public data)
-
----
-
-### **Triggers Added (12)**
-
-**Audit Triggers (4):**
-- `trg_restaurant_schedules_updated_at`
-- `trg_restaurant_service_configs_updated_at`
-- `trg_restaurant_special_schedules_updated_at`
-- `trg_restaurant_time_periods_updated_at`
-
-**Purpose:** Auto-update `updated_at`, `updated_by`
-
----
-
-**Realtime Notify Triggers (4):**
-- `trg_notify_schedule_change`
-- `trg_notify_special_schedule_change`
-- `trg_notify_config_change`
-- `trg_notify_time_period_change`
-
-**Purpose:** Send pg_notify events for real-time subscriptions
-
----
-
-**Validation Triggers (1):**
-- `trg_restaurant_schedules_no_overlap`
-
-**Purpose:** Prevent overlapping schedules (conflict detection)
-
----
-
-**Legacy Triggers (3):**
-- Various FK constraint triggers (system-managed)
-
----
-
-### **SQL Functions Added (11)**
-
-**Core APIs:**
-1. `is_restaurant_open_now()` - Check if open right now
-2. `get_restaurant_hours()` - Get all schedules
-3. `get_restaurant_config()` - Get service config
-
-**Admin Tools:**
-4. `soft_delete_schedule()` - Safe deletion
-5. `restore_schedule()` - Undelete
-6. `has_schedule_conflict()` - Conflict check
-7. `bulk_toggle_schedules()` - Bulk on/off
-8. `clone_schedule_to_day()` - Duplicate schedule
-
-**Multi-language:**
-9. `get_day_name()` - Translate day names
-10. `get_restaurant_hours_i18n()` - Localized hours
-
-**Real-time:**
-11. `get_upcoming_schedule_changes()` - Upcoming closures
-
----
-
-### **Realtime Publication**
-
-```sql
--- All 4 tables added to supabase_realtime publication
-ALTER PUBLICATION supabase_realtime ADD TABLE restaurant_schedules;
-ALTER PUBLICATION supabase_realtime ADD TABLE restaurant_service_configs;
-ALTER PUBLICATION supabase_realtime ADD TABLE restaurant_special_schedules;
-ALTER PUBLICATION supabase_realtime ADD TABLE restaurant_time_periods;
-```
-
-**Result:** WebSocket broadcasts for all INSERT/UPDATE/DELETE
-
----
-
-## 🔌 **API INTEGRATION EXAMPLES**
-
-### **Example 1: Restaurant Page (Customer View)**
-
+### **Example 1: Restaurant Page (Customer)**
 ```typescript
 async function loadRestaurantPage(restaurantId: number) {
-  // Fetch all data in parallel
+  // Parallel data fetch
   const [isOpen, hours, config, upcomingChanges] = await Promise.all([
     fetch(`/api/restaurants/${restaurantId}/is-open?service=delivery`).then(r => r.json()),
     fetch(`/api/restaurants/${restaurantId}/hours?lang=es`).then(r => r.json()),
@@ -526,198 +187,166 @@ async function loadRestaurantPage(restaurantId: number) {
     fetch(`/api/restaurants/${restaurantId}/upcoming-changes?hours=168`).then(r => r.json())
   ]);
 
-  // Subscribe to real-time updates
-  supabase
-    .channel(`restaurant-${restaurantId}`)
+  // Real-time subscription
+  supabase.channel(`restaurant-${restaurantId}`)
     .on('postgres_changes', {
       event: '*',
       schema: 'menuca_v3',
       table: 'restaurant_schedules',
       filter: `restaurant_id=eq.${restaurantId}`
-    }, () => {
-      // Refetch hours on any change
-      refetchHours();
-    })
+    }, refetchHours)
     .subscribe();
 
   return { isOpen, hours, config, upcomingChanges };
 }
 ```
 
----
-
-### **Example 2: Admin Schedule Manager**
-
+### **Example 2: Admin Create Schedule**
 ```typescript
 async function createSchedule(restaurantId: number, schedule: NewSchedule) {
-  // 1. Check for conflicts first
-  const conflict = await fetch(
-    `/api/admin/restaurants/${restaurantId}/schedules/check-conflict`,
-    {
-      method: 'POST',
-      body: JSON.stringify(schedule)
-    }
-  ).then(r => r.json());
+  // Validate no conflicts
+  const { data: conflict } = await supabase.rpc('has_schedule_conflict', {
+    p_restaurant_id: restaurantId,
+    ...schedule
+  });
 
-  if (conflict.has_conflict) {
-    throw new Error('This schedule conflicts with existing hours');
+  if (conflict?.has_conflict) {
+    throw new Error('Schedule conflicts with existing hours');
   }
 
-  // 2. Create schedule
-  const result = await fetch(
-    `/api/admin/restaurants/${restaurantId}/schedules`,
-    {
-      method: 'POST',
-      body: JSON.stringify(schedule),
-      headers: { Authorization: `Bearer ${token}` }
-    }
-  ).then(r => r.json());
+  // Create (RLS auto-filters by tenant_id)
+  const { data, error } = await supabase
+    .from('restaurant_schedules')
+    .insert(schedule)
+    .select();
 
-  return result;
+  return data;
 }
 ```
 
----
-
-### **Example 3: Bulk Schedule Management**
-
+### **Example 3: Bulk Toggle Delivery**
 ```typescript
 async function toggleDeliveryService(restaurantId: number, enabled: boolean) {
-  // Disable all delivery schedules at once
-  const result = await fetch(
-    `/api/admin/restaurants/${restaurantId}/schedules/bulk-toggle`,
-    {
-      method: 'PATCH',
-      body: JSON.stringify({
-        service_type: 'delivery',
-        enabled: enabled
-      }),
-      headers: { Authorization: `Bearer ${token}` }
-    }
-  ).then(r => r.json());
+  const { data } = await supabase.rpc('bulk_toggle_schedules', {
+    p_restaurant_id: restaurantId,
+    p_service_type: 'delivery',
+    p_enabled: enabled
+  });
 
-  console.log(`${result.updated_count} schedules ${enabled ? 'enabled' : 'disabled'}`);
+  console.log(`${data} schedules ${enabled ? 'enabled' : 'disabled'}`);
 }
 ```
 
 ---
 
-## ✅ **TESTING CHECKLIST**
+## 🔒 AUTHENTICATION & SECURITY
 
-### **Security Tests**
-- [ ] Restaurant A cannot view Restaurant B's schedules
-- [ ] Restaurant A cannot modify Restaurant B's schedules
-- [ ] Anonymous users can only read active schedules
-- [ ] Super admins can access all schedules
-- [ ] Invalid JWT returns 403 or empty results
+**Auth:** JWT via Supabase Auth  
+**RLS:** All tables have 4 policies (public read, tenant manage, admin access, config read)  
+**Tenant Isolation:** `tenant_id = JWT restaurant_id` enforced automatically  
+**Soft Delete:** `deleted_at IS NULL` filter in all queries
+
+**Security Test:**
+```typescript
+// Restaurant A cannot access Restaurant B schedules
+const { data } = await supabase
+  .from('restaurant_schedules')
+  .select('*')
+  .eq('restaurant_id', otherRestaurantId); // Returns empty if not authorized
+```
 
 ---
 
-### **Functionality Tests**
-- [ ] `is_restaurant_open_now()` returns correct status
+## ⚠️ COMMON ERRORS
+
+| Code | Error | Solution |
+|------|-------|----------|
+| `23503` | Foreign key violation | Check `restaurant_id` exists |
+| `23505` | Unique constraint | Check for duplicate configs |
+| `42501` | Insufficient permissions | Verify JWT has correct `restaurant_id` or `role` |
+| `P0001` | Schedule conflict | Run `has_schedule_conflict()` first |
+| `PGRST116` | No rows returned | RLS filtered all results - check auth |
+
+---
+
+## 🚀 PERFORMANCE NOTES
+
+| Query | Target | Actual | Indexes Used |
+|-------|--------|--------|--------------|
+| `is_restaurant_open_now()` | < 50ms | ~10ms | `idx_schedules_restaurant_type_day` |
+| `get_restaurant_hours()` | < 50ms | ~15ms | `idx_schedules_enabled` |
+| `get_restaurant_config()` | < 50ms | ~5ms | `idx_service_configs_restaurant` |
+| RLS filtering | < 10ms | ~2ms | `idx_*_tenant` on all tables |
+
+**Optimization Tips:**
+- Use `Promise.all()` for parallel fetches
+- Subscribe to WebSocket once per page, not per component
+- Cache `is_restaurant_open_now()` for 5 minutes client-side
+- Use `get_restaurant_hours()` result to calculate "open soon" client-side
+
+---
+
+## ✅ TESTING CHECKLIST
+
+### **Security**
+- [ ] Restaurant A cannot view/modify Restaurant B schedules
+- [ ] Anonymous users only read active schedules
+- [ ] Super admins access all schedules
+
+### **Functionality**
+- [ ] `is_restaurant_open_now()` correct for current time
 - [ ] `get_restaurant_hours()` returns all enabled schedules
-- [ ] `get_restaurant_config()` returns service settings
-- [ ] `soft_delete_schedule()` marks as deleted (not destroyed)
-- [ ] `restore_schedule()` undeletes schedule
+- [ ] `soft_delete_schedule()` doesn't destroy data
 - [ ] `has_schedule_conflict()` detects overlaps
-- [ ] `bulk_toggle_schedules()` updates multiple schedules
-- [ ] `clone_schedule_to_day()` duplicates correctly
+- [ ] `bulk_toggle_schedules()` updates multiple records
 
----
+### **Real-time**
+- [ ] WebSocket notifications on INSERT/UPDATE/DELETE
+- [ ] Frontend updates without page refresh
 
-### **Real-time Tests**
-- [ ] WebSocket connection established
-- [ ] Schedule INSERT triggers notification
-- [ ] Schedule UPDATE triggers notification
-- [ ] Schedule DELETE triggers notification
-- [ ] Frontend receives and handles updates
-
----
-
-### **Multi-language Tests**
-- [ ] `get_day_name('es')` returns Spanish day names
+### **Multi-language**
+- [ ] `get_day_name('es')` returns "Lunes", not "Monday"
 - [ ] `get_restaurant_hours_i18n('fr')` returns French labels
-- [ ] Default language is English when not specified
 
----
+### **Performance**
+- [ ] All queries < 50ms (use EXPLAIN ANALYZE)
+- [ ] No sequential scans on large tables
 
-### **Performance Tests**
-- [ ] `is_restaurant_open_now()` < 50ms
-- [ ] `get_restaurant_hours()` < 50ms
-- [ ] `get_restaurant_config()` < 50ms
-- [ ] No sequential scans on large tables (use EXPLAIN ANALYZE)
-
----
-
-### **Audit Trail Tests**
-- [ ] `created_at` auto-populated on INSERT
-- [ ] `updated_at` auto-updated on UPDATE
-- [ ] `created_by`/`updated_by` populated from JWT
+### **Audit Trail**
+- [ ] `created_at`/`updated_at` auto-populated
+- [ ] `created_by`/`updated_by` from JWT
 - [ ] `deleted_at` set on soft delete
 
 ---
 
-## 📊 **SUMMARY METRICS**
+## 📊 SUMMARY
 
 | Metric | Value |
 |--------|-------|
-| **Tables Enhanced** | 4 |
-| **Rows Protected** | 1,999 |
-| **RLS Policies** | 16 |
-| **SQL Functions** | 11 |
-| **Indexes** | 15+ |
-| **Triggers** | 12 |
-| **API Endpoints Needed** | 11 |
-| **Languages Supported** | 3 (EN, ES, FR) |
-| **Security Level** | 🟢 Enterprise-grade |
-| **Performance** | 🟢 6-8x faster |
-| **Real-time** | ✅ Enabled |
-| **Status** | ✅ Production Ready |
+| Tables Enhanced | 4 |
+| Rows Protected | 1,999 |
+| RLS Policies | 16 |
+| SQL Functions | 11 |
+| API Endpoints | 11 (4 public, 7 admin) |
+| Indexes | 15+ |
+| Triggers | 12 |
+| Languages | 3 (EN, ES, FR) |
+| Performance | 6-8x faster |
+| Security | 🟢 Enterprise-grade |
+| Real-time | ✅ Enabled |
+| Status | ✅ Production Ready |
 
 ---
 
-## 🚀 **NEXT STEPS FOR SANTIAGO**
+## 🚀 NEXT STEPS
 
-1. **Review Phase Documentation:**
-   - Read `PHASE_1_BACKEND_DOCUMENTATION.md` (Security)
-   - Read `PHASE_2_BACKEND_DOCUMENTATION.md` (APIs)
-   - Read `PHASE_3_BACKEND_DOCUMENTATION.md` (Admin tools)
-   - Read `PHASE_4_BACKEND_DOCUMENTATION.md` (Real-time)
-
-2. **Implement REST Endpoints:**
-   - Create all 11 API endpoints listed above
-   - Add authentication middleware
-   - Add error handling
-
-3. **Setup Real-time:**
-   - Configure Supabase client
-   - Implement WebSocket subscriptions
-   - Add reconnection logic
-
-4. **Build Admin UI:**
-   - Schedule CRUD interface
-   - Conflict validation alerts
-   - Soft delete/restore buttons
-   - Bulk toggle controls
-
-5. **Test Everything:**
-   - Use testing checklist above
-   - Verify RLS isolation
-   - Benchmark performance
-   - Test real-time updates
-
----
-
-## 📞 **SUPPORT**
-
-**Questions?** Contact Brian or refer to:
-- Main refactoring plan: `SERVICE_SCHEDULES_V3_REFACTORING_PLAN.md`
-- Phase-specific docs: `PHASE_X_BACKEND_DOCUMENTATION.md`
-- Supabase docs: https://supabase.com/docs
+1. Implement 11 REST endpoints (see API Requirements section)
+2. Add auth middleware to admin routes
+3. Configure Supabase client + WebSocket subscriptions
+4. Build admin schedule CRUD UI with conflict validation
+5. Run testing checklist
+6. Benchmark performance (target < 50ms)
 
 ---
 
 **Status:** ✅ COMPLETE | **Security:** 🟢 Enterprise | **Performance:** 🟢 Optimized | **Ready:** ✅ Production
-
-
-
