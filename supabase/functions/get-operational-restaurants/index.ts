@@ -71,8 +71,9 @@ Deno.serve(async (req: Request) => {
         return badRequest('limit must be between 1 and 100');
       }
 
-      // Query operational restaurants with location
+      // Query operational restaurants with location from menuca_v3 schema
       const { data: restaurants, error } = await supabase
+        .schema('menuca_v3')
         .from('restaurants')
         .select(`
           id,
@@ -148,6 +149,7 @@ Deno.serve(async (req: Request) => {
       }
 
       const { data: restaurants, error, count } = await supabase
+        .schema('menuca_v3')
         .from('restaurants')
         .select('id, name, status, online_ordering_enabled', { count: 'exact' })
         .eq('status', 'active')

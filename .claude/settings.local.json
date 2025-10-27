@@ -1,15 +1,20 @@
-{
+﻿{
   "permissions": {
     "allow": [
-      "Bash(powershell -Command \"Get-Content ''C:\\Users\\santi\\Menu.ca\\Legacy Database\\Migration Strategy\\AGENT SMITH USERS CHAT.md'' | Select-Object -Last 200 | Select-String -Pattern ''(SUCCESS|COMPLETE|1,756|✅.*Auth|READY)'' -Context 2,2\")",
+      "Bash(powershell -Command \"Get-Content ''C:\\Users\\santi\\Menu.ca\\Legacy Database\\Migration Strategy\\AGENT SMITH USERS CHAT.md'' | Select-Object -Last 200 | Select-String -Pattern ''(SUCCESS|COMPLETE|1,756|ï¿½o..*Auth|READY)'' -Context 2,2\")",
       "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\":*)",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT COUNT(*) FROM menuca_v3.get_domain_verification_status(2120);\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT pg_get_functiondef(p.oid) FROM pg_proc p JOIN pg_namespace n ON p.pronamespace = n.oid WHERE n.nspname = ''''menuca_v3'''' AND p.proname = ''''get_deletion_audit_trail'''';\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.get_deletion_audit_trail(''restaurant_locations'', 7) LIMIT 3;\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.get_deletion_audit_trail(''ALL'', 7) LIMIT 5;\")",
       "Bash(npm run dev:*)",
       "Bash(lsof:*)",
       "Bash(xargs kill:*)",
+      "Bash(curl:*)",
+      "Bash(supabase functions deploy:*)",
       "WebFetch(domain:github.com)",
-      "mcp__supabase__execute_sql",
       "WebFetch(domain:block.github.io)",
-      "Bash(curl:*)"
+      "mcp__supabase__execute_sql"
     ],
     "deny": [],
     "ask": []
