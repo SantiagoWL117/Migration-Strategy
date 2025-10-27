@@ -1,8 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(powershell -Command \"Get-Content ''C:\\Users\\santi\\Menu.ca\\Legacy Database\\Migration Strategy\\AGENT SMITH USERS CHAT.md'' | Select-Object -Last 200 | Select-String -Pattern ''(SUCCESS|COMPLETE|1,756|✅.*Auth|READY)'' -Context 2,2\")",
-      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\":*)"
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.find_nearest_franchise_locations(986, 45.4215, -75.6972, 25, 3) LIMIT 2;\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.get_restaurant_status_timeline(561) LIMIT 3;\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.is_address_in_delivery_zone(561, 45.4215, -75.6972);\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.get_onboarding_status(7) LIMIT 4;\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"\\df menuca_v3.get_restaurant_by_slug\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"\\df menuca_v3.get_restaurant_delivery_summary\")",
+      "*",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []
