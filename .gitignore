@@ -44,3 +44,7 @@ Database/Devices & Infrastructure Entity/correct_parser.py
 Database/Devices & Infrastructure Entity/split_then_convert.py
 Database/Devices & Infrastructure Entity/convert_mysql_to_postgres.py
 Database/Devices & Infrastructure Entity/extract_raw_insert.py
+
+# Claude Code Supabase setup scripts (contain credentials)
+.claude/Supabase Connection/*.ps1
+.claude/Supabase Connection/*.sh
