@@ -50,10 +50,10 @@ export default async function RestaurantPage({
     .eq('is_active', true)
     .order('display_order')
 
-  // Fetch modifiers for all dishes
+  // Fetch modifiers for all dishes using NEW ingredient_groups structure
   const dishIds = dishes?.map(d => d.id) || []
 
-  // First get dish_modifiers
+  // Step 1: Get dish_modifiers (links dishes to ingredient_groups)
   const { data: dishModifiers } = await supabase
     .from('dish_modifiers')
     .select('*')
@@ -61,47 +61,75 @@ export default async function RestaurantPage({
     .is('deleted_at', null)
     .order('display_order')
 
-  // Then get ingredients separately
-  const ingredientIds = dishModifiers?.map(dm => dm.ingredient_id).filter(Boolean) || []
+  // Step 2: Get unique ingredient_group_ids from dish_modifiers
+  const groupIds = [...new Set(dishModifiers?.map(dm => dm.ingredient_group_id).filter(Boolean))] || []
+
+  // Step 3: Fetch ingredient_groups with their details
+  const { data: ingredientGroups } = await supabase
+    .from('ingredient_groups')
+    .select('*')
+    .in('id', groupIds.length > 0 ? groupIds : [0])
+
+  // Step 4: Fetch ingredient_group_items (links groups to ingredients)
+  const { data: groupItems } = await supabase
+    .from('ingredient_group_items')
+    .select('*')
+    .in('ingredient_group_id', groupIds.length > 0 ? groupIds : [0])
+
+  // Step 5: Fetch all ingredients referenced in groups
+  const ingredientIds = [...new Set(groupItems?.map(gi => gi.ingredient_id).filter(Boolean))] || []
   const { data: ingredients } = await supabase
     .from('ingredients')
     .select('id, name, base_price')
     .in('id', ingredientIds.length > 0 ? ingredientIds : [0])
 
-  // Create ingredient lookup map
+  // Create lookup maps
   const ingredientMap = new Map(ingredients?.map(ing => [ing.id, ing]) || [])
+  const groupMap = new Map(ingredientGroups?.map(g => [g.id, g]) || [])
 
-  console.log('Modifiers debug:', {
+  // Group items by group_id for easy lookup
+  const itemsByGroup = (groupItems || []).reduce((acc, item) => {
+    if (!acc[item.ingredient_group_id]) acc[item.ingredient_group_id] = []
+    acc[item.ingredient_group_id].push(item)
+    return acc
+  }, {} as Record<number, any[]>)
+
+  console.log('New modifier structure debug:', {
     totalDishModifiers: dishModifiers?.length || 0,
+    uniqueGroups: groupIds.length,
+    totalGroupItems: groupItems?.length || 0,
     totalIngredients: ingredients?.length || 0,
-    sampleModifier: dishModifiers?.[0],
-    sampleIngredient: ingredients?.[0]
+    sampleGroup: ingredientGroups?.[0]
   })
 
   // Attach modifiers to dishes
   const dishesWithModifiers = dishes?.map(dish => {
     const dishMods = dishModifiers?.filter(dm => dm.dish_id === dish.id) || []
-    const modifiersForDish = dishMods.map(dm => {
-      const ingredient = ingredientMap.get(dm.ingredient_id)
-      return {
-        modifier_id: dm.id,
-        modifier_name: dm.name || ingredient?.name || 'Unknown',
-        price: dm.price,
-        modifier_type: dm.modifier_type || 'other',
-        is_default: dm.is_default || false,
-        is_included: dm.is_included || false,
-        display_order: dm.display_order || 0
-      }
-    })
 
-    // Debug first dish with modifiers
-    if (dish.id === 3398 && modifiersForDish.length > 0) {
-      console.log('Dish 3398 modifiers:', {
-        dishName: dish.name,
-        totalModifiers: modifiersForDish.length,
-        modifiers: modifiersForDish.slice(0, 5)
+    // For each dish_modifier, expand to show ALL ingredients in the group
+    const modifiersForDish = dishMods.flatMap(dm => {
+      const group = groupMap.get(dm.ingredient_group_id)
+      const items = itemsByGroup[dm.ingredient_group_id] || []
+
+      // Return ALL ingredients from this group
+      return items.map((item, index) => {
+        const ingredient = ingredientMap.get(item.ingredient_id)
+        return {
+          modifier_id: `${dm.id}_${item.id}`, // Unique ID combining modifier and item
+          group_id: dm.ingredient_group_id,
+          group_name: group?.name || 'Options',
+          modifier_name: ingredient?.name || 'Unknown',
+          price: item.base_price || dm.price || 0,
+          modifier_type: dm.modifier_type || group?.group_type || 'other',
+          is_default: item.is_included || dm.is_default || false,
+          is_included: item.is_included || dm.is_included || false,
+          display_order: item.display_order || dm.display_order || 0,
+          min_selection: group?.min_selection || 0,
+          max_selection: group?.max_selection || 1,
+          free_quantity: group?.free_quantity || 0
+        }
       })
-    }
+    })
 
     return {
       ...dish,
