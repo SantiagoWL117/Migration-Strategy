@@ -1,4 +1,4 @@
-﻿{
+{
   "permissions": {
     "allow": [
       "Bash(powershell -Command \"Get-Content ''C:\\Users\\santi\\Menu.ca\\Legacy Database\\Migration Strategy\\AGENT SMITH USERS CHAT.md'' | Select-Object -Last 200 | Select-String -Pattern ''(SUCCESS|COMPLETE|1,756|ï¿½o..*Auth|READY)'' -Context 2,2\")",
@@ -11,10 +11,16 @@
       "Bash(lsof:*)",
       "Bash(xargs kill:*)",
       "Bash(curl:*)",
+<<<<<<< Updated upstream
       "Bash(supabase functions deploy:*)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:block.github.io)",
+      "WebFetch(domain:m.primapizza.ca)",
       "mcp__supabase__execute_sql"
+=======
+      "WebFetch(domain:m.primapizza.ca)",
+      "Bash(npm install:*)"
+>>>>>>> Stashed changes
     ],
     "deny": [],
     "ask": []

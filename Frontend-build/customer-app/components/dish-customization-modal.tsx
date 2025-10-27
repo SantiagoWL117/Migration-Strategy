@@ -5,13 +5,18 @@ import { X, Plus, Minus, Check } from 'lucide-react'
 import { useCartStore } from '@/lib/store/cart-store'
 
 interface DishModifier {
-  modifier_id: number
+  modifier_id: number | string  // Can be string now for composite IDs
+  group_id?: number
+  group_name?: string
   modifier_name: string
   price: number | null
   modifier_type: string
   is_default: boolean
   is_included: boolean
   display_order: number
+  min_selection?: number
+  max_selection?: number
+  free_quantity?: number
 }
 
 interface Dish {
@@ -32,7 +37,7 @@ interface DishCustomizationModalProps {
 
 export function DishCustomizationModal({ dish, restaurantId, isOpen, onClose }: DishCustomizationModalProps) {
   const [quantity, setQuantity] = useState(1)
-  const [selectedModifiers, setSelectedModifiers] = useState<number[]>(
+  const [selectedModifiers, setSelectedModifiers] = useState<(number | string)[]>(
     // Pre-select default modifiers
     dish.modifiers?.filter(m => m.is_default).map(m => m.modifier_id) || []
   )
@@ -50,21 +55,25 @@ export function DishCustomizationModal({ dish, restaurantId, isOpen, onClose }: 
     allModifiers: modifiers
   })
 
-  // Group modifiers by type
-  const modifiersByType = modifiers.reduce((acc, mod) => {
-    const type = mod.modifier_type || 'other'
-    if (!acc[type]) acc[type] = []
-    acc[type].push(mod)
+  // Group modifiers by group_name (NEW structure) or fall back to modifier_type (OLD structure)
+  const modifiersByGroup = modifiers.reduce((acc, mod) => {
+    const groupKey = mod.group_name || mod.modifier_type || 'other'
+    if (!acc[groupKey]) acc[groupKey] = []
+    acc[groupKey].push(mod)
     return acc
   }, {} as Record<string, DishModifier[]>)
 
-  console.log('Modifiers grouped by type:', modifiersByType)
+  console.log('Modifiers grouped:', {
+    totalModifiers: modifiers.length,
+    groups: Object.keys(modifiersByGroup),
+    groupCounts: Object.entries(modifiersByGroup).map(([name, items]) => ({ name, count: items.length }))
+  })
 
-  const toggleModifier = (modifierId: number) => {
+  const toggleModifier = (modifierId: number | string) => {
     setSelectedModifiers(prev =>
-      prev.includes(modifierId)
+      prev.includes(modifierId as any)
         ? prev.filter(id => id !== modifierId)
-        : [...prev, modifierId]
+        : [...prev, modifierId as any]
     )
   }
 
@@ -147,13 +156,18 @@ export function DishCustomizationModal({ dish, restaurantId, isOpen, onClose }: 
               ${dish.base_price ? dish.base_price.toFixed(2) : '0.00'}
             </p>
 
-            {/* Modifiers by Type */}
-            {Object.entries(modifiersByType).length > 0 ? (
+            {/* Modifiers by Group */}
+            {Object.entries(modifiersByGroup).length > 0 ? (
               <div className="space-y-6">
-                {Object.entries(modifiersByType).map(([type, mods]) => (
-                  <div key={type}>
+                {Object.entries(modifiersByGroup).map(([groupName, mods]) => (
+                  <div key={groupName}>
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                      {formatModifierType(type)}
+                      {groupName}
+                      {mods[0]?.min_selection !== undefined && (
+                        <span className="text-sm font-normal text-gray-500 ml-2">
+                          (Select {mods[0].min_selection} - {mods[0].max_selection})
+                        </span>
+                      )}
                     </h3>
                     <div className="space-y-2">
                       {mods.map((modifier) => {
