@@ -40,8 +40,9 @@ Deno.serve(async (req: Request) => {
     const limit = parseInt(url.searchParams.get('limit') || '50');
     const offset = parseInt(url.searchParams.get('offset') || '0');
 
-    // Build base query
+    // Build base query in menuca_v3 schema
     let query = supabase
+      .schema('menuca_v3')
       .from('restaurants')
       .select(`
         id,

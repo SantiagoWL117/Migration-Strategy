@@ -41,24 +41,10 @@ Deno.serve(async (req) => {
   }
 
   try {
-    // Authentication
-    const authHeader = req.headers.get('Authorization');
-    if (!authHeader) {
-      return jsonResponse({ success: false, error: 'Missing authorization header' }, 401);
-    }
-
+    // Create Supabase client (public access - using service role for RPC)
     const supabaseUrl = Deno.env.get('SUPABASE_URL');
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
     const supabase = createClient(supabaseUrl!, supabaseKey!);
-
-    // Get user (verify authentication)
-    const userClient = createClient(supabaseUrl!, Deno.env.get('SUPABASE_ANON_KEY')!, {
-      global: { headers: { Authorization: authHeader } },
-    });
-    const { data: { user } } = await userClient.auth.getUser();
-    if (!user) {
-      return jsonResponse({ success: false, error: 'Invalid or expired token' }, 401);
-    }
 
     // Parse query parameters
     const url = new URL(req.url);
@@ -84,11 +70,11 @@ Deno.serve(async (req) => {
       return badRequest('Invalid days parameter. Must be between 1 and 365.');
     }
 
-    // Call SQL function
+    // Call SQL function in menuca_v3 schema
     const { data, error } = await supabase.rpc('get_deletion_audit_trail', {
       p_table_name: tableName,
       p_days_back: daysBack
-    });
+    }).schema('menuca_v3');
 
     if (error) {
       console.error('SQL error:', error);

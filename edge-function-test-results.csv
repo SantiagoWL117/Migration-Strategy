@@ -1,0 +1,4 @@
+"Function","Status","Method","Auth","Response"
+"check-restaurant-availability","FAIL","GET","Public","The remote server returned an error: (401) Unauthorized."
+"get-operational-restaurants","FAIL","GET","Public","The remote server returned an error: (401) Unauthorized."
+"search-restaurants","FAIL","GET","Public","The remote server returned an error: (401) Unauthorized."

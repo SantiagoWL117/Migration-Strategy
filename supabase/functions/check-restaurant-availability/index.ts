@@ -53,10 +53,12 @@ Deno.serve(async (req: Request) => {
     const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY');
     const supabase = createClient(supabaseUrl!, supabaseKey!);
 
-    // Call SQL function
-    const { data, error } = await supabase.rpc('get_restaurant_availability', {
-      p_restaurant_id: parseInt(restaurantId)
-    });
+    // Call SQL function in menuca_v3 schema
+    const { data, error } = await supabase
+      .schema('menuca_v3')
+      .rpc('get_restaurant_availability', {
+        p_restaurant_id: parseInt(restaurantId)
+      });
 
     if (error) {
       console.error('Availability check error:', error);
