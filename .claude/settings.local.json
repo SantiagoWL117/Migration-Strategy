@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(powershell -Command \"Get-Content ''C:\\Users\\santi\\Menu.ca\\Legacy Database\\Migration Strategy\\AGENT SMITH USERS CHAT.md'' | Select-Object -Last 200 | Select-String -Pattern ''(SUCCESS|COMPLETE|1,756|✅.*Auth|READY)'' -Context 2,2\")",
-      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\":*)"
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\":*)",
+      "Bash(npm run dev:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "WebFetch(domain:github.com)",
+      "mcp__supabase__execute_sql"
     ],
     "deny": [],
     "ask": []

@@ -2,25 +2,33 @@
 
 import Link from 'next/link'
 import { RestaurantCard } from './restaurant-card'
+import { RestaurantGridSkeleton } from './skeleton-loader'
 
 interface Restaurant {
-  id: number
+  id: string
   name: string
   slug: string
-  logo_url?: string
-  description?: string
-  cuisines?: string[]
-  is_online: boolean
-  distance_km?: number
-  avg_rating?: number
-  total_reviews?: number
+  image_url: string | null
+  description: string | null
+  cuisine_type: string | null
+  average_rating: number | null
+  review_count: number | null
+  is_active: boolean | null
+  is_featured: boolean | null
+  distance_km?: number | null
+  can_deliver?: boolean | null
+  [key: string]: any
 }
 
 interface RestaurantGridProps {
   restaurants: Restaurant[]
+  isLoading?: boolean
 }
 
-export function RestaurantGrid({ restaurants }: RestaurantGridProps) {
+export function RestaurantGrid({ restaurants, isLoading }: RestaurantGridProps) {
+  if (isLoading) {
+    return <RestaurantGridSkeleton count={6} />
+  }
   if (!restaurants || restaurants.length === 0) {
     return (
       <div className="text-center py-12">
