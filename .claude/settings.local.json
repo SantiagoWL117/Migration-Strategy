@@ -1,12 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT COUNT(*) FROM menuca_v3.get_domain_verification_status(2120);\")",
-      "Bash(curl:*)",
-      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT pg_get_functiondef(p.oid) FROM pg_proc p JOIN pg_namespace n ON p.pronamespace = n.oid WHERE n.nspname = ''''menuca_v3'''' AND p.proname = ''''get_deletion_audit_trail'''';\")",
-      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.get_deletion_audit_trail(''restaurant_locations'', 7) LIMIT 3;\")",
-      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.get_deletion_audit_trail(''ALL'', 7) LIMIT 5;\")",
-      "Bash(supabase functions deploy:*)"
+      "Bash(*)"
     ],
     "deny": [],
     "ask": []

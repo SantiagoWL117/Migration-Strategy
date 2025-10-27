@@ -17,7 +17,6 @@ Database/**/*.csv
 # JSON Data Dumps
 # ============================================
 Database/Menu & Catalog Entity/**/*.json
-**/*.json
 
 # ============================================
 # Log Files
