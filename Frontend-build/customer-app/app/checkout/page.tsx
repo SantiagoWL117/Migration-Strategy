@@ -22,14 +22,59 @@ export default function CheckoutPage() {
   const [isLoadingPayment, setIsLoadingPayment] = useState(false)
   const [showPaymentForm, setShowPaymentForm] = useState(false)
 
+  // Delivery form state
+  const [deliveryInfo, setDeliveryInfo] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    postalCode: '',
+    instructions: ''
+  })
+
   const deliveryFee = 3.99
   const finalTotal = total + deliveryFee
 
   // Get restaurant ID from first item
   const restaurantId = items[0]?.restaurantId || 0
 
+  // Validate delivery form
+  const validateDeliveryInfo = () => {
+    if (!deliveryInfo.name.trim()) {
+      alert('Please enter your name')
+      return false
+    }
+    if (!deliveryInfo.email.trim() || !deliveryInfo.email.includes('@')) {
+      alert('Please enter a valid email')
+      return false
+    }
+    if (!deliveryInfo.phone.trim()) {
+      alert('Please enter your phone number')
+      return false
+    }
+    if (!deliveryInfo.address.trim()) {
+      alert('Please enter your delivery address')
+      return false
+    }
+    if (!deliveryInfo.city.trim()) {
+      alert('Please enter your city')
+      return false
+    }
+    if (!deliveryInfo.postalCode.trim()) {
+      alert('Please enter your postal code')
+      return false
+    }
+    return true
+  }
+
   // Create Payment Intent when user clicks "Proceed to Payment"
   const handleProceedToPayment = async () => {
+    // Validate delivery info first
+    if (!validateDeliveryInfo()) {
+      return
+    }
+
     setIsLoadingPayment(true)
 
     try {
@@ -66,14 +111,62 @@ export default function CheckoutPage() {
   }
 
   const handlePaymentSuccess = async (paymentIntentId: string) => {
-    // TODO: Create order in database
-    console.log('Payment successful!', paymentIntentId)
+    try {
+      // Create order in database
+      const response = await fetch('/api/orders/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          restaurantId,
+          items: items.map(item => ({
+            dishId: item.dishId,
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+            modifiers: item.modifiers
+          })),
+          paymentIntentId,
+          customerInfo: {
+            name: deliveryInfo.name,
+            email: deliveryInfo.email,
+            phone: deliveryInfo.phone
+          },
+          deliveryInfo: {
+            address: deliveryInfo.address,
+            city: deliveryInfo.city,
+            postalCode: deliveryInfo.postalCode,
+            instructions: deliveryInfo.instructions
+          },
+          totals: {
+            subtotal,
+            tax,
+            deliveryFee,
+            total: finalTotal
+          }
+        }),
+      })
 
-    // Clear cart
-    clearCart()
+      if (!response.ok) {
+        throw new Error('Failed to create order')
+      }
 
-    // Redirect to confirmation
-    router.push(`/order-confirmation?payment_intent=${paymentIntentId}`)
+      const data = await response.json()
+      console.log('Order created:', data.order)
+
+      // Clear cart
+      clearCart()
+
+      // Redirect to confirmation with order ID
+      router.push(`/order-confirmation?payment_intent=${paymentIntentId}&order_id=${data.order.id}`)
+    } catch (error) {
+      console.error('Error creating order:', error)
+      // Still redirect to confirmation even if order creation fails
+      // (Payment already succeeded, order can be recovered from Stripe webhook)
+      clearCart()
+      router.push(`/order-confirmation?payment_intent=${paymentIntentId}`)
+    }
   }
 
   if (items.length === 0) {
@@ -198,52 +291,86 @@ export default function CheckoutPage() {
               </div>
             )}
 
-            {/* Delivery Info (Placeholder) */}
+            {/* Delivery Info */}
             {!showPaymentForm && (
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h3 className="text-xl font-semibold mb-4">Delivery Details</h3>
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Delivery Address
+                      Full Name <span className="text-red-600">*</span>
                     </label>
                     <input
                       type="text"
-                      placeholder="Street address"
+                      placeholder="John Doe"
+                      value={deliveryInfo.name}
+                      onChange={(e) => setDeliveryInfo({...deliveryInfo, name: e.target.value})}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        City
+                        Email <span className="text-red-600">*</span>
                       </label>
                       <input
-                        type="text"
-                        placeholder="City"
+                        type="email"
+                        placeholder="john@example.com"
+                        value={deliveryInfo.email}
+                        onChange={(e) => setDeliveryInfo({...deliveryInfo, email: e.target.value})}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Postal Code
+                        Phone <span className="text-red-600">*</span>
                       </label>
                       <input
-                        type="text"
-                        placeholder="A1A 1A1"
+                        type="tel"
+                        placeholder="(555) 123-4567"
+                        value={deliveryInfo.phone}
+                        onChange={(e) => setDeliveryInfo({...deliveryInfo, phone: e.target.value})}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                       />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Phone Number
+                      Delivery Address <span className="text-red-600">*</span>
                     </label>
                     <input
-                      type="tel"
-                      placeholder="(555) 123-4567"
+                      type="text"
+                      placeholder="123 Main Street"
+                      value={deliveryInfo.address}
+                      onChange={(e) => setDeliveryInfo({...deliveryInfo, address: e.target.value})}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                     />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        City <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Toronto"
+                        value={deliveryInfo.city}
+                        onChange={(e) => setDeliveryInfo({...deliveryInfo, city: e.target.value})}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Postal Code <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="M5H 2N2"
+                        value={deliveryInfo.postalCode}
+                        onChange={(e) => setDeliveryInfo({...deliveryInfo, postalCode: e.target.value})}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                      />
+                    </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -252,6 +379,8 @@ export default function CheckoutPage() {
                     <textarea
                       placeholder="e.g., Ring doorbell, leave at door"
                       rows={3}
+                      value={deliveryInfo.instructions}
+                      onChange={(e) => setDeliveryInfo({...deliveryInfo, instructions: e.target.value})}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                     />
                   </div>
