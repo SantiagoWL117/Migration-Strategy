@@ -1,13 +1,13 @@
 # Project Status - menuca_v3 Backend Development
 
-**Last Updated:** 2025-10-22  
-**Current Phase:** 🚀 Backend API Development & Frontend Build Competition  
-**Overall Progress:** Database 100% + Backend APIs 1/10 entities complete + Frontend development beginning!  
-**Recent Achievements:** 
+**Last Updated:** 2025-10-28
+**Current Phase:** 🚀 Backend API Development & Frontend Build Competition
+**Overall Progress:** Database 100% + Backend APIs 2/10 entities complete + Frontend development beginning!
+**Recent Achievements:**
+- ✅ Users & Access Backend APIs: COMPLETE with JWT-based admin management (2025-10-28)
 - 🚀 FRONTEND COMPETITION: Dual database environment setup (Cursor vs Replit) (2025-10-22)
 - 📚 Agent Documentation Workflow: Backend development guide for future API work (2025-10-21)
 - ✅ Restaurant Management Backend APIs: COMPLETE (2025-10-21)
-- 🚀 Users & Access Backend APIs: IN PROGRESS (2025-10-21)
 - ✅ 27 Edge Functions: Deployed for franchise, vendor, restaurant management (2025-10-21)
 - 🎉 ALL 10 ENTITIES COMPLETE: Migration + Optimization 100% Done! (2025-10-17)
 - ✅ Phase 8 Production Audit: PRODUCTION SIGN-OFF achieved (2025-10-17)
@@ -125,12 +125,12 @@ Migrate legacy MySQL databases (menuca_v1 and menuca_v2) to a modern, normalized
 - **Performance:** ✅ 621 indexes optimized
 - **Documentation:** ✅ Complete (see SANTIAGO_MASTER_INDEX.md)
 
-### 🚀 Backend API Development (IN PROGRESS - 1/10 Complete)
+### 🚀 Backend API Development (IN PROGRESS - 2/10 Complete)
 
 **Current Work:**
 1. **Santiago:** Building REST APIs entity by entity using integration guides
 2. **Brian:** Building Customer Ordering App frontend
-3. **Edge Functions:** 27 deployed for complex business logic
+3. **Edge Functions:** 27 deployed for complex business logic (reduced from 29 via JWT migration)
 
 **Backend API Progress (Entity by Entity):**
 
@@ -140,16 +140,20 @@ Migrate legacy MySQL databases (menuca_v1 and menuca_v2) to a modern, normalized
    - ✅ Domain & contact management
    - ✅ Franchise hierarchy management
    - ✅ Status toggles & audit trails
-   
-✅ **2. Users & Access** (Priority 2) - **COMPLETE** ✅
+
+✅ **2. Users & Access** (Priority 2) - **COMPLETE** ✅ (2025-10-28)
    - ✅ Customer signup/login
-   - ✅ Admin authentication  
+   - ✅ Admin authentication
    - ✅ Profile & address management
    - ✅ Favorites management
+   - ✅ **JWT-based admin management** (3 new SQL functions)
+   - ✅ Restaurant assignment management (add/remove/replace)
+   - ✅ Admin user creation workflow
    - ✅ 1,756 legacy user auth accounts created (100% success)
-   - ✅ Reactive migration system operational
-   
-⏳ **3. Menu & Catalog** (Priority 3) - Pending
+   - ✅ 10 SQL functions + 3 Edge Functions
+   - ✅ Complete frontend documentation
+
+🚀 **3. Menu & Catalog** (Priority 3) - **NEXT**
    - Menu browsing & dish details
    - Inventory management
    - Multi-language support
@@ -180,7 +184,7 @@ Migrate legacy MySQL databases (menuca_v1 and menuca_v2) to a modern, normalized
 - **Performance Indexes:** ✅ 621 optimized
 - **Documentation:** ✅ 100% complete
 - **Backend APIs:** 🚀 20% complete (2/10 entities - Restaurant Mgmt + Users & Access done)
-- **Current Backend Focus:** ⏳ Menu & Catalog (Priority 3) - Next
+- **Current Backend Focus:** 🚀 Menu & Catalog (Priority 3) - In Progress
 - **Frontend Build:** 🚀 In Progress (Brian - Customer Ordering App)
 
 ---
@@ -206,4 +210,4 @@ Migrate legacy MySQL databases (menuca_v1 and menuca_v2) to a modern, normalized
 
 ---
 
-**Status Summary:** ✅ Database layer 100% complete. Backend APIs: 1/10 entities complete (Restaurant Management done, Users & Access in progress). Frontend in progress.
+**Status Summary:** ✅ Database layer 100% complete. Backend APIs: 2/10 entities complete (Restaurant Management + Users & Access done with JWT-based admin management). Menu & Catalog next. Frontend in progress.

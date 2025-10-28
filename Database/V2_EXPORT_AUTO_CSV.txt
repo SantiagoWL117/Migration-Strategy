@@ -1,0 +1,312 @@
+-- ========================================
+-- V2 PRODUCTION EXPORT QUERIES - AUTO CSV EXPORT VERSION
+-- FOR: Santiago (MySQL Workbench with INTO OUTFILE)
+-- ========================================
+-- 
+-- CRITICAL: 18 restaurants are LIVE on menu.ca but missing dish data in V3
+-- These SQL queries will export all necessary data for migration
+--
+-- Restaurant IDs that need data recovery:
+-- 1635 - All Out Burger Gladstone
+-- 1636 - All Out Burger Montreal Rd  
+-- 1637 - Kirkwood Pizza
+-- 1639 - River Pizza
+-- 1641 - Wandee Thai
+-- 1642 - La Nawab
+-- 1654 - Cosenza
+-- 1657 - Cuisine Bombay Indienne
+-- 1658 - Chicco Shawarma Cantley
+-- 1659 - Chicco Pizza & Shawarma Buckingham
+-- 1664 - Chicco Pizza St-Louis
+-- 1665 - Zait and Zaatar
+-- 1668 - Little Gyros Greek Grill
+-- 1673 - Pizza Marie
+-- 1674 - Capri Pizza
+-- 1676 - Routine Poutine
+-- 1677 - Chef Rad Halal Pizza & Burgers
+-- 1678 - Al-s Drive In
+--
+-- ========================================
+-- SETUP INSTRUCTIONS:
+-- ========================================
+-- ✅ CONFIGURED: Export path set to C:/ProgramData/MySQL/MySQL Server 8.0/Uploads
+--
+-- READY TO USE:
+-- 1. Open MySQL Workbench and connect to V2 Production database
+-- 2. Run each query below (Query 1 through Query 7)
+-- 3. Each query will automatically create a CSV file in:
+--    C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\
+-- 4. After all queries complete, you'll have 7 CSV files ready
+--
+-- NOTE: If you get "file already exists" error, delete the existing CSV file first
+-- ========================================
+
+-- ========================================
+-- QUERY 1: Export Restaurant Courses
+-- Output: v2_18_restaurants_courses.csv
+-- ========================================
+
+SELECT 
+  id,
+  restaurant_id,
+  language_id,
+  global_course_id,
+  name,
+  description,
+  display_order,
+  available_for,
+  time_period,
+  enabled,
+  added_by,
+  added_at,
+  disabled_by,
+  disabled_at
+FROM restaurants_courses
+WHERE restaurant_id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+ORDER BY restaurant_id, display_order
+INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/v2_18_restaurants_courses.csv'
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+-- Expected: ~150-200 rows (14-16 courses per restaurant)
+
+
+-- ========================================
+-- QUERY 2: Export Restaurant Dishes (CRITICAL)
+-- Output: v2_18_restaurants_dishes.csv
+-- ========================================
+
+SELECT 
+  rd.id,
+  rd.global_dish_id,
+  rd.course_id,
+  rd.has_customization,
+  rd.is_combo,
+  rd.name,
+  rd.description,
+  rd.size,
+  rd.size_j,
+  rd.price,
+  rd.price_j,
+  rd.display_order,
+  rd.dish_image,
+  rd.upsell,
+  rd.enabled,
+  rd.added_by,
+  rd.added_at,
+  rd.disabled_by,
+  rd.disabled_at,
+  rd.unavailable_until,
+  rd.unavailabled_by
+FROM restaurants_dishes rd
+JOIN restaurants_courses rc ON rc.id = rd.course_id
+WHERE rc.restaurant_id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+  AND rd.enabled = 'y'
+ORDER BY rc.restaurant_id, rd.course_id, rd.display_order
+INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/v2_18_restaurants_dishes.csv'
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+-- Expected: ~1,500-2,500 rows (80-150 dishes per restaurant)
+
+
+-- ========================================
+-- QUERY 3: Export Ingredient Groups (Modifiers)
+-- Output: v2_18_ingredient_groups.csv
+-- ========================================
+
+SELECT 
+  id,
+  restaurant_id,
+  language_id,
+  group_name,
+  group_type,
+  items,
+  enabled,
+  added_by,
+  added_at,
+  disabled_by,
+  disabled_at
+FROM restaurants_ingredient_groups
+WHERE restaurant_id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+ORDER BY restaurant_id, id
+INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/v2_18_ingredient_groups.csv'
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+-- Expected: ~100-200 rows (5-15 groups per restaurant)
+
+
+-- ========================================
+-- QUERY 4: Export Ingredients/Modifier Options (CRITICAL)
+-- Output: v2_18_ingredients.csv
+-- ========================================
+
+SELECT 
+  id,
+  hash,
+  restaurant_id,
+  global_ingredient_id,
+  name,
+  type,
+  language_id,
+  enabled,
+  added_by,
+  added_at,
+  disabled_by,
+  disabled_at,
+  unavailable_until,
+  unavailabled_by
+FROM restaurants_ingredients
+WHERE restaurant_id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+ORDER BY restaurant_id, type, id
+INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/v2_18_ingredients.csv'
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+-- Expected: ~500-1,500 rows (multiple options per group)
+
+
+-- ========================================
+-- QUERY 5: Export Dish Customizations (Links dishes to modifiers)
+-- Output: v2_18_dish_customizations.csv
+-- ========================================
+
+SELECT 
+  dc.*
+FROM restaurants_dishes_customization dc
+JOIN restaurants_dishes rd ON rd.id = dc.dish_id
+JOIN restaurants_courses rc ON rc.id = rd.course_id
+WHERE rc.restaurant_id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+  AND rd.enabled = 'y'
+ORDER BY rc.restaurant_id, dc.dish_id
+INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/v2_18_dish_customizations.csv'
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+-- Expected: ~2,000-5,000 rows (multiple customization rules per dish)
+
+
+-- ========================================
+-- QUERY 6: Export Combo Groups (Optional)
+-- Output: v2_18_combo_groups.csv
+-- ========================================
+
+SELECT 
+  cg.*
+FROM restaurants_combo_groups cg
+WHERE cg.restaurant_id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+ORDER BY cg.restaurant_id
+INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/v2_18_combo_groups.csv'
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+-- Expected: ~50-100 rows (if restaurants have combo items)
+
+
+-- ========================================
+-- QUERY 7: Export Combo Items (Optional)
+-- Output: v2_18_combo_items.csv
+-- ========================================
+
+SELECT 
+  ci.*
+FROM restaurants_combo_groups_items ci
+JOIN restaurants_combo_groups cg ON cg.id = ci.group_id
+WHERE cg.restaurant_id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+ORDER BY cg.restaurant_id, ci.group_id
+INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/v2_18_combo_items.csv'
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+-- Expected: ~200-500 rows
+
+
+-- ========================================
+-- VERIFICATION QUERIES (Run BEFORE export)
+-- ========================================
+
+-- Check how many courses exist for these restaurants
+SELECT 
+  restaurant_id,
+  COUNT(*) AS course_count
+FROM restaurants_courses
+WHERE restaurant_id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+GROUP BY restaurant_id
+ORDER BY restaurant_id;
+
+-- Check how many dishes exist
+SELECT 
+  rc.restaurant_id,
+  COUNT(rd.id) AS dish_count
+FROM restaurants_courses rc
+LEFT JOIN restaurants_dishes rd ON rd.course_id = rc.id AND rd.enabled = 'y'
+WHERE rc.restaurant_id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+GROUP BY rc.restaurant_id
+ORDER BY rc.restaurant_id;
+
+-- Check restaurant names
+SELECT id, name FROM restaurants
+WHERE id IN (1635,1636,1637,1639,1641,1642,1654,1657,1658,1659,1664,1665,1668,1673,1674,1676,1677,1678)
+ORDER BY id;
+
+
+-- ========================================
+-- EXPECTED RESULTS SUMMARY
+-- ========================================
+-- 
+-- After running all queries, you should have 7 CSV files in your export directory:
+-- 1. v2_18_restaurants_courses.csv (~150-200 rows)
+-- 2. v2_18_restaurants_dishes.csv (~1,500-2,500 rows) ⭐ CRITICAL
+-- 3. v2_18_ingredient_groups.csv (~100-200 rows) ⭐ CRITICAL
+-- 4. v2_18_ingredients.csv (~500-1,500 rows) ⭐ CRITICAL
+-- 5. v2_18_dish_customizations.csv (~2,000-5,000 rows) ⭐ CRITICAL
+-- 6. v2_18_combo_groups.csv (~50-100 rows)
+-- 7. v2_18_combo_items.csv (~200-500 rows)
+--
+-- All files will be in your MySQL secure-file-priv directory
+-- You can then copy them to your working directory
+-- 
+-- ========================================
+-- TROUBLESHOOTING
+-- ========================================
+--
+-- ERROR: "File already exists"
+-- SOLUTION: Delete the existing CSV file from the export directory
+--
+-- ERROR: "Access denied"
+-- SOLUTION: Check that MySQL has write permissions to the directory
+--
+-- ERROR: "Can't create file"
+-- SOLUTION: Verify the directory path is correct and uses forward slashes
+--
+-- ERROR: "secure-file-priv"
+-- SOLUTION: You must use the exact directory from SHOW VARIABLES
+--
+-- ========================================
+-- NOTES FOR SANTIAGO
+-- ========================================
+--
+-- WHY WE NEED THIS:
+-- - These 18 restaurants are LIVE and taking orders on menu.ca
+-- - Kirkwood Pizza confirmed: https://kirkwoodpizza.ca
+-- - All Out Burger confirmed: https://gladstone.alloutburger.com
+-- - Current V2 staging has ZERO dish data (export was corrupted)
+-- - Cannot scrape websites (modifiers load via JS modals, not in HTML)
+--
+-- WHAT THIS RECOVERS:
+-- - $36,000/month revenue (18 × $2k/month)
+-- - Estimated 1,500-3,000 menu items
+-- - All modifier/customization data (required for ordering)
+-- - Completes MenuCA V3 migration (95.8% → 99%+ coverage)
+--
+-- Questions? Contact Brian
+-- ========================================
+

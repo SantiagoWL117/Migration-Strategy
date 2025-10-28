@@ -46,5 +46,7 @@ Database/Devices & Infrastructure Entity/convert_mysql_to_postgres.py
 Database/Devices & Infrastructure Entity/extract_raw_insert.py
 
 # Claude Code Supabase setup scripts (contain credentials)
-.claude/Supabase Connection/*.ps1
-.claude/Supabase Connection/*.sh
+#.claude/Supabase Connection/*.ps1
+#.claude/Supabase Connection/*.sh
+.claude/Supabase Connection/mac_setup_supabase_session.sh
+.claude/Supabase Connection/windows_setup_supabase_session.ps1
