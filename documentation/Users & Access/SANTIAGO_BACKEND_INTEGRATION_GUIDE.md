@@ -1,9 +1,10 @@
 # Users & Access - Santiago Backend Integration Guide
 
-**Entity:** Users & Access (Customers & Restaurant Admins)  
-**Priority:** 2 (Foundation for all authentication)  
-**Status:** ✅ COMPLETE  
-**Date:** October 17, 2025  
+**Entity:** Users & Access (Customers & Restaurant Admins)
+**Priority:** 2 (Foundation for all authentication)
+**Status:** ✅ COMPLETE
+**Date:** October 28, 2025
+**Last Updated:** October 28, 2025 (Added JWT-based admin management)  
 
 ---
 
@@ -29,12 +30,13 @@ Built a **production-ready, enterprise-grade user management system** with:
 
 1. **Supabase Auth Integration** - JWT-based authentication via `auth_user_id`
 2. **20 RLS Policies** - Multi-party access control for customers, admins, service accounts
-3. **7 SQL Functions** - Complete API layer for profile, addresses, favorites, admin access
+3. **10 SQL Functions** - Complete API layer for profile, addresses, favorites, admin access & management
 4. **38 Performance Indexes** - All queries < 100ms
 5. **3 Active Views** - Simplified querying of non-deleted records
 6. **Real-Time Updates** - WebSocket subscriptions for live profile changes
 7. **Multi-Language Support** - EN/FR/ES language preferences
 8. **Advanced Security** - Email verification, MFA (admins), login tracking
+9. **JWT-Based Admin Management** - No service role exposure required
 
 ---
 
@@ -51,6 +53,9 @@ Built a **production-ready, enterprise-grade user management system** with:
 - ✅ **Admin Profiles** - Secure admin account management
 - ✅ **Restaurant Assignments** - Multi-restaurant admin access
 - ✅ **Access Control** - Check if admin can access restaurant
+- ✅ **Admin User Creation** - Create pending admin accounts (JWT-based)
+- ✅ **Restaurant Assignment Management** - Add/remove/replace restaurant access (JWT-based)
+- ✅ **Admin Helper Functions** - Get current admin info efficiently
 - ✅ **Multi-Factor Authentication** - 2FA for admins
 - ✅ **Suspension System** - Suspend/reactivate admin accounts
 
@@ -316,15 +321,128 @@ export async function GET(request: Request) {
 ```typescript
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   const restaurantId = parseInt(params.id);
-  
+
   const supabase = createClient(request);
   const { data: hasAccess } = await supabase.rpc('check_admin_restaurant_access', {
     p_restaurant_id: restaurantId
   });
-  
+
   return Response.json({ hasAccess });
 }
 ```
+
+---
+
+### **Admin User Management (JWT-Based)**
+
+#### **GET `/api/admin/me`** - Get Current Admin Info
+```typescript
+export async function GET(request: Request) {
+  const supabase = createClient(request);
+  const { data, error } = await supabase.rpc('get_my_admin_info');
+
+  if (error) return Response.json({ error: error.message }, { status: 400 });
+  if (!data || data.length === 0) {
+    return Response.json({ error: 'Not an admin' }, { status: 403 });
+  }
+
+  return Response.json(data[0]);
+}
+```
+
+#### **POST `/api/admin/users`** - Create Admin User Request
+```typescript
+export async function POST(request: Request) {
+  const { email, first_name, last_name, phone } = await request.json();
+
+  const supabase = createClient(request);
+  const { data, error } = await supabase.rpc('create_admin_user_request', {
+    p_email: email,
+    p_first_name: first_name,
+    p_last_name: last_name,
+    p_phone: phone
+  });
+
+  if (error) return Response.json({ error: error.message }, { status: 400 });
+  return Response.json(data[0]);
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "admin_user_id": 928,
+  "email": "newadmin@menu.ca",
+  "status": "pending",
+  "message": "Admin user created with id 928. NEXT STEPS: 1. Create auth account in Supabase Dashboard 2. Update admin_users.auth_user_id with the UUID 3. Update admin_users.status to active"
+}
+```
+
+**Manual Steps Required:**
+1. Create auth account in Supabase Dashboard
+2. Link auth UUID to admin_users.auth_user_id
+3. Update admin_users.status to 'active'
+4. Assign restaurants using next endpoint
+
+#### **POST `/api/admin/users/:id/restaurants`** - Manage Restaurant Assignments
+```typescript
+export async function POST(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  const adminUserId = parseInt(params.id);
+  const { restaurant_ids, action } = await request.json();
+
+  // Validate action
+  if (!['add', 'remove', 'replace'].includes(action)) {
+    return Response.json({ error: 'Invalid action' }, { status: 400 });
+  }
+
+  const supabase = createClient(request);
+  const { data, error } = await supabase.rpc('assign_restaurants_to_admin', {
+    p_admin_user_id: adminUserId,
+    p_restaurant_ids: restaurant_ids,
+    p_action: action
+  });
+
+  if (error) return Response.json({ error: error.message }, { status: 400 });
+  return Response.json(data[0]);
+}
+```
+
+**Actions:**
+- `"add"` - Add restaurants (ignore duplicates)
+- `"remove"` - Remove specified restaurants
+- `"replace"` - Replace all assignments with new list
+
+**Request Example:**
+```json
+{
+  "restaurant_ids": [349, 350, 55],
+  "action": "add"
+}
+```
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "action": "add",
+  "out_admin_user_id": 927,
+  "admin_email": "admin@menu.ca",
+  "assignments_before": 0,
+  "assignments_after": 3,
+  "affected_count": 3,
+  "message": "Successfully added 3 restaurant(s) for admin@menu.ca"
+}
+```
+
+**Security:**
+- All functions use JWT authentication via `auth.uid()`
+- No service role exposure required in client
+- Caller must be an active admin
+- Target admin must exist and be active
 
 ---
 
@@ -395,13 +513,19 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
 | Function | Purpose | Returns |
 |----------|---------|---------|
+| **Customer Functions** |||
 | `get_user_profile()` | Get current customer profile | Profile record |
 | `get_user_addresses()` | Get customer's delivery addresses | Address list |
 | `get_favorite_restaurants()` | Get customer's favorite restaurants | Restaurant list |
 | `toggle_favorite_restaurant(p_restaurant_id)` | Add/remove favorite | Action result |
+| **Admin Functions** |||
 | `get_admin_profile()` | Get current admin profile | Admin record |
 | `get_admin_restaurants()` | Get admin's assigned restaurants | Restaurant list |
 | `check_admin_restaurant_access(p_restaurant_id)` | Check admin access | Boolean |
+| **Admin Management Functions (JWT-Based)** |||
+| `get_my_admin_info()` | Get authenticated admin's info | Admin info record |
+| `assign_restaurants_to_admin(admin_id, ids[], action)` | Manage restaurant assignments | Assignment result |
+| `create_admin_user_request(email, first_name, ...)` | Create pending admin record | Creation result |
 
 ---
 
@@ -440,9 +564,10 @@ export async function GET(request: Request, { params }: { params: { id: string }
 - ✅ **Most queries < 10ms**
 
 ### **API Layer:**
-- ✅ **7 SQL functions**
-- ✅ **15+ REST endpoints** documented
+- ✅ **10 SQL functions** (7 customer/admin + 3 admin management)
+- ✅ **18+ REST endpoints** documented
 - ✅ **Real-time subscriptions** enabled
+- ✅ **JWT-based admin management** (no service role exposure)
 
 ### **Features:**
 - ✅ **Multi-language** (EN/FR/ES)
@@ -476,4 +601,49 @@ MenuCA now has a production-ready user management system with:
 - ✅ < 100ms query performance
 
 **Ready for:** Production deployment with millions of users!
+
+---
+
+## 🆕 **Recent Updates (October 28, 2025)**
+
+### **JWT-Based Admin Management**
+
+Added 3 new SQL functions that replace Edge Functions for admin user management:
+
+1. **`get_my_admin_info()`** - Helper function for current admin info
+   - Returns authenticated admin's profile
+   - Uses `auth.uid()` for security
+   - Faster than `get_admin_profile()` for simple info retrieval
+
+2. **`assign_restaurants_to_admin()`** - Manage restaurant assignments
+   - Actions: add, remove, replace
+   - Validates admin permissions via JWT
+   - No service role exposure required
+   - Complete audit trail with before/after counts
+
+3. **`create_admin_user_request()`** - Create pending admin accounts
+   - Creates admin record with 'pending' status
+   - Requires manual auth account creation via Supabase Dashboard
+   - Email validation and duplicate prevention
+   - Clear workflow instructions in response
+
+### **Benefits:**
+
+- ✅ **No Service Role Exposure** - All functions use JWT authentication
+- ✅ **Client-Side Safe** - Can be called directly from frontend
+- ✅ **Better Security** - `auth.uid()` validation on every call
+- ✅ **Simpler Architecture** - No Edge Functions for admin operations
+- ✅ **Complete Documentation** - See [Admin Management Guide](../../admin-role-assignment/ADMIN_MANAGEMENT_GUIDE.md)
+
+### **Migration from Edge Functions:**
+
+| Old (Edge Functions) | New (SQL Functions) | Status |
+|---------------------|---------------------|--------|
+| `create-admin-user` | `create_admin_user_request()` + manual auth | ✅ Migrated |
+| `assign-admin-restaurants` | `assign_restaurants_to_admin()` | ✅ Migrated |
+| N/A | `get_my_admin_info()` | ✅ New helper |
+
+**Edge Functions Status:**
+- Kept for legacy user migration (one-time operations)
+- Admin management now fully handled by SQL functions
 

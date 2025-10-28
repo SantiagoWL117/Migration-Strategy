@@ -31,13 +31,13 @@ Deno.serve(async (req) => {
     // Verify this is an admin request (require service role key in header)
     const authHeader = req.headers.get('Authorization');
     const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
-    
+
     if (!authHeader || !authHeader.includes(serviceRoleKey!)) {
       return new Response(
         JSON.stringify({ error: 'Unauthorized - Service role required' }),
-        { 
-          status: 401, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 401,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       );
     }

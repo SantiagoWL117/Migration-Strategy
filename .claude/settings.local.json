@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(*)"
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.get_restaurant_hours_i18n(950, ''en'') LIMIT 5;\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.get_restaurant_hours_i18n(950, ''fr'') LIMIT 5;\")",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT * FROM menuca_v3.get_upcoming_schedule_changes(950, 168) LIMIT 3;\")"
     ],
     "deny": [],
     "ask": []

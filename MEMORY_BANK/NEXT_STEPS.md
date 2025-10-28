@@ -1,8 +1,8 @@
 # Next Steps - Backend API Development
 
-**Last Updated:** 2025-10-21  
-**Current Status:** Database Complete - Backend API Development In Progress  
-**Team:** Santiago (Backend APIs) + Brian (Frontend - Customer Ordering App)  
+**Last Updated:** 2025-10-28
+**Current Status:** Database Complete - Backend API Development In Progress
+**Team:** Santiago (Backend APIs) + Brian (Frontend - Customer Ordering App)
 **Documentation:** All integration guides complete in SANTIAGO_MASTER_INDEX.md
 
 ---
@@ -32,14 +32,14 @@
 
 ## 🚀 Current Phase: Backend API Development (Phase 3)
 
-### Backend API Progress: 1/10 Entities Complete
+### Backend API Progress: 2/10 Entities Complete
 
 #### ✅ **1. Restaurant Management APIs** - **COMPLETE** ✅
 **Status:** All APIs implemented and tested (2025-10-21)
 
 **Completed APIs:**
 - ✅ `GET /api/restaurants` - List/search restaurants
-- ✅ `GET /api/restaurants/:id` - Get restaurant details  
+- ✅ `GET /api/restaurants/:id` - Get restaurant details
 - ✅ `GET /api/restaurants/near?lat=X&lng=Y` - Geospatial search
 - ✅ `POST /api/admin/restaurants` - Create restaurant (admin)
 - ✅ `PUT /api/admin/restaurants/:id` - Update restaurant (admin)
@@ -58,42 +58,53 @@
 
 ---
 
-#### ✅ **2. Users & Access APIs** - **COMPLETE** ✅
-**Status:** All APIs verified and 1,756 legacy auth accounts created (2025-10-23)
+#### ✅ **2. Users & Access APIs** - **COMPLETE** ✅ (2025-10-28)
+**Status:** All APIs implemented, tested, and documented with JWT-based admin management
 
-**📖 Documentation:** [Users & Access Backend Guide](../documentation/Users%20&%20Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+**📖 Documentation:**
+- [Users & Access Backend Guide](../documentation/Users%20&%20Access/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
+- [Admin Management Guide](../admin-role-assignment/ADMIN_MANAGEMENT_GUIDE.md)
 
 **Completed:**
-- ✅ All 10 SQL functions verified
-- ✅ All 3 Edge Functions verified  
+- ✅ All 10 SQL functions implemented and tested
+- ✅ **3 new JWT-based admin management functions**
+  - `get_my_admin_info()` - Get current admin info
+  - `assign_restaurants_to_admin()` - Manage assignments (add/remove/replace)
+  - `create_admin_user_request()` - Create pending admin records
+- ✅ All 3 Edge Functions verified (legacy migration)
 - ✅ 1,756 legacy customer auth.users records created (100% success)
-- ✅ Reactive migration system now operational
-- ✅ Frontend documentation complete
+- ✅ Reactive migration system operational
+- ✅ Complete frontend documentation
+- ✅ Admin management without service role exposure
 
-**APIs to Build:**
-1. `POST /api/auth/signup` - Customer registration
-2. `POST /api/auth/login` - Customer/admin login
-3. `GET /api/customers/me` - Get customer profile
-4. `PUT /api/customers/me` - Update profile
-5. `GET /api/customers/me/addresses` - Get delivery addresses
-6. `POST /api/customers/me/addresses` - Add address
-7. `PUT /api/customers/me/addresses/:id` - Update address
-8. `DELETE /api/customers/me/addresses/:id` - Delete address
-9. `GET /api/customers/me/favorites` - Get favorite restaurants
-10. `POST /api/customers/me/favorites/:rid` - Toggle favorite
-11. `POST /api/admin/auth/login` - Admin login
-12. `GET /api/admin/restaurants` - Get assigned restaurants (admin)
+**Completed APIs:**
+1. ✅ `POST /api/auth/signup` - Customer registration
+2. ✅ `POST /api/auth/login` - Customer/admin login
+3. ✅ `GET /api/customers/me` - Get customer profile
+4. ✅ `PUT /api/customers/me` - Update profile
+5. ✅ `GET /api/customers/me/addresses` - Get delivery addresses
+6. ✅ `POST /api/customers/me/addresses` - Add address
+7. ✅ `PUT /api/customers/me/addresses/:id` - Update address
+8. ✅ `DELETE /api/customers/me/addresses/:id` - Delete address
+9. ✅ `GET /api/customers/me/favorites` - Get favorite restaurants
+10. ✅ `POST /api/customers/me/favorites/:rid` - Toggle favorite
+11. ✅ `POST /api/admin/auth/login` - Admin login
+12. ✅ `GET /api/admin/restaurants` - Get assigned restaurants (admin)
+13. ✅ `GET /api/admin/me` - Get current admin info (new)
+14. ✅ `POST /api/admin/users` - Create admin user request (new)
+15. ✅ `POST /api/admin/users/:id/restaurants` - Manage assignments (new)
 
 **Authentication Features:**
-- Email/password authentication (Supabase Auth)
-- JWT tokens (Supabase handles automatically)
-- RLS policies enforce access control
-- Admin multi-restaurant access
-- Customer self-service profile management
+- ✅ Email/password authentication (Supabase Auth)
+- ✅ JWT tokens (Supabase handles automatically)
+- ✅ RLS policies enforce access control
+- ✅ Admin multi-restaurant access
+- ✅ Customer self-service profile management
+- ✅ JWT-based admin management (no service role exposure)
 
 ---
 
-#### ⏳ **3. Menu & Catalog APIs** - **PENDING**
+#### 🚀 **3. Menu & Catalog APIs** - **IN PROGRESS** (Priority 3)
 **Why Third:** Core ordering feature - customers need to browse menus
 
 **📖 Documentation:** [Menu & Catalog Backend Guide](../documentation/Menu%20&%20Catalog/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
@@ -418,10 +429,11 @@ const subscription = supabase
 3. ✅ Set up backend project structure
 4. ✅ Configure Supabase client
 5. ✅ Implement Restaurant Management APIs (Priority 1) - **COMPLETE**
-6. 🚀 Implement Users & Access APIs (Priority 2) - **IN PROGRESS** ← Current Focus
-7. ⏳ Test authentication flows with Brian's frontend
-8. ⏳ Implement Menu & Catalog APIs (Priority 3) - Next
-9. ⏳ Continue through Priority 4-10
+6. ✅ Implement Users & Access APIs (Priority 2) - **COMPLETE** (with JWT-based admin management)
+7. 🚀 Implement Menu & Catalog APIs (Priority 3) - **IN PROGRESS** ← Current Focus
+8. ⏳ Test authentication flows with Brian's frontend
+9. ⏳ Implement Service Configuration APIs (Priority 4) - Next
+10. ⏳ Continue through Priority 5-10
 
 **Brian (Frontend):**
 1. ✅ Review Customer Ordering App requirements
@@ -432,10 +444,10 @@ const subscription = supabase
 
 ---
 
-**Status:** Database layer 100% complete. Backend APIs: 1/10 entities complete (Restaurant Mgmt ✅). Users & Access in progress. Frontend build in progress.
+**Status:** Database layer 100% complete. Backend APIs: 2/10 entities complete (Restaurant Mgmt ✅ + Users & Access ✅). Menu & Catalog in progress. Frontend build in progress.
 
-**Current Focus:** Users & Access Backend APIs (Priority 2) - Customer signup/login, admin authentication, profile management.
+**Current Focus:** Menu & Catalog Backend APIs (Priority 3) - Menu browsing, dish details, inventory management, multi-language support.
 
-**Timeline:** Week 1-2 (Restaurant + Users). Currently completing Users & Access. Then move to Priority 3-4 (Menu + Service Config).
+**Timeline:** Week 1-2 (Restaurant + Users) - ✅ COMPLETE. Week 3-4 (Menu + Service Config) - Now starting Menu & Catalog.
 
 **Documentation:** All guides complete in SANTIAGO_MASTER_INDEX.md.
