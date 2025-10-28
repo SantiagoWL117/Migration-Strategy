@@ -216,25 +216,25 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 
 | Guide | Purpose | For |
 |-------|---------|-----|
-| **[02-Users-Access-Frontend-Guide.md](./02-Users-Access-Frontend-Guide.md)** ⭐ | Complete API reference for all features | All developers |
-| **[Admin Management Guide](../../admin-role-assignment/ADMIN_MANAGEMENT_GUIDE.md)** ⭐ | JWT-based admin user management (NEW) | Admin-facing UI |
-| **[Two-Step Signup Implementation](../../BRIAN_TWO_STEP_SIGNUP_IMPLEMENTATION.md)** | Customer signup flow (auth + profile) | Customer-facing UI |
-| **[Direct Table Queries Implementation](../../DIRECT_TABLE_QUERIES_IMPLEMENTATION.md)** | Query patterns & API client (recommended) | All developers |
-| **[Service Role Implementation Guide](../../documentation/Users%20&%20Access/SERVICE_ROLE_IMPLEMENTATION_GUIDE.md)** | Legacy Edge Functions reference (deprecated) | Reference only |
-| **[Function Access & Workaround](../../FUNCTION_ACCESS_FIX.md)** | Why SQL functions return 404 via REST | Reference only |
-| **[Customer Profile Inspection Report](../../CUSTOMER_PROFILE_INSPECTION_REPORT.md)** | Testing results & findings | Reference only |
+| **[02-Users-Access-Frontend-Guide.md](./Users-&-Access/02-Users-Access-Frontend-Guide.md)** ⭐ | Complete API reference for all features | All developers |
+| **[Admin Management Guide](./Users-&-Access/ADMIN_MANAGEMENT_GUIDE.md)** ⭐ | JWT-based admin user management (NEW) | Admin-facing UI |
+| **[Two-Step Signup Implementation](./Users-&-Access/BRIAN_TWO_STEP_SIGNUP_IMPLEMENTATION.md)** | Customer signup flow (auth + profile) | Customer-facing UI |
+| **[Direct Table Queries Implementation](./Users-&-Access/DIRECT_TABLE_QUERIES_IMPLEMENTATION.md)** | Query patterns & API client (recommended) | All developers |
+| **[Service Role Implementation Guide](./Users-&-Access/SERVICE_ROLE_IMPLEMENTATION_GUIDE.md)** | Legacy Edge Functions reference (deprecated) | Reference only |
+| **[Function Access & Workaround](./Users-&-Access/FUNCTION_ACCESS_FIX.md)** | Why SQL functions return 404 via REST | Reference only |
+| **[Customer Profile Inspection Report](./Users-&-Access/CUSTOMER_PROFILE_INSPECTION_REPORT.md)** | Testing results & findings | Reference only |
 
 ### **Documentation by Feature**
 
 | Feature | Documentation | API Type |
 |---------|---------------|----------|
-| **Customer Auth** | [02-Users-Access-Frontend-Guide.md](./02-Users-Access-Frontend-Guide.md) → Authentication section | Supabase Auth |
-| **Customer Profiles** | [02-Users-Access-Frontend-Guide.md](./02-Users-Access-Frontend-Guide.md) → Profiles section | SQL Functions |
-| **Delivery Addresses** | [Direct Table Queries](../../DIRECT_TABLE_QUERIES_IMPLEMENTATION.md) | Direct Queries |
-| **Favorite Restaurants** | [02-Users-Access-Frontend-Guide.md](./02-Users-Access-Frontend-Guide.md) → Favorites section | SQL Functions |
-| **Admin Auth & RBAC** | [02-Users-Access-Frontend-Guide.md](./02-Users-Access-Frontend-Guide.md) → Admin section | SQL Functions |
-| **Admin Management** | [Admin Management Guide](../../admin-role-assignment/ADMIN_MANAGEMENT_GUIDE.md) ⭐ | SQL Functions (JWT-based) |
-| **Legacy Migration** | [02-Users-Access-Frontend-Guide.md](./02-Users-Access-Frontend-Guide.md) → Migration section | Edge Functions |
+| **Customer Auth** | [02-Users-Access-Frontend-Guide.md](./Users-&-Access/02-Users-Access-Frontend-Guide.md) → Authentication section | Supabase Auth |
+| **Customer Profiles** | [02-Users-Access-Frontend-Guide.md](./Users-&-Access/02-Users-Access-Frontend-Guide.md) → Profiles section | SQL Functions |
+| **Delivery Addresses** | [Direct Table Queries](./Users-&-Access/DIRECT_TABLE_QUERIES_IMPLEMENTATION.md) | Direct Queries |
+| **Favorite Restaurants** | [02-Users-Access-Frontend-Guide.md](./Users-&-Access/02-Users-Access-Frontend-Guide.md) → Favorites section | SQL Functions |
+| **Admin Auth & RBAC** | [02-Users-Access-Frontend-Guide.md](./Users-&-Access/02-Users-Access-Frontend-Guide.md) → Admin section | SQL Functions |
+| **Admin Management** | [Admin Management Guide](./Users-&-Access/ADMIN_MANAGEMENT_GUIDE.md) ⭐ | SQL Functions (JWT-based) |
+| **Legacy Migration** | [02-Users-Access-Frontend-Guide.md](./Users-&-Access/02-Users-Access-Frontend-Guide.md) → Migration section | Edge Functions |
 
 ---
 
@@ -244,18 +244,18 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - Signup, login, logout via Supabase Auth
 - Two-step signup: create auth account → update profile
 - Profile management (get/update customer info)
-- **Docs:** [Two-Step Signup Guide](../../BRIAN_TWO_STEP_SIGNUP_IMPLEMENTATION.md) | [Frontend Guide](./02-Users-Access-Frontend-Guide.md)
+- **Docs:** [Two-Step Signup Guide](./Users-&-Access/BRIAN_TWO_STEP_SIGNUP_IMPLEMENTATION.md) | [Frontend Guide](./Users-&-Access/02-Users-Access-Frontend-Guide.md)
 
 ### **2. Customer Delivery Addresses** (Direct Table Access - Recommended)
 - CRUD operations with RLS protection
 - City/province relationships
 - Default address management
-- **Docs:** [Direct Table Queries Guide](../../DIRECT_TABLE_QUERIES_IMPLEMENTATION.md)
+- **Docs:** [Direct Table Queries Guide](./Users-&-Access/DIRECT_TABLE_QUERIES_IMPLEMENTATION.md)
 
 ### **3. Customer Favorite Restaurants** (2 SQL Functions)
 - Toggle favorite restaurants
 - List favorites with restaurant details
-- **Docs:** [Frontend Guide - Favorites Section](./02-Users-Access-Frontend-Guide.md)
+- **Docs:** [Frontend Guide - Favorites Section](./Users-&-Access/02-Users-Access-Frontend-Guide.md)
 
 ### **4. Admin Authentication & RBAC** (5 SQL Functions)
 - Admin login via Supabase Auth
@@ -265,7 +265,7 @@ const { data, error } = await supabase.functions.invoke('function-name', {
 - 5 system roles: Super Admin, Manager, Support, Restaurant Manager, Staff
 - 2-tier permissions: System role + Restaurant assignments
 - **439 admins** with role assignments ✅
-- **Docs:** [Admin Management Guide](../../admin-role-assignment/ADMIN_MANAGEMENT_GUIDE.md) | [Frontend Guide - Admin Section](./02-Users-Access-Frontend-Guide.md)
+- **Docs:** [Admin Management Guide](./Users-&-Access/ADMIN_MANAGEMENT_GUIDE.md) | [Frontend Guide - Admin Section](./Users-&-Access/02-Users-Access-Frontend-Guide.md)
 
 **System Roles Quick Reference:**
 
@@ -295,7 +295,7 @@ if (admin.role_id === 1) {
 - Get current admin information
 - **Uses JWT authentication** (no service role exposure)
 - **Manual auth account creation** required via Supabase Dashboard
-- **Docs:** [Admin Management Guide](../../admin-role-assignment/ADMIN_MANAGEMENT_GUIDE.md) ⭐
+- **Docs:** [Admin Management Guide](./Users-&-Access/ADMIN_MANAGEMENT_GUIDE.md) ⭐
 
 **SQL Functions:**
 - `get_my_admin_info()` - Get current authenticated admin info
@@ -314,7 +314,7 @@ if (admin.role_id === 1) {
 - 1,756 legacy users migrated to Supabase Auth ✅
 - Password reset flow for activation
 - Migration statistics tracking
-- **Docs:** [Frontend Guide - Migration Section](./02-Users-Access-Frontend-Guide.md)
+- **Docs:** [Frontend Guide - Migration Section](./Users-&-Access/02-Users-Access-Frontend-Guide.md)
 
 ---
 
@@ -349,18 +349,18 @@ if (admin.role_id === 1) {
 ## 🚀 Quick Start for Developers
 
 **For Customer Features:**
-1. Read [Two-Step Signup Guide](../../BRIAN_TWO_STEP_SIGNUP_IMPLEMENTATION.md)
-2. Read [Direct Table Queries Guide](../../DIRECT_TABLE_QUERIES_IMPLEMENTATION.md)
+1. Read [Two-Step Signup Guide](./Users-&-Access/BRIAN_TWO_STEP_SIGNUP_IMPLEMENTATION.md)
+2. Read [Direct Table Queries Guide](./Users-&-Access/DIRECT_TABLE_QUERIES_IMPLEMENTATION.md)
 3. Implement authentication, profiles, addresses, favorites
 
 **For Admin Features:**
-1. Read [Frontend Guide - Admin Section](./02-Users-Access-Frontend-Guide.md)
-2. Read [Admin Management Guide](../../admin-role-assignment/ADMIN_MANAGEMENT_GUIDE.md)
+1. Read [Frontend Guide - Admin Section](./Users-&-Access/02-Users-Access-Frontend-Guide.md)
+2. Read [Admin Management Guide](./Users-&-Access/ADMIN_MANAGEMENT_GUIDE.md)
 3. Implement admin login and RBAC checks
 4. Query assigned restaurants for each admin
 
 **For Admin User Management:**
-1. Read [Admin Management Guide](../../admin-role-assignment/ADMIN_MANAGEMENT_GUIDE.md)
+1. Read [Admin Management Guide](./Users-&-Access/ADMIN_MANAGEMENT_GUIDE.md)
 2. Implement restaurant assignment UI (add/remove/replace)
 3. Implement admin creation workflow with manual auth step
 4. Use JWT-based SQL functions (no service role exposure)
