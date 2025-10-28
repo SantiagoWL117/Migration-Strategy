@@ -1,5 +1,6 @@
 ﻿{
   "permissions": {
+    "defaultMode": "bypassPermissions",
     "allow": [
       "Bash(powershell -Command \"Get-Content ''C:\\Users\\santi\\Menu.ca\\Legacy Database\\Migration Strategy\\AGENT SMITH USERS CHAT.md'' | Select-Object -Last 200 | Select-String -Pattern ''(SUCCESS|COMPLETE|1,756|A_Aï¿½Aï¿½o..*Auth|READY)'' -Context 2,2\")",
       "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\":*)",
