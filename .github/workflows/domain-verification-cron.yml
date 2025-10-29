@@ -1,0 +1,87 @@
+name: Daily Domain Verification
+
+on:
+  schedule:
+    # Run at 2 AM UTC daily (cron syntax: minute hour day month weekday)
+    - cron: '0 2 * * *'
+
+  # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  verify-domains:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Trigger Domain Verification
+        id: verify
+        run: |
+          echo "🔍 Starting domain verification..."
+
+          response=$(curl -w "\n%{http_code}" -X POST \
+            "https://nthpbtdjhhnwfxqsxbvy.supabase.co/functions/v1/verify-domains-cron" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "X-Cron-Secret: ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json" \
+            --max-time 120)
+
+          http_code=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | sed '$d')
+
+          echo "📊 HTTP Status: $http_code"
+          echo "📝 Response Body:"
+          echo "$body" | jq '.' 2>/dev/null || echo "$body"
+
+          if [ "$http_code" -ne 200 ]; then
+            echo "❌ Domain verification failed with HTTP status $http_code"
+            exit 1
+          fi
+
+          # Extract metrics from response
+          total=$(echo "$body" | jq -r '.total_checked // 0')
+          ssl=$(echo "$body" | jq -r '.ssl_verified // 0')
+          dns=$(echo "$body" | jq -r '.dns_verified // 0')
+
+          echo "✅ Domain verification completed successfully"
+          echo "📈 Metrics:"
+          echo "   - Total domains checked: $total"
+          echo "   - SSL verified: $ssl"
+          echo "   - DNS verified: $dns"
+
+          # Set outputs for summary
+          echo "total_checked=$total" >> $GITHUB_OUTPUT
+          echo "ssl_verified=$ssl" >> $GITHUB_OUTPUT
+          echo "dns_verified=$dns" >> $GITHUB_OUTPUT
+
+      - name: Create Job Summary
+        if: always()
+        run: |
+          echo "# Domain Verification Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ steps.verify.outcome }}" == "success" ]; then
+            echo "✅ **Status:** Success" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "| Metric | Count |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+            echo "| Total Domains Checked | ${{ steps.verify.outputs.total_checked }} |" >> $GITHUB_STEP_SUMMARY
+            echo "| SSL Verified | ${{ steps.verify.outputs.ssl_verified }} |" >> $GITHUB_STEP_SUMMARY
+            echo "| DNS Verified | ${{ steps.verify.outputs.dns_verified }} |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status:** Failed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Check the logs above for details." >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "⚠️ Domain verification failed!"
+          echo "Please check:"
+          echo "  1. Supabase function logs: https://supabase.com/dashboard/project/nthpbtdjhhnwfxqsxbvy/functions"
+          echo "  2. GitHub Actions secrets are set correctly"
+          echo "  3. CRON_SECRET matches Supabase environment variable"
