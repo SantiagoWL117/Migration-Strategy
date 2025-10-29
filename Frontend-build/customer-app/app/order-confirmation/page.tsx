@@ -1,12 +1,28 @@
 'use client'
 
 import { useSearchParams, useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { CheckCircle, Package, Clock } from 'lucide-react'
+import { QuickSignInPrompt } from '@/components/quick-signin-prompt'
+import { createClient } from '@/lib/supabase/client'
 
 export default function OrderConfirmationPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
   const searchParams = useSearchParams()
   const paymentIntentId = searchParams.get('payment_intent')
+
+  // Check if user is authenticated
+  useEffect(() => {
+    const checkAuth = async () => {
+      const supabase = createClient()
+      const { data: { session } } = await supabase.auth.getSession()
+      setIsAuthenticated(!!session)
+      setIsLoading(false)
+    }
+    checkAuth()
+  }, [])
 
   if (!paymentIntentId) {
     return (
@@ -98,6 +114,31 @@ export default function OrderConfirmationPage() {
             </div>
           </div>
         </div>
+
+        {/* Quick Sign-In Prompt for Guest Orders */}
+        {!isLoading && !isAuthenticated && (
+          <div className="mb-6">
+            <div className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Track this order in real-time! 📱
+              </h3>
+              <p className="text-gray-700 mb-4">
+                Create an account in 30 seconds to get live delivery updates, save your favorites, and re-order with one tap.
+              </p>
+              <QuickSignInPrompt
+                message="Enter your phone number to unlock:"
+                redirectTo={`/order-tracking?payment_intent=${paymentIntentId}`}
+                showGuestOption={false}
+              />
+              <div className="mt-4 flex flex-wrap gap-3 text-sm text-gray-600">
+                <span className="flex items-center gap-1">✓ Real-time order tracking</span>
+                <span className="flex items-center gap-1">✓ Order history</span>
+                <span className="flex items-center gap-1">✓ Quick re-orders</span>
+                <span className="flex items-center gap-1">✓ Save favorites</span>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Email Confirmation Notice */}
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
