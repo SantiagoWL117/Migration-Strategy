@@ -1,12 +1,12 @@
 'use client'
 
 import { useSearchParams, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { CheckCircle, Package, Clock } from 'lucide-react'
 import { QuickSignInPrompt } from '@/components/quick-signin-prompt'
 import { createClient } from '@/lib/supabase/client'
 
-export default function OrderConfirmationPage() {
+function OrderConfirmationContent() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
@@ -175,5 +175,13 @@ export default function OrderConfirmationPage() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function OrderConfirmationPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <OrderConfirmationContent />
+    </Suspense>
   )
 }
