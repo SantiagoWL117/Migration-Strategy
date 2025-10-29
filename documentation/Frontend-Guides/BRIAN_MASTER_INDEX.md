@@ -398,13 +398,13 @@ if (admin.role_id === 1) {
 - **Testing:** 15/15 Tests Passed (100%)
 
 **📂 Frontend Documentation:**
-- **[Service Configuration - Frontend Developer Guide](./04-Service-Configuration-Frontend-Guide.md)** ⭐
+- **[Service Configuration - Frontend Developer Guide](./Service%20Configuration%20&%20Schedules/04-Service-Configuration-Frontend-Guide.md)** ⭐
 
 ---
 
-## 🧩 Components & Features Overview
+#### 🧩 Components & Features Overview
 
-### **1. Real-Time Status Checks** (2 SQL Functions)
+#### **1. Real-Time Status Checks** (2 SQL Functions)
 ```typescript
 // Check if restaurant is open now
 const { data: isOpen } = await supabase.rpc('is_restaurant_open_now', {
@@ -421,7 +421,7 @@ const { data: config } = await supabase.rpc('get_current_service_config', {
 ```
 **Functions:** `is_restaurant_open_now`, `get_current_service_config`
 
-### **2. Schedule Display** (2 SQL Functions)
+#### **2. Schedule Display** (2 SQL Functions)
 ```typescript
 // Get weekly hours with localized day names
 const { data: hours } = await supabase.rpc('get_restaurant_hours_i18n', {
@@ -432,7 +432,7 @@ const { data: hours } = await supabase.rpc('get_restaurant_hours_i18n', {
 ```
 **Functions:** `get_restaurant_hours`, `get_restaurant_hours_i18n`
 
-### **3. Special Schedules** (2 SQL Functions)
+#### **3. Special Schedules** (2 SQL Functions)
 ```typescript
 // Get active holidays/vacations
 const { data: specials } = await supabase.rpc('get_active_special_schedules', {
@@ -448,7 +448,7 @@ const { data: upcoming } = await supabase.rpc('get_upcoming_schedule_changes', {
 ```
 **Functions:** `get_active_special_schedules`, `get_upcoming_schedule_changes`
 
-### **4. Admin Management** (5 SQL Functions)
+#### **4. Admin Management** (5 SQL Functions)
 ```typescript
 // Bulk toggle service (enable/disable all schedules)
 const { data: affectedCount } = await supabase.rpc('bulk_toggle_schedules', {
@@ -485,7 +485,7 @@ const { data: dayName } = await supabase.rpc('get_day_name', {
 
 ---
 
-## 🔑 Key Implementation Notes
+##### 🔑 Key Implementation Notes
 
 **Real-Time Updates:**
 - Subscribe to `restaurant_schedules` table changes via Supabase Realtime
