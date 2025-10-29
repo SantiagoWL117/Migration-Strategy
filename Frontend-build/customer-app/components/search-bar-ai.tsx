@@ -20,7 +20,7 @@ export function SearchBar() {
   const [isLoadingAI, setIsLoadingAI] = useState(false)
   const router = useRouter()
   const searchRef = useRef<HTMLDivElement>(null)
-  const debounceTimer = useRef<NodeJS.Timeout>()
+  const debounceTimer = useRef<NodeJS.Timeout | undefined>(undefined)
 
   // Rotating placeholder suggestions
   useEffect(() => {

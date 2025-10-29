@@ -2,24 +2,7 @@
 
 import { Star, MapPin, Clock } from 'lucide-react'
 import Image from 'next/image'
-
-interface Restaurant {
-  id: string
-  name: string
-  slug: string
-  image_url: string | null
-  description: string | null
-  cuisine_type: string | null
-  average_rating: number | null
-  review_count: number | null
-  delivery_fee: number | null
-  minimum_order: number | null
-  estimated_delivery_time: string | null
-  is_featured: boolean | null
-  is_active: boolean | null
-  distance_km?: number | null
-  can_deliver?: boolean | null
-}
+import { Restaurant } from '@/lib/types/database'
 
 interface RestaurantCardProps {
   restaurant: Restaurant
