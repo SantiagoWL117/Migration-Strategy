@@ -1,8 +1,8 @@
 # Brian's Master Index - Frontend Integration Hub
 
 **Purpose:** Single source of truth for all frontend development documentation
-**Last Updated:** October 28, 2025
-**Status:** Restaurant Management Complete | Users & Access Complete (Auth + RBAC + JWT Admin Management) | 8 Entities Pending
+**Last Updated:** October 29, 2025
+**Status:** Restaurant Management Complete | Users & Access Complete (Auth + RBAC + JWT Admin Management) | Service Configuration Complete | 7 Entities Pending
 **Platform:** Supabase (PostgreSQL + Edge Functions)
 
 ---
@@ -49,14 +49,14 @@ Every entity guide follows this structure to help frontend developers understand
 
 ## **ENTITY STATUS OVERVIEW**
 
-**Progress:** 2 of 10 Entities Complete (20%)
+**Progress:** 3 of 10 Entities Complete (30%)
 
 | Entity | Status | Priority | Components | SQL Functions | Edge Functions |
 |--------|--------|----------|------------|---------------|----------------|
 | Restaurant Management | ✅ COMPLETE | 1 | 11 | 50+ | 29 |
 | Users & Access | ✅ COMPLETE | 2 | 6 (+ RBAC) | 13 | 3 |
 | Menu & Catalog | 📋 PENDING | 3 | - | - | - |
-| Service Configuration | 📋 PENDING | 4 | - | - | - |
+| Service Configuration | ✅ COMPLETE | 4 | 4 | 11 | 0 |
 | Location & Geography | 📋 PENDING | 5 | - | - | - |
 | Marketing & Promotions | 📋 PENDING | 6 | - | - | - |
 | Orders & Checkout | 📋 PENDING | 7 | - | - | - |
@@ -66,6 +66,7 @@ Every entity guide follows this structure to help frontend developers understand
 
 **Restaurant Management:** 50+ SQL functions | 29 Edge Functions | Production-Ready ✅
 **Users & Access:** 13 SQL functions | 3 Edge Functions | 1,756 Auth Accounts | 439 Admins with RBAC | JWT-Based Admin Management | Production-Ready ✅
+**Service Configuration:** 11 SQL functions | 0 Edge Functions | Multi-language (EN/ES/FR) | 15/15 Tests Passed | Production-Ready ✅
 
 ---
 
@@ -388,22 +389,144 @@ if (admin.role_id === 1) {
 ---
 
 ### **4. Service Configuration & Schedules**
-**Priority:** 4 | **Status:** 📋 PENDING
+**Priority:** 4 | **Status:** ✅ COMPLETE | **Date:** 2025-10-29
+
+**Quick Stats:**
+- **11 SQL Functions** | **0 Edge Functions** | **4 Tables**
+- **Multi-language:** EN, ES, FR
+- **Performance:** 4-16ms (all queries)
+- **Testing:** 15/15 Tests Passed (100%)
 
 **📂 Frontend Documentation:**
-- **[Service Configuration - Frontend Developer Guide](./04-Service-Configuration-Frontend-Guide.md)**
+- **[Service Configuration - Frontend Developer Guide](./Service%20Configuration%20&%20Schedules/04-Service-Configuration-Frontend-Guide.md)** ⭐
 
-**Planned Features:**
-- Operating hours management
-- Holiday and vacation schedules
-- Service type configuration (delivery, pickup, dine-in)
-- Real-time availability checking
-- Timezone support
+---
+
+#### 🧩 Components & Features Overview
+
+#### **1. Real-Time Status Checks** (2 SQL Functions)
+```typescript
+// Check if restaurant is open now
+const { data: isOpen } = await supabase.rpc('is_restaurant_open_now', {
+  p_restaurant_id: 379,
+  p_service_type: 'delivery',
+  p_check_time: new Date().toISOString()
+});
+
+// Get service configuration
+const { data: config } = await supabase.rpc('get_current_service_config', {
+  p_restaurant_id: 379,
+  p_service_type: 'delivery'
+});
+```
+**Functions:** `is_restaurant_open_now`, `get_current_service_config`
+
+#### **2. Schedule Display** (2 SQL Functions)
+```typescript
+// Get weekly hours with localized day names
+const { data: hours } = await supabase.rpc('get_restaurant_hours_i18n', {
+  p_restaurant_id: 379,
+  p_language_code: 'es' // 'en', 'es', or 'fr'
+});
+// Returns: [{ day_name: 'Lunes', opens_at: '11:30:00', closes_at: '21:00:00', display_text: 'Lunes: 11:30 - 21:00' }]
+```
+**Functions:** `get_restaurant_hours`, `get_restaurant_hours_i18n`
+
+#### **3. Special Schedules** (2 SQL Functions)
+```typescript
+// Get active holidays/vacations
+const { data: specials } = await supabase.rpc('get_active_special_schedules', {
+  p_restaurant_id: 379,
+  p_service_type: 'delivery'
+});
+
+// Get upcoming schedule changes (next 7 days)
+const { data: upcoming } = await supabase.rpc('get_upcoming_schedule_changes', {
+  p_restaurant_id: 379,
+  p_hours_ahead: 168
+});
+```
+**Functions:** `get_active_special_schedules`, `get_upcoming_schedule_changes`
+
+#### **4. Admin Management** (5 SQL Functions)
+```typescript
+// Bulk toggle service (enable/disable all schedules)
+const { data: affectedCount } = await supabase.rpc('bulk_toggle_schedules', {
+  p_restaurant_id: 379,
+  p_service_type: 'delivery',
+  p_is_active: false
+});
+
+// Copy schedules between locations
+const { data: copiedCount } = await supabase.rpc('copy_schedules_between_restaurants', {
+  p_source_restaurant_id: 379,
+  p_target_restaurant_id: 950,
+  p_service_type: 'delivery',
+  p_overwrite_existing: true
+});
+
+// Detect conflicts before saving
+const { data: hasConflict } = await supabase.rpc('has_schedule_conflict', { ... });
+
+// Validate schedule times
+const { data: isValid } = await supabase.rpc('validate_schedule_times', {
+  p_opens_at: '09:00:00',
+  p_closes_at: '22:00:00',
+  p_allow_overnight: true
+});
+
+// Get localized day name
+const { data: dayName } = await supabase.rpc('get_day_name', {
+  p_day_number: 1, // 0=Sunday, 6=Saturday
+  p_language_code: 'es' // Returns: 'Lunes'
+});
+```
+**Functions:** `bulk_toggle_schedules`, `copy_schedules_between_restaurants`, `has_schedule_conflict`, `validate_schedule_times`, `get_day_name`
+
+---
+
+##### 🔑 Key Implementation Notes
+
+**Real-Time Updates:**
+- Subscribe to `restaurant_schedules` table changes via Supabase Realtime
+- pg_notify triggers fire on all schedule/config changes
+- Refresh UI automatically when schedules change
+
+**Multi-Language Support:**
+- Use `get_restaurant_hours_i18n()` for localized day names
+- Supports EN, ES, FR
+- `get_day_name()` helper for custom translations
+
+**Performance:**
+- All queries < 50ms (actual: 4-16ms)
+- 31 indexes optimize lookups
+- Safe to call frequently (cache for 5-10 minutes)
+
+**Security:**
+- JWT authentication via `auth.uid()`
+- RLS enforces tenant isolation
+- Admin-only operations for write functions
+- Public read access for active restaurants
+
+**Database Tables:**
+- `menuca_v3.restaurant_schedules` - Weekly operating hours
+- `menuca_v3.restaurant_special_schedules` - Holidays, vacations
+- `menuca_v3.restaurant_service_configs` - Service availability settings
+- `menuca_v3.restaurant_time_periods` - Time period definitions (lunch, dinner)
+
+---
+
+## 🚀 Quick Start for Developers
+
+1. Read [Service Configuration - Frontend Developer Guide](./04-Service-Configuration-Frontend-Guide.md) ⭐
+2. Implement customer-facing hours display using `get_restaurant_hours_i18n()`
+3. Show real-time open/closed status using `is_restaurant_open_now()`
+4. Subscribe to Realtime for live schedule updates
+5. For admin features, use bulk toggle and conflict detection functions
 
 **Backend Reference:**
+- [Service Configuration - Santiago Backend Integration Guide](../../documentation/Service%20Configuration%20&%20Schedules/SANTIAGO_BACKEND_INTEGRATION_GUIDE.md)
 - [Service Configuration - Completion Report](../../Database/Service%20Configuration%20&%20Schedules/SERVICE_SCHEDULES_COMPLETION_REPORT.md)
-
-**Status:** 🚧 To be implemented
 
 ---
 

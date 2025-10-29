@@ -146,6 +146,7 @@ Deno.serve(async (req) => {
 
     // 3. Fetch domains needing verification (last checked > 24 hours ago OR never checked)
     const { data: domains, error: fetchError } = await supabase
+      .schema('menuca_v3')
       .from('restaurant_domains')
       .select('id, domain, restaurant_id')
       .is('deleted_at', null)
@@ -175,15 +176,17 @@ Deno.serve(async (req) => {
       const dnsResult = await verifyDNS(domain.domain);
 
       // 5. Update database
-      const { error: updateError } = await supabase.rpc('mark_domain_verified', {
-        p_domain_id: domain.id,
-        p_ssl_verified: sslResult.valid,
-        p_dns_verified: dnsResult.verified,
-        p_ssl_expires_at: sslResult.expiresAt?.toISOString(),
-        p_ssl_issuer: sslResult.issuer,
-        p_dns_records: dnsResult.records,
-        p_verification_errors: [sslResult.error, dnsResult.error].filter(Boolean).join('; ') || null,
-      });
+      const { error: updateError } = await supabase
+        .schema('menuca_v3')
+        .rpc('mark_domain_verified', {
+          p_domain_id: domain.id,
+          p_ssl_verified: sslResult.valid,
+          p_dns_verified: dnsResult.verified,
+          p_ssl_expires_at: sslResult.expiresAt?.toISOString(),
+          p_ssl_issuer: sslResult.issuer,
+          p_dns_records: dnsResult.records,
+          p_verification_errors: [sslResult.error, dnsResult.error].filter(Boolean).join('; ') || null,
+        });
 
       if (updateError) {
         console.error(`Error updating domain ${domain.id}:`, updateError);
