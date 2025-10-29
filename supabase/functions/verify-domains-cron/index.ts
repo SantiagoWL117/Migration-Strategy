@@ -152,7 +152,7 @@ Deno.serve(async (req) => {
       .is('deleted_at', null)
       .eq('is_enabled', true)
       .or('last_checked_at.lt.now() - interval \'24 hours\',last_checked_at.is.null')
-      .limit(100);
+      .limit(50); // Reduced from 100 to 50 to prevent timeouts
 
     if (fetchError) {
       throw fetchError;
