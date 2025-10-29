@@ -11,6 +11,7 @@ interface PhoneInputProps {
   placeholder?: string;
   className?: string;
   required?: boolean;
+  autoFocus?: boolean;
 }
 
 export function PhoneInput({
@@ -20,7 +21,8 @@ export function PhoneInput({
   defaultCountry = 'CA',
   placeholder = '(555) 555-1234',
   className = '',
-  required = false
+  required = false,
+  autoFocus = false
 }: PhoneInputProps) {
   const [isValid, setIsValid] = useState(false);
   const [formattedValue, setFormattedValue] = useState(value);
@@ -76,6 +78,7 @@ export function PhoneInput({
         onChange={handleChange}
         placeholder={placeholder}
         required={required}
+        autoFocus={autoFocus}
         className={`
           block w-full pl-10 pr-3 py-2
           border rounded-lg
