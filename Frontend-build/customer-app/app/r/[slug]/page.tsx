@@ -112,7 +112,7 @@ export default async function RestaurantPage({
       const items = itemsByGroup[dm.ingredient_group_id] || []
 
       // Return ALL ingredients from this group
-      return items.map((item, index) => {
+      return items.map((item: any, index: number) => {
         const ingredient = ingredientMap.get(item.ingredient_id)
         return {
           modifier_id: `${dm.id}_${item.id}`, // Unique ID combining modifier and item
