@@ -62,7 +62,7 @@ export default async function RestaurantPage({
     .order('display_order')
 
   // Step 2: Get unique ingredient_group_ids from dish_modifiers
-  const groupIds = [...new Set(dishModifiers?.map(dm => dm.ingredient_group_id).filter(Boolean))] || []
+  const groupIds = [...new Set(dishModifiers?.map(dm => dm.ingredient_group_id).filter(Boolean) || [])]
 
   // Step 3: Fetch ingredient_groups with their details
   const { data: ingredientGroups } = await supabase
