@@ -156,6 +156,7 @@ Deno.serve(async (req) => {
 
     // 4. Fetch domain details
     const { data: domain, error: fetchError } = await supabaseAdmin
+      .schema('menuca_v3')
       .from('restaurant_domains')
       .select('id, domain, restaurant_id')
       .eq('id', domain_id)
@@ -174,25 +175,26 @@ Deno.serve(async (req) => {
     const dnsResult = await verifyDNS(domain.domain);
 
     // 6. Update database
-    const { error: updateError } = await supabaseAdmin.rpc('mark_domain_verified', {
-      p_domain_id: domain.id,
-      p_ssl_verified: sslResult.valid,
-      p_dns_verified: dnsResult.verified,
-      p_ssl_expires_at: sslResult.expiresAt?.toISOString(),
-      p_ssl_issuer: sslResult.issuer,
-      p_dns_records: dnsResult.records,
-      p_verification_errors: [sslResult.error, dnsResult.error].filter(Boolean).join('; ') || null,
-    });
+    const { error: updateError } = await supabaseAdmin
+      .schema('menuca_v3')
+      .rpc('mark_domain_verified', {
+        p_domain_id: domain.id,
+        p_ssl_verified: sslResult.valid,
+        p_dns_verified: dnsResult.verified,
+        p_ssl_expires_at: sslResult.expiresAt?.toISOString(),
+        p_ssl_issuer: sslResult.issuer,
+        p_dns_records: dnsResult.records,
+        p_verification_errors: [sslResult.error, dnsResult.error].filter(Boolean).join('; ') || null,
+      });
 
     if (updateError) {
       throw updateError;
     }
 
     // 7. Get updated status
-    const { data: status, error: statusError } = await supabaseAdmin.rpc(
-      'get_domain_verification_status',
-      { p_domain_id: domain.id }
-    );
+    const { data: status, error: statusError } = await supabaseAdmin
+      .schema('menuca_v3')
+      .rpc('get_domain_verification_status', { p_domain_id: domain.id });
 
     if (statusError) {
       throw statusError;
