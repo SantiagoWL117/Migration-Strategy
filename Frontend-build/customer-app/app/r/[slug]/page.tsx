@@ -77,7 +77,7 @@ export default async function RestaurantPage({
     .in('ingredient_group_id', groupIds.length > 0 ? groupIds : [0])
 
   // Step 5: Fetch all ingredients referenced in groups
-  const ingredientIds = [...new Set(groupItems?.map(gi => gi.ingredient_id).filter(Boolean))] || []
+  const ingredientIds = [...new Set(groupItems?.map(gi => gi.ingredient_id).filter(Boolean) || [])]
   const { data: ingredients } = await supabase
     .from('ingredients')
     .select('id, name, base_price')
