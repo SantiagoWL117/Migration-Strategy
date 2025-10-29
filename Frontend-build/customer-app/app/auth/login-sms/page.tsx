@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { PhoneInput } from '@/components/phone-input';
 import { OTPInput } from '@/components/otp-input';
@@ -8,7 +8,7 @@ import { createClient } from '@/lib/supabase/client';
 
 type Step = 'phone' | 'verify';
 
-export default function LoginSMSPage() {
+function LoginSMSContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('redirect') || '/';
@@ -251,5 +251,13 @@ export default function LoginSMSPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function LoginSMSPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <LoginSMSContent />
+    </Suspense>
   );
 }
