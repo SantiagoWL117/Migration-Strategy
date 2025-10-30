@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { Phone } from 'lucide-react';
+import { GoogleSignInButton } from '@/components/google-signin-button';
 
 interface QuickSignInPromptProps {
   message?: string;
@@ -84,27 +85,39 @@ export function QuickSignInPrompt({
           </ul>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-2">
+          <div className="space-y-3">
+            {/* Google Sign-In */}
+            <GoogleSignInButton redirectTo={redirectTo} mode="signup" />
+
+            {/* Divider */}
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-xs">
+                <span className="px-2 bg-gradient-to-r from-red-50 to-orange-50 text-gray-500">Or with phone</span>
+              </div>
+            </div>
+
+            {/* Phone Sign-Up Button */}
             <button
               onClick={handleSignUp}
-              className="flex-1 bg-red-600 text-white px-4 py-2 rounded-lg font-medium
+              className="w-full bg-red-600 text-white px-4 py-2 rounded-lg font-medium
                        hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
                        transition-colors duration-200"
             >
               <div className="flex items-center justify-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span>Sign Up (30 sec)</span>
+                <span>Sign Up with Phone (30 sec)</span>
               </div>
             </button>
 
+            {/* Already have account */}
             <button
               onClick={handleSignIn}
-              className="flex-1 bg-white text-red-600 px-4 py-2 rounded-lg font-medium
-                       border border-red-600 hover:bg-red-50
-                       focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
-                       transition-colors duration-200"
+              className="w-full text-sm text-red-600 hover:text-red-700 font-medium"
             >
-              Already have an account?
+              Already have an account? Sign in
             </button>
           </div>
 

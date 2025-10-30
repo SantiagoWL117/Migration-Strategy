@@ -1,10 +1,11 @@
 # Memory Bank - menuca_v3 Application Development
 
-**Last Updated:** 2025-10-21  
+**Last Updated:** 2025-10-30  
 **Git Branch:** Santiago ✅  
 **Developers:** Santiago (Backend) + Brian (Frontend)  
 **Project Phase:** Backend API Development + Frontend Build  
-**Database Status:** ✅ 100% COMPLETE - All 10 entities migrated & optimized
+**Database Status:** ✅ 100% COMPLETE - All 10 entities migrated & optimized  
+**Recent Update:** 📂 New organized folder structure for reports, guides, plans (2025-10-30)
 
 ---
 
@@ -91,6 +92,14 @@ Each entity has its own file tracking migration history:
 
 ## 🔗 Key Project Files
 
+### 📍 Navigation (START HERE)
+- **`/PROJECT_NAVIGATION.md`** - ⭐ **MASTER INDEX** - Complete project navigation guide
+- **Navigation by folder type:**
+  - `/reports/` - All reports (database, testing, implementation, recovery, migration)
+  - `/guides/` - Documentation and how-to guides (explanations, setup, project overview)
+  - `/plans/` - Implementation plans and strategies
+  - `/agent-logs/` - AI agent conversation archives
+
 ### Master Documentation
 - **`/SANTIAGO_MASTER_INDEX.md`** - ⭐ **BACKEND DEVELOPERS START HERE** - Complete backend reference
 - **`/documentation/Frontend-Guides/BRIAN_MASTER_INDEX.md`** - Frontend developers guide
@@ -107,7 +116,12 @@ Each entity has its own file tracking migration history:
 - `/documentation/[Entity]/` - Complete guides for all 10 entities
 
 ### Reports & Audits
-- `/REMEDIATION/` - Phase 3-8 completion reports
+- `/reports/database/` - Database investigations and audits
+- `/reports/testing/` - API and feature test reports
+- `/reports/implementation/` - Feature completion reports
+- `/reports/recovery/` - Emergency fixes and recoveries
+- `/reports/migration/` - Migration status reports
+- `/REMEDIATION/` - Phase 3-8 completion reports (historical)
 - `/REMEDIATION/PHASE_8_FINAL_AUDIT_REPORT.md` - Production sign-off
 
 ---
@@ -121,29 +135,97 @@ Each entity has its own file tracking migration history:
 4. **Backend integration** → `/SANTIAGO_MASTER_INDEX.md` (all entity APIs)
 5. **SQL functions** → Check entity-specific integration guides
 6. **Edge Functions** → `/supabase/functions/` (27 deployed)
+7. **Find reports** → Check `/reports/` for test results and implementation status
 
 ### ⭐ For Brian (Frontend Developer)
 1. **Frontend guide** → `/documentation/Frontend-Guides/BRIAN_MASTER_INDEX.md`
 2. **Entity status** → [PROJECT_STATUS.md](PROJECT_STATUS.md)
 3. **Component examples** → Entity-specific frontend guides
 4. **API usage** → Backend integration guides + SANTIAGO_MASTER_INDEX.md
+5. **Test reports** → Check `/reports/testing/` for API test results
 
 ### ⭐ For New Developers
-1. **Start here** → [PROJECT_STATUS.md](PROJECT_STATUS.md) for overview
-2. **Understand context** → [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)
-3. **Choose your role** → Backend (Santiago docs) or Frontend (Brian docs)
-4. **Read entity docs** → Check `/documentation/[Entity]/` folders
-5. **Review audit** → `/REMEDIATION/PHASE_8_FINAL_AUDIT_REPORT.md`
+1. **Start here** → `/PROJECT_NAVIGATION.md` (master index)
+2. **Check current status** → [PROJECT_STATUS.md](PROJECT_STATUS.md) for overview
+3. **Understand context** → [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)
+4. **Choose your role** → Backend (Santiago docs) or Frontend (Brian docs)
+5. **Read entity docs** → Check `/documentation/[Entity]/` folders
+6. **Review audit** → `/REMEDIATION/PHASE_8_FINAL_AUDIT_REPORT.md`
+
+### ⭐ For AI Agents (IMPORTANT!)
+1. **ALWAYS START** → `/PROJECT_NAVIGATION.md` for complete project map
+2. **Read workflow guide** → `/guides/project-overview/AGENT_CONTEXT_WORKFLOW_GUIDE.md` (**REQUIRED**)
+3. **Check current status** → [PROJECT_STATUS.md](PROJECT_STATUS.md)
+4. **Before any task** → Read [NEXT_STEPS.md](NEXT_STEPS.md) to understand priorities
+5. **Finding information:**
+   - Database issues → `/reports/database/`
+   - Test results → `/reports/testing/`
+   - Feature status → `/reports/implementation/`
+   - How things work → `/guides/explanations/`
+   - Setup instructions → `/guides/setup/`
+   - Implementation plans → `/plans/`
+6. **After completing work** → Update relevant entity file in `ENTITIES/` folder
+
+---
+
+## 📂 NEW: Organized Folder Structure (October 2025)
+
+The project now has an organized folder structure for better navigation:
+
+### `/reports/` - All Project Reports
+- **`/reports/database/`** - Database investigations, audits, data quality reports
+  - Tenant ID investigations
+  - User admin audits
+  - Critical issue investigations
+  
+- **`/reports/testing/`** - API and feature testing reports
+  - Authentication flow tests
+  - Customer profile tests
+  - RLS policy verification
+  
+- **`/reports/implementation/`** - Feature completion reports
+  - Business logic enhancements
+  - PostGIS implementation
+  - Edge function fixes
+  
+- **`/reports/recovery/`** - Emergency fixes and system recoveries
+- **`/reports/migration/`** - Migration status and success reports
+
+### `/guides/` - Documentation & How-To Guides
+- **`/guides/explanations/`** - How things work
+  - Auth vs App Users explained
+  - JWT token refresh mechanism
+  - SQL function REST API access
+  
+- **`/guides/setup/`** - Setup and configuration guides
+- **`/guides/project-overview/`** - High-level project documentation
+  - Complete platform overview
+  - Full-stack build guide
+  - **Agent Context Workflow Guide** (REQUIRED for AI agents)
+
+### `/plans/` - Implementation Plans
+- API route implementation plans
+- Payment data storage architecture
+- Pricing fix strategies
+
+### `/agent-logs/` - AI Agent Conversations
+- Historical chat logs
+- Debugging notes
+- Conversation archives
+
+**Navigation:** See `/PROJECT_NAVIGATION.md` for complete directory structure and quick links.
 
 ---
 
 ## 🎯 Golden Rules
 
 1. ⭐ **[PROJECT_STATUS.md](PROJECT_STATUS.md) is the SINGLE SOURCE OF TRUTH** - Check here first
-2. **Backend before Frontend** - Santiago builds APIs, Brian consumes them
-3. **Update after every milestone** - Keep memory bank current
-4. **Follow the 8-week roadmap** - See [NEXT_STEPS.md](NEXT_STEPS.md)
-5. **Zero technical debt** - Database layer is production-ready
+2. **Use `/PROJECT_NAVIGATION.md` to find anything** - Complete project index
+3. **Backend before Frontend** - Santiago builds APIs, Brian consumes them
+4. **Update after every milestone** - Keep memory bank current
+5. **Follow the 8-week roadmap** - See [NEXT_STEPS.md](NEXT_STEPS.md)
+6. **Zero technical debt** - Database layer is production-ready
+7. **Check `/reports/` before creating new reports** - Avoid duplication
 
 ---
 

@@ -4,6 +4,7 @@ import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { PhoneInput } from '@/components/phone-input';
 import { OTPInput } from '@/components/otp-input';
+import { GoogleSignInButton } from '@/components/google-signin-button';
 import { createClient } from '@/lib/supabase/client';
 
 type Step = 'phone' | 'verify';
@@ -162,6 +163,20 @@ function LoginSMSContent() {
         {/* Step 1: Phone input */}
         {step === 'phone' && (
           <div className="space-y-6">
+            {/* Google Sign-In */}
+            <GoogleSignInButton redirectTo={redirectTo} mode="signin" />
+
+            {/* Divider */}
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-white text-gray-500">Or continue with phone</span>
+              </div>
+            </div>
+
+            {/* Phone Input */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                 Phone Number
