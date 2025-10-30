@@ -30,6 +30,47 @@
 
 ---
 
+## 🚨 CRITICAL: Menu & Catalog Refactoring Plan (October 30, 2025)
+
+**Status:** 📋 **Plan Created - Awaiting Santiago's Review**
+
+**Why:** Menu & Catalog entity has critical architectural issues that MUST be fixed before building backend APIs:
+- ❌ 3 different modifier systems (only 1 active, 2 empty)
+- ❌ 5 different pricing approaches (which is authoritative?)
+- ~~tenant_id redundancy~~ ✅ **ALREADY REMOVED** (was 31.58% incorrect)
+- ❌ V1/V2 logic branching (73% V1, 27% V2)
+- ❌ Legacy 2-letter codes (unreadable)
+
+**Plan Created:**
+- **Full Plan:** [`/plans/MENU_CATALOG_REFACTORING_PLAN.md`](/plans/MENU_CATALOG_REFACTORING_PLAN.md)
+- **Quick Summary:** [`/plans/MENU_CATALOG_REFACTORING_SUMMARY.md`](/plans/MENU_CATALOG_REFACTORING_SUMMARY.md)
+- **14 Phases, ~~22~~ 20 working days (~2.5 weeks)** - tenant_id already removed!
+- **Complete redesign to enterprise standards**
+
+**Key Transformations:**
+1. ~~Remove tenant_id from 31 tables~~ ✅ **ALREADY DONE**
+2. Consolidate to single pricing model (dish_prices table)
+3. Migrate to modern direct modifier system (no ingredient references)
+4. Remove all V1/V2 branching logic
+5. Add enterprise features (allergens, dietary tags)
+6. Complete combo system (populate combo_steps)
+
+**Updated Timeline:** ~2.5 weeks (down from 3 weeks - tenant_id work already complete)
+
+**Impact on API Development:**
+- ⚠️ **SHOULD COMPLETE REFACTORING BEFORE building Menu & Catalog APIs**
+- ✅ Restaurant Management APIs unaffected (continue as normal)
+- ✅ Users & Access APIs unaffected (complete)
+- ✅ Service Configuration APIs unaffected (complete)
+
+**Next Step:** Santiago reviews plan, decides whether to:
+1. **Option A:** Refactor first (recommended - 3 weeks), then build clean APIs
+2. **Option B:** Build APIs on current messy schema, refactor later (risky)
+
+**Recommendation:** Option A - Foundation matters. Build on solid ground.
+
+---
+
 ## 🚀 Current Phase: Backend API Development (Phase 3)
 
 ### Backend API Progress: 3/10 Entities Complete

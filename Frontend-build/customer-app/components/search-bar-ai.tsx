@@ -50,6 +50,7 @@ export function SearchBar() {
   useEffect(() => {
     if (query.length > 3) {
       clearTimeout(debounceTimer.current)
+      setShowSuggestions(true) // Show dropdown immediately
       debounceTimer.current = setTimeout(async () => {
         setIsLoadingAI(true)
         try {
@@ -58,11 +59,10 @@ export function SearchBar() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ query })
           })
-          
+
           if (response.ok) {
             const data = await response.json()
             setAiSuggestion(data)
-            setShowSuggestions(true)
           }
         } catch (error) {
           console.error('AI search error:', error)
@@ -150,16 +150,24 @@ export function SearchBar() {
         </div>
 
         {/* AI Suggestions Dropdown */}
-        {showSuggestions && aiSuggestion && (
+        {showSuggestions && (aiSuggestion || isLoadingAI) && (
           <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl overflow-hidden z-50">
             {isLoadingAI ? (
-              <div className="p-4 text-center text-gray-500">
-                <div className="flex items-center justify-center gap-2">
-                  <Sparkles className="w-5 h-5 animate-spin" />
-                  <span>AI is thinking...</span>
+              <div className="p-6 text-center">
+                <div className="flex flex-col items-center justify-center gap-3">
+                  <div className="relative">
+                    <Sparkles className="w-8 h-8 text-yellow-500 animate-pulse" />
+                    <div className="absolute inset-0">
+                      <Sparkles className="w-8 h-8 text-yellow-400 animate-spin" style={{ animationDuration: '3s' }} />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-base font-medium text-gray-700">Pondering your request...</p>
+                    <p className="text-sm text-gray-500">Finding perfect matches from 75 restaurants</p>
+                  </div>
                 </div>
               </div>
-            ) : (
+            ) : aiSuggestion ? (
               <>
                 {aiSuggestion.message && (
                   <div className="px-4 py-3 bg-gradient-to-r from-red-50 to-orange-50 border-b">
@@ -204,7 +212,7 @@ export function SearchBar() {
                   </div>
                 )}
               </>
-            )}
+            ) : null}
           </div>
         )}
       </form>

@@ -1,10 +1,36 @@
 # Menu & Catalog Entity
 
-**Status:** ✅ **COMPLETE** - Phase 4: BLOB Deserialization COMPLETE  
+**Status:** 🔄 **REFACTORING PLANNED** - Enterprise Architecture Redesign  
 **Priority:** HIGH  
 **Blocked By:** None - Restaurant Management COMPLETE ✅  
-**Developer:** Brian Lapp  
-**Last Updated:** 2025-10-02
+**Developer:** Santiago (Backend Refactoring)  
+**Last Updated:** 2025-10-30
+
+---
+
+## 🚨 NEW: Enterprise Refactoring Initiative (Oct 30, 2025)
+
+**Why:** Current schema is fragmented V1/V2 hybrid with:
+- ❌ 3 different modifier systems (2 empty, 1 legacy)
+- ❌ 5 different pricing approaches
+- ❌ tenant_id column (31.58% incorrect, not used for security)
+- ❌ V1/V2 logic branching everywhere
+- ❌ Legacy 2-letter codes (ci, e, sd vs full words)
+
+**Solution:** Complete refactoring to enterprise standards (Uber Eats / DoorDash patterns)
+
+**Plan Files:**
+- **Full Plan:** `/plans/MENU_CATALOG_REFACTORING_PLAN.md` (14 phases, 22 days)
+- **Quick Summary:** `/plans/MENU_CATALOG_REFACTORING_SUMMARY.md`
+- **Business Rules:** `/documentation/Menu & Catalog/BUSINESS_RULES.md`
+
+**Timeline:** 3 weeks  
+**Risk:** Low (no live app yet)  
+**Approval:** Pending Santiago review
+
+---
+
+## 📊 Migration Status (Historical)
 
 ---
 
