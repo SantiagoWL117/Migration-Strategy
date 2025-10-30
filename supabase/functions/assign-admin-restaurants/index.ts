@@ -30,19 +30,95 @@ Deno.serve(async (req) => {
   }
 
   try {
-    // Verify this is a service role request
+    // Verify JWT token and Super Admin role
     const authHeader = req.headers.get('Authorization');
-    const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
 
-    if (!authHeader || !authHeader.includes(serviceRoleKey!)) {
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Unauthorized - Service role required',
-          details: 'This endpoint can only be called with the service role key'
+          error: 'Missing authorization header',
+          details: 'JWT token required in Authorization header'
         }),
         {
           status: 401,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        }
+      );
+    }
+
+    // Create Supabase admin client
+    const supabaseAdmin = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '',
+      { auth: { autoRefreshToken: false, persistSession: false } }
+    );
+
+    // Verify JWT and get calling user
+    const token = authHeader.substring(7);
+    const { data: { user }, error: userError } = await supabaseAdmin.auth.getUser(token);
+
+    if (userError || !user) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Invalid token',
+          details: 'JWT token is invalid or expired'
+        }),
+        {
+          status: 401,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        }
+      );
+    }
+
+    const callingUserId = user.id;
+
+    // Check if calling user is a Super Admin
+    const { data: callingAdmin, error: adminCheckError } = await supabaseAdmin
+      .schema('menuca_v3')
+      .from('admin_users')
+      .select('id, role_id, status')
+      .eq('auth_user_id', callingUserId)
+      .single();
+
+    if (adminCheckError || !callingAdmin) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'User is not an admin',
+          details: 'Only admin users can manage restaurant assignments'
+        }),
+        {
+          status: 403,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        }
+      );
+    }
+
+    if (callingAdmin.status !== 'active') {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Admin account not active',
+          details: 'Your admin account must be active to perform this action'
+        }),
+        {
+          status: 403,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        }
+      );
+    }
+
+    if (callingAdmin.role_id !== 1) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Super Admin role required',
+          details: 'Only Super Admins can manage restaurant assignments'
+        }),
+        {
+          status: 403,
           headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       );
@@ -97,22 +173,11 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Create Supabase admin client
-    const supabaseAdmin = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '',
-      {
-        auth: {
-          autoRefreshToken: false,
-          persistSession: false
-        }
-      }
-    );
-
     console.log(`${action.toUpperCase()} restaurants for admin ${admin_user_id}`);
 
     // STEP 1: Validate admin exists and get current assignments count
     const { data: admin, error: adminError } = await supabaseAdmin
+      .schema('menuca_v3')
       .from('admin_users')
       .select('id, email, status')
       .eq('id', admin_user_id)
@@ -149,6 +214,7 @@ Deno.serve(async (req) => {
 
     // Get current assignments count
     const { count: assignmentsBefore } = await supabaseAdmin
+      .schema('menuca_v3')
       .from('admin_user_restaurants')
       .select('id', { count: 'exact', head: true })
       .eq('admin_user_id', admin_user_id);
@@ -157,6 +223,7 @@ Deno.serve(async (req) => {
 
     // STEP 2: Validate restaurants exist
     const { data: restaurants, error: restaurantsError } = await supabaseAdmin
+      .schema('menuca_v3')
       .from('restaurants')
       .select('id, name, slug')
       .in('id', restaurant_ids)
@@ -201,6 +268,7 @@ Deno.serve(async (req) => {
     if (action === 'remove') {
       // Remove specified restaurant assignments
       const { error: deleteError, count } = await supabaseAdmin
+        .schema('menuca_v3')
         .from('admin_user_restaurants')
         .delete({ count: 'exact' })
         .eq('admin_user_id', admin_user_id)
@@ -226,6 +294,7 @@ Deno.serve(async (req) => {
     } else if (action === 'replace') {
       // Remove ALL existing assignments first
       const { error: deleteError } = await supabaseAdmin
+        .schema('menuca_v3')
         .from('admin_user_restaurants')
         .delete()
         .eq('admin_user_id', admin_user_id);
@@ -251,6 +320,7 @@ Deno.serve(async (req) => {
       }));
 
       const { error: insertError, count } = await supabaseAdmin
+        .schema('menuca_v3')
         .from('admin_user_restaurants')
         .insert(assignments, { count: 'exact' });
 
@@ -279,6 +349,7 @@ Deno.serve(async (req) => {
       }));
 
       const { error: insertError, count } = await supabaseAdmin
+        .schema('menuca_v3')
         .from('admin_user_restaurants')
         .insert(assignments, { count: 'exact' })
         .select('id');
@@ -308,6 +379,7 @@ Deno.serve(async (req) => {
 
     // Get final assignments count
     const { count: assignmentsAfter } = await supabaseAdmin
+      .schema('menuca_v3')
       .from('admin_user_restaurants')
       .select('id', { count: 'exact', head: true })
       .eq('admin_user_id', admin_user_id);
