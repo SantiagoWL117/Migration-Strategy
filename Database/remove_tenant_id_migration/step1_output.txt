@@ -1,0 +1,116 @@
+      check_name       | count 
+-----------------------+-------
+ Tables with tenant_id |    31
+(1 row)
+
+      check_name      | count 
+----------------------+-------
+ Indexes on tenant_id |    21
+(1 row)
+
+        check_name         | count 
+---------------------------+-------
+ Functions using tenant_id |    13
+(1 row)
+
+          check_name          | count 
+------------------------------+-------
+ RLS Policies using tenant_id |     2
+(1 row)
+
+   table_name   | total_records | matching | match_pct 
+----------------+---------------+----------+-----------
+ dishes         |         23006 |    15740 |     68.42
+ courses        |          1752 |     1207 |     68.89
+ ingredients    |         32031 |    31394 |     98.01
+ dish_modifiers |        427977 |     2922 |      0.68
+(4 rows)
+
+ object_type |         object_name          
+-------------+------------------------------
+ TABLE       | active_combo_groups
+ TABLE       | active_courses
+ TABLE       | active_dish_modifiers
+ TABLE       | active_dishes
+ TABLE       | active_ingredient_groups
+ TABLE       | active_ingredients
+ TABLE       | active_schedules
+ TABLE       | active_special_schedules
+ TABLE       | active_time_periods
+ TABLE       | combo_group_modifier_pricing
+ TABLE       | combo_groups
+ TABLE       | combo_items
+ TABLE       | combo_steps
+ TABLE       | courses
+ TABLE       | devices
+ TABLE       | dish_modifier_prices
+ TABLE       | dish_modifiers
+ TABLE       | dishes
+ TABLE       | ingredient_group_items
+ TABLE       | ingredient_groups
+ TABLE       | ingredients
+ TABLE       | promotional_coupons
+ TABLE       | promotional_deals
+ TABLE       | restaurant_locations
+ TABLE       | restaurant_schedules
+ TABLE       | restaurant_service_configs
+ TABLE       | restaurant_special_schedules
+ TABLE       | restaurant_tag_associations
+ TABLE       | restaurant_time_periods
+ TABLE       | vendor_commission_reports
+ TABLE       | vendor_restaurants
+(31 rows)
+
+ object_type |                object_name                 
+-------------+--------------------------------------------
+ INDEX       | idx_combo_group_modifier_pricing_tenant_id
+ INDEX       | idx_combo_groups_tenant_id
+ INDEX       | idx_combo_items_tenant_id
+ INDEX       | idx_courses_tenant_id
+ INDEX       | idx_devices_tenant
+ INDEX       | idx_dish_modifier_prices_tenant
+ INDEX       | idx_dish_modifiers_tenant_id
+ INDEX       | idx_dishes_tenant_id
+ INDEX       | idx_ingredient_group_items_tenant_id
+ INDEX       | idx_ingredient_groups_tenant_id
+ INDEX       | idx_ingredients_tenant_id
+ INDEX       | idx_promotional_coupons_tenant
+ INDEX       | idx_promotional_deals_tenant
+ INDEX       | idx_restaurant_locations_tenant
+ INDEX       | idx_restaurant_schedules_tenant
+ INDEX       | idx_restaurant_service_configs_tenant
+ INDEX       | idx_restaurant_special_schedules_tenant
+ INDEX       | idx_restaurant_tag_associations_tenant
+ INDEX       | idx_restaurant_time_periods_tenant
+ INDEX       | idx_vendor_commission_reports_tenant
+ INDEX       | idx_vendor_restaurants_tenant
+(21 rows)
+
+ object_type |            object_name             
+-------------+------------------------------------
+ FUNCTION    | add_restaurant_location_onboarding
+ FUNCTION    | add_restaurant_to_vendor
+ FUNCTION    | apply_schedule_template_onboarding
+ FUNCTION    | bulk_copy_schedule_onboarding
+ FUNCTION    | check_schedule_overlap
+ FUNCTION    | clone_schedule_to_day
+ FUNCTION    | create_flash_sale
+ FUNCTION    | decrement_dish_inventory
+ FUNCTION    | has_schedule_conflict
+ FUNCTION    | notify_location_change
+ FUNCTION    | notify_schedule_change
+ FUNCTION    | register_device
+ FUNCTION    | update_dish_availability
+(13 rows)
+
+ object_type |                            object_name                            
+-------------+-------------------------------------------------------------------
+ RLS POLICY  | promotional_coupons_translations.admin_manage_coupon_translations
+ RLS POLICY  | promotional_deals_translations.admin_manage_deal_translations
+(2 rows)
+
+         status         |                       message                       |            next_step             
+------------------------+-----------------------------------------------------+----------------------------------
+ ⚠️  VALIDATION COMPLETE | Review all counts and lists above before proceeding | Run 02_UPDATE_FUNCTIONS.sql next
+(1 row)
+
