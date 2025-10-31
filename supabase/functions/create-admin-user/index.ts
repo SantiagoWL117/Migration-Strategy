@@ -25,6 +25,147 @@ interface CreateAdminResponse {
   details?: string;
 }
 
+interface PasswordValidationResult {
+  isValid: boolean;
+  errors: string[];
+  strength?: 'weak' | 'medium' | 'strong';
+}
+
+// Common weak passwords to reject
+const COMMON_PASSWORDS = [
+  'password', 'password123', '12345678', 'qwerty', 'abc123',
+  'monkey', '1234567', 'letmein', 'trustno1', 'dragon',
+  'baseball', 'iloveyou', 'master', 'sunshine', 'ashley',
+  'bailey', 'passw0rd', 'shadow', '123123', '654321',
+  'superman', 'qazwsx', 'michael', 'football', 'welcome',
+  'admin', 'adminpass', 'admin123', 'root', 'test123'
+];
+
+/**
+ * Logs an admin audit event to the database
+ * @param supabaseClient - Supabase admin client
+ * @param performedBy - Admin who performed the action
+ * @param action - Type of action performed
+ * @param targetAdminId - ID of the affected admin (optional)
+ * @param targetEmail - Email of the affected admin
+ * @param details - Additional details as JSON
+ * @param success - Whether the action succeeded
+ * @param errorMessage - Error message if action failed
+ */
+async function logAuditEvent(
+  supabaseClient: any,
+  performedBy: { id: number; email: string },
+  action: string,
+  targetAdminId: number | null,
+  targetEmail: string,
+  details: Record<string, any>,
+  success: boolean,
+  errorMessage?: string
+): Promise<void> {
+  try {
+    const { error } = await supabaseClient
+      .schema('menuca_v3')
+      .from('admin_audit_log')
+      .insert({
+        performed_by_admin_id: performedBy.id,
+        performed_by_email: performedBy.email,
+        action,
+        target_admin_id: targetAdminId,
+        target_email: targetEmail,
+        details,
+        success,
+        error_message: errorMessage
+      });
+
+    if (error) {
+      console.error('Failed to log audit event:', error);
+    }
+  } catch (err) {
+    console.error('Exception logging audit event:', err);
+  }
+}
+
+/**
+ * Validates password strength with comprehensive security requirements
+ * @param password - Password to validate
+ * @returns Validation result with isValid flag and error messages
+ */
+function validatePasswordStrength(password: string): PasswordValidationResult {
+  const errors: string[] = [];
+
+  // Minimum length check
+  if (password.length < 8) {
+    errors.push('Password must be at least 8 characters long');
+  }
+
+  // Maximum length check (reasonable limit)
+  if (password.length > 128) {
+    errors.push('Password must be less than 128 characters');
+  }
+
+  // Uppercase letter check
+  if (!/[A-Z]/.test(password)) {
+    errors.push('Password must contain at least one uppercase letter (A-Z)');
+  }
+
+  // Lowercase letter check
+  if (!/[a-z]/.test(password)) {
+    errors.push('Password must contain at least one lowercase letter (a-z)');
+  }
+
+  // Number check
+  if (!/[0-9]/.test(password)) {
+    errors.push('Password must contain at least one number (0-9)');
+  }
+
+  // Special character check
+  if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+    errors.push('Password must contain at least one special character (!@#$%^&* etc.)');
+  }
+
+  // Check against common passwords (case-insensitive)
+  const lowerPassword = password.toLowerCase();
+  if (COMMON_PASSWORDS.includes(lowerPassword)) {
+    errors.push('Password is too common. Please choose a more unique password');
+  }
+
+  // Check for sequential characters (e.g., "123456", "abcdef")
+  const hasSequential = /(?:abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|012|123|234|345|456|567|678|789)/i.test(password);
+  if (hasSequential) {
+    errors.push('Password should not contain sequential characters (e.g., "123" or "abc")');
+  }
+
+  // Check for repeated characters (e.g., "aaa", "111")
+  const hasRepeated = /(.)\1{2,}/.test(password);
+  if (hasRepeated) {
+    errors.push('Password should not contain repeated characters (e.g., "aaa" or "111")');
+  }
+
+  // Calculate strength based on criteria met
+  let strength: 'weak' | 'medium' | 'strong' = 'weak';
+  if (errors.length === 0) {
+    const criteriaCount = [
+      password.length >= 12,
+      /[A-Z]/.test(password) && /[a-z]/.test(password),
+      /[0-9]/.test(password),
+      /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password),
+      password.length >= 16
+    ].filter(Boolean).length;
+
+    if (criteriaCount >= 4) {
+      strength = 'strong';
+    } else if (criteriaCount >= 2) {
+      strength = 'medium';
+    }
+  }
+
+  return {
+    isValid: errors.length === 0,
+    errors,
+    strength: errors.length === 0 ? strength : undefined
+  };
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
@@ -113,10 +254,27 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Validate password strength
-    if (password.length < 8) {
+    // Enhanced password validation
+    const passwordValidation = validatePasswordStrength(password);
+    if (!passwordValidation.isValid) {
+      // Log failed creation attempt
+      await logAuditEvent(
+        supabaseAdmin,
+        { id: adminUser.id, email: adminUser.email },
+        'failed_create',
+        null,
+        email,
+        { reason: 'weak_password', validation_errors: passwordValidation.errors },
+        false,
+        'Password does not meet security requirements'
+      );
+
       return new Response(
-        JSON.stringify({ success: false, error: 'Password must be at least 8 characters' }),
+        JSON.stringify({
+          success: false,
+          error: 'Password does not meet security requirements',
+          details: passwordValidation.errors.join('; ')
+        }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
@@ -139,6 +297,19 @@ Deno.serve(async (req) => {
 
     if (authError) {
       console.error('Failed to create auth user:', authError);
+
+      // Log failed creation attempt
+      await logAuditEvent(
+        supabaseAdmin,
+        { id: adminUser.id, email: adminUser.email },
+        'failed_create',
+        null,
+        email,
+        { reason: 'auth_user_creation_failed', error_code: authError.code },
+        false,
+        authError.message
+      );
+
       return new Response(
         JSON.stringify({ success: false, error: 'Failed to create auth user', details: authError.message }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -171,6 +342,24 @@ Deno.serve(async (req) => {
 
     if (adminError) {
       console.error('Failed to create admin user:', adminError);
+
+      // Log failed creation attempt
+      await logAuditEvent(
+        supabaseAdmin,
+        { id: adminUser.id, email: adminUser.email },
+        'failed_create',
+        null,
+        email,
+        {
+          reason: 'admin_record_creation_failed',
+          error_code: adminError.code,
+          auth_user_id: newAuthUserId,
+          rollback: 'auth_user_deleted'
+        },
+        false,
+        adminError.message
+      );
+
       await supabaseAdmin.auth.admin.deleteUser(newAuthUserId);
       return new Response(
         JSON.stringify({ success: false, error: 'Failed to create admin user record', details: adminError.message }),
@@ -209,6 +398,24 @@ Deno.serve(async (req) => {
         }
       }
     }
+
+    // Log successful user creation to audit log
+    await logAuditEvent(
+      supabaseAdmin,
+      { id: adminUser.id, email: adminUser.email },
+      'create_user',
+      adminUserId,
+      email,
+      {
+        role_id: role_id || 'default',
+        restaurants_assigned: assignedCount,
+        restaurant_ids: restaurant_ids,
+        mfa_enabled
+      },
+      true
+    );
+
+    console.log(`✅ Audit log entry created for user creation`);
 
     // Success response
     return new Response(

@@ -23,6 +23,50 @@ interface AssignRestaurantsResponse {
   details?: string;
 }
 
+/**
+ * Logs an admin audit event to the database
+ * @param supabaseClient - Supabase admin client
+ * @param performedBy - Admin who performed the action
+ * @param action - Type of action performed
+ * @param targetAdminId - ID of the affected admin
+ * @param targetEmail - Email of the affected admin
+ * @param details - Additional details as JSON
+ * @param success - Whether the action succeeded
+ * @param errorMessage - Error message if action failed
+ */
+async function logAuditEvent(
+  supabaseClient: any,
+  performedBy: { id: number; email: string },
+  action: string,
+  targetAdminId: number | null,
+  targetEmail: string,
+  details: Record<string, any>,
+  success: boolean,
+  errorMessage?: string
+): Promise<void> {
+  try {
+    const { error } = await supabaseClient
+      .schema('menuca_v3')
+      .from('admin_audit_log')
+      .insert({
+        performed_by_admin_id: performedBy.id,
+        performed_by_email: performedBy.email,
+        action,
+        target_admin_id: targetAdminId,
+        target_email: targetEmail,
+        details,
+        success,
+        error_message: errorMessage
+      });
+
+    if (error) {
+      console.error('Failed to log audit event:', error);
+    }
+  } catch (err) {
+    console.error('Exception logging audit event:', err);
+  }
+}
+
 Deno.serve(async (req) => {
   // Handle CORS preflight
   if (req.method === 'OPTIONS') {
@@ -78,7 +122,7 @@ Deno.serve(async (req) => {
     const { data: callingAdmin, error: adminCheckError } = await supabaseAdmin
       .schema('menuca_v3')
       .from('admin_users')
-      .select('id, role_id, status')
+      .select('id, email, role_id, status')
       .eq('auth_user_id', callingUserId)
       .single();
 
@@ -383,6 +427,26 @@ Deno.serve(async (req) => {
       .from('admin_user_restaurants')
       .select('id', { count: 'exact', head: true })
       .eq('admin_user_id', admin_user_id);
+
+    // Log successful restaurant assignment change to audit log
+    const auditAction = action === 'add' ? 'assign_restaurants' : action === 'remove' ? 'remove_restaurants' : 'replace_restaurants';
+    await logAuditEvent(
+      supabaseAdmin,
+      { id: callingAdmin.id, email: callingAdmin.email },
+      auditAction,
+      admin_user_id,
+      admin.email,
+      {
+        action,
+        restaurant_ids: validRestaurantIds,
+        assignments_before: assignmentsBefore || 0,
+        assignments_after: assignmentsAfter || 0,
+        affected_count: affectedCount
+      },
+      true
+    );
+
+    console.log(`✅ Audit log entry created for restaurant assignment ${action}`);
 
     // Success response
     return new Response(
