@@ -1,0 +1,20 @@
+Hi! I'm continuing work on the Menu.ca AI search feature. Please read HANDOFF.md for full context.
+
+TL;DR:
+- AI search is working with real cuisine data
+- Using placeholder values for delivery fees, minimum orders, delivery times, and ratings
+- Supabase MCP is now configured (.claude.json)
+- Need to find where operational data lives in menuca_v3 schema
+
+Your task:
+1. Use Supabase MCP tools to explore the schema
+2. Find tables with: delivery_fee, minimum_order, estimated_delivery_time, ratings
+3. Update /app/api/ai-search/route.ts to query real data (currently line 44-102)
+4. Deploy and test
+
+Start by running:
+```
+mcp__supabase__list_tables
+```
+
+Then look for tables related to operations, delivery, fees, or reviews.
