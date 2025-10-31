@@ -40,7 +40,7 @@ async function getRestaurantData() {
     const supabase = await createServiceClient()
 
     // Query with service role to bypass RLS - filter for active restaurants only
-    // Join with restaurant_cuisines and cuisine_types to get real cuisine data
+    // Join with restaurant_cuisines, cuisine_types, and operational data tables
     const { data: restaurants, error, count } = await supabase
       .schema('menuca_v3')
       .from('restaurants')
@@ -56,6 +56,10 @@ async function getRestaurantData() {
         restaurant_cuisines!inner(
           is_primary,
           cuisine_types(name)
+        ),
+        restaurant_service_configs(
+          delivery_time_minutes,
+          delivery_min_order
         )
       `, { count: 'exact' })
       .eq('status', 'active')
@@ -71,6 +75,52 @@ async function getRestaurantData() {
       console.warn('⚠ No active restaurants found')
       return { restaurants: [] }
     }
+
+    // Fetch minimum delivery fees for all restaurants in a single query
+    const restaurantIds = restaurants.map(r => r.id)
+    const { data: deliveryFees } = await supabase
+      .schema('menuca_v3')
+      .from('restaurant_delivery_fees')
+      .select('restaurant_id, total_delivery_fee')
+      .in('restaurant_id', restaurantIds)
+      .eq('is_active', true)
+      .order('total_delivery_fee', { ascending: true })
+
+    // Create a map of restaurant_id to minimum delivery fee
+    const feeMap = new Map<number, number>()
+    deliveryFees?.forEach((fee: any) => {
+      if (!feeMap.has(fee.restaurant_id)) {
+        feeMap.set(fee.restaurant_id, fee.total_delivery_fee)
+      }
+    })
+
+    // Fetch review ratings for all restaurants (Yelp reviews)
+    const { data: reviews } = await supabase
+      .schema('menuca_v3')
+      .from('restaurant_reviews')
+      .select('restaurant_id, rating')
+      .in('restaurant_id', restaurantIds)
+      .eq('source', 'yelp')
+
+    // Calculate average ratings and review counts
+    const ratingsMap = new Map<number, { avgRating: number; reviewCount: number }>()
+    reviews?.forEach((review: any) => {
+      const current = ratingsMap.get(review.restaurant_id) || { avgRating: 0, reviewCount: 0, totalRating: 0 }
+      ratingsMap.set(review.restaurant_id, {
+        avgRating: 0, // Will calculate after
+        reviewCount: current.reviewCount + 1,
+        totalRating: (current as any).totalRating + review.rating
+      } as any)
+    })
+
+    // Calculate averages
+    ratingsMap.forEach((value, key) => {
+      const avg = (value as any).totalRating / value.reviewCount
+      ratingsMap.set(key, {
+        avgRating: Math.round(avg * 10) / 10, // Round to 1 decimal place
+        reviewCount: value.reviewCount
+      })
+    })
 
     // Transform to AI-friendly format (already filtered by query)
     const formattedRestaurants = restaurants
@@ -88,16 +138,27 @@ async function getRestaurantData() {
           ? (cuisineTypes[0] as any)?.name
           : (cuisineTypes as any)?.name || 'Various'
 
+        // Extract operational data from service configs
+        const serviceConfig = r.restaurant_service_configs?.[0] || {}
+        const deliveryTimeMinutes = serviceConfig.delivery_time_minutes
+        const deliveryMinOrder = serviceConfig.delivery_min_order
+
+        // Get minimum delivery fee from the fee map
+        const minDeliveryFee = feeMap.get(r.id)
+
+        // Get ratings from the ratings map
+        const ratingData = ratingsMap.get(r.id)
+
         return {
           name: r.name,
           slug: r.slug,
           cuisine: cuisineName,
           description: r.meta_description || r.search_keywords || '',
-          rating: 4.5, // No reviews data yet
-          reviewCount: 0, // No reviews data yet
-          deliveryFee: 2.99, // Not in database yet
-          minimumOrder: 15, // Not in database yet
-          deliveryTime: '30-45 min', // Not in database yet
+          rating: ratingData?.avgRating || null, // Real Yelp rating or null if no reviews
+          reviewCount: ratingData?.reviewCount || 0, // Real review count
+          deliveryFee: minDeliveryFee || 2.99, // Use real fee or default
+          minimumOrder: deliveryMinOrder || 15, // Use real min order or default
+          deliveryTime: deliveryTimeMinutes ? `${deliveryTimeMinutes} min` : '30-45 min', // Use real time or default
           featured: r.is_featured || false
         }
       }) || []
@@ -181,9 +242,14 @@ function keywordFallback(query: string, restaurants: any[]) {
   if (keywords.romantic.some(k => lowerQuery.includes(k))) {
     // Prioritize higher-rated restaurants for date night
     matchedRestaurants = restaurants
-      .filter(r => r.rating >= 4.0)
-      .sort((a, b) => b.rating - a.rating)
+      .filter(r => r.rating && r.rating >= 4.0)
+      .sort((a, b) => (b.rating || 0) - (a.rating || 0))
       .slice(0, 5)
+    // If not enough highly-rated restaurants, add featured ones
+    if (matchedRestaurants.length < 3) {
+      const featured = restaurants.filter(r => r.featured).slice(0, 5 - matchedRestaurants.length)
+      matchedRestaurants.push(...featured)
+    }
     matchedCuisines = [...new Set(matchedRestaurants.map(r => r.cuisine.toLowerCase()))]
     confidence = 0.7
     message = 'Perfect spots for a special evening together!'
