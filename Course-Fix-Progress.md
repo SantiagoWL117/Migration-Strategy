@@ -213,6 +213,35 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 1. Create appropriate courses for this Chinese restaurant (e.g., Appetizers, Soups, Chicken, Beef, Seafood, Vegetarian, Rice/Noodles, Desserts, Drinks)
 2. Then re-run course assignment process
 
+#### Westboro Subs (Restaurant ID: 778)
+**Status:** ⚠️ SKIPPED - No courses defined
+**Date:** 2025-11-03
+
+**Issue:** Restaurant has 47 dishes but 0 courses defined in the system.
+
+**Data Quality Check:** ✅ 47 dishes is reasonable for a Vietnamese sub shop - menu data appears properly migrated.
+
+**Dish Pattern Analysis:**
+- A1-A12: Appetizers (Spring Rolls, Egg Rolls, Vietnamese items)
+- B1-B7: Banh Mi/Sandwiches
+- C1-C6: Combos (some marked HIDE)
+- D1-D8: Drinks (Soft drinks, Vietnamese coffee, smoothies)
+- H2-H3: Desserts
+- S1-S10: Subs (Vietnamese subs - Pork, Beef, Chicken, Vegetarian, etc.)
+- SW: Soup (Wonton Soup)
+
+**Action Taken:** None - cannot assign course_id without courses existing.
+
+**Resolution Needed:**
+1. Create appropriate courses for this Vietnamese sub shop:
+   - Appetizers
+   - Subs/Banh Mi
+   - Combos
+   - Soups
+   - Desserts
+   - Drinks
+2. Then assign dishes using code pattern matching (A=Appetizers, B=Sandwiches, C=Combos, D=Drinks, H=Desserts, S=Subs, SW=Soup)
+
 ---
 
 ### Restaurants Not Found in Database
@@ -463,12 +492,12 @@ Actual menu structure from online shows ~15 categories that should be created:
 
 - **Total Restaurants in List:** 252
 - **Completed:** 7
-- **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
+- **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
 - **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
 - **Status Issues:** 1 (Wow Sushi - suspended + 0 dishes)
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
 - **Critical Data Issues:** 2 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes)
 - **In Progress:** 0
-- **Pending:** 228
+- **Pending:** 227
 - **Success Rate:** 100% (of processable restaurants)
