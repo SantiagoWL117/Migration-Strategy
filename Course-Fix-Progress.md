@@ -310,6 +310,35 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ### ⏸️ Restaurants with Suspended/Pending Status
 
+#### Vanier Pizza & Subs (Restaurant ID: 62)
+**Status:** ⏸️ STATUS MISMATCH - Suspended in database | ⚠️ SUSPICIOUS DATA
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status: suspended
+- **SUSPICIOUS:** Only 1 dish in database (impossible for a pizza & subs restaurant)
+
+**Current Database Status:**
+- Total dishes: 1
+- Courses defined: 1
+- Dishes with course_id: 1 (100%) ✅
+- Status: suspended
+
+**⚠️ SERVICE VERIFICATION NEEDED:**
+A pizza & subs restaurant should have dozens of dishes. Having only 1 dish suggests:
+1. Restaurant may have switched to Clover or another POS system
+2. Menu data migration incomplete (most dishes missing)
+3. Restaurant may actually be closed/inactive
+
+**Resolution Needed:**
+1. Verify if restaurant should be active (listed in active list)
+2. **URGENT:** Check if restaurant is using Clover or another service
+3. If still using our service, investigate missing menu data
+4. Cannot proceed with course assignment until status and service verified
+
+---
+
 #### Wow Sushi 50, rue Rachel E (Restaurant ID: 356)
 **Status:** ⏸️ STATUS MISMATCH - Suspended in database | ⚠️ CRITICAL DATA ISSUE
 **Date:** 2025-11-03
@@ -503,9 +532,9 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
 - **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
-- **Status Issues:** 1 (Wow Sushi - suspended + 0 dishes)
+- **Status Issues:** 2 (Wow Sushi - suspended + 0 dishes, Vanier Pizza & Subs - suspended + 1 dish)
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
-- **Critical Data Issues:** 2 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes)
+- **Critical Data Issues:** 3 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish)
 - **In Progress:** 0
-- **Pending:** 227
+- **Pending:** 226
 - **Success Rate:** 100% (of processable restaurants)
