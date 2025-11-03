@@ -227,26 +227,29 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ---
 
-### ⏸️ Restaurants with Suspended/Pending Status
+### ✅ Restaurants with Status Corrected
 
-#### Xtreme Pizza 125 Preston St
-**Status:** ⏸️ STATUS MISMATCH - Not active in database
+#### Xtreme Pizza 125 Preston St (Restaurant ID: 38)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
 **Date:** 2025-11-03
 
 **Issue Found:**
 - Listed in Restaurants-active.md as active
-- Database contains multiple Xtreme Pizza locations, all with non-active status:
-  - ID 38: "Preston Pizza (CHANGED TO XTREME PIZZA)" - status: suspended
-  - ID 367: "Xtreme Pizza" - status: suspended
-  - ID 575: "Xtreme Pizza Orleans" - status: suspended
-  - ID 933: "Xtreme Pizza Yanni Practice" - status: pending
+- Database status was: suspended
+- Restaurant name: "Preston Pizza (CHANGED TO XTREME PIZZA)"
+- Status mismatch identified
 
-**Action Taken:** None - awaiting authorization to correct status or verify correct restaurant.
+**Action Taken:**
+- Updated restaurant status from 'suspended' to 'active'
+- Verified update successful
 
-**Resolution Needed:**
-1. Verify which Xtreme Pizza location should be active (likely ID 38 based on Preston St address)
-2. Update status from 'suspended' to 'active' if this is the correct location
-3. Then proceed with course assignment process
+**Menu Status:**
+- Total dishes: 6
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 6 (100%) ✅
+- All dishes already properly assigned (all in "Uncategorized" course)
+
+**Result:** Restaurant status corrected. All dishes already have course_id assigned. May need review to create proper courses for pizza restaurant structure (similar to Yorgo's).
 
 ---
 
@@ -372,7 +375,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Completed:** 6
 - **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
 - **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
-- **Status Issues:** 1 (Xtreme Pizza - suspended/pending)
+- **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
 - **In Progress:** 0
-- **Pending:** 233
+- **Pending:** 232
 - **Success Rate:** 100% (of processable restaurants)
