@@ -163,10 +163,16 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ## ⚠️ Skipped Restaurants
 
-### ⚠️ IMPORTANT: Service Verification Needed
-**Pattern:** Restaurants with "no courses defined but have dishes" may have switched to **RestaurantPlus.net/OlivePOS** or other POS systems. Always verify service status before creating courses.
+### ⚠️ IMPORTANT: Restaurants That Left Our Platform
 
-**Confirmed on RestaurantPlus.net - 19 RESTAURANTS:**
+**Note:** The following restaurants have LEFT our platform and are now using **RestaurantPlus.net/OlivePOS** (a competing POS/ordering system). They should be removed from the active restaurant list or marked as inactive/migrated.
+
+**This explains why:**
+- Some have incomplete menu data (left before full migration)
+- Some are marked as suspended in database
+- Some have no courses but have dishes (data left over from when they were active)
+
+**Confirmed on RestaurantPlus.net - 19 RESTAURANTS (NO LONGER ON OUR PLATFORM):**
 
 **Found in Database (7):**
 - Vanier Pizza & Subs (ID: 62) - suspended, 1 dish
@@ -195,10 +201,17 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 **Service:** RestaurantPlus.net uses OlivePOS (OliveNow Inc) - a competing POS/ordering platform.
 
-**⚠️ CRITICAL ACTION REQUIRED:**
-1. **River Pizza** (ID: 952) needs course assignment - 71 dishes with NULL course_id
-2. Verify service status for ALL 19 restaurants - if they've fully migrated to RestaurantPlus.net, they may not need course assignment work
-3. Restaurants on RestaurantPlus.net should likely be removed from active list or marked as migrated
+**⚠️ ACTION REQUIRED:**
+1. **Remove these 19 restaurants from Restaurants-active.md** or mark them as "Migrated to RestaurantPlus.net"
+2. **Update database status** for these restaurants (mark as inactive/migrated if not already)
+3. **Do NOT proceed with course assignment** for restaurants that have left our platform
+4. **Exception:** River Pizza (ID: 952) - if still using our service, needs course assignment. Otherwise skip.
+
+**Pattern:** Restaurants that left our platform often have:
+- Suspended status in database
+- Incomplete menu data (left mid-migration)
+- No courses but have dishes (legacy data)
+- Suspiciously low dish counts
 
 ### Restaurants with No Courses Defined
 
@@ -251,12 +264,14 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 2. Then re-run course assignment process
 
 #### Westboro Subs (Restaurant ID: 778)
-**Status:** ⚠️ SKIPPED - No courses defined | ⚠️ USING CLOVER SERVICE
+**Status:** ⚠️ LEFT PLATFORM - On RestaurantPlus.net | ⚠️ SKIP COURSE ASSIGNMENT
 **Date:** 2025-11-03
 
 **Issue:** Restaurant has 47 dishes but 0 courses defined in the system.
 
-**⚠️ SERVICE NOTE:** Restaurant is now using **RestaurantPlus.net/OlivePOS** service (confirmed at https://restaurantplus.net/home/food). May not need course assignment work if they've switched away from our platform.
+**⚠️ PLATFORM NOTE:** Restaurant has LEFT our platform and is now using **RestaurantPlus.net/OlivePOS** (confirmed at https://restaurantplus.net/home/food). Restaurant should be removed from active list.
+
+**Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
 **Data Quality Check:** ✅ 47 dishes is reasonable for a Vietnamese sub shop - menu data appears properly migrated.
 
@@ -345,7 +360,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 ### ⏸️ Restaurants with Suspended/Pending Status
 
 #### Vanier Pizza & Subs (Restaurant ID: 62)
-**Status:** ⏸️ STATUS MISMATCH - Suspended in database | ⚠️ SUSPICIOUS DATA
+**Status:** ⚠️ LEFT PLATFORM - On RestaurantPlus.net | ⚠️ SKIP COURSE ASSIGNMENT
 **Date:** 2025-11-03
 
 **Issue Found:**
@@ -359,17 +374,9 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 - Dishes with course_id: 1 (100%) ✅
 - Status: suspended
 
-**⚠️ SERVICE VERIFICATION NEEDED:**
-A pizza & subs restaurant should have dozens of dishes. Having only 1 dish suggests:
-1. Restaurant may have switched to **RestaurantPlus.net/OlivePOS** or another POS system (CONFIRMED on RestaurantPlus.net)
-2. Menu data migration incomplete (most dishes missing)
-3. Restaurant may actually be closed/inactive
+**⚠️ PLATFORM NOTE:** Restaurant has LEFT our platform and is now using **RestaurantPlus.net/OlivePOS** (CONFIRMED). The suspended status and single dish reflect that they left mid-migration. Restaurant should be removed from active list.
 
-**Resolution Needed:**
-1. Verify if restaurant should be active (listed in active list)
-2. **URGENT:** Check if restaurant is using Clover or another service
-3. If still using our service, investigate missing menu data
-4. Cannot proceed with course assignment until status and service verified
+**Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
 ---
 
@@ -482,26 +489,21 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 **Action Taken:** None - all dishes already properly assigned.
 
 #### Lucky King Take Out (Restaurant ID: 174)
-**Status:** ⚠️ SKIPPED - Already has course assignments | ⚠️ ON RESTAURANTPLUS.NET
+**Status:** ⚠️ LEFT PLATFORM - On RestaurantPlus.net | ⚠️ SKIP COURSE ASSIGNMENT
 **Date:** 2025-11-03
 
 **Details:**
 - Total dishes: 141
 - Dishes with course_id: 141 (100%) ✅
 - Courses defined: 14
-- Status: active
+- Status: active (but restaurant has LEFT our platform)
 
-**⚠️ SERVICE NOTE:** Restaurant is confirmed on **RestaurantPlus.net/OlivePOS** (https://restaurantplus.net/home/food) at address 1134 Cadboro Rd. However, restaurant has complete menu data (141 dishes, 14 courses) in our database.
+**⚠️ PLATFORM NOTE:** Restaurant has LEFT our platform and is now using **RestaurantPlus.net/OlivePOS** (confirmed at https://restaurantplus.net/home/food). Restaurant should be removed from active list.
 
-**Possible Scenarios:**
-1. Restaurant using both platforms (dual POS)
-2. Data migration completed but restaurant later switched
-3. Our data is outdated but was complete at time of migration
-
-**Action Taken:** None - all dishes already properly assigned. **VERIFY:** Confirm if restaurant is still using our service or has fully migrated to RestaurantPlus.net.
+**Action Taken:** SKIP - Restaurant no longer on our platform. Course assignment complete but restaurant has left.
 
 #### River Pizza (Restaurant ID: 952)
-**Status:** ⚠️ NEEDS COURSE ASSIGNMENT | ⚠️ ON RESTAURANTPLUS.NET
+**Status:** ⚠️ LEFT PLATFORM - On RestaurantPlus.net | ⚠️ SKIP COURSE ASSIGNMENT
 **Date:** 2025-11-03
 
 **Details:**
@@ -509,19 +511,14 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Dishes with course_id: 0 (0%) ❌
 - Dishes with NULL course_id: 71 (100%) ⚠️
 - Courses defined: 12
-- Status: active
+- Status: active (but restaurant has LEFT our platform)
 
 **Courses Available:**
 - Specials, Pizzas, Twin Pizzas, Appetizers, Big Salads, Chicken Wings, Submarines, Canadian Food, Donairs, Pasta, Desserts, Drinks
 
-**⚠️ SERVICE NOTE:** Restaurant is confirmed on **RestaurantPlus.net/OlivePOS**. However, restaurant has complete menu data (71 dishes, 12 courses) in our database with all dishes needing course assignment.
+**⚠️ PLATFORM NOTE:** Restaurant has LEFT our platform and is now using **RestaurantPlus.net/OlivePOS**. Restaurant should be removed from active list.
 
-**⚠️ CRITICAL DECISION NEEDED:**
-1. **FIRST:** Verify if restaurant is still using our service or has fully migrated to RestaurantPlus.net
-2. If still using our service: Assign all 71 dishes to appropriate courses (courses already exist)
-3. If migrated to RestaurantPlus.net: Skip course assignment work
-
-**Action Taken:** None - awaiting service verification before proceeding with course assignment.
+**Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
 #### Yorgo's - Nepean (Restaurant ID: 985)
 **Status:** ⚠️ SKIPPED - Already has course assignments (NEEDS REVIEW)
@@ -611,7 +608,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
 - **Status Issues:** 2 (Wow Sushi - suspended + 0 dishes, Vanier Pizza & Subs - suspended + 1 dish)
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
-- **On RestaurantPlus.net:** 19 restaurants confirmed (7 in database, 12 not found)
+- **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
 - **Critical Data Issues:** 3 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish)
 - **In Progress:** 0
 - **Pending:** 224

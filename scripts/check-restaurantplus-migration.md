@@ -1,7 +1,9 @@
-# RestaurantPlus.net Migration Check
+# RestaurantPlus.net Platform Migration (Restaurants That Left Our Platform)
 
 **Date:** 2025-11-03
-**Purpose:** Cross-reference our active restaurant list with RestaurantPlus.net to identify restaurants that have migrated to their platform
+**Purpose:** Document restaurants from our active list that are NO LONGER ACTIVE on our platform and have switched to RestaurantPlus.net/OlivePOS
+
+**Note:** This is NOT a data migration check. These restaurants have LEFT our platform and moved to a competing POS/ordering system (RestaurantPlus.net/OlivePOS). They should be removed from our active restaurant list or marked as inactive/migrated.
 
 ## Confirmed Matches Found - 19 RESTAURANTS ON RESTAURANTPLUS.NET
 
