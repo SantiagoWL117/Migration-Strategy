@@ -534,6 +534,16 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Incomplete menu migration, OR
 - Restaurant may have closed/left platform (similar to closed restaurants pattern)
 
+**Dishes Found (Basic Pizza Items and Deals):**
+- 1 Topping Pizza
+- 2 Toppings Pizza
+- 3 Toppings Pizza
+- Large Pizza and Wings
+- Large Pizza and Wings HIDE
+- Medium Pizza and Wings
+- Medium Pizza and Wings HIDE
+- Two Medium Pizzas and Wings HIDE
+
 **Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count suggests verification needed (check if closed or missing menu items).
 
 **Note:** Multiple locations found (ID: 799 pending, ID: 800 active). Checked active location.
