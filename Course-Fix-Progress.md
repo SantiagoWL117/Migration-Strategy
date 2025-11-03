@@ -521,7 +521,7 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
 #### The Greek Flame and Pizza (Restaurant ID: 725)
-**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | 🚫 PERMANENTLY CLOSED
 **Date:** 2025-11-03
 
 **Details:**
@@ -530,9 +530,7 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course (1861)
 
-**⚠️ DATA QUALITY CONCERN:** Only 7 dishes is suspiciously low for a Greek restaurant & pizza place. This pattern suggests:
-- Incomplete menu migration (similar to Xtreme Pizza, The Original Georgie's), OR
-- Restaurant may have closed/left platform
+**🚫 RESTAURANT STATUS:** Restaurant is **PERMANENTLY CLOSED** (verified via Google Maps). This explains the suspiciously low dish count (only deals/specials, no base menu items).
 
 **Dishes Found (All Deals/Specials - No Base Menu Items):**
 - 2 Large Pizzas 4 Toppings Combined
@@ -543,7 +541,10 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Medium Pizza 3 Toppings and Wings
 - Small Pizza 3 Toppings and Wings
 
-**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count + only deals/specials suggests incomplete migration or restaurant status verification needed.
+**Action Taken:** 
+- Skipped - all dishes already have course_id
+- ✅ **Database status updated** from "active" to "suspended" to reflect permanent closure
+- **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list
 
 #### The Original Georgie's (Restaurant ID: 84)
 **Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT | ⚠️ STATUS MISMATCH
@@ -723,11 +724,11 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
 - **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
-- **Status Corrected:** 3 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed)
+- **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Issues:** 3 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list, The Original Georgie's - suspended status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
-- **Critical Data Issues:** 5 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, The Greek Flame and Pizza - 7 dishes - only deals/specials)
-- **Permanently Closed:** 1 (Twisted Pita & Pizzeria - should be removed from active list)
+- **Critical Data Issues:** 4 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items)
+- **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 224
 - **Success Rate:** 100% (of processable restaurants)
