@@ -166,14 +166,39 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 ### ⚠️ IMPORTANT: Service Verification Needed
 **Pattern:** Restaurants with "no courses defined but have dishes" may have switched to **RestaurantPlus.net/OlivePOS** or other POS systems. Always verify service status before creating courses.
 
-**Confirmed on RestaurantPlus.net:**
-- Vanier Pizza & Subs (201 Marier Ave) - Database ID: 62, Status: suspended, 1 dish
-- Westboro Subs (1262 Wellington St. W) - Database ID: 778, Status: active, 47 dishes, 0 courses
-- Lucky King Take Out (1134 Cadboro Rd) - Database ID: 174, Status: active (checking dishes/courses)
+**Confirmed on RestaurantPlus.net - 19 RESTAURANTS:**
+
+**Found in Database (7):**
+- Vanier Pizza & Subs (ID: 62) - suspended, 1 dish
+- Westboro Subs (ID: 778) - active, 47 dishes, 0 courses
+- Lucky King Take Out (ID: 174) - active, 141 dishes, 14 courses, all assigned ✅
+- Centertown Donair & Pizza (ID: 131) - suspended, 26 dishes, 5 courses, all assigned ✅
+- Golden Center Pizza (ID: 815) - active, 10 dishes, 1 course, all assigned ✅
+- River Pizza (ID: 952) - active, 71 dishes, 12 courses, **71 NULL course_id** ⚠️
+- Samo's Greek Kitchen (ID: 791) - active, 14 dishes, 1 course, all assigned ✅
+
+**Not Found in Database (12):**
+- Oriental House Restaurant
+- Guillotine Street Food
+- Photime Authentic Vietnamese Eatery
+- Cumberland Pizza
+- Old Avenue Restaurant
+- The Bagel Run
+- Viet Express
+- My Thai Village Restaurant
+- Chili Craft Pizza
+- Laheeb Shawarma
+- Hà Nội Phố / Pho Ha Noi 54
+- Pho Binh Minh 3
+- The Hot Wok
+- Da Nang Restaurant
 
 **Service:** RestaurantPlus.net uses OlivePOS (OliveNow Inc) - a competing POS/ordering platform.
 
-**Action Required:** Verify service status for all three restaurants before proceeding with course assignment work.
+**⚠️ CRITICAL ACTION REQUIRED:**
+1. **River Pizza** (ID: 952) needs course assignment - 71 dishes with NULL course_id
+2. Verify service status for ALL 19 restaurants - if they've fully migrated to RestaurantPlus.net, they may not need course assignment work
+3. Restaurants on RestaurantPlus.net should likely be removed from active list or marked as migrated
 
 ### Restaurants with No Courses Defined
 
@@ -475,6 +500,29 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** None - all dishes already properly assigned. **VERIFY:** Confirm if restaurant is still using our service or has fully migrated to RestaurantPlus.net.
 
+#### River Pizza (Restaurant ID: 952)
+**Status:** ⚠️ NEEDS COURSE ASSIGNMENT | ⚠️ ON RESTAURANTPLUS.NET
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 71
+- Dishes with course_id: 0 (0%) ❌
+- Dishes with NULL course_id: 71 (100%) ⚠️
+- Courses defined: 12
+- Status: active
+
+**Courses Available:**
+- Specials, Pizzas, Twin Pizzas, Appetizers, Big Salads, Chicken Wings, Submarines, Canadian Food, Donairs, Pasta, Desserts, Drinks
+
+**⚠️ SERVICE NOTE:** Restaurant is confirmed on **RestaurantPlus.net/OlivePOS**. However, restaurant has complete menu data (71 dishes, 12 courses) in our database with all dishes needing course assignment.
+
+**⚠️ CRITICAL DECISION NEEDED:**
+1. **FIRST:** Verify if restaurant is still using our service or has fully migrated to RestaurantPlus.net
+2. If still using our service: Assign all 71 dishes to appropriate courses (courses already exist)
+3. If migrated to RestaurantPlus.net: Skip course assignment work
+
+**Action Taken:** None - awaiting service verification before proceeding with course assignment.
+
 #### Yorgo's - Nepean (Restaurant ID: 985)
 **Status:** ⚠️ SKIPPED - Already has course assignments (NEEDS REVIEW)
 **Date:** 2025-11-03
@@ -559,11 +607,12 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Completed:** 7
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
 - **Skipped (Already Assigned):** 9 (multiple All Out Burger locations, Yorgo's locations, Lucky King)
+- **Needs Assignment (On RestaurantPlus.net):** 1 (River Pizza - 71 dishes, verify service first)
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
 - **Status Issues:** 2 (Wow Sushi - suspended + 0 dishes, Vanier Pizza & Subs - suspended + 1 dish)
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
-- **On RestaurantPlus.net:** 3 (Vanier Pizza & Subs, Westboro Subs, Lucky King)
+- **On RestaurantPlus.net:** 19 restaurants confirmed (7 in database, 12 not found)
 - **Critical Data Issues:** 3 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish)
 - **In Progress:** 0
-- **Pending:** 225
+- **Pending:** 224
 - **Success Rate:** 100% (of processable restaurants)
