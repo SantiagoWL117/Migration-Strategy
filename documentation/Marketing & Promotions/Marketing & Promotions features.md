@@ -4672,7 +4672,7 @@ setInterval(() => {
      timestamp: redemption.used_at
    });
    ```
-
+ok
 4. **Redemption Heatmap:**
    ```typescript
    // Show geographic distribution of redemptions
