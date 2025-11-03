@@ -94,6 +94,28 @@
 - Small menu with only 2 courses
 - Verified: 0 remaining NULL values
 
+### Zait and Zaatar (Restaurant ID: 968)
+**Status:** ✅ COMPLETE - All 39 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Specials (1263): 4 dishes (Large/Medium/Small Zait & Zaatar TRIO, XL Deal)
+- Appetizers (1255): 10 dishes (Breaded Chicken Strips, Chicken Nuggets, Fries varieties, Mozzarella Sticks, Onion Rings, Zucchini Sticks, Garlic Sauce, Hummus)
+- Wings (1264): 3 dishes (10 Wings, 20 Wings, 30 Wings)
+- Salads and Sides (1262): 4 dishes (Caesar Salad, Chicken Caesar Salad, Garden Salad, Greek Salad)
+- Kabab Platters (1258): 6 dishes (Beef Kabab, Chicken Kabab, Chicken Cubes Taouk - various sizes)
+- Kabab Sandwiches on Charcoal (1259): 1 dish (Kabab Sandwich TRIO)
+- Drinks (1256): 11 dishes (Coca Cola, Pepsi, 7 Up, Fanta Orange, Water, Yogurt, etc.)
+- Pizza Menu (1260): 0 dishes (course defined but no dishes)
+- Fried Chicken (1257): 0 dishes (course defined but no dishes)
+- Poutine (1261): 0 dishes (course defined but no dishes)
+
+**Details:**
+- All NULL course_id values resolved
+- Mediterranean/Middle Eastern restaurant with kabab focus
+- Some courses defined but no dishes assigned (Pizza Menu, Fried Chicken, Poutine)
+- Verified: 0 remaining NULL values
+
 ---
 
 ## 🔄 In Progress Restaurants
@@ -102,9 +124,10 @@
 
 ---
 
-## ⏳ Pending Restaurants (249 remaining)
+## ⏳ Pending Restaurants (236 remaining)
 
 From Restaurants-active.md list - to be processed sequentially with user approval.
+Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ---
 
@@ -247,9 +270,9 @@ From Restaurants-active.md list - to be processed sequentially with user approva
 ## Summary Statistics
 
 - **Total Restaurants in List:** 252
-- **Completed:** 5
+- **Completed:** 6
 - **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
 - **Skipped (Already Assigned):** 6 (multiple All Out Burger locations)
 - **In Progress:** 0
-- **Pending:** 237
+- **Pending:** 236
 - **Success Rate:** 100% (of processable restaurants)
