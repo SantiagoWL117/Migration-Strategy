@@ -521,7 +521,7 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
 #### The Cupboard (Restaurant ID: 800)
-**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | 🚫 NO LONGER ON PLATFORM
 **Date:** 2025-11-03
 
 **Details:**
@@ -530,9 +530,7 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course (1730)
 
-**⚠️ DATA QUALITY CONCERN:** Only 8 dishes is suspiciously low. This pattern suggests:
-- Incomplete menu migration, OR
-- Restaurant may have closed/left platform (similar to closed restaurants pattern)
+**🚫 RESTAURANT STATUS:** Restaurant is **NO LONGER ON OUR PLATFORM** (user verified). This explains the suspiciously low dish count.
 
 **Dishes Found (Basic Pizza Items and Deals):**
 - 1 Topping Pizza
@@ -752,6 +750,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
 - **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
+- **Left Platform (Other):** 1 (The Cupboard - no longer on our platform) - Should be removed from active list
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Issues:** 3 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list, The Original Georgie's - suspended status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
