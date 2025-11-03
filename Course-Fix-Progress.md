@@ -521,7 +521,7 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
 #### Twisted Pita & Pizzeria (Restaurant ID: 687)
-**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | 🚫 PERMANENTLY CLOSED
 **Date:** 2025-11-03
 
 **Details:**
@@ -530,9 +530,7 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course (1570)
 
-**⚠️ DATA QUALITY CONCERN:** Only 7 dishes for a pizzeria is suspiciously low. This pattern suggests:
-- Incomplete menu migration, OR
-- Restaurant may have left platform (similar to RestaurantPlus.net pattern)
+**🚫 RESTAURANT STATUS:** Restaurant is **PERMANENTLY CLOSED** (verified via Google Maps). This explains the suspiciously low dish count (only deals/specials, no base menu items).
 
 **Dishes Found (All Deals/Specials - No Base Menu Items):**
 - 2 Pizza Deal 1 Topping
@@ -543,7 +541,7 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Medium Pizza Special
 - Two Pita Special
 
-**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count suggests incomplete migration or restaurant status verification needed.
+**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Restaurant should be removed from active list and database status should be updated to reflect permanent closure.
 
 #### Ting's Kitchen (Restaurant ID: 941)
 **Status:** ✅ SKIPPED - Already has course assignments | ⚠️ STATUS MISMATCH
@@ -673,7 +671,8 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
 - **Status Issues:** 2 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
-- **Critical Data Issues:** 4 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, Twisted Pita & Pizzeria - 7 dishes)
+- **Critical Data Issues:** 3 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish)
+- **Permanently Closed:** 1 (Twisted Pita & Pizzeria - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 224
 - **Success Rate:** 100% (of processable restaurants)
