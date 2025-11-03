@@ -520,6 +520,39 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### Sushiyana (Restaurant ID: 847)
+**Status:** ⏳ NEEDS WORK - 252 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 252 ✅ (Good count - full menu)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 252 (100%) ⚠️
+- Courses defined: 0 ⚠️
+
+**Menu Structure Analysis:**
+Japanese/Korean fusion restaurant with mix of:
+- Sushi items (Hosomaki varieties, California rolls, Unagi, Nigiri combos)
+- Korean items (Bibimbap, Bulgogi, Bento boxes)
+- Appetizers (Deep Fried items, Chicken Karaage, Poke bowls)
+- Drinks (7 Up, Coke, Diet Coke, Alia Basil Seeds Juice)
+- Vegetarian options (Vegetarian rolls, Burrito Végétarien)
+- Specials (Sushiyana branded items)
+
+**Action Required:**
+1. Create courses for Japanese/Korean fusion restaurant:
+   - Appetizers
+   - Sushi (Hosomaki, California, Specialty Rolls)
+   - Nigiri/Sashimi
+   - Korean Dishes (Bibimbap, Bulgogi, Bento)
+   - Poke Bowls
+   - Vegetarian Options
+   - Drinks
+   - Specials/Combos
+2. Assign 252 dishes to appropriate courses using pattern matching
+
+**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
+
 #### Test James - Dovercourt Pizza (Line 235)
 **Status:** ❌ NOT FOUND IN DATABASE
 **Date:** 2025-11-03
@@ -758,6 +791,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 
 - **Total Restaurants in List:** 252
 - **Completed:** 7
+- **Needs Work (0 Courses):** 6 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs, Sushiyana - 252 dishes!)
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
 - **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
