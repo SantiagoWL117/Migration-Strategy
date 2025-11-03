@@ -530,9 +530,17 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Dishes with NULL course_id: 338 (100%) ⚠️
 - Courses defined: 0 ⚠️
 
+**Menu Structure Analysis:**
+Bilingual French/English sushi restaurant with:
+- Numbered Nigiri items (1. Sake, 2. Maguro, 10. Kani-kama, etc.)
+- Tempura items (Sake Tempura, Maguro Tempura, Crab Tempura, Shrimp Tempura, etc.)
+- Combo packs (100 Pieces, 12 Pieces, 14 Pieces)
+- Vegetarian options (Végétarien / Vegetarian)
+
 **Action Required:**
-1. Create courses for sushi restaurant (similar to Sushi Presse structure)
+1. Create courses for sushi restaurant (similar to Sushi Presse structure - bilingual French/English)
 2. Assign 338 dishes to appropriate courses using pattern matching
+3. Courses should include: Nigiri/Sashimi, Tempura, Combos/Plates, Vegetarian, Drinks, etc.
 
 **Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
 
