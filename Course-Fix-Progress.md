@@ -520,6 +520,20 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### Ting's Kitchen (Restaurant ID: 941)
+**Status:** ✅ SKIPPED - Already has course assignments | ⚠️ STATUS MISMATCH
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 145
+- Dishes with course_id: 145 (100%)
+- Courses defined: 17 (Dim Sum Menu, Starters and Soups, Fried Rice, Vietnamese Pho Noodle Soup, Signature Veggie Options, Best Thai Cuisine, Chicken, Chop Suey, Beef, Pork, Signature Noodles, Shrimp, On the Side, Special Family Dinners, Combination Plates, Drinks, Uncategorized)
+- All dishes assigned to courses ✅
+
+**⚠️ STATUS MISMATCH:** Database status is "pending" but restaurant is listed in Restaurants-active.md
+
+**Action Taken:** None - all dishes already have course_id assigned and properly categorized. Status mismatch noted.
+
 #### Tony's Pizza (Restaurant ID: 929)
 **Status:** ✅ SKIPPED - Already has course assignments
 **Date:** 2025-11-03
@@ -629,10 +643,10 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Total Restaurants in List:** 252
 - **Completed:** 7
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
-- **Skipped (Already Assigned):** 11 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza)
+- **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
-- **Status Issues:** 1 (Wow Sushi - suspended + 0 dishes) - Note: Vanier Pizza moved to RestaurantPlus.net
+- **Status Issues:** 2 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
 - **Critical Data Issues:** 3 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish)
 - **In Progress:** 0
