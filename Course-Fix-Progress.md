@@ -163,6 +163,9 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ## ⚠️ Skipped Restaurants
 
+### ⚠️ IMPORTANT: Service Verification Needed
+**Pattern:** Restaurants with "no courses defined but have dishes" may have switched to Clover or other POS systems. Always verify service status before creating courses.
+
 ### Restaurants with No Courses Defined
 
 #### Aahar The Taste of India (Restaurant ID: 561)
@@ -214,10 +217,12 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 2. Then re-run course assignment process
 
 #### Westboro Subs (Restaurant ID: 778)
-**Status:** ⚠️ SKIPPED - No courses defined
+**Status:** ⚠️ SKIPPED - No courses defined | ⚠️ USING CLOVER SERVICE
 **Date:** 2025-11-03
 
 **Issue:** Restaurant has 47 dishes but 0 courses defined in the system.
+
+**⚠️ SERVICE NOTE:** Restaurant is now using Clover service. May not need course assignment work if they've switched away from our platform.
 
 **Data Quality Check:** ✅ 47 dishes is reasonable for a Vietnamese sub shop - menu data appears properly migrated.
 
@@ -230,17 +235,20 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 - S1-S10: Subs (Vietnamese subs - Pork, Beef, Chicken, Vegetarian, etc.)
 - SW: Soup (Wonton Soup)
 
-**Action Taken:** None - cannot assign course_id without courses existing.
+**Action Taken:** None - cannot assign course_id without courses existing. **SERVICE VERIFICATION NEEDED** - Confirm if still using our service before creating courses.
 
 **Resolution Needed:**
-1. Create appropriate courses for this Vietnamese sub shop:
+1. **FIRST:** Verify if restaurant is still using our service or has switched to Clover
+2. If still using our service, create appropriate courses:
    - Appetizers
    - Subs/Banh Mi
    - Combos
    - Soups
    - Desserts
    - Drinks
-2. Then assign dishes using code pattern matching (A=Appetizers, B=Sandwiches, C=Combos, D=Drinks, H=Desserts, S=Subs, SW=Soup)
+3. Then assign dishes using code pattern matching (A=Appetizers, B=Sandwiches, C=Combos, D=Drinks, H=Desserts, S=Subs, SW=Soup)
+
+**Pattern Note:** Restaurants with "no courses but have dishes" pattern should be checked for service status - may have switched to Clover or other POS systems.
 
 ---
 
