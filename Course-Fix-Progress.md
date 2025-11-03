@@ -520,6 +520,22 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### Sushi Fleury (Restaurant ID: 596)
+**Status:** ⏳ NEEDS WORK - 338 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 338 ✅ (Very large menu!)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 338 (100%) ⚠️
+- Courses defined: 0 ⚠️
+
+**Action Required:**
+1. Create courses for sushi restaurant (similar to Sushi Presse structure)
+2. Assign 338 dishes to appropriate courses using pattern matching
+
+**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
+
 #### Sushi Presse (Restaurant ID: 260)
 **Status:** ⏳ NEEDS WORK - 354 dishes, 18 courses defined, 100% unassigned
 **Date:** 2025-11-03
@@ -831,7 +847,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 
 - **Total Restaurants in List:** 252
 - **Completed:** 7
-- **Needs Work (0 Courses):** 6 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs, Sushiyana - 252 dishes!)
+- **Needs Work (0 Courses):** 7 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs, Sushiyana - 252 dishes, Sushi Fleury - 338 dishes!)
 - **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
 - **Left Platform (Other):** 1 (The Cupboard - no longer on our platform) - Should be removed from active list
