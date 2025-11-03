@@ -520,6 +520,24 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### The Original Georgie's (Restaurant ID: 84)
+**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT | ⚠️ STATUS MISMATCH
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 5 ⚠️ (Very low count)
+- Dishes with course_id: 5 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1529)
+
+**⚠️ STATUS MISMATCH:** Database status is "suspended" but restaurant is listed in Restaurants-active.md
+
+**⚠️ DATA QUALITY CONCERN:** Only 5 dishes is suspiciously low. This pattern suggests:
+- Incomplete menu migration, OR
+- Restaurant may have closed/left platform (similar to Twisted Pita pattern)
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count + status mismatch suggests verification needed (check if closed or still active).
+
 #### Twisted Pita & Pizzeria (Restaurant ID: 687)
 **Status:** ⚠️ SKIPPED - Already assigned | 🚫 PERMANENTLY CLOSED
 **Date:** 2025-11-03
