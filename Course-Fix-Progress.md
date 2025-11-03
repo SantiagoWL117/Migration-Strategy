@@ -792,7 +792,6 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Total Restaurants in List:** 252
 - **Completed:** 7
 - **Needs Work (0 Courses):** 6 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs, Sushiyana - 252 dishes!)
-- **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
 - **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
 - **Left Platform (Other):** 1 (The Cupboard - no longer on our platform) - Should be removed from active list
