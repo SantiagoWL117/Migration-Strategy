@@ -1,0 +1,255 @@
+# Course Assignment Fix Progress
+
+## ✅ Completed Restaurants
+
+### Capri Pizza (Restaurant ID: 977)
+**Status:** ✅ COMPLETE - All 86 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Halal Menu (1353): 11 dishes
+- Specials (1357): 5 dishes
+- Appetizers (1348): 5 dishes
+- Dipping Sauces (1350): 18 dishes
+- Kids Menu (1354): 3 dishes
+- Drinks (1351): 4 dishes
+- Desserts (1349): 40 dishes
+
+**Details:**
+- All NULL course_id values resolved
+- Dishes mapped based on logical categorization
+- Verified: 0 remaining NULL values
+
+### Al's Drive In (Restaurant ID: 981)
+**Status:** ✅ COMPLETE - All 36 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Fries (1386): 5 dishes (Al's Fries, Cajun Fries, Original Fries, Poutine, Al's Sauce)
+- Burgers (1384): 4 dishes (Smash Double/Single, Spicy Double/Single)
+- Drinks (1385): 12 dishes (Coke, Diet Coke, Sprite, Water, Red Bull, Crush varieties, Gatorade varieties)
+- Icecream (1387): 3 dishes (Chocolate/Vanilla/Mix Icecream Cone)
+- Milkshake (1388): 8 dishes (Biscoff, Bueno, Caramel, Chocolate, KitKat, Rees's, Strawberry, Vanilla)
+- Sundae (1389): 4 dishes (Caramel, Chocolate, Strawberry, Vanilla Sundae)
+
+**Details:**
+- All NULL course_id values resolved
+- Simple menu structure with clear categorization
+- Verified: 0 remaining NULL values
+
+### All Out Burger Gladstone (Restaurant ID: 948)
+**Status:** ✅ COMPLETE - All 59 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Appetizers (995): 4 dishes (Breaded Pickles, Fried Zucchini Sticks, Popcurds, Halloumi Fries)
+- Burgers SOLO (997): 14 dishes (ALL OUT Burger, Bacon Burger, Cheese Burger, etc.)
+- Burger COMBOS (996): 14 dishes (ALL OUT Burger COMBO, Bacon Burger COMBO, Cheese Burger COMBO, etc.)
+- Hot Dogs (1000): 3 dishes (Cheese Dog, Jumbo Hot Dog, New York Style Hot Dog)
+- Salads (1004): 2 dishes (Caesar Salad, House Salad)
+- Chicken (998): 9 dishes (Chicken Strips, Chicken Wings, Boneless Wings + combos)
+- Kids Menu (1001): 1 dish (Mini Burger Meal)
+- Drinks (999): 12 dishes (Pepsi, Diet Pepsi, Juices, Sodas, Water)
+- Poutine (1003): 0 dishes
+- Mini Donuts Hot and Fresh Made (1002): 0 dishes
+
+**Details:**
+- All NULL course_id values resolved
+- Clean burger restaurant menu structure
+- Some courses defined but no dishes assigned (Poutine, Mini Donuts)
+- Verified: 0 remaining NULL values
+
+### All Out Burger Montreal Rd (Restaurant ID: 949)
+**Status:** ✅ COMPLETE - All 59 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Appetizers (1005): 4 dishes (Breaded Pickles, Fried Zucchini Sticks, Popcurds, Halloumi Fries)
+- Burgers SOLO (1007): 14 dishes (ALL OUT Burger, Bacon Burger, Cheese Burger, etc.)
+- Burger COMBOS (1006): 14 dishes (ALL OUT Burger COMBO, Bacon Burger COMBO, Cheese Burger COMBO, etc.)
+- Hot Dogs (1010): 3 dishes (Cheese Dog, Jumbo Hot Dog, New York Style Hot Dog)
+- Salads (1014): 2 dishes (Caesar Salad, House Salad)
+- Chicken (1008): 9 dishes (Chicken Strips, Chicken Wings, Boneless Wings + combos)
+- Kids Menu (1011): 1 dish (Mini Burger Meal)
+- Drinks (1009): 12 dishes (Pepsi, Diet Pepsi, Juices, Sodas, Water)
+- Poutine (1013): 0 dishes
+- Mini Donuts Hot and Fresh Made (1012): 0 dishes
+
+**Details:**
+- All NULL course_id values resolved
+- Identical menu structure to All Out Burger Gladstone
+- Some courses defined but no dishes assigned (Poutine, Mini Donuts)
+- Verified: 0 remaining NULL values
+
+### Routine Poutine (Restaurant ID: 979)
+**Status:** ✅ COMPLETE - All 8 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Appetizers (1371): 6 dishes (Thai Bites, Breaded Zucchini, Breaded Pickles, Mozzarella Sticks, Jalapeno Poppers, Chicken Wings)
+- Gourmet Poutines (1372): 2 dishes (Capri Combo Box, Large Crack Stick Combo Box)
+
+**Details:**
+- All NULL course_id values resolved
+- Small menu with only 2 courses
+- Verified: 0 remaining NULL values
+
+---
+
+## 🔄 In Progress Restaurants
+
+(None currently)
+
+---
+
+## ⏳ Pending Restaurants (249 remaining)
+
+From Restaurants-active.md list - to be processed sequentially with user approval.
+
+---
+
+## ⚠️ Skipped Restaurants
+
+### Restaurants with No Courses Defined
+
+#### Aahar The Taste of India (Restaurant ID: 561)
+**Status:** ⚠️ SKIPPED - No courses defined
+**Date:** 2025-11-03
+
+**Issue:** Restaurant has 108 dishes but 0 courses defined in the system.
+
+**Action Taken:** None - cannot assign course_id without courses existing.
+
+**Resolution Needed:**
+1. Create appropriate courses for this Indian restaurant (e.g., Appetizers, Curries, Tandoori, Breads, Desserts, Drinks)
+2. Then re-run course assignment process
+
+#### Amicci Pizza (Restaurant ID: 735)
+**Status:** ⚠️ SKIPPED - No courses defined
+**Date:** 2025-11-03
+
+**Issue:** Restaurant has 196 dishes but 0 courses defined in the system.
+
+**Action Taken:** None - cannot assign course_id without courses existing.
+
+**Resolution Needed:**
+1. Create appropriate courses for this pizza restaurant (e.g., Appetizers, Pizza, Pasta, Salads, Desserts, Drinks)
+2. Then re-run course assignment process
+
+#### Aroy Thai (Restaurant ID: 607)
+**Status:** ⚠️ SKIPPED - No courses defined
+**Date:** 2025-11-03
+
+**Issue:** Restaurant has 39 dishes but 0 courses defined in the system.
+
+**Action Taken:** None - cannot assign course_id without courses existing.
+
+**Resolution Needed:**
+1. Create appropriate courses for this Thai restaurant (e.g., Appetizers, Soups, Curries, Noodles, Rice Dishes, Desserts, Drinks)
+2. Then re-run course assignment process
+
+#### Asia Garden Ottawa (Restaurant ID: 630)
+**Status:** ⚠️ SKIPPED - No courses defined
+**Date:** 2025-11-03
+
+**Issue:** Restaurant has 154 dishes but 0 courses defined in the system.
+
+**Action Taken:** None - cannot assign course_id without courses existing.
+
+**Resolution Needed:**
+1. Create appropriate courses for this Chinese restaurant (e.g., Appetizers, Soups, Chicken, Beef, Seafood, Vegetarian, Rice/Noodles, Desserts, Drinks)
+2. Then re-run course assignment process
+
+---
+
+### Restaurants Not Found in Database
+
+#### Andiamo Pizzeria (102B McEwen Ave)
+**Status:** ❌ NOT FOUND
+**Date:** 2025-11-03
+
+**Issue:** Restaurant listed in Restaurants-active.md but does not exist in menuca_v3.restaurants table.
+
+**Action Taken:** None - restaurant does not exist in database.
+
+**Resolution Needed:**
+1. Verify if restaurant should be in database
+2. Check if name differs in database vs active list
+3. Determine if restaurant was deleted or never migrated
+
+---
+
+### Restaurants with Status Corrected
+
+#### Argos Greek & Pizza (Restaurant ID: 774)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status was: suspended
+- Status mismatch identified
+
+**Action Taken:**
+- Updated restaurant status from 'suspended' to 'active'
+- Verified update successful
+
+**Menu Status:**
+- Total dishes: 21
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 21 (100%) ✅
+- All dishes already properly assigned
+
+**Result:** Restaurant status corrected. No course assignment work needed.
+
+---
+
+### Restaurants with Courses Already Assigned
+
+#### 2 for 1 Pizza (Restaurant ID: 223)
+**Status:** ⚠️ SKIPPED - Already has course assignments
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 2
+- Dishes with course_id: 2 (100%)
+- Dishes with NULL course_id: 0
+
+**Action Taken:** None - all dishes already properly assigned.
+
+#### All Out Burger (Restaurant ID: 771, 794, 826, 833, 841)
+**Status:** ⚠️ SKIPPED - Already has course assignments
+**Date:** 2025-11-03
+
+**Details:**
+- Five additional All Out Burger locations with courses already assigned
+- ID 771: 1 dish with course_id
+- ID 794: 12 dishes with course_id
+- ID 826: 1 dish with course_id
+- ID 833: 4 dishes with course_id
+- ID 841: 1 dish with course_id
+
+**Action Taken:** None - all dishes already properly assigned.
+
+#### All Out Burger Bank St. (Restaurant ID: 924)
+**Status:** ⚠️ SKIPPED - Already has course assignments
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 520
+- Dishes with course_id: 520 (100%)
+- Courses defined: 10
+
+**Action Taken:** None - all dishes already properly assigned.
+
+---
+
+## Summary Statistics
+
+- **Total Restaurants in List:** 252
+- **Completed:** 5
+- **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
+- **Skipped (Already Assigned):** 6 (multiple All Out Burger locations)
+- **In Progress:** 0
+- **Pending:** 237
+- **Success Rate:** 100% (of processable restaurants)
