@@ -530,19 +530,47 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Dishes with NULL course_id: 338 (100%) ⚠️
 - Courses defined: 0 ⚠️
 
-**Menu Structure Analysis:**
-Bilingual French/English sushi restaurant with:
-- Numbered Nigiri items (1. Sake, 2. Maguro, 10. Kani-kama, etc.)
-- Tempura items (Sake Tempura, Maguro Tempura, Crab Tempura, Shrimp Tempura, etc.)
-- Combo packs (100 Pieces, 12 Pieces, 14 Pieces)
-- Vegetarian options (Végétarien / Vegetarian)
+**🌐 Online Menu Available:** https://m.sushifleury.ca/menu
+**Note:** Online menu may be easier to scrape/reference for course creation and dish assignment than re-importing data.
+
+**Menu Structure Analysis (from online menu):**
+Bilingual French/English sushi restaurant with well-organized categories:
+- **PokeBol** - Poke bowls (P1-P12, Vegetarian, Shrimp, Chicken & Mango, Spicy Salmon/Tuna, Scallops, Squid Tempura, Soft Shell Crab, Giant Shrimp, Lobster & Shrimp)
+- **Nigiri et Sashimi** - Numbered items (1-18: Sake, Maguro, Kunsei Sake, Unagi, Ebi, Tamago, Crabe, Kani-kama, Hotate, Tobiko, plus Tempura variants)
+- **Hosomakis** - Small rolls, 6 pcs (20-29: Vegetarian varieties, Tamago, Kani kama, Spicy Salmon/Tuna, Akanasu, Philly varieties, Fried Salmon/Tuna, Lobster, Shrimp Tempura, Hotategai épicé)
+- **Maki** - Medium rolls, 8 pcs (B1-B9: Sakura, Nasu, Fuji, Kita, Tako, Asahi, Tsubaki, Senjo, PFK)
+- **Spécialités du Chef** - Chef's specialties (30+ items: Amor, Dragon varieties, Futomakis, Special rolls)
+- **Maki Feuille de Riz** - Rice paper rolls (70-73, 80A, 81A: Spring rolls with various fillings)
+- **Makis Tartare Épicé** - Spicy tartar rolls (74-79: Shrimp, Salmon, Crab, Tuna, Tamago, Lobster)
+- **Sushi Pizza** - Crispy sushi pizza (C1-C9: Vegetarian, Smoked Salmon, Seafood, Tuna, D-luxe, Hawaiian, Zen, Fresh Spicy Salmon, Pollock)
+- **Sushi Combo** - Combo packs (12, 14, 22, 28, 36, 44, 54, 76, 88, 100 Mcx)
+- **Tapas Orientaux** - Oriental tapas (Spring rolls, Tempura shrimp/chicken, Fried wonton)
+- **Soupe** - Soups (Miso Tofu, Miso Seafood, Wonton)
+- **Salade** - Salads (Wakame, House, Flamed Tuna/Salmon with Wakame, House with Crispy Salmon Skin)
+- **Combos** - Combo meals (For 2 persons, For 4 persons)
+- **Dessert** - Desserts (Kimono, Fried Kimono, Fried Banana)
+- **Breuvages** - Drinks (Water, Perrier, Arizona, Coke, Pepsi, 7up, Nestea, Canadian Dry, Crush Orange, Tea)
 
 **Action Required:**
-1. Create courses for sushi restaurant (similar to Sushi Presse structure - bilingual French/English)
-2. Assign 338 dishes to appropriate courses using pattern matching
-3. Courses should include: Nigiri/Sashimi, Tempura, Combos/Plates, Vegetarian, Drinks, etc.
+1. Create courses matching the online menu structure (bilingual French/English):
+   - PokeBol
+   - Nigiri et Sashimi
+   - Hosomakis
+   - Maki
+   - Spécialités du Chef
+   - Maki Feuille de Riz
+   - Makis Tartare Épicé
+   - Sushi Pizza
+   - Sushi Combo
+   - Tapas Orientaux
+   - Soupe
+   - Salade
+   - Combos
+   - Dessert
+   - Breuvages
+2. Assign 338 dishes to appropriate courses using pattern matching (reference online menu for category structure)
 
-**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
+**Resolution Needed:** CREATE COURSES (based on online menu structure) AND ASSIGN DISHES
 
 #### Sushi Presse (Restaurant ID: 260)
 **Status:** ⏳ NEEDS WORK - 354 dishes, 18 courses defined, 100% unassigned
