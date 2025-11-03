@@ -520,6 +520,24 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### The Cupboard (Restaurant ID: 800)
+**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 8 ⚠️ (Very low count)
+- Dishes with course_id: 8 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1730)
+
+**⚠️ DATA QUALITY CONCERN:** Only 8 dishes is suspiciously low. This pattern suggests:
+- Incomplete menu migration, OR
+- Restaurant may have closed/left platform (similar to closed restaurants pattern)
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count suggests verification needed (check if closed or missing menu items).
+
+**Note:** Multiple locations found (ID: 799 pending, ID: 800 active). Checked active location.
+
 #### The Greek Flame and Pizza (Restaurant ID: 725)
 **Status:** ⚠️ SKIPPED - Already assigned | 🚫 PERMANENTLY CLOSED
 **Date:** 2025-11-03
