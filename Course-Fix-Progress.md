@@ -534,14 +534,14 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Incomplete menu migration, OR
 - Restaurant may have left platform (similar to RestaurantPlus.net pattern)
 
-**Dishes Found:**
-- Club Sandwich
-- Mediterranean Wrap
-- Pita Pizza
-- Pizza (Large)
-- Pizza (Medium)
-- Pizza (Small)
-- Steak Sandwich
+**Dishes Found (All Deals/Specials - No Base Menu Items):**
+- 2 Pizza Deal 1 Topping
+- 2 Pizza Deal 2 Toppings
+- 2 Pizza Deal 3 Toppings
+- Family Meal Deal
+- Large Pizza Special
+- Medium Pizza Special
+- Two Pita Special
 
 **Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count suggests incomplete migration or restaurant status verification needed.
 
