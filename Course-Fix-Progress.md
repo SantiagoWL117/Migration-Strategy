@@ -289,7 +289,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 **Action Taken:** None - all dishes already properly assigned.
 
 #### Yorgo's - Nepean (Restaurant ID: 985)
-**Status:** ⚠️ SKIPPED - Already has course assignments
+**Status:** ⚠️ SKIPPED - Already has course assignments (NEEDS REVIEW)
 **Date:** 2025-11-03
 
 **Details:**
@@ -298,10 +298,36 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course (1501)
 
-**Action Taken:** None - all dishes already have course_id assigned. Note: All dishes are in "Uncategorized" which may need refinement later, but technically complete.
+**Action Taken:** None - all dishes already have course_id assigned. 
+
+**⚠️ REVIEW NEEDED - Online Menu Categories Found:**
+Actual menu structure from online shows ~15 categories that should be created:
+- Pita Wraps
+- Munchies
+- Poutine
+- Wings
+- Hot Subs
+- Souvlaki Platters
+- Specialty Platters
+- Seafood
+- Extra Satisfaction
+- Yorgo's Pizza
+- Create Your Own Pizza
+- Twin Deals
+- Pizza and Wing Special
+- Yorgo's Daily Specials
+- Salads
+- Side Orders
+- Desserts
+- Drinks
+
+**Future Action Required:**
+1. Create proper courses based on online menu structure
+2. Re-assign dishes from "Uncategorized" to appropriate courses
+3. Verify all dishes are properly categorized
 
 #### Yorgo's - Barrhaven KEEP Active Mapped Printer (Restaurant ID: 698)
-**Status:** ⚠️ SKIPPED - Already has course assignments
+**Status:** ⚠️ SKIPPED - Already has course assignments (NEEDS REVIEW)
 **Date:** 2025-11-03
 
 **Details:**
@@ -310,7 +336,33 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course (1455)
 
-**Action Taken:** None - all dishes already have course_id assigned. Note: All dishes are in "Uncategorized" which may need refinement later, but technically complete.
+**Action Taken:** None - all dishes already have course_id assigned.
+
+**⚠️ REVIEW NEEDED - Online Menu Categories Found:**
+Actual menu structure from online shows ~15 categories that should be created:
+- Pita Wraps
+- Munchies
+- Poutine
+- Wings
+- Hot Subs
+- Souvlaki Platters
+- Specialty Platters
+- Seafood
+- Extra Satisfaction
+- Yorgo's Pizza
+- Create Your Own Pizza
+- Twin Deals
+- Pizza and Wing Special
+- Yorgo's Daily Specials
+- Salads
+- Side Orders
+- Desserts
+- Drinks
+
+**Future Action Required:**
+1. Create proper courses based on online menu structure
+2. Re-assign dishes from "Uncategorized" to appropriate courses
+3. Verify all dishes are properly categorized
 
 ---
 
