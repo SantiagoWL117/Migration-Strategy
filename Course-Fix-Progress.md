@@ -520,6 +520,46 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### Sushi Presse (Restaurant ID: 260)
+**Status:** ⏳ NEEDS WORK - 354 dishes, 18 courses defined, 100% unassigned
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 354 ✅ (Very large menu!)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 354 (100%) ⚠️
+- Courses defined: 18 ✅ (Bilingual French/English)
+
+**Courses Available:**
+- Latest / Nouveautés
+- Chef's Specialties / Spécialités du Chef
+- Nigiri / Sashimi / Nigiri - Sashimi
+- Hosomakis
+- Maki Rice Paper / Maki Feuille de Riz
+- Assorted Plates / Assietes Assorties
+- Futomakis
+- Makis
+- Maki de Printemps / Spring Makis
+- Maki de Tartare / Tartar Makis
+- Salads / Salades
+- Miso Soup / Soupes
+- Sushi Desserts
+- Pokebols
+- Extras
+- Drinks / Breuvages
+
+**Action Required:**
+1. Assign 354 dishes to appropriate courses using pattern matching
+2. Use bilingual course names to match French/English dish names
+3. Pattern matching should identify:
+   - Sushi types (Hosomaki, Futomaki, Maki varieties, Nigiri, Sashimi)
+   - Specialties (Chef's Specialties items)
+   - Plates/Combos (Assorted Plates)
+   - Salads, Soups, Poke bowls
+   - Drinks, Desserts, Extras
+
+**Resolution Needed:** ASSIGN 354 DISHES TO EXISTING COURSES
+
 #### Sushiyana (Restaurant ID: 847)
 **Status:** ⏳ NEEDS WORK - 252 dishes, 0 courses, 100% unassigned
 **Date:** 2025-11-03
