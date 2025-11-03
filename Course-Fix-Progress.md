@@ -265,6 +265,18 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 **Action Taken:** None - all dishes already properly assigned.
 
+#### Yorgo's - Nepean (Restaurant ID: 985)
+**Status:** ⚠️ SKIPPED - Already has course assignments
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 12
+- Dishes with course_id: 12 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1501)
+
+**Action Taken:** None - all dishes already have course_id assigned. Note: All dishes are in "Uncategorized" which may need refinement later, but technically complete.
+
 ---
 
 ## Summary Statistics
@@ -272,7 +284,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 - **Total Restaurants in List:** 252
 - **Completed:** 6
 - **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
-- **Skipped (Already Assigned):** 6 (multiple All Out Burger locations)
+- **Skipped (Already Assigned):** 7 (multiple All Out Burger locations, Yorgo's - Nepean)
 - **In Progress:** 0
-- **Pending:** 236
+- **Pending:** 235
 - **Success Rate:** 100% (of processable restaurants)
