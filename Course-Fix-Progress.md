@@ -539,11 +539,12 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Total Restaurants in List:** 252
 - **Completed:** 7
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
-- **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
+- **Skipped (Already Assigned):** 9 (multiple All Out Burger locations, Yorgo's locations, Lucky King)
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
 - **Status Issues:** 2 (Wow Sushi - suspended + 0 dishes, Vanier Pizza & Subs - suspended + 1 dish)
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
+- **On RestaurantPlus.net:** 3 (Vanier Pizza & Subs, Westboro Subs, Lucky King)
 - **Critical Data Issues:** 3 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish)
 - **In Progress:** 0
-- **Pending:** 226
+- **Pending:** 225
 - **Success Rate:** 100% (of processable restaurants)
