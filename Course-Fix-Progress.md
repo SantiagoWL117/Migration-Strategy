@@ -526,7 +526,7 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Details:**
 - Total dishes: 33
-- Dishes with course_id: 33 Dishes with course_id: 33 (100%)
+- Dishes with course_id: 33 (100%)
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course (1586)
 
