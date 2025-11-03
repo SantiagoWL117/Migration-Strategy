@@ -520,6 +520,20 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### Tony's Pizza (Restaurant ID: 929)
+**Status:** ✅ SKIPPED - Already has course assignments
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 123
+- Dishes with course_id: 123 (100%)
+- Courses defined: 11 (Appetizers, Desserts, Drinks, Italian, Nachos, Pizza, Platters, Salads, Subs, Wings, Wraps)
+- All dishes assigned to courses ✅
+
+**Action Taken:** None - all dishes already have course_id assigned and properly categorized.
+
+**Note:** Multiple Tony's Pizza locations found (IDs: 143 suspended, 956 pending, 929 active, 992 suspended). This active location (ID: 929) is complete.
+
 #### Vieux Hull Pizza (Restaurant ID: 820)
 **Status:** ⚠️ SKIPPED - Already has course assignments (NEEDS REVIEW)
 **Date:** 2025-11-03
@@ -615,7 +629,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Total Restaurants in List:** 252
 - **Completed:** 7
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
-- **Skipped (Already Assigned):** 10 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza)
+- **Skipped (Already Assigned):** 11 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
 - **Status Issues:** 1 (Wow Sushi - suspended + 0 dishes) - Note: Vanier Pizza moved to RestaurantPlus.net
