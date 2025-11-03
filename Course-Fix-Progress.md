@@ -277,6 +277,18 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 **Action Taken:** None - all dishes already have course_id assigned. Note: All dishes are in "Uncategorized" which may need refinement later, but technically complete.
 
+#### Yorgo's - Barrhaven KEEP Active Mapped Printer (Restaurant ID: 698)
+**Status:** ⚠️ SKIPPED - Already has course assignments
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 21
+- Dishes with course_id: 21 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1455)
+
+**Action Taken:** None - all dishes already have course_id assigned. Note: All dishes are in "Uncategorized" which may need refinement later, but technically complete.
+
 ---
 
 ## Summary Statistics
@@ -284,7 +296,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 - **Total Restaurants in List:** 252
 - **Completed:** 6
 - **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
-- **Skipped (Already Assigned):** 7 (multiple All Out Burger locations, Yorgo's - Nepean)
+- **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
 - **In Progress:** 0
-- **Pending:** 235
+- **Pending:** 234
 - **Success Rate:** 100% (of processable restaurants)
