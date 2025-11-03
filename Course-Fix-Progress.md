@@ -164,7 +164,16 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 ## ⚠️ Skipped Restaurants
 
 ### ⚠️ IMPORTANT: Service Verification Needed
-**Pattern:** Restaurants with "no courses defined but have dishes" may have switched to Clover or other POS systems. Always verify service status before creating courses.
+**Pattern:** Restaurants with "no courses defined but have dishes" may have switched to **RestaurantPlus.net/OlivePOS** or other POS systems. Always verify service status before creating courses.
+
+**Confirmed on RestaurantPlus.net:**
+- Vanier Pizza & Subs (201 Marier Ave) - Database ID: 62, Status: suspended, 1 dish
+- Westboro Subs (1262 Wellington St. W) - Database ID: 778, Status: active, 47 dishes, 0 courses
+- Lucky King Take Out (1134 Cadboro Rd) - Database ID: 174, Status: active (checking dishes/courses)
+
+**Service:** RestaurantPlus.net uses OlivePOS (OliveNow Inc) - a competing POS/ordering platform.
+
+**Action Required:** Verify service status for all three restaurants before proceeding with course assignment work.
 
 ### Restaurants with No Courses Defined
 
@@ -222,7 +231,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 **Issue:** Restaurant has 47 dishes but 0 courses defined in the system.
 
-**⚠️ SERVICE NOTE:** Restaurant is now using Clover service. May not need course assignment work if they've switched away from our platform.
+**⚠️ SERVICE NOTE:** Restaurant is now using **RestaurantPlus.net/OlivePOS** service (confirmed at https://restaurantplus.net/home/food). May not need course assignment work if they've switched away from our platform.
 
 **Data Quality Check:** ✅ 47 dishes is reasonable for a Vietnamese sub shop - menu data appears properly migrated.
 
@@ -327,7 +336,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 **⚠️ SERVICE VERIFICATION NEEDED:**
 A pizza & subs restaurant should have dozens of dishes. Having only 1 dish suggests:
-1. Restaurant may have switched to Clover or another POS system
+1. Restaurant may have switched to **RestaurantPlus.net/OlivePOS** or another POS system (CONFIRMED on RestaurantPlus.net)
 2. Menu data migration incomplete (most dishes missing)
 3. Restaurant may actually be closed/inactive
 
