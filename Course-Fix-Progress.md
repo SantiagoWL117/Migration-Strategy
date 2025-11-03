@@ -227,6 +227,29 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ---
 
+### ⏸️ Restaurants with Suspended/Pending Status
+
+#### Xtreme Pizza 125 Preston St
+**Status:** ⏸️ STATUS MISMATCH - Not active in database
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database contains multiple Xtreme Pizza locations, all with non-active status:
+  - ID 38: "Preston Pizza (CHANGED TO XTREME PIZZA)" - status: suspended
+  - ID 367: "Xtreme Pizza" - status: suspended
+  - ID 575: "Xtreme Pizza Orleans" - status: suspended
+  - ID 933: "Xtreme Pizza Yanni Practice" - status: pending
+
+**Action Taken:** None - awaiting authorization to correct status or verify correct restaurant.
+
+**Resolution Needed:**
+1. Verify which Xtreme Pizza location should be active (likely ID 38 based on Preston St address)
+2. Update status from 'suspended' to 'active' if this is the correct location
+3. Then proceed with course assignment process
+
+---
+
 ### Restaurants with Courses Already Assigned
 
 #### 2 for 1 Pizza (Restaurant ID: 223)
@@ -297,6 +320,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 - **Completed:** 6
 - **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
 - **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
+- **Status Issues:** 1 (Xtreme Pizza - suspended/pending)
 - **In Progress:** 0
-- **Pending:** 234
+- **Pending:** 233
 - **Success Rate:** 100% (of processable restaurants)
