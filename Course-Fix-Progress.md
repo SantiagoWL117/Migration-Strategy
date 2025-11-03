@@ -456,6 +456,25 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** None - all dishes already properly assigned.
 
+#### Lucky King Take Out (Restaurant ID: 174)
+**Status:** ⚠️ SKIPPED - Already has course assignments | ⚠️ ON RESTAURANTPLUS.NET
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 141
+- Dishes with course_id: 141 (100%) ✅
+- Courses defined: 14
+- Status: active
+
+**⚠️ SERVICE NOTE:** Restaurant is confirmed on **RestaurantPlus.net/OlivePOS** (https://restaurantplus.net/home/food) at address 1134 Cadboro Rd. However, restaurant has complete menu data (141 dishes, 14 courses) in our database.
+
+**Possible Scenarios:**
+1. Restaurant using both platforms (dual POS)
+2. Data migration completed but restaurant later switched
+3. Our data is outdated but was complete at time of migration
+
+**Action Taken:** None - all dishes already properly assigned. **VERIFY:** Confirm if restaurant is still using our service or has fully migrated to RestaurantPlus.net.
+
 #### Yorgo's - Nepean (Restaurant ID: 985)
 **Status:** ⚠️ SKIPPED - Already has course assignments (NEEDS REVIEW)
 **Date:** 2025-11-03
