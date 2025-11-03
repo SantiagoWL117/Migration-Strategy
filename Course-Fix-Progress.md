@@ -520,6 +520,22 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### Souvlaki Souvlaki (Restaurant ID: 836)
+**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 1 ⚠️ (Extremely low - suspicious)
+- Dishes with course_id: 1 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1691)
+
+**⚠️ DATA QUALITY CONCERN:** Only 1 dish is extremely suspicious for a souvlaki restaurant. This pattern suggests:
+- Incomplete menu migration, OR
+- Restaurant may have closed/left platform (similar to closed restaurants pattern)
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Extremely low dish count suggests verification needed (check if closed or missing menu items).
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
@@ -904,7 +920,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Issues:** 3 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list, The Original Georgie's - suspended status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
 - **Not Found:** 4 (Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
-- **Critical Data Issues:** 4 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items)
+- **Critical Data Issues:** 5 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish)
 - **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 224
