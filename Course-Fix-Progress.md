@@ -396,7 +396,8 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
 - **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
-- **Critical Data Issues:** 1 (Xtreme Pizza - menu migration incomplete)
+- **Status Issues:** 1 (Wow Sushi - suspended + 0 dishes)
+- **Critical Data Issues:** 2 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes)
 - **In Progress:** 0
-- **Pending:** 231
+- **Pending:** 230
 - **Success Rate:** 100% (of processable restaurants)
