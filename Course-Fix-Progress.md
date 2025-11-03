@@ -225,6 +225,30 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 **Result:** Restaurant status corrected. No course assignment work needed.
 
+### ⏸️ Restaurants with Suspended/Pending Status
+
+#### Wow Sushi 50, rue Rachel E (Restaurant ID: 356)
+**Status:** ⏸️ STATUS MISMATCH - Suspended in database | ⚠️ CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status: suspended
+- **CRITICAL:** 0 dishes in database (impossible for a sushi restaurant)
+
+**Current Database Status:**
+- Total dishes: 0
+- Courses defined: 0
+- Status: suspended
+
+**🚨 CRITICAL DATA ISSUE:**
+A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, appetizers, soups, bento boxes, etc.). Having 0 dishes indicates the menu data was never migrated or was deleted.
+
+**Resolution Needed:**
+1. Verify if restaurant should be active (likely yes, since listed in active list)
+2. **URGENT:** Menu migration required - restaurant has no menu data
+3. Cannot proceed with course assignment until menu is migrated
+
 ---
 
 ### ✅ Restaurants with Status Corrected
