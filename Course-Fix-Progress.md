@@ -543,7 +543,9 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Party Pack 2 (3 Free Garlic Sauces)
 - Spaghetti For 2 HIDE
 
-**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count + status mismatch suggests verification needed (check if closed or still active).
+**⚠️ DATA MIGRATION ISSUE CONFIRMED:** User verified restaurant is missing a large number of menu items. Similar to Xtreme Pizza - this is a data migration issue, not a course assignment issue. The 5 dishes found are just a "good start" but represent incomplete menu migration.
+
+**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed before proper course assignment can proceed. Status should be verified (suspended vs active).
 
 #### Twisted Pita & Pizzeria (Restaurant ID: 687)
 **Status:** ⚠️ SKIPPED - Already assigned | 🚫 PERMANENTLY CLOSED
@@ -699,7 +701,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Status Corrected:** 3 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed)
 - **Status Issues:** 3 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list, The Original Georgie's - suspended status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
-- **Critical Data Issues:** 4 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes)
+- **Critical Data Issues:** 4 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items)
 - **Permanently Closed:** 1 (Twisted Pita & Pizzeria - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 224
