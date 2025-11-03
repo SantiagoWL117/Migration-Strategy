@@ -604,11 +604,10 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Completed:** 7
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
 - **Skipped (Already Assigned):** 9 (multiple All Out Burger locations, Yorgo's locations, Lucky King)
-- **Needs Assignment (On RestaurantPlus.net):** 1 (River Pizza - 71 dishes, verify service first)
-- **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
-- **Status Issues:** 2 (Wow Sushi - suspended + 0 dishes, Vanier Pizza & Subs - suspended + 1 dish)
-- **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
+- **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
+- **Status Issues:** 1 (Wow Sushi - suspended + 0 dishes) - Note: Vanier Pizza moved to RestaurantPlus.net
+- **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
 - **Critical Data Issues:** 3 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish)
 - **In Progress:** 0
 - **Pending:** 224
