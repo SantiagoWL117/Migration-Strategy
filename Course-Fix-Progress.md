@@ -520,6 +520,17 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### Test James - Dovercourt Pizza (Line 235)
+**Status:** ❌ NOT FOUND IN DATABASE
+**Date:** 2025-11-03
+
+**Details:**
+- Restaurant name from active list: "Test James - Dovercourt Pizza"
+- Searched database for variations: "Test James", "Dovercourt", "James"
+- No matching restaurant found in database
+
+**Action Taken:** Not found - likely a test restaurant that was never migrated or has been removed. Restaurant should be removed from `Restaurants-active.md` list.
+
 #### The Cupboard (Restaurant ID: 800)
 **Status:** ⚠️ SKIPPED - Already assigned | 🚫 NO LONGER ON PLATFORM
 **Date:** 2025-11-03
@@ -753,7 +764,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Left Platform (Other):** 1 (The Cupboard - no longer on our platform) - Should be removed from active list
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Issues:** 3 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list, The Original Georgie's - suspended status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
-- **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
+- **Not Found:** 3 (Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza)
 - **Critical Data Issues:** 4 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items)
 - **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
 - **In Progress:** 0
