@@ -541,7 +541,10 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Medium Pizza Special
 - Two Pita Special
 
-**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Restaurant should be removed from active list and database status should be updated to reflect permanent closure.
+**Action Taken:** 
+- Skipped - all dishes already have course_id
+- ✅ **Database status updated** from "active" to "suspended" to reflect permanent closure
+- **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list
 
 #### Ting's Kitchen (Restaurant ID: 941)
 **Status:** ✅ SKIPPED - Already has course assignments | ⚠️ STATUS MISMATCH
@@ -668,7 +671,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Skipped (No Courses):** 5 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs)
 - **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
-- **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
+- **Status Corrected:** 3 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed)
 - **Status Issues:** 2 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
 - **Critical Data Issues:** 3 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish)
