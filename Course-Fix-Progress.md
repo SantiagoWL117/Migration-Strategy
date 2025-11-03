@@ -230,7 +230,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 ### ✅ Restaurants with Status Corrected
 
 #### Xtreme Pizza 125 Preston St (Restaurant ID: 38)
-**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active | ⚠️ CRITICAL DATA ISSUE
 **Date:** 2025-11-03
 
 **Issue Found:**
@@ -243,13 +243,33 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 - Updated restaurant status from 'suspended' to 'active'
 - Verified update successful
 
-**Menu Status:**
-- Total dishes: 6
+**🚨 CRITICAL DATA ISSUE DISCOVERED:**
+- **Database has only 6 dishes** (Club, Ham and Cheese, Pepperoni and Cheese, Preston Pizza's Special, Steak, Steak and Pepperoni)
+- **Actual menu** (https://mottawa.xtremepizzaottawa.com/menu) shows a full-service pizza restaurant with **15+ categories and 100+ dishes**:
+  - Appetizers (Xtreme Platter, Cheese Sticks, Jalapeno Slammers, Zucchini, Garlic Bread, Burgers, Nachos, Fries, Onion Rings)
+  - Poutine (Regular, Italian, Canadian, Donair)
+  - Wings (Chicken Wings, Boneless Dippers - multiple sizes)
+  - Pizza (Plain, 1-3 Toppings, Hawaiian, Canadian, Combination, Meat Lovers, House Special, Vegetarian, Chicken, Donair, Steak, Greek, Italian, Hot Spicy, New York Style, Xtreme Supreme - multiple sizes)
+  - Donairs and Shawarma (Sandwiches, Platters, Deals)
+  - Hot Subs (8+ varieties)
+  - Cold Subs (4 varieties)
+  - Platters (10+ varieties)
+  - Salads (Garden, Greek, Caesar, Chicken Caesar, Xtreme)
+  - Pasta (Spaghetti, Lasagna, Chicken Parmigiana)
+  - Twin Pizzas (Deals)
+  - Xtreme Pizza Deals (3 deals)
+  - Pasta Deals
+  - Xtreme Sub Deal
+  - Desserts (Cheesecakes)
+  - Drinks (20+ varieties)
+
+**Current Database Status:**
+- Total dishes in database: 6
 - Courses defined: 1 (Uncategorized)
 - Dishes with course_id: 6 (100%) ✅
-- All dishes already properly assigned (all in "Uncategorized" course)
+- **MASSIVE DATA GAP:** ~95% of menu items missing from database
 
-**Result:** Restaurant status corrected. All dishes already have course_id assigned. May need review to create proper courses for pizza restaurant structure (similar to Yorgo's).
+**Result:** Status corrected to active. **CRITICAL:** Menu data migration incomplete - restaurant needs full menu migration before course assignment can proceed. This is a data migration issue, not a course assignment issue.
 
 ---
 
@@ -376,6 +396,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
 - **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
+- **Critical Data Issues:** 1 (Xtreme Pizza - menu migration incomplete)
 - **In Progress:** 0
-- **Pending:** 232
+- **Pending:** 231
 - **Success Rate:** 100% (of processable restaurants)
