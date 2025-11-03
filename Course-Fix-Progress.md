@@ -116,6 +116,36 @@
 - Some courses defined but no dishes assigned (Pizza Menu, Fried Chicken, Poutine)
 - Verified: 0 remaining NULL values
 
+### Wandee Thai (Restaurant ID: 954)
+**Status:** ✅ COMPLETE - All 94 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- CHEF'S SPECIAL - THAI STYLE STREET FOOD (1085): 0 dishes (course defined but no dishes)
+- Lunch- Appetizers (1097): 3 dishes
+- Lunch- Soups (1101): 4 dishes
+- Lunch- Rice and Noodle Dishes (1100): 6 dishes
+- Lunch- Curries (1099): 4 dishes
+- Lunch- Stir Fried Dishes (1102): 7 dishes
+- Lunch- Combos (1098): 4 dishes
+- Dinner- Appetizers (1086): 8 dishes
+- Dinner- Soups (1093): 5 dishes
+- Dinner- Noodle Dishes (1089): 7 dishes
+- Dinner- Rice Dishes (1090): 3 dishes
+- Dinner- Salads (1091): 4 dishes
+- Dinner- Curries (1088): 6 dishes
+- Dinner- Stir Fried Dishes (1094): 15 dishes
+- Dinner- Seafood (1092): 5 dishes
+- Dinner- Combos (1087): 4 dishes
+- Extras (1096): 5 dishes
+- Drinks (1095): 4 dishes
+
+**Details:**
+- All NULL course_id values resolved
+- Thai restaurant with complete menu structure (Lunch and Dinner menus)
+- Dishes assigned using code pattern matching (A=Appetizers, C=Combos, D=Drinks, E=Extras, G=Curries, N=Noodles, P=Stir Fried, R=Rice, S=Soups, T=Seafood, Y=Salads, L prefix=Lunch)
+- Verified: 0 remaining NULL values
+
 ---
 
 ## 🔄 In Progress Restaurants
@@ -432,7 +462,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 ## Summary Statistics
 
 - **Total Restaurants in List:** 252
-- **Completed:** 6
+- **Completed:** 7
 - **Skipped (No Courses):** 4 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
 - **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
@@ -440,5 +470,5 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
 - **Critical Data Issues:** 2 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes)
 - **In Progress:** 0
-- **Pending:** 229
+- **Pending:** 228
 - **Success Rate:** 100% (of processable restaurants)
