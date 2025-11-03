@@ -520,6 +520,22 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
+#### The Greek Flame and Pizza (Restaurant ID: 725)
+**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 7 ⚠️ (Very low for a Greek restaurant & pizza place)
+- Dishes with course_id: 7 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1861)
+
+**⚠️ DATA QUALITY CONCERN:** Only 7 dishes is suspiciously low for a Greek restaurant & pizza place. This pattern suggests:
+- Incomplete menu migration (similar to Xtreme Pizza, The Original Georgie's), OR
+- Restaurant may have closed/left platform
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count suggests verification needed (check if missing menu items or closed).
+
 #### The Original Georgie's (Restaurant ID: 84)
 **Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT | ⚠️ STATUS MISMATCH
 **Date:** 2025-11-03
