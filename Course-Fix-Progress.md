@@ -200,6 +200,22 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 2. Check if name differs in database vs active list
 3. Determine if restaurant was deleted or never migrated
 
+#### Wok Bistro Noodles Bar and Grill (TEST) (1615 Orleans Blvd.)
+**Status:** ❌ NOT FOUND
+**Date:** 2025-11-03
+
+**Issue:** Restaurant listed in Restaurants-active.md but does not exist in menuca_v3.restaurants table.
+- Note: Name includes "(TEST)" - may be a test restaurant that was never migrated
+- Searched for variations: "Wok Bistro", "Wok", "Bistro" - no matches found
+- Found other "Wok" restaurants but none match this name/address
+
+**Action Taken:** None - restaurant does not exist in database.
+
+**Resolution Needed:**
+1. Verify if this test restaurant should be in database
+2. Check if name differs in database vs active list
+3. Determine if test restaurant was intentionally excluded from migration
+
 ---
 
 ### Restaurants with Status Corrected
@@ -421,7 +437,8 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Skipped (Already Assigned):** 8 (multiple All Out Burger locations, Yorgo's locations)
 - **Status Corrected:** 2 (Argos Greek & Pizza, Xtreme Pizza)
 - **Status Issues:** 1 (Wow Sushi - suspended + 0 dishes)
+- **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
 - **Critical Data Issues:** 2 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes)
 - **In Progress:** 0
-- **Pending:** 230
+- **Pending:** 229
 - **Success Rate:** 100% (of processable restaurants)
