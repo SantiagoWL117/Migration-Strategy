@@ -536,6 +536,13 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 - Incomplete menu migration, OR
 - Restaurant may have closed/left platform (similar to Twisted Pita pattern)
 
+**Dishes Found:**
+- Buddy Pack (2 Free Garlic Sauces)
+- Chicken
+- Party Pack 1 (2 Free Garlic Sauces)
+- Party Pack 2 (3 Free Garlic Sauces)
+- Spaghetti For 2 HIDE
+
 **Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count + status mismatch suggests verification needed (check if closed or still active).
 
 #### Twisted Pita & Pizzeria (Restaurant ID: 687)
@@ -690,9 +697,9 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
 - **Status Corrected:** 3 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed)
-- **Status Issues:** 2 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
+- **Status Issues:** 3 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list, The Original Georgie's - suspended status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
 - **Not Found:** 2 (Andiamo Pizzeria, Wok Bistro TEST)
-- **Critical Data Issues:** 3 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish)
+- **Critical Data Issues:** 4 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes)
 - **Permanently Closed:** 1 (Twisted Pita & Pizzeria - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 224
