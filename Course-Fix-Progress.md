@@ -573,27 +573,25 @@ Restaurant has 0 dishes in database. This indicates either:
 4. Status correction needed AND menu migration needed
 
 #### Shawarma King (Restaurant ID: 117)
-**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | 🚫 NO LONGER ON PLATFORM
 **Date:** 2025-11-03
 **Address:** 395 Bank St, Ottawa ✅ (matches active list)
 
 **Details:**
-- Total dishes: 1 ⚠️ (Extremely low for a shawarma restaurant)
+- Total dishes: 1 ⚠️ (Only "Online Only Special #1")
 - Dishes with course_id: 1 (100%)
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course
-- Status: active ✅ (matches active list)
-- **Note:** There is also "New Shawarma King" (ID: 27) at 530 Rideau St (suspended) - different restaurant
+- Status: active (but restaurant has left platform)
 
-**⚠️ DATA QUALITY CONCERN:** Only 1 dish ("Online Only Special #1") is extremely suspicious for a shawarma restaurant. This pattern suggests:
-- Incomplete menu migration, OR
-- Restaurant may have closed/left platform, OR
-- Only promotional item migrated
+**🚫 RESTAURANT STATUS:** Restaurant is **NO LONGER ON OUR PLATFORM** (user verified). This explains the suspiciously low dish count (only promotional item remains).
 
 **Dishes Found:**
 - Online Only Special #1
 
-**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Extremely low dish count suggests verification needed (check if closed, missing menu items, or incomplete migration).
+**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list or marked as inactive/left platform.
+
+**Note:** There is also "New Shawarma King" (ID: 27) at 530 Rideau St (suspended) - different restaurant
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
@@ -975,7 +973,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Needs Work (0 Courses):** 7 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs, Sushiyana - 252 dishes, Sushi Fleury - 338 dishes!)
 - **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
-- **Left Platform (Other):** 1 (The Cupboard - no longer on our platform) - Should be removed from active list
+- **Left Platform (Other):** 2 (The Cupboard, Shawarma King 395 Bank St - no longer on our platform) - Should be removed from active list
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Corrections Needed:** 4 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes) - Database status needs to match active list
 - **Not Found:** 4 (Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
