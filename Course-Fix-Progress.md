@@ -1620,7 +1620,7 @@ The restaurant has the same course structure as Hull location:
 **⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create the 5 courses listed above and reassign dishes accordingly.
 
 #### POS SIMPLICITY (Restaurant ID: 547)
-**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NAME VERIFICATION NEEDED | ⚠️ SUSPICIOUSLY LOW DISH COUNT
 **Date:** 2025-11-03
 **Address:** 250 Greenbank, Ottawa ✅ (matches active list)
 
@@ -1630,6 +1630,16 @@ The restaurant has the same course structure as Hull location:
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course
 - Status: active ✅ (matches active list)
+
+**⚠️ NAME VERIFICATION NEEDED:** "POS SIMPLICITY" sounds like a POS (Point of Sale) system name rather than an actual restaurant name. This may be:
+- A placeholder/test entry, OR
+- The wrong restaurant name in the database, OR
+- Actually correct but unusual
+
+**Other restaurants at 250 Greenbank:**
+- Pizza Corner (ID: 679) - active - 8 dishes - at "3A - 250 Greenbank Rd", Nepean
+- Prince Gourmet (ID: 911) - suspended - 0 dishes - at "250 Greenbank", Ottawa
+- Authentic Vietnamese Pho House Nepean (ID: 759) - suspended - 0 dishes - at "250 Greenbank Rd Unit 2A", Nepean
 
 **Menu Sample:**
 - Only combo deals found (Combo No.3, No.4, No.5, Regular Combo 1 for 1/2, Large Combo 2 for 1/2)
@@ -1641,7 +1651,9 @@ The restaurant has the same course structure as Hull location:
 - Actually a very limited menu (but unlikely for a restaurant)
 
 **Action Taken:** Skipped - all dishes already have course_id assigned.
-**⚠️ REVIEW NEEDED:** Verify if restaurant is still active and has a full menu, or if this is a data migration/closure issue.
+**⚠️ REVIEW NEEDED:** 
+1. Verify if "POS SIMPLICITY" is the correct restaurant name or if it should be one of the other restaurants at this address
+2. Verify if restaurant is still active and has a full menu, or if this is a data migration/closure issue
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
