@@ -831,6 +831,26 @@ Bilingual French/English juice and gelato shop. Sample dishes show:
 
 **Resolution Needed:** CREATE COURSES AND ASSIGN DISHES (when restaurant reopens or if status changes)
 
+#### Roulas Grecque et Pizza (Line 219)
+**Status:** ❌ NOT FOUND IN DATABASE (or name changed)
+**Date:** 2025-11-03
+**Address:** 245, rue de Cannes (same address as Roulas Jus et Gelato)
+
+**Details:**
+- Restaurant name from active list: "Roulas Grecque et Pizza"
+- Searched database for variations: "Roulas Grecque", "Roula Grec", "Grecque Pizza"
+- Found restaurants at same address (245, rue de Cannes):
+  - Roulas Jus et Gelato (ID: 777) - active
+  - Opa's (ID: 60) - suspended
+- No exact match found for "Roulas Grecque et Pizza"
+
+**Possible Explanations:**
+- Restaurant may share location with Roulas Jus et Gelato (same address)
+- Restaurant may have been renamed or never migrated
+- May be same business with different name/division
+
+**Action Taken:** Not found - restaurant may have been renamed, dropped, or never migrated. Restaurant should be removed from `Restaurants-active.md` list or verified against actual restaurant name.
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
