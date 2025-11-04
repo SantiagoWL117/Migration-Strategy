@@ -1,47 +1,48 @@
 # Active Restaurant Locations (Deduplicated Names)
 
-- 2 for 1 Pizza 320 Bank St
-- Aahar The Taste of India 1573 Alta Vista Drive 
-- Al-s Drive In
-- All Out Burger 3091 Strandherd, Dr.7
-- All Out Burger 951 Notre-Dame St
-- All Out Burger Bank St.
-- All Out Burger Gladstone
-- All Out Burger Montreal Rd
+- ❌ 2 for 1 Pizza 320 Bank St
+- Aahar The Taste of India 1573 Alta Vista Drive
+- ✅ Al-s Drive In
+- ✅ All Out Burger 3091 Strandherd, Dr.7
+- ✅ All Out Burger 951 Notre-Dame St
+- ✅ All Out Burger Bank St.
+- ✅ All Out Burger Gladstone
+- ✅ All Out Burger Montreal Rd
 - Amicci Pizza 2 Boulevard Louise-Campagna
-- Andiamo Pizzeria 102B McEwen Ave
-- Argos Greek & Pizza 34 Highbury Park Dr Unit C5
+- ❌ Andiamo Pizzeria 102B McEwen Ave
+- ✅ Argos Greek & Pizza 34 Highbury Park Dr Unit C5
 - Aroy Thai 1 Rideaucrest Drive
 - Asia Garden Ottawa 886 Dynes Road
-- Aylmer BBQ 134, rue Principale
+- ✅ Aylmer BBQ 134, rue Principale
 - Bank Shawarma and Poutine 1227 Bank St
-- Beneci Pizza 4 Lorry Greenberg Dr
-- Bien Pho Vietnamese and Thai Cuisine 5929 Jeanne D'Arc Blvd S
-- Bobbie's Pizza & Subs 1443 Ogilvie Rd
-- Burger Lovers 233 Laurier Ave E
-- Capital Bites
-- Capri Pizza
-- Carlo's Pizza 60 Harmer Ave
-- Cathay Restaurants 1423 Woodroffe Ave
-- Centertown Donair & Pizza 422 Bronson Ave
-- Centre Pizza 2045 Meadowbrook Rd
-- Champa Thai Cuisine 193 King Edward Ave
-- Chances R’ East
-- Chances R’ West
-- Charm Thai Cuisine 121 Preston St
-- Chicco Pizza de l’Hopital
-- Chicco Pizza Maloney
-- Chicco Pizza Shawarma Anger
-- Chicco Pizza St-Louis
-- Chicco Shawarma Cantley
-- Chicco Shawarma Maloney
-- China Moon 273 boul. St-René Ouest
+- ✅ Beneci Pizza 4 Lorry Greenberg Dr
+- ❌ Bien Pho Vietnamese and Thai Cuisine 5929 Jeanne D'Arc Blvd S
+- ❌ Bobbie's Pizza & Subs 1443 Ogilvie Rd
+- ✅ Burger Lovers 233 Laurier Ave E
+- ✅ Capital Bites
+- ✅ Capri Pizza
+- ✅ Carlo's Pizza 60 Harmer Ave
+- ✅ Cathay Restaurants 1423 Woodroffe Ave
+- ✅ Centertown Donair & Pizza 422 Bronson Ave
+- ✅ Centre Pizza 2045 Meadowbrook Rd
+- ✅ Champa Thai Cuisine 193 King Edward Ave
+- ⏳ Chances R' East
+- ⏳ Chances R' West
+- ✅ Charm Thai Cuisine 121 Preston St
+- ✅ Chicco Pizza de l'Hopital
+- ✅ Chicco Pizza Maloney
+- ✅ Chicco Pizza Shawarma Anger
+- ✅ Chicco Pizza St-Louis
+- ✅ Chicco Shawarma Cantley
+- ✅ Chicco Shawarma Maloney
+- ⏳ China Moon 273 boul. St-René Ouest
+- ✅ Colonnade Pizza
 - Cosenza
 - Cuisine Bombay Indienne
-- Crispy's 1433 Woodrofe
-- Crispy's Bank Street 2446 Bank Street
-- Cypress Garden 937 Carling Ave
-- Dépanneur Généreux 428 Rue Généreux
+- ⏳Crispy's 1433 Woodrofe
+- ⏳Crispy's Bank Street 2446 Bank Street
+- ⏳Cypress Garden 937 Carling Ave
+- ⚠️ Dépanneur Généreux 428 Rue Généreux
 - Digby's Restaurant 300 Earl Grey Dr
 - Dumpling Bowl 730 Somerset
 - Eastview Pizza 251 Montreal Rd
@@ -219,7 +220,7 @@
 - Roulas Grecque et Pizza 245, rue de Cannes
 - Roulas Jus et Gelato 245, rue de Cannes
 - Royal Thai Cuisine 62 Maple Ave
-- Routine Poutine
+- ✅ Routine Poutine
 - Sachi Sushi 4931, rue Beaubien E
 - Sala Thai 2666 Alta Vista Dr
 - Samo's Greek Kitchen 911 Richmond Road
