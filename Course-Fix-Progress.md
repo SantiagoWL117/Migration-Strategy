@@ -795,6 +795,40 @@ Restaurant has 0 dishes in database. This indicates either:
 
 **Note:** There is also "JC Royal Thai Cuisine" (ID: 646) at 100 Jamieson Pkwy, Cambridge (active) - different restaurant
 
+#### Roulas Jus et Gelato (Restaurant ID: 777)
+**Status:** ⏳ NEEDS WORK - 38 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 245, rue de Cannes, Gatineau ✅ (matches active list)
+
+**Details:**
+- Total dishes: 38 ✅ (Good count for a juice/gelato shop)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 38 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅ (matches active list)
+
+**Menu Structure Analysis:**
+Bilingual French/English juice and gelato shop. Sample dishes show:
+- **Juices** (Cocktail, Avocado, Mango, Tropicana, Fiji, etc.)
+- **Gelato/Ice Cream Items** (Ashta, Deluxe, Banana Split, Twist, Tango, Punch, Big Red, Bananaz, Keto-Pia, Silly Monkey, Reboot)
+- **Ice Cream Flavors** (Vanille, Chocolat, Fraise, Oreo, Reeses Pieces, Skore)
+- **Sundaes** (Sundae Fraise, Sundae Chocolat, Sundae Caramel)
+- **Ice Cream** (Crème Glacée Vanille, Crème Glacée Chocolat, Glacé Chocolat)
+- **Cones/Bowls** (Cornet, Petit Bol)
+- Some dishes marked "HIDE" (hidden from menu)
+
+**Action Required:**
+1. Create courses for juice/gelato shop:
+   - Juices / Jus
+   - Gelato / Crème Glacée
+   - Sundaes
+   - Ice Cream Flavors / Saveurs de Crème Glacée
+   - Cones & Bowls / Cornets et Bols
+   - (Other categories as needed)
+2. Assign 38 dishes to appropriate courses using dish name patterns
+
+**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
