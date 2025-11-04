@@ -1619,6 +1619,30 @@ The restaurant has the same course structure as Hull location:
 **Action Taken:** Skipped - all dishes already have course_id assigned.
 **⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create the 5 courses listed above and reassign dishes accordingly.
 
+#### POS SIMPLICITY (Restaurant ID: 547)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 250 Greenbank, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 7 ⚠️ (Very low count - only combo deals)
+- Dishes with course_id: 7 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**Menu Sample:**
+- Only combo deals found (Combo No.3, No.4, No.5, Regular Combo 1 for 1/2, Large Combo 2 for 1/2)
+- No base menu items
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 7 dishes and they're all combo deals. This pattern suggests:
+- Incomplete menu migration, OR
+- Restaurant may have closed/left platform (similar to Twisted Pita pattern), OR
+- Actually a very limited menu (but unlikely for a restaurant)
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** Verify if restaurant is still active and has a full menu, or if this is a data migration/closure issue.
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
