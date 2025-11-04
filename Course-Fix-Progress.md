@@ -1726,7 +1726,7 @@ The restaurant has a comprehensive menu with the following courses:
 **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list or marked as inactive/no longer a client. Database status should be updated from `active` to `suspended`.
 
 #### Pizza Run (Restaurant ID: 650)
-**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Status:** ⚠️ SKIPPED - Already assigned | 🚫 PERMANENTLY CLOSED
 **Date:** 2025-11-03
 **Address:** 19 Simcoe Street S, Oshawa ✅ (matches active list)
 
@@ -1735,7 +1735,9 @@ The restaurant has a comprehensive menu with the following courses:
 - Dishes with course_id: 27 (100%) ✅
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course
-- Status: active ✅ (matches active list)
+- Status: active ✅ (but restaurant is permanently closed)
+
+**🚫 RESTAURANT STATUS:** Restaurant is **PERMANENTLY CLOSED** (verified via Google Maps). This explains the suspiciously low dish count (only deals, no base menu items) and why many items are marked HIDE.
 
 **Menu Sample:**
 - Many deals marked HIDE (Pizza Deal No1-No12, many hidden)
@@ -1744,12 +1746,10 @@ The restaurant has a comprehensive menu with the following courses:
 - Wing sauce options (Medium, Hot, BBQ, Cheddar Chipotle, Honey Garlic, Sauce on the side)
 - No base pizza varieties or other menu items visible
 
-**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 27 dishes and many are marked HIDE. Most items are deals rather than base menu items. This pattern suggests:
-- Incomplete menu migration, OR
-- Restaurant may have a very limited menu (unlikely for a pizza restaurant)
-
 **Action Taken:** Skipped - all dishes already have course_id assigned.
-**⚠️ REVIEW NEEDED:** Verify if restaurant is still active and has a full menu, or if this is a data migration issue. Restaurant needs proper course structure (currently all in "Uncategorized").
+**ACTION REQUIRED:** 
+1. Restaurant should be removed from `Restaurants-active.md` list
+2. Database status should be updated from `active` to `suspended` to reflect permanent closure
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
