@@ -615,6 +615,30 @@ Restaurant has 0 dishes in database. This indicates either:
 
 **Action Taken:** Skipped - all dishes already have course_id assigned and properly categorized. Restaurant has complete, well-structured menu with proper course organization.
 
+#### Season's Pizza (Restaurant ID: 83)
+**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 725 Somerset Street West, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 1 ⚠️ (Extremely low for a pizza restaurant)
+- Dishes with course_id: 1 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**⚠️ DATA QUALITY CONCERN:** Only 1 dish ("Spaghatti Pizza") is extremely suspicious for a pizza restaurant. This pattern suggests:
+- Incomplete menu migration, OR
+- Restaurant may have closed/left platform, OR
+- Only test/promotional item migrated
+
+**Dishes Found:**
+- Spaghatti Pizza
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Extremely low dish count suggests verification needed (check if closed, missing menu items, or incomplete migration).
+
+**Note:** There is also another "Season's Pizza" (ID: 856) at 826 Somerset St W (suspended) - different restaurant
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
