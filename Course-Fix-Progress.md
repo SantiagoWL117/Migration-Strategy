@@ -873,22 +873,39 @@ Restaurant exists and has a full menu online but is **NOT IN DATABASE**. This in
 **Resolution Needed:** RESTAURANT DATA MIGRATION REQUIRED - Restaurant exists and has menu but not in database
 
 #### Riverside Pizzeria (Restaurant ID: 978)
-**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
 **Date:** 2025-11-03
-**Address:** 3679 Riverside Drive, Ottawa ✅
+**Address:** 3679 Riverside Drive, Ottawa ✅ (matches active list)
 
 **Details:**
-- Total dishes: 2 ⚠️ (Extremely low for a pizzeria)
+- Total dishes in database: 2 ⚠️ (Only "The Perfect Combo Deal with PopCurds HIDE" and "Oh Sweet Vegan Pizza")
 - Dishes with course_id: 2 (100%)
 - Courses defined: 13 ✅ (Good course structure but very few dishes)
 - All dishes assigned to courses ✅
 - Status: active ✅ (matches active list)
 
-**⚠️ DATA QUALITY CONCERN:** Only 2 dishes is extremely suspicious for a pizzeria. One dish is marked "HIDE" (hidden from menu):
-- The Perfect Combo Deal with PopCurds HIDE
+**🌐 Online Menu Available:** https://m.riversidepizzeriaottawa.ca/menu
+**⚠️ CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Restaurant is **VERY ACTIVE** with a **FULL MENU** online, but database only has 2 dishes. Restaurant is using **OLD VERSION of mobile platform** (old-school Google mobile version with tables). This is a critical data migration issue - menu exists but hasn't been migrated to menuca_v3.
+
+**Actual Menu Structure (from online menu):**
+- **Specials** - Melina's Famous Calzones, 30 Wings Special
+- **Pizza** - 25+ varieties (Riverside Special, Canadian, Vegetarian, Greek, Meat Lovers, Santina, Aloha, Hawaiian Island, Parmesan Chicken, Steak and Veggie, Tango Special, Combination, Deluxe, BBQ Chicken, Pepperoni Lovers, Double Trouble, Poutine Pizza, Prosciutto White Pizza, Godfather, La Margherita, Garlic Lovers, Dani Boy Special, New Yorker, Nacho Pizza, Woww Pizza, Soprano, Butter Chicken Pizza)
+- **Build Your Own Pizza** - Plain, 1-3 Toppings (all sizes)
+- **Toasted Subs** - 9 varieties (Big D's Favourites, Cheese Steak, Club Sub, Meatball Sub, Chicken Parmesan, Pizza Sub, Greek Sub, Heart Attack Supreme, Crispy Chicken Sub)
+- **Pastas** - 6 varieties (Spaghetti with Meat Sauce, Chicken Parmesan, Lasagna, Riverside Lasagna, Fettuccine Alfredo, Tortellini Three Cheese)
+- **Salads** - Chef's Salad, Greek Salad, Caesar Salad
+- **Chicken Wings** - Classic, Breaded, Boneless (10/20/30 wings)
+- **Platters** - 7 varieties (Hamburger, Cheeseburger, Bacon Cheeseburger, Cheddar & Mushroom Jalapeno Burger Melt, Club Sandwich, Chicken Fingers, Chicken Burger - all with fries)
+- **Go Solo** - 4 burger options (Hamburger, Cheeseburger, Bacon Cheeseburger, Cheddar & Mushroom Jalapeno Burger Melt)
+- **Sides** - Pop Curds, Onion Rings, French Fries, Daniel's Famous Poutine, Deep Fried Pickles, Jalapeno Poppers, Mac N Cheese Bites, Nachos, Chicken/Beef Nachos, Mozzarella Sticks, Zucchini Sticks, Garlic Sticks, Garlic Bread, Dipping Sauces
+- **Desserts** - Nutella Calzone, Cinnamon Balls, Caramel Apple Cheesecake, Reese's Peanut Butter Blondie, Strawberry Cheesecake
+- **Drinks** - Coke, Diet Coke, A&W Root Beer, Ginger Ale
+
+**Dishes Found in Database:**
+- The Perfect Combo Deal with PopCurds HIDE (only 2 dishes - represents <1% of actual menu)
 - Oh Sweet Vegan Pizza
 
-**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Extremely low dish count (only 2 dishes, 1 hidden) suggests either incomplete menu migration or restaurant may have closed/changed focus.
+**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed from old platform to menuca_v3 before proper course assignment can proceed. This is a data migration issue, not a course assignment issue.
 
 **Note:** There is also another "Riverside Pizzeria" (ID: 133) at the same address (3679 Riverside Dr) with status "suspended" - may be duplicate or old entry.
 
@@ -1276,7 +1293,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Corrections Needed:** 5 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes, Royal Thai Cuisine - listed active but DB suspended + 0 dishes) - Database status needs to match active list
 - **Not Found:** 4 (Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
-- **Critical Data Issues:** 7 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online, Season's Pizza - 1 dish but active with full menu online, Royal Thai Cuisine - 0 dishes)
+- **Critical Data Issues:** 8 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online, Season's Pizza - 1 dish but active with full menu online, Royal Thai Cuisine - 0 dishes, Riverside Pizzeria - 2 dishes but active with full menu on old platform)
 - **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 224
