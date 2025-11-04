@@ -1542,6 +1542,37 @@ Restaurant has 0 dishes in database. This indicates either:
 3. Once migrated, create proper courses matching online menu structure (17+ categories)
 4. Then assign all dishes to appropriate courses
 
+#### Prima Pizza (Restaurant ID: 824)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 26 Northside Road, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 140 ✅ (Good count - full menu)
+- Dishes with course_id: 140 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**Menu Sample:**
+- Appetizers (Garlic Bread, Mozzarella Cheese Sticks, Zucchini, Breaded Mushroom Caps, Nachos varieties)
+- Burgers (Hamburger, Cheeseburger, Bacon Cheeseburger, Chicken Burger)
+- Sandwiches (Chicken Club Sandwich Platter)
+- Sides (French Fries, Onion Rings, Poutine varieties, Cheese Curds)
+- Platters (Donair Platter, Chicken Club Sandwich Platter)
+- Various pizza items (not shown in sample but likely pizza dishes given restaurant name)
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** With 140 dishes, restaurant needs proper course structure (currently all in "Uncategorized"). Should create courses like:
+- Appetizers
+- Pizza
+- Burgers
+- Sandwiches
+- Platters
+- Sides
+- Drinks
+- (Other categories as needed)
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
