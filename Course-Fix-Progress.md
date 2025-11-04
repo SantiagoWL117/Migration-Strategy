@@ -1648,11 +1648,12 @@ The restaurant has the same course structure as Hull location:
 - Prince Gourmet (ID: 911) - suspended - 0 dishes - at "250 Greenbank", Ottawa
 - Authentic Vietnamese Pho House Nepean (ID: 759) - suspended - 0 dishes - at "250 Greenbank Rd Unit 2A", Nepean
 
-**⚠️ MATCHING ISSUE:** Cannot definitively match "POS SIMPLICITY" to any visible restaurant on the map. 
+**⚠️ MATCHING ISSUE:** Cannot match "POS SIMPLICITY" to any restaurant in that strip mall.
 - User confirmed clientele is mostly **take-out joints** that need online menus
 - User confirmed it's likely **NOT Fitz's Classic Grill BBQ Smoke House** (sit-down restaurant)
-- Possible candidates: **Bella's Boys**, **barBURRITO Tex Mex**, or potentially **Pizza Corner** (though Pizza Corner is listed separately on active list)
-- **POS SIMPLICITY** may be a placeholder/test entry that needs verification or removal from active list
+- User verified: **None of the places in that strip mall match this entry**
+- **POS SIMPLICITY** appears to be a placeholder/test entry or incorrect database entry
+- **ACTION REQUIRED:** Remove from active list or verify correct restaurant name/location
 
 **Menu Sample:**
 - Only combo deals found (Combo No.3, No.4, No.5, Regular Combo 1 for 1/2, Large Combo 2 for 1/2)
