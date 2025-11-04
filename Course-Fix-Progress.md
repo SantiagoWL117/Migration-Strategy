@@ -575,6 +575,7 @@ Restaurant has 0 dishes in database. This indicates either:
 #### Shawarma King (Restaurant ID: 117)
 **Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
 **Date:** 2025-11-03
+**Address:** 395 Bank St, Ottawa ✅ (matches active list)
 
 **Details:**
 - Total dishes: 1 ⚠️ (Extremely low for a shawarma restaurant)
@@ -582,6 +583,7 @@ Restaurant has 0 dishes in database. This indicates either:
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course
 - Status: active ✅ (matches active list)
+- **Note:** There is also "New Shawarma King" (ID: 27) at 530 Rideau St (suspended) - different restaurant
 
 **⚠️ DATA QUALITY CONCERN:** Only 1 dish ("Online Only Special #1") is extremely suspicious for a shawarma restaurant. This pattern suggests:
 - Incomplete menu migration, OR
