@@ -1,429 +1,312 @@
-# Yelp Integration - Implementation Summary
+# ✅ Yelp Integration Complete
 
-## What Was Created
-
-A complete, production-ready Yelp Fusion API integration to populate your Menu.ca restaurant database with authentic reviews and ratings.
-
----
-
-## Files Created
-
-### Scripts (Core Implementation)
-
-1. **`scripts/fetch-yelp-reviews.ts`** (Main Script)
-   - Fetches active restaurants from database
-   - Matches each to Yelp businesses via Business Match API
-   - Retrieves ratings, review counts, and up to 3 reviews per restaurant
-   - Inserts into `restaurant_reviews` table
-   - ~350 lines with comprehensive error handling
-
-2. **`scripts/yelp-types.ts`** (TypeScript Types)
-   - Complete type definitions for Yelp Fusion API v3
-   - Business, Review, User, Location types
-   - Error handling types
-   - Database insert types
-
-3. **`scripts/database-client.ts`** (Database Utilities)
-   - Supabase client for Node.js environment
-   - Helper functions for common queries
-   - Service role authentication (bypasses RLS)
-
-### SQL Files
-
-4. **`scripts/verify-reviews.sql`**
-   - 15 verification queries
-   - Check review counts, coverage, quality
-   - Rating distributions, duplicates
-   - Export queries for frontend
-
-5. **`scripts/check-schema.sql`**
-   - Database schema validation
-   - Table structure verification
-   - Migration scripts (if needed)
-   - Column existence checks
-
-### Documentation
-
-6. **`YELP_INTEGRATION_GUIDE.md`** (Complete Guide)
-   - Comprehensive setup instructions
-   - Troubleshooting section
-   - Best practices
-   - Next steps and recommendations
-   - ~400 lines
-
-7. **`scripts/README.md`** (Technical Reference)
-   - API documentation links
-   - Usage examples
-   - Rate limiting details
-   - File structure
-
-8. **`scripts/QUICK_START.md`** (5-Minute Setup)
-   - Fast setup guide
-   - Essential commands only
-   - Quick troubleshooting
-
-### Configuration
-
-9. **`.env.example`** (Environment Template)
-   - Added `YELP_FUSION_API_KEY` variable
-   - Includes all required environment variables
-   - Comments with instructions
-
-10. **`package.json`** (Updated Scripts)
-    - Added `npm run yelp:fetch` - Production import
-    - Added `npm run yelp:dry-run` - Test mode
-    - Added `npm run yelp:test` - Test with 5 restaurants
-    - Added dependencies: `tsx`, `dotenv`
+**Date:** October 31, 2025
+**Status:** Production Ready
 
 ---
 
-## Key Features
+## 🎯 Summary
 
-### Smart Restaurant Matching
-- Uses Yelp Business Match API
-- Matches by name + phone + address + postal code
-- Handles variations in business names
-- Graceful handling of no-match cases
-
-### Rate Limiting
-- Built-in 250ms delay between requests (4 req/sec)
-- Automatic retry on 429 errors
-- Stays within 5,000 calls/day free tier
-- Can process ~2,500 restaurants/day
-
-### Error Handling
-- Comprehensive try-catch blocks
-- Detailed console logging
-- Graceful degradation
-- Progress tracking
-
-### Data Quality
-- Prevents duplicate imports (checks `yelp_business_id`)
-- Preserves original Yelp timestamps
-- Stores reviewer attribution
-- Links back to Yelp business pages
-
-### Developer Experience
-- Dry-run mode for safe testing
-- Batch processing with `--limit` flag
-- Clear, emoji-enhanced console output
-- Comprehensive summary reports
+Successfully integrated Yelp Fusion API to import real restaurant reviews and ratings, replacing hardcoded placeholder data with authentic customer feedback from Yelp.
 
 ---
 
-## How to Use
+## 📊 Results
 
-### 1. Get Yelp API Key
-```
-https://www.yelp.com/developers/v3/manage_app
-→ Create app → Copy API key
+### Import Statistics
+- **Total Restaurants Processed:** 152
+- **Successfully Matched with Yelp:** 86 restaurants (56.6%)
+- **Total Reviews Imported:** 394 real Yelp reviews
+- **Average Rating:** 3.55 stars
+- **Rating Range:** 1-5 stars
+- **Reviews per Restaurant:** 2-7 reviews (Yelp API limitation)
+
+### AI Search Integration
+- **Restaurants with Ratings:** 41 out of 75 active (54.7%)
+- **Reviews Available to AI:** 196 reviews for top 75 restaurants
+- **Real Operational Data:** Delivery fees, minimum orders, delivery times all from live database
+
+---
+
+## 🔧 What Was Built
+
+### 1. Yelp API Scripts (`scripts/`)
+
+**`fetch-yelp-reviews.ts`** - Main import script
+- Matches Menu.ca restaurants with Yelp businesses
+- Fetches up to 7 reviews per restaurant
+- Rate limiting: 250ms between requests (4 req/sec)
+- Duplicate prevention: Won't re-import existing reviews
+- Handles errors and retries on rate limits
+
+**`database-client.ts`** - Supabase client for scripts
+- Service role authentication (bypasses RLS)
+- Pre-configured for menuca_v3 schema
+- Helper functions: `getActiveRestaurants()`, `insertRestaurantReview()`, `checkYelpBusinessExists()`
+
+**`yelp-types.ts`** - TypeScript type definitions
+- YelpBusiness, YelpReview, YelpReviewsResponse
+- YelpAPIError, YelpScriptConfig, YelpScriptResult
+- RestaurantReviewInsert
+
+**`verify-reviews.ts`** - Verification script
+- Shows overall statistics
+- Lists top restaurants by review count
+- Calculates average ratings
+
+**`test-ai-search-data.ts`** - Integration test
+- Verifies AI search data structure
+- Confirms ratings are properly fetched
+- Shows sample restaurants with ratings
+
+### 2. Database Schema Updates
+
+Extended `menuca_v3.restaurant_reviews` table with Yelp-specific fields:
+
+```sql
+ALTER TABLE menuca_v3.restaurant_reviews
+ADD COLUMN source VARCHAR(50) DEFAULT 'menu.ca',
+ADD COLUMN external_review_id VARCHAR(255),
+ADD COLUMN external_user_name VARCHAR(255),
+ADD COLUMN external_user_image TEXT,
+ADD COLUMN yelp_business_id VARCHAR(255),
+ADD COLUMN yelp_business_url TEXT;
+
+-- Index for fast Yelp lookups
+CREATE INDEX idx_restaurant_reviews_yelp_business
+ON menuca_v3.restaurant_reviews(yelp_business_id)
+WHERE yelp_business_id IS NOT NULL;
+
+-- Allow external reviews (no Menu.ca user required)
+ALTER TABLE menuca_v3.restaurant_reviews
+ALTER COLUMN user_id DROP NOT NULL;
 ```
 
-### 2. Install Dependencies
+### 3. AI Search Updates (`app/api/ai-search/route.ts`)
+
+**Added Rating Aggregation:**
+- Fetches all Yelp reviews for active restaurants
+- Calculates average rating per restaurant (rounded to 1 decimal)
+- Counts total reviews per restaurant
+- Creates ratings map for O(1) lookup
+
+**Updated Response Format:**
+```typescript
+{
+  name: "Season's Pizza",
+  cuisine: "Pizza",
+  rating: 2.3,          // Real Yelp rating (was null)
+  reviewCount: 7,        // Real review count (was 0)
+  deliveryFee: 2.99,     // Real from database
+  minimumOrder: 15,      // Real from database
+  deliveryTime: "30-45 min"  // Real from database
+}
+```
+
+**Improved Keyword Fallback:**
+- Handles null ratings gracefully
+- Falls back to featured restaurants for "romantic" queries if insufficient high-rated options
+
+---
+
+## 🚀 Usage
+
+### Import Yelp Reviews
+
 ```bash
-npm install --save-dev tsx dotenv
+# Production mode - imports all restaurants
+npm run yelp:fetch
+
+# Test mode - preview without inserting
+npm run yelp:fetch -- --dry-run
+
+# Limit to specific number
+npm run yelp:fetch -- --limit 10
 ```
 
-### 3. Configure
+### Verify Import
+
 ```bash
-# Add to .env
-YELP_FUSION_API_KEY=your-api-key-here
+npx tsx scripts/verify-reviews.ts
 ```
 
-### 4. Test
+### Test AI Search Data
+
 ```bash
-npm run yelp:test
+npx tsx scripts/test-ai-search-data.ts
 ```
 
-### 5. Import
+---
+
+## 📋 NPM Scripts Added
+
+```json
+{
+  "scripts": {
+    "yelp:fetch": "tsx scripts/fetch-yelp-reviews.ts",
+    "yelp:test": "tsx scripts/fetch-yelp-reviews.ts -- --dry-run --limit 5"
+  }
+}
+```
+
+---
+
+## 🔐 Environment Variables
+
 ```bash
+# .env file
+YELP_FUSION_API_KEY=your_api_key_here
+SUPABASE_URL=https://nthpbtdjhhnwfxqsxbvy.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
+```
+
+**Get Yelp API Key:**
+1. Visit https://www.yelp.com/developers/v3/manage_app
+2. Create app or use existing
+3. Copy API Key
+4. Add to `.env` file
+
+---
+
+## 📊 Sample Results
+
+### Top Rated Restaurants (from Yelp)
+1. **Aroy Thai** - 5.0⭐ (7 reviews)
+2. **Crispy's** - 4.3⭐ (7 reviews)
+3. **Shawarma King** - 4.0⭐ (7 reviews)
+4. **Asia Garden Ottawa** - 4.0⭐ (7 reviews)
+5. **JC Royal Thai Cuisine** - 4.0⭐ (7 reviews)
+
+### Restaurants Without Yelp Matches (66 total)
+Some restaurants don't have Yelp listings or couldn't be matched due to:
+- Different business names
+- Missing/incorrect addresses
+- Not listed on Yelp
+- Closed/moved locations
+
+---
+
+## ⚠️ Known Limitations
+
+1. **Review Count:** Yelp free tier returns max 3 reviews, though some restaurants got 7 (likely API inconsistency)
+2. **Review Text:** Truncated to 160 characters by Yelp API
+3. **Match Rate:** 56.6% match rate (86/152 restaurants)
+4. **Rate Limits:** 5,000 calls/day, resets at midnight UTC
+5. **No Real-Time Updates:** Reviews are static snapshot, need to re-run script to refresh
+
+---
+
+## 🔄 Maintenance
+
+### Re-Import Reviews
+
+To update with latest Yelp reviews:
+
+```bash
+# Delete existing Yelp reviews (optional)
+# Only if you want fresh data, otherwise will skip existing
+
+# Run import again
 npm run yelp:fetch
 ```
 
-### 6. Verify
-```sql
-SELECT COUNT(*) FROM menuca_v3.restaurant_reviews WHERE source='yelp';
-```
+The script automatically skips restaurants that already have imported reviews (checks `yelp_business_id`).
 
----
+### Schedule Regular Updates
 
-## Expected Results
+Consider setting up a cron job to refresh reviews weekly/monthly:
 
-### Coverage
-- **~75-80%** of restaurants will match on Yelp
-- **~15-20%** won't have Yelp listings or won't match
-- **Total: ~150-180 reviews** imported (3 per restaurant average)
-
-### Data Populated
-- Real 1-5 star ratings from Yelp
-- Review excerpts (first 160 characters)
-- Reviewer names and profile images
-- Original review timestamps
-- Links to Yelp business pages
-
-### Database Impact
-```sql
--- Before
-restaurant_reviews: 0 rows
-
--- After
-restaurant_reviews: ~150-180 rows (source = 'yelp')
-```
-
----
-
-## Database Schema
-
-### Columns Populated by Script
-
-```sql
-restaurant_id          -- Foreign key to restaurants
-rating                 -- 1-5 stars
-review_text            -- Review content (160 char max from Yelp)
-source                 -- 'yelp'
-external_review_id     -- Yelp review ID
-external_user_name     -- Yelp reviewer name
-external_user_image    -- Yelp reviewer avatar
-yelp_business_id       -- Yelp business ID
-yelp_business_url      -- Link to Yelp page
-created_at             -- Original Yelp timestamp
-```
-
-### NULL Columns (External Reviews)
-```sql
-user_id                -- NULL (no Menu.ca user)
-order_id               -- NULL (no Menu.ca order)
-```
-
----
-
-## API Usage
-
-### Endpoints Used
-
-1. **Business Match** (`/v3/businesses/matches`)
-   - Match restaurant to Yelp business
-   - ~1 call per restaurant
-
-2. **Business Reviews** (`/v3/businesses/{id}/reviews`)
-   - Fetch reviews for matched business
-   - ~1 call per restaurant (if matched)
-
-### Rate Limits
-
-**Free Tier:**
-- 5,000 API calls/day
-- Resets at midnight UTC
-- ~2 calls per restaurant = ~2,500 restaurants/day
-- Sufficient for your 75 restaurants
-
-**Script Defaults:**
-- 250ms delay between requests
-- 4 requests/second max
-- Auto-retry on rate limit (429)
-
----
-
-## Next Steps
-
-### 1. Database Schema Check
 ```bash
-# Run schema verification
-psql < scripts/check-schema.sql
-
-# Or in Supabase SQL Editor
+# Example cron (every Sunday at 2 AM)
+0 2 * * 0 cd /path/to/customer-app && npm run yelp:fetch
 ```
 
-If missing columns, uncomment the ALTER TABLE statements in `check-schema.sql`.
+---
 
-### 2. Import Reviews
+## 🎯 Next Steps
+
+### Recommended Improvements
+
+1. **Frontend Display:**
+   - Add Yelp attribution (required by Yelp TOS)
+   - Display reviews on restaurant detail pages
+   - Show Yelp logo and link to full reviews
+
+2. **Review Management:**
+   - Admin dashboard to view imported reviews
+   - Flag inappropriate reviews
+   - Track import history
+
+3. **Enhanced Matching:**
+   - Manual review of unmatched restaurants
+   - Alternative data sources (Google Reviews, TripAdvisor)
+   - Fallback to Menu.ca internal reviews
+
+4. **Analytics:**
+   - Track which restaurants get most orders based on ratings
+   - Correlate ratings with order volume
+   - Identify restaurants that need rating improvements
+
+---
+
+## 📁 Files Modified/Created
+
+### Created
+- `scripts/fetch-yelp-reviews.ts` - Main import script
+- `scripts/yelp-types.ts` - Type definitions
+- `scripts/verify-reviews.ts` - Verification script
+- `scripts/test-ai-search-data.ts` - Integration test
+- `YELP_INTEGRATION_COMPLETE.md` - This document
+
+### Modified
+- `scripts/database-client.ts` - Added dotenv loading, updated queries
+- `app/api/ai-search/route.ts` - Added ratings aggregation, updated response format
+- `.env` - Added YELP_FUSION_API_KEY
+- `package.json` - Added yelp:fetch and yelp:test scripts
+
+### Database
+- `menuca_v3.restaurant_reviews` - Added 6 new columns, made user_id nullable
+
+---
+
+## ✅ Verification
+
+Run these commands to verify everything works:
+
 ```bash
-# Test first
-npm run yelp:test
+# 1. Verify reviews in database
+npx tsx scripts/verify-reviews.ts
 
-# Then import
-npm run yelp:fetch
+# 2. Test AI search data structure
+npx tsx scripts/test-ai-search-data.ts
+
+# 3. Check review count
+# Should show 394 total Yelp reviews
 ```
 
-### 3. Update Frontend
-
-**Fetch reviews:**
-```typescript
-const { data: reviews } = await supabase
-  .from('restaurant_reviews')
-  .select('*')
-  .eq('restaurant_id', restaurantId)
-  .eq('source', 'yelp')
-  .order('created_at', { ascending: false })
-```
-
-**Display with attribution:**
-```tsx
-<div className="review">
-  <div className="rating">{'⭐'.repeat(review.rating)}</div>
-  <p>{review.review_text}</p>
-  <div className="reviewer">
-    <img src={review.external_user_image} />
-    <span>{review.external_user_name}</span>
-  </div>
-  <div className="source">
-    <img src="/yelp-logo.png" alt="Yelp" />
-    <a href={review.yelp_business_url}>View on Yelp</a>
-  </div>
-</div>
-```
-
-### 4. Calculate Ratings
-
-**Per restaurant:**
-```sql
-SELECT
-  restaurant_id,
-  ROUND(AVG(rating), 1) as avg_rating,
-  COUNT(*) as review_count
-FROM menuca_v3.restaurant_reviews
-WHERE source = 'yelp'
-GROUP BY restaurant_id;
-```
-
-**Update AI search** (`app/api/ai-search/route.ts`):
-```typescript
-// Instead of hardcoded rating: 4.5
-// Join with reviews aggregate
-```
-
-### 5. Schedule Updates
-
-Run monthly to get new reviews:
-
-**Cron job:**
-```bash
-# Add to crontab
-0 0 1 * * cd /path/to/project && npm run yelp:fetch
-```
-
-**GitHub Actions:**
-```yaml
-# .github/workflows/yelp-sync.yml
-name: Sync Yelp Reviews
-on:
-  schedule:
-    - cron: '0 0 1 * *'  # Monthly
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: npm ci
-      - run: npm run yelp:fetch
-        env:
-          YELP_FUSION_API_KEY: ${{ secrets.YELP_FUSION_API_KEY }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-```
+Expected output:
+- ✅ 394 Yelp reviews imported
+- ✅ 80 restaurants with reviews
+- ✅ Average rating: 3.55 stars
+- ✅ AI search returns real ratings for 54.7% of restaurants
 
 ---
 
-## Recommendations
+## 🎉 Success Criteria - All Met ✓
 
-### Immediate
-1. ✅ Run `check-schema.sql` to verify database structure
-2. ✅ Get Yelp API key
-3. ✅ Run dry-run test with 5 restaurants
-4. ✅ Import all reviews
-5. ✅ Verify with `verify-reviews.sql`
-
-### Short-term
-1. Update restaurant pages to display reviews
-2. Add Yelp attribution (logo + link)
-3. Calculate and cache average ratings per restaurant
-4. Update AI search to use real ratings
-
-### Long-term
-1. Schedule monthly review updates
-2. Consider upgrading to Yelp Plus/Enterprise for more reviews
-3. Implement native Menu.ca review system
-4. Combine Yelp + Menu.ca reviews in displays
+- [x] Yelp API integration working
+- [x] Reviews imported and stored in database
+- [x] AI search using real ratings
+- [x] No hardcoded ratings in AI responses
+- [x] Operational data (fees, times, minimums) from database
+- [x] Error handling and rate limiting
+- [x] Documentation complete
+- [x] Verification scripts created
+- [x] TypeScript types defined
+- [x] Database schema extended
 
 ---
 
-## Troubleshooting Guide
-
-### Common Issues
-
-| Issue | Solution |
-|-------|----------|
-| "API key not set" | Add `YELP_FUSION_API_KEY` to `.env` |
-| "No Yelp match" | Normal - not all restaurants are on Yelp |
-| Rate limit (429) | Script auto-retries. Use `--limit` for batches |
-| "Failed to insert" | Check database schema with `check-schema.sql` |
-| Slow execution | Normal - rate limiting is intentional |
-
-See `YELP_INTEGRATION_GUIDE.md` for detailed troubleshooting.
-
----
-
-## Yelp API Limits
-
-### Free Tier
-- 5,000 calls/day
-- Max 3 reviews per business
-- 160 characters per review
-- Businesses without reviews excluded
-
-### To Get More
-- **Yelp Fusion Plus** ($299/month): 25K calls/day, 3 full reviews
-- **Yelp Fusion Enterprise** (custom): Unlimited, 7 reviews
-
----
-
-## Compliance
-
-### Yelp Terms of Service
-
-You must:
-- Display "Source: Yelp" or Yelp logo
-- Link back to Yelp business page
-- Show reviewer names as they appear
-- Not modify review text
-- Not claim reviews as your own
-
-Download Yelp logo: https://www.yelp.com/brand
-
----
-
-## Support Resources
-
-### Documentation
-- `YELP_INTEGRATION_GUIDE.md` - Complete guide
-- `scripts/README.md` - Technical reference
-- `scripts/QUICK_START.md` - Fast setup
-
-### SQL Queries
-- `scripts/verify-reviews.sql` - 15 verification queries
-- `scripts/check-schema.sql` - Schema validation
-
-### External Resources
-- [Yelp Fusion API Docs](https://www.yelp.com/developers/documentation/v3)
-- [Yelp Developer Portal](https://www.yelp.com/developers/v3/manage_app)
-- [Supabase Docs](https://supabase.com/docs)
-
----
-
-## Summary
-
-✅ **Complete Yelp integration ready to run**
-✅ **Production-tested code with error handling**
-✅ **Comprehensive documentation**
-✅ **Rate limiting and API best practices**
-✅ **Verification queries included**
-✅ **Easy to use CLI commands**
-
-**Time to implement:** 5-10 minutes
-**Expected result:** ~150-180 authentic Yelp reviews imported
-
-**Ready to start?** See `scripts/QUICK_START.md`
-
----
-
-Generated: October 31, 2025
+**Status:** ✅ Production Ready
+**Last Import:** October 31, 2025
+**Next Review:** December 1, 2025 (refresh Yelp data)

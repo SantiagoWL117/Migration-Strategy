@@ -1,12 +1,13 @@
 # 📄 HANDOFFS - Implementation Documentation
 
-This folder contains handoff documentation created by the Builder Agent after implementing features.
+This folder contains handoff documentation created after implementing features.
 
 ## Naming Convention
 
-`PHASE_[X]_[##]_[FEATURE_NAME]_HANDOFF.md`
+`YYYY-MM-DD-[feature-name]-handoff.md` or `PHASE_[X]_[##]_[FEATURE_NAME]_HANDOFF.md`
 
 Examples:
+- `2025-10-31-yelp-integration-handoff.md` ⭐ Latest
 - `PHASE_0_01_GUEST_CHECKOUT_HANDOFF.md`
 - `PHASE_2_15_DISH_MODAL_HANDOFF.md`
 

@@ -275,3 +275,4 @@ The function uses these environment variables (automatically available in Supaba
 - [Supabase MCP Setup](../SUPABASE_MCP_SETUP.md)
 - [Edge Functions Deployment Guide](./DEPLOYMENT_GUIDE.md)
 
+

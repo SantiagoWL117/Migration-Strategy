@@ -149,11 +149,11 @@ See [Deployment Guide](docs/05-guides/deployment-guide.md) for details.
 - **Mobile App:** 📋 Planned
 
 **Recent Updates:**
-- ✅ AI-powered search (OpenAI GPT-4)
-- ✅ Yelp reviews integration
-- ✅ SMS authentication
-- ✅ Stripe payments
-- ⏳ Real operational data (delivery fees, times)
+- ✅ **Yelp reviews integration** - 394 real reviews, 3.55★ avg (Oct 31, 2025)
+- ✅ **Real operational data** - Delivery fees, times, minimum orders from DB
+- ✅ **AI-powered search** - OpenAI GPT-4o with real ratings
+- ✅ SMS authentication - Supabase Auth phone verification
+- ✅ Stripe payments - Complete checkout integration
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed history.
 
