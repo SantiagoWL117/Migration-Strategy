@@ -677,6 +677,46 @@ Restaurant has 0 dishes in database. This indicates either:
 
 **Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list or marked as inactive/left platform.
 
+#### Sala Thai (Restaurant ID: 745)
+**Status:** ⏳ NEEDS WORK - 94 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 2666 Alta Vista Dr, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 94 ✅ (Good count - full Thai menu)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 94 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅ (matches active list)
+
+**Menu Structure Analysis:**
+Thai restaurant with numbered dish codes (1., 2., 3., etc.). Sample dishes show:
+- Appetizers (Pao Pia Goong, Pao Pia Vegetables, Satay, Tofu Tod)
+- Soups (Tom Yum Goong or Gai, Tom Kha Goong or Gai, Gaeng Jued Woonsen)
+- Salads (Yum Ma-Muang, Yum Woonsen, Som Tom, Nuea Nam Tok, Lapp)
+- Stir-fried dishes (Pad Tofu, Pad Pak Raum Mit, Pad Bai Gra Prow, Pad Preow Warn)
+- Curries (Gaeng Pak, Gaeng Pak with Tofu)
+- Seafood (Pla Lad Prig, Pad Pak Talae, Goong Pad Med Ma-Muang, Goong Pad Ma-Khua Yao)
+- Specialty dishes (Sala Sizzling, Tod Gratiam Prik Thai, Tao-Hu Ob Mor Din)
+- Some dishes marked "HIDE" (hidden from menu)
+
+**Action Required:**
+1. Create courses for Thai restaurant:
+   - Appetizers
+   - Soups
+   - Salads
+   - Stir-Fried Dishes
+   - Curries
+   - Seafood
+   - Specialty Dishes
+   - Rice/Noodles (if applicable)
+   - Drinks
+2. Assign 94 dishes to appropriate courses using numbered code patterns and dish names
+
+**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
+
+**Note:** There is also another "Sala Thai" (ID: 940) at the same address (2666 Alta Vista Dr) with status "pending" - may be duplicate or pending activation.
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
