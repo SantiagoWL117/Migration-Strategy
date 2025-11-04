@@ -700,20 +700,43 @@ Thai restaurant with numbered dish codes (1., 2., 3., etc.). Sample dishes show:
 - Specialty dishes (Sala Sizzling, Tod Gratiam Prik Thai, Tao-Hu Ob Mor Din)
 - Some dishes marked "HIDE" (hidden from menu)
 
-**Action Required:**
-1. Create courses for Thai restaurant:
-   - Appetizers
-   - Soups
-   - Salads
-   - Stir-Fried Dishes
-   - Curries
-   - Seafood
-   - Specialty Dishes
-   - Rice/Noodles (if applicable)
-   - Drinks
-2. Assign 94 dishes to appropriate courses using numbered code patterns and dish names
+**🌐 Online Menu Available:** https://salathaicuisine.menu.ca/?p=menu
+**Menu Structure (from online menu):**
+The restaurant has a well-organized menu structure with the following courses:
+- **Family Dinner Feasts** - Combo meals for 2 or 4 people
+- **Daily Luncheon Specials** - Lunch specials (11:30am-2pm)
+- **Appetizers** - Spring rolls, satay, tofu (numbered 1-5)
+- **Soup** - Tom Yum, Tom Kha, Gaeng Jued Woonsen (numbered 6-8)
+- **Yum (Salad)** - Thai salads (numbered 9, 12-13)
+- **Vegetarian** - Vegetarian dishes (numbered 16-19)
+- **Seafood** - Seafood dishes (numbered 20-25)
+- **Fried Rice & Noodles** - Pad Thai, Pad Kee Mao, Pad Siew, etc. (numbered 32-36)
+- **Curries** - Red curry, green curry, Panang, Gaeng Garee (numbered 38-42)
+- **Chicken, Beef & Pork** - Meat dishes (numbered 44-47)
+- **Side Orders** - Steamed rice options
+- **Desserts** - Tapioca pudding, chocolate cake
+- **Drinks** - Soft drinks, water, Perrier
+- **Beer** - Various beer options
 
-**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
+**Action Required:**
+1. Create courses matching the online menu structure:
+   - Family Dinner Feasts
+   - Daily Luncheon Specials
+   - Appetizers
+   - Soup
+   - Yum (Salad)
+   - Vegetarian
+   - Seafood
+   - Fried Rice & Noodles
+   - Curries
+   - Chicken, Beef & Pork
+   - Side Orders
+   - Desserts
+   - Drinks
+   - Beer
+2. Assign 94 dishes to appropriate courses using numbered code patterns (matches online menu numbering)
+
+**Resolution Needed:** CREATE COURSES (based on online menu structure) AND ASSIGN DISHES
 
 **Note:** There is also another "Sala Thai" (ID: 940) at the same address (2666 Alta Vista Dr) with status "pending" - may be duplicate or pending activation.
 
