@@ -1546,6 +1546,7 @@ Restaurant has 0 dishes in database. This indicates either:
 **Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
 **Date:** 2025-11-03
 **Address:** 26 Northside Road, Ottawa ✅ (matches active list)
+**🌐 Online Menu Available:** https://primapizza.ca/?p=menu
 
 **Details:**
 - Total dishes: 140 ✅ (Good count - full menu)
@@ -1554,24 +1555,21 @@ Restaurant has 0 dishes in database. This indicates either:
 - All dishes assigned to "Uncategorized" course
 - Status: active ✅ (matches active list)
 
-**Menu Sample:**
-- Appetizers (Garlic Bread, Mozzarella Cheese Sticks, Zucchini, Breaded Mushroom Caps, Nachos varieties)
-- Burgers (Hamburger, Cheeseburger, Bacon Cheeseburger, Chicken Burger)
-- Sandwiches (Chicken Club Sandwich Platter)
-- Sides (French Fries, Onion Rings, Poutine varieties, Cheese Curds)
-- Platters (Donair Platter, Chicken Club Sandwich Platter)
-- Various pizza items (not shown in sample but likely pizza dishes given restaurant name)
+**Actual Course Structure (from online menu):**
+The restaurant has a well-organized menu with the following courses that need to be created:
+1. **Deals** - Combo deals (Small Pizza 3 Toppings, XL Pepperoni Pizza, Mega Meal, Tiny Bites, Pizza and Wing Combo Deal)
+2. **Pizzas** - Regular pizzas (Plain, Pepperoni, Combination, All Canadian, Tropical, Hawaiian, Meat Lovers, Prima Special, BBQ Chicken, BBQ Chicken Bacon, Hot BBQ Chicken, Mega-Meat, BC Deluxe, Vegetarian, Mediterranean, Spicy Beef, Sweet and Salty - all sizes Small/Medium/Large/X-Large)
+3. **Indian Specialty Pizzas** - Indian-style pizzas (Butter Chicken Pizza, Chicken Tikka Pizza, Paneer Pizza, Aloo Tikka Pizza, Keema Pizza - all sizes)
+4. **Appetizers** - Appetizers (Garlic Bread, Mozzarella Cheese Sticks, Zucchini, Breaded Mushroom Caps, Nachos varieties, Breaded Fried Dill Pickles, etc.)
+5. **Chicken** - Chicken items (Wings varieties, Chicken Fingers, etc.)
+6. **Burgers** - Burgers (Hamburger, Cheeseburger, Bacon Cheeseburger, Chicken Burger, Veggie Burger, Aloo Tiki Burger, Beyond Meat Burger - with/without COMBO)
+7. **Hot Subs** - 13" subs (Pepperoni Pizza Sub, Club Sub, Crispy Chicken Sub, Veggie Sub, Aloo Tiki Sub, Philly Steak Sub, Turkey Sub, Ham Sub, Turkey and Ham Sub, Meatball Marinara Sub - with/without COMBO)
+8. **Fresh Salads** - Salads (Greek Salad, Greek Salad with Chicken, Caesar Salad, Chicken Caesar Salad, House Salad)
+9. **Dessert** - Desserts (New York Cheesecake varieties, Black Forest Cake, Decadent Chocolate Truffle Cake, Milk Shake varieties)
+10. **Drinks** - Drinks (Juice varieties, Powerade, Monster, Bottled Soft Drinks, Nestea)
 
 **Action Taken:** Skipped - all dishes already have course_id assigned.
-**⚠️ REVIEW NEEDED:** With 140 dishes, restaurant needs proper course structure (currently all in "Uncategorized"). Should create courses like:
-- Appetizers
-- Pizza
-- Burgers
-- Sandwiches
-- Platters
-- Sides
-- Drinks
-- (Other categories as needed)
+**⚠️ REVIEW NEEDED:** With 140 dishes, restaurant needs proper course structure (currently all in "Uncategorized"). Should create the 10 courses listed above and reassign dishes accordingly.
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
