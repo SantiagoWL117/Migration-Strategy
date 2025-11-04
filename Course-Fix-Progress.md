@@ -1669,6 +1669,32 @@ The restaurant has the same course structure as Hull location:
 1. Verify if "POS SIMPLICITY" is the correct restaurant name or if it should be one of the other restaurants at this address
 2. Verify if restaurant is still active and has a full menu, or if this is a data migration/closure issue
 
+#### PizzaRama (Restaurant ID: 716)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 253, boul Maloney, Gatineau ✅ (matches active list)
+
+**Details:**
+- Total dishes: 14 ⚠️ (Very low count - mostly pizza toppings/ingredients and combo deals)
+- Dishes with course_id: 14 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**Menu Sample (Bilingual French/English):**
+- Pizza toppings/ingredients (Un Ingrédient, Légumes, Sauce, Fromage)
+- Combo deals (Petite/Moyenne/Grande Pizza et Ailes, Petite/Moyenne/Grande Pizza et Poutine)
+- Drinks (Pepsi, Diet Pepsi, 7 Up, Diet 7 Up)
+- No actual pizza varieties or base menu items
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 14 dishes and they're mostly pizza toppings/ingredients and combo deals. This pattern suggests:
+- Incomplete menu migration (similar to Restaurant Chez Gerry pattern), OR
+- Restaurant may have closed/left platform, OR
+- Actually a very limited menu (but unlikely for a pizza restaurant)
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** Verify if restaurant is still active and has a full menu, or if this is a data migration issue.
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
