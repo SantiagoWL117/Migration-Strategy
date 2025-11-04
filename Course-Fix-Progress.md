@@ -1670,30 +1670,45 @@ The restaurant has the same course structure as Hull location:
 2. Verify if restaurant is still active and has a full menu, or if this is a data migration/closure issue
 
 #### PizzaRama (Restaurant ID: 716)
-**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
 **Date:** 2025-11-03
 **Address:** 253, boul Maloney, Gatineau ✅ (matches active list)
+**🌐 Online Menu Available:** https://pizzaramagatineau.ca/?p=menu&lang=fr
 
-**Details:**
-- Total dishes: 14 ⚠️ (Very low count - mostly pizza toppings/ingredients and combo deals)
+**⚠️ CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Restaurant is **VERY ACTIVE** with a **FULL MENU** online, but database only has 14 dishes. This is a critical data migration issue - menu exists but hasn't been fully migrated to menuca_v3.
+
+**Current Database Status:**
+- Total dishes in database: 14 ⚠️ (Only pizza toppings/ingredients and combo deals)
 - Dishes with course_id: 14 (100%) ✅
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course
 - Status: active ✅ (matches active list)
 
-**Menu Sample (Bilingual French/English):**
+**Actual Menu Structure (from online menu - Bilingual French/English):**
+The restaurant has a comprehensive menu with the following courses:
+1. **Spéciales** - Special combo deals (Petite/Moyenne/Grande Pizza et Ailes, Petite/Moyenne/Grande Pizza et Poutine)
+2. **Pizzas** - 12+ pizza varieties (Fromage, Un Ingrédient, Combinée, Spécial du Chef, Super Deluxe, Rama Spécial, Hawaïenne, Végétarienne, Club Pizza, Mexicaine, Godzilla - all sizes Petit/Moyenne/Grande/Jumbo)
+3. **Rama Grecque - Plats de Spécialités** - Greek specialty platters (Brochette de poulet marinée, Brochette de filet mignon, Brochette de souvlaki, Brochette de crevettes)
+4. **Rama Grecque - Gyros** - Greek gyros (Souvlaki Poulet Sandwich, Gyros sandwich varieties, Combo options)
+5. **Rama Grecque - Salades** - Greek salads (various salad options)
+6. **À La Carte** - A la carte items
+7. **Sous Marins** - Submarines (13" subs - Club, Hot Chicken, Veggie, Steak, etc.)
+8. **Mets Italiennes** - Italian dishes (Spaghetti, Lasagna, Penne varieties, Fettuccine Alfredo, Veal Parmesan, Chicken Parmesan)
+9. **Poutines** - Poutine varieties (Regular, With Chicken, With Smoked Meat, With Bacon, etc.)
+10. **Mets Canadiens** - Canadian dishes (Hot Chicken, Doigts de Poulet, Club Sandwich, Hamburger Steak, Burgers, Appetizers, Wings, Fries, Salads, Nachos, Assiette varieties)
+11. **Menu Pour Enfants** - Kids menu (Pogo et Frites, Croquettes de Poulet, Doigt de Poulet avec Pogo)
+12. **Desserts** - Desserts (Gâteau au Chocolat, Tarte au Sucre)
+13. **Breuvages** - Drinks (Perrier, Pepsi, Diet Pepsi, 7 Up, Ginger Ale, Crush varieties, Root Beer, Iced Tea, Cream Soda, Mountain Dew, Bubbly, Jus varieties, Aquafina)
+
+**Dishes Found in Database (Only 14):**
 - Pizza toppings/ingredients (Un Ingrédient, Légumes, Sauce, Fromage)
-- Combo deals (Petite/Moyenne/Grande Pizza et Ailes, Petite/Moyenne/Grande Pizza et Poutine)
+- Special combo deals (Petite/Moyenne/Grande Pizza et Ailes, Petite/Moyenne/Grande Pizza et Poutine)
 - Drinks (Pepsi, Diet Pepsi, 7 Up, Diet 7 Up)
-- No actual pizza varieties or base menu items
 
-**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 14 dishes and they're mostly pizza toppings/ingredients and combo deals. This pattern suggests:
-- Incomplete menu migration (similar to Restaurant Chez Gerry pattern), OR
-- Restaurant may have closed/left platform, OR
-- Actually a very limited menu (but unlikely for a pizza restaurant)
-
-**Action Taken:** Skipped - all dishes already have course_id assigned.
-**⚠️ REVIEW NEEDED:** Verify if restaurant is still active and has a full menu, or if this is a data migration issue.
+**Resolution Needed:**
+1. **URGENT:** Full menu migration needed - restaurant has full menu online (~150+ dishes across 13 categories) but only 14 dishes in database (represents <10% of actual menu)
+2. Once migrated, create proper courses matching online menu structure (13 categories)
+3. Then assign all dishes to appropriate courses
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
