@@ -593,6 +593,28 @@ Restaurant has 0 dishes in database. This indicates either:
 
 **Note:** There is also "New Shawarma King" (ID: 27) at 530 Rideau St (suspended) - different restaurant
 
+#### Shaan Tandoori (Restaurant ID: 269)
+**Status:** ✅ SKIPPED - Already has complete course assignments
+**Date:** 2025-11-03
+**Address:** 2550, boul Lapinière, Brossard ✅ (matches active list)
+
+**Details:**
+- Total dishes: 194 ✅ (Good count - full menu)
+- Dishes with course_id: 194 (100%) ✅
+- Courses defined: 24 ✅ (Well-structured menu)
+- Status: active ✅ (matches active list)
+
+**Menu Sample (Indian cuisine):**
+- Appetizers (Dahl Soup, Onion Bhaji)
+- Curries (Butter Chicken, Chicken Tikka Masala, Lamb Pasanda, etc.)
+- Tandoori items (Chicken Tandoori, Chicken Tikka, Lamb Tikka, Platter Tandoori)
+- Khorai dishes (Lamb, Beef, Chicken, Shrimp, Vegetable)
+- Combos (Combo Bombay Special, Family Menu, Table d'Hôte)
+- Desserts (Gulab Jamun, Payesh Rice Pudding, Kheer Rice Pudding)
+- Drinks (Water, Coke, Sprite, 7-Up)
+
+**Action Taken:** Skipped - all dishes already have course_id assigned and properly categorized. Restaurant has complete, well-structured menu with proper course organization.
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
