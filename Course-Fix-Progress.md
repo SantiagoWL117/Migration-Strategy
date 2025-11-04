@@ -796,7 +796,7 @@ Restaurant has 0 dishes in database. This indicates either:
 **Note:** There is also "JC Royal Thai Cuisine" (ID: 646) at 100 Jamieson Pkwy, Cambridge (active) - different restaurant
 
 #### Roulas Jus et Gelato (Restaurant ID: 777)
-**Status:** ⏳ NEEDS WORK - 38 dishes, 0 courses, 100% unassigned
+**Status:** ⏳ NEEDS WORK - 38 dishes, 0 courses, 100% unassigned | ⚠️ TEMPORARILY CLOSED
 **Date:** 2025-11-03
 **Address:** 245, rue de Cannes, Gatineau ✅ (matches active list)
 
@@ -805,7 +805,7 @@ Restaurant has 0 dishes in database. This indicates either:
 - Dishes with course_id: 0 (0%)
 - Dishes with NULL course_id: 38 (100%) ⚠️
 - Courses defined: 0 ⚠️
-- Status: active ✅ (matches active list)
+- Status: active (but restaurant is temporarily closed)
 
 **Menu Structure Analysis:**
 Bilingual French/English juice and gelato shop. Sample dishes show:
@@ -817,6 +817,8 @@ Bilingual French/English juice and gelato shop. Sample dishes show:
 - **Cones/Bowls** (Cornet, Petit Bol)
 - Some dishes marked "HIDE" (hidden from menu)
 
+**⚠️ RESTAURANT STATUS:** Restaurant is **TEMPORARILY CLOSED** (user verified). Course assignment work can proceed when restaurant reopens.
+
 **Action Required:**
 1. Create courses for juice/gelato shop:
    - Juices / Jus
@@ -827,7 +829,7 @@ Bilingual French/English juice and gelato shop. Sample dishes show:
    - (Other categories as needed)
 2. Assign 38 dishes to appropriate courses using dish name patterns
 
-**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
+**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES (when restaurant reopens or if status changes)
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
