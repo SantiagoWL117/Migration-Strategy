@@ -1636,10 +1636,19 @@ The restaurant has the same course structure as Hull location:
 - The wrong restaurant name in the database, OR
 - Actually correct but unusual
 
-**Other restaurants at 250 Greenbank:**
+**Restaurants visible on map at 250 Greenbank address:**
+- **Fitz's Classic Grill BBQ Smoke House** (not found in database - may be the actual restaurant?)
+- **Authentic Vietnamese Pho House** (ID: 759 - suspended - matches map location)
+- **Tim Hortons** (not on our platform)
+- **Bella's Boys** (not found in database)
+- **barBURRITO Tex Mex** (not found in database)
+
+**Other restaurants in database at 250 Greenbank:**
 - Pizza Corner (ID: 679) - active - 8 dishes - at "3A - 250 Greenbank Rd", Nepean
 - Prince Gourmet (ID: 911) - suspended - 0 dishes - at "250 Greenbank", Ottawa
 - Authentic Vietnamese Pho House Nepean (ID: 759) - suspended - 0 dishes - at "250 Greenbank Rd Unit 2A", Nepean
+
+**⚠️ MATCHING ISSUE:** Cannot definitively match "POS SIMPLICITY" to any visible restaurant on the map. The most likely candidate is **Fitz's Classic Grill BBQ Smoke House** (which has a prominent red pin on the map), but it's not in our database. Need to verify which restaurant this entry actually represents.
 
 **Menu Sample:**
 - Only combo deals found (Combo No.3, No.4, No.5, Regular Combo 1 for 1/2, Large Combo 2 for 1/2)
