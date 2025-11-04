@@ -381,12 +381,12 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 ---
 
 #### Wow Sushi 50, rue Rachel E (Restaurant ID: 356)
-**Status:** ⚠️ DOCUMENTATION OUTDATED - Suspended in database | ⚠️ CRITICAL DATA ISSUE
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ CRITICAL DATA ISSUE
 **Date:** 2025-11-03
 
 **Issue Found:**
-- Listed in Restaurants-active.md as active (documentation may be outdated)
-- **Database status: suspended** (source of truth - restaurant NOT active on frontend)
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
 - **CRITICAL:** 0 dishes in database (impossible for a sushi restaurant)
 
 **Current Database Status:**
@@ -547,18 +547,18 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 **Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed before proper course assignment can proceed. This is a data migration issue, not a course assignment issue.
 
 #### Sous Le Palmier (Restaurant ID: 273)
-**Status:** ⚠️ DOCUMENTATION OUTDATED - Suspended in database | 🚨 CRITICAL DATA ISSUE
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA ISSUE
 **Date:** 2025-11-03
 
 **Issue Found:**
-- Listed in Restaurants-active.md as active (documentation may be outdated)
-- **Database status: suspended** (source of truth - restaurant NOT active on frontend)
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
 - **CRITICAL:** 0 dishes in database
 
 **Current Database Status:**
 - Total dishes: 0
 - Courses defined: 0
-- Status: suspended (restaurant not showing on frontend)
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
 
 **🚨 CRITICAL DATA ISSUE:**
 Restaurant has 0 dishes in database. This indicates either:
@@ -567,10 +567,10 @@ Restaurant has 0 dishes in database. This indicates either:
 - Restaurant may have closed/left platform
 
 **Resolution Needed:**
-1. **Restaurants-active.md may need update** - DB shows suspended, so restaurant is not active on frontend
-2. **URGENT:** Menu migration required if restaurant should be active - restaurant has no menu data
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. **URGENT:** Menu migration required - restaurant has no menu data
 3. Cannot proceed with course assignment until menu is migrated
-4. If restaurant should be active, status needs to be updated AND menu migration needed
+4. Status correction needed AND menu migration needed
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
@@ -784,7 +784,7 @@ Japanese/Korean fusion restaurant with mix of:
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course (1529)
 
-**⚠️ DOCUMENTATION OUTDATED:** Database status is "suspended" (source of truth - restaurant not active on frontend) but restaurant is listed in Restaurants-active.md (documentation may be outdated)
+**⚠️ STATUS CORRECTION NEEDED:** Database status is "suspended" but restaurant is listed in Restaurants-active.md as active (database status needs correction to match active list)
 
 **⚠️ DATA QUALITY CONCERN:** Only 5 dishes is suspiciously low. This pattern suggests:
 - Incomplete menu migration, OR
@@ -837,7 +837,7 @@ Japanese/Korean fusion restaurant with mix of:
 - Courses defined: 17 (Dim Sum Menu, Starters and Soups, Fried Rice, Vietnamese Pho Noodle Soup, Signature Veggie Options, Best Thai Cuisine, Chicken, Chop Suey, Beef, Pork, Signature Noodles, Shrimp, On the Side, Special Family Dinners, Combination Plates, Drinks, Uncategorized)
 - All dishes assigned to courses ✅
 
-**⚠️ DOCUMENTATION OUTDATED:** Database status is "pending" (source of truth - restaurant not yet active on frontend) but restaurant is listed in Restaurants-active.md (documentation may be outdated)
+**⚠️ STATUS CORRECTION NEEDED:** Database status is "pending" but restaurant is listed in Restaurants-active.md as active (database status needs correction to match active list)
 
 **Action Taken:** None - all dishes already have course_id assigned and properly categorized. Status mismatch noted.
 
@@ -954,7 +954,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
 - **Left Platform (Other):** 1 (The Cupboard - no longer on our platform) - Should be removed from active list
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
-- **Documentation Outdated:** 3 (Wow Sushi - DB suspended + 0 dishes, Ting's Kitchen - DB pending but in active list, The Original Georgie's - DB suspended but in active list) - Note: Database is source of truth, Restaurants-active.md may be outdated
+- **Status Corrections Needed:** 4 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes) - Database status needs to match active list
 - **Not Found:** 4 (Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
 - **Critical Data Issues:** 5 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online)
 - **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
