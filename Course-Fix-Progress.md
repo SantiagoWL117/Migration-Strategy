@@ -1447,6 +1447,33 @@ Restaurant has 0 dishes in database. This indicates either:
 3. Once migrated, create proper courses matching online menu structure
 4. Then assign all dishes to appropriate courses
 
+#### Restaurant Chez Gerry (Restaurant ID: 109)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 9, rue Therien, Gatineau ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+
+**Current Database Status:**
+- Total dishes: 24 ✅
+- Dishes with course_id: 24 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**Menu Sample (Bilingual French/English Pizza Options):**
+- Pizza base options (One Topping, 1 Topping, Pepperoni)
+- Toppings/Ingredients (Champignons, Sauce à la viande, Tomates, Oignons, Bacon, Fromage Extra, Olives, Poivrons Verts, Ananas, Ail, Poivrons Rouges, Fromage Feta, Jambon, Artichauts)
+- Crust options (Croûte Mince, Croûte Régulière)
+- Sauces (Ranch)
+- Special deals (2 Large/Medium Pizza with 3 Toppings - marked HIDE)
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. Course assignment already complete - all dishes assigned
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
