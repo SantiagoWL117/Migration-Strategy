@@ -1575,6 +1575,7 @@ The restaurant has a well-organized menu with the following courses that need to
 **Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
 **Date:** 2025-11-03
 **Address:** 455 Boulevard Riel, Hull ✅ (matches active list)
+**🌐 Online Menu Available:** https://hull.poutineriequebecurds.ca/?p=menu&lang=fr
 
 **Details:**
 - Total dishes: 47 ✅ (Good count for poutine restaurant)
@@ -1583,23 +1584,22 @@ The restaurant has a well-organized menu with the following courses that need to
 - All dishes assigned to "Uncategorized" course
 - Status: active ✅ (matches active list)
 
-**Menu Sample (Bilingual French/English):**
-- Poutine varieties (Classic, Buffalo, Thai Chicken, The Gatinoise, Meat Lovers, Philly Cheese Steak, Pop Curds, Crispy Chicken, Bacon, The Poutine Club, Vegetarian, Smoked Meat)
-- Special deals (Special SOLO with Donuts/Churros, 2 Small Poutines with Drinks)
-- Some items marked HIDE
+**Actual Course Structure (from online menu - Bilingual French/English):**
+The restaurant has a well-organized menu with the following courses that need to be created:
+1. **Spécials** - Special deals (2 Petites Poutines avec Breuvages, Special SOLO avec Beignets, Special SOLO avec Churros)
+2. **Les Entrées** - Appetizers (Frite, Patate douce, Bouchée de pomme de terre, Rondelle d'oignon, PopCurds, Bâtonnets de fromage, Jalapeno poppers, Zucchini panées, Cornichons frits panées)
+3. **Les Poutines** - Poutine varieties (Classique, Buffalo, Poulet Thai, La Gatinoise, Amateurs de Viande, Steak au Fromage Philly, Pop Curds, Poulet Croustillant, Bacon, La Club, Végétarienne, Viande Fumée, Épicé, Donaire - all sizes Petit/Grand)
+4. **Desserts** - Desserts (Mini Beignets 6/16/24, Mini Churros 6/12/24)
+5. **Breuvages** - Drinks (Pepsi, Pepsi Diet, 7Up, Ginger Ale, Crush varieties, Crème soda, Root Beer, Dr.Pepper, Thé Glacé, Mountain Dew varieties, Aquafina, Jus varieties, Rockstar Punch)
 
 **Action Taken:** Skipped - all dishes already have course_id assigned.
-**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create courses like:
-- Poutines
-- Specials/Deals
-- Sides/Extras
-- Drinks
-- (Other categories as needed)
+**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create the 5 courses listed above and reassign dishes accordingly.
 
 #### Poutinerie Québecurds Gatineau (Restaurant ID: 802)
 **Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
 **Date:** 2025-11-03
 **Address:** 643 Boulevard Saint-René O, Gatineau ✅ (matches active list)
+**🌐 Online Menu Available:** https://gatineau.poutineriequebecurds.ca/?p=menu&lang=fr
 
 **Details:**
 - Total dishes: 36 ✅ (Good count for poutine restaurant)
@@ -1608,13 +1608,16 @@ The restaurant has a well-organized menu with the following courses that need to
 - All dishes assigned to "Uncategorized" course
 - Status: active ✅ (matches active list)
 
+**Actual Course Structure (from online menu - Bilingual French/English):**
+The restaurant has the same course structure as Hull location:
+1. **Spécials** - Special deals (2 Petites Poutines avec Breuvages, Special SOLO avec Beignets, Special SOLO avec Churros)
+2. **Les Entrées** - Appetizers (Frite, Patate douce, Bouchée de pomme de terre, Rondelle d'oignon, PopCurds, Bâtonnets de fromage, Jalapeno poppers, Zucchini panées, Cornichons frits panées)
+3. **Les Poutines** - Poutine varieties (Classique, Buffalo, Poulet Thai, La Gatinoise, Amateurs de Viande, Steak au Fromage Philly, Pop Curds, Poulet Croustillant, Bacon, La Club, Végétarienne, Viande Fumée, Épicé, Donaire - all sizes Petit/Grand)
+4. **Desserts** - Desserts (Mini Beignets, Mini Churros)
+5. **Breuvages** - Drinks (Pepsi, Pepsi Diet, 7Up, Ginger Ale, Crush varieties, Crème soda, Root Beer, Dr.Pepper, Thé Glacé, Mountain Dew varieties, Aquafina, Jus varieties, Rockstar Punch)
+
 **Action Taken:** Skipped - all dishes already have course_id assigned.
-**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create courses similar to Hull location:
-- Poutines
-- Specials/Deals
-- Sides/Extras
-- Drinks
-- (Other categories as needed)
+**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create the 5 courses listed above and reassign dishes accordingly.
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
