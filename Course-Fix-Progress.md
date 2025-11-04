@@ -872,6 +872,26 @@ Restaurant exists and has a full menu online but is **NOT IN DATABASE**. This in
 
 **Resolution Needed:** RESTAURANT DATA MIGRATION REQUIRED - Restaurant exists and has menu but not in database
 
+#### Riverside Pizzeria (Restaurant ID: 978)
+**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 3679 Riverside Drive, Ottawa ✅
+
+**Details:**
+- Total dishes: 2 ⚠️ (Extremely low for a pizzeria)
+- Dishes with course_id: 2 (100%)
+- Courses defined: 13 ✅ (Good course structure but very few dishes)
+- All dishes assigned to courses ✅
+- Status: active ✅ (matches active list)
+
+**⚠️ DATA QUALITY CONCERN:** Only 2 dishes is extremely suspicious for a pizzeria. One dish is marked "HIDE" (hidden from menu):
+- The Perfect Combo Deal with PopCurds HIDE
+- Oh Sweet Vegan Pizza
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Extremely low dish count (only 2 dishes, 1 hidden) suggests either incomplete menu migration or restaurant may have closed/changed focus.
+
+**Note:** There is also another "Riverside Pizzeria" (ID: 133) at the same address (3679 Riverside Dr) with status "suspended" - may be duplicate or old entry.
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
