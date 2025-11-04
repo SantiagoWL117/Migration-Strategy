@@ -616,26 +616,43 @@ Restaurant has 0 dishes in database. This indicates either:
 **Action Taken:** Skipped - all dishes already have course_id assigned and properly categorized. Restaurant has complete, well-structured menu with proper course organization.
 
 #### Season's Pizza (Restaurant ID: 83)
-**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
 **Date:** 2025-11-03
 **Address:** 725 Somerset Street West, Ottawa ✅ (matches active list)
 
 **Details:**
-- Total dishes: 1 ⚠️ (Extremely low for a pizza restaurant)
+- Total dishes in database: 1 ⚠️ (Only "Spaghatti Pizza")
 - Dishes with course_id: 1 (100%)
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course
-- Status: active ✅ (matches active list)
+- Status: active ✅ (matches active list - confirmed active with Google page linking to our platform)
 
-**⚠️ DATA QUALITY CONCERN:** Only 1 dish ("Spaghatti Pizza") is extremely suspicious for a pizza restaurant. This pattern suggests:
-- Incomplete menu migration, OR
-- Restaurant may have closed/left platform, OR
-- Only test/promotional item migrated
+**🌐 Online Menu Available:** https://seasonspizzaottawa.ca/?p=menu
+**⚠️ CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Restaurant is **VERY ACTIVE** with a **FULL MENU** online, but database only has 1 dish. This is a critical data migration issue similar to Xtreme Pizza and Souvlaki Souvlaki.
 
-**Dishes Found:**
-- Spaghatti Pizza
+**Actual Menu Structure (from online menu):**
+- **Season's Specials** - 6 combo deals (Pizza + Wings, Pizza + Poutine, Family Special, etc.)
+- **Two for One Pizza** - 14 varieties (Plain, 1-3 Toppings, Combination, Canadian, Hawaiian, Chef Special, Meat Lovers, Meat Man, Season's Special, Season's Super Special, Italian, Burger, Vegetarian, Spaghatti Pizza)
+- **Single Pizza** - Various sizes and toppings
+- **Gourmet Pizza** - Multiple specialty pizzas
+- **Submarines** - Various sub options
+- **Donairs** - Donair options
+- **Platters** - Multiple platter options
+- **Salads** - Various salads
+- **Seafood** - Seafood items
+- **Garlic Bread** - Garlic bread options
+- **Finger Food Specials** - Appetizers and finger foods
+- **Chicken Tender Ribs** - Chicken items
+- **Pasta** - Pasta dishes
+- **Mexican Food** - Mexican items
+- **Side Orders** - Fries, onion rings, burgers, cheese sticks, nachos, etc.
+- **Desserts** - Mini donuts and churros (multiple flavors and sizes)
+- **Drinks** - Various soft drinks and water
 
-**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Extremely low dish count suggests verification needed (check if closed, missing menu items, or incomplete migration).
+**Dishes Found in Database:**
+- Spaghatti Pizza (only 1 dish - represents <1% of actual menu)
+
+**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed before proper course assignment can proceed. This is a data migration issue, not a course assignment issue.
 
 **Note:** There is also another "Season's Pizza" (ID: 856) at 826 Somerset St W (suspended) - different restaurant
 
@@ -1023,7 +1040,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Corrections Needed:** 4 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes) - Database status needs to match active list
 - **Not Found:** 4 (Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
-- **Critical Data Issues:** 5 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online)
+- **Critical Data Issues:** 6 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online, Season's Pizza - 1 dish but active with full menu online)
 - **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 224
