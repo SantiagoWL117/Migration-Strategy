@@ -1710,6 +1710,29 @@ The restaurant has a comprehensive menu with the following courses:
 2. Once migrated, create proper courses matching online menu structure (13 categories)
 3. Then assign all dishes to appropriate courses
 
+#### Pizzalicious (Restaurant ID: 829)
+**Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
+**Date:** 2025-11-03
+**Address:** 1009 Merivale Rd, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 1 ⚠️⚠️⚠️ (EXTREMELY LOW - Only "Calzone")
+- Dishes with course_id: 1 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**⚠️🚨 CRITICAL DATA MIGRATION ISSUE:** Only 1 dish ("Calzone") in database for a pizza restaurant. This is impossible - a pizza restaurant should have dozens of dishes (pizza varieties, appetizers, sides, drinks, etc.). This pattern suggests:
+- **CRITICAL:** Menu data was never migrated or was deleted, OR
+- Restaurant may have closed/left platform (similar to Twisted Pita pattern), OR
+- Massive data migration failure
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** 
+1. **URGENT:** Verify if restaurant is still active and has a full menu online
+2. If active, full menu migration required - restaurant has virtually no menu data
+3. If closed/left platform, remove from active list
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
