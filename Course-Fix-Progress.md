@@ -766,6 +766,35 @@ The restaurant has a well-organized menu structure with the following courses:
 
 **Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Restaurant may not actually be using our platform for ordering (shares location, no poutine menu items). Should verify if they need to be on active list.
 
+#### Royal Thai Cuisine (Restaurant ID: 465)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 62 Maple Ave, Barrie ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+- **CRITICAL:** 0 dishes in database
+
+**Current Database Status:**
+- Total dishes: 0
+- Courses defined: 0
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**🚨 CRITICAL DATA ISSUE:**
+Restaurant has 0 dishes in database. This indicates either:
+- Menu data was never migrated, OR
+- Menu data was deleted, OR
+- Restaurant may have closed/left platform
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. **URGENT:** Menu migration required - restaurant has no menu data
+3. Cannot proceed with course assignment until menu is migrated
+4. Status correction needed AND menu migration needed
+
+**Note:** There is also "JC Royal Thai Cuisine" (ID: 646) at 100 Jamieson Pkwy, Cambridge (active) - different restaurant
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
@@ -1148,9 +1177,9 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Left Platform (RestaurantPlus.net):** 20 restaurants confirmed (8 in database including Samo's Greek Kitchen, 12 not found) - Should be removed from active list
 - **Left Platform (Other):** 2 (The Cupboard, Shawarma King 395 Bank St - no longer on our platform) - Should be removed from active list
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
-- **Status Corrections Needed:** 4 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes) - Database status needs to match active list
+- **Status Corrections Needed:** 5 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes, Royal Thai Cuisine - listed active but DB suspended + 0 dishes) - Database status needs to match active list
 - **Not Found:** 4 (Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
-- **Critical Data Issues:** 6 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online, Season's Pizza - 1 dish but active with full menu online)
+- **Critical Data Issues:** 7 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online, Season's Pizza - 1 dish but active with full menu online, Royal Thai Cuisine - 0 dishes)
 - **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 224
