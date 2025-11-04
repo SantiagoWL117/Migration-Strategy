@@ -1140,6 +1140,265 @@ Restaurant has 0 dishes in database. This indicates either:
 
 **Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list or marked as inactive/left platform.
 
+#### Sala Thai (Restaurant ID: 745)
+**Status:** ⏳ NEEDS WORK - 94 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 2666 Alta Vista Dr, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 94 ✅ (Good count - full Thai menu)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 94 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅ (matches active list)
+
+**Menu Structure Analysis:**
+Thai restaurant with numbered dish codes (1., 2., 3., etc.). Sample dishes show:
+- Appetizers (Pao Pia Goong, Pao Pia Vegetables, Satay, Tofu Tod)
+- Soups (Tom Yum Goong or Gai, Tom Kha Goong or Gai, Gaeng Jued Woonsen)
+- Salads (Yum Ma-Muang, Yum Woonsen, Som Tom, Nuea Nam Tok, Lapp)
+- Stir-fried dishes (Pad Tofu, Pad Pak Raum Mit, Pad Bai Gra Prow, Pad Preow Warn)
+- Curries (Gaeng Pak, Gaeng Pak with Tofu)
+- Seafood (Pla Lad Prig, Pad Pak Talae, Goong Pad Med Ma-Muang, Goong Pad Ma-Khua Yao)
+- Specialty dishes (Sala Sizzling, Tod Gratiam Prik Thai, Tao-Hu Ob Mor Din)
+- Some dishes marked "HIDE" (hidden from menu)
+
+**🌐 Online Menu Available:** https://salathaicuisine.menu.ca/?p=menu
+**Menu Structure (from online menu):**
+The restaurant has a well-organized menu structure with the following courses:
+- **Family Dinner Feasts** - Combo meals for 2 or 4 people
+- **Daily Luncheon Specials** - Lunch specials (11:30am-2pm)
+- **Appetizers** - Spring rolls, satay, tofu (numbered 1-5)
+- **Soup** - Tom Yum, Tom Kha, Gaeng Jued Woonsen (numbered 6-8)
+- **Yum (Salad)** - Thai salads (numbered 9, 12-13)
+- **Vegetarian** - Vegetarian dishes (numbered 16-19)
+- **Seafood** - Seafood dishes (numbered 20-25)
+- **Fried Rice & Noodles** - Pad Thai, Pad Kee Mao, Pad Siew, etc. (numbered 32-36)
+- **Curries** - Red curry, green curry, Panang, Gaeng Garee (numbered 38-42)
+- **Chicken, Beef & Pork** - Meat dishes (numbered 44-47)
+- **Side Orders** - Steamed rice options
+- **Desserts** - Tapioca pudding, chocolate cake
+- **Drinks** - Soft drinks, water, Perrier
+- **Beer** - Various beer options
+
+**Action Required:**
+1. Create courses matching the online menu structure:
+   - Family Dinner Feasts
+   - Daily Luncheon Specials
+   - Appetizers
+   - Soup
+   - Yum (Salad)
+   - Vegetarian
+   - Seafood
+   - Fried Rice & Noodles
+   - Curries
+   - Chicken, Beef & Pork
+   - Side Orders
+   - Desserts
+   - Drinks
+   - Beer
+2. Assign 94 dishes to appropriate courses using numbered code patterns (matches online menu numbering)
+
+**Resolution Needed:** CREATE COURSES (based on online menu structure) AND ASSIGN DISHES
+
+**Note:** There is also another "Sala Thai" (ID: 940) at the same address (2666 Alta Vista Dr) with status "pending" - may be duplicate or pending activation.
+
+#### Routine Poutine (Restaurant ID: 979)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SHARES LOCATION - May not have menu with us
+**Date:** 2025-11-03
+**Address:** 4000 Bridle Path Drive, Gloucester, ON ✅
+
+**Details:**
+- Total dishes: 8 ⚠️ (Very low for a poutine restaurant)
+- Dishes with course_id: 8 (100%)
+- Courses defined: 2 ✅
+- All dishes assigned to courses ✅
+- Status: active ✅ (matches active list)
+
+**⚠️ LOCATION SHARING NOTE:** Restaurant appears to **share a location/roof** with another restaurant (based on Facebook page). **Does not appear to have a menu with us** - explains why there are no poutine dishes and only 8 unrelated items.
+
+**Dishes Found (Appetizers/Finger Foods - No Poutine Items):**
+- Thai Bites
+- Breaded Zucchini (20 pcs)
+- Breaded Pickles (7 pcs)
+- Mozzarella Sticks (10 pcs)
+- Jalapeno Poppers (7 pcs)
+- Chicken Wings (1lb)
+- Capri Combo Box
+- Large Crack Stick Combo Box
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Restaurant may not actually be using our platform for ordering (shares location, no poutine menu items). Should verify if they need to be on active list.
+
+#### Royal Thai Cuisine (Restaurant ID: 465)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 62 Maple Ave, Barrie ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+- **CRITICAL:** 0 dishes in database
+
+**Current Database Status:**
+- Total dishes: 0
+- Courses defined: 0
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**🚨 CRITICAL DATA ISSUE:**
+Restaurant has 0 dishes in database. This indicates either:
+- Menu data was never migrated, OR
+- Menu data was deleted, OR
+- Restaurant may have closed/left platform
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. **URGENT:** Menu migration required - restaurant has no menu data
+3. Cannot proceed with course assignment until menu is migrated
+4. Status correction needed AND menu migration needed
+
+**Note:** There is also "JC Royal Thai Cuisine" (ID: 646) at 100 Jamieson Pkwy, Cambridge (active) - different restaurant
+
+#### Roulas Jus et Gelato (Restaurant ID: 777)
+**Status:** ⏳ NEEDS WORK - 38 dishes, 0 courses, 100% unassigned | ⚠️ TEMPORARILY CLOSED
+**Date:** 2025-11-03
+**Address:** 245, rue de Cannes, Gatineau ✅ (matches active list)
+
+**Details:**
+- Total dishes: 38 ✅ (Good count for a juice/gelato shop)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 38 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active (but restaurant is temporarily closed)
+
+**Menu Structure Analysis:**
+Bilingual French/English juice and gelato shop. Sample dishes show:
+- **Juices** (Cocktail, Avocado, Mango, Tropicana, Fiji, etc.)
+- **Gelato/Ice Cream Items** (Ashta, Deluxe, Banana Split, Twist, Tango, Punch, Big Red, Bananaz, Keto-Pia, Silly Monkey, Reboot)
+- **Ice Cream Flavors** (Vanille, Chocolat, Fraise, Oreo, Reeses Pieces, Skore)
+- **Sundaes** (Sundae Fraise, Sundae Chocolat, Sundae Caramel)
+- **Ice Cream** (Crème Glacée Vanille, Crème Glacée Chocolat, Glacé Chocolat)
+- **Cones/Bowls** (Cornet, Petit Bol)
+- Some dishes marked "HIDE" (hidden from menu)
+
+**⚠️ RESTAURANT STATUS:** Restaurant is **TEMPORARILY CLOSED** (user verified). Course assignment work can proceed when restaurant reopens.
+
+**Action Required:**
+1. Create courses for juice/gelato shop:
+   - Juices / Jus
+   - Gelato / Crème Glacée
+   - Sundaes
+   - Ice Cream Flavors / Saveurs de Crème Glacée
+   - Cones & Bowls / Cornets et Bols
+   - (Other categories as needed)
+2. Assign 38 dishes to appropriate courses using dish name patterns
+
+**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES (when restaurant reopens or if status changes)
+
+#### Roulas Grecque et Pizza (Line 219)
+**Status:** ⚠️ NOT FOUND IN DATABASE - Has menu online | 🚨 DATA MIGRATION ISSUE
+**Date:** 2025-11-03
+**Address:** 245, rue de Cannes, Gatineau ✅ (matches active list)
+
+**Details:**
+- Restaurant name from active list: "Roulas Grecque et Pizza"
+- **🌐 Online Menu Available:** https://roulas.ca/?p=menu&lang=fr
+- **RESTAURANT EXISTS AND HAS MENU WITH US** (user verified)
+- Searched database for variations: "Roulas Grecque", "Roula Grec", "Grecque Pizza"
+- Found restaurants at same address (245, rue de Cannes):
+  - Roulas Jus et Gelato (ID: 777) - active
+  - Opa's (ID: 60) - suspended
+- No exact match found for "Roulas Grecque et Pizza" in database
+
+**🚨 DATA MIGRATION ISSUE:**
+Restaurant exists and has a full menu online but is **NOT IN DATABASE**. This indicates:
+- Restaurant was never migrated to menuca_v3, OR
+- Restaurant is listed under a different name in database, OR
+- Data migration was incomplete
+
+**Menu Structure (from online menu - French):**
+- Plus pour Moins (Deals - Family Shawarma Plate, Trio Sandwich, Trio Poutine, Trio Submarine, Family Special, Special Roula)
+- Les Spécialités Roulas (Platters - 1 Brochette, Donair Beef, Chicken Shawarma, Marinated Chicken, Various Brochettes, Combos, Vegetarian)
+- Les Sandwiches (Shawarma KETO, Souvlaki on Pita, Gyro, Vegetarian Gyro, Donair, Chicken Shawarma, Kafta on Pita, Vegetarian Pita, Club on Pita)
+- Les Sous-Marins (Submarines - Club, Hot Chicken, Donair, Shawarma, Tuna, Veggie)
+- A la Carte Pizza (Many varieties - Regular, All Dressed, Pepperoni, Hawaiian, Vegetarian, BBQ, Mexicali, Chef's Specialty, etc.)
+- Kalzone (Create Your Own)
+- Les Salades (Greek Salad, Caesar Salad, Fattoush - with/without chicken, VIP versions)
+- Ailes (Wings - 6, 12, 24 pieces, Wing and Fries combo - Hot, BBQ, Honey Garlic)
+- Poutines (Regular, Shawarma, Donair, Club)
+- Les Desserts Roulas (Baklava)
+- Boissons (Drinks - Pepsi, Diet Pepsi, 7 Up, Ginger Ale)
+
+**Action Required:**
+1. **URGENT:** Find restaurant in database (may be under different name) OR migrate restaurant data
+2. Once found/migrated, create courses matching online menu structure
+3. Assign dishes to courses
+
+**Resolution Needed:** RESTAURANT DATA MIGRATION REQUIRED - Restaurant exists and has menu but not in database
+
+#### Riverside Pizzeria (Restaurant ID: 978)
+**Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
+**Date:** 2025-11-03
+**Address:** 3679 Riverside Drive, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes in database: 2 ⚠️ (Only "The Perfect Combo Deal with PopCurds HIDE" and "Oh Sweet Vegan Pizza")
+- Dishes with course_id: 2 (100%)
+- Courses defined: 13 ✅ (Good course structure but very few dishes)
+- All dishes assigned to courses ✅
+- Status: active ✅ (matches active list)
+
+**🌐 Online Menu Available:** https://m.riversidepizzeriaottawa.ca/menu
+**⚠️ CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Restaurant is **VERY ACTIVE** with a **FULL MENU** online, but database only has 2 dishes. Restaurant is using **OLD VERSION of mobile platform** (old-school Google mobile version with tables). This is a critical data migration issue - menu exists but hasn't been migrated to menuca_v3.
+
+**Actual Menu Structure (from online menu):**
+- **Specials** - Melina's Famous Calzones, 30 Wings Special
+- **Pizza** - 25+ varieties (Riverside Special, Canadian, Vegetarian, Greek, Meat Lovers, Santina, Aloha, Hawaiian Island, Parmesan Chicken, Steak and Veggie, Tango Special, Combination, Deluxe, BBQ Chicken, Pepperoni Lovers, Double Trouble, Poutine Pizza, Prosciutto White Pizza, Godfather, La Margherita, Garlic Lovers, Dani Boy Special, New Yorker, Nacho Pizza, Woww Pizza, Soprano, Butter Chicken Pizza)
+- **Build Your Own Pizza** - Plain, 1-3 Toppings (all sizes)
+- **Toasted Subs** - 9 varieties (Big D's Favourites, Cheese Steak, Club Sub, Meatball Sub, Chicken Parmesan, Pizza Sub, Greek Sub, Heart Attack Supreme, Crispy Chicken Sub)
+- **Pastas** - 6 varieties (Spaghetti with Meat Sauce, Chicken Parmesan, Lasagna, Riverside Lasagna, Fettuccine Alfredo, Tortellini Three Cheese)
+- **Salads** - Chef's Salad, Greek Salad, Caesar Salad
+- **Chicken Wings** - Classic, Breaded, Boneless (10/20/30 wings)
+- **Platters** - 7 varieties (Hamburger, Cheeseburger, Bacon Cheeseburger, Cheddar & Mushroom Jalapeno Burger Melt, Club Sandwich, Chicken Fingers, Chicken Burger - all with fries)
+- **Go Solo** - 4 burger options (Hamburger, Cheeseburger, Bacon Cheeseburger, Cheddar & Mushroom Jalapeno Burger Melt)
+- **Sides** - Pop Curds, Onion Rings, French Fries, Daniel's Famous Poutine, Deep Fried Pickles, Jalapeno Poppers, Mac N Cheese Bites, Nachos, Chicken/Beef Nachos, Mozzarella Sticks, Zucchini Sticks, Garlic Sticks, Garlic Bread, Dipping Sauces
+- **Desserts** - Nutella Calzone, Cinnamon Balls, Caramel Apple Cheesecake, Reese's Peanut Butter Blondie, Strawberry Cheesecake
+- **Drinks** - Coke, Diet Coke, A&W Root Beer, Ginger Ale
+
+**Dishes Found in Database:**
+- The Perfect Combo Deal with PopCurds HIDE (only 2 dishes - represents <1% of actual menu)
+- Oh Sweet Vegan Pizza
+
+**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed from old platform to menuca_v3 before proper course assignment can proceed. This is a data migration issue, not a course assignment issue.
+
+**Note:** There is also another "Riverside Pizzeria" (ID: 133) at the same address (3679 Riverside Dr) with status "suspended" - may be duplicate or old entry.
+
+#### Restaurant O'Wok (Restaurant ID: 375)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 6078, ch de Chambly, Saint-Hubert ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+- **CRITICAL:** 0 dishes in database
+
+**Current Database Status:**
+- Total dishes: 0
+- Courses defined: 0
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**🚨 CRITICAL DATA ISSUE:**
+Restaurant has 0 dishes in database. This indicates either:
+- Menu data was never migrated, OR
+- Menu data was deleted, OR
+- Restaurant may have closed/left platform
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. **URGENT:** Menu migration required - restaurant has no menu data
+3. Cannot proceed with course assignment until menu is migrated
+4. Status correction needed AND menu migration needed
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
@@ -1520,9 +1779,16 @@ Actual menu structure from online shows ~15 categories that should be created:
   - Course assignments fixed: 8 (Capri Pizza, Al's Drive In, All Out Burger Gladstone, All Out Burger Montreal Rd, Routine Poutine, Chicco St-Louis, Chicco Buckingham, Chicco Cantley)
   - Already properly assigned: 14 (Beneci Pizza, All Out Burger 6 locations, Capital Bites, Cathay Restaurants, Centertown Donair & Pizza, Centre Pizza, Chicco de l'Hopital, Chicco Maloney, Chicco Shawarma Anger, Chicco Shawarma Maloney, Charm Thai→NANA Thai, Burger Lovers)
 - **Restaurants with Uncategorized Course Only:** 5 (Argos Greek & Pizza, Aylmer BBQ, Carlo's Pizza, Centre Pizza, Burger Lovers)
-- **Skipped (No Courses Defined):** 6 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Bank Shawarma, Dépanneur Généreux)
+- **Needs Work (0 Courses Defined):** 7 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs, Bank Shawarma, Dépanneur Généreux, Sushiyana - 252 dishes, Sushi Fleury - 338 dishes!)
+- **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
 - **Skipped (No Dishes):** 1 (Champa Thai Food)
-- **Not Found in Database:** 2 (Chances R' East, Chances R' West)
+- **Left Platform (RestaurantPlus.net):** 20 restaurants confirmed (8 in database including Samo's Greek Kitchen, 12 not found) - Should be removed from active list
+- **Left Platform (Other):** 2 (The Cupboard, Shawarma King 395 Bank St - no longer on our platform) - Should be removed from active list
+- **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
+- **Status Corrections Needed:** 6 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes, Royal Thai Cuisine - listed active but DB suspended + 0 dishes, Restaurant O'Wok - listed active but DB suspended + 0 dishes) - Database status needs to match active list
+- **Not Found in Database:** 4 (Chances R' East, Chances R' West, Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
+- **Critical Data Issues:** 9 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online, Season's Pizza - 1 dish but active with full menu online, Royal Thai Cuisine - 0 dishes, Riverside Pizzeria - 2 dishes but active with full menu on old platform, Restaurant O'Wok - 0 dishes)
+- **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 217
 - **Success Rate:** 100% (of processable restaurants)
