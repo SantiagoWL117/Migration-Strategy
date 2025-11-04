@@ -740,6 +740,30 @@ The restaurant has a well-organized menu structure with the following courses:
 
 **Note:** There is also another "Sala Thai" (ID: 940) at the same address (2666 Alta Vista Dr) with status "pending" - may be duplicate or pending activation.
 
+#### Routine Poutine (Restaurant ID: 979)
+**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 4000 Bridle Path Drive, Gloucester, ON ✅
+
+**Details:**
+- Total dishes: 8 ⚠️ (Very low for a poutine restaurant)
+- Dishes with course_id: 8 (100%)
+- Courses defined: 2 ✅
+- All dishes assigned to courses ✅
+- Status: active ✅ (matches active list)
+
+**⚠️ DATA QUALITY CONCERN:** Only 8 dishes is suspiciously low for a poutine restaurant. You would expect many poutine varieties (regular, Italian, smoked meat, bacon, chicken, etc.), but the database only shows appetizers/finger foods:
+- Thai Bites
+- Breaded Zucchini (20 pcs)
+- Breaded Pickles (7 pcs)
+- Mozzarella Sticks (10 pcs)
+- Jalapeno Poppers (7 pcs)
+- Chicken Wings (1lb)
+- Capri Combo Box
+- Large Crack Stick Combo Box
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count and no poutine dishes found suggests either incomplete menu migration or restaurant may have changed focus/closed.
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
