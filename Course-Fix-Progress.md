@@ -689,29 +689,6 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ---
 
-### Restaurants with Uncategorized course:
-
-#### Argos Greek & Pizza (Restaurant ID: 774)
-**Status:** ✅ STATUS CORRECTED - Was suspended, now active
-**Date:** 2025-11-03
-
-**Issue Found:**
-- Listed in Restaurants-active.md as active
-- Database status was: suspended
-- Status mismatch identified
-
-**Action Taken:**
-- Updated restaurant status from 'suspended' to 'active'
-- Verified update successful
-
-**Menu Status:**
-- Total dishes: 21
-- Courses defined: 1 (Uncategorized)
-- Dishes with course_id: 21 (100%) ✅
-- All dishes already properly assigned
-
-**Result:** Restaurant status corrected. No course assignment work needed.
-
 ### ⏸️ Restaurants with Suspended/Pending Status
 
 #### Vanier Pizza & Subs (Restaurant ID: 62)
@@ -805,7 +782,28 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 ---
 
-### Restaurants with Courses Already Assigned
+### Restaurants with Uncategorized course:
+
+#### Argos Greek & Pizza (Restaurant ID: 774)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status was: suspended
+- Status mismatch identified
+
+**Action Taken:**
+- Updated restaurant status from 'suspended' to 'active'
+- Verified update successful
+
+**Menu Status:**
+- Total dishes: 21
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 21 (100%) ✅
+- All dishes already properly assigned
+
+**Result:** Restaurant status corrected. No course assignment work needed.
 
 #### 2 for 1 Pizza (Restaurant ID: 223)
 **Status:** ⚠️ SKIPPED - Already has course assignments
