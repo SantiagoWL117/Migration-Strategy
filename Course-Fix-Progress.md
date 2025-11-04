@@ -741,7 +741,7 @@ The restaurant has a well-organized menu structure with the following courses:
 **Note:** There is also another "Sala Thai" (ID: 940) at the same address (2666 Alta Vista Dr) with status "pending" - may be duplicate or pending activation.
 
 #### Routine Poutine (Restaurant ID: 979)
-**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SHARES LOCATION - May not have menu with us
 **Date:** 2025-11-03
 **Address:** 4000 Bridle Path Drive, Gloucester, ON ✅
 
@@ -752,7 +752,9 @@ The restaurant has a well-organized menu structure with the following courses:
 - All dishes assigned to courses ✅
 - Status: active ✅ (matches active list)
 
-**⚠️ DATA QUALITY CONCERN:** Only 8 dishes is suspiciously low for a poutine restaurant. You would expect many poutine varieties (regular, Italian, smoked meat, bacon, chicken, etc.), but the database only shows appetizers/finger foods:
+**⚠️ LOCATION SHARING NOTE:** Restaurant appears to **share a location/roof** with another restaurant (based on Facebook page). **Does not appear to have a menu with us** - explains why there are no poutine dishes and only 8 unrelated items.
+
+**Dishes Found (Appetizers/Finger Foods - No Poutine Items):**
 - Thai Bites
 - Breaded Zucchini (20 pcs)
 - Breaded Pickles (7 pcs)
@@ -762,7 +764,7 @@ The restaurant has a well-organized menu structure with the following courses:
 - Capri Combo Box
 - Large Crack Stick Combo Box
 
-**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count and no poutine dishes found suggests either incomplete menu migration or restaurant may have changed focus/closed.
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Restaurant may not actually be using our platform for ordering (shares location, no poutine menu items). Should verify if they need to be on active list.
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
