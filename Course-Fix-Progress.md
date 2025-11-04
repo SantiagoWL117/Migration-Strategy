@@ -1399,6 +1399,123 @@ Restaurant has 0 dishes in database. This indicates either:
 3. Cannot proceed with course assignment until menu is migrated
 4. Status correction needed AND menu migration needed
 
+#### Restaurant Le Choix (Restaurant ID: 106)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA MIGRATION ISSUE
+**Date:** 2025-11-03
+**Address:** 139, rue Principale, Gatineau ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+- **Restaurant is ACTIVE** - Google Business page links to our platform (user verified)
+
+**🌐 Online Menu Available:** https://lechoixaylmer.com/?p=menu&lang=fr
+**⚠️ CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Restaurant is **VERY ACTIVE** with a **FULL MENU** online, but database only has 12 dishes (many marked HIDE). This is a critical data migration issue - menu exists but hasn't been fully migrated to menuca_v3.
+
+**Current Database Status:**
+- Total dishes in database: 12 ⚠️ (Only specials, many marked HIDE)
+- Dishes with course_id: 12 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: suspended (needs correction to active)
+
+**Actual Menu Structure (from online menu - French):**
+- **Spéciale** - 5 pizza specials (A-E: Grande/Jumbo All Dressed, Two Medium/Large Combination, Two Gyros)
+- **Pizza** - 13+ varieties (Simple, 1 Ingrédient, Combinée, Hawaïenne, Végétarienne, Le Choix Spécial, Fajita, Pizza Grecque, Meat Lover, Steak Pizza, Canadienne, Mexicaine, Pizza Alfredo - all sizes)
+- **Apéritifs** - Appetizers (Calamar, Spanakopita, Tzatziki, etc.)
+- **Salades** - Salads (Greek Salad, Caesar Salad, etc.)
+- **Assiettes Souvlaki** - Souvlaki platters (various proteins)
+- **Sélection le Choix** - Special selection items
+- **Wraps** - Wrap options
+- **Frites** - Fries and Poutine
+- **Hamburgers** - Burgers (Hamburger, Chicken Burger, with/without platter)
+- **Sandwiches Club** - Club sandwiches, chicken fingers, wings, fish & chips
+- **Sous-Marins** - Submarines (9 varieties)
+- **Keto** - Keto options (Pizza, Souvlaki, Shrimp, Gyros)
+- **Desserts** - Baklava
+- **Breuvage** - Drinks (Coke, Diet Coke, Ginger Ale, Root Beer, Orange Crush, Water)
+
+**Dishes Found in Database (Only Specials):**
+- Special 5/6: Two Medium/Large Pizzas (English/French versions, many marked HIDE)
+- A-D: Large/Jumbo/Two Medium/Two Large Pizza varieties (All Dressed, Combination)
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** Update database status from `suspended` to `active`
+2. **URGENT:** Full menu migration needed - restaurant has full menu online but only 12 special dishes in database
+3. Once migrated, create proper courses matching online menu structure
+4. Then assign all dishes to appropriate courses
+
+#### Restaurant Chez Gerry (Restaurant ID: 109)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA MIGRATION ISSUE
+**Date:** 2025-11-03
+**Address:** 9, rue Therien, Gatineau ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+- **Restaurant is ACTIVE** - Google Business page links to our platform (user verified)
+
+**🌐 Online Menu Available:** https://chezgerry.ca/?p=menu&lang=fr
+**⚠️ CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Restaurant is **VERY ACTIVE** with a **FULL MENU** online, but database only has 24 dishes (appear to be pizza toppings/ingredients, not actual menu items). This is a critical data migration issue - menu exists but hasn't been fully migrated to menuca_v3.
+
+**Current Database Status:**
+- Total dishes in database: 24 ⚠️ (Only pizza toppings/ingredients, not actual menu items)
+- Dishes with course_id: 24 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: suspended (needs correction to active)
+
+**Actual Menu Structure (from online menu - French):**
+- **Spéciale** - Combo Platter (Zucchini, onion rings, chicken fingers, cheese sticks, fries)
+- **Pizza** - 10+ varieties (Fromage, Une Garniture, Hawaiian, Toute Garnie, Végétarienne, Grecque, Méditerranéenne, Aubergineanne, Spéciale Maison, Pizza Gerry - all sizes)
+- **Mets Canadiens** - 9 Canadian dishes (Club Sandwich, Club Poutine, Chicken Fingers, Fish & Chips, Hamburger Steak, Hot Chicken, Shrimp Basket, Chicken Tortilla, Chicken Souvlaki)
+- **Burgers** - 3 varieties (Hamburger, Cheeseburger, Chicken Burger - sandwich or platter)
+- **Entrées** - Appetizers (Fries, Poutine, Italian Poutine, Onion Rings, Chicken Nachos, Vegetarian Nachos, Cheese Sticks, Chicken Fingers, Zucchini Sticks, Wings, Sauces)
+- **Salades** - 6 varieties (Salade Gerry, Greek Salad, Caesar Salad, Caesar with Chicken, Fattouche, Chef Salad)
+- **12" Sous Marins** - 7 varieties (Biftek, Meatballs, Pepperoni, Smoked Meat, Roast Beef, Pizza, House Combination)
+- **Ailes de Poulet** - Wings (10/15/20 wings with fries, various sauces)
+- **Donair** - Beef and Chicken (sandwich or platter)
+- **Italienne** - 10 pasta dishes (Lasagna varieties, Spaghetti varieties, Ravioli, Cannelloni, Manicotti, Chicken/Veal Parmesan)
+- **Desserts** - 4 varieties (Cheesecake, Lava Cake, Cookies & Cream Cake, Pecan Pie)
+- **Breuvages** - Drinks (Pepsi, Diet Pepsi, Coke, Diet Coke, Sprite, 7 Up, Orange Crush, Root Beer, Ginger Ale, Water)
+
+**Dishes Found in Database (Only Pizza Toppings/Ingredients):**
+- Pizza base/toppings (One Topping, Pepperoni, Champignons, Sauce à la viande, Tomates, Oignons, Bacon, Fromage Extra, Olives, Poivrons Verts, Ananas, Ail, Poivrons Rouges, Fromage Feta, Jambon, Artichauts)
+- Crust options (Croûte Mince, Croûte Régulière)
+- Sauces (Ranch)
+- Special deals (marked HIDE)
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** Update database status from `suspended` to `active`
+2. **URGENT:** Full menu migration needed - restaurant has full menu online but only pizza toppings/ingredients in database (not actual menu items)
+3. Once migrated, create proper courses matching online menu structure
+4. Then assign all dishes to appropriate courses
+
+#### Rangoli (Restaurant ID: 497)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 2491 St-Joseph Blvd, Ottawa ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+
+**Current Database Status:**
+- Total dishes: 14 ✅
+- Dishes with course_id: 14 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**Menu Sample (Indian Cuisine):**
+- Thali options (Vegetarian, Non-Vegetarian, Prawn/Seafood)
+- Dinner combos (Dinner For Two - Vegetarian/Non-Vegetarian, Rangoli Dinner)
+- Vegetarian dishes (Malai Kofta, Kadhai Paneer, Muttar Paneer, Okra Masala, Mushroom Matar, Palak Paneer, Mattar Palak, Aloo Saag)
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. Course assignment already complete - all dishes assigned
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
@@ -1787,7 +1904,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Corrections Needed:** 6 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes, Royal Thai Cuisine - listed active but DB suspended + 0 dishes, Restaurant O'Wok - listed active but DB suspended + 0 dishes) - Database status needs to match active list
 - **Not Found in Database:** 4 (Chances R' East, Chances R' West, Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
-- **Critical Data Issues:** 9 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online, Season's Pizza - 1 dish but active with full menu online, Royal Thai Cuisine - 0 dishes, Riverside Pizzeria - 2 dishes but active with full menu on old platform, Restaurant O'Wok - 0 dishes)
+- **Critical Data Issues:** 10 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online, Season's Pizza - 1 dish but active with full menu online, Royal Thai Cuisine - 0 dishes, Riverside Pizzeria - 2 dishes but active with full menu on old platform, Restaurant Le Choix - 12 dishes but active with full menu online, Restaurant Chez Gerry - 24 dishes but active with full menu online)
 - **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 217
