@@ -656,6 +656,27 @@ Restaurant has 0 dishes in database. This indicates either:
 
 **Note:** There is also another "Season's Pizza" (ID: 856) at 826 Somerset St W (suspended) - different restaurant
 
+#### Samo's Greek Kitchen (Restaurant ID: 791)
+**Status:** ⚠️ SKIPPED - Already assigned | 🚫 LEFT PLATFORM - On RestaurantPlus.net
+**Date:** 2025-11-03
+**Address:** 911 Richmond Road, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 14 ⚠️ (Low for a Greek restaurant)
+- Dishes with course_id: 14 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active (but restaurant has left platform)
+
+**🚫 RESTAURANT STATUS:** Restaurant has **LEFT our platform** and is now using **RestaurantPlus.net/OlivePOS** (confirmed in RestaurantPlus.net migration document). This explains the suspiciously low dish count (only basic items remain).
+
+**Dishes Found:**
+- Poutine, Greek Sausage Platter, French Fries, Onion Rings, Wedge Potatoes
+- Chicken Nuggets (10 pcs), Greek Sausage Wrap
+- Pizza items (1 Medium Pizza 3 Toppings, 1 Small Pizza 3 Toppings, 2 Large Pizzas, 3 Medium Pizzas, 2 Small Pizzas, 2 Medium Pizzas, King's Signature BBQ Pizza)
+
+**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list or marked as inactive/left platform.
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
@@ -1035,7 +1056,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Completed:** 7
 - **Needs Work (0 Courses):** 7 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs, Sushiyana - 252 dishes, Sushi Fleury - 338 dishes!)
 - **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
-- **Left Platform (RestaurantPlus.net):** 19 restaurants confirmed (7 in database, 12 not found) - Should be removed from active list
+- **Left Platform (RestaurantPlus.net):** 20 restaurants confirmed (8 in database including Samo's Greek Kitchen, 12 not found) - Should be removed from active list
 - **Left Platform (Other):** 2 (The Cupboard, Shawarma King 395 Bank St - no longer on our platform) - Should be removed from active list
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Corrections Needed:** 4 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes) - Database status needs to match active list
