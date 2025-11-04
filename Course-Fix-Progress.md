@@ -1494,29 +1494,53 @@ Restaurant has 0 dishes in database. This indicates either:
 4. Then assign all dishes to appropriate courses
 
 #### Rangoli (Restaurant ID: 497)
-**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA MIGRATION ISSUE
 **Date:** 2025-11-03
 **Address:** 2491 St-Joseph Blvd, Ottawa ✅ (matches active list)
 
 **Issue Found:**
 - Listed in Restaurants-active.md as **active** (user-provided list - should be active)
 - **Database status: suspended** (needs correction to match active list)
+- **Restaurant is ACTIVE** - Google Business page links to our platform (user verified)
+- **🌐 Online Menu Available:** https://rangoli.menu.ca/?p=menu
+
+**⚠️ CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Restaurant is **VERY ACTIVE** with a **FULL MENU** online, but database only has 14 dishes. This is a critical data migration issue - menu exists but hasn't been fully migrated to menuca_v3.
 
 **Current Database Status:**
-- Total dishes: 14 ✅
+- Total dishes in database: 14 ⚠️ (Only combination dinners and a few vegetarian dishes)
 - Dishes with course_id: 14 (100%) ✅
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course
-- Status: suspended (restaurant not showing on frontend because DB says suspended)
+- Status: suspended (needs correction to active)
 
-**Menu Sample (Indian Cuisine):**
-- Thali options (Vegetarian, Non-Vegetarian, Prawn/Seafood)
-- Dinner combos (Dinner For Two - Vegetarian/Non-Vegetarian, Rangoli Dinner)
-- Vegetarian dishes (Malai Kofta, Kadhai Paneer, Muttar Paneer, Okra Masala, Mushroom Matar, Palak Paneer, Mattar Palak, Aloo Saag)
+**Actual Menu Structure (from online menu):**
+- **Lunch Special** - 4 combo options (A-D: Vegetarian, Chicken, Lamb/Beef, Seafood)
+- **Express Lunch To Go** - 3 quick lunch options (Butter Chicken, Chicken Curry, Channa Masala with Rice)
+- **Appetizers** - 12+ items (Samosas, Pakoras, Aloo Tikki, Channa Bhatura, etc.)
+- **Indian Bread** - 12+ varieties (Naan, Parantha, Roti, Kulcha, etc.)
+- **Soups** - 2 varieties (Mulligatawny, Dal Soup)
+- **Tandoori Specialities** - 6+ items (Mixed Tandoori, Paneer Tikka, Tandoori Chicken, Chicken Tikka, Sheekh Kabob, Tandoori Shrimp)
+- **Entrees** - Dozens of curry dishes (Chicken, Lamb, Beef, Seafood varieties)
+- **Seafood Specialities** - Multiple seafood curry options
+- **Vegetable Entrees** - 10+ vegetarian dishes (Malai Kofta, Kadhai Paneer, Muttar Paneer, Palak Paneer, etc.)
+- **Rice Specialities** - 7 biryani varieties (Vegetable, Chicken, Shrimp, Lamb, Beef, Mixed)
+- **Side Orders** - 6+ items (Mango Chutney, Rice, Papadum, Salad, Raita, Pickles)
+- **Traditional Indian Desserts** - 2 items (Rasmalai, Gulab Jamun)
+- **Combination Dinners** - 6 thali/dinner combos (including the ones in database)
+- **Drinks** - 10+ items (Chai, Coffee, Lassi varieties, Soft drinks)
+- **Red Wine** - 3 varieties
+- **White Wine** - 2 varieties
+- **Beer** - 5 varieties
+
+**Dishes Found in Database (Only 14):**
+- Combination Dinners (Thali Vegetarian/Non-Vegetarian, Dinner For Two, Prawn Thali, Rangoli Dinner)
+- A few vegetarian entrees (Malai Kofta, Kadhai Paneer, Muttar Paneer, Okra Masala, Mushroom Matar, Palak Paneer, Mattar Palak, Aloo Saag)
 
 **Resolution Needed:**
-1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
-2. Course assignment already complete - all dishes assigned
+1. **STATUS CORRECTION:** Update database status from `suspended` to `active`
+2. **URGENT:** Full menu migration needed - restaurant has full menu online (~100+ dishes) but only 14 dishes in database (represents <15% of actual menu)
+3. Once migrated, create proper courses matching online menu structure (17+ categories)
+4. Then assign all dishes to appropriate courses
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
