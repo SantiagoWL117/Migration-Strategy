@@ -1571,6 +1571,51 @@ The restaurant has a well-organized menu with the following courses that need to
 **Action Taken:** Skipped - all dishes already have course_id assigned.
 **⚠️ REVIEW NEEDED:** With 140 dishes, restaurant needs proper course structure (currently all in "Uncategorized"). Should create the 10 courses listed above and reassign dishes accordingly.
 
+#### Poutinerie Québecurds Hull (Restaurant ID: 789)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 455 Boulevard Riel, Hull ✅ (matches active list)
+
+**Details:**
+- Total dishes: 47 ✅ (Good count for poutine restaurant)
+- Dishes with course_id: 47 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**Menu Sample (Bilingual French/English):**
+- Poutine varieties (Classic, Buffalo, Thai Chicken, The Gatinoise, Meat Lovers, Philly Cheese Steak, Pop Curds, Crispy Chicken, Bacon, The Poutine Club, Vegetarian, Smoked Meat)
+- Special deals (Special SOLO with Donuts/Churros, 2 Small Poutines with Drinks)
+- Some items marked HIDE
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create courses like:
+- Poutines
+- Specials/Deals
+- Sides/Extras
+- Drinks
+- (Other categories as needed)
+
+#### Poutinerie Québecurds Gatineau (Restaurant ID: 802)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 643 Boulevard Saint-René O, Gatineau ✅ (matches active list)
+
+**Details:**
+- Total dishes: 36 ✅ (Good count for poutine restaurant)
+- Dishes with course_id: 36 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create courses similar to Hull location:
+- Poutines
+- Specials/Deals
+- Sides/Extras
+- Drinks
+- (Other categories as needed)
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
