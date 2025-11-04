@@ -832,24 +832,45 @@ Bilingual French/English juice and gelato shop. Sample dishes show:
 **Resolution Needed:** CREATE COURSES AND ASSIGN DISHES (when restaurant reopens or if status changes)
 
 #### Roulas Grecque et Pizza (Line 219)
-**Status:** ❌ NOT FOUND IN DATABASE (or name changed)
+**Status:** ⚠️ NOT FOUND IN DATABASE - Has menu online | 🚨 DATA MIGRATION ISSUE
 **Date:** 2025-11-03
-**Address:** 245, rue de Cannes (same address as Roulas Jus et Gelato)
+**Address:** 245, rue de Cannes, Gatineau ✅ (matches active list)
 
 **Details:**
 - Restaurant name from active list: "Roulas Grecque et Pizza"
+- **🌐 Online Menu Available:** https://roulas.ca/?p=menu&lang=fr
+- **RESTAURANT EXISTS AND HAS MENU WITH US** (user verified)
 - Searched database for variations: "Roulas Grecque", "Roula Grec", "Grecque Pizza"
 - Found restaurants at same address (245, rue de Cannes):
   - Roulas Jus et Gelato (ID: 777) - active
   - Opa's (ID: 60) - suspended
-- No exact match found for "Roulas Grecque et Pizza"
+- No exact match found for "Roulas Grecque et Pizza" in database
 
-**Possible Explanations:**
-- Restaurant may share location with Roulas Jus et Gelato (same address)
-- Restaurant may have been renamed or never migrated
-- May be same business with different name/division
+**🚨 DATA MIGRATION ISSUE:**
+Restaurant exists and has a full menu online but is **NOT IN DATABASE**. This indicates:
+- Restaurant was never migrated to menuca_v3, OR
+- Restaurant is listed under a different name in database, OR
+- Data migration was incomplete
 
-**Action Taken:** Not found - restaurant may have been renamed, dropped, or never migrated. Restaurant should be removed from `Restaurants-active.md` list or verified against actual restaurant name.
+**Menu Structure (from online menu - French):**
+- Plus pour Moins (Deals - Family Shawarma Plate, Trio Sandwich, Trio Poutine, Trio Submarine, Family Special, Special Roula)
+- Les Spécialités Roulas (Platters - 1 Brochette, Donair Beef, Chicken Shawarma, Marinated Chicken, Various Brochettes, Combos, Vegetarian)
+- Les Sandwiches (Shawarma KETO, Souvlaki on Pita, Gyro, Vegetarian Gyro, Donair, Chicken Shawarma, Kafta on Pita, Vegetarian Pita, Club on Pita)
+- Les Sous-Marins (Submarines - Club, Hot Chicken, Donair, Shawarma, Tuna, Veggie)
+- A la Carte Pizza (Many varieties - Regular, All Dressed, Pepperoni, Hawaiian, Vegetarian, BBQ, Mexicali, Chef's Specialty, etc.)
+- Kalzone (Create Your Own)
+- Les Salades (Greek Salad, Caesar Salad, Fattoush - with/without chicken, VIP versions)
+- Ailes (Wings - 6, 12, 24 pieces, Wing and Fries combo - Hot, BBQ, Honey Garlic)
+- Poutines (Regular, Shawarma, Donair, Club)
+- Les Desserts Roulas (Baklava)
+- Boissons (Drinks - Pepsi, Diet Pepsi, 7 Up, Ginger Ale)
+
+**Action Required:**
+1. **URGENT:** Find restaurant in database (may be under different name) OR migrate restaurant data
+2. Once found/migrated, create courses matching online menu structure
+3. Assign dishes to courses
+
+**Resolution Needed:** RESTAURANT DATA MIGRATION REQUIRED - Restaurant exists and has menu but not in database
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
