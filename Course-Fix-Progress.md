@@ -1493,6 +1493,31 @@ Restaurant has 0 dishes in database. This indicates either:
 3. Once migrated, create proper courses matching online menu structure
 4. Then assign all dishes to appropriate courses
 
+#### Rangoli (Restaurant ID: 497)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 2491 St-Joseph Blvd, Ottawa ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+
+**Current Database Status:**
+- Total dishes: 14 ✅
+- Dishes with course_id: 14 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**Menu Sample (Indian Cuisine):**
+- Thali options (Vegetarian, Non-Vegetarian, Prawn/Seafood)
+- Dinner combos (Dinner For Two - Vegetarian/Non-Vegetarian, Rangoli Dinner)
+- Vegetarian dishes (Malai Kofta, Kadhai Paneer, Muttar Paneer, Okra Masala, Mushroom Matar, Palak Paneer, Mattar Palak, Aloo Saag)
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. Course assignment already complete - all dishes assigned
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
