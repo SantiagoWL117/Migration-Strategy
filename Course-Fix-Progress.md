@@ -668,7 +668,7 @@ Restaurant has 0 dishes in database. This indicates either:
 - All dishes assigned to "Uncategorized" course
 - Status: active (but restaurant has left platform)
 
-**🚫 RESTAURANT STATUS:** Restaurant has **LEFT our platform** and is now using **RestaurantPlus.net/OlivePOS** (confirmed in RestaurantPlus.net migration document). This explains the suspiciously low dish count (only basic items remain).
+**🚫 RESTAURANT STATUS:** Restaurant has **LEFT our platform** and is now using **RestaurantPlus.net/OlivePOS** (confirmed in RestaurantPlus.net migration document). Restaurant is **TEMPORARILY CLOSED FOR RE-LOCATION**. This explains the suspiciously low dish count (only basic items remain).
 
 **Dishes Found:**
 - Poutine, Greek Sausage Platter, French Fries, Onion Rings, Wedge Potatoes
