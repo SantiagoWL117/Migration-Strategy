@@ -1401,6 +1401,31 @@ Restaurant has 0 dishes in database. This indicates either:
 3. Cannot proceed with course assignment until menu is migrated
 4. Status correction needed AND menu migration needed
 
+#### Restaurant Le Choix (Restaurant ID: 106)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 139, rue Principale, Gatineau ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+
+**Current Database Status:**
+- Total dishes: 12 ✅
+- Dishes with course_id: 12 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**Menu Sample (Bilingual French/English Pizza Specials):**
+- Special 5/6: Two Medium/Large Pizzas (English/French versions)
+- A-D: Large/Jumbo/Two Medium/Two Large Pizza varieties (All Dressed, Combination)
+- Many dishes marked "HIDE" (hidden from menu)
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. Course assignment already complete - all dishes assigned
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
