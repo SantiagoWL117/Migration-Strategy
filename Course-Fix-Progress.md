@@ -521,20 +521,30 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 **Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
 #### Souvlaki Souvlaki (Restaurant ID: 836)
-**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
 **Date:** 2025-11-03
 
 **Details:**
-- Total dishes: 1 ⚠️ (Extremely low - suspicious)
+- Total dishes in database: 1 ⚠️ (Only "Steamed Rice")
 - Dishes with course_id: 1 (100%)
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course (1691)
 
-**⚠️ DATA QUALITY CONCERN:** Only 1 dish is extremely suspicious for a souvlaki restaurant. This pattern suggests:
-- Incomplete menu migration, OR
-- Restaurant may have closed/left platform (similar to closed restaurants pattern)
+**🌐 Online Menu Available:** https://souvlakisouvlaki.com/?p=menu
+**⚠️ CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Restaurant is **VERY ACTIVE** with a **LARGE MENU** online, but database only has 1 dish. This is a critical data migration issue similar to Xtreme Pizza.
 
-**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Extremely low dish count suggests verification needed (check if closed or missing menu items).
+**Actual Menu Structure (from online menu):**
+- **Grand Opening Specials** - Two Beef Gyro Wraps, Two Chicken Souvlaki Wraps, Two Greek Salads
+- **Appetizers** - Tzatziki, Calamari, Feta Cheese and Olives, Greek Potatoes, Rice, Spanakopita, Dolmades
+- **Salads** - Greek Salad (Small/Large), House Salad (Small/Large)
+- **Pita Wraps** - Chicken Souvlaki Wrap, Lamb Souvlaki Wrap, Beef Gyro Wrap
+- **Souvlaki Platters** - Chicken Souvlaki Platter, Lamb Souvlaki Platter, Shrimp Souvlaki Platter, Calamari Platter, Beef Gyros Platter
+- **Burgers** - Burger (with feta, tzatziki, Greek potatoes)
+- **Subs** - Meatball Sub
+- **Dessert** - Baklava
+- **Drinks** - 591ml Pop (Pepsi varieties)
+
+**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed before proper course assignment can proceed. This is a data migration issue, not a course assignment issue.
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
@@ -920,7 +930,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 - **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
 - **Status Issues:** 3 (Wow Sushi - suspended + 0 dishes, Ting's Kitchen - pending status in active list, The Original Georgie's - suspended status in active list) - Note: Vanier Pizza moved to RestaurantPlus.net
 - **Not Found:** 4 (Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
-- **Critical Data Issues:** 5 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish)
+- **Critical Data Issues:** 5 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online)
 - **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
 - **In Progress:** 0
 - **Pending:** 224
