@@ -1637,18 +1637,22 @@ The restaurant has the same course structure as Hull location:
 - Actually correct but unusual
 
 **Restaurants visible on map at 250 Greenbank address:**
-- **Fitz's Classic Grill BBQ Smoke House** (not found in database - may be the actual restaurant?)
+- **Fitz's Classic Grill BBQ Smoke House** (not found in database - user confirmed likely NOT this restaurant)
 - **Authentic Vietnamese Pho House** (ID: 759 - suspended - matches map location)
 - **Tim Hortons** (not on our platform)
-- **Bella's Boys** (not found in database)
-- **barBURRITO Tex Mex** (not found in database)
+- **Bella's Boys** (not found in database - take-out joint?)
+- **barBURRITO Tex Mex** (not found in database - take-out joint?)
 
 **Other restaurants in database at 250 Greenbank:**
-- Pizza Corner (ID: 679) - active - 8 dishes - at "3A - 250 Greenbank Rd", Nepean
+- Pizza Corner (ID: 679) - active - 8 dishes - at "3A - 250 Greenbank Rd", Nepean (take-out pizza joint)
 - Prince Gourmet (ID: 911) - suspended - 0 dishes - at "250 Greenbank", Ottawa
 - Authentic Vietnamese Pho House Nepean (ID: 759) - suspended - 0 dishes - at "250 Greenbank Rd Unit 2A", Nepean
 
-**⚠️ MATCHING ISSUE:** Cannot definitively match "POS SIMPLICITY" to any visible restaurant on the map. The most likely candidate is **Fitz's Classic Grill BBQ Smoke House** (which has a prominent red pin on the map), but it's not in our database. Need to verify which restaurant this entry actually represents.
+**⚠️ MATCHING ISSUE:** Cannot definitively match "POS SIMPLICITY" to any visible restaurant on the map. 
+- User confirmed clientele is mostly **take-out joints** that need online menus
+- User confirmed it's likely **NOT Fitz's Classic Grill BBQ Smoke House** (sit-down restaurant)
+- Possible candidates: **Bella's Boys**, **barBURRITO Tex Mex**, or potentially **Pizza Corner** (though Pizza Corner is listed separately on active list)
+- **POS SIMPLICITY** may be a placeholder/test entry that needs verification or removal from active list
 
 **Menu Sample:**
 - Only combo deals found (Combo No.3, No.4, No.5, Regular Combo 1 for 1/2, Large Combo 2 for 1/2)
