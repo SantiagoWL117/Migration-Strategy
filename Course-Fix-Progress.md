@@ -1711,7 +1711,7 @@ The restaurant has a comprehensive menu with the following courses:
 3. Then assign all dishes to appropriate courses
 
 #### Pizzalicious (Restaurant ID: 829)
-**Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
+**Status:** ⚠️ SKIPPED - Already assigned | 🚫 NO LONGER A CLIENT
 **Date:** 2025-11-03
 **Address:** 1009 Merivale Rd, Ottawa ✅ (matches active list)
 
@@ -1720,18 +1720,12 @@ The restaurant has a comprehensive menu with the following courses:
 - Dishes with course_id: 1 (100%) ✅
 - Courses defined: 1 (Uncategorized)
 - All dishes assigned to "Uncategorized" course
-- Status: active ✅ (matches active list)
+- Status: active ✅ (but restaurant is no longer a client)
 
-**⚠️🚨 CRITICAL DATA MIGRATION ISSUE:** Only 1 dish ("Calzone") in database for a pizza restaurant. This is impossible - a pizza restaurant should have dozens of dishes (pizza varieties, appetizers, sides, drinks, etc.). This pattern suggests:
-- **CRITICAL:** Menu data was never migrated or was deleted, OR
-- Restaurant may have closed/left platform (similar to Twisted Pita pattern), OR
-- Massive data migration failure
+**🚫 RESTAURANT STATUS:** Restaurant is **NO LONGER A CLIENT**. Online ordering site is down with message: "Our online ordering service is temporarily unavailable. Please call the restaurant at (613) 728-5858". This explains why there's only 1 dish in the database - the menu was removed when they left the platform.
 
 **Action Taken:** Skipped - all dishes already have course_id assigned.
-**⚠️ REVIEW NEEDED:** 
-1. **URGENT:** Verify if restaurant is still active and has a full menu online
-2. If active, full menu migration required - restaurant has virtually no menu data
-3. If closed/left platform, remove from active list
+**ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list or marked as inactive/no longer a client. Database status should be updated from `active` to `suspended`.
 
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
