@@ -572,6 +572,27 @@ Restaurant has 0 dishes in database. This indicates either:
 3. Cannot proceed with course assignment until menu is migrated
 4. Status correction needed AND menu migration needed
 
+#### Shawarma King (Restaurant ID: 117)
+**Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 1 ⚠️ (Extremely low for a shawarma restaurant)
+- Dishes with course_id: 1 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**⚠️ DATA QUALITY CONCERN:** Only 1 dish ("Online Only Special #1") is extremely suspicious for a shawarma restaurant. This pattern suggests:
+- Incomplete menu migration, OR
+- Restaurant may have closed/left platform, OR
+- Only promotional item migrated
+
+**Dishes Found:**
+- Online Only Special #1
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Extremely low dish count suggests verification needed (check if closed, missing menu items, or incomplete migration).
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
