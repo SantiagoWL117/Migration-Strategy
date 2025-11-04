@@ -546,6 +546,32 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed before proper course assignment can proceed. This is a data migration issue, not a course assignment issue.
 
+#### Sous Le Palmier (Restaurant ID: 273)
+**Status:** ⏸️ STATUS MISMATCH - Suspended in database | 🚨 CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status: suspended
+- **CRITICAL:** 0 dishes in database
+
+**Current Database Status:**
+- Total dishes: 0
+- Courses defined: 0
+- Status: suspended
+
+**🚨 CRITICAL DATA ISSUE:**
+Restaurant has 0 dishes in database. This indicates either:
+- Menu data was never migrated, OR
+- Menu data was deleted, OR
+- Restaurant may have closed/left platform
+
+**Resolution Needed:**
+1. Verify if restaurant should be active (since listed in active list)
+2. **URGENT:** Menu migration required - restaurant has no menu data
+3. Cannot proceed with course assignment until menu is migrated
+4. Status mismatch needs resolution (suspended vs active)
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
