@@ -1751,6 +1751,39 @@ The restaurant has a comprehensive menu with the following courses:
 1. Restaurant should be removed from `Restaurants-active.md` list
 2. Database status should be updated from `active` to `suspended` to reflect permanent closure
 
+#### Pizza Riverview (Restaurant ID: 688)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 117 Rue Front, Aylmer ✅ (matches active list)
+
+**Details:**
+- Total dishes: 58 ✅ (Good count)
+- Dishes with course_id: 58 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**Menu Sample (Indian Cuisine):**
+- Appetizers (Samosa, Onion Bhaji, Fish Amritsari, Bharwan Khumb, Kurmura Prawn)
+- Tandoori items (Tandoori Murgh, Tandoori Mahi, Tandoori Prawns, Tandoori Paneer, Tandoori Platter)
+- Kebabs (Seekh Kebab, Murgh Mirch Kebab, Chicken Tikka, Lamb Adraki Kebab, Peshawari Beef Boti, Tangri Kebab)
+- Breads (Nan, Roti, Parantha, Onion Kulcha, Garlic Kulcha, Pepper Nan)
+- Curries (Chicken Lababdar, Chicken Makhni, Chicken Chettinad, Fish Peri-Peri, Kerala Prawn Curry, Prawn Balchow, Lamb Roganjosh, Lamb Masala)
+
+**⚠️ NOTE:** Restaurant name is "Pizza Riverview" but menu contains Indian cuisine items. May be a multi-cuisine restaurant or name mismatch.
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create courses like:
+- Appetizers
+- Tandoori Specialties
+- Kebabs
+- Breads
+- Curries (Chicken, Lamb, Seafood, Vegetarian)
+- Rice Dishes
+- Desserts
+- Drinks
+- (Other categories as needed)
+
 #### Sushi Express Chambly (Line 231)
 **Status:** ❌ NOT FOUND IN DATABASE (or name changed)
 **Date:** 2025-11-03
