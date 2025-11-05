@@ -617,7 +617,7 @@ SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
 ```sql
 SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 91;
 ```
-- Courses defined: (checking...)
+- Courses defined: 1 ✅
 
 **Step 3: Check Dishes**
 ```sql
