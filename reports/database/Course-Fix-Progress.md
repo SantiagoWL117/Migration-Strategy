@@ -1356,7 +1356,7 @@ Database has 18 courses, but they don't match live menu structure. Database cour
 **Date:** 2025-11-03
 **Address:** 81 Madawaska Street ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (only 14 dishes - suspiciously low, all in Uncategorized, need to verify missing dishes and course structure)
+**Menu Reference:** https://marnprior.milanopizzeria.ca/ - **ONLINE ORDERING TEMPORARILY UNAVAILABLE**
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1404,7 +1404,12 @@ WHERE dm.restaurant_id = 586 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ CRITICAL ISSUE - Only 14 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify if dishes are missing from database and to determine proper course structure. No modifiers found. Waiting for menu link to verify completeness and course structure.
+**Menu Status Check:**
+- Menu URL: https://marnprior.milanopizzeria.ca/
+- **Status:** Online ordering temporarily unavailable - "We're sorry. Our online ordering service is temporarily unavailable. Please call the restaurant at: (613) 623-2233"
+- **Impact:** Cannot verify menu structure or dish completeness via online menu. Need to contact restaurant or check alternative sources.
+
+**Result:** ⚠️ CRITICAL ISSUE - Only 14 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Online ordering is temporarily unavailable, so cannot verify menu structure or missing dishes via web menu. May need to contact restaurant directly or wait for online ordering to resume. No modifiers found. Waiting for menu access or alternative verification method.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
