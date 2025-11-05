@@ -1041,6 +1041,61 @@ Live menu courses include:
 
 **Result:** ⚠️ CRITICAL ISSUE - All dishes incorrectly assigned to "Uncategorized" course. Live menu has proper course structure with 17+ courses. Dishes need to be reassigned to correct courses. Status mismatch also needs correction (suspended → active). Modifiers exist but need verification once courses are corrected. Waiting for authorization to create proper courses and reassign dishes.
 
+#### Milano 643 Boulevard Saint-René O (Restaurant ID: 680)
+**Status:** ⚠️ CRITICAL ISSUE - All dishes in Uncategorized
+**Date:** 2025-11-03
+**Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (to verify proper course structure - all dishes currently in Uncategorized)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 680
+- Name: Milano
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 680;
+```
+- Courses defined: 1 ⚠️
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 680 AND deleted_at IS NULL;
+```
+- Total dishes: 75
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 75 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 680 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course name: "Uncategorized"
+- **CRITICAL ISSUE:** All 75 dishes are assigned to "Uncategorized" course. Need menu link to verify proper course structure.
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 680 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️ CRITICAL ISSUE - All 75 dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify proper course structure and create correct courses. No modifiers found. Waiting for menu link to proceed with course structure correction.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
