@@ -2325,6 +2325,78 @@ WHERE dm.restaurant_id = 234 AND dm.deleted_at IS NULL;
 
 **Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - **Restaurant was mis-marked as `suspended` in database, preventing menu data migration**. Live menu has 100+ items across 13+ courses, but database contains 0 dishes. Restaurant is listed as **active** in verified billing list (billed in last 4 months) and has a fully functional online menu. Status mismatch needs correction (suspended → active). **Root Cause:** Restaurant was incorrectly marked as suspended during migration, so menu data was never imported. **URGENT:** (1) Update status from `suspended` to `active`, (2) Complete menu data migration required - 100+ dishes need to be imported, (3) Create 13+ courses based on live menu structure, (4) Assign all dishes to appropriate courses. No courses, no dishes, no modifiers found. **URGENT: Correct status and complete menu data migration immediately.**
 
+#### Number One Chinese Take Out 988 Wellington St (Restaurant ID: 65)
+**Status:** ⚠️ MINOR ISSUE - 5 dishes in Uncategorized, needs reassignment
+**Date:** 2025-11-03
+**Address:** 988 Wellington St ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NOT NEEDED (121 dishes properly assigned, only 5 in Uncategorized - minor fix needed)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Number One Chinese%';
+```
+- Restaurant ID: 65
+- Name: Number One Chinese Take Out
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 65;
+```
+- Courses defined: 17 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 65 AND deleted_at IS NULL;
+```
+- Total dishes: 126 ✅
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 126 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 65 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 17 ✅
+- Course distribution:
+  - Full Course Dinners: 8 dishes
+  - Combination Plates: 1 dish
+  - Thai Special: 8 dishes
+  - Appetizers and Side Orders: 10 dishes
+  - Soups: 4 dishes
+  - Fried Rice: 9 dishes
+  - Fried Noodles: 9 dishes
+  - Chow Mein: 7 dishes
+  - Egg Foo Young: 6 dishes
+  - Moo She: 4 dishes
+  - Chicken: 15 dishes
+  - Beef: 7 dishes
+  - Pork: 3 dishes
+  - Szechuan Cuisine: 11 dishes
+  - Seafood: 11 dishes
+  - Vegetables and Bean Curd: 8 dishes
+  - Uncategorized: 5 dishes ⚠️
+- **MINOR ISSUE:** 5 dishes assigned to "Uncategorized" course need reassignment
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 65 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ✅ Good progress - 121 dishes properly assigned to 16 courses. Minor issue: 5 dishes incorrectly assigned to "Uncategorized" course need reassignment to appropriate courses. No modifiers found. **ACTION REQUIRED:** Reassign 5 dishes from "Uncategorized" to appropriate courses based on dish names.
+
 ---
 
 ### Restaurants with No Courses Defined
