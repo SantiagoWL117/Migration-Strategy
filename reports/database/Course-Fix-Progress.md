@@ -2189,6 +2189,43 @@ Japanese/Korean fusion restaurant with mix of:
 
 **Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
 
+#### Al-s Drive In (Restaurant ID: 981)
+**Status:** ✅ COMPLETE - Already audited (36 dishes, 6 courses)
+**Date:** 2025-11-03
+**Address:** 5474 Osgoode Main Street, Osgoode ✅ (matches verified list)
+
+**Note:** Already completed in audit. Restaurant IS in verified billing list - was incorrectly flagged. Course assignment work already done.
+
+#### Bobbie's Pizza & Subs (Restaurant ID: 45)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 1443 Ogilvie Rd, Ottawa ✅ (matches verified list)
+
+**Issue Found:**
+- Listed in verified billing list as **active** (billed in last 4 months)
+- **Database status: suspended** (needs correction to match verified list)
+
+**Current Database Status:**
+- Total dishes: 6 ⚠️⚠️ (EXTREMELY LOW - only pizza toppings/modifiers)
+- Dishes with course_id: 6 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: suspended (needs correction to active)
+
+**Menu Sample:**
+- Only pizza toppings/modifiers found (Ham, No Mayo, Bacon, Anchovies, Tomatoes, No Lettuce)
+- No actual pizza varieties, subs, or menu items
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 6 dishes and they're all pizza toppings/modifiers. This pattern suggests:
+- **CRITICAL:** Incomplete menu migration (similar to Restaurant Chez Gerry pattern), OR
+- Menu data was deleted, OR
+- Restaurant may have a very limited menu (but unlikely for a pizza & subs restaurant)
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** Update database status from `suspended` to `active`
+2. **URGENT:** Verify if restaurant has full menu online - may need menu migration
+3. If menu is complete, create proper courses and assign dishes
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
