@@ -964,6 +964,55 @@ WHERE restaurant_id = 349 AND deleted_at IS NULL;
 
 **Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
 
+#### Milano 6179 Perth St. (Restaurant ID: 190)
+**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 6179 Perth St. ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (to verify modifier assignments are correct)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 190
+- Name: Milano
+- Status: suspended ⚠️ (does NOT match verified billing list)
+- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 190;
+```
+- Courses defined: 1 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 190 AND deleted_at IS NULL;
+```
+- Total dishes: 31
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 31 (100%) ✅
+
+**Step 4: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 190 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 68
+- Dishes with modifiers: 22 (out of 31 dishes)
+- **Menu link NEEDED:** To verify modifier assignments match live menu (which dishes should have modifiers, which modifiers belong to which dishes)
+
+**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned. Modifiers exist (68 modifiers on 22 dishes) but need menu link to verify assignments are correct. Waiting for authorization to update status from `suspended` to `active` and menu link to verify modifier accuracy.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
