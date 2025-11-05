@@ -1416,7 +1416,7 @@ WHERE dm.restaurant_id = 586 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 83 Mill Street ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (only 5 dishes - EXTREMELY LOW, all in Uncategorized, critical data migration issue)
+**Menu Reference:** https://mrussell.milanopizzeria.ca/menu
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1464,7 +1464,21 @@ WHERE dm.restaurant_id = 821 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 5 dishes (EXTREMELY LOW for Milano restaurant). This indicates severe data migration problem - most menu items are missing from database. All dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify missing dishes and determine proper course structure. No modifiers found. Waiting for menu link to investigate data migration issue.
+**Menu Analysis from https://mrussell.milanopizzeria.ca/menu:**
+Live menu courses include:
+- Daily Specials (5 combo deals)
+- Traditional Pizza (15+ pizza varieties with multiple sizes)
+- Gourmet Pizza (6 gourmet pizza varieties)
+- Subs (13 sub varieties with 6" and 12" sizes)
+- Wings and Things (wings, cheese curds, fries, poutine, appetizers - 15+ items)
+- Sandwiches (8 sandwich varieties)
+- Salads (5 salad varieties with small/large sizes)
+- Side Orders (garlic bread, sauces, etc.)
+- Soft Drinks and Water (multiple beverage options)
+
+**CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Database shows only 5 dishes, but live menu has 9+ courses with 70+ individual dishes across all courses. This is a severe data migration problem - approximately 93%+ of menu items are missing from the database.
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 5 dishes in database vs. full menu with 9+ courses and 70+ dishes. This is NOT just a course assignment issue - 93%+ of menu items are missing from database. All 5 dishes incorrectly assigned to "Uncategorized" course. Need to investigate data migration process immediately. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
