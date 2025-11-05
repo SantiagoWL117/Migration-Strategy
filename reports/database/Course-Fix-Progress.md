@@ -310,6 +310,157 @@ All 141 dishes properly assigned to 14 course categories.
 
 **Note:** Multiple Tony's Pizza locations exist (IDs: 143, 956, 929, 992). This active location (ID: 929) has complete course assignments.
 
+### Al-s Drive In (Restaurant ID: 981)
+**Status:** ✅ COMPLETE - All 36 dishes assigned to courses
+**Date:** 2025-11-05
+**Address:** 5474 Osgoode Main Street ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 36
+- Courses defined: 6
+- Dishes with course_id: 36 (100%) ✅
+- Modifier groups: 0
+- Status: active ✅
+
+**Course Distribution:**
+- Burgers (1384): 4 dishes
+- Drinks (1385): 12 dishes
+- Fries (1386): 5 dishes
+- Icecream (1387): 3 dishes
+- Milkshake (1388): 8 dishes
+- Sundae (1389): 4 dishes
+
+**Details:**
+- All dishes already properly assigned to courses
+- Drive-in restaurant with complete menu structure
+- Well-organized into 6 logical categories (burgers, drinks, sides, desserts)
+- No modifiers defined (typical for simple drive-in operation)
+- Verified: 0 remaining NULL values
+
+### All Out Burger Bank St. (Restaurant ID: 924)
+**Status:** ✅ COMPLETE - All 56 dishes assigned to courses | ⚠️ DUPLICATE RESOLVED
+**Date:** 2025-11-05
+**Address:** 2560 Bank Street ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 56
+- Courses defined: 10
+- Dishes with course_id: 56 (100%) ✅
+- Modifier groups: 0
+- Dish modifiers: 0
+- Status: active ✅
+
+**Course Distribution:**
+- Appetizers (752): 7 dishes
+- Burgers COMBO (753): 10 dishes
+- Burgers Solo (754): 10 dishes
+- Chicken (755): 4 dishes
+- Chicken COMBO (756): 4 dishes
+- Drinks (757): 8 dishes
+- Hot Dogs (758): 3 dishes
+- Kids Menu (759): 2 dishes
+- Poutine (760): 6 dishes
+- Salads (761): 2 dishes
+
+**Details:**
+- All dishes already properly assigned to courses
+- Well-organized burger restaurant with complete menu structure
+- 10 logical categories including combos, solo items, and sides
+- Verified: 0 remaining NULL values
+
+**Duplicate Issue Resolved:**
+- Duplicate entry ID 771 "All Out Burger" (legacy v1, 1 dish only) deleted from database
+- Primary entry ID 924 "All Out Burger Bank St." (legacy v2, complete 56-dish menu) retained
+
+**⚠️ Action Needed:**
+- No modifier groups or dish modifiers defined - may need to add modifiers for customization options (toppings, sizes, extras)
+- Review with restaurant owner if modifiers are required for burger customization
+
+### All Out Burger Montreal Rd (Restaurant ID: 949)
+**Status:** ✅ COMPLETE - All 59 dishes assigned to courses | ⚠️ DUPLICATE RESOLVED
+**Date:** 2025-11-05
+**Address:** 585 Montreal Road ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 59
+- Courses defined: 10
+- Dishes with course_id: 59 (100%) ✅
+- Modifier groups: 59 ✅
+- Dish modifiers: 5,605 ✅
+- Status: active ✅
+
+**Course Distribution:**
+- Appetizers (1005): 4 dishes
+- Burger COMBOS (1006): 14 dishes
+- Burgers SOLO (1007): 14 dishes
+- Chicken (1008): 9 dishes
+- Drinks (1009): 12 dishes
+- Hot Dogs (1010): 3 dishes
+- Kids Menu (1011): 1 dish
+- Mini Donuts Hot and Fresh Made (1012): 0 dishes (course defined but no dishes)
+- Poutine (1013): 0 dishes (course defined but no dishes)
+- Salads (1014): 2 dishes
+
+**Modifier System:**
+- **Total modifier groups:** 59
+- **Total dish modifiers:** 5,605
+- **Common modifiers:** Add grilled chicken, BBQ Sauce, Honey Hot, Honey Garlic, Hot Sauce, Extra Cheese, Extra Patty (6oz), Onion Rings, Kettle Chips, various drinks (Grape Crush, Orange Crush, Cream Soda, Ice Tea, Orange Juice, Water)
+- **Modifier usage:** Extensive customization options with ~295 uses per modifier across menu items
+- **Assessment:** ✅ Excellent modifier implementation - full customization for burgers, toppings, sauces, sides, and drinks
+
+**Details:**
+- All dishes already properly assigned to courses
+- Well-organized burger restaurant with complete menu structure
+- 10 logical categories including combos, solo items, and sides
+- Verified: 0 remaining NULL values
+- **Outstanding modifier system** - customers have extensive customization options
+
+**Duplicate Issue Resolved:**
+- Duplicate entry ID 826 "All Out Burger" (legacy v1, 1 dish only) deleted from database
+- Primary entry ID 949 "All Out Burger Montreal Rd" (legacy v2, complete 59-dish menu with full modifier system) retained
+
+### All Out Burger Gladstone (Restaurant ID: 948)
+**Status:** ✅ COMPLETE - All 59 dishes assigned to courses | ⚠️ DUPLICATE RESOLVED
+**Date:** 2025-11-05
+**Address:** 714 Gladstone Ave ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 59
+- Courses defined: 10
+- Dishes with course_id: 59 (100%) ✅
+- Modifier groups: 59 ✅
+- Dish modifiers: 14,337 ✅ (Most robust modifier system!)
+- Status: active ✅
+
+**Course Distribution:**
+- Appetizers (995): 4 dishes
+- Burger COMBOS (996): 14 dishes
+- Burgers SOLO (997): 14 dishes
+- Chicken (998): 9 dishes
+- Drinks (999): 12 dishes
+- Hot Dogs (1000): 3 dishes
+- Kids Menu (1001): 1 dish
+- Mini Donuts Hot and Fresh Made (1002): 0 dishes (course defined but no dishes)
+- Poutine (1003): 0 dishes (course defined but no dishes)
+- Salads (1004): 2 dishes
+
+**Modifier System:**
+- **Total modifier groups:** 59
+- **Total dish modifiers:** 14,337 ⭐ (Outstanding implementation!)
+- **Assessment:** ✅ Exceptional modifier implementation - most comprehensive customization system observed
+- **Usage:** Extensive customization options for burgers, toppings, sauces, sides, and drinks
+
+**Details:**
+- All dishes already properly assigned to courses
+- Well-organized burger restaurant with complete menu structure
+- 10 logical categories including combos, solo items, and sides
+- Verified: 0 remaining NULL values
+- **Best-in-class modifier system** with 14,337 modifiers providing maximum customer customization
+
+**Duplicate Issue Resolved:**
+- Duplicate entry ID 794 "All Out Burger" (legacy v1, 12 dishes) deleted from database
+- Primary entry ID 948 "All Out Burger Gladstone" (legacy v2, complete 59-dish menu with exceptional modifier system) retained
+
 ---
 
 ## 🔄 In Progress Restaurants
@@ -2252,8 +2403,6 @@ WHERE dm.restaurant_id = 502 AND dm.deleted_at IS NULL;
 
 ### Restaurants Not Found in Database
 
-<<<<<<< HEAD
-
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
 
@@ -2287,25 +2436,33 @@ WHERE dm.restaurant_id = 502 AND dm.deleted_at IS NULL;
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
 
-#### Chances R' West (Restaurant ID: Unknown)
-**Status:** 🚫 Restaurant does not exist in database
-**Date:** 2025-11-03 (Re-verified)
+#### Chances R' West (Restaurant ID: NOT FOUND)
+**Status:** ❌ NOT FOUND IN DATABASE
+**Date:** 2025-11-05 (Updated from 2025-11-03)
+**Address:** 1365 Woodroffe Avenue (from verified list)
 
-**Issue Found:**
-- Listed in Restaurants-active.md as active
-- No restaurant found in database with name matching "Chances R' West" or variations
-
-**Action Taken:**
+**Search Attempts:**
+- Name search: "Chances R' West", "Chances", variations - No results
+- Address search: "1365 Woodroffe Avenue", "1365 Woodroffe" - No results
+- Combined search - No results
 - Searched menuca_v3.restaurants: No results
 - Searched staging.v1_restaurants: No results
 - Searched staging.v2_restaurants: No results
 - Variations searched: "%Chances%", "%R%West%", "%R West%", "%west%" with apostrophe
-- No matches in any database
 
-**Resolution Needed:**
-1. Verify restaurant name spelling with business owner
-2. Check if restaurant exists under completely different name
-3. If restaurant should exist, may need to be created from scratch
+**Details:**
+- Restaurant is listed in Restaurants-active.md as active (verified billing)
+- Restaurant has been billed in last 4 months
+- No database entry exists for this restaurant
+- May be a new restaurant not yet imported
+- May be listed under a different name in database
+
+**Action Required:**
+- Verify restaurant exists and is operational
+- Import restaurant data if confirmed active
+- Create restaurant entry with proper menu structure
+
+**Result:** ❌ Cannot proceed with audit - Restaurant not found in database.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
@@ -2400,8 +2557,6 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
 
-=======
->>>>>>> 5c2e923177459d5d17fbf94ab1c25a5227c5c348
 ### ✅ Restaurants with Status Corrected
 
 #### Xtreme Pizza 125 Preston St (Restaurant ID: 38)
@@ -2509,6 +2664,42 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 
 **Result:** Restaurant status corrected. All dishes already properly assigned.
 
+#### All Out Burger Notre-Dame (Restaurant ID: 833)
+**Status:** ✅ COMPLETE - All 4 dishes assigned to Uncategorized course
+**Date:** 2025-11-05
+**Address:** 951 Notre-Dame St ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 4
+- Courses defined: 1 (Uncategorized only - ID: 1885)
+- Dishes with course_id: 4 (100%) ✅
+- Modifier groups: 8
+- Dish modifiers: 8 (minimal compared to other All Out Burger locations)
+- Status: active ✅
+- Created: 2023-10-10 (recent setup)
+
+**Course Distribution:**
+- Uncategorized (1885): 4 dishes
+  - Any 3 Burgers Special HIDE
+  - Lemon Dill Aioli Pickle Pizza HIDE
+  - The Perfect Combo Deal
+  - Oh Sweet Vegan Pizza HIDE
+
+**Details:**
+- All dishes already assigned to Uncategorized course
+- Only 4 dishes total (compared to 50-60 at other All Out Burger locations)
+- Three dishes marked with "HIDE" suffix (test/placeholder data)
+- Mix of burger and pizza items (unusual for All Out Burger brand)
+- Minimal modifier system: 8 modifiers vs 5,000-14,000 at other locations
+- Legacy V1 ID: 1080
+
+**⚠️ Issues Noted:**
+- Incomplete menu setup - missing majority of expected dishes
+- Possible wrong menu data (pizza items on burger restaurant)
+- May require full menu import/review
+
+**Result:** All dishes properly assigned. No course assignment work needed, but restaurant may need menu review/import.
+
 ---
 
 #### Souvlaki Souvlaki (Restaurant ID: 836)
@@ -2603,6 +2794,48 @@ A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, a
 **Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed before proper course assignment can proceed. This is a data migration issue, not a course assignment issue.
 
 **Note:** There is also another "Season's Pizza" (ID: 856) at 826 Somerset St W (suspended) - different restaurant
+
+#### All Out Burger Strandherd (Restaurant ID: 841)
+**Status:** ⚠️ CRITICAL DATA ISSUE - Incomplete menu setup
+**Date:** 2025-11-05
+**Address:** 3091 Strandherd, Dr.7 ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 1
+- Courses defined: 1 (Uncategorized only)
+- Dishes with course_id: 1 (100%)
+- Status: active ✅
+- Created: 2024-08-13 (recent - less than 1 year old)
+- Legacy V1 ID: 1088
+
+**Dishes Found in Database:**
+- "Any 3 Burgers Special HIDE" (only 1 dish - Uncategorized course)
+
+**🚨 CRITICAL DATA ISSUE:**
+- **Database has only 1 dish with "HIDE" suffix** (suggests test/placeholder data)
+- **Expected menu:** Based on other All Out Burger locations (Bank St has 56 dishes), this location should have:
+  - Appetizers (7+ dishes)
+  - Burgers COMBO (10+ dishes)
+  - Burgers Solo (10+ dishes)
+  - Chicken & Chicken COMBO (8+ dishes)
+  - Drinks (8+ dishes)
+  - Hot Dogs (3+ dishes)
+  - Kids Menu (2+ dishes)
+  - Poutine (6+ dishes)
+  - Salads (2+ dishes)
+  - **Total expected:** 50-60 dishes across 10 courses
+
+**Assessment:**
+This appears to be an **incomplete restaurant setup** or **stub entry** created in August 2024 but never fully configured with menu data. The single "HIDE" dish suggests this was placeholder/test data that was never replaced with the actual menu.
+
+**Action Required:**
+1. Import complete menu from All Out Burger brand standard (50-60 dishes)
+2. Create 10 course categories matching other All Out Burger locations
+3. Remove the test "HIDE" dish
+4. Add modifier groups for burger customization (toppings, sizes, extras)
+5. Verify restaurant is actually operational at this address
+
+**Result:** ⚠️ CRITICAL - Restaurant setup incomplete. Cannot proceed with course assignment until full menu is imported. This is a data migration/setup issue, not a course assignment issue.
 
 #### Sala Thai (Restaurant ID: 745)
 **Status:** ⏳ NEEDS WORK - 94 dishes, 0 courses, 100% unassigned
