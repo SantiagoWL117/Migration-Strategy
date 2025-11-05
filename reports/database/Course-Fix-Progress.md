@@ -1251,6 +1251,79 @@ WHERE dm.restaurant_id = 819 AND dm.deleted_at IS NULL;
 
 **Result:** ⚠️ CRITICAL ISSUE - Only 18 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Online ordering is temporarily suspended, so cannot verify menu structure or missing dishes via web menu. May need to contact restaurant directly or wait for online ordering to resume. No modifiers found. Waiting for menu access or alternative verification method.
 
+#### Milano 777 Principale St (Restaurant ID: 89)
+**Status:** ⏸️ STATUS MISMATCH + ⚠️ CRITICAL ISSUE - Courses exist but all dishes in Uncategorized
+**Date:** 2025-11-03
+**Address:** 777 Principale St ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (to verify correct course assignments - courses exist but dishes not assigned)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 89
+- Name: Milano
+- Status: suspended ⚠️ (does NOT match verified billing list)
+- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 89;
+```
+- Courses defined: 18 ✅ (Good - proper courses exist!)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 89 AND deleted_at IS NULL;
+```
+- Total dishes: 41
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 41 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 89 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 18 ✅
+- **CRITICAL ISSUE:** All 41 dishes are assigned to "Uncategorized" course, but proper courses exist:
+  - Appetizers (0 dishes)
+  - Cold Subs (0 dishes)
+  - Chicken (0 dishes)
+  - Combos (0 dishes)
+  - Dessert (0 dishes)
+  - Donair and Shawarma (0 dishes)
+  - Drinks (0 dishes)
+  - Everyday Specials (0 dishes)
+  - Greek (0 dishes)
+  - Hot Subs (0 dishes)
+  - Italian (0 dishes)
+  - Mexican (0 dishes)
+  - Pita Pockets (0 dishes)
+  - Salads (0 dishes)
+  - Sandwiches (0 dishes)
+  - Seafood (0 dishes)
+  - Traditional Pizza (0 dishes)
+  - Uncategorized (41 dishes) ⚠️
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 89 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️ CRITICAL ISSUE - Proper courses exist (18 courses) but ALL 41 dishes incorrectly assigned to "Uncategorized" instead of proper courses. Need menu link to verify correct course assignments and reassign dishes. Status mismatch also needs correction (suspended → active). No modifiers found. Waiting for menu link to proceed with course reassignment.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
