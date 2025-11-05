@@ -1046,7 +1046,7 @@ Live menu courses include:
 **Date:** 2025-11-03
 **Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (to verify proper course structure - all dishes currently in Uncategorized)
+**Menu Reference:** https://gatineau.milanopizzeria.ca/?p=menu&lang=fr
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1094,7 +1094,27 @@ WHERE dm.restaurant_id = 680 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ CRITICAL ISSUE - All 75 dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify proper course structure and create correct courses. No modifiers found. Waiting for menu link to proceed with course structure correction.
+**Menu Analysis from https://gatineau.milanopizzeria.ca/?p=menu&lang=fr:**
+Live menu courses include (French menu):
+- Spécial Lundi & Mardi
+- Prix de Groupe
+- Spécial 2 Pizzas
+- Pizza et Poutine
+- Pizzas et Accompagnements
+- Offres Duo
+- Accompagnement (Appetizers)
+- Trempettes (Dips)
+- Poutine
+- Nos Poutines Végétaliennes (Vegan Poutines)
+- Les Sandwiches
+- Nos Nachos
+- Menu Pizza
+- Nos Pizza Végétalienne (Vegan Pizza)
+- Nos Pâtes (Pasta)
+- Dessert
+- Breuvage (Drinks)
+
+**Result:** ⚠️ CRITICAL ISSUE - All 75 dishes incorrectly assigned to "Uncategorized" course. Live menu has proper course structure with 17+ courses. Dishes need to be reassigned to correct courses. No modifiers found. Waiting for authorization to create proper courses and reassign dishes.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
