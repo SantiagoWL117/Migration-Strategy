@@ -3,20 +3,7 @@
 import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { RestaurantGrid } from './restaurant-grid'
-
-interface Restaurant {
-  id: string
-  name: string
-  slug: string
-  image_url: string | null
-  description: string | null
-  cuisine_type: string | null
-  average_rating: number | null
-  review_count: number | null
-  is_active: boolean | null
-  is_featured: boolean | null
-  [key: string]: any
-}
+import { Restaurant } from '@/lib/types/database'
 
 interface NearbyRestaurantsProps {
   initialRestaurants: Restaurant[]

@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface CartModifier {
-  id: number
+  id: string | number
   name: string
   price: number
 }

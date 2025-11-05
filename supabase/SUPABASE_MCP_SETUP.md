@@ -122,3 +122,75 @@ After completing the setup:
 
 Then I'll verify the connection and continue creating the staging table!
 
+---
+
+## 🚀 Background Agent Support (NEW)
+
+### Problem
+Cursor **background agents can't directly call MCP tools** - only Composer can. This means background agents can't execute database operations directly.
+
+### Solution: MCP Proxy Edge Function
+
+We've created an **HTTP bridge** that allows background agents to execute Supabase operations via HTTP requests.
+
+### Setup
+
+1. **Deploy the MCP Proxy function:**
+```bash
+cd /Users/brianlapp/Documents/GitHub/Migration-Strategy
+supabase functions deploy mcp-proxy
+```
+
+2. **Use from background agents:**
+```javascript
+// Example: Apply a migration
+const response = await fetch(
+  'https://nthpbtdjhhnwfxqsxbvy.supabase.co/functions/v1/mcp-proxy',
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
+    },
+    body: JSON.stringify({
+      tool: 'apply_migration',
+      args: {
+        name: 'migration_name',
+        query: 'ALTER TABLE restaurants ADD COLUMN test_field TEXT;'
+      }
+    })
+  }
+);
+```
+
+### Supported Operations
+
+- ✅ `apply_migration` - Apply database migrations
+- ✅ `get_project_url` - Get Supabase project URL
+- ✅ `get_anon_key` - Get anonymous API key
+- ✅ `list_tables` - List tables (with limitations)
+- ✅ `execute_sql` - Execute SQL (with limitations - see docs)
+
+### Documentation
+
+- 📖 [MCP Proxy README](./functions/mcp-proxy/README.md)
+- 📖 [Usage Guide](./functions/mcp-proxy/USAGE_GUIDE.md)
+
+### Important Notes
+
+⚠️ **Limitations:**
+- Raw SQL execution is limited - Supabase JS client doesn't support arbitrary SQL
+- Use `apply_migration` for DDL operations (CREATE, ALTER, DROP)
+- Use Supabase client methods for DML operations (INSERT, UPDATE, DELETE, SELECT)
+- Complex queries should use RPC functions or client methods
+
+🔒 **Security:**
+- Function uses service role key internally (full database access)
+- Add API key authentication before production use
+- Implement rate limiting
+- Validate all inputs
+
+---
+
+**Ready to use background agents?** Deploy the function and start making HTTP requests!
+

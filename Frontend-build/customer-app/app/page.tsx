@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NearbyRestaurants } from '@/components/nearby-restaurants'
 import { HeroSection } from '@/components/hero-section'
+import { DealsSection } from '@/components/deals-section'
 import { CouponsSection } from '@/components/coupons-section'
 import { Footer } from '@/components/footer'
 import Image from 'next/image'
@@ -72,6 +73,9 @@ export default async function HomePage() {
 
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Hot Deals Section */}
+      <DealsSection maxDeals={8} radius={10} language="en" />
 
       {/* Restaurants Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

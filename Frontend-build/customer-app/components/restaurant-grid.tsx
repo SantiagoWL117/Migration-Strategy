@@ -3,22 +3,7 @@
 import Link from 'next/link'
 import { RestaurantCard } from './restaurant-card'
 import { RestaurantGridSkeleton } from './skeleton-loader'
-
-interface Restaurant {
-  id: string
-  name: string
-  slug: string
-  image_url: string | null
-  description: string | null
-  cuisine_type: string | null
-  average_rating: number | null
-  review_count: number | null
-  is_active: boolean | null
-  is_featured: boolean | null
-  distance_km?: number | null
-  can_deliver?: boolean | null
-  [key: string]: any
-}
+import { Restaurant } from '@/lib/types/database'
 
 interface RestaurantGridProps {
   restaurants: Restaurant[]

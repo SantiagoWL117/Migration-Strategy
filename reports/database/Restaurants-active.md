@@ -1,0 +1,195 @@
+# Active Restaurant Locations (Verified)
+
+**Updated:** 2025-11-03
+**Verified against:** Billing records (last 4 months)
+**Total:** 189 restaurants
+
+- Aahar The Taste of India 1573 Alta Vista Drive
+- Al-s Drive In 5474 Osgoode Main Street
+- All Out Burger 2560 Bank Street
+- All Out Burger 3091 Strandherd, Dr.7
+- All Out Burger 585 Montreal Road
+- All Out Burger 714 Gladstone Ave
+- All Out Burger 951 Notre-Dame St
+- Amicci Pizza 2 Boulevard Louise-Campagna
+- Aroy Thai 1 Rideaucrest Drive
+- Asia Garden Ottawa 886 Dynes Road
+- Aylmer BBQ 134, rue Principale
+- Beneci Pizza 4 Lorry Greenberg Dr
+- Bobbie's Pizza & Subs 1443 Ogilvie Rd
+- Capital Bites 34 Grenfell Crescent
+- Capri Pizza 4000 Bridle Path Drive
+- Carlo's Pizza 60 Harmer Ave
+- Cathay Restaurants 1423 Woodroffe Ave
+- Centertown Donair & Pizza 422 Bronson Ave
+- Champa Thai Cuisine 193 King Edward Ave
+- Chances R’ West 1365 Woodroffe Avenue
+- Charm Thai Cuisine 121 Preston St
+- Chicco Pizza & Shawarma Buckingham 1009 Chemin de Masson
+- Chicco Pizza Maloney 842 Boulevard Maloney Est
+- Chicco Pizza Shawarma Anger 1096 Chemin de Montréal Ouest
+- Chicco Pizza St-Louis 1783 Rue Saint-Louis
+- Chicco Pizza de l’Hopital 405 Boulevard de l'Hôpital
+- Chicco Shawarma Cantley 435 Montée de la Source
+- Chicco Shawarma Maloney 922 Boulevard Maloney Est
+- China Moon 273 boul. St-RenÃ© Ouest
+- Colonnade Pizza 1500 Bank St
+- Colonnade Pizza 2140 Carling Ave
+- Colonnade Pizza 280 Metcalfe
+- Colonnade Pizza 896 Greenbank Rd
+- Cosenza 6505 Jeanne d'Arc Boulevard North
+- Crispy's 1433 Woodrofe
+- Crispy's Bank Street 2446 Bank Street
+- Cuisine Bombay Indienne 120 Rue Richelieu
+- Digby's Restaurant 300 Earl Grey Dr
+- Dumpling Bowl 730 Somerset
+- DÃ©panneur GÃ©nÃ©reux 428 Rue GÃ©nÃ©reux
+- Eastview Pizza 251 Montreal Rd
+- Econo Pizza 425, boul La VÃ©rendrye E
+- Egg Roll Factory 261 Centrepointe drive
+- Erman Pizza 3628, av des Ã‰glises
+- Friendly Restaurant and Pizzeria 1756 Laurier St
+- Ginkgo Garden 2225 St Laurent Blvd
+- Golden Center Pizza 600 Rideau Street
+- Greber Pizza et Shawarma 761 Boulevard Saint-Joseph
+- HaNoi Pho 4312 Innes Road
+- Hong Kong Chinese Food Takeout 800 Hunt Club Rd
+- House of Lasagna 984 Merivale Rd
+- Hung Mein 2567 Baseline Rd
+- Imilio's Pizzeria 110 Bearbrook Rd
+- Indian Punjabi Clay Oven 6-4055 Carling Ave.
+- JC Royal Thai Cuisine 100 Jamieson Pkwy, Unit 11
+- JN Pizza 1663 Cyrville Rd
+- Joes Family Pizzeria 284 Pembroke St W
+- Kabylie Pizza 355 Bd GrÃ©ber
+- Kiki Lebanese Pineview Pizza 2045 Meadowbrook Rd
+- Kirkwood Pizza 1078 Merivale Road
+- La Famiglia on the Danforth 2318 Danforth Ave
+- La Maison Pho 4 Rue Belmont
+- La Maison du Burger 574 Boulevard Saint-Joseph
+- La Nawab 1 Rue Cholette
+- La Poutinerie Ogilvie 1443 Ogilvie Rd
+- Lemongrass Thai Cuisine 331 Elgin St
+- Light of India 730 Bank St
+- Little Gyros Greek Grill 10 Townsend Drive
+- Little Gyros Greek Grill 1606 Battler Road
+- Lorenzo's Pizzeria - Vanier 94 Montreal Rd
+- Lucky Fortune 1970 Trim Rd
+- Lucky King Take Out 1134 Cadboro Rd
+- Lucky Star Chinese Food 1615 Orleans Blvd.
+- Mama Rosa 375 Des Epinettes Ave
+- Mano City Pizza 5511 Manotick Main St
+- Marina Pizza des Flandres 22 des Flandres
+- Merivale Pizza & Wings 1610 Merivale Rd
+- Milano 105 Broadway West
+- Milano 1216 Bank St
+- Milano 1234 Merivale Rd Unit 3
+- Milano 14 Main St E
+- Milano 147 Main Street Unit 3
+- Milano 1589 Main St
+- Milano 178 King St E
+- Milano 1824 Beachburg
+- Milano 1896 Prince of Wales
+- Milano 2 Pembroke St ( Highway 17 )
+- Milano 2 Woodfield Dr
+- Milano 2241 St Laurent Blvd
+- Milano 2430 Bank St
+- Milano 2529 Baseline
+- Milano 26 Bridge St
+- Milano 2600 County Rd 43
+- Milano 2609 Laurier St
+- Milano 3050 Woodroffe Ave
+- Milano 339 Dalhousie St
+- Milano 350 St-Philippe Street
+- Milano 3796 Champlain Rd
+- Milano 3848 Innes Rd
+- Milano 385 Tompkins Ave
+- Milano 4188 Spratt Rd
+- Milano 455 Boulevard Riel
+- Milano 471 Hazeldean Rd
+- Milano 506 Main St W
+- Milano 54 Wilson St W
+- Milano 5516 Osgoode Main S
+- Milano 6179 Perth St.
+- Milano 643 Boulevard Saint-RenÃ© O
+- Milano 6500 Russell Road
+- Milano 6594 4th Line Rd
+- Milano 777 Principale St
+- Milano 81 Madawaska Street
+- Milano 83 Mill Street
+- Milano 876 Montreal Rd.
+- Milano 990 River Rd
+- Mont Liban Bakery & Shawarma 351 Montreal Rd
+- Mozza Pizza Gatineau 425, boul La VÃ©rendrye E
+- Mozza Pizza Hull 214 Boul de la CitÃ©-des-Jeunes
+- Mr Mozzarella - Nepean 1433 Woodroffe Ave
+- Mykonos Greek Grill 2600 County Rd 43
+- Mykonos Greek Grill 6594 Fourth Line Rd
+- Nachos Loco Gatineau 643 Boulevard Saint-RenÃ© O
+- Nachos Loco Hull 455 Boulevard Riel
+- Napolis 81 Richmond Rd
+- New Hong Kong 1433 Woodroffe Ave
+- New Mee Fung Restaurant 350 Booth St
+- New Mukut Restaurant Indian Cuisine 1968 Portobello Blvd
+- Number One Chinese Take Out 988 Wellington St
+- Ogilvie Pizza 631 Montreal Rd
+- Oh My Grill 169 York St
+- Oka's Hull 1030 Boulevard Saint-Joseph
+- Orchid Sushi 445 Laurier Ave W
+- Pachino Pizza 3515 Albion Road South
+- Palermo Pizzeria 25 Tapiola Cres
+- Papa Burger 22, rue des Flandres
+- Papa Burger Maloney 253 Boul Maloney E
+- Papa Grecque Cantley 393 MontÃ©e de la Source
+- Papa Grecque Maloney 253 Boul Maloney
+- Papa Grecque des Flandres 22 rue des flandres
+- Papa Joe's Fried Chicken - Downtown 527 Bronson Ave
+- Papa Joe's Pizza - Downtown 527 Bronson Ave
+- Papa Pizza - Hull 574, boul Saint-Joseph
+- Papa Pizza Cantley 393 MontÃ©e de la Source
+- Papa Pizza Chem. de Masson 855 Chem. de Masson
+- Papa Pizza Des Flandres 22, rue des Flandres
+- Papa Pizza Maloney 253, boul Maloney
+- Papa Pizza Val-Des-Monts 1797, rte du Carrefour
+- Parea Authentic Greek 1675 Tenth Line Road
+- Parea Express 540 Montréal Road
+- Patate Lou Lou 29 Chemin Eardley
+- Pho Bo Ga King - Somerset 778 Somerset St W
+- Pho Dau Bo Restaurant - Kitchener 685 Fischer Hallman Rd, Unit G
+- Pizza Bravo 108, boul Lorrain
+- Pizza Joanna 229 Boulevard Saint-RenÃ© Ouest
+- Pizza Lovers Hunt Club 800 Hunt Club Road
+- Pizza Maisonneuve 574 Boulevard Saint-Joseph
+- Pizza Marie 4 Rue d'Orléans
+- Pizza des Hautes Plaines 760 Boulevard des Hautes-Plaines
+- PizzaRama 253, boul Maloney
+- Pizzalicious 1009 Merivale Rd
+- Poutinerie QuÃ©becurds Gatineau 643 Boulevard Saint-RenÃ© O
+- Poutinerie QuÃ©becurds Hull 455 Boulevard Riel
+- Prima Pizza 26 Northside Road
+- Rangoli 2491 St-Joseph Blvd
+- Restaurant Chez Gerry 9, rue Therien
+- Restaurant Le Choix 139, rue Principale
+- River Pizza 4042 Innes Road
+- Riverside Pizzeria 3679 Riverside Dr
+- Roulas Grecque et Pizza 245, rue de Cannes
+- Sachi Sushi 4931, rue Beaubien E
+- Sala Thai 2666 Alta Vista Dr
+- Season's Pizza 725 Somerset Street West
+- Shaan Tandoori 2550, boul LapiniÃ¨re
+- Souvlaki Souvlaki 1216 Bank St
+- Supreme Pizzeria 380 Chemin Vanier
+- Supreme Pizzeria 425 Donald St
+- Sushi Express Chambly 886 ch de Chambly
+- Sushi Fleury 2481 Fleury Est
+- Sushi Presse 6497, rue Beaubien Est
+- Sushiyana 34 boul mont bleu
+- The Original Georgie's 1661 Carling Ave
+- Ting's Kitchen 3-701 Eagleson Rd
+- Tony's Pizza 7772 Jeanne d'Arc Blvd
+- Vanier Pizza & Subs 201 Marier Ave
+- Vieux Hull Pizza 574, boul Saint-Joseph
+- Wandee Thai 40 Beech Street
+- Xtreme Pizza 125 Preston St
+- Yorgo's - Nepean 1356 Clyde Ave
+- iCook Pho You 2006 Robertson Rd
