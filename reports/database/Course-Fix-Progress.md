@@ -1708,7 +1708,7 @@ WHERE dm.restaurant_id = 205 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 425, boul La Vérendrye E ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (only 3 dishes - EXTREMELY LOW, all in Uncategorized, critical data migration issue)
+**Menu link:** https://mozzapizzagatineau.com/?p=menu&lang=fr ✅ (VERIFIED - Full menu available)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1757,7 +1757,29 @@ WHERE dm.restaurant_id = 35 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 3 dishes (EXTREMELY LOW for pizza restaurant). This indicates severe data migration problem - most menu items are missing from database. All dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need menu link to verify missing dishes and determine proper course structure. No modifiers found. Waiting for menu link to investigate data migration issue.
+**Menu Status Check:**
+- Menu URL: https://mozzapizzagatineau.com/?p=menu&lang=fr
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Spécial Petites (2 items)
+  - Spécial Moyennes (3 items)
+  - Spécial Grandes (3 items)
+  - Spécial X-Grandes (3 items)
+  - Pizzas (16+ pizza types with multiple sizes each = 60+ items)
+  - Entrées (10+ items: frites, rouleaux, nachos, etc.)
+  - Salades (2 items)
+  - Wraps (3 items)
+  - Pâtes Savoureuses (1 item: Lasagne)
+  - Ailes de Poulet (1 item with 3 sizes)
+  - Doigts De Poulet (1 item)
+  - Sandwichs Roulés Chauds (1 item)
+  - Sous-Marin Chaud (6 items)
+  - Desserts (2 items)
+  - Liqueurs (14+ beverage items)
+- **Estimated Total Items:** 100+ dishes on live menu
+- **Database Has:** Only 3 dishes (97%+ of menu missing)
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Live menu has 100+ items across 15+ courses, but database only contains 3 dishes. This represents a catastrophic data migration failure - approximately 97% of the menu is missing from the database. The 3 existing dishes are incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). This restaurant requires a complete menu data re-migration before course assignment can proceed. No modifiers found in database (live menu may have modifiers for pizza sizes, etc.). **URGENT: Data migration team must investigate and re-migrate full menu data.**
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
