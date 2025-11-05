@@ -741,6 +741,156 @@ WHERE restaurant_id = 57 AND deleted_at IS NULL;
 
 **Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
 
+#### Milano 385 Tompkins Ave (Restaurant ID: 59)
+**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 385 Tompkins Ave ✅ (matches verified list)
+**Assignee:** Brian (B)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 59
+- Name: Milano
+- Status: suspended ⚠️ (does NOT match verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 59;
+```
+- Courses defined: 1 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 59 AND deleted_at IS NULL;
+```
+- Total dishes: 13
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 13 (100%) ✅
+
+**Result:** ⏸️ Status mismatch - suspended vs active. Already assigned.
+
+#### Milano 4188 Spratt Rd (Restaurant ID: 565)
+**Status:** ✅ SKIPPED - Already Assigned
+**Date:** 2025-11-03
+**Address:** 4188 Spratt Rd ✅ (matches verified list)
+**Assignee:** Brian (B)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 565
+- Name: Milano
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 565;
+```
+- Courses defined: 1 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 565 AND deleted_at IS NULL;
+```
+- Total dishes: 14
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 14 (100%) ✅
+
+**Result:** ✅ Already assigned - All 14 dishes have course_id. No work needed.
+
+#### Milano 455 Boulevard Riel (Restaurant ID: 751)
+**Status:** ✅ SKIPPED - Already Assigned
+**Date:** 2025-11-03
+**Address:** 455 Boulevard Riel ✅ (matches verified list)
+**Assignee:** Brian (B)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 751
+- Name: Milano
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 751;
+```
+- Courses defined: 1 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 751 AND deleted_at IS NULL;
+```
+- Total dishes: 31
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 31 (100%) ✅
+
+**Result:** ✅ Already assigned - All 31 dishes have course_id. No work needed.
+
+#### Milano 471 Hazeldean Rd (Restaurant ID: 126)
+**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 471 Hazeldean Rd ✅ (matches verified list)
+**Assignee:** Brian (B)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 126
+- Name: Milano
+- Status: suspended ⚠️ (does NOT match verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 126;
+```
+- Courses defined: 2 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 126 AND deleted_at IS NULL;
+```
+- Total dishes: 9
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 9 (100%) ✅
+
+**Result:** ⏸️ Status mismatch - suspended vs active. Already assigned.
+
+#### Milano 506 Main St W (Restaurant ID: 350)
+**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 506 Main St W ✅ (matches verified list)
+**Assignee:** Brian (B)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 350
+- Name: Milano
+- Status: suspended ⚠️ (does NOT match verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 350;
+```
+- Courses defined: 1 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 350 AND deleted_at IS NULL;
+```
+- Total dishes: 81
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 81 (100%) ✅
+
+**Result:** ⏸️ Status mismatch - suspended vs active. Already assigned.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
