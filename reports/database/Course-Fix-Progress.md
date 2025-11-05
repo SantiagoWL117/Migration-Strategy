@@ -2171,7 +2171,7 @@ WHERE dm.restaurant_id = 502 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 350 Booth St ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NOT NEEDED (all dishes properly assigned to courses)
+**Menu link:** https://newmeefung.com/?p=menu ✅ (VERIFIED - Full menu available, course structure matches)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -2233,7 +2233,24 @@ WHERE dm.restaurant_id = 15 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ✅ All 144 dishes properly assigned to 13 courses. Status mismatch needs correction (suspended → active). Restaurant is listed as **active** in verified billing list (billed in last 4 months) but database shows `suspended`. No modifiers found. **ACTION REQUIRED:** Update status from `suspended` to `active` to match verified billing list.
+**Menu Status Check:**
+- Menu URL: https://newmeefung.com/?p=menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Verification:**
+  - Live menu courses match database courses ✅
+  - SPECIALTY SOUPS (database: Specialty Soups) ✅
+  - APPETIZERS (database: Appetizers) ✅
+  - FRIED RICE and NOODLE (database: Fried Rice and Noodle) ✅
+  - SOUPS (database: Soups) ✅
+  - NOODLE SOUPS (database: Noodle Soups) ✅
+  - DISH OF RICE (database: Dish of Rice) ✅
+  - VERMICELLI BOWL (database: Vermicelli Bowl) ✅
+  - ROLL UP WITH RICE PAPER (database: Roll Up with Rice Paper) ✅
+  - VEGETARIAN (database: Vegetarian) ✅
+  - SIDE ORDERS (database: Side Orders) ✅
+  - Database also has: Beverages, Coffee and Tea, Bubble Tea (not shown in main menu navigation but present in menu)
+
+**Result:** ✅ All 144 dishes properly assigned to 13 courses. Course structure matches live menu perfectly. Status mismatch needs correction (suspended → active). Restaurant is listed as **active** in verified billing list (billed in last 4 months) but database shows `suspended`. No modifiers found. **ACTION REQUIRED:** Update status from `suspended` to `active` to match verified billing list.
 
 ---
 
