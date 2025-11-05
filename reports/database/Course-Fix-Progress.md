@@ -1866,7 +1866,7 @@ WHERE dm.restaurant_id = 644 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 1433 Woodroffe Ave ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (only 1 dish - EXTREMELY LOW, all in Uncategorized, critical data migration issue)
+**Menu link:** https://mmrmozzarellanepean.menu.ca/menu ✅ (VERIFIED - Full menu available)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1915,7 +1915,29 @@ WHERE dm.restaurant_id = 47 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 1 dish (EXTREMELY LOW for pizza restaurant). This indicates catastrophic data migration failure - nearly 100% of menu items are missing from database. The single dish is incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need menu link to verify missing dishes and determine proper course structure. No modifiers found. Waiting for menu link to investigate data migration issue.
+**Menu Status Check:**
+- Menu URL: https://mmrmozzarellanepean.menu.ca/menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Party Specials (2 items)
+  - Deals (1 item)
+  - Pizza and Wings Combo (4 items)
+  - Mr Mozzarella Signature Pizzas (25+ pizza types with 4 sizes each = 100+ items)
+  - Build Your Own Pizza (customizable with multiple sizes)
+  - Wings (10+ flavors with multiple sizes = 30+ items)
+  - Appetizers (15+ items: wings, chicken fingers, fries, cheese curds, mushrooms, cauliflower wings, mozzarella sticks, mac n cheese wedges, jalapeno poppers, pickles, garlic bread varieties, shrimp, nachos)
+  - Poutine (6 varieties with sizes = 12+ items)
+  - Baskets (4 items)
+  - Italian Dishes (4 items with sizes = 8+ items)
+  - Fresh Salads (3 types with sizes and protein options = 9+ items)
+  - Footlongs (7 sub varieties)
+  - Make A Platter (7 customizable options)
+  - Desserts (3 items)
+  - Drinks (20+ beverage items with multiple sizes)
+- **Estimated Total Items:** 200+ dishes on live menu (when accounting for all sizes and variations)
+- **Database Has:** Only 1 dish (99.5%+ of menu missing)
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Live menu has 200+ items across 14+ courses, but database only contains 1 dish. This represents a catastrophic data migration failure - approximately 99.5%+ of the menu is missing from the database. The single dish is incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). This restaurant requires a complete menu data re-migration before course assignment can proceed. No modifiers found in database (live menu has extensive modifiers for pizza sizes, wing flavors, sauce options, etc.). **URGENT: Data migration team must investigate and re-migrate full menu data immediately.**
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
