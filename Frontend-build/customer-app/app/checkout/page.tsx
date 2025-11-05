@@ -7,6 +7,10 @@ import { Trash2, Plus, Minus } from 'lucide-react'
 import { Elements } from '@stripe/react-stripe-js'
 import { getStripe } from '@/lib/stripe/config'
 import { StripeCheckoutForm } from '@/components/stripe-checkout-form'
+import { CouponInput } from '@/components/coupon-input'
+import { BestDealBanner } from '@/components/best-deal-banner'
+import { createClient } from '@/lib/supabase/client'
+import type { CouponValidation, AppliedDiscount } from '@/lib/promotions/types'
 
 export default function CheckoutPage() {
   const router = useRouter()
@@ -33,11 +37,104 @@ export default function CheckoutPage() {
     instructions: ''
   })
 
+  // Promotions state
+  const [appliedDiscount, setAppliedDiscount] = useState<AppliedDiscount | null>(null)
+  const [isCheckingBestDeal, setIsCheckingBestDeal] = useState(false)
+
   const deliveryFee = 3.99
-  const finalTotal = total + deliveryFee
+
+  // Calculate totals with discount
+  const discountAmount = appliedDiscount?.discountAmount || 0
+  const finalTotal = total + deliveryFee - discountAmount
 
   // Get restaurant ID from first item
   const restaurantId = items[0]?.restaurantId || 0
+
+  // Auto-apply best deal on page load
+  useEffect(() => {
+    const checkBestDeal = async () => {
+      if (items.length === 0 || restaurantId === 0) return
+
+      setIsCheckingBestDeal(true)
+
+      try {
+        const supabase = createClient()
+        const { data, error } = await supabase.rpc('find_best_deal_for_order', {
+          p_restaurant_id: restaurantId,
+          p_order_total: subtotal,
+          p_service_type: 'delivery',
+          p_customer_id: null // TODO: Add user ID when auth is ready
+        })
+
+        if (error) {
+          console.error('Error finding best deal:', error)
+          return
+        }
+
+        if (data && data.has_deal && data.discount_amount > 0) {
+          // Auto-apply the best deal
+          setAppliedDiscount({
+            type: data.deal_type === 'coupon' ? 'coupon' : 'deal',
+            id: data.deal_id || data.coupon_id,
+            code: data.coupon_code,
+            name: data.deal_title || 'Best Deal',
+            discountAmount: data.discount_amount,
+            discountType: 'percentage', // TODO: Get from deal data
+            discountValue: 0 // TODO: Get from deal data
+          })
+        }
+      } catch (err) {
+        console.error('Failed to check best deal:', err)
+      } finally {
+        setIsCheckingBestDeal(false)
+      }
+    }
+
+    checkBestDeal()
+  }, [items.length, restaurantId, subtotal])
+
+  // Handle coupon validation
+  const handleApplyCoupon = async (code: string): Promise<CouponValidation> => {
+    const supabase = createClient()
+
+    const { data, error } = await supabase.rpc('validate_coupon', {
+      p_code: code,
+      p_restaurant_id: restaurantId,
+      p_customer_id: null, // TODO: Add user ID when auth is ready
+      p_order_total: subtotal,
+      p_service_type: 'delivery'
+    })
+
+    if (error) {
+      console.error('Coupon validation error:', error)
+      return {
+        valid: false,
+        error_code: 'COUPON_NOT_FOUND',
+        discount_amount: 0,
+        final_total: finalTotal
+      }
+    }
+
+    if (data && data.valid) {
+      // Apply coupon
+      setAppliedDiscount({
+        type: 'coupon',
+        id: data.coupon_id!,
+        code: code,
+        name: data.coupon_name!,
+        discountAmount: data.discount_amount,
+        discountType: 'percentage', // TODO: Get from coupon data
+        discountValue: 0 // TODO: Get from coupon data
+      })
+    }
+
+    return data
+  }
+
+  // Handle remove discount
+  const handleRemoveDiscount = () => {
+    setAppliedDiscount(null)
+  }
 
   // Validate delivery form
   const validateDeliveryInfo = () => {
@@ -143,8 +240,15 @@ export default function CheckoutPage() {
             subtotal,
             tax,
             deliveryFee,
+            discount: discountAmount,
             total: finalTotal
-          }
+          },
+          coupon: appliedDiscount ? {
+            code: appliedDiscount.code,
+            id: appliedDiscount.id,
+            type: appliedDiscount.type,
+            discountAmount: appliedDiscount.discountAmount
+          } : null
         }),
       })
 
@@ -393,7 +497,7 @@ export default function CheckoutPage() {
           <div>
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-8">
               <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
-              
+
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Subtotal</span>
@@ -407,6 +511,12 @@ export default function CheckoutPage() {
                   <span className="text-gray-600">Delivery Fee</span>
                   <span className="font-medium">$3.99</span>
                 </div>
+                {discountAmount > 0 && (
+                  <div className="flex justify-between text-green-600">
+                    <span>Discount</span>
+                    <span className="font-medium">-${discountAmount.toFixed(2)}</span>
+                  </div>
+                )}
               </div>
 
               <div className="border-t pt-4 mb-6">
@@ -414,6 +524,45 @@ export default function CheckoutPage() {
                   <span>Total</span>
                   <span>${finalTotal.toFixed(2)}</span>
                 </div>
+                {discountAmount > 0 && (
+                  <p className="text-sm text-green-600 mt-1">
+                    You're saving ${discountAmount.toFixed(2)}!
+                  </p>
+                )}
+              </div>
+
+              {/* Best Deal Banner or Coupon Input */}
+              <div className="mb-6">
+                {appliedDiscount ? (
+                  appliedDiscount.type === 'deal' ? (
+                    <BestDealBanner
+                      dealTitle={appliedDiscount.name}
+                      discountAmount={appliedDiscount.discountAmount}
+                      discountType={appliedDiscount.discountType}
+                      discountValue={appliedDiscount.discountValue}
+                      onRemove={handleRemoveDiscount}
+                      showRemove={true}
+                    />
+                  ) : (
+                    <CouponInput
+                      onApply={handleApplyCoupon}
+                      onRemove={handleRemoveDiscount}
+                      appliedCoupon={{
+                        code: appliedDiscount.code!,
+                        name: appliedDiscount.name,
+                        discountAmount: appliedDiscount.discountAmount
+                      }}
+                      disabled={showPaymentForm}
+                    />
+                  )
+                ) : (
+                  <CouponInput
+                    onApply={handleApplyCoupon}
+                    onRemove={handleRemoveDiscount}
+                    appliedCoupon={null}
+                    disabled={showPaymentForm}
+                  />
+                )}
               </div>
 
               {!showPaymentForm ? (

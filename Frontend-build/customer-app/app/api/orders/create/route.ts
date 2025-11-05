@@ -77,8 +77,9 @@ export async function POST(request: NextRequest) {
         tax_amount: body.totals.tax,
         delivery_fee: body.totals.deliveryFee,
         tip_amount: 0,
-        discount_amount: 0,
+        discount_amount: body.totals.discount || 0,
         total_amount: body.totals.total,
+        coupon_code: body.coupon?.code || null,
         customer_name: body.customerInfo.name,
         customer_email: body.customerInfo.email,
         customer_phone: body.customerInfo.phone,
@@ -140,7 +141,31 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Step 3: Send confirmation email (TODO: Implement in Phase 6)
+    // Step 3: Redeem coupon if one was used
+    if (body.coupon && body.coupon.code) {
+      try {
+        // Get user's IP and user agent for fraud prevention
+        const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
+        const userAgent = request.headers.get('user-agent') || 'unknown'
+
+        await supabase.rpc('redeem_coupon', {
+          p_code: body.coupon.code,
+          p_customer_id: null, // TODO: Add user ID when auth is ready
+          p_order_id: order.id,
+          p_discount_amount: body.coupon.discountAmount,
+          p_order_total: body.totals.total,
+          p_ip_address: ip,
+          p_user_agent: userAgent
+        })
+
+        console.log(`Coupon ${body.coupon.code} redeemed for order ${order.id}`)
+      } catch (couponError) {
+        // Don't fail the order if coupon redemption fails (order already paid)
+        console.error('Failed to redeem coupon, but order was created:', couponError)
+      }
+    }
+
+    // Step 4: Send confirmation email (TODO: Implement in Phase 6)
     // await sendOrderConfirmationEmail(order.id, body.customerInfo.email)
 
     return NextResponse.json({
