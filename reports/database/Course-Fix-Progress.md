@@ -2226,6 +2226,90 @@ Japanese/Korean fusion restaurant with mix of:
 2. **URGENT:** Verify if restaurant has full menu online - may need menu migration
 3. If menu is complete, create proper courses and assign dishes
 
+#### Champa Thai Cuisine (Restaurant ID: 87)
+**Status:** ⚠️ SKIPPED - 0 dishes | ⚠️ DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 193 King Edward Ave ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 0 ⚠️⚠️ (CRITICAL - No dishes in database)
+- Courses defined: 13 ✅
+- Status: active ✅ (matches verified list)
+
+**⚠️ CRITICAL DATA ISSUE:** Restaurant has 0 dishes but 13 courses defined. This indicates menu data was deleted or never migrated.
+
+#### Chances R' West
+**Status:** ❌ NOT FOUND IN DATABASE
+**Date:** 2025-11-03
+**Address:** 1365 Woodroffe Avenue ✅ (matches verified list)
+
+**Note:** Restaurant in verified billing list but not found in database. May need to be added/migrated.
+
+#### China Moon (Restaurant ID: 641)
+**Status:** ⏳ NEEDS WORK - 314 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 273 boul. St-René Ouest ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 314 ✅ (Very large menu!)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 314 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅ (matches verified list)
+
+**Note:** Found 3 entries (IDs: 641 active, 944 pending, 998 suspended). Using active one (ID: 641).
+
+**Action Required:**
+1. Create courses for Chinese restaurant
+2. Assign 314 dishes to appropriate courses
+
+#### Cosenza (Restaurant ID: 957)
+**Status:** ⏳ NEEDS WORK - 561 dishes, 561 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 6505 Jeanne d'Arc Boulevard North ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 561 ✅ (EXTREMELY LARGE MENU!)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 561 (100%) ⚠️
+- Courses defined: 561 ⚠️⚠️ (Suspicious - 1 course per dish? Should be ~10-20 courses)
+- Status: active ✅ (matches verified list)
+
+**⚠️ PATTERN ALERT:** Restaurant has 561 courses - this suggests courses were created per dish rather than per category. Need to consolidate courses and reassign dishes.
+
+**Action Required:**
+1. Review course structure - likely needs consolidation
+2. Reassign 561 dishes to proper course categories
+
+#### Crispy's (Restaurant ID: 584)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 1433 Woodrofe ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 1 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 1 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅ (matches verified list)
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a restaurant. Menu migration issue.
+
+#### Crispy's Bank Street (Restaurant ID: 806)
+**Status:** ⏳ NEEDS WORK - 123 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 2446 Bank Street ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 123 ✅ (Good count)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 123 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅ (matches verified list)
+
+**Action Required:**
+1. Create courses for restaurant
+2. Assign 123 dishes to appropriate courses
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
