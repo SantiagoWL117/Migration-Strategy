@@ -2075,6 +2075,61 @@ WHERE dm.restaurant_id = 845 AND dm.deleted_at IS NULL;
 
 **Result:** ⚠️ ACTION REQUIRED - Restaurant has 41 dishes but **NO courses defined**. All 41 dishes have NULL course_id and need course assignment. Must create 7 courses based on live menu structure: (1) Mykonos Souvlaki Platter, (2) Pita Wraps, (3) Salads, (4) Appetizers, (5) Extras, (6) Desserts, (7) Drinks. Then assign all 41 dishes to appropriate courses. Modifiers exist for Mini Donuts (flavor options) - need to verify these are correctly assigned in database. Waiting for authorization to create courses and assign dishes.
 
+#### Nachos Loco Gatineau 643 Boulevard Saint-René O (Restaurant ID: 801)
+**Status:** ⚠️ CRITICAL ISSUE - Suspiciously low dish count, all dishes in Uncategorized
+**Date:** 2025-11-03
+**Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (only 6 dishes - EXTREMELY LOW, all in Uncategorized, need to verify missing dishes and course structure)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Nachos%';
+```
+- Restaurant ID: 801
+- Name: Nachos Loco Gatineau
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 801;
+```
+- Courses defined: 1 ⚠️
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 801 AND deleted_at IS NULL;
+```
+- Total dishes: 6 ⚠️⚠️⚠️ (EXTREMELY LOW - Most restaurants have 20+ dishes)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 6 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 801 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course name: "Uncategorized"
+- **CRITICAL ISSUE:** All 6 dishes are assigned to "Uncategorized" course
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 801 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️ CRITICAL ISSUE - Only 6 dishes (EXTREMELY LOW for restaurant). This may indicate a data migration issue - most menu items may be missing from database. All dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify dish completeness and determine proper course structure. No modifiers found. Waiting for menu link to investigate.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
