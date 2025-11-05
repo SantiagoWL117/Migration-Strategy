@@ -1703,6 +1703,62 @@ WHERE dm.restaurant_id = 205 AND dm.deleted_at IS NULL;
 
 **Result:** ⚠️ CRITICAL ISSUE - All 26 dishes incorrectly assigned to "Uncategorized" course. Modifiers exist (29 modifiers on 15 dishes) but need menu link to verify assignments are correct. Status discrepancy: Database shows `suspended`, verified billing list shows active (billed in last 4 months), but Google Maps shows "PERMANENTLY CLOSED". Need to verify actual restaurant status before proceeding with course corrections. Waiting for menu link and status clarification.
 
+#### Mozza Pizza Gatineau 425, boul La Vérendrye E (Restaurant ID: 35)
+**Status:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Extremely low dish count
+**Date:** 2025-11-03
+**Address:** 425, boul La Vérendrye E ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (only 3 dishes - EXTREMELY LOW, all in Uncategorized, critical data migration issue)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Mozza%';
+```
+- Restaurant ID: 35
+- Name: Mozza Pizza
+- Status: suspended ⚠️ (does NOT match verified billing list)
+- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 35;
+```
+- Courses defined: 1 ⚠️
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 35 AND deleted_at IS NULL;
+```
+- Total dishes: 3 ⚠️⚠️⚠️ (EXTREMELY LOW - Most pizza restaurants have 30+ dishes)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 3 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 35 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course name: "Uncategorized"
+- **CRITICAL ISSUE:** All 3 dishes are assigned to "Uncategorized" course
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 35 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 3 dishes (EXTREMELY LOW for pizza restaurant). This indicates severe data migration problem - most menu items are missing from database. All dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need menu link to verify missing dishes and determine proper course structure. No modifiers found. Waiting for menu link to investigate data migration issue.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
