@@ -2824,13 +2824,15 @@ Japanese/Korean fusion restaurant with mix of:
 **⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a restaurant. Menu migration issue.
 
 ### JN Pizza (Restaurant ID: 328)
-**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT | ⚠️ MIGRATED TO OLIVEPOS/RESTAURANTPLUS
 **Date:** 2025-11-03
 **Address:** 1663 Cyrville Rd ✅ (matches verified list)
+**Menu Reference:** https://order.jnpizza.com/?p=menu
 
 **Issue Found:**
 - Listed in verified billing list as **active** (billed in last 4 months)
 - **Database status: suspended** (needs correction to match verified list)
+- **⚠️ MIGRATION NOTE:** Restaurant has moved to OlivePOS/RestaurantPlus but maintains a secondary site with our platform
 
 **Menu Status:**
 - Total dishes: 21 ⚠️⚠️ (SUSPICIOUSLY LOW - very low for a pizza restaurant)
@@ -2845,16 +2847,18 @@ Japanese/Korean fusion restaurant with mix of:
 **⚠️ ISSUES:**
 1. **STATUS CORRECTION NEEDED:** Listed in verified billing list as **active** but database shows `suspended` - needs update to `active`
 2. **SUSPICIOUSLY LOW DISH COUNT:** Only 21 dishes is very low for a pizza restaurant. This suggests incomplete menu migration - verify if restaurant has full menu online
+3. **MIGRATION STATUS:** Restaurant has moved to OlivePOS/RestaurantPlus but still maintains our platform - verify if this is intentional or if menu needs to be updated
 
 **Resolution Needed:**
 1. **STATUS CORRECTION:** Update database status from `suspended` to `active`
-2. **URGENT:** Verify if restaurant has full menu online - may need menu migration
-3. If menu is complete, create proper courses (Pizza, Sandwiches, Poutine, Spaghetti, Appetizers, Extras) and assign dishes appropriately
+2. **URGENT:** Review live menu at https://order.jnpizza.com/?p=menu to verify course structure and dish count
+3. If menu is complete, create proper courses based on live menu structure and assign dishes appropriately
 
 ### Joes Family Pizzeria (Restaurant ID: 636)
 **Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
 **Date:** 2025-11-03
 **Address:** 284 Pembroke St W ✅ (matches verified list)
+**Menu Reference:** https://joesfamilypizzeria.ca/?p=menu
 
 **Menu Status:**
 - Total dishes: 67 ✅ (Good count)
@@ -2872,12 +2876,14 @@ Japanese/Korean fusion restaurant with mix of:
 - Restaurant needs proper course structure created to organize menu better
 
 **Resolution Needed:**
-- Create proper courses (Pizza, Fish & Chips, Combos/Specials, Sauces/Extras) and reassign dishes appropriately
+- Review live menu at https://joesfamilypizzeria.ca/?p=menu to identify proper course categories
+- Create proper courses based on live menu structure (Pizza, Fish & Chips, Combos/Specials, Sauces/Extras) and reassign dishes appropriately
 
 ### Kabylie Pizza (Restaurant ID: 798)
 **Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
 **Date:** 2025-11-03
 **Address:** 355 Bd Gréber ✅ (matches verified list)
+**Menu Reference:** https://kabyliepizza.com/?p=menu&lang=fr
 
 **Menu Status:**
 - Total dishes: 36 ✅ (Acceptable count)
@@ -2890,12 +2896,34 @@ Japanese/Korean fusion restaurant with mix of:
 - Uncategorized (1837): 36 dishes
   - Includes: Pizza varieties (Canadienne, Hawaïenne, Pepperoni, Grecque, Pesto, Poulet BBQ, etc.), Combos (Combo 1-4, Pizza + Ailes), Pizza deals (2 Pizzas avec Trempettes), Specialty pizzas (Maison Kabyle, Fruits de Mer, Amateurs de légumes/viande)
 
+**Live Menu Course Structure** (from https://kabyliepizza.com/?p=menu&lang=fr):
+- Spéciaux Nouveau Départ (New Start Specials)
+- Pizza et Ailes (Pizza and Wings)
+- Combos
+- Amuse-Gueules (Appetizers)
+- Salades (Salads)
+- Poulet (Chicken)
+- Sous-Marins (Subs)
+- Grillés au Four (Grilled)
+- Pizzas
+- Pizzas Gourmet
+- Deux Pizzas (Two Pizzas)
+- Deux Pizzas Gourmet (Two Gourmet Pizzas)
+- Poutines Spécialité (Specialty Poutines)
+- Assiettes (Platters)
+- Desserts
+- Boissons (Drinks)
+
 **Issue Found:**
 - All 36 dishes are assigned to a single "Uncategorized" course
 - Bilingual menu (French/English) - restaurant needs proper course structure created
+- **CRITICAL:** Database only has 36 dishes but live menu shows extensive menu with many more items - suggests incomplete menu migration
 
 **Resolution Needed:**
-- Create proper courses (Pizza, Combos/Specials, Pizza + Wings combos) and reassign dishes appropriately
+1. **URGENT:** Verify menu migration - database shows only 36 dishes but live menu has many more items
+2. Review live menu at https://kabyliepizza.com/?p=menu&lang=fr to identify all courses
+3. Create proper courses based on live menu structure and reassign dishes appropriately
+4. Verify if additional dishes need to be migrated from live menu
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
