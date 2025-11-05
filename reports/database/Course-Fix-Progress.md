@@ -634,6 +634,113 @@ WHERE restaurant_id = 91 AND deleted_at IS NULL;
 
 **Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
 
+#### Milano 350 St-Philippe Street (Restaurant ID: 624)
+**Status:** ✅ SKIPPED - Already Assigned
+**Date:** 2025-11-03
+**Address:** 350 St-Philippe Street ✅ (matches verified list)
+**Assignee:** Brian (B)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 624
+- Name: Milano
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 624;
+```
+- Courses defined: 1 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 624 AND deleted_at IS NULL;
+```
+- Total dishes: 34
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 34 (100%) ✅
+
+**Result:** ✅ Already assigned - All 34 dishes have course_id. No work needed.
+
+#### Milano 3796 Champlain Rd (Restaurant ID: 90)
+**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 3796 Champlain Rd ✅ (matches verified list)
+**Assignee:** Brian (B)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 90
+- Name: Milano
+- Status: suspended ⚠️ (does NOT match verified billing list)
+- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 90;
+```
+- Courses defined: 19 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 90 AND deleted_at IS NULL;
+```
+- Total dishes: 11
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 11 (100%) ✅
+
+**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
+
+#### Milano 3848 Innes Rd (Restaurant ID: 57)
+**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 3848 Innes Rd ✅ (matches verified list)
+**Assignee:** Brian (B)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 57
+- Name: Milano
+- Status: suspended ⚠️ (does NOT match verified billing list)
+- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 57;
+```
+- Courses defined: 1 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 57 AND deleted_at IS NULL;
+```
+- Total dishes: 17
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 17 (100%) ✅
+
+**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
