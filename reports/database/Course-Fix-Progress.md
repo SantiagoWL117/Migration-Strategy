@@ -2330,7 +2330,7 @@ WHERE dm.restaurant_id = 234 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 988 Wellington St ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NOT NEEDED (121 dishes properly assigned, only 5 in Uncategorized - minor fix needed)
+**Menu link:** https://no1chinesefoodottawa.com/?p=menu ✅ (VERIFIED - Full menu available, course structure matches)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -2395,7 +2395,29 @@ WHERE dm.restaurant_id = 65 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ✅ Good progress - 121 dishes properly assigned to 16 courses. Minor issue: 5 dishes incorrectly assigned to "Uncategorized" course need reassignment to appropriate courses. No modifiers found. **ACTION REQUIRED:** Reassign 5 dishes from "Uncategorized" to appropriate courses based on dish names.
+**Menu Status Check:**
+- Menu URL: https://no1chinesefoodottawa.com/?p=menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Verification:**
+  - Live menu courses match database courses ✅
+  - Full Course Dinners ✅
+  - Combination Plates ✅
+  - Thai Special ✅
+  - Appetizers and Side Orders ✅
+  - Soups ✅
+  - Fried Rice ✅
+  - Fried Noodles ✅
+  - Chow Mein ✅
+  - Egg Foo Young ✅
+  - Moo She ✅
+  - Chicken ✅
+  - Beef ✅
+  - Pork ✅
+  - Szechuan Cuisine ✅
+  - Seafood ✅
+  - Vegetables & Bean Curd (database: Vegetables and Bean Curd) ✅
+
+**Result:** ✅ Good progress - 121 dishes properly assigned to 16 courses. Course structure matches live menu perfectly. Minor issue: 5 dishes incorrectly assigned to "Uncategorized" course need reassignment to appropriate courses. No modifiers found. **ACTION REQUIRED:** Reassign 5 dishes from "Uncategorized" to appropriate courses based on dish names.
 
 ---
 
