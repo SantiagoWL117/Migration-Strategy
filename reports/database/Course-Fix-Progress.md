@@ -2635,18 +2635,20 @@ Japanese/Korean fusion restaurant with mix of:
 2. **SUSPICIOUSLY LOW DISH COUNT:** Only 10 dishes is extremely low for a pizza restaurant
 
 #### Cuisine Bombay Indienne (Restaurant ID: 960)
-**Status:** ⏳ NEEDS WORK - 161 dishes, 20 courses, partial assignment
+**Status:** ⏳ NEEDS WORK - 161 dishes, 20 courses, 100% unassigned
 **Date:** 2025-11-03
 **Address:** 120 Rue Richelieu ✅ (matches verified list)
 
 **Details:**
 - Total dishes: 161 ✅ (Good count)
-- Dishes with course_id: (checking...)
-- Dishes with NULL course_id: (checking...)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 161 (100%) ⚠️
 - Courses defined: 20 ✅
 - Status: active ✅
 
-**Action Required:** Verify course assignment status and complete if needed
+**⚠️ PATTERN ALERT:** Restaurant has 20 courses defined but 0 dishes assigned. Courses exist but need to be assigned to dishes.
+
+**Action Required:** Assign 161 dishes to existing 20 courses
 
 #### Digby's Restaurant (Restaurant ID: 638)
 **Status:** ⏳ NEEDS WORK - 89 dishes, 0 courses, 100% unassigned
@@ -2690,6 +2692,136 @@ Japanese/Korean fusion restaurant with mix of:
 **Note:** Found multiple entries (IDs: 930 pending, 105 suspended, 1000 suspended). Listed as active in verified billing but DB shows pending.
 
 **Resolution Needed:** Update status from `pending` to `active`
+
+#### Econo Pizza
+**Status:** ❌ NOT FOUND IN DATABASE
+**Date:** 2025-11-03
+**Address:** 425, boul La Vérendrye E ✅ (matches verified list)
+
+**Note:** Restaurant in verified billing list but not found in database. May need to be added/migrated.
+
+#### Erman Pizza (Restaurant ID: 211)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 3628, av des Églises ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 17 ⚠️⚠️ (SUSPICIOUSLY LOW)
+- Dishes with course_id: 17 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **SUSPICIOUSLY LOW DISH COUNT:** Only 17 dishes is low for a pizza restaurant
+
+#### Greber Pizza et Shawarma (Restaurant ID: 736)
+**Status:** ⏳ NEEDS WORK - 105 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 761 Boulevard Saint-Joseph ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 105 ✅ (Good count)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 105 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅
+
+**Action Required:** Create courses and assign 105 dishes
+
+#### HaNoi Pho (Restaurant ID: 519)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 4312 Innes Road ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 9 ⚠️⚠️ (SUSPICIOUSLY LOW)
+- Dishes with course_id: 9 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **SUSPICIOUSLY LOW DISH COUNT:** Only 9 dishes is very low for a Pho restaurant
+
+#### Hong Kong Chinese Food Takeout (Restaurant ID: 160)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 800 Hunt Club Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 0 ⚠️⚠️ (CRITICAL - No dishes)
+- Courses defined: 0
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **CRITICAL:** 0 dishes in database - menu migration issue
+
+#### House of Lasagna (Restaurant ID: 22)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 984 Merivale Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 1 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 1 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a restaurant
+
+#### Hung Mein (Restaurant ID: 119)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 2567 Baseline Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 160 ✅ (Good count)
+- Dishes with course_id: 160 (100%) ✅
+- Courses defined: 16 ✅
+- Status: active ✅
+
+#### Imilio's Pizzeria (Restaurant ID: 7)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 110 Bearbrook Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 3 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 3 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**Note:** Found multiple entries (IDs: 7 active, 849 suspended, 1001 suspended). Using active one (ID: 7).
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 3 dishes is extremely low for a pizza restaurant. Menu migration issue.
+
+#### Indian Punjabi Clay Oven (Restaurant ID: 180)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 6-4055 Carling Ave. ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 115 ✅ (Good count)
+- Dishes with course_id: 115 (100%) ✅
+- Courses defined: 11 ✅
+- Status: active ✅
+
+#### JC Royal Thai Cuisine (Restaurant ID: 646)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 100 Jamieson Pkwy, Unit 11 ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 1 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 1 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a restaurant. Menu migration issue.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
