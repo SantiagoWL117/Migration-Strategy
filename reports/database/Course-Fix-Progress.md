@@ -969,7 +969,7 @@ WHERE restaurant_id = 349 AND deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 6179 Perth St. ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (to verify modifier assignments are correct)
+**Menu Reference:** https://richmond.milanopizzeria.ca/?p=menu
 
 **Step 1: Restaurant Status**
 ```sql
@@ -999,7 +999,15 @@ WHERE restaurant_id = 190 AND deleted_at IS NULL;
 - Dishes with NULL course_id: 0 (0%) ✅
 - Dishes with course_id: 31 (100%) ✅
 
-**Step 4: Check Modifiers**
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 190 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course name: "Uncategorized"
+- **CRITICAL ISSUE:** All 31 dishes are assigned to "Uncategorized" course, but live menu shows multiple courses (Appetizers, Pizza, Pasta, Burgers, Drinks, etc.)
+
+**Step 5: Check Modifiers**
 ```sql
 SELECT 
     COUNT(DISTINCT dm.id) as total_modifiers,
@@ -1009,9 +1017,29 @@ WHERE dm.restaurant_id = 190 AND dm.deleted_at IS NULL;
 ```
 - Total modifiers: 68
 - Dishes with modifiers: 22 (out of 31 dishes)
-- **Menu link NEEDED:** To verify modifier assignments match live menu (which dishes should have modifiers, which modifiers belong to which dishes)
+- **Menu link analysis:** Need to verify modifier assignments match live menu structure
 
-**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned. Modifiers exist (68 modifiers on 22 dishes) but need menu link to verify assignments are correct. Waiting for authorization to update status from `suspended` to `active` and menu link to verify modifier accuracy.
+**Menu Analysis from https://richmond.milanopizzeria.ca/?p=menu:**
+Live menu courses include:
+- Bruyère DONATION
+- Features Of The Month
+- Mini Donuts Hot and Fresh Made
+- PIZZAS WITH FANTINO MONDELLO PANCETTA
+- 2 Pizza and Two Free 591ml Drinks
+- Daily Special
+- Appetizers
+- Chicken Wings
+- Southern Fried Chicken
+- Salads
+- Subs
+- Beef Donairs and Chicken Shawarma Wraps
+- Poutine
+- Pizza
+- Pasta
+- Burgers - Sandwiches - Platters
+- Drinks
+
+**Result:** ⚠️ CRITICAL ISSUE - All dishes incorrectly assigned to "Uncategorized" course. Live menu has proper course structure with 17+ courses. Dishes need to be reassigned to correct courses. Status mismatch also needs correction (suspended → active). Modifiers exist but need verification once courses are corrected. Waiting for authorization to create proper courses and reassign dishes.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
