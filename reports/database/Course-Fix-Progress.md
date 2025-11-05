@@ -471,6 +471,95 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ## ⚠️ Skipped Restaurants
 
+### ⚠️ Skipped Restaurants - No Courses Defined
+
+#### Aahar The Taste of India (Restaurant ID: 561)
+**Status:** ⚠️ SKIPPED - No Courses Defined
+**Date:** 2025-11-03
+**Address:** 1573 Alta Vista Drive ✅ (matches verified list)
+**Menu Reference:** https://aaharaltavista.menu.ca/?p=menu
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Aahar%';
+```
+- Restaurant ID: 561
+- Name: Aahar The Taste of India
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 561;
+```
+- Courses defined: 0 ⚠️
+- **Action:** Cannot proceed until courses are created
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 561 AND deleted_at IS NULL;
+```
+- Total dishes: 108
+- Dishes with NULL course_id: 108 (100%)
+- Dishes with course_id: 0 (0%)
+
+**Recommended Course Structure:**
+Based on live menu at https://aaharaltavista.menu.ca/?p=menu:
+- Starters (Samosa, Onion Bhaji, Aloo Tikki, Vegetable Pakora, Shrimp Pakoras, Sheekh Kebab, Paneer Pakora, Fish Pakoras, Chicken Pakoras)
+- Soups (Daal Soup, Mullagatawny Soup, Khumb Ras Soup)
+- Main Vegetarian Dishes (Navratan Korma, Aloo Mattar, Shahi Paneer, Palak Paneer, Mattar Paneer, Sabzi, Saag Paneer, Paneer Tikka, Kadai Paneer, Paneer Dilruba, Vegetable Dilruba, Channa Masala, Punjabi Kadhi, Sarson Da Saag, Dal Makhni, Dal Tadka, Began Bartha, Bhindi Masala, Aloo Gobi)
+- Main Chicken Dishes (Butter Chicken, Chicken Curry, Chicken Tikka Masala, Chicken Korma, Chicken Vindaloo, Chicken Saag, Chicken Bhuna, Chicken Dilruba, Chicken Tandoori, etc.)
+- Main Lamb and Beef Dishes (Lamb Curry, Beef Curry, Lamb Rogan Josh, Beef Vindaloo, Lamb Saag, etc.)
+- Seafood and Tandoori Dishes (Shrimp Curry, Fish Curry, etc.)
+- Chicken Tandoori Dishes
+- Traditional Breads (Naan, Garlic Naan, Onion Paratha, Paneer Naan/Paratha, Lachha Paratha, Aloo Paratha, Onion Kulcha, Tandoori Missi Roti, etc.)
+- Rice (Plain Rice, Vegetable Biryani, Beef Biryani, Chicken Biryani, Lamb Biryani, Egg Biryani)
+- Chutneys (Mint Chutney, Coconut Chutney, Mango Chutney, Mix Pickle, Chutney Thaly)
+- Side Dishes (Papadum, Raita, Salad, Chutney, Mixed Pickle)
+- Desserts (Kheer, Ras Malai, Gulab Jamun, Carrot Halwa)
+- Beverages (Lassi, Mango Lassi, Shikanjvi, Juice, Bottled Water, Kadak Chai, Masala Chai, Rooh Afza, Jal Jerra, Soft Drinks)
+
+**Result:** ⚠️ Skipped - 0 courses defined. Cannot proceed with course assignment until courses are created. Waiting for authorization.
+
+#### Al-s Drive In (Restaurant ID: 981)
+**Status:** ⚠️ SKIPPED - Already Assigned | ⚠️ SWITCHED TO MEEMUP PLATFORM
+**Date:** 2025-11-03
+**Address:** 5474 Osgoode Main Street ✅ (matches verified list)
+**Note:** Cannot find menu on our platform - appears to have switched to meemUP
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Al-s Drive In%';
+```
+- Restaurant ID: 981
+- Name: Al-s Drive In
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 981;
+```
+- Courses defined: 6 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 981 AND deleted_at IS NULL;
+```
+- Total dishes: 36
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 36 (100%) ✅
+
+**Result:** ✅ Already assigned - All 36 dishes have course_id. However, restaurant appears to have switched to meemUP platform (menu not found on our platform). Verify if this restaurant should remain on active list.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
@@ -2188,6 +2277,742 @@ Japanese/Korean fusion restaurant with mix of:
 2. Assign 252 dishes to appropriate courses using pattern matching
 
 **Resolution Needed:** CREATE COURSES AND ASSIGN DISHES
+
+#### Al-s Drive In (Restaurant ID: 981)
+**Status:** ✅ COMPLETE - Already audited (36 dishes, 6 courses)
+**Date:** 2025-11-03
+**Address:** 5474 Osgoode Main Street, Osgoode ✅ (matches verified list)
+
+**Note:** Already completed in audit. Restaurant IS in verified billing list - was incorrectly flagged. Course assignment work already done.
+
+#### Bobbie's Pizza & Subs (Restaurant ID: 45)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 1443 Ogilvie Rd, Ottawa ✅ (matches verified list)
+
+**Issue Found:**
+- Listed in verified billing list as **active** (billed in last 4 months)
+- **Database status: suspended** (needs correction to match verified list)
+
+**Current Database Status:**
+- Total dishes: 6 ⚠️⚠️ (EXTREMELY LOW - only pizza toppings/modifiers)
+- Dishes with course_id: 6 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: suspended (needs correction to active)
+
+**Menu Sample:**
+- Only pizza toppings/modifiers found (Ham, No Mayo, Bacon, Anchovies, Tomatoes, No Lettuce)
+- No actual pizza varieties, subs, or menu items
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 6 dishes and they're all pizza toppings/modifiers. This pattern suggests:
+- **CRITICAL:** Incomplete menu migration (similar to Restaurant Chez Gerry pattern), OR
+- Menu data was deleted, OR
+- Restaurant may have a very limited menu (but unlikely for a pizza & subs restaurant)
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** Update database status from `suspended` to `active`
+2. **URGENT:** Verify if restaurant has full menu online - may need menu migration
+3. If menu is complete, create proper courses and assign dishes
+
+#### Champa Thai Cuisine (Restaurant ID: 87)
+**Status:** ⚠️ SKIPPED - 0 dishes | ⚠️ DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 193 King Edward Ave ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 0 ⚠️⚠️ (CRITICAL - No dishes in database)
+- Courses defined: 13 ✅
+- Status: active ✅ (matches verified list)
+
+**⚠️ CRITICAL DATA ISSUE:** Restaurant has 0 dishes but 13 courses defined. This indicates menu data was deleted or never migrated.
+
+#### Chances R' West
+**Status:** ❌ NOT FOUND IN DATABASE
+**Date:** 2025-11-03
+**Address:** 1365 Woodroffe Avenue ✅ (matches verified list)
+
+**Note:** Restaurant in verified billing list but not found in database. May need to be added/migrated.
+
+#### China Moon (Restaurant ID: 641)
+**Status:** ⏳ NEEDS WORK - 314 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 273 boul. St-René Ouest ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 314 ✅ (Very large menu!)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 314 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅ (matches verified list)
+
+**Note:** Found 3 entries (IDs: 641 active, 944 pending, 998 suspended). Using active one (ID: 641).
+
+**Action Required:**
+1. Create courses for Chinese restaurant
+2. Assign 314 dishes to appropriate courses
+
+#### Cosenza (Restaurant ID: 957)
+**Status:** ⏳ NEEDS WORK - 561 dishes, 561 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 6505 Jeanne d'Arc Boulevard North ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 561 ✅ (EXTREMELY LARGE MENU!)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 561 (100%) ⚠️
+- Courses defined: 561 ⚠️⚠️ (Suspicious - 1 course per dish? Should be ~10-20 courses)
+- Status: active ✅ (matches verified list)
+
+**⚠️ PATTERN ALERT:** Restaurant has 561 courses - this suggests courses were created per dish rather than per category. Need to consolidate courses and reassign dishes.
+
+**Action Required:**
+1. Review course structure - likely needs consolidation
+2. Reassign 561 dishes to proper course categories
+
+#### Crispy's (Restaurant ID: 584)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 1433 Woodrofe ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 1 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 1 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅ (matches verified list)
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a restaurant. Menu migration issue.
+
+#### Crispy's Bank Street (Restaurant ID: 806)
+**Status:** ⏳ NEEDS WORK - 123 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 2446 Bank Street ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 123 ✅ (Good count)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 123 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅ (matches verified list)
+
+**Action Required:**
+1. Create courses for restaurant
+2. Assign 123 dishes to appropriate courses
+
+#### Dumpling Bowl (Restaurant ID: 792)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 730 Somerset ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 3 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 3 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅ (matches verified list)
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 3 dishes is extremely low for a restaurant. Menu migration issue likely.
+
+#### Eastview Pizza (Restaurant ID: 28)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 251 Montreal Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 0 ⚠️⚠️ (CRITICAL - No dishes)
+- Courses defined: 0
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **CRITICAL:** 0 dishes in database - menu migration issue
+
+#### Egg Roll Factory (Restaurant ID: 511)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 261 Centrepointe drive ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 96 ✅ (Good count)
+- Dishes with course_id: 96 (100%) ✅
+- Courses defined: 16 ✅
+- Status: active ✅ (matches verified list)
+
+**Note:** Found duplicate entry - Wing Wah Take Out & Delivery (closed) also at same address (ID: 198, suspended).
+
+#### Golden Center Pizza (Restaurant ID: 815)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 600 Rideau Street ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 10 ⚠️⚠️ (SUSPICIOUSLY LOW)
+- Dishes with course_id: 10 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅ (matches verified list)
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 10 dishes is very low for a pizza restaurant. Menu migration issue likely.
+
+#### Amicci Pizza (Restaurant ID: 735)
+**Status:** ⏳ NEEDS WORK - 196 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 2 Boulevard Louise-Campagna ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 196 ✅ (Good count)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 196 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅
+
+**Action Required:** Create courses and assign 196 dishes
+
+#### Aroy Thai (Restaurant ID: 607)
+**Status:** ⏳ NEEDS WORK - 39 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 1 Rideaucrest Drive ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 39 ✅
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 39 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅
+
+**Note:** Found 3 entries (IDs: 607 active, 938 pending, 995 suspended). Using active one (ID: 607).
+
+**Action Required:** Create courses for Thai restaurant and assign 39 dishes
+
+#### Asia Garden Ottawa (Restaurant ID: 630)
+**Status:** ⏳ NEEDS WORK - 154 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 886 Dynes Road ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 154 ✅ (Good count)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 154 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅
+
+**Note:** Found 3 entries (IDs: 630 active, 942 pending, 996 suspended). Using active one (ID: 630).
+
+**Action Required:** Create courses and assign 154 dishes
+
+#### Aylmer BBQ (Restaurant ID: 69)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 134, rue Principale ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 9 ⚠️⚠️ (SUSPICIOUSLY LOW)
+- Dishes with course_id: 9 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 9 dishes is very low for a BBQ restaurant. Menu migration issue likely.
+
+#### Beneci Pizza (Restaurant ID: 241)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 4 Lorry Greenberg Dr ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 1 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 1 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a pizza restaurant. Menu migration issue.
+
+#### Capital Bites (Restaurant ID: 973)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 34 Grenfell Crescent ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 129 ✅ (Good count)
+- Dishes with course_id: 129 (100%) ✅
+- Courses defined: 15 ✅
+- Status: active ✅
+
+#### Capri Pizza (Restaurant ID: 977)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 4000 Bridle Path Drive ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 86 ✅ (Good count)
+- Dishes with course_id: 86 (100%) ✅
+- Courses defined: 11 ✅
+- Status: active ✅
+
+#### Carlo's Pizza (Restaurant ID: 124)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 60 Harmer Ave ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 3 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 3 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 3 dishes is extremely low for a pizza restaurant. Menu migration issue.
+
+#### Cathay Restaurants (Restaurant ID: 72)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 1423 Woodroffe Ave ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 211 ✅ (Good count)
+- Dishes with course_id: 211 (100%) ✅
+- Courses defined: 31 ✅
+- Status: active ✅
+
+#### Centertown Donair & Pizza (Restaurant ID: 131)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 422 Bronson Ave ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 26 ✅
+- Dishes with course_id: 26 (100%) ✅
+- Courses defined: 5 ✅
+- Status: active ✅
+
+#### Charm Thai Cuisine (Restaurant ID: 943)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 121 Preston Street ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 69 ✅
+- Dishes with course_id: 69 (100%) ✅
+- Courses defined: 11 ✅
+- Status: active ✅
+
+#### Chicco Pizza & Shawarma Buckingham (Restaurant ID: 962)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 1009 Chemin de Masson ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 24 ✅
+- Dishes with course_id: 24 (100%) ✅
+- Courses defined: 12 ✅
+- Status: active ✅
+
+#### Chicco Pizza Maloney (Restaurant ID: 964)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 842 Boulevard Maloney Est ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 106 ✅
+- Dishes with course_id: 106 (100%) ✅
+- Courses defined: 15 ✅
+- Status: active ✅
+
+#### Chicco Pizza Shawarma Anger (Restaurant ID: 963)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 1096 Chemin de Montréal Ouest ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 37 ✅
+- Dishes with course_id: 37 (100%) ✅
+- Courses defined: 13 ✅
+- Status: active ✅
+
+#### Chicco Pizza St-Louis (Restaurant ID: 967)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 1783 Rue Saint-Louis ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 21 ✅
+- Dishes with course_id: 21 (100%) ✅
+- Courses defined: 10 ✅
+- Status: active ✅
+
+#### Chicco Pizza de l'Hopital (Restaurant ID: 966)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 405 Boulevard de l'Hôpital ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 147 ✅
+- Dishes with course_id: 147 (100%) ✅
+- Courses defined: 12 ✅
+- Status: active ✅
+
+#### Chicco Shawarma Cantley (Restaurant ID: 961)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 435 Montée de la Source ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 11 ⚠️ (Low but assigned)
+- Dishes with course_id: 11 (100%) ✅
+- Courses defined: 5 ✅
+- Status: active ✅
+
+#### Chicco Shawarma Maloney (Restaurant ID: 965)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 922 Boulevard Maloney Est ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 8 ⚠️ (Low but assigned)
+- Dishes with course_id: 8 (100%) ✅
+- Courses defined: 7 ✅
+- Status: active ✅
+
+#### Colonnade Pizza - Bank St (Restaurant ID: 783)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 1500 Bank St ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 5 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 5 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 5 dishes is extremely low for a pizza restaurant. Menu migration issue.
+
+#### Colonnade Pizza - Carling Ave (Restaurant ID: 784)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 2140 Carling Ave ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 1 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 1 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a pizza restaurant. Menu migration issue.
+
+#### Colonnade Pizza - Greenbank Rd (Restaurant ID: 785)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 896 Greenbank Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 27 ⚠️⚠️ (SUSPICIOUSLY LOW)
+- Dishes with course_id: 27 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 27 dishes is low for a pizza restaurant. Menu migration issue likely.
+
+#### Colonnade Pizza - Metcalfe (Restaurant ID: 196)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 280 Metcalfe ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 10 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 10 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **SUSPICIOUSLY LOW DISH COUNT:** Only 10 dishes is extremely low for a pizza restaurant
+
+#### Cuisine Bombay Indienne (Restaurant ID: 960)
+**Status:** ⏳ NEEDS WORK - 161 dishes, 20 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 120 Rue Richelieu ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 161 ✅ (Good count)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 161 (100%) ⚠️
+- Courses defined: 20 ✅
+- Status: active ✅
+
+**⚠️ PATTERN ALERT:** Restaurant has 20 courses defined but 0 dishes assigned. Courses exist but need to be assigned to dishes.
+
+**Action Required:** Assign 161 dishes to existing 20 courses
+
+#### Digby's Restaurant (Restaurant ID: 638)
+**Status:** ⏳ NEEDS WORK - 89 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 300 Earl Grey Dr ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 89 ✅ (Good count)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 89 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅
+
+**Action Required:** Create courses and assign 89 dishes
+
+#### Friendly Restaurant and Pizzeria (Restaurant ID: 730)
+**Status:** ⏳ NEEDS WORK - 145 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 1756 Laurier St ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 145 ✅ (Good count)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 145 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅
+
+**Action Required:** Create courses and assign 145 dishes
+
+#### Ginkgo Garden (Restaurant ID: 930)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows pending | ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 2225 Saint Laurent Boulevard ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 146 ✅ (Good count)
+- Dishes with course_id: 146 (100%) ✅
+- Courses defined: 13 ✅
+- Status: pending (needs correction to active)
+
+**Note:** Found multiple entries (IDs: 930 pending, 105 suspended, 1000 suspended). Listed as active in verified billing but DB shows pending.
+
+**Resolution Needed:** Update status from `pending` to `active`
+
+#### Econo Pizza
+**Status:** ❌ NOT FOUND IN DATABASE
+**Date:** 2025-11-03
+**Address:** 425, boul La Vérendrye E ✅ (matches verified list)
+
+**Note:** Restaurant in verified billing list but not found in database. May need to be added/migrated.
+
+#### Erman Pizza (Restaurant ID: 211)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 3628, av des Églises ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 17 ⚠️⚠️ (SUSPICIOUSLY LOW)
+- Dishes with course_id: 17 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **SUSPICIOUSLY LOW DISH COUNT:** Only 17 dishes is low for a pizza restaurant
+
+#### Greber Pizza et Shawarma (Restaurant ID: 736)
+**Status:** ⏳ NEEDS WORK - 105 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+**Address:** 761 Boulevard Saint-Joseph ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 105 ✅ (Good count)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 105 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active ✅
+
+**Action Required:** Create courses and assign 105 dishes
+
+#### HaNoi Pho (Restaurant ID: 519)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 4312 Innes Road ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 9 ⚠️⚠️ (SUSPICIOUSLY LOW)
+- Dishes with course_id: 9 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **SUSPICIOUSLY LOW DISH COUNT:** Only 9 dishes is very low for a Pho restaurant
+
+#### Hong Kong Chinese Food Takeout (Restaurant ID: 160)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 800 Hunt Club Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 0 ⚠️⚠️ (CRITICAL - No dishes)
+- Courses defined: 0
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **CRITICAL:** 0 dishes in database - menu migration issue
+
+#### House of Lasagna (Restaurant ID: 22)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 984 Merivale Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 1 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 1 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: suspended (needs correction to active)
+
+**⚠️ ISSUES:**
+1. Listed in verified billing list as **active** but database shows `suspended`
+2. **SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a restaurant
+
+#### Hung Mein (Restaurant ID: 119)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 2567 Baseline Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 160 ✅ (Good count)
+- Dishes with course_id: 160 (100%) ✅
+- Courses defined: 16 ✅
+- Status: active ✅
+
+#### Imilio's Pizzeria (Restaurant ID: 7)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 110 Bearbrook Rd ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 3 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 3 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**Note:** Found multiple entries (IDs: 7 active, 849 suspended, 1001 suspended). Using active one (ID: 7).
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 3 dishes is extremely low for a pizza restaurant. Menu migration issue.
+
+#### Indian Punjabi Clay Oven (Restaurant ID: 180)
+**Status:** ✅ COMPLETE - Already assigned
+**Date:** 2025-11-03
+**Address:** 6-4055 Carling Ave. ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 115 ✅ (Good count)
+- Dishes with course_id: 115 (100%) ✅
+- Courses defined: 11 ✅
+- Status: active ✅
+
+#### JC Royal Thai Cuisine (Restaurant ID: 646)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 100 Jamieson Pkwy, Unit 11 ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 1 ⚠️⚠️ (EXTREMELY LOW)
+- Dishes with course_id: 1 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a restaurant. Menu migration issue.
+
+### JN Pizza (Restaurant ID: 328)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT | ⚠️ MIGRATED TO OLIVEPOS/RESTAURANTPLUS
+**Date:** 2025-11-03
+**Address:** 1663 Cyrville Rd ✅ (matches verified list)
+**Menu Reference:** https://order.jnpizza.com/?p=menu
+
+**Issue Found:**
+- Listed in verified billing list as **active** (billed in last 4 months)
+- **Database status: suspended** (needs correction to match verified list)
+- **⚠️ MIGRATION NOTE:** Restaurant has moved to OlivePOS/RestaurantPlus but maintains a secondary site with our platform
+
+**Menu Status:**
+- Total dishes: 21 ⚠️⚠️ (SUSPICIOUSLY LOW - very low for a pizza restaurant)
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 21 (100%) ✅
+- Dishes with NULL course_id: 0 ✅
+
+**Course Distribution:**
+- Uncategorized (1711): 21 dishes
+  - Includes: Pizza varieties (Greek Pizza, Manzo Pizza, Pollo Pizza), Sandwiches (Chicken Club, Turkey Club), Poutine varieties, Spaghetti dishes, Appetizers (Chicken Fingers, Tater Tots), Extras (Extra Cheese, Feta)
+
+**⚠️ ISSUES:**
+1. **STATUS CORRECTION NEEDED:** Listed in verified billing list as **active** but database shows `suspended` - needs update to `active`
+2. **SUSPICIOUSLY LOW DISH COUNT:** Only 21 dishes is very low for a pizza restaurant. This suggests incomplete menu migration - verify if restaurant has full menu online
+3. **MIGRATION STATUS:** Restaurant has moved to OlivePOS/RestaurantPlus but still maintains our platform - verify if this is intentional or if menu needs to be updated
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** Update database status from `suspended` to `active`
+2. **URGENT:** Review live menu at https://order.jnpizza.com/?p=menu to verify course structure and dish count
+3. If menu is complete, create proper courses based on live menu structure and assign dishes appropriately
+
+### Joes Family Pizzeria (Restaurant ID: 636)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 284 Pembroke St W ✅ (matches verified list)
+**Menu Reference:** https://joesfamilypizzeria.ca/?p=menu
+
+**Menu Status:**
+- Total dishes: 67 ✅ (Good count)
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 67 (100%) ✅
+- Dishes with NULL course_id: 0 ✅
+- Status: active ✅
+
+**Course Distribution:**
+- Uncategorized (1743): 67 dishes
+  - Includes: Pizza varieties (1-3 Toppings, Cup & Char Pepperoni, Hawaiian, Canadian, Deluxe, Specials), Fish & Chips, Sauces (BBQ, Honey Garlic, Donair, Hot sauce, etc.), Combo meals, Party packs
+
+**Issue Found:**
+- All 67 dishes are assigned to a single "Uncategorized" course
+- Restaurant needs proper course structure created to organize menu better
+
+**Resolution Needed:**
+- Review live menu at https://joesfamilypizzeria.ca/?p=menu to identify proper course categories
+- Create proper courses based on live menu structure (Pizza, Fish & Chips, Combos/Specials, Sauces/Extras) and reassign dishes appropriately
+
+### Kabylie Pizza (Restaurant ID: 798)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 355 Bd Gréber ✅ (matches verified list)
+**Menu Reference:** https://kabyliepizza.com/?p=menu&lang=fr
+
+**Menu Status:**
+- Total dishes: 36 ✅ (Acceptable count)
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 36 (100%) ✅
+- Dishes with NULL course_id: 0 ✅
+- Status: active ✅
+
+**Course Distribution:**
+- Uncategorized (1837): 36 dishes
+  - Includes: Pizza varieties (Canadienne, Hawaïenne, Pepperoni, Grecque, Pesto, Poulet BBQ, etc.), Combos (Combo 1-4, Pizza + Ailes), Pizza deals (2 Pizzas avec Trempettes), Specialty pizzas (Maison Kabyle, Fruits de Mer, Amateurs de légumes/viande)
+
+**Live Menu Course Structure** (from https://kabyliepizza.com/?p=menu&lang=fr):
+- Spéciaux Nouveau Départ (New Start Specials)
+- Pizza et Ailes (Pizza and Wings)
+- Combos
+- Amuse-Gueules (Appetizers)
+- Salades (Salads)
+- Poulet (Chicken)
+- Sous-Marins (Subs)
+- Grillés au Four (Grilled)
+- Pizzas
+- Pizzas Gourmet
+- Deux Pizzas (Two Pizzas)
+- Deux Pizzas Gourmet (Two Gourmet Pizzas)
+- Poutines Spécialité (Specialty Poutines)
+- Assiettes (Platters)
+- Desserts
+- Boissons (Drinks)
+
+**Issue Found:**
+- All 36 dishes are assigned to a single "Uncategorized" course
+- Bilingual menu (French/English) - restaurant needs proper course structure created
+- **CRITICAL:** Database only has 36 dishes but live menu shows extensive menu with many more items - suggests incomplete menu migration
+
+**Resolution Needed:**
+1. **URGENT:** Verify menu migration - database shows only 36 dishes but live menu has many more items
+2. Review live menu at https://kabyliepizza.com/?p=menu&lang=fr to identify all courses
+3. Create proper courses based on live menu structure and reassign dishes appropriately
+4. Verify if additional dishes need to be migrated from live menu
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
