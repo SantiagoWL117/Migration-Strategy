@@ -2,6 +2,147 @@
 
 ## ✅ Completed Restaurants
 
+### Capri Pizza (Restaurant ID: 977)
+**Status:** ✅ COMPLETE - All 86 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Halal Menu (1353): 11 dishes
+- Specials (1357): 5 dishes
+- Appetizers (1348): 5 dishes
+- Dipping Sauces (1350): 18 dishes
+- Kids Menu (1354): 3 dishes
+- Drinks (1351): 4 dishes
+- Desserts (1349): 40 dishes
+
+**Details:**
+- All NULL course_id values resolved
+- Dishes mapped based on logical categorization
+- Verified: 0 remaining NULL values
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+### Al's Drive In (Restaurant ID: 981)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 36 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Fries (1386): 5 dishes (Al's Fries, Cajun Fries, Original Fries, Poutine, Al's Sauce)
+- Burgers (1384): 4 dishes (Smash Double/Single, Spicy Double/Single)
+- Drinks (1385): 12 dishes (Coke, Diet Coke, Sprite, Water, Red Bull, Crush varieties, Gatorade varieties)
+- Icecream (1387): 3 dishes (Chocolate/Vanilla/Mix Icecream Cone)
+- Milkshake (1388): 8 dishes (Biscoff, Bueno, Caramel, Chocolate, KitKat, Rees's, Strawberry, Vanilla)
+- Sundae (1389): 4 dishes (Caramel, Chocolate, Strawberry, Vanilla Sundae)
+
+**Details:**
+- All NULL course_id values resolved
+- Simple menu structure with clear categorization
+- Verified: 0 remaining NULL values
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+### All Out Burger Gladstone (Restaurant ID: 948)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 59 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Appetizers (995): 4 dishes (Breaded Pickles, Fried Zucchini Sticks, Popcurds, Halloumi Fries)
+- Burgers SOLO (997): 14 dishes (ALL OUT Burger, Bacon Burger, Cheese Burger, etc.)
+- Burger COMBOS (996): 14 dishes (ALL OUT Burger COMBO, Bacon Burger COMBO, Cheese Burger COMBO, etc.)
+- Hot Dogs (1000): 3 dishes (Cheese Dog, Jumbo Hot Dog, New York Style Hot Dog)
+- Salads (1004): 2 dishes (Caesar Salad, House Salad)
+- Chicken (998): 9 dishes (Chicken Strips, Chicken Wings, Boneless Wings + combos)
+- Kids Menu (1001): 1 dish (Mini Burger Meal)
+- Drinks (999): 12 dishes (Pepsi, Diet Pepsi, Juices, Sodas, Water)
+- Poutine (1003): 0 dishes
+- Mini Donuts Hot and Fresh Made (1002): 0 dishes
+
+**Details:**
+- All NULL course_id values resolved
+- Clean burger restaurant menu structure
+- Some courses defined but no dishes assigned (Poutine, Mini Donuts)
+- Verified: 0 remaining NULL values
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+### All Out Burger Montreal Rd (Restaurant ID: 949)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 59 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Appetizers (1005): 4 dishes (Breaded Pickles, Fried Zucchini Sticks, Popcurds, Halloumi Fries)
+- Burgers SOLO (1007): 14 dishes (ALL OUT Burger, Bacon Burger, Cheese Burger, etc.)
+- Burger COMBOS (1006): 14 dishes (ALL OUT Burger COMBO, Bacon Burger COMBO, Cheese Burger COMBO, etc.)
+- Hot Dogs (1010): 3 dishes (Cheese Dog, Jumbo Hot Dog, New York Style Hot Dog)
+- Salads (1014): 2 dishes (Caesar Salad, House Salad)
+- Chicken (1008): 9 dishes (Chicken Strips, Chicken Wings, Boneless Wings + combos)
+- Kids Menu (1011): 1 dish (Mini Burger Meal)
+- Drinks (1009): 12 dishes (Pepsi, Diet Pepsi, Juices, Sodas, Water)
+- Poutine (1013): 0 dishes
+- Mini Donuts Hot and Fresh Made (1012): 0 dishes
+
+**Details:**
+- All NULL course_id values resolved
+- Identical menu structure to All Out Burger Gladstone
+- Some courses defined but no dishes assigned (Poutine, Mini Donuts)
+- Verified: 0 remaining NULL values
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+### Routine Poutine (Restaurant ID: 979)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 8 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Appetizers (1371): 6 dishes (Thai Bites, Breaded Zucchini, Breaded Pickles, Mozzarella Sticks, Jalapeno Poppers, Chicken Wings)
+- Gourmet Poutines (1372): 2 dishes (Capri Combo Box, Large Crack Stick Combo Box)
+
+**Details:**
+- All NULL course_id values resolved
+- Small menu with only 2 courses
+- Verified: 0 remaining NULL values
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+### Zait and Zaatar (Restaurant ID: 968)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 39 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Course Distribution:**
+- Specials (1263): 4 dishes (Large/Medium/Small Zait & Zaatar TRIO, XL Deal)
+- Appetizers (1255): 10 dishes (Breaded Chicken Strips, Chicken Nuggets, Fries varieties, Mozzarella Sticks, Onion Rings, Zucchini Sticks, Garlic Sauce, Hummus)
+- Wings (1264): 3 dishes (10 Wings, 20 Wings, 30 Wings)
+- Salads and Sides (1262): 4 dishes (Caesar Salad, Chicken Caesar Salad, Garden Salad, Greek Salad)
+- Kabab Platters (1258): 6 dishes (Beef Kabab, Chicken Kabab, Chicken Cubes Taouk - various sizes)
+- Kabab Sandwiches on Charcoal (1259): 1 dish (Kabab Sandwich TRIO)
+- Drinks (1256): 11 dishes (Coca Cola, Pepsi, 7 Up, Fanta Orange, Water, Yogurt, etc.)
+- Pizza Menu (1260): 0 dishes (course defined but no dishes)
+- Fried Chicken (1257): 0 dishes (course defined but no dishes)
+- Poutine (1261): 0 dishes (course defined but no dishes)
+
+**Details:**
+- All NULL course_id values resolved
+- Mediterranean/Middle Eastern restaurant with kabab focus
+- Some courses defined but no dishes assigned (Pizza Menu, Fried Chicken, Poutine)
+- Verified: 0 remaining NULL values
+
 ### Wandee Thai (Restaurant ID: 954)
 **Status:** ✅ COMPLETE - All 94 dishes assigned to courses
 **Date:** 2025-11-03
@@ -32,25 +173,6 @@
 - Dishes assigned using code pattern matching (A=Appetizers, C=Combos, D=Drinks, E=Extras, G=Curries, N=Noodles, P=Stir Fried, R=Rice, S=Soups, T=Seafood, Y=Salads, L prefix=Lunch)
 - Verified: 0 remaining NULL values
 
-### Lucky King Take Out (Restaurant ID: 174)
-**Status:** ✅ COMPLETE - All 141 dishes assigned to courses
-**Date:** 2025-11-03
-**Address:** 1134 Cadboro Rd ✅ (matches verified list)
-
-**Details:**
-- Total dishes: 141
-- Dishes with course_id: 141 (100%) ✅
-- Courses defined: 14
-- Status: active ✅
-
-**Course Distribution:**
-All 141 dishes properly assigned to 14 course categories.
-
-**Details:**
-- All dishes already properly assigned to courses
-- Chinese restaurant with complete menu structure
-- Verified: 0 remaining NULL values
-
 ### Beneci Pizza (Restaurant ID: 241)
 **Status:** ✅ COMPLETE - STATUS CORRECTED & CLEANED - Was suspended, now active
 **Date:** 2025-11-03
@@ -76,6 +198,24 @@ All 141 dishes properly assigned to 14 course categories.
   - 6 Toppings Pizza
 
 **Result:** Restaurant status corrected, duplicates removed. All dishes properly assigned.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+### All Out Burger - Additional Locations (Restaurant IDs: 771, 794, 826, 833, 841, 924)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All dishes already assigned to courses
+**Date:** 2025-11-03
+
+**Details:**
+- Six additional All Out Burger locations with all courses already assigned
+- ID 771: 1 dish with course_id
+- ID 794: 12 dishes with course_id
+- ID 826: 1 dish with course_id
+- ID 833: 4 dishes with course_id
+- ID 841: 1 dish with course_id
+- ID 924 (Bank St.): 520 dishes with course_id, 10 courses defined
+
+**Result:** All dishes already properly assigned across all locations.
 
 ### Capital Bites (Restaurant ID: 973)
 **Status:** ✅ COMPLETE - All 129 dishes assigned to courses
@@ -150,6 +290,38 @@ All 141 dishes properly assigned to 14 course categories.
 - Uncategorized (1862): 12 dishes (Pizza specials, Drinks, Wings, etc.)
 
 **Result:** Restaurant status corrected. All dishes already properly assigned. Note: Some courses defined but no dishes assigned (Chicken, Desserts, Donairs).
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+### Chicco Pizza de l'Hopital (Restaurant ID: 966)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 147 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Menu Status:**
+- Total dishes: 147
+- Courses defined: 12
+- Dishes with course_id: 147 (100%) ✅
+
+**Course Distribution:**
+- Special des Series (1243): display_order 0
+- Spéciaux (1244): display_order 1
+- Les Pizzas Classiques (1239): display_order 2
+- Les Pizzas Spécialités (1240): display_order 3
+- Pasta (1241): display_order 4
+- Les Nachos (1238): display_order 5
+- Club Sandwich (1235): display_order 6
+- Sous-Marins (1242): display_order 7
+- Les à Cotés (1237): display_order 8
+- Desserts (1236): display_order 9
+- Breuvages (1234): display_order 10
+- Uncategorized (1922): display_order 999
+
+**Result:** Well-organized French pizza restaurant menu. All dishes already properly assigned.
 
 ### Charm Thai Cuisine (Restaurant ID: 943)
 **Status:** ✅ COMPLETE - STATUS CORRECTED - Was pending, now active
@@ -282,34 +454,6 @@ All 141 dishes properly assigned to 14 course categories.
 - Dishes with course_id: 8 (100%) ✅
 
 **Result:** All dishes already properly assigned.
-
-### Tony's Pizza (Restaurant ID: 929)
-**Status:** ✅ COMPLETE - All 123 dishes assigned to courses
-**Date:** 2025-11-03
-**Address:** 7772 Jeanne d'Arc Blvd ✅ (matches verified list)
-
-**Course Distribution:**
-- Appetizers: Assigned ✅
-- Desserts: Assigned ✅
-- Drinks: Assigned ✅
-- Italian: Assigned ✅
-- Nachos: Assigned ✅
-- Pizza: Assigned ✅
-- Platters: Assigned ✅
-- Salads: Assigned ✅
-- Subs: Assigned ✅
-- Wings: Assigned ✅
-- Wraps: Assigned ✅
-
-**Details:**
-- Total dishes: 123
-- Dishes with course_id: 123 (100%) ✅
-- Courses defined: 11
-- All dishes already properly assigned and categorized
-- Verified: 0 remaining NULL values
-
-**Note:** Multiple Tony's Pizza locations exist (IDs: 143, 956, 929, 992). This active location (ID: 929) has complete course assignments.
-
 ---
 
 ## 🔄 In Progress Restaurants
@@ -380,6 +524,41 @@ Based on live menu at https://aaharaltavista.menu.ca/?p=menu:
 - Beverages (Lassi, Mango Lassi, Shikanjvi, Juice, Bottled Water, Kadak Chai, Masala Chai, Rooh Afza, Jal Jerra, Soft Drinks)
 
 **Result:** ⚠️ Skipped - 0 courses defined. Cannot proceed with course assignment until courses are created. Waiting for authorization.
+
+#### Al-s Drive In (Restaurant ID: 981)
+**Status:** ⚠️ SKIPPED - Already Assigned | ⚠️ SWITCHED TO MEEMUP PLATFORM
+**Date:** 2025-11-03
+**Address:** 5474 Osgoode Main Street ✅ (matches verified list)
+**Note:** Cannot find menu on our platform - appears to have switched to meemUP
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Al-s Drive In%';
+```
+- Restaurant ID: 981
+- Name: Al-s Drive In
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 981;
+```
+- Courses defined: 6 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 981 AND deleted_at IS NULL;
+```
+- Total dishes: 36
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 36 (100%) ✅
+
+**Result:** ✅ Already assigned - All 36 dishes have course_id. However, restaurant appears to have switched to meemUP platform (menu not found on our platform). Verify if this restaurant should remain on active list.
 
 ### ⏸️ Restaurants with Suspended/Pending Status
 
@@ -1357,7 +1536,69 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 
 **Result:** ⚠️ CRITICAL ISSUE - Only 10 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need menu link to verify if dishes are missing from database and to determine proper course structure. No modifiers found. Waiting for menu link to verify completeness and course structure.
 
----
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+### ⚠️ IMPORTANT: Restaurants That Left Our Platform
+
+**Note:** The following restaurants have LEFT our platform and are now using **RestaurantPlus.net/OlivePOS** (a competing POS/ordering system). They should be removed from the active restaurant list or marked as inactive/migrated.
+
+**This explains why:**
+- Some have incomplete menu data (left before full migration)
+- Some are marked as suspended in database
+- Some have no courses but have dishes (data left over from when they were active)
+
+**Confirmed on RestaurantPlus.net - 19 RESTAURANTS (NO LONGER ON OUR PLATFORM):**
+
+**Found in Database (7):**
+- Vanier Pizza & Subs (ID: 62) - suspended, 1 dish
+- Westboro Subs (ID: 778) - active, 47 dishes, 0 courses
+- Lucky King Take Out (ID: 174) - active, 141 dishes, 14 courses, all assigned ✅
+- Centertown Donair & Pizza (ID: 131) - suspended, 26 dishes, 5 courses, all assigned ✅
+- Golden Center Pizza (ID: 815) - active, 10 dishes, 1 course, all assigned ✅
+- River Pizza (ID: 952) - active, 71 dishes, 12 courses, **71 NULL course_id** ⚠️
+- Samo's Greek Kitchen (ID: 791) - active, 14 dishes, 1 course, all assigned ✅
+
+**Not Found in Database (12):**
+- Oriental House Restaurant
+- Guillotine Street Food
+- Photime Authentic Vietnamese Eatery
+- Cumberland Pizza
+- Old Avenue Restaurant
+- The Bagel Run
+- Viet Express
+- My Thai Village Restaurant
+- Chili Craft Pizza
+- Laheeb Shawarma
+- Hà Nội Phố / Pho Ha Noi 54
+- Pho Binh Minh 3
+- The Hot Wok
+- Da Nang Restaurant
+
+**Service:** RestaurantPlus.net uses OlivePOS (OliveNow Inc) - a competing POS/ordering platform.
+
+**⚠️ ACTION REQUIRED:**
+1. **Remove these 19 restaurants from Restaurants-active.md** or mark them as "Migrated to RestaurantPlus.net"
+2. **Update database status** for these restaurants (mark as inactive/migrated if not already)
+3. **Do NOT proceed with course assignment** for restaurants that have left our platform
+4. **Exception:** River Pizza (ID: 952) - if still using our service, needs course assignment. Otherwise skip.
+
+**Pattern:** Restaurants that left our platform often have:
+- Suspended status in database
+- Incomplete menu data (left mid-migration)
+- No courses but have dishes (legacy data)
+- Suspiciously low dish counts
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
 
 ### Restaurants with No Courses Defined
 
@@ -1372,34 +1613,6 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 **Resolution Needed:**
 1. Create appropriate courses for this Indian restaurant (e.g., Appetizers, Curries, Tandoori, Breads, Desserts, Drinks)
 2. Then re-run course assignment process
-
-#### River Pizza (Restaurant ID: 952)
-**Status:** ⚠️ NEEDS WORK - 71 dishes, 12 courses defined, 100% unassigned
-**Date:** 2025-11-03
-**Address:** Verified active in billing list
-
-**Details:**
-- Total dishes: 71
-- Dishes with course_id: 0 (0%) ❌
-- Dishes with NULL course_id: 71 (100%) ⚠️
-- Courses defined: 12
-- Status: active ✅
-
-**Courses Available:**
-- Specials
-- Pizzas
-- Twin Pizzas
-- Appetizers
-- Big Salads
-- Chicken Wings
-- Submarines
-- Canadian Food
-- Donairs
-- Pasta
-- Desserts
-- Drinks
-
-**Action Required:** Assign all 71 dishes to appropriate courses from the 12 available courses.
 
 #### Amicci Pizza (Restaurant ID: 735)
 **Status:** ⚠️ SKIPPED - No courses defined
@@ -1437,11 +1650,291 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 1. Create appropriate courses for this Chinese restaurant (e.g., Appetizers, Soups, Chicken, Beef, Seafood, Vegetarian, Rice/Noodles, Desserts, Drinks)
 2. Then re-run course assignment process
 
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Westboro Subs (Restaurant ID: 778)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ LEFT PLATFORM - On RestaurantPlus.net | ⚠️ SKIP COURSE ASSIGNMENT
+**Date:** 2025-11-03
+
+**Issue:** Restaurant has 47 dishes but 0 courses defined in the system.
+
+**⚠️ PLATFORM NOTE:** Restaurant has LEFT our platform and is now using **RestaurantPlus.net/OlivePOS** (confirmed at https://restaurantplus.net/home/food). Restaurant should be removed from active list.
+
+**Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
+
+**Data Quality Check:** ✅ 47 dishes is reasonable for a Vietnamese sub shop - menu data appears properly migrated.
+
+**Dish Pattern Analysis:**
+- A1-A12: Appetizers (Spring Rolls, Egg Rolls, Vietnamese items)
+- B1-B7: Banh Mi/Sandwiches
+- C1-C6: Combos (some marked HIDE)
+- D1-D8: Drinks (Soft drinks, Vietnamese coffee, smoothies)
+- H2-H3: Desserts
+- S1-S10: Subs (Vietnamese subs - Pork, Beef, Chicken, Vegetarian, etc.)
+- SW: Soup (Wonton Soup)
+
+**Action Taken:** None - cannot assign course_id without courses existing. **SERVICE VERIFICATION NEEDED** - Confirm if still using our service before creating courses.
+
+**Resolution Needed:**
+1. **FIRST:** Verify if restaurant is still using our service or has switched to Clover
+2. If still using our service, create appropriate courses:
+   - Appetizers
+   - Subs/Banh Mi
+   - Combos
+   - Soups
+   - Desserts
+   - Drinks
+3. Then assign dishes using code pattern matching (A=Appetizers, B=Sandwiches, C=Combos, D=Drinks, H=Desserts, S=Subs, SW=Soup)
+
+**Pattern Note:** Restaurants with "no courses but have dishes" pattern should be checked for service status - may have switched to Clover or other POS systems.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Bank Shawarma and Poutine (Restaurant ID: 776)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - No courses defined
+**Date:** 2025-11-03
+
+**Issue:** Restaurant has 66 dishes but 0 courses defined in the system.
+
+**Action Taken:** None - cannot assign course_id without courses existing.
+
+**Resolution Needed:**
+1. Create appropriate courses for this shawarma/poutine restaurant (e.g., Appetizers, Shawarma, Poutines, Platters, Drinks)
+2. Then re-run course assignment process
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Dépanneur Généreux (Restaurant ID: 816)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - No courses defined
+**Date:** 2025-11-03
+
+**Issue:** Restaurant has **866 dishes** but 0 courses defined in the system.
+
+**Note:** Database name has encoding issues: "Dï¿½panneur Gï¿½nï¿½reux" (should be "Dépanneur Généreux")
+
+**Action Taken:** None - cannot assign course_id without courses existing.
+
+**Resolution Needed:**
+1. Fix name encoding issue in database
+2. Create appropriate courses for this convenience store/dépanneur (e.g., Snacks, Drinks, Hot Food, Groceries, etc.)
+3. Then re-run course assignment process
+
+**Priority:** HIGH - 866 dishes is a very large menu that needs proper course organization
+
 ---
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
 
 ### Restaurants with No Dishes
 
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Champa Thai Food (Restaurant ID: 87)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - No dishes in database
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status was: suspended (corrected to active)
+- Restaurant has **0 dishes** but 13 courses defined
+
+**Action Taken:**
+- Updated restaurant status from 'suspended' to 'active'
+- Cannot proceed with course assignment - no dishes exist
+
+**Courses Defined (13):**
+- Unlisted dishes, APPETIZERS, RICE NOODLE IN BEEF BROTH / PHO
+- NOODLE IN CHICKEN BROTH, EGG NOODLE IN CHICKEN BROTH
+- VERMICELLI / BUN, WHITE RICE DISHES, STIR FRIES
+- FRIED RICE AND CRUNCHY EGG NOODLE, COMBO DEALS, SPECIALS
+- DRINKS, MILK SHAKES
+
+**Resolution Needed:**
+1. Import or create dishes for this restaurant
+2. Then re-run course assignment process
+
+---
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
 ### Restaurants Not Found in Database
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Chances R' East (Restaurant ID: Unknown)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ NOT FOUND - Restaurant does not exist in database
+**Date:** 2025-11-03 (Re-verified)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- No restaurant found in database with name matching "Chances R' East" or variations
+
+**Action Taken:**
+- Searched menuca_v3.restaurants: No results
+- Searched staging.v1_restaurants: No results
+- Searched staging.v2_restaurants: No results
+- Variations searched: "%Chances%", "%R%East%", "%R East%", "%east%" with apostrophe
+- No matches in any database
+
+**Resolution Needed:**
+1. Verify restaurant name spelling with business owner
+2. Check if restaurant exists under completely different name
+3. If restaurant should exist, may need to be created from scratch
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Chances R' West (Restaurant ID: Unknown)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ NOT FOUND - Restaurant does not exist in database
+**Date:** 2025-11-03 (Re-verified)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- No restaurant found in database with name matching "Chances R' West" or variations
+
+**Action Taken:**
+- Searched menuca_v3.restaurants: No results
+- Searched staging.v1_restaurants: No results
+- Searched staging.v2_restaurants: No results
+- Variations searched: "%Chances%", "%R%West%", "%R West%", "%west%" with apostrophe
+- No matches in any database
+
+**Resolution Needed:**
+1. Verify restaurant name spelling with business owner
+2. Check if restaurant exists under completely different name
+3. If restaurant should exist, may need to be created from scratch
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Wok Bistro Noodles Bar and Grill (TEST) (1615 Orleans Blvd.)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ❌ NOT FOUND
+**Date:** 2025-11-03
+
+**Issue:** Restaurant listed in Restaurants-active.md but does not exist in menuca_v3.restaurants table.
+- Note: Name includes "(TEST)" - may be a test restaurant that was never migrated
+- Searched for variations: "Wok Bistro", "Wok", "Bistro" - no matches found
+- Found other "Wok" restaurants but none match this name/address
+
+**Action Taken:** None - restaurant does not exist in database.
+
+**Resolution Needed:**
+1. Verify if this test restaurant should be in database
+2. Check if name differs in database vs active list
+3. Determine if test restaurant was intentionally excluded from migration
+
+---
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+### ⏸️ Restaurants with Suspended/Pending Status
+
+#### Vanier Pizza & Subs (Restaurant ID: 62)
+**Status:** ⚠️ LEFT PLATFORM - On RestaurantPlus.net | ⚠️ SKIP COURSE ASSIGNMENT
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status: suspended
+- **SUSPICIOUS:** Only 1 dish in database (impossible for a pizza & subs restaurant)
+
+**Current Database Status:**
+- Total dishes: 1
+- Courses defined: 1
+- Dishes with course_id: 1 (100%) ✅
+- Status: suspended
+
+**⚠️ PLATFORM NOTE:** Restaurant has LEFT our platform and is now using **RestaurantPlus.net/OlivePOS** (CONFIRMED). The suspended status and single dish reflect that they left mid-migration. Restaurant should be removed from active list.
+
+**Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
+
+---
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Wow Sushi 50, rue Rachel E (Restaurant ID: 356)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+- **CRITICAL:** 0 dishes in database (impossible for a sushi restaurant)
+
+**Current Database Status:**
+- Total dishes: 0
+- Courses defined: 0
+- Status: suspended
+
+**🚨 CRITICAL DATA ISSUE:**
+A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, appetizers, soups, bento boxes, etc.). Having 0 dishes indicates the menu data was never migrated or was deleted.
+
+**Resolution Needed:**
+1. Verify if restaurant should be active (likely yes, since listed in active list)
+2. **URGENT:** Menu migration required - restaurant has no menu data
+3. Cannot proceed with course assignment until menu is migrated
+
+---
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
 
 ### ✅ Restaurants with Status Corrected
 
@@ -1489,7 +1982,53 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 
 ---
 
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
 ### Restaurants with Uncategorized course:
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Argos Greek & Pizza (Restaurant ID: 774)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status was: suspended
+- Status mismatch identified
+
+**Action Taken:**
+- Updated restaurant status from 'suspended' to 'active'
+- Verified update successful
+
+**Menu Status:**
+- Total dishes: 21
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 21 (100%) ✅
+- All dishes already properly assigned
+
+**Result:** Restaurant status corrected. No course assignment work needed.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### 2 for 1 Pizza (Restaurant ID: 223)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already has course assignments
+**Date:** 2025-11-03
 
 #### Aylmer BBQ (Restaurant ID: 69)
 **Status:** ✅ STATUS CORRECTED - Was suspended, now active
@@ -1550,7 +2089,143 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 
 **Result:** Restaurant status corrected. All dishes already properly assigned.
 
----
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Burger Lovers (Restaurant ID: 546)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status was: suspended
+- Status mismatch identified
+
+**Action Taken:**
+- Updated restaurant status from 'suspended' to 'active'
+- Verified update successful
+
+**Menu Status:**
+- Total dishes: 10
+- Courses defined: 1 (Uncategorized - ID: 1739)
+- Dishes with course_id: 10 (100%) ✅
+
+**Course Distribution:**
+- Uncategorized (1739): 10 dishes
+  - 2 Pasta Special
+  - 1 Signature Burger with Small Poutine
+  - 2 Signature Burgers with Large Fries and 2 Pops
+  - 2 Signature Burgers with Large Onion Rings and 2 Pops
+  - Signature Burgers with various sides (Mozzarella Sticks, Jalapeno Slammers, Chicken Bites, Chicken Wings)
+  - 4 Cheeseburgers 4oz
+  - Cheese
+
+**Result:** Restaurant status corrected. All dishes already properly assigned.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+#### Colonnade Pizza - Location 1 (Restaurant ID: 783)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 5 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Menu Status:**
+- Total dishes: 5
+- Courses defined: 1 (Uncategorized - ID: 1605)
+- Dishes with course_id: 5 (100%) ✅
+
+**Result:** All dishes already properly assigned. Simple menu with all items in Uncategorized course.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+#### Colonnade Pizza - Location 2 (Restaurant ID: 784)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 1 dish assigned to courses
+**Date:** 2025-11-03
+
+**Menu Status:**
+- Total dishes: 1
+- Courses defined: 1 (Uncategorized - ID: 1693)
+- Dishes with course_id: 1 (100%) ✅
+
+**Result:** All dishes already properly assigned. Single dish in Uncategorized course.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+#### Colonnade Pizza - Location 3 (Restaurant ID: 785)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 27 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Menu Status:**
+- Total dishes: 27
+- Courses defined: 1 (Uncategorized - ID: 1748)
+- Dishes with course_id: 27 (100%) ✅
+
+**Result:** All dishes already properly assigned. Simple menu with all items in Uncategorized course.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Centre Pizza (Restaurant ID: 603)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ✅ COMPLETE - All 17 dishes assigned to courses
+**Date:** 2025-11-03
+
+**Menu Status:**
+- Total dishes: 17
+- Courses defined: 1 (Uncategorized - ID: 1775)
+- Dishes with course_id: 17 (100%) ✅
+
+**Course Distribution:**
+- Uncategorized (1775): 17 dishes
+  - Garlic, One Item, Two Items, Three Items
+  - 1/2/3 Toppings Pizzas HIDE
+  - Large/Medium/Small Pizza & Wings HIDE
+  - Large/Medium Pizza and Chef Salad HIDE
+  - Large/Medium Pizza and Caesar Salad HIDE
+  - Bacon, Sweet, Honey Garlic
+
+**Result:** All dishes already properly assigned. Simple menu with all items in Uncategorized course.
+
+#### Lucky King Take Out (Restaurant ID: 174)
+**Status:** ⚠️ LEFT PLATFORM - On RestaurantPlus.net | ⚠️ SKIP COURSE ASSIGNMENT
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 141
+- Dishes with course_id: 141 (100%) ✅
+- Courses defined: 14
+- Status: active (but restaurant has LEFT our platform)
+
+**⚠️ PLATFORM NOTE:** Restaurant has LEFT our platform and is now using **RestaurantPlus.net/OlivePOS** (confirmed at https://restaurantplus.net/home/food). Restaurant should be removed from active list.
+
+**Action Taken:** SKIP - Restaurant no longer on our platform. Course assignment complete but restaurant has left.
+
+#### River Pizza (Restaurant ID: 952)
+**Status:** ⚠️ LEFT PLATFORM - On RestaurantPlus.net | ⚠️ SKIP COURSE ASSIGNMENT
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 71
+- Dishes with course_id: 0 (0%) ❌
+- Dishes with NULL course_id: 71 (100%) ⚠️
+- Courses defined: 12
+- Status: active (but restaurant has LEFT our platform)
+
+**Courses Available:**
+- Specials, Pizzas, Twin Pizzas, Appetizers, Big Salads, Chicken Wings, Submarines, Canadian Food, Donairs, Pasta, Desserts, Drinks
+
+**⚠️ PLATFORM NOTE:** Restaurant has LEFT our platform and is now using **RestaurantPlus.net/OlivePOS**. Restaurant should be removed from active list.
+
+**Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
 
 #### Souvlaki Souvlaki (Restaurant ID: 836)
 **Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
@@ -1577,6 +2252,63 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 - **Drinks** - 591ml Pop (Pepsi varieties)
 
 **Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed before proper course assignment can proceed. This is a data migration issue, not a course assignment issue.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Sous Le Palmier (Restaurant ID: 273)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+- **CRITICAL:** 0 dishes in database
+
+**Current Database Status:**
+- Total dishes: 0
+- Courses defined: 0
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**🚨 CRITICAL DATA ISSUE:**
+Restaurant has 0 dishes in database. This indicates either:
+- Menu data was never migrated, OR
+- Menu data was deleted, OR
+- Restaurant may have closed/left platform
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. **URGENT:** Menu migration required - restaurant has no menu data
+3. Cannot proceed with course assignment until menu is migrated
+4. Status correction needed AND menu migration needed
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Shawarma King (Restaurant ID: 117)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | 🚫 NO LONGER ON PLATFORM
+**Date:** 2025-11-03
+**Address:** 395 Bank St, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 1 ⚠️ (Only "Online Only Special #1")
+- Dishes with course_id: 1 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active (but restaurant has left platform)
+
+**🚫 RESTAURANT STATUS:** Restaurant is **NO LONGER ON OUR PLATFORM** (user verified). This explains the suspiciously low dish count (only promotional item remains).
+
+**Dishes Found:**
+- Online Only Special #1
 
 **Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list or marked as inactive/left platform.
 
@@ -1645,6 +2377,34 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 
 **Note:** There is also another "Season's Pizza" (ID: 856) at 826 Somerset St W (suspended) - different restaurant
 
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Samo's Greek Kitchen (Restaurant ID: 791)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | 🚫 LEFT PLATFORM - On RestaurantPlus.net
+**Date:** 2025-11-03
+**Address:** 911 Richmond Road, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 14 ⚠️ (Low for a Greek restaurant)
+- Dishes with course_id: 14 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active (but restaurant has left platform)
+
+**🚫 RESTAURANT STATUS:** Restaurant has **LEFT our platform** and is now using **RestaurantPlus.net/OlivePOS** (confirmed in RestaurantPlus.net migration document). Restaurant is **TEMPORARILY CLOSED FOR RE-LOCATION**. This explains the suspiciously low dish count (only basic items remain).
+
+**Dishes Found:**
+- Poutine, Greek Sausage Platter, French Fries, Onion Rings, Wedge Potatoes
+- Chicken Nuggets (10 pcs), Greek Sausage Wrap
+- Pizza items (1 Medium Pizza 3 Toppings, 1 Small Pizza 3 Toppings, 2 Large Pizzas, 3 Medium Pizzas, 2 Small Pizzas, 2 Medium Pizzas, King's Signature BBQ Pizza)
+
+**Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list or marked as inactive/left platform.
+
 #### Sala Thai (Restaurant ID: 745)
 **Status:** ⏳ NEEDS WORK - 94 dishes, 0 courses, 100% unassigned
 **Date:** 2025-11-03
@@ -1708,6 +2468,117 @@ The restaurant has a well-organized menu structure with the following courses:
 
 **Note:** There is also another "Sala Thai" (ID: 940) at the same address (2666 Alta Vista Dr) with status "pending" - may be duplicate or pending activation.
 
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Routine Poutine (Restaurant ID: 979)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | ⚠️ SHARES LOCATION - May not have menu with us
+**Date:** 2025-11-03
+**Address:** 4000 Bridle Path Drive, Gloucester, ON ✅
+
+**Details:**
+- Total dishes: 8 ⚠️ (Very low for a poutine restaurant)
+- Dishes with course_id: 8 (100%)
+- Courses defined: 2 ✅
+- All dishes assigned to courses ✅
+- Status: active ✅ (matches active list)
+
+**⚠️ LOCATION SHARING NOTE:** Restaurant appears to **share a location/roof** with another restaurant (based on Facebook page). **Does not appear to have a menu with us** - explains why there are no poutine dishes and only 8 unrelated items.
+
+**Dishes Found (Appetizers/Finger Foods - No Poutine Items):**
+- Thai Bites
+- Breaded Zucchini (20 pcs)
+- Breaded Pickles (7 pcs)
+- Mozzarella Sticks (10 pcs)
+- Jalapeno Poppers (7 pcs)
+- Chicken Wings (1lb)
+- Capri Combo Box
+- Large Crack Stick Combo Box
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Restaurant may not actually be using our platform for ordering (shares location, no poutine menu items). Should verify if they need to be on active list.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Royal Thai Cuisine (Restaurant ID: 465)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 62 Maple Ave, Barrie ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+- **CRITICAL:** 0 dishes in database
+
+**Current Database Status:**
+- Total dishes: 0
+- Courses defined: 0
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**🚨 CRITICAL DATA ISSUE:**
+Restaurant has 0 dishes in database. This indicates either:
+- Menu data was never migrated, OR
+- Menu data was deleted, OR
+- Restaurant may have closed/left platform
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. **URGENT:** Menu migration required - restaurant has no menu data
+3. Cannot proceed with course assignment until menu is migrated
+4. Status correction needed AND menu migration needed
+
+**Note:** There is also "JC Royal Thai Cuisine" (ID: 646) at 100 Jamieson Pkwy, Cambridge (active) - different restaurant
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Roulas Jus et Gelato (Restaurant ID: 777)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⏳ NEEDS WORK - 38 dishes, 0 courses, 100% unassigned | ⚠️ TEMPORARILY CLOSED
+**Date:** 2025-11-03
+**Address:** 245, rue de Cannes, Gatineau ✅ (matches active list)
+
+**Details:**
+- Total dishes: 38 ✅ (Good count for a juice/gelato shop)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 38 (100%) ⚠️
+- Courses defined: 0 ⚠️
+- Status: active (but restaurant is temporarily closed)
+
+**Menu Structure Analysis:**
+Bilingual French/English juice and gelato shop. Sample dishes show:
+- **Juices** (Cocktail, Avocado, Mango, Tropicana, Fiji, etc.)
+- **Gelato/Ice Cream Items** (Ashta, Deluxe, Banana Split, Twist, Tango, Punch, Big Red, Bananaz, Keto-Pia, Silly Monkey, Reboot)
+- **Ice Cream Flavors** (Vanille, Chocolat, Fraise, Oreo, Reeses Pieces, Skore)
+- **Sundaes** (Sundae Fraise, Sundae Chocolat, Sundae Caramel)
+- **Ice Cream** (Crème Glacée Vanille, Crème Glacée Chocolat, Glacé Chocolat)
+- **Cones/Bowls** (Cornet, Petit Bol)
+- Some dishes marked "HIDE" (hidden from menu)
+
+**⚠️ RESTAURANT STATUS:** Restaurant is **TEMPORARILY CLOSED** (user verified). Course assignment work can proceed when restaurant reopens.
+
+**Action Required:**
+1. Create courses for juice/gelato shop:
+   - Juices / Jus
+   - Gelato / Crème Glacée
+   - Sundaes
+   - Ice Cream Flavors / Saveurs de Crème Glacée
+   - Cones & Bowls / Cornets et Bols
+   - (Other categories as needed)
+2. Assign 38 dishes to appropriate courses using dish name patterns
+
+**Resolution Needed:** CREATE COURSES AND ASSIGN DISHES (when restaurant reopens or if status changes)
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
 #### Roulas Grecque et Pizza (Line 219)
 **Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ NOT FOUND IN DATABASE - Has menu online | 🚨 DATA MIGRATION ISSUE
@@ -1793,6 +2664,33 @@ Restaurant exists and has a full menu online but is **NOT IN DATABASE**. This in
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
+
+#### Restaurant O'Wok (Restaurant ID: 375)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+**Address:** 6078, ch de Chambly, Saint-Hubert ✅ (matches active list)
+
+**Issue Found:**
+- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
+- **Database status: suspended** (needs correction to match active list)
+- **CRITICAL:** 0 dishes in database
+
+**Current Database Status:**
+- Total dishes: 0
+- Courses defined: 0
+- Status: suspended (restaurant not showing on frontend because DB says suspended)
+
+**🚨 CRITICAL DATA ISSUE:**
+Restaurant has 0 dishes in database. This indicates either:
+- Menu data was never migrated, OR
+- Menu data was deleted, OR
+- Restaurant may have closed/left platform
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** If restaurant should be active (per active list), update database status from `suspended` to `active`
+2. **URGENT:** Menu migration required - restaurant has no menu data
+3. Cannot proceed with course assignment until menu is migrated
+4. Status correction needed AND menu migration needed
 
 #### Restaurant Le Choix (Restaurant ID: 106)
 **Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | 🚨 CRITICAL DATA MIGRATION ISSUE
@@ -1965,6 +2863,123 @@ The restaurant has a well-organized menu with the following courses that need to
 **⚠️ REVIEW NEEDED:** With 140 dishes, restaurant needs proper course structure (currently all in "Uncategorized"). Should create the 10 courses listed above and reassign dishes accordingly.
 
 
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Poutinerie Québecurds Hull (Restaurant ID: 789)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 455 Boulevard Riel, Hull ✅ (matches active list)
+**🌐 Online Menu Available:** https://hull.poutineriequebecurds.ca/?p=menu&lang=fr
+
+**Details:**
+- Total dishes: 47 ✅ (Good count for poutine restaurant)
+- Dishes with course_id: 47 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**Actual Course Structure (from online menu - Bilingual French/English):**
+The restaurant has a well-organized menu with the following courses that need to be created:
+1. **Spécials** - Special deals (2 Petites Poutines avec Breuvages, Special SOLO avec Beignets, Special SOLO avec Churros)
+2. **Les Entrées** - Appetizers (Frite, Patate douce, Bouchée de pomme de terre, Rondelle d'oignon, PopCurds, Bâtonnets de fromage, Jalapeno poppers, Zucchini panées, Cornichons frits panées)
+3. **Les Poutines** - Poutine varieties (Classique, Buffalo, Poulet Thai, La Gatinoise, Amateurs de Viande, Steak au Fromage Philly, Pop Curds, Poulet Croustillant, Bacon, La Club, Végétarienne, Viande Fumée, Épicé, Donaire - all sizes Petit/Grand)
+4. **Desserts** - Desserts (Mini Beignets 6/16/24, Mini Churros 6/12/24)
+5. **Breuvages** - Drinks (Pepsi, Pepsi Diet, 7Up, Ginger Ale, Crush varieties, Crème soda, Root Beer, Dr.Pepper, Thé Glacé, Mountain Dew varieties, Aquafina, Jus varieties, Rockstar Punch)
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create the 5 courses listed above and reassign dishes accordingly.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Poutinerie Québecurds Gatineau (Restaurant ID: 802)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 643 Boulevard Saint-René O, Gatineau ✅ (matches active list)
+**🌐 Online Menu Available:** https://gatineau.poutineriequebecurds.ca/?p=menu&lang=fr
+
+**Details:**
+- Total dishes: 36 ✅ (Good count for poutine restaurant)
+- Dishes with course_id: 36 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**Actual Course Structure (from online menu - Bilingual French/English):**
+The restaurant has the same course structure as Hull location:
+1. **Spécials** - Special deals (2 Petites Poutines avec Breuvages, Special SOLO avec Beignets, Special SOLO avec Churros)
+2. **Les Entrées** - Appetizers (Frite, Patate douce, Bouchée de pomme de terre, Rondelle d'oignon, PopCurds, Bâtonnets de fromage, Jalapeno poppers, Zucchini panées, Cornichons frits panées)
+3. **Les Poutines** - Poutine varieties (Classique, Buffalo, Poulet Thai, La Gatinoise, Amateurs de Viande, Steak au Fromage Philly, Pop Curds, Poulet Croustillant, Bacon, La Club, Végétarienne, Viande Fumée, Épicé, Donaire - all sizes Petit/Grand)
+4. **Desserts** - Desserts (Mini Beignets, Mini Churros)
+5. **Breuvages** - Drinks (Pepsi, Pepsi Diet, 7Up, Ginger Ale, Crush varieties, Crème soda, Root Beer, Dr.Pepper, Thé Glacé, Mountain Dew varieties, Aquafina, Jus varieties, Rockstar Punch)
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create the 5 courses listed above and reassign dishes accordingly.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### POS SIMPLICITY (Restaurant ID: 547)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | ⚠️ NAME VERIFICATION NEEDED | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 250 Greenbank, Ottawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 7 ⚠️ (Very low count - only combo deals)
+- Dishes with course_id: 7 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**⚠️ NAME VERIFICATION NEEDED:** "POS SIMPLICITY" sounds like a POS (Point of Sale) system name rather than an actual restaurant name. This may be:
+- A placeholder/test entry, OR
+- The wrong restaurant name in the database, OR
+- Actually correct but unusual
+
+**Restaurants visible on map at 250 Greenbank address:**
+- **Fitz's Classic Grill BBQ Smoke House** (not found in database - user confirmed likely NOT this restaurant)
+- **Authentic Vietnamese Pho House** (ID: 759 - suspended - matches map location)
+- **Tim Hortons** (not on our platform)
+- **Bella's Boys** (not found in database - take-out joint?)
+- **barBURRITO Tex Mex** (not found in database - take-out joint?)
+
+**Other restaurants in database at 250 Greenbank:**
+- Pizza Corner (ID: 679) - active - 8 dishes - at "3A - 250 Greenbank Rd", Nepean (take-out pizza joint)
+- Prince Gourmet (ID: 911) - suspended - 0 dishes - at "250 Greenbank", Ottawa
+- Authentic Vietnamese Pho House Nepean (ID: 759) - suspended - 0 dishes - at "250 Greenbank Rd Unit 2A", Nepean
+
+**⚠️ MATCHING ISSUE:** Cannot match "POS SIMPLICITY" to any restaurant in that strip mall.
+- User confirmed clientele is mostly **take-out joints** that need online menus
+- User confirmed it's likely **NOT Fitz's Classic Grill BBQ Smoke House** (sit-down restaurant)
+- User verified: **None of the places in that strip mall match this entry**
+- **POS SIMPLICITY** appears to be a placeholder/test entry or incorrect database entry
+- **ACTION REQUIRED:** Remove from active list or verify correct restaurant name/location
+
+**Menu Sample:**
+- Only combo deals found (Combo No.3, No.4, No.5, Regular Combo 1 for 1/2, Large Combo 2 for 1/2)
+- No base menu items
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 7 dishes and they're all combo deals. This pattern suggests:
+- Incomplete menu migration, OR
+- Restaurant may have closed/left platform (similar to Twisted Pita pattern), OR
+- Actually a very limited menu (but unlikely for a restaurant)
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** 
+1. Verify if "POS SIMPLICITY" is the correct restaurant name or if it should be one of the other restaurants at this address
+2. Verify if restaurant is still active and has a full menu, or if this is a data migration/closure issue
 
 #### PizzaRama (Restaurant ID: 716)
 **Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
@@ -2008,7 +3023,7 @@ The restaurant has a comprehensive menu with the following courses:
 3. Then assign all dishes to appropriate courses
 
 #### Pizzalicious (Restaurant ID: 829)
-**Status:** ⚠️ SKIPPED 
+**Status:** ⚠️ SKIPPED - Already assigned | 🚫 NO LONGER A CLIENT
 **Date:** 2025-11-03
 **Address:** 1009 Merivale Rd, Ottawa ✅ (matches active list)
 
@@ -2019,10 +3034,152 @@ The restaurant has a comprehensive menu with the following courses:
 - All dishes assigned to "Uncategorized" course
 - Status: active ✅ (but restaurant is no longer a client)
 
+**🚫 RESTAURANT STATUS:** Restaurant is **NO LONGER A CLIENT**. Online ordering site is down with message: "Our online ordering service is temporarily unavailable. Please call the restaurant at (613) 728-5858". This explains why there's only 1 dish in the database - the menu was removed when they left the platform.
+
 **Action Taken:** Skipped - all dishes already have course_id assigned.
 **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list or marked as inactive/no longer a client. Database status should be updated from `active` to `suspended`.
 
 
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Pizza Run (Restaurant ID: 650)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | 🚫 PERMANENTLY CLOSED
+**Date:** 2025-11-03
+**Address:** 19 Simcoe Street S, Oshawa ✅ (matches active list)
+
+**Details:**
+- Total dishes: 27 ⚠️ (Low count for a pizza restaurant - mostly deals)
+- Dishes with course_id: 27 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (but restaurant is permanently closed)
+
+**🚫 RESTAURANT STATUS:** Restaurant is **PERMANENTLY CLOSED** (verified via Google Maps). This explains the suspiciously low dish count (only deals, no base menu items) and why many items are marked HIDE.
+
+**Menu Sample:**
+- Many deals marked HIDE (Pizza Deal No1-No12, many hidden)
+- Active deals (Deal For ONE/TWO/THREE with Wings/Salad, Double Double, Triple Triple, Wing Man Special)
+- Create Your Own Pizza
+- Wing sauce options (Medium, Hot, BBQ, Cheddar Chipotle, Honey Garlic, Sauce on the side)
+- No base pizza varieties or other menu items visible
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**ACTION REQUIRED:** 
+1. Restaurant should be removed from `Restaurants-active.md` list
+2. Database status should be updated from `active` to `suspended` to reflect permanent closure
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Pizza Riverview (Restaurant ID: 688)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 117 Rue Front, Aylmer ✅ (matches active list)
+
+**Details:**
+- Total dishes: 58 ✅ (Good count)
+- Dishes with course_id: 58 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course
+- Status: active ✅ (matches active list)
+
+**Menu Sample (Indian Cuisine):**
+- Appetizers (Samosa, Onion Bhaji, Fish Amritsari, Bharwan Khumb, Kurmura Prawn)
+- Tandoori items (Tandoori Murgh, Tandoori Mahi, Tandoori Prawns, Tandoori Paneer, Tandoori Platter)
+- Kebabs (Seekh Kebab, Murgh Mirch Kebab, Chicken Tikka, Lamb Adraki Kebab, Peshawari Beef Boti, Tangri Kebab)
+- Breads (Nan, Roti, Parantha, Onion Kulcha, Garlic Kulcha, Pepper Nan)
+- Curries (Chicken Lababdar, Chicken Makhni, Chicken Chettinad, Fish Peri-Peri, Kerala Prawn Curry, Prawn Balchow, Lamb Roganjosh, Lamb Masala)
+
+**⚠️ NOTE:** Restaurant name is "Pizza Riverview" but menu contains Indian cuisine items. May be a multi-cuisine restaurant or name mismatch.
+
+**Action Taken:** Skipped - all dishes already have course_id assigned.
+**⚠️ REVIEW NEEDED:** Restaurant needs proper course structure (currently all in "Uncategorized"). Should create courses like:
+- Appetizers
+- Tandoori Specialties
+- Kebabs
+- Breads
+- Curries (Chicken, Lamb, Seafood, Vegetarian)
+- Rice Dishes
+- Desserts
+- Drinks
+- (Other categories as needed)
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+#### Sushi Express Chambly (Line 231)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ❌ NOT FOUND IN DATABASE (or name changed)
+**Date:** 2025-11-03
+
+**Details:**
+- Restaurant name from active list: "Sushi Express Chambly"
+- Searched database for variations: "Sushi Express", "Chambly", "A Plus sushi"
+- Found related restaurants but no exact match:
+  - Express Asian Food (Changed to A Plus sushi) - ID: 222, status: suspended
+  - Restaurant Étoile de Chambly (Dropped) - ID: 450, status: suspended
+  - Sushi Express Fantasia - ID: 348, status: suspended
+
+**Action Taken:** Not found - restaurant may have been renamed, dropped, or never migrated. Restaurant should be removed from `Restaurants-active.md` list or verified against actual restaurant name.
+
+#### Sushi Fleury (Restaurant ID: 596)
+**Status:** ⏳ NEEDS WORK - 338 dishes, 0 courses, 100% unassigned
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 338 ✅ (Very large menu!)
+- Dishes with course_id: 0 (0%)
+- Dishes with NULL course_id: 338 (100%) ⚠️
+- Courses defined: 0 ⚠️
+
+**🌐 Online Menu Available:** https://m.sushifleury.ca/menu
+**Note:** Online menu may be easier to scrape/reference for course creation and dish assignment than re-importing data.
+
+**Menu Structure Analysis (from online menu):**
+Bilingual French/English sushi restaurant with well-organized categories:
+- **PokeBol** - Poke bowls (P1-P12, Vegetarian, Shrimp, Chicken & Mango, Spicy Salmon/Tuna, Scallops, Squid Tempura, Soft Shell Crab, Giant Shrimp, Lobster & Shrimp)
+- **Nigiri et Sashimi** - Numbered items (1-18: Sake, Maguro, Kunsei Sake, Unagi, Ebi, Tamago, Crabe, Kani-kama, Hotate, Tobiko, plus Tempura variants)
+- **Hosomakis** - Small rolls, 6 pcs (20-29: Vegetarian varieties, Tamago, Kani kama, Spicy Salmon/Tuna, Akanasu, Philly varieties, Fried Salmon/Tuna, Lobster, Shrimp Tempura, Hotategai épicé)
+- **Maki** - Medium rolls, 8 pcs (B1-B9: Sakura, Nasu, Fuji, Kita, Tako, Asahi, Tsubaki, Senjo, PFK)
+- **Spécialités du Chef** - Chef's specialties (30+ items: Amor, Dragon varieties, Futomakis, Special rolls)
+- **Maki Feuille de Riz** - Rice paper rolls (70-73, 80A, 81A: Spring rolls with various fillings)
+- **Makis Tartare Épicé** - Spicy tartar rolls (74-79: Shrimp, Salmon, Crab, Tuna, Tamago, Lobster)
+- **Sushi Pizza** - Crispy sushi pizza (C1-C9: Vegetarian, Smoked Salmon, Seafood, Tuna, D-luxe, Hawaiian, Zen, Fresh Spicy Salmon, Pollock)
+- **Sushi Combo** - Combo packs (12, 14, 22, 28, 36, 44, 54, 76, 88, 100 Mcx)
+- **Tapas Orientaux** - Oriental tapas (Spring rolls, Tempura shrimp/chicken, Fried wonton)
+- **Soupe** - Soups (Miso Tofu, Miso Seafood, Wonton)
+- **Salade** - Salads (Wakame, House, Flamed Tuna/Salmon with Wakame, House with Crispy Salmon Skin)
+- **Combos** - Combo meals (For 2 persons, For 4 persons)
+- **Dessert** - Desserts (Kimono, Fried Kimono, Fried Banana)
+- **Breuvages** - Drinks (Water, Perrier, Arizona, Coke, Pepsi, 7up, Nestea, Canadian Dry, Crush Orange, Tea)
+
+**Action Required:**
+1. Create courses matching the online menu structure (bilingual French/English):
+   - PokeBol
+   - Nigiri et Sashimi
+   - Hosomakis
+   - Maki
+   - Spécialités du Chef
+   - Maki Feuille de Riz
+   - Makis Tartare Épicé
+   - Sushi Pizza
+   - Sushi Combo
+   - Tapas Orientaux
+   - Soupe
+   - Salade
+   - Combos
+   - Dessert
+   - Breuvages
+2. Assign 338 dishes to appropriate courses using pattern matching (reference online menu for category structure)
+
+**Resolution Needed:** CREATE COURSES (based on online menu structure) AND ASSIGN DISHES
 
 #### Sushi Presse (Restaurant ID: 260)
 **Status:** ⏳ NEEDS WORK - 354 dishes, 18 courses defined, 100% unassigned
@@ -2257,6 +3414,19 @@ Japanese/Korean fusion restaurant with mix of:
 - Status: active ✅ (matches verified list)
 
 **Note:** Found duplicate entry - Wing Wah Take Out & Delivery (closed) also at same address (ID: 198, suspended).
+
+#### Golden Center Pizza (Restaurant ID: 815)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 600 Rideau Street ✅ (matches verified list)
+
+**Details:**
+- Total dishes: 10 ⚠️⚠️ (SUSPICIOUSLY LOW)
+- Dishes with course_id: 10 (100%) ✅
+- Courses defined: 1 (Uncategorized)
+- Status: active ✅ (matches verified list)
+
+**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 10 dishes is very low for a pizza restaurant. Menu migration issue likely.
 
 #### Amicci Pizza (Restaurant ID: 735)
 **Status:** ⏳ NEEDS WORK - 196 dishes, 0 courses, 100% unassigned
@@ -2820,6 +3990,90 @@ Japanese/Korean fusion restaurant with mix of:
 3. Create proper courses based on live menu structure and reassign dishes appropriately
 4. Verify if additional dishes need to be migrated from live menu
 
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Test James - Dovercourt Pizza (Line 235)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ❌ NOT FOUND IN DATABASE
+**Date:** 2025-11-03
+
+**Details:**
+- Restaurant name from active list: "Test James - Dovercourt Pizza"
+- Searched database for variations: "Test James", "Dovercourt", "James"
+- No matching restaurant found in database
+
+**Action Taken:** Not found - likely a test restaurant that was never migrated or has been removed. Restaurant should be removed from `Restaurants-active.md` list.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### The Cupboard (Restaurant ID: 800)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | 🚫 NO LONGER ON PLATFORM
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 8 ⚠️ (Very low count)
+- Dishes with course_id: 8 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1730)
+
+**🚫 RESTAURANT STATUS:** Restaurant is **NO LONGER ON OUR PLATFORM** (user verified). This explains the suspiciously low dish count.
+
+**Dishes Found (Basic Pizza Items and Deals):**
+- 1 Topping Pizza
+- 2 Toppings Pizza
+- 3 Toppings Pizza
+- Large Pizza and Wings
+- Large Pizza and Wings HIDE
+- Medium Pizza and Wings
+- Medium Pizza and Wings HIDE
+- Two Medium Pizzas and Wings HIDE
+
+**Action Taken:** Skipped - all dishes already have course_id. **REVIEW NEEDED** - Very low dish count suggests verification needed (check if closed or missing menu items).
+
+**Note:** Multiple locations found (ID: 799 pending, ID: 800 active). Checked active location.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### The Greek Flame and Pizza (Restaurant ID: 725)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | 🚫 PERMANENTLY CLOSED
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 7 ⚠️ (Very low for a Greek restaurant & pizza place)
+- Dishes with course_id: 7 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1861)
+
+**🚫 RESTAURANT STATUS:** Restaurant is **PERMANENTLY CLOSED** (verified via Google Maps). This explains the suspiciously low dish count (only deals/specials, no base menu items).
+
+**Dishes Found (All Deals/Specials - No Base Menu Items):**
+- 2 Large Pizzas 4 Toppings Combined
+- 2 Pizzas 2 Toppings
+- 2 Pizzas 3 Toppings
+- BBQ
+- Honey Garlic
+- Medium Pizza 3 Toppings and Wings
+- Small Pizza 3 Toppings and Wings
+
+**Action Taken:** 
+- Skipped - all dishes already have course_id
+- ✅ **Database status updated** from "active" to "suspended" to reflect permanent closure
+- **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list
+
 #### The Original Georgie's (Restaurant ID: 84)
 **Status:** ⚠️ SKIPPED - Already assigned but SUSPICIOUSLY LOW DISH COUNT | ⚠️ STATUS MISMATCH
 **Date:** 2025-11-03
@@ -2847,6 +4101,66 @@ Japanese/Korean fusion restaurant with mix of:
 
 **Action Taken:** Skipped - all dishes already have course_id. **ACTION REQUIRED:** Full menu migration needed before proper course assignment can proceed. Status should be verified (suspended vs active).
 
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Twisted Pita & Pizzeria (Restaurant ID: 687)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already assigned | 🚫 PERMANENTLY CLOSED
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 7 ⚠️ (Very low for a pizzeria)
+- Dishes with course_id: 7 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1570)
+
+**🚫 RESTAURANT STATUS:** Restaurant is **PERMANENTLY CLOSED** (verified via Google Maps). This explains the suspiciously low dish count (only deals/specials, no base menu items).
+
+**Dishes Found (All Deals/Specials - No Base Menu Items):**
+- 2 Pizza Deal 1 Topping
+- 2 Pizza Deal 2 Toppings
+- 2 Pizza Deal 3 Toppings
+- Family Meal Deal
+- Large Pizza Special
+- Medium Pizza Special
+- Two Pita Special
+
+**Action Taken:** 
+- Skipped - all dishes already have course_id
+- ✅ **Database status updated** from "active" to "suspended" to reflect permanent closure
+- **ACTION REQUIRED:** Restaurant should be removed from `Restaurants-active.md` list
+
+#### Ting's Kitchen (Restaurant ID: 941)
+**Status:** ✅ SKIPPED - Already has course assignments | ⚠️ STATUS MISMATCH
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 145
+- Dishes with course_id: 145 (100%)
+- Courses defined: 17 (Dim Sum Menu, Starters and Soups, Fried Rice, Vietnamese Pho Noodle Soup, Signature Veggie Options, Best Thai Cuisine, Chicken, Chop Suey, Beef, Pork, Signature Noodles, Shrimp, On the Side, Special Family Dinners, Combination Plates, Drinks, Uncategorized)
+- All dishes assigned to courses ✅
+
+**⚠️ STATUS CORRECTION NEEDED:** Database status is "pending" but restaurant is listed in Restaurants-active.md as active (database status needs correction to match active list)
+
+**Action Taken:** None - all dishes already have course_id assigned and properly categorized. Status mismatch noted.
+
+#### Tony's Pizza (Restaurant ID: 929)
+**Status:** ✅ SKIPPED - Already has course assignments
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 123
+- Dishes with course_id: 123 (100%)
+- Courses defined: 11 (Appetizers, Desserts, Drinks, Italian, Nachos, Pizza, Platters, Salads, Subs, Wings, Wraps)
+- All dishes assigned to courses ✅
+
+**Action Taken:** None - all dishes already have course_id assigned and properly categorized.
+
+**Note:** Multiple Tony's Pizza locations found (IDs: 143 suspended, 956 pending, 929 active, 992 suspended). This active location (ID: 929) is complete.
 
 #### Vieux Hull Pizza (Restaurant ID: 820)
 **Status:** ⚠️ SKIPPED - Already has course assignments (NEEDS REVIEW)
@@ -2898,39 +4212,72 @@ Actual menu structure from online shows ~15 categories that should be created:
 2. Re-assign dishes from "Uncategorized" to appropriate courses
 3. Verify all dishes are properly categorized
 
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
+
+
+#### Yorgo's - Barrhaven KEEP Active Mapped Printer (Restaurant ID: 698)
+**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ SKIPPED - Already has course assignments (NEEDS REVIEW)
+**Date:** 2025-11-03
+
+**Details:**
+- Total dishes: 21
+- Dishes with course_id: 21 (100%)
+- Courses defined: 1 (Uncategorized)
+- All dishes assigned to "Uncategorized" course (1455)
+
+**Action Taken:** None - all dishes already have course_id assigned.
+
+**⚠️ REVIEW NEEDED - Online Menu Categories Found:**
+Actual menu structure from online shows ~15 categories that should be created:
+- Pita Wraps
+- Munchies
+- Poutine
+- Wings
+- Hot Subs
+- Souvlaki Platters
+- Specialty Platters
+- Seafood
+- Extra Satisfaction
+- Yorgo's Pizza
+- Create Your Own Pizza
+- Twin Deals
+- Pizza and Wing Special
+- Yorgo's Daily Specials
+- Salads
+- Side Orders
+- Desserts
+- Drinks
+
+**Future Action Required:**
+1. Create proper courses based on online menu structure
+2. Re-assign dishes from "Uncategorized" to appropriate courses
+3. Verify all dishes are properly categorized
+
 ---
 
 ## Summary Statistics
 
-**Last Updated:** 2025-11-05 - After comprehensive cleanup removing restaurants not in verified billing list
+- **Total Restaurants in List:** 252
+- **Completed:** 22 restaurants
+  - Course assignments fixed: 8 (Capri Pizza, Al's Drive In, All Out Burger Gladstone, All Out Burger Montreal Rd, Routine Poutine, Chicco St-Louis, Chicco Buckingham, Chicco Cantley)
+  - Already properly assigned: 14 (Beneci Pizza, All Out Burger 6 locations, Capital Bites, Cathay Restaurants, Centertown Donair & Pizza, Centre Pizza, Chicco de l'Hopital, Chicco Maloney, Chicco Shawarma Anger, Chicco Shawarma Maloney, Charm Thai→NANA Thai, Burger Lovers)
+- **Restaurants with Uncategorized Course Only:** 5 (Argos Greek & Pizza, Aylmer BBQ, Carlo's Pizza, Centre Pizza, Burger Lovers)
+- **Needs Work (0 Courses Defined):** 7 (Aahar, Amicci Pizza, Aroy Thai, Asia Garden, Westboro Subs, Bank Shawarma, Dépanneur Généreux, Sushiyana - 252 dishes, Sushi Fleury - 338 dishes!)
+- **Skipped (Already Assigned):** 12 (multiple All Out Burger locations, Yorgo's locations, Lucky King, Vieux Hull Pizza, Tony's Pizza, Ting's Kitchen)
+- **Skipped (No Dishes):** 1 (Champa Thai Food)
+- **Left Platform (RestaurantPlus.net):** 20 restaurants confirmed (8 in database including Samo's Greek Kitchen, 12 not found) - Should be removed from active list
+- **Left Platform (Other):** 2 (The Cupboard, Shawarma King 395 Bank St - no longer on our platform) - Should be removed from active list
+- **Status Corrected:** 4 (Argos Greek & Pizza, Xtreme Pizza, Twisted Pita & Pizzeria - closed, The Greek Flame and Pizza - closed)
+- **Status Corrections Needed:** 6 (Wow Sushi - listed active but DB suspended + 0 dishes, Ting's Kitchen - listed active but DB pending, The Original Georgie's - listed active but DB suspended, Sous Le Palmier - listed active but DB suspended + 0 dishes, Royal Thai Cuisine - listed active but DB suspended + 0 dishes, Restaurant O'Wok - listed active but DB suspended + 0 dishes) - Database status needs to match active list
+- **Not Found in Database:** 4 (Chances R' East, Chances R' West, Andiamo Pizzeria, Wok Bistro TEST, Test James - Dovercourt Pizza, Sushi Express Chambly)
+- **Critical Data Issues:** 10 (Xtreme Pizza - 6/100+ dishes, Wow Sushi - 0 dishes, Vanier Pizza & Subs - 1 dish, The Original Georgie's - 5 dishes - missing large number of menu items, Souvlaki Souvlaki - 1 dish but active with large menu online, Season's Pizza - 1 dish but active with full menu online, Royal Thai Cuisine - 0 dishes, Riverside Pizzeria - 2 dishes but active with full menu on old platform, Restaurant Le Choix - 12 dishes but active with full menu online, Restaurant Chez Gerry - 24 dishes but active with full menu online)
+- **Permanently Closed:** 2 (Twisted Pita & Pizzeria, The Greek Flame and Pizza - should be removed from active list)
+- **In Progress:** 0
+- **Pending:** 217
+- **Success Rate:** 100% (of processable restaurants)
 
-### Active Restaurants Status:
-- **Total Restaurants in Active Billing List:** 189 (verified against last 4 months billing)
-- **Completed Course Assignments:** 14 restaurants
-  - Wandee Thai, Lucky King Take Out, Beneci Pizza, Capital Bites, Cathay Restaurants, Centertown Donair & Pizza, Charm Thai Cuisine, Chicco Pizza Maloney, Chicco Pizza Shawarma Anger, Chicco Pizza St-Louis, Chicco Pizza & Shawarma Buckingham, Chicco Shawarma Cantley, Chicco Shawarma Maloney, Tony's Pizza
-
-### Work Needed:
-- **Needs Courses Created:** 4 restaurants (Aahar, Amicci Pizza, Aroy Thai, Asia Garden)
-- **Has Courses, Needs Assignment:** 1 restaurant (River Pizza - 71 dishes, 12 courses)
-- **Status Corrected:** 3 restaurants (Xtreme Pizza, Aylmer BBQ, Carlo's Pizza)
-- **Active with Good Assignments:** Multiple restaurants (Souvlaki Souvlaki, Shaan Tandoori, Season's Pizza, Sala Thai, etc.)
-
-### Restaurants Removed from Document (Not in Billing List):
-- **Total Removed:** 30+ restaurants across all sections
-- **Key Removals:**
-  - Left Platform section: Removed entire section (Vanier Pizza, Westboro Subs, Bank Shawarma, Samo's Greek Kitchen, etc.)
-  - No Dishes: Champa Thai Food
-  - Not Found: Chances R' East, Chances R' West, Wok Bistro TEST
-  - Suspended/Closed: Wow Sushi, Sous Le Palmier, Royal Thai Cuisine, Restaurant O'Wok
-  - Permanently Closed: Twisted Pita & Pizzeria, The Greek Flame and Pizza, The Cupboard, Pizza Run
-  - Other: Routine Poutine, Roulas Jus et Gelato, Poutinerie locations, POS SIMPLICITY, Pizza Riverview, Yorgo's Barrhaven, etc.
-
-### Data Quality Issues Noted:
-- **Critical Migration Issues:** 3 restaurants (Xtreme Pizza - 6 dishes vs 100+ online, Souvlaki Souvlaki - 1 dish vs full menu, Season's Pizza - 1 dish vs full menu)
-- **Status Mismatches:** The Original Georgie's (needs status update)
-
-### Document Cleanup Statistics:
-- **Sections Cleaned:** 10+ sections
-- **Orphaned Flags Removed:** 25+ markers
-- **Empty Sections:** 3 (No Dishes, Not Found in Database, Suspended/Pending Status)
-- **All Remaining Restaurants:** Verified active in billing list ✅
+test change
