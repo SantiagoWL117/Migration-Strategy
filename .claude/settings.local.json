@@ -5,7 +5,8 @@
       "Bash($env:SUPABASE_ACCESS_TOKEN = \"sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9\")",
       "Bash(supabase projects:*)",
       "Bash(export SUPABASE_ACCESS_TOKEN=\"sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9\")",
-      "Bash(supabase db pull:*)"
+      "Bash(supabase db pull:*)",
+      "Bash(supabase migration:*)"
     ],
     "defaultMode": "bypassPermissions"
   }
