@@ -1565,7 +1565,7 @@ Live menu courses include:
 **Date:** 2025-11-03
 **Address:** 990 River Rd ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (only 8 dishes - EXTREMELY LOW, all in Uncategorized, critical data migration issue)
+**Menu Reference:** https://manotick.milanopizzeria.ca/?p=menu
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1614,7 +1614,34 @@ WHERE dm.restaurant_id = 93 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 8 dishes (EXTREMELY LOW for Milano restaurant). This indicates severe data migration problem - most menu items are missing from database. All dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need menu link to verify missing dishes and determine proper course structure. No modifiers found. Waiting for menu link to investigate data migration issue.
+**Menu Analysis from https://manotick.milanopizzeria.ca/?p=menu:**
+Live menu courses include:
+- Bruyère DONATION
+- Features Of The Month
+- Mini Donuts Hot and Fresh Made
+- PIZZAS WITH FANTINO MONDELLO PANCETTA
+- 2 Pizza and Two Free 591ml Drinks
+- Every Day Special
+- Appetizers
+- Chicken and Wings
+- Salads
+- Rice Bowls
+- Chicken Shawarma
+- Donairs
+- Subs
+- Poutine
+- Pizza
+- Gourmet Pizza
+- Pasta
+- Platters and Sandwiches
+- VEGAN (Vegan Pizza, Vegan Burgers, Vegan Poutine, Vegan Wraps)
+- Desserts
+- Drinks
+- Beer and Wine
+
+**CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Database shows only 8 dishes, but live menu has 23+ courses with dozens of dishes across all courses. This is a severe data migration problem - approximately 90%+ of menu items are missing from the database.
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 8 dishes in database vs. full menu with 23+ courses and 80+ dishes. This is NOT just a course assignment issue - 90%+ of menu items are missing from database. All 8 dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need to investigate data migration process immediately. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
