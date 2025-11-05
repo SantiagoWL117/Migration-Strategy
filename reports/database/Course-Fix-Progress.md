@@ -2135,6 +2135,61 @@ WHERE dm.restaurant_id = 801 AND dm.deleted_at IS NULL;
 
 **Result:** ⚠️ CRITICAL ISSUE - Only 6 dishes (EXTREMELY LOW for restaurant). All dishes incorrectly assigned to "Uncategorized" course. **NO MENU FOUND** - Unable to verify if this is a data migration issue (missing dishes) or if restaurant truly has limited menu. Without menu reference, cannot determine proper course structure. Status shows `active` in database and verified billing list, but no online menu available. May need to contact restaurant directly or check alternative sources. No modifiers found. **ACTION REQUIRED:** Verify restaurant status and menu availability before proceeding with course assignment.
 
+#### Nachos Loco Hull 455 Boulevard Riel (Restaurant ID: 790)
+**Status:** ⚠️ CRITICAL ISSUE - All dishes in Uncategorized
+**Date:** 2025-11-03
+**Address:** 455 Boulevard Riel ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (23 dishes all in Uncategorized, need to verify course structure and assign dishes)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Nachos%';
+```
+- Restaurant ID: 790
+- Name: Nachos Loco Hull
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 790;
+```
+- Courses defined: 1 ⚠️
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 790 AND deleted_at IS NULL;
+```
+- Total dishes: 23 ✅
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 23 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 790 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course name: "Uncategorized"
+- **CRITICAL ISSUE:** All 23 dishes are assigned to "Uncategorized" course
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 790 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️ CRITICAL ISSUE - All 23 dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify proper course structure and reassign dishes to appropriate courses. No modifiers found. Waiting for menu link to proceed with course assignment.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
