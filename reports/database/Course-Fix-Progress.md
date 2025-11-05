@@ -2012,7 +2012,7 @@ WHERE dm.restaurant_id = 846 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 6594 Fourth Line Rd ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (41 dishes all have NULL course_id, need to create courses and assign dishes)
+**Menu link:** https://northgower.mykonosgreekgrill.ca/?p=menu ✅ (VERIFIED - Full menu available)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -2059,7 +2059,21 @@ WHERE dm.restaurant_id = 845 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ ACTION REQUIRED - Restaurant has 41 dishes but **NO courses defined**. All 41 dishes have NULL course_id and need course assignment. Must create courses first based on menu structure, then assign all dishes to appropriate courses. Need menu link to determine proper course structure (likely similar to other Mykonos location: Mykonos Souvlaki Platter, Pita Wraps, Salads, Appetizers, Extras, Desserts, Drinks). No modifiers found. Waiting for menu link to create courses and assign dishes.
+**Menu Status Check:**
+- Menu URL: https://northgower.mykonosgreekgrill.ca/?p=menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Mykonos Souvlaki Platter (10 items: Chicken, Beef, Lamb, Shrimp, Calamari, Falafel, Greek Veggie, Party Platters)
+  - Pita Wraps (6 items: Chicken, Beef, Gyro Beef, Lamb, Vegetarian, Falafel)
+  - Salads (2 items with sizes: Traditional Greek Salad, Mykonos Salad)
+  - Appetizers (9 items: Tzatziki with Bread, Hummus with Bread, Crispy Fried Calamari, Feta Cheese with Olives, Greek Potatoes, Authentic Greek Ryzi-Rice, Spanakopita, Dolmades, Falafel with Hummus)
+  - Extras (6 items: Pita Bread, Tzatziki, Hummus, Chicken/Beef/Lamb Skewers)
+  - Desserts (3 items: Baklava, 6 Mini Donuts, 12 Mini Donuts - with modifier options for donut flavors)
+  - Drinks (5 beverage items)
+- **Total Items:** 41 dishes (matches database count ✅)
+- **Modifiers Found:** Mini Donuts have modifier options (Icing Sugar, Oreo, Cinnamon Sugar)
+
+**Result:** ⚠️ ACTION REQUIRED - Restaurant has 41 dishes but **NO courses defined**. All 41 dishes have NULL course_id and need course assignment. Must create 7 courses based on live menu structure: (1) Mykonos Souvlaki Platter, (2) Pita Wraps, (3) Salads, (4) Appetizers, (5) Extras, (6) Desserts, (7) Drinks. Then assign all 41 dishes to appropriate courses. Modifiers exist for Mini Donuts (flavor options) - need to verify these are correctly assigned in database. Waiting for authorization to create courses and assign dishes.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
