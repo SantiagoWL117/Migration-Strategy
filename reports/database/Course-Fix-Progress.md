@@ -1191,6 +1191,61 @@ Live menu courses include:
 
 **Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 8 dishes in database vs. full menu with 15+ courses. All 8 dishes incorrectly assigned to "Uncategorized" course. This is NOT just a course assignment issue - most menu items are missing from database. Need to investigate data migration process. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
 
+#### Milano 6594 4th Line Rd (Restaurant ID: 819)
+**Status:** ⚠️ CRITICAL ISSUE - All dishes in Uncategorized, suspiciously low dish count
+**Date:** 2025-11-03
+**Address:** 6594 4th Line Rd ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (only 18 dishes - suspiciously low, all in Uncategorized, need to verify missing dishes and course structure)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 819
+- Name: Milano
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 819;
+```
+- Courses defined: 1 ⚠️
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 819 AND deleted_at IS NULL;
+```
+- Total dishes: 18 ⚠️⚠️ (SUSPICIOUSLY LOW - Most Milano locations have 30-75 dishes)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 18 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 819 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course name: "Uncategorized"
+- **CRITICAL ISSUE:** All 18 dishes are assigned to "Uncategorized" course
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 819 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️ CRITICAL ISSUE - Only 18 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify if dishes are missing from database and to determine proper course structure. No modifiers found. Waiting for menu link to verify completeness and course structure.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
