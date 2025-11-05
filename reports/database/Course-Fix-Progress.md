@@ -1649,6 +1649,7 @@ Live menu courses include:
 **Address:** 351 Montreal Rd ✅ (matches verified list)
 **Assignee:** Brian (B)
 **Menu link:** NEEDED (all dishes in Uncategorized, 29 modifiers on 15 dishes need verification)
+**⚠️ IMPORTANT:** Google Maps shows location as "PERMANENTLY CLOSED" - may explain suspended status
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1698,7 +1699,9 @@ WHERE dm.restaurant_id = 205 AND dm.deleted_at IS NULL;
 - Dishes with modifiers: 15 (out of 26 dishes)
 - **Menu link NEEDED:** To verify modifier assignments match live menu (which dishes should have modifiers, which modifiers belong to which dishes)
 
-**Result:** ⚠️ CRITICAL ISSUE - All 26 dishes incorrectly assigned to "Uncategorized" course. Modifiers exist (29 modifiers on 15 dishes) but need menu link to verify assignments are correct. Status mismatch also needs correction (suspended → active). Waiting for menu link to proceed with course structure correction and modifier verification.
+**⚠️ RESTAURANT STATUS NOTE:** Google Maps shows this location as "PERMANENTLY CLOSED". This may explain why database shows `suspended` status. However, restaurant appears on verified billing list (billed in last 4 months), suggesting it may have closed recently or status needs verification.
+
+**Result:** ⚠️ CRITICAL ISSUE - All 26 dishes incorrectly assigned to "Uncategorized" course. Modifiers exist (29 modifiers on 15 dishes) but need menu link to verify assignments are correct. Status discrepancy: Database shows `suspended`, verified billing list shows active (billed in last 4 months), but Google Maps shows "PERMANENTLY CLOSED". Need to verify actual restaurant status before proceeding with course corrections. Waiting for menu link and status clarification.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
