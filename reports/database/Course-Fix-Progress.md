@@ -1121,7 +1121,7 @@ Live menu courses include (French menu):
 **Date:** 2025-11-03
 **Address:** 6500 Russell Road ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (only 8 dishes - suspiciously low, all in Uncategorized, need to verify missing dishes and course structure)
+**Menu Reference:** https://carlsbadsprings.milanopizzeria.ca/?p=menu
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1169,7 +1169,27 @@ WHERE dm.restaurant_id = 837 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ CRITICAL ISSUE - Only 8 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify if dishes are missing from database and to determine proper course structure. No modifiers found. Waiting for menu link to verify completeness and course structure.
+**Menu Analysis from https://carlsbadsprings.milanopizzeria.ca/?p=menu:**
+Live menu courses include:
+- Daily Specials
+- 2 Pizza and Two Free 591ml Drinks
+- Appetizers
+- Subs
+- Wings
+- Platters
+- Salads
+- Pizza
+- Pasta
+- VEGAN (Vegan Pizza, Vegan Poutine)
+- Greek Appetizers
+- Souvlaki Platters
+- Pita Wraps
+- Desserts
+- Drinks
+
+**CRITICAL DATA MIGRATION ISSUE:** Database shows only 8 dishes, but live menu has 15+ courses with dozens of dishes. This indicates a severe data migration problem - most menu items are missing from the database.
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 8 dishes in database vs. full menu with 15+ courses. All 8 dishes incorrectly assigned to "Uncategorized" course. This is NOT just a course assignment issue - most menu items are missing from database. Need to investigate data migration process. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
