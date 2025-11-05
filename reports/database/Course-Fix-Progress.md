@@ -1781,6 +1781,61 @@ WHERE dm.restaurant_id = 35 AND dm.deleted_at IS NULL;
 
 **Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Live menu has 100+ items across 15+ courses, but database only contains 3 dishes. This represents a catastrophic data migration failure - approximately 97% of the menu is missing from the database. The 3 existing dishes are incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). This restaurant requires a complete menu data re-migration before course assignment can proceed. No modifiers found in database (live menu may have modifiers for pizza sizes, etc.). **URGENT: Data migration team must investigate and re-migrate full menu data.**
 
+#### Mozza Pizza Hull 214 Boul de la Cité-des-Jeunes (Restaurant ID: 644)
+**Status:** ⚠️ CRITICAL ISSUE - Suspiciously low dish count, all dishes in Uncategorized
+**Date:** 2025-11-03
+**Address:** 214 Boul de la Cité-des-Jeunes ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (only 15 dishes - suspiciously low for pizza restaurant, all in Uncategorized, need to verify missing dishes and course structure)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Mozza%';
+```
+- Restaurant ID: 644
+- Name: Mozza Pizza Hull
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 644;
+```
+- Courses defined: 1 ⚠️
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 644 AND deleted_at IS NULL;
+```
+- Total dishes: 15 ⚠️⚠️ (SUSPICIOUSLY LOW - Most pizza restaurants have 30-100+ dishes, Mozza Pizza Gatineau has 100+ items)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 15 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 644 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course name: "Uncategorized"
+- **CRITICAL ISSUE:** All 15 dishes are assigned to "Uncategorized" course
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 644 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️ CRITICAL ISSUE - Only 15 dishes (suspiciously low for pizza restaurant, especially compared to Mozza Pizza Gatineau which has 100+ items). All dishes incorrectly assigned to "Uncategorized" course. This may indicate a data migration issue - need menu link to verify dish completeness and determine proper course structure. No modifiers found. Waiting for menu link to investigate.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
