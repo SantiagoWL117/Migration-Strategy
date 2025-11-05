@@ -471,6 +471,55 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ## ⚠️ Skipped Restaurants
 
+### ⚠️ Skipped Restaurants - No Courses Defined
+
+#### Aahar The Taste of India (Restaurant ID: 561)
+**Status:** ⚠️ SKIPPED - No Courses Defined
+**Date:** 2025-11-03
+**Address:** 1573 Alta Vista Drive ✅ (matches verified list)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Aahar%';
+```
+- Restaurant ID: 561
+- Name: Aahar The Taste of India
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 561;
+```
+- Courses defined: 0 ⚠️
+- **Action:** Cannot proceed until courses are created
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 561 AND deleted_at IS NULL;
+```
+- Total dishes: 108
+- Dishes with NULL course_id: 108 (100%)
+- Dishes with course_id: 0 (0%)
+
+**Recommended Course Structure:**
+Based on dish names (Indian restaurant):
+- Appetizers (Samosa, Aloo Tikki, Pakoras, etc.)
+- Breads (Naan, Paratha, Roti varieties)
+- Curries (Butter Chicken, Beef Curry, Lamb Curry, etc.)
+- Biryani (Beef Biryani, Chicken Biryani, etc.)
+- Vegetarian Dishes (Aloo Gobi, Aloo Mattar, Channa Masala, etc.)
+- Rice Dishes
+- Desserts (Kulfi, Halwa, etc.)
+- Drinks (Water, Lassi, etc.)
+- Thali/Combos (Aahar Ki Thali varieties)
+
+**Result:** ⚠️ Skipped - 0 courses defined. Cannot proceed with course assignment until courses are created. Waiting for authorization.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
