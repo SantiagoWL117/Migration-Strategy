@@ -2257,7 +2257,7 @@ WHERE dm.restaurant_id = 15 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 1968 Portobello Blvd ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (no dishes in database - critical data migration issue, need to verify restaurant status and menu availability)
+**Menu link:** https://mukutorleans.menu.ca/?p=menu ✅ (VERIFIED - Full menu available)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -2303,7 +2303,27 @@ WHERE dm.restaurant_id = 234 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - **NO DISHES IN DATABASE**. Restaurant shows as `suspended` in database but is listed as **active** in verified billing list (billed in last 4 months). Similar to New Hong Kong - likely mis-marked as suspended, preventing menu data migration. Need menu link to verify restaurant status and menu availability. No courses, no dishes, no modifiers found. **URGENT: Verify restaurant status and investigate data migration issue.**
+**Menu Status Check:**
+- Menu URL: https://mukutorleans.menu.ca/?p=menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Appetizers (6 items: Papadum, Onion Bhaji, Vegetable Samosas, Sheek Kabab, Chicken Tikka)
+  - Soups (2 items: Mulligatawny Soup, Dall Soup)
+  - Sundries (5 items: Yoghurt, Aachar, Cucumber Raita, Mango Chutney, Onion Salad)
+  - Tandoori Dishes (4 items: Chicken Tandoori, Shrimp Tandoori, Chicken Tikka Platter, Lamb Tikka Platter)
+  - Curries (20+ items: Shrimp/Chicken/Lamb/Beef Curry, Bhuna varieties, Sag varieties, Madras varieties, Vindaloo varieties, Pasanda varieties, Tikka Masala varieties, Korma varieties, Rogan Josh, Saag varieties)
+  - Our Other Tasteful Entrees (multiple items)
+  - Vegetable Dishes (13+ items: Aloo Gobi, Aloo Peas, Matar Paneer, Sag Aloo Bahji, Sag Paneer, Begun Bhaji, Cauliflower Bhaji, Aloo Gobi, Tarka Daal, Bombay Potato, Chana Masala, Panner Masala)
+  - Biryanis (5 items: Chicken, Lamb, Beef, Shrimp, Vegetable Biryani)
+  - Rice Dishes (3 items: Palao Rice, Vegetable Rice, Peas Palao)
+  - Indian Breads (5 items: Paratha, Stuffed Paratha, Naan, Garlic Naan, Puri)
+  - Dinner Combination for Two (5 items with modifiers)
+  - Desserts (2 items: Gulab Jamun, Rashmalay)
+  - Drinks (11 items: Coke, Pepsi, Diet Coke, Diet Pepsi, 7 Up, Sprite, Iced Tea, Ginger Ale, Club Soda, Tonic Water, Bottled Water, Mango Lassi)
+- **Estimated Total Items:** 100+ dishes on live menu
+- **Database Has:** 0 dishes (100% of menu missing)
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - **Restaurant was mis-marked as `suspended` in database, preventing menu data migration**. Live menu has 100+ items across 13+ courses, but database contains 0 dishes. Restaurant is listed as **active** in verified billing list (billed in last 4 months) and has a fully functional online menu. Status mismatch needs correction (suspended → active). **Root Cause:** Restaurant was incorrectly marked as suspended during migration, so menu data was never imported. **URGENT:** (1) Update status from `suspended` to `active`, (2) Complete menu data migration required - 100+ dishes need to be imported, (3) Create 13+ courses based on live menu structure, (4) Assign all dishes to appropriate courses. No courses, no dishes, no modifiers found. **URGENT: Correct status and complete menu data migration immediately.**
 
 ---
 
