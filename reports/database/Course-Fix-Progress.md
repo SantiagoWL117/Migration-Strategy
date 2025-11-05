@@ -1944,7 +1944,7 @@ WHERE dm.restaurant_id = 47 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 2600 County Rd 43 ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (42 dishes all have NULL course_id, need to create courses and assign dishes)
+**Menu link:** https://kemptville.mykonosgreekgrill.ca/?p=menu ✅ (VERIFIED - Full menu available)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1991,7 +1991,75 @@ WHERE dm.restaurant_id = 846 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ ACTION REQUIRED - Restaurant has 42 dishes but **NO courses defined**. All 42 dishes have NULL course_id and need course assignment. Must create courses first based on menu structure, then assign all dishes to appropriate courses. Need menu link to determine proper course structure. No modifiers found. Waiting for menu link to create courses and assign dishes.
+**Menu Status Check:**
+- Menu URL: https://kemptville.mykonosgreekgrill.ca/?p=menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Mykonos Souvlaki Platter (11 items: Chicken, Beef, Lamb, Shrimp, Calamari, Falafel, Greek Veggie, Party Platters)
+  - Pita Wraps (6 items: Chicken, Beef, Gyro Beef, Lamb, Vegetarian, Falafel)
+  - Salads (2 items with sizes: Traditional Greek Salad, Mykonos Salad)
+  - Appetizers (9 items: Tzatziki with Bread, Hummus with Bread, Crispy Fried Calamari, Feta Cheese with Olives, Greek Potatoes, Authentic Greek Ryzi-Rice, Spanakopita, Dolmades, Falafel with Hummus)
+  - Extras (6 items: Pita Bread, Tzatziki, Hummus, Chicken/Beef/Lamb Skewers)
+  - Desserts (3 items: Baklava, 6 Mini Donuts, 12 Mini Donuts - with modifier options for donut flavors)
+  - Drinks (6 beverage items)
+- **Total Items:** 42 dishes (matches database count ✅)
+- **Modifiers Found:** Mini Donuts have modifier options (Icing Sugar, Oreo, Cinnamon Sugar)
+
+**Result:** ⚠️ ACTION REQUIRED - Restaurant has 42 dishes but **NO courses defined**. All 42 dishes have NULL course_id and need course assignment. Must create 7 courses based on live menu structure: (1) Mykonos Souvlaki Platter, (2) Pita Wraps, (3) Salads, (4) Appetizers, (5) Extras, (6) Desserts, (7) Drinks. Then assign all 42 dishes to appropriate courses. Modifiers exist for Mini Donuts (flavor options) - need to verify these are correctly assigned in database. Waiting for authorization to create courses and assign dishes.
+
+#### Mykonos Greek Grill 6594 Fourth Line Rd (Restaurant ID: 845)
+**Status:** ⚠️ ACTION REQUIRED - No courses defined, all dishes need assignment
+**Date:** 2025-11-03
+**Address:** 6594 Fourth Line Rd ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (41 dishes all have NULL course_id, need to create courses and assign dishes)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Mykonos%';
+```
+- Restaurant ID: 845
+- Name: Mykonos Greek Grill
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 845;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ **CRITICAL: No courses defined**
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 845 AND deleted_at IS NULL;
+```
+- Total dishes: 41 ✅
+- Dishes with NULL course_id: 41 (100%) ⚠️⚠️⚠️ **ALL dishes need course assignment**
+- Dishes with course_id: 0 (0%) ⚠️
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 845 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** No courses exist - must create courses before assigning dishes
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 845 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️ ACTION REQUIRED - Restaurant has 41 dishes but **NO courses defined**. All 41 dishes have NULL course_id and need course assignment. Must create courses first based on menu structure, then assign all dishes to appropriate courses. Need menu link to determine proper course structure (likely similar to other Mykonos location: Mykonos Souvlaki Platter, Pita Wraps, Salads, Appetizers, Extras, Desserts, Drinks). No modifiers found. Waiting for menu link to create courses and assign dishes.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
