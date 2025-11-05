@@ -2128,7 +2128,12 @@ WHERE dm.restaurant_id = 801 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ CRITICAL ISSUE - Only 6 dishes (EXTREMELY LOW for restaurant). This may indicate a data migration issue - most menu items may be missing from database. All dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify dish completeness and determine proper course structure. No modifiers found. Waiting for menu link to investigate.
+**Menu Status Check:**
+- **Status:** ❌ NO MENU FOUND - Unable to locate online menu for this location
+- **Impact:** Cannot verify dish completeness or course structure without menu reference
+- **Possible Reasons:** Restaurant may have closed, switched platforms, or menu not available online
+
+**Result:** ⚠️ CRITICAL ISSUE - Only 6 dishes (EXTREMELY LOW for restaurant). All dishes incorrectly assigned to "Uncategorized" course. **NO MENU FOUND** - Unable to verify if this is a data migration issue (missing dishes) or if restaurant truly has limited menu. Without menu reference, cannot determine proper course structure. Status shows `active` in database and verified billing list, but no online menu available. May need to contact restaurant directly or check alternative sources. No modifiers found. **ACTION REQUIRED:** Verify restaurant status and menu availability before proceeding with course assignment.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
