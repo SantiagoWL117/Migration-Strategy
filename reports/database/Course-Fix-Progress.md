@@ -1480,6 +1480,62 @@ Live menu courses include:
 
 **Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 5 dishes in database vs. full menu with 9+ courses and 70+ dishes. This is NOT just a course assignment issue - 93%+ of menu items are missing from database. All 5 dishes incorrectly assigned to "Uncategorized" course. Need to investigate data migration process immediately. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
 
+#### Milano 876 Montreal Rd. (Restaurant ID: 31)
+**Status:** ⏸️ STATUS MISMATCH + ⚠️ CRITICAL ISSUE - All dishes in Uncategorized, suspiciously low dish count
+**Date:** 2025-11-03
+**Address:** 876 Montreal Rd. ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (only 10 dishes - suspiciously low, all in Uncategorized, need to verify missing dishes and course structure)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 31
+- Name: Milano
+- Status: suspended ⚠️ (does NOT match verified billing list)
+- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 31;
+```
+- Courses defined: 1 ⚠️
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 31 AND deleted_at IS NULL;
+```
+- Total dishes: 10 ⚠️⚠️ (SUSPICIOUSLY LOW - Most Milano locations have 30-75 dishes)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 10 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 31 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course name: "Uncategorized"
+- **CRITICAL ISSUE:** All 10 dishes are assigned to "Uncategorized" course
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️ CRITICAL ISSUE - Only 10 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need menu link to verify if dishes are missing from database and to determine proper course structure. No modifiers found. Waiting for menu link to verify completeness and course structure.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
