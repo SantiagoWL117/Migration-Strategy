@@ -891,6 +891,42 @@ SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) a
 
 **Result:** ⏸️ Status mismatch - suspended vs active. Already assigned.
 
+#### Milano 54 Wilson St W (Restaurant ID: 660)
+**Status:** ✅ SKIPPED - Already Assigned
+**Date:** 2025-11-03
+**Address:** 54 Wilson St W ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** Optional (already assigned, reasonable dish count)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 660
+- Name: Milano
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 660;
+```
+- Courses defined: 1 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 660 AND deleted_at IS NULL;
+```
+- Total dishes: 11
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 11 (100%) ✅
+
+**Result:** ✅ Already assigned - All 11 dishes have course_id. No work needed.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
