@@ -2874,6 +2874,29 @@ Japanese/Korean fusion restaurant with mix of:
 **Resolution Needed:**
 - Create proper courses (Pizza, Fish & Chips, Combos/Specials, Sauces/Extras) and reassign dishes appropriately
 
+### Kabylie Pizza (Restaurant ID: 798)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 355 Bd Gréber ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 36 ✅ (Acceptable count)
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 36 (100%) ✅
+- Dishes with NULL course_id: 0 ✅
+- Status: active ✅
+
+**Course Distribution:**
+- Uncategorized (1837): 36 dishes
+  - Includes: Pizza varieties (Canadienne, Hawaïenne, Pepperoni, Grecque, Pesto, Poulet BBQ, etc.), Combos (Combo 1-4, Pizza + Ailes), Pizza deals (2 Pizzas avec Trempettes), Specialty pizzas (Maison Kabyle, Fruits de Mer, Amateurs de légumes/viande)
+
+**Issue Found:**
+- All 36 dishes are assigned to a single "Uncategorized" course
+- Bilingual menu (French/English) - restaurant needs proper course structure created
+
+**Resolution Needed:**
+- Create proper courses (Pizza, Combos/Specials, Pizza + Wings combos) and reassign dishes appropriately
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
