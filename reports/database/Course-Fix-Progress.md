@@ -2851,6 +2851,29 @@ Japanese/Korean fusion restaurant with mix of:
 2. **URGENT:** Verify if restaurant has full menu online - may need menu migration
 3. If menu is complete, create proper courses (Pizza, Sandwiches, Poutine, Spaghetti, Appetizers, Extras) and assign dishes appropriately
 
+### Joes Family Pizzeria (Restaurant ID: 636)
+**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ NEEDS PROPER COURSE STRUCTURE
+**Date:** 2025-11-03
+**Address:** 284 Pembroke St W ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 67 ✅ (Good count)
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 67 (100%) ✅
+- Dishes with NULL course_id: 0 ✅
+- Status: active ✅
+
+**Course Distribution:**
+- Uncategorized (1743): 67 dishes
+  - Includes: Pizza varieties (1-3 Toppings, Cup & Char Pepperoni, Hawaiian, Canadian, Deluxe, Specials), Fish & Chips, Sauces (BBQ, Honey Garlic, Donair, Hot sauce, etc.), Combo meals, Party packs
+
+**Issue Found:**
+- All 67 dishes are assigned to a single "Uncategorized" course
+- Restaurant needs proper course structure created to organize menu better
+
+**Resolution Needed:**
+- Create proper courses (Pizza, Fish & Chips, Combos/Specials, Sauces/Extras) and reassign dishes appropriately
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
