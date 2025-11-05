@@ -2195,7 +2195,7 @@ WHERE dm.restaurant_id = 790 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 81 Richmond Rd ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (26 dishes all in Uncategorized, status mismatch needs correction, need to verify course structure)
+**Menu link:** https://m.napoliswestboro.ca/menu ✅ (VERIFIED - Full menu available)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -2244,7 +2244,28 @@ WHERE dm.restaurant_id = 515 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ CRITICAL ISSUE - All 26 dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need menu link to verify proper course structure and reassign dishes to appropriate courses. No modifiers found. Waiting for menu link to proceed with course assignment.
+**Menu Status Check:**
+- Menu URL: https://m.napoliswestboro.ca/menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Wine (3 items)
+  - Specials (1 item with sizes)
+  - Pizza (4 items: Plain, One Item, Two Items, Three Items - all with sizes)
+  - Famous Combos (11 pizza types with sizes = 33+ items)
+  - Vegetarian Famous Combos (5 pizza types with sizes = 15+ items)
+  - Submarines (7 items)
+  - Salads (6 items with sizes = 12+ items)
+  - Homemade Pastas (18 items)
+  - Fettucine (4 items)
+  - Chicken Platters (3 items)
+  - Hot Sandwiches (3 items)
+  - Platters (4 items with modifiers)
+  - Miscellaneous (13 items with sizes/modifiers)
+  - Drinks (4 items)
+- **Estimated Total Items:** 100+ dishes on live menu (when accounting for all sizes and variations)
+- **Database Has:** Only 26 dishes (75%+ of menu missing)
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Live menu has 100+ items across 14+ courses, but database only contains 26 dishes. This represents a severe data migration failure - approximately 75%+ of the menu is missing from the database. The 26 existing dishes are incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). This restaurant requires a complete menu data re-migration before course assignment can proceed. No modifiers found in database (live menu has modifiers for sizes, upgrades, etc.). **URGENT: Data migration team must investigate and re-migrate full menu data.**
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
