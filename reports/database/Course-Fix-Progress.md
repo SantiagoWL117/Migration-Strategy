@@ -477,6 +477,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 **Status:** ⚠️ SKIPPED - No Courses Defined
 **Date:** 2025-11-03
 **Address:** 1573 Alta Vista Drive ✅ (matches verified list)
+**Menu Reference:** https://aaharaltavista.menu.ca/?p=menu
 
 **Step 1: Restaurant Status**
 ```sql
@@ -507,18 +508,57 @@ WHERE restaurant_id = 561 AND deleted_at IS NULL;
 - Dishes with course_id: 0 (0%)
 
 **Recommended Course Structure:**
-Based on dish names (Indian restaurant):
-- Appetizers (Samosa, Aloo Tikki, Pakoras, etc.)
-- Breads (Naan, Paratha, Roti varieties)
-- Curries (Butter Chicken, Beef Curry, Lamb Curry, etc.)
-- Biryani (Beef Biryani, Chicken Biryani, etc.)
-- Vegetarian Dishes (Aloo Gobi, Aloo Mattar, Channa Masala, etc.)
-- Rice Dishes
-- Desserts (Kulfi, Halwa, etc.)
-- Drinks (Water, Lassi, etc.)
-- Thali/Combos (Aahar Ki Thali varieties)
+Based on live menu at https://aaharaltavista.menu.ca/?p=menu:
+- Starters (Samosa, Onion Bhaji, Aloo Tikki, Vegetable Pakora, Shrimp Pakoras, Sheekh Kebab, Paneer Pakora, Fish Pakoras, Chicken Pakoras)
+- Soups (Daal Soup, Mullagatawny Soup, Khumb Ras Soup)
+- Main Vegetarian Dishes (Navratan Korma, Aloo Mattar, Shahi Paneer, Palak Paneer, Mattar Paneer, Sabzi, Saag Paneer, Paneer Tikka, Kadai Paneer, Paneer Dilruba, Vegetable Dilruba, Channa Masala, Punjabi Kadhi, Sarson Da Saag, Dal Makhni, Dal Tadka, Began Bartha, Bhindi Masala, Aloo Gobi)
+- Main Chicken Dishes (Butter Chicken, Chicken Curry, Chicken Tikka Masala, Chicken Korma, Chicken Vindaloo, Chicken Saag, Chicken Bhuna, Chicken Dilruba, Chicken Tandoori, etc.)
+- Main Lamb and Beef Dishes (Lamb Curry, Beef Curry, Lamb Rogan Josh, Beef Vindaloo, Lamb Saag, etc.)
+- Seafood and Tandoori Dishes (Shrimp Curry, Fish Curry, etc.)
+- Chicken Tandoori Dishes
+- Traditional Breads (Naan, Garlic Naan, Onion Paratha, Paneer Naan/Paratha, Lachha Paratha, Aloo Paratha, Onion Kulcha, Tandoori Missi Roti, etc.)
+- Rice (Plain Rice, Vegetable Biryani, Beef Biryani, Chicken Biryani, Lamb Biryani, Egg Biryani)
+- Chutneys (Mint Chutney, Coconut Chutney, Mango Chutney, Mix Pickle, Chutney Thaly)
+- Side Dishes (Papadum, Raita, Salad, Chutney, Mixed Pickle)
+- Desserts (Kheer, Ras Malai, Gulab Jamun, Carrot Halwa)
+- Beverages (Lassi, Mango Lassi, Shikanjvi, Juice, Bottled Water, Kadak Chai, Masala Chai, Rooh Afza, Jal Jerra, Soft Drinks)
 
 **Result:** ⚠️ Skipped - 0 courses defined. Cannot proceed with course assignment until courses are created. Waiting for authorization.
+
+#### Al-s Drive In (Restaurant ID: 981)
+**Status:** ⚠️ SKIPPED - Already Assigned | ⚠️ SWITCHED TO MEEMUP PLATFORM
+**Date:** 2025-11-03
+**Address:** 5474 Osgoode Main Street ✅ (matches verified list)
+**Note:** Cannot find menu on our platform - appears to have switched to meemUP
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Al-s Drive In%';
+```
+- Restaurant ID: 981
+- Name: Al-s Drive In
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 981;
+```
+- Courses defined: 6 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 981 AND deleted_at IS NULL;
+```
+- Total dishes: 36
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 36 (100%) ✅
+
+**Result:** ✅ Already assigned - All 36 dishes have course_id. However, restaurant appears to have switched to meemUP platform (menu not found on our platform). Verify if this restaurant should remain on active list.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.

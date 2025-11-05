@@ -4,8 +4,8 @@
 **Verified against:** Billing records (last 4 months)
 **Total:** 189 restaurants
 
-- Aahar The Taste of India 1573 Alta Vista Drive
-- Al-s Drive In 5474 Osgoode Main Street
+- [x] Aahar The Taste of India 1573 Alta Vista Drive
+- [x] Al-s Drive In 5474 Osgoode Main Street
 - All Out Burger 2560 Bank Street
 - All Out Burger 3091 Strandherd, Dr.7
 - All Out Burger 585 Montreal Road
