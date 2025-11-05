@@ -1481,11 +1481,11 @@ Live menu courses include:
 **Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 5 dishes in database vs. full menu with 9+ courses and 70+ dishes. This is NOT just a course assignment issue - 93%+ of menu items are missing from database. All 5 dishes incorrectly assigned to "Uncategorized" course. Need to investigate data migration process immediately. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
 
 #### Milano 876 Montreal Rd. (Restaurant ID: 31)
-**Status:** ⏸️ STATUS MISMATCH + ⚠️ CRITICAL ISSUE - All dishes in Uncategorized, suspiciously low dish count
+**Status:** ⏸️ STATUS MISMATCH + ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Extremely low dish count
 **Date:** 2025-11-03
 **Address:** 876 Montreal Rd. ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (only 10 dishes - suspiciously low, all in Uncategorized, need to verify missing dishes and course structure)
+**Menu Reference:** https://montreal.milanopizzeria.ca/?p=menu
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1534,7 +1534,31 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ CRITICAL ISSUE - Only 10 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need menu link to verify if dishes are missing from database and to determine proper course structure. No modifiers found. Waiting for menu link to verify completeness and course structure.
+**Menu Analysis from https://montreal.milanopizzeria.ca/?p=menu:**
+Live menu courses include:
+- Bruyère DONATION
+- Feature Of The Month
+- Mini Donuts Hot and Fresh Made
+- PIZZAS WITH FANTINO MONDELLO PANCETTA
+- 2 Pizza Deal with Two 591ml Pop
+- Everyday Specials
+- Appetizers
+- Wings
+- Southern Fried Chicken
+- Salads
+- Subs
+- Donairs
+- Poutine
+- Pizza
+- Pasta
+- Burgers - Sandwiches - Platters
+- VEGAN (Vegan Pizza, Vegan Burgers, Vegan Poutine, Vegan Wraps)
+- Desserts
+- Drinks
+
+**CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Database shows only 10 dishes, but live menu has 19+ courses with dozens of dishes across all courses. This is a severe data migration problem - approximately 85%+ of menu items are missing from the database.
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 10 dishes in database vs. full menu with 19+ courses and 80+ dishes. This is NOT just a course assignment issue - 85%+ of menu items are missing from database. All 10 dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need to investigate data migration process immediately. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
@@ -1797,7 +1821,7 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 
 
 #### Chances R' East (Restaurant ID: Unknown)
-**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ NOT FOUND - Restaurant does not exist in database
+**Status:** 🚫 Restaurant does not exist in database
 **Date:** 2025-11-03 (Re-verified)
 
 **Issue Found:**
@@ -1824,7 +1848,7 @@ WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
 
 
 #### Chances R' West (Restaurant ID: Unknown)
-**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ NOT FOUND - Restaurant does not exist in database
+**Status:** 🚫 Restaurant does not exist in database
 **Date:** 2025-11-03 (Re-verified)
 
 **Issue Found:**
