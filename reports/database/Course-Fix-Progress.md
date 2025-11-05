@@ -1256,7 +1256,7 @@ WHERE dm.restaurant_id = 819 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 777 Principale St ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (to verify correct course assignments - courses exist but dishes not assigned)
+**Menu Reference:** https://casselman.milanopizzeria.ca/?p=menu
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1322,7 +1322,34 @@ WHERE dm.restaurant_id = 89 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ CRITICAL ISSUE - Proper courses exist (18 courses) but ALL 41 dishes incorrectly assigned to "Uncategorized" instead of proper courses. Need menu link to verify correct course assignments and reassign dishes. Status mismatch also needs correction (suspended → active). No modifiers found. Waiting for menu link to proceed with course reassignment.
+**Menu Analysis from https://casselman.milanopizzeria.ca/?p=menu:**
+Live menu courses include:
+- Bruyère DONATION
+- Tuesdays and Wednesdays (Shawarma Sandwich, Shawarma Platter, Southern Fried Chicken variants)
+- Features Of The Month
+- Mini Donuts Hot and Fresh Made
+- PIZZAS WITH FANTINO MONDELLO PANCETTA
+- 2 Pizza and 2 Free 591ml Drinks
+- Specials
+- Salads
+- Poutine and Fries
+- Chicken Wings
+- Southern Fried Chicken
+- Appetizers
+- Sandwiches
+- Platters
+- Submarines Sandwiches
+- Pizza with Free 591 Beverage
+- Pasta
+- Burgers
+- VEGAN (Vegan Pizza, Vegan Poutine)
+- Desserts
+- Drinks
+
+**Course Mapping Analysis:**
+Database has 18 courses, but they don't match live menu structure. Database courses (Appetizers, Cold Subs, Chicken, Combos, Dessert, Donair and Shawarma, Drinks, Everyday Specials, Greek, Hot Subs, Italian, Mexican, Pita Pockets, Salads, Sandwiches, Seafood, Traditional Pizza) vs. Live menu courses (Appetizers, Salads, Sandwiches, Platters, Submarines, Pizza, Pasta, Burgers, Chicken Wings, Southern Fried Chicken, Poutine, VEGAN, Desserts, Drinks, Specials).
+
+**Result:** ⚠️ CRITICAL ISSUE - Proper courses exist (18 courses) but ALL 41 dishes incorrectly assigned to "Uncategorized" instead of proper courses. Course structure in database doesn't fully match live menu structure. Need to reassign dishes to correct courses based on live menu. Status mismatch also needs correction (suspended → active). No modifiers found. Waiting for authorization to reassign dishes to proper courses.
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
