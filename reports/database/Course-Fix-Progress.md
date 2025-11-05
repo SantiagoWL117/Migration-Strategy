@@ -560,6 +560,44 @@ WHERE restaurant_id = 981 AND deleted_at IS NULL;
 
 **Result:** ✅ Already assigned - All 36 dishes have course_id. However, restaurant appears to have switched to meemUP platform (menu not found on our platform). Verify if this restaurant should remain on active list.
 
+### ⏸️ Restaurants with Suspended/Pending Status
+
+#### Milano 3050 Woodroffe Ave (Restaurant ID: 95)
+**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
+**Date:** 2025-11-03
+**Address:** 3050 Woodroffe Ave ✅ (matches verified list)
+**Assignee:** Brian (B)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
+```
+- Restaurant ID: 95
+- Name: Milano
+- Status: suspended ⚠️ (does NOT match verified billing list)
+- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 95;
+```
+- Courses defined: 1 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 95 AND deleted_at IS NULL;
+```
+- Total dishes: 14
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 14 (100%) ✅
+
+**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
