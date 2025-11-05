@@ -2252,6 +2252,59 @@ WHERE dm.restaurant_id = 15 AND dm.deleted_at IS NULL;
 
 **Result:** ✅ All 144 dishes properly assigned to 13 courses. Course structure matches live menu perfectly. Status mismatch needs correction (suspended → active). Restaurant is listed as **active** in verified billing list (billed in last 4 months) but database shows `suspended`. No modifiers found. **ACTION REQUIRED:** Update status from `suspended` to `active` to match verified billing list.
 
+#### New Mukut Restaurant Indian Cuisine 1968 Portobello Blvd (Restaurant ID: 234)
+**Status:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - No dishes, no courses, status mismatch
+**Date:** 2025-11-03
+**Address:** 1968 Portobello Blvd ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (no dishes in database - critical data migration issue, need to verify restaurant status and menu availability)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%New Mukut%';
+```
+- Restaurant ID: 234
+- Name: New Mukut Restaurant Indian Cuisine
+- Status: suspended ⚠️ (does NOT match verified billing list)
+- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 234;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ **CRITICAL: No courses defined**
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 234 AND deleted_at IS NULL;
+```
+- Total dishes: 0 ⚠️⚠️⚠️ **CRITICAL: No dishes in database**
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 234 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** No courses and no dishes exist
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 234 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - **NO DISHES IN DATABASE**. Restaurant shows as `suspended` in database but is listed as **active** in verified billing list (billed in last 4 months). Similar to New Hong Kong - likely mis-marked as suspended, preventing menu data migration. Need menu link to verify restaurant status and menu availability. No courses, no dishes, no modifiers found. **URGENT: Verify restaurant status and investigate data migration issue.**
+
 ---
 
 ### Restaurants with No Courses Defined
