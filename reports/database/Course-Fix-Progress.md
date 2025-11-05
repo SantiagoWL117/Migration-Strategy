@@ -1786,7 +1786,7 @@ WHERE dm.restaurant_id = 35 AND dm.deleted_at IS NULL;
 **Date:** 2025-11-03
 **Address:** 214 Boul de la Cité-des-Jeunes ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (only 15 dishes - suspiciously low for pizza restaurant, all in Uncategorized, need to verify missing dishes and course structure)
+**Menu link:** https://mozzapizzahull.com/?p=menu&lang=fr ✅ (VERIFIED - Full menu available)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -1834,7 +1834,32 @@ WHERE dm.restaurant_id = 644 AND dm.deleted_at IS NULL;
 - Total modifiers: 0
 - Dishes with modifiers: 0
 
-**Result:** ⚠️ CRITICAL ISSUE - Only 15 dishes (suspiciously low for pizza restaurant, especially compared to Mozza Pizza Gatineau which has 100+ items). All dishes incorrectly assigned to "Uncategorized" course. This may indicate a data migration issue - need menu link to verify dish completeness and determine proper course structure. No modifiers found. Waiting for menu link to investigate.
+**Menu Status Check:**
+- Menu URL: https://mozzapizzahull.com/?p=menu&lang=fr
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Mozza Box (8 items)
+  - Spécial Petites (3 items)
+  - Spécial Moyennes (3 items)
+  - Spécial Grandes (3 items)
+  - Spécial X-Grandes (3 items)
+  - Trio (3 items)
+  - Deals (8 items)
+  - Pizzas (16+ pizza types with multiple sizes each = 60+ items)
+  - Entrées (10+ items: frites, rouleaux, nachos, burgers, etc.)
+  - Salades (2 items)
+  - Wraps (3 items)
+  - Pâtes Savoureuses (2 items: Lasagne, Spaghetti)
+  - Ailes de Poulet (1 item with 3 sizes)
+  - Doigts De Poulet (1 item)
+  - Sandwichs Roulés Chauds (2 items)
+  - Sous-Marin Chaud (8 items)
+  - Desserts (11+ items - multiple varieties including Gâteau au Fromage with 7 flavors, Brownies, Créme Brulé, Tiramisu, Soufflé au Chocolat)
+  - Liqueurs (14+ beverage items)
+- **Estimated Total Items:** 100+ dishes on live menu
+- **Database Has:** Only 15 dishes (85%+ of menu missing)
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Live menu has 100+ items across 18+ courses, but database only contains 15 dishes. This represents a severe data migration failure - approximately 85%+ of the menu is missing from the database. The 15 existing dishes are incorrectly assigned to "Uncategorized" course. This restaurant requires a complete menu data re-migration before course assignment can proceed. No modifiers found in database (live menu may have modifiers for pizza sizes, dessert flavors, etc.). **URGENT: Data migration team must investigate and re-migrate full menu data.**
 
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
