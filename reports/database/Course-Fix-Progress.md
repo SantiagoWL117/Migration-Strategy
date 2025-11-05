@@ -2166,6 +2166,75 @@ WHERE dm.restaurant_id = 502 AND dm.deleted_at IS NULL;
 
 **Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - **Restaurant was mis-marked as `suspended` in database, preventing menu data migration**. Live menu has 150+ items across 18+ courses, but database contains 0 dishes. Restaurant is listed as **active** in verified billing list (billed in last 4 months) and has a fully functional online menu. Status mismatch needs correction (suspended → active). **Root Cause:** Restaurant was incorrectly marked as suspended during migration, so menu data was never imported. **URGENT:** (1) Update status from `suspended` to `active`, (2) Complete menu data migration required - 150+ dishes need to be imported, (3) Create 18+ courses based on live menu structure, (4) Assign all dishes to appropriate courses. No courses, no dishes, no modifiers found. **URGENT: Correct status and complete menu data migration immediately.**
 
+#### New Mee Fung Restaurant 350 Booth St (Restaurant ID: 15)
+**Status:** ⚠️ STATUS MISMATCH - All dishes assigned, status needs correction
+**Date:** 2025-11-03
+**Address:** 350 Booth St ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NOT NEEDED (all dishes properly assigned to courses)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%New Mee Fung%';
+```
+- Restaurant ID: 15
+- Name: New Mee Fung Restaurant
+- Status: suspended ⚠️ (does NOT match verified billing list)
+- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 15;
+```
+- Courses defined: 13 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 15 AND deleted_at IS NULL;
+```
+- Total dishes: 144 ✅
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 144 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 15 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 13 ✅
+- Course distribution:
+  - Specialty Soups: 3 dishes
+  - Appetizers: 11 dishes
+  - Fried Rice and Noodle: 4 dishes
+  - Soups: 4 dishes
+  - Noodle Soups: 23 dishes
+  - Dish of Rice: 22 dishes
+  - Vermicelli Bowl: 41 dishes
+  - Vegetarian: 5 dishes
+  - Side Orders: 18 dishes
+  - Roll Up with Rice Paper: 0 dishes
+  - Beverages: 4 dishes
+  - Coffee and Tea: 2 dishes
+  - Bubble Tea: 7 dishes
+- **✅ All dishes properly assigned to courses**
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 15 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ✅ All 144 dishes properly assigned to 13 courses. Status mismatch needs correction (suspended → active). Restaurant is listed as **active** in verified billing list (billed in last 4 months) but database shows `suspended`. No modifiers found. **ACTION REQUIRED:** Update status from `suspended` to `active` to match verified billing list.
+
 ---
 
 ### Restaurants with No Courses Defined
