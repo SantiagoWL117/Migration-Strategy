@@ -2823,6 +2823,34 @@ Japanese/Korean fusion restaurant with mix of:
 
 **⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a restaurant. Menu migration issue.
 
+### JN Pizza (Restaurant ID: 328)
+**Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT
+**Date:** 2025-11-03
+**Address:** 1663 Cyrville Rd ✅ (matches verified list)
+
+**Issue Found:**
+- Listed in verified billing list as **active** (billed in last 4 months)
+- **Database status: suspended** (needs correction to match verified list)
+
+**Menu Status:**
+- Total dishes: 21 ⚠️⚠️ (SUSPICIOUSLY LOW - very low for a pizza restaurant)
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 21 (100%) ✅
+- Dishes with NULL course_id: 0 ✅
+
+**Course Distribution:**
+- Uncategorized (1711): 21 dishes
+  - Includes: Pizza varieties (Greek Pizza, Manzo Pizza, Pollo Pizza), Sandwiches (Chicken Club, Turkey Club), Poutine varieties, Spaghetti dishes, Appetizers (Chicken Fingers, Tater Tots), Extras (Extra Cheese, Feta)
+
+**⚠️ ISSUES:**
+1. **STATUS CORRECTION NEEDED:** Listed in verified billing list as **active** but database shows `suspended` - needs update to `active`
+2. **SUSPICIOUSLY LOW DISH COUNT:** Only 21 dishes is very low for a pizza restaurant. This suggests incomplete menu migration - verify if restaurant has full menu online
+
+**Resolution Needed:**
+1. **STATUS CORRECTION:** Update database status from `suspended` to `active`
+2. **URGENT:** Verify if restaurant has full menu online - may need menu migration
+3. If menu is complete, create proper courses (Pizza, Sandwiches, Poutine, Spaghetti, Appetizers, Extras) and assign dishes appropriately
+
 
 **🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
