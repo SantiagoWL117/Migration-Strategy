@@ -2804,7 +2804,7 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 **Date:** 2025-11-03
 **Address:** 445 Laurier Ave W ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NOT NEEDED (136 dishes properly assigned, only 24 in Uncategorized - minor fix needed)
+**Menu link:** https://orchidsushiottawa.menu.ca/?p=menu ✅ (VERIFIED - Full menu available, confirms data migration issue)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -2921,7 +2921,31 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
   - All dishes with modifiers have proper modifier group assignments ✅
   - **ISSUE:** Modifier groups (Fish & Seafood, Roll Size, Sauces & Toppings, Cheese Type) don't match sushi restaurant context - suggests dishes may be from wrong restaurant or incorrectly named
 
-**Result:** ⚠️ ISSUE - 136 dishes properly assigned to 16 courses, but 24 dishes in "Uncategorized" need reassignment. **CRITICAL FINDING:** All 12 dishes with modifiers are in "Uncategorized" and have dish names that don't match a sushi restaurant (Pizza Burger, Hawaiian Plus, Donair Pizza, Veal Parmigiana, etc.). Modifier groups (Fish & Seafood, Roll Size, Sauces & Toppings, Cheese Type) also don't match sushi context. This suggests **data migration issues** - dishes may be from wrong restaurant or incorrectly named. **ACTION REQUIRED:** (1) Investigate dish names in "Uncategorized" - verify if they belong to this sushi restaurant, (2) Reassign legitimate sushi dishes to appropriate courses, (3) Flag suspicious dishes (Pizza Burger, Donair Pizza, etc.) for data integrity review, (4) Verify modifier assignments match actual menu structure.
+**Menu Status Check:**
+- Menu URL: https://orchidsushiottawa.menu.ca/?p=menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Verification:**
+  - Live menu courses match database courses ✅
+  - Sashimi & Nigiri Combo ✅
+  - Lunch Combo Chef's Choice ✅
+  - Dinner Combo Chef's Choice (on live menu - verify if in database) ⚠️
+  - Chef's Special Poke's Bowl ✅
+  - Vegetarian Poke Bowl ✅
+  - Maki ✅
+  - Futomaki ✅
+  - Orchid Special ✅
+  - Appetizer ✅
+  - Soups ✅
+  - Salads ✅
+  - Salad Roll ✅
+  - Tartar ✅
+  - Nigiri Sushi and Sashimi ✅
+  - Hosomaki ✅
+  - Spicy Hosomaki ✅
+  - Drinks ✅
+- **CRITICAL CONFIRMATION:** Live menu contains ONLY sushi items (sashimi, nigiri, maki, poke bowls, etc.). **NONE of the suspicious dishes found in database "Uncategorized" (Pizza Burger, Donair Pizza, Hawaiian Plus, Veal Parmigiana, etc.) appear on the live menu.** This **CONFIRMS data migration issue** - these dishes do NOT belong to Orchid Sushi restaurant.
+
+**Result:** ⚠️⚠️⚠️ **CONFIRMED DATA MIGRATION ISSUE** - 136 dishes properly assigned to 16 courses, but 24 dishes in "Uncategorized" need investigation. **CRITICAL FINDING CONFIRMED:** Live menu verification shows that ALL suspicious dishes in "Uncategorized" (Pizza Burger, Hawaiian Plus, Donair Pizza, Veal Parmigiana, Super Salad with Turkey, etc.) are **NOT on the live menu**. The live menu contains ONLY legitimate sushi items. All 12 dishes with modifiers are these suspicious non-sushi dishes. **ROOT CAUSE:** Data migration error - dishes from another restaurant (likely a pizza/Italian restaurant) were incorrectly assigned to Orchid Sushi. **URGENT:** (1) Remove or reassign all 24 "Uncategorized" dishes - they do NOT belong to this sushi restaurant, (2) Verify if any legitimate sushi dishes are missing from database, (3) Clean up modifier assignments for removed dishes, (4) Investigate source of data migration error to prevent recurrence.
 
 ---
 
