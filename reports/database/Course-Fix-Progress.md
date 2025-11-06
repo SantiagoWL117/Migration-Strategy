@@ -3187,7 +3187,7 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 **Date:** 2025-11-03
 **Address:** 253 Boul Maloney E ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** ⚠️ URL provided (`gatineau-est.papapizza.ca/?p=menu&lang=fr`) appears to be for Papa Pizza, not Papa Burger. Need correct menu URL for Papa Burger Maloney.
+**Menu link:** https://gatineau-est.papapizza.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided, confirmed this is the correct URL for this location)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -3273,7 +3273,100 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 ```
 - [No results - no modifiers exist]
 
-**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **64 dishes** but **NO courses defined** (0 courses). **ALL 64 dishes have NULL course_id** (100% unmapped). No modifiers defined. **URGENT:** (1) Verify correct menu URL (provided URL appears to be for Papa Pizza, not Papa Burger), (2) Create proper course structure based on live menu (likely similar to Papa Burger Flandres: Spécials, Les Entrées Papa Burger, Les Papa Burgers, Plats de Spécialités, Les Enfants, Desserts, Breuvages), (3) Assign all 64 dishes to appropriate courses, (4) Verify if modifiers are needed based on live menu structure (size variants, combo options, etc.). **ACTION REQUIRED:** Create course structure and assign all dishes immediately - this is a critical data integrity issue preventing menu display.
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **64 dishes** but **NO courses defined** (0 courses). **ALL 64 dishes have NULL course_id** (100% unmapped). No modifiers defined. **URGENT:** (1) Verify menu URL to check course structure from live menu, (2) Create proper course structure based on live menu (likely similar to Papa Burger Flandres: Spécials, Les Entrées Papa Burger, Les Papa Burgers, Plats de Spécialités, Les Enfants, Desserts, Breuvages), (3) Assign all 64 dishes to appropriate courses, (4) Verify if modifiers are needed based on live menu structure (size variants, combo options, etc.). **ACTION REQUIRED:** Create course structure and assign all dishes immediately - this is a critical data integrity issue preventing menu display.
+
+#### Papa Grecque Cantley 393 Montée de la Source (Restaurant ID: 810)
+**Status:** ⚠️⚠️⚠️ CRITICAL - No courses defined, ALL 45 dishes have NULL course_id
+**Date:** 2025-11-03
+**Address:** 393 Montée de la Source ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://val-des-monts.papapizza.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 810;
+```
+- Restaurant ID: 810
+- Name: Papa Grecque Cantley
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 810;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ (NO COURSES DEFINED)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 810 AND deleted_at IS NULL;
+```
+- Total dishes: 45 ✅ (good dish count)
+- Dishes with NULL course_id: 45 (100%) ⚠️⚠️⚠️
+- Dishes with course_id: 0 (0%) ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** ALL 45 dishes have NULL course_id - no courses exist to assign them to
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 810 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
+- Course distribution: N/A (no courses exist)
+- **CRITICAL ISSUE:** No courses defined at all. All 45 dishes are unmapped and cannot be displayed properly.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 810 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+- Dishes with modifiers: 0 ⚠️
+- **ISSUE:** No modifiers defined - may need to verify if modifiers are required based on live menu structure
+
+```sql
+-- Check modifier relationships - which dishes have modifiers
+SELECT 
+    d.id as dish_id,
+    d.name as dish_name,
+    c.name as course_name,
+    COUNT(DISTINCT dm.id) as modifier_count,
+    COUNT(DISTINCT dm.ingredient_group_id) as modifier_groups_count
+FROM menuca_v3.dishes d
+LEFT JOIN menuca_v3.courses c ON d.course_id = c.id
+LEFT JOIN menuca_v3.dish_modifiers dm ON d.id = dm.dish_id AND dm.deleted_at IS NULL
+WHERE d.restaurant_id = 810 AND d.deleted_at IS NULL
+GROUP BY d.id, d.name, c.name
+HAVING COUNT(DISTINCT dm.id) > 0
+ORDER BY modifier_count DESC;
+```
+- [No results - no modifiers exist]
+
+```sql
+-- Check modifier group structure
+SELECT 
+    dm.dish_id,
+    d.name as dish_name,
+    dm.ingredient_group_id,
+    ig.name as group_name,
+    COUNT(DISTINCT dm.ingredient_id) as modifiers_in_group
+FROM menuca_v3.dish_modifiers dm
+LEFT JOIN menuca_v3.dishes d ON dm.dish_id = d.id
+LEFT JOIN menuca_v3.ingredient_groups ig ON dm.ingredient_group_id = ig.id
+WHERE dm.restaurant_id = 810 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
+GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
+ORDER BY dm.dish_id, dm.ingredient_group_id;
+```
+- [No results - no modifiers exist]
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **45 dishes** but **NO courses defined** (0 courses). **ALL 45 dishes have NULL course_id** (100% unmapped). No modifiers defined. **URGENT:** (1) Verify menu URL to check course structure from live menu, (2) Create proper course structure based on live menu (Greek restaurant - likely courses like Appetizers, Salads, Soups, Main Dishes, Sides, Desserts, Drinks), (3) Assign all 45 dishes to appropriate courses, (4) Verify if modifiers are needed based on live menu structure (size variants, protein options, etc.). **ACTION REQUIRED:** Create course structure and assign all dishes immediately - this is a critical data integrity issue preventing menu display.
 
 ---
 
