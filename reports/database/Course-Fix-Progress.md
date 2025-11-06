@@ -2799,6 +2799,114 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 
 **Result:** ⚠️ ISSUE - All 26 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. No modifiers found. **Menu Status:** Online ordering service temporarily unavailable - cannot verify course structure or dish completeness from live menu. **ACTION REQUIRED:** (1) Contact restaurant or check menu availability later to verify course structure, (2) Review dish names in database to infer logical course assignments, (3) Create proper course structure based on dish analysis, (4) Assign all 26 dishes to appropriate courses, (5) Verify whether modifiers are needed once menu is available.
 
+#### Orchid Sushi 445 Laurier Ave W (Restaurant ID: 245)
+**Status:** ⚠️ MINOR ISSUE - 24 dishes in "Uncategorized", needs reassignment
+**Date:** 2025-11-03
+**Address:** 445 Laurier Ave W ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NOT NEEDED (136 dishes properly assigned, only 24 in Uncategorized - minor fix needed)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Orchid Sushi%';
+```
+- Restaurant ID: 245
+- Name: Orchid Sushi
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 245;
+```
+- Courses defined: 17 ✅
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 245 AND deleted_at IS NULL;
+```
+- Total dishes: 160 ✅
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 160 (100%) ✅
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 245 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 17 ✅
+- Course distribution:
+  - Sashimi and Nigiri Combo: 5 dishes
+  - Lunch Combo Chef's Choice: 4 dishes
+  - Chef's Special Poke Bowl: 5 dishes
+  - Vegetarian Poke Bowl: 1 dish
+  - Maki: 10 dishes
+  - Futomaki: 16 dishes
+  - Orchid Special: 8 dishes
+  - Appetizer: 12 dishes
+  - Soups: 4 dishes
+  - Salads: 5 dishes
+  - Salad Roll: 5 dishes
+  - Tartar: 5 dishes
+  - Nigiri Sushi and Sashimi: 30 dishes
+  - Hosomaki: 13 dishes
+  - Spicy Hosomaki: 6 dishes
+  - Drinks: 7 dishes
+  - Uncategorized: 24 dishes ⚠️
+- **MINOR ISSUE:** 24 dishes assigned to "Uncategorized" course need reassignment
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 245 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 28 ✅
+- Dishes with modifiers: 12 ✅
+
+```sql
+-- Check modifier relationships - which dishes have modifiers
+SELECT 
+    d.id as dish_id,
+    d.name as dish_name,
+    c.name as course_name,
+    COUNT(DISTINCT dm.id) as modifier_count,
+    COUNT(DISTINCT dm.ingredient_group_id) as modifier_groups_count
+FROM menuca_v3.dishes d
+LEFT JOIN menuca_v3.courses c ON d.course_id = c.id
+LEFT JOIN menuca_v3.dish_modifiers dm ON d.id = dm.dish_id AND dm.deleted_at IS NULL
+WHERE d.restaurant_id = 245 AND d.deleted_at IS NULL
+GROUP BY d.id, d.name, c.name
+HAVING COUNT(DISTINCT dm.id) > 0
+ORDER BY modifier_count DESC;
+```
+- [Results: 12 dishes with modifiers - details available in database]
+
+```sql
+-- Check modifier group structure
+SELECT 
+    dm.dish_id,
+    d.name as dish_name,
+    dm.ingredient_group_id,
+    ig.name as group_name,
+    COUNT(DISTINCT dm.ingredient_id) as modifiers_in_group
+FROM menuca_v3.dish_modifiers dm
+LEFT JOIN menuca_v3.dishes d ON dm.dish_id = d.id
+LEFT JOIN menuca_v3.ingredient_groups ig ON dm.ingredient_group_id = ig.id
+WHERE dm.restaurant_id = 245 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
+GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
+ORDER BY dm.dish_id, dm.ingredient_group_id;
+```
+- [Results: Modifier group structure available in database]
+
+**Result:** ✅ Good progress - 136 dishes properly assigned to 16 courses. Minor issue: 24 dishes incorrectly assigned to "Uncategorized" course need reassignment to appropriate courses. Restaurant has 28 modifiers assigned to 12 dishes, which is good. **ACTION REQUIRED:** Reassign 24 dishes from "Uncategorized" to appropriate courses based on dish names.
+
 ---
 
 ### Restaurants with No Courses Defined
