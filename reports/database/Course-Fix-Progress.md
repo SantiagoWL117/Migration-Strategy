@@ -2886,7 +2886,20 @@ GROUP BY d.id, d.name, c.name
 HAVING COUNT(DISTINCT dm.id) > 0
 ORDER BY modifier_count DESC;
 ```
-- [Results: 12 dishes with modifiers - details available in database]
+- Dishes with modifiers (12 total):
+  - "Pizza Burger" (ID: 4068): 5 modifiers, 5 modifier groups (in Uncategorized) ⚠️
+  - "Hawaiian Plus" (ID: 4069): 5 modifiers, 5 modifier groups (in Uncategorized) ⚠️
+  - "Deli Pizza" (ID: 4070): 5 modifiers, 5 modifier groups (in Uncategorized) ⚠️
+  - "Donair Pizza" (ID: 3218): 5 modifiers, 5 modifier groups (in Uncategorized) ⚠️
+  - "Special Box Platter" (ID: 4062): 1 modifier, 1 modifier group (in Uncategorized) ⚠️
+  - "Super Special Box Platter for Two" (ID: 4063): 1 modifier, 1 modifier group (in Uncategorized) ⚠️
+  - "Newtine with Meatballs" (ID: 4066): 1 modifier, 1 modifier group (in Uncategorized) ⚠️
+  - "Family Deal" (ID: 3211): 1 modifier, 1 modifier group (in Uncategorized) ⚠️
+  - "The Perfect Combo Deal with PopCurds HIDE" (ID: 5142): 1 modifier, 1 modifier group (in Uncategorized) ⚠️
+  - "Super Special Box Platter for Two HIDE" (ID: 3215): 1 modifier, 1 modifier group (in Uncategorized) ⚠️
+  - "Veal Parmigiana" (ID: 3216): 1 modifier, 1 modifier group (in Uncategorized) ⚠️
+  - "Super Salad with Turkey" (ID: 4060): 1 modifier, 1 modifier group (in Uncategorized) ⚠️
+- **ISSUE:** All 12 dishes with modifiers are in "Uncategorized" course, and many dish names (Pizza Burger, Hawaiian Plus, Donair Pizza, etc.) don't match a sushi restaurant - may indicate data migration issues
 
 ```sql
 -- Check modifier group structure
@@ -2903,9 +2916,12 @@ WHERE dm.restaurant_id = 245 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
 GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
 ORDER BY dm.dish_id, dm.ingredient_group_id;
 ```
-- [Results: Modifier group structure available in database]
+- Modifier group structure:
+  - Modifier groups properly organized: Fish & Seafood, Roll Size, Sauces & Toppings, Cheese Type, Beverage Options, Extra Items ✅
+  - All dishes with modifiers have proper modifier group assignments ✅
+  - **ISSUE:** Modifier groups (Fish & Seafood, Roll Size, Sauces & Toppings, Cheese Type) don't match sushi restaurant context - suggests dishes may be from wrong restaurant or incorrectly named
 
-**Result:** ✅ Good progress - 136 dishes properly assigned to 16 courses. Minor issue: 24 dishes incorrectly assigned to "Uncategorized" course need reassignment to appropriate courses. Restaurant has 28 modifiers assigned to 12 dishes, which is good. **ACTION REQUIRED:** Reassign 24 dishes from "Uncategorized" to appropriate courses based on dish names.
+**Result:** ⚠️ ISSUE - 136 dishes properly assigned to 16 courses, but 24 dishes in "Uncategorized" need reassignment. **CRITICAL FINDING:** All 12 dishes with modifiers are in "Uncategorized" and have dish names that don't match a sushi restaurant (Pizza Burger, Hawaiian Plus, Donair Pizza, Veal Parmigiana, etc.). Modifier groups (Fish & Seafood, Roll Size, Sauces & Toppings, Cheese Type) also don't match sushi context. This suggests **data migration issues** - dishes may be from wrong restaurant or incorrectly named. **ACTION REQUIRED:** (1) Investigate dish names in "Uncategorized" - verify if they belong to this sushi restaurant, (2) Reassign legitimate sushi dishes to appropriate courses, (3) Flag suspicious dishes (Pizza Burger, Donair Pizza, etc.) for data integrity review, (4) Verify modifier assignments match actual menu structure.
 
 ---
 
