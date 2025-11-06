@@ -125,22 +125,26 @@ Test each URL and mark with:
 
 ## Batch 5: Brian's ACTUALLY Remaining Restaurants - Batch 2 (6 restaurants) ⏳
 
-### 7. Sachi Sushi 4931, rue Beaubien E
+### 7. ⏭️ Pizza Joanna 229 Boulevard Saint-René Ouest
+- ✅ ALREADY AUDITED - Updated with live menu structure (1 dish in DB, 100+ on live menu)
+- Menu link: https://pizzajoanna.menu.ca/?p=menu&lang=fr ✅
+
+### 8. Sachi Sushi 4931, rue Beaubien E
 - [ ] NEED URL
 
-### 8. Supreme Pizzeria 380 Chemin Vanier
+### 9. Supreme Pizzeria 380 Chemin Vanier
 - [ ] NEED URL
 
-### 9. Supreme Pizzeria 425 Donald St
+### 10. Supreme Pizzeria 425 Donald St
 - [ ] NEED URL
 
-### 10. Sushi Express Chambly 886 ch de Chambly
+### 11. Sushi Express Chambly 886 ch de Chambly
 - [ ] NEED URL
 
-### 11. iCook Pho You 2006 Robertson Rd
+### 12. iCook Pho You 2006 Robertson Rd
 - [ ] NEED URL
 
-### 12. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
+### 13. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
 - ⚠️ ALREADY AUDITED - NOT FOUND IN DATABASE (has menu online at roulas.ca)
 
 ---

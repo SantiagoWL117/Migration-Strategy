@@ -4100,7 +4100,30 @@ SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as d
 ```
 - Total modifiers: 0 ⚠️
 
-**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant has **1 dish** (suspiciously low for a pizza restaurant). Dish incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** Verify menu URL to check if menu data migration is complete (1 dish seems incomplete), create proper course structure, and assign all dishes.
+**Step 6: Verify Menu Structure (Live Menu)**
+**Menu Link:** https://pizzajoanna.menu.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Live Menu Course Structure (from verified menu):**
+- **Special Jumelles** (Twin Specials): 8 items (2 Petites/Moyennes/Grandes/XGrande Pizzas, 1 Petite/Moyenne/Grande/XGrande Pizza avec Ailes)
+- **Special Familial** (Family Specials): 3 items (2 Petites/Moyennes/Grandes Pizzas avec Frite et Canettes)
+- **Les Trios** (Trios): 3 items (Trio Shawarma, Trio Burger with protein variants, Trio Souvlaki)
+- **Pizza**: 20+ items (Pizza au Fromage, 1 Ingrédient Pizza, Toute Garnie, Hawaïenne, Tia Spéciale, La Canadienne, La Québecoise, La Mily, La Rita, La Gatinoise, and many more - each with size variants: Petit, Moyenne, Grande, X-Grande)
+- **Salades** (Salads): Multiple items (Salade Grecque, Salade César, Salade Mixte, etc.)
+- **Nachos**: Multiple items with size variants
+- **Ailes De Poulet** (Chicken Wings): Multiple items with size variants and sauce options
+- **Mets Canadiens** (Canadian Food): Multiple items (Poutine with variants, Hamburger Steak, etc.)
+- **Mets Italiens** (Italian Food): Multiple items (Pasta dishes, etc.)
+- **Sous Marins** (Submarines): 10+ items (Steak Sub variants, Pepperoni Sub, Végétarien Sub, Pizza Sub, Poulet Sub, Club Sub, Amateur de Viande Sub)
+- **Assiettes Brochettes** (Brochette Platters): 3 items (Brochette de Poulet, Brochette de Filet Mignon, Assiette Mixte)
+- **Assiettes Shawarma** (Shawarma Platters): 3 items (Shawarma au Poulet, Donair au Boeuf, Assiette Mixte)
+- **Les Pitas**: 4 items (Souvlaki au Poulet/Filet Mignon, Shawarma au Poulet, Donair au Boeuf - with size variants)
+- **Extras**: Multiple items (Pita, Trempettes with variants, Tzatziki, Hummus, Sauces with size variants)
+- **Desserts**: 3 items (Gâteau au Fromage, Baklava, Brownies)
+- **Breuvages** (Drinks): 8 items (Pepsi, Coke, 7 Up, Sprite, Ginger Ale, Crush Couleurs, Thé Glacé, Eau - with size variants)
+- **Estimated Total Items:** 100+ dishes on live menu (counting size variants and options)
+- **Database Has:** 1 dish (99%+ of menu missing) ⚠️⚠️⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant has **1 dish** (suspiciously low for a pizza restaurant). Dish incorrectly assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Database contains only **1 dish** but live menu has **100+ items** across **17+ courses** (99%+ of menu missing). **ROOT CAUSE:** Incomplete menu data migration - restaurant has full active menu online but database only has 1 dish. **URGENT:** (1) Complete menu data migration required - 100+ dishes need to be imported, (2) Create proper course structure based on live menu (Special Jumelles, Special Familial, Les Trios, Pizza, Salades, Nachos, Ailes De Poulet, Mets Canadiens, Mets Italiens, Sous Marins, Assiettes Brochettes, Assiettes Shawarma, Les Pitas, Extras, Desserts, Breuvages), (3) Assign all dishes to appropriate courses, (4) Verify modifier assignments (size variants, protein options, sauce options) match live menu structure. **ACTION REQUIRED:** Complete menu data migration immediately - this is a critical data integrity issue.
 
 #### Pizza Lovers Hunt Club 800 Hunt Club Road (Restaurant ID: 507)
 **Status:** ⚠️ ISSUE - All 2 dishes in "Uncategorized", suspiciously low dish count
