@@ -2705,7 +2705,7 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 **Date:** 2025-11-03
 **Address:** 1030 Boulevard Saint-Joseph ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (to verify course structure and ensure all dishes are present)
+**Menu link:** ⚠️ TEMPORARILY UNAVAILABLE - Online ordering service not available (message: "Désolés, notre service de commande en ligne n'est pas disponible en ce moment. S'il vous plaît, appelez au restaurant : (819) 205-5959")
 
 **Step 1: Restaurant Status**
 ```sql
@@ -2791,7 +2791,13 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 ```
 - No modifier groups found
 
-**Result:** ⚠️ ISSUE - All 26 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. No modifiers found. **ACTION REQUIRED:** Obtain menu link to verify: (1) Course structure from live menu, (2) Whether 26 dishes is complete, (3) Proper course assignment for all dishes, (4) Whether modifiers are needed for any dishes (size variants, options, etc.).
+**Menu Status Check:**
+- Menu URL: ⚠️ Online ordering service temporarily unavailable
+- **Status:** ⚠️ Menu temporarily offline - service message displayed
+- **Message:** "Désolés, notre service de commande en ligne n'est pas disponible en ce moment. S'il vous plaît, appelez au restaurant : (819) 205-5959"
+- **Note:** Cannot verify course structure or dish completeness from live menu at this time
+
+**Result:** ⚠️ ISSUE - All 26 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. No modifiers found. **Menu Status:** Online ordering service temporarily unavailable - cannot verify course structure or dish completeness from live menu. **ACTION REQUIRED:** (1) Contact restaurant or check menu availability later to verify course structure, (2) Review dish names in database to infer logical course assignments, (3) Create proper course structure based on dish analysis, (4) Assign all 26 dishes to appropriate courses, (5) Verify whether modifiers are needed once menu is available.
 
 ---
 
