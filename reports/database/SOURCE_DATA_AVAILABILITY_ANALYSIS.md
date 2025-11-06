@@ -20,14 +20,16 @@
 | **No Source Data** | 0 | 0% | ⚠️ Scrape from live menu |
 
 **Key Finding:** 
-- **66% (94 restaurants)** can be re-imported from source data (NOT scraping)
-- **34% (48 restaurants)** need scraping from live menus (IS scraping)
+- **47% (67 restaurants)** can be re-imported from source data (NOT scraping)
+  - 46 from V1 staging
+  - 21 from V2 staging
+- **53% (75 restaurants)** need scraping from live menus (IS scraping)
 
 ---
 
 ## Detailed Breakdown
 
-### ✅ Can Re-Import from Staging (NOT Scraping) - 94 Restaurants
+### ✅ Can Re-Import from Staging (NOT Scraping) - 67 Restaurants
 
 **V1 Available (46 restaurants):** Have V1 data in `staging.menuca_v1_menu`
 
@@ -144,12 +146,14 @@ These restaurants have V1 mapping but no data in `staging.menuca_v1_menu`.
 
 ## Conclusion
 
-**66% of audited restaurants (94) can be re-imported from staging (NOT scraping)** - this is the preferred approach as it uses original source data.
+**47% of audited restaurants (67) can be re-imported from staging (NOT scraping)** - this is the preferred approach as it uses original source data.
+- 46 restaurants from V1 staging
+- 21 restaurants from V2 staging
 
-**34% need scraping from live menus (48)** - these have no source data available in staging.
+**53% need scraping from live menus (75)** - these have no source data available in staging.
 
 **Recommendation:** Proceed with **True Hybrid Approach**:
-1. Re-import from staging for 94 restaurants - NOT scraping
+1. Re-import from staging for 67 restaurants - NOT scraping
 2. Scrape from live menus for 75 restaurants - IS scraping
 3. Verify all against live menu URLs
 
