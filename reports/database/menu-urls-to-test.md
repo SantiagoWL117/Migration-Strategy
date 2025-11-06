@@ -157,10 +157,10 @@ Test each URL and mark with:
 - ✅ **Batch 3:** 4 restaurants - COMPLETE (2 skipped - already done)
 - ⏳ **Batch 4:** 15 restaurants - NEED URLs
 
-**Total Audited:** 24 restaurants
-**Remaining for Brian (B):** 72 restaurants
-**Remaining for Santiago (S):** 47 restaurants
-**Total Remaining:** 119 restaurants (from active list of 190)
+**Total Audited in Course-Fix-Progress.md:** 132 restaurants ✅
+**Note:** Checkboxes in Restaurants-active.md are NOT up to date - actual audit count is much higher!
+**Total in Active List:** 190 restaurants
+**Remaining:** ~58 restaurants (190 - 132 = 58)
 
 ---
 
