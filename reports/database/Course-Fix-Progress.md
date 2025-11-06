@@ -2947,6 +2947,99 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 
 **Result:** ⚠️⚠️⚠️ **CONFIRMED DATA MIGRATION ISSUE** - 136 dishes properly assigned to 16 courses, but 24 dishes in "Uncategorized" need investigation. **CRITICAL FINDING CONFIRMED:** Live menu verification shows that ALL suspicious dishes in "Uncategorized" (Pizza Burger, Hawaiian Plus, Donair Pizza, Veal Parmigiana, Super Salad with Turkey, etc.) are **NOT on the live menu**. The live menu contains ONLY legitimate sushi items. All 12 dishes with modifiers are these suspicious non-sushi dishes. **ROOT CAUSE:** Data migration error - dishes from another restaurant (likely a pizza/Italian restaurant) were incorrectly assigned to Orchid Sushi. **URGENT:** (1) Remove or reassign all 24 "Uncategorized" dishes - they do NOT belong to this sushi restaurant, (2) Verify if any legitimate sushi dishes are missing from database, (3) Clean up modifier assignments for removed dishes, (4) Investigate source of data migration error to prevent recurrence.
 
+#### Palermo Pizzeria 25 Tapiola Cres (Restaurant ID: 521)
+**Status:** 🛑 STATUS MISMATCH - Listed as active but database shows suspended
+**Date:** 2025-11-03
+**Address:** 25 Tapiola Cres ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** N/A (status issue must be resolved first)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Palermo%';
+```
+- Restaurant ID: 521
+- Name: Palermo Pizzeria
+- Status: suspended ⚠️⚠️⚠️ **STATUS MISMATCH** (listed as active in Restaurants-active.md but database shows `suspended`)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 521;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 521 AND deleted_at IS NULL;
+```
+- Total dishes: 13 ⚠️ (suspiciously low for a pizza restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 13 (100%) ✅
+- **ISSUE:** All 13 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 521 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution:
+  - Uncategorized: 13 dishes ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** Only 1 course ("Uncategorized") exists. All 13 dishes are incorrectly assigned to this course.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 521 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+```sql
+-- Check modifier relationships - which dishes have modifiers
+SELECT 
+    d.id as dish_id,
+    d.name as dish_name,
+    c.name as course_name,
+    COUNT(DISTINCT dm.id) as modifier_count,
+    COUNT(DISTINCT dm.ingredient_group_id) as modifier_groups_count
+FROM menuca_v3.dishes d
+LEFT JOIN menuca_v3.courses c ON d.course_id = c.id
+LEFT JOIN menuca_v3.dish_modifiers dm ON d.id = dm.dish_id AND dm.deleted_at IS NULL
+WHERE d.restaurant_id = 521 AND d.deleted_at IS NULL
+GROUP BY d.id, d.name, c.name
+HAVING COUNT(DISTINCT dm.id) > 0
+ORDER BY modifier_count DESC;
+```
+- No dishes with modifiers found
+
+```sql
+-- Check modifier group structure
+SELECT 
+    dm.dish_id,
+    d.name as dish_name,
+    dm.ingredient_group_id,
+    ig.name as group_name,
+    COUNT(DISTINCT dm.ingredient_id) as modifiers_in_group
+FROM menuca_v3.dish_modifiers dm
+LEFT JOIN menuca_v3.dishes d ON dm.dish_id = d.id
+LEFT JOIN menuca_v3.ingredient_groups ig ON dm.ingredient_group_id = ig.id
+WHERE dm.restaurant_id = 521 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
+GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
+ORDER BY dm.dish_id, dm.ingredient_group_id;
+```
+- No modifier groups found
+
+**Result:** 🛑 **STOPPED - STATUS MISMATCH** - Restaurant is listed as **active** in Restaurants-active.md but database shows **suspended**. All 13 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Dish count (13) is suspiciously low for a pizza restaurant. No modifiers found. **ACTION REQUIRED:** (1) Verify restaurant status - is it actually active or suspended? (2) If active, update database status from `suspended` to `active`, (3) If suspended, remove from active list or verify billing status, (4) Once status resolved, proceed with course structure creation and dish reassignment.
+
 ---
 
 ### Restaurants with No Courses Defined
