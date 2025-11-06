@@ -2589,7 +2589,7 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 **Date:** 2025-11-03
 **Address:** 169 York St ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (to verify course structure, dish completeness, and modifier assignments)
+**Menu link:** https://169york.ohmygrill.ca/?p=menu ✅ (VERIFIED - Full menu available, CRITICAL DATA MIGRATION ISSUE identified)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -2684,7 +2684,21 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
   - "Small/Medium/Large Perfect Combo Deal with PopCurds": 1 modifier each (ungrouped)
 - **ISSUE:** Modifiers exist but are not organized into modifier groups - may need group structure for proper menu display
 
-**Result:** ⚠️ ISSUE - All 6 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Restaurant has 7 modifiers assigned to 4 dishes, which is good, but need to verify modifier relationships are correct. Dish count (6) is suspiciously low for a grill restaurant - may indicate incomplete menu data migration. **ACTION REQUIRED:** Obtain menu link to verify: (1) Course structure from live menu, (2) Whether 6 dishes is complete (suspiciously low), (3) Proper course assignment for all dishes, (4) Modifier assignments match live menu structure.
+**Menu Status Check:**
+- Menu URL: https://169york.ohmygrill.ca/?p=menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Plates (12 items: Souvlaki Chicken, Kafta, Beef Fillet Mignon Souvlaki, Souvlaki Lamb, Boneless Chicken Breast, Boneless Half Chicken, Chicken Shawarma, Mixed Plate, Beef Gyro, Veggie Plate, Chicken Shawarma Family Platter with Family of 4/6 options, Mixed Souvlaki Family Platter with Family of 4/6 options)
+  - Bowls (2 items: Chicken Gyro Bowl, Beef Gyro Bowl)
+  - Salads (3 items: Greek Salad, Fatoush Salad, Caesar Salad - each with Medium/Large size variants)
+  - Sandwiches (20+ items: Chicken Shawarma Sandwich with Small/Large/X-Large and Combo options, Beef Donair Sandwich with Small/Large/X-Large and Combo options, Taouk Sandwich with Small/Large and Combo options, Kafta Sandwich with Small/Large and Combo options, Souvlaki Chicken Sandwich with Combo option, Kafta Souvlaki with Combo option, Beef Fillet Mignon Souvlaki Sandwich with Combo option, Souvlaki Lamb Sandwich with Combo option, Gyro Chicken Sandwich with Combo option, Gyro Donair Sandwich with Combo option, Veggie Sandwich with Combo option, Falafel Sandwich with Combo option)
+  - Poutines (1 item: Original Poutine with Medium/Large size variants)
+  - Appetizers (7 items: Chicken Wings (8), French Fries with Medium/Large, Garlic Potatoes with Medium/Large, Rice with Medium/Large, Hummus with Pita, Garlic Sauce, Tzatziki with Pita)
+  - Beverages (7 items: Coke, Coke Zero, Orange Crush, Diet Coke, Ginger Ale, Sprite, Water - with Can size variants)
+- **Estimated Total Items:** 50+ dishes on live menu (counting size variants and combo options)
+- **Database Has:** 6 dishes (88%+ of menu missing) ⚠️⚠️⚠️
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - **Database contains only 6 dishes but live menu has 50+ items**. All 6 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Restaurant has 7 modifiers assigned to 4 dishes, but modifiers are not organized into groups. **Root Cause:** Incomplete menu data migration - most menu items were never imported. **URGENT:** (1) Complete menu data migration required - 50+ dishes need to be imported, (2) Create proper course structure based on live menu (Plates, Bowls, Salads, Sandwiches, Poutines, Appetizers, Beverages), (3) Assign all dishes to appropriate courses, (4) Verify modifier assignments (size variants, combo options, family size options, etc.) match live menu structure. **ACTION REQUIRED:** Complete menu data migration immediately - this is a critical data integrity issue.
 
 ---
 
