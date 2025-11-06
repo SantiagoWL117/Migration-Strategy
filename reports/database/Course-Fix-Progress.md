@@ -3182,6 +3182,99 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 
 **Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant is in **Gatineau** (city_id: 32), not Ottawa, but is on active list (likely serves Ottawa-Gatineau region). **CRITICAL DATA MIGRATION ISSUE:** Database contains only **4 dishes** (numbered 14-17) but live menu has **50+ items** across **7 courses** (92%+ of menu missing). All 4 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists in database. Restaurant has 4 modifiers assigned to 4 dishes, but modifiers are not organized into groups. **ROOT CAUSE:** Incomplete menu data migration - dishes 1-13 and most of the menu are missing. **URGENT:** (1) Complete menu data migration required - 50+ dishes need to be imported, (2) Create proper course structure based on live menu (Spécials, Les Entrées Papa Burger, Les Papa Burgers, Plats de Spécialités, Les Enfants, Desserts, Breuvages), (3) Assign all dishes to appropriate courses, (4) Verify modifier assignments (size variants, combo options, flavor variants) match live menu structure, (5) Organize modifiers into proper groups. **ACTION REQUIRED:** Complete menu data migration immediately - this is a critical data integrity issue.
 
+#### Papa Burger Maloney 253 Boul Maloney E (Restaurant ID: 822)
+**Status:** ⚠️⚠️⚠️ CRITICAL - No courses defined, ALL 64 dishes have NULL course_id
+**Date:** 2025-11-03
+**Address:** 253 Boul Maloney E ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** ⚠️ URL provided (`gatineau-est.papapizza.ca/?p=menu&lang=fr`) appears to be for Papa Pizza, not Papa Burger. Need correct menu URL for Papa Burger Maloney.
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 822;
+```
+- Restaurant ID: 822
+- Name: Papa Burger Maloney
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 822;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ (NO COURSES DEFINED)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 822 AND deleted_at IS NULL;
+```
+- Total dishes: 64 ✅ (good dish count)
+- Dishes with NULL course_id: 64 (100%) ⚠️⚠️⚠️
+- Dishes with course_id: 0 (0%) ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** ALL 64 dishes have NULL course_id - no courses exist to assign them to
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 822 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
+- Course distribution: N/A (no courses exist)
+- **CRITICAL ISSUE:** No courses defined at all. All 64 dishes are unmapped and cannot be displayed properly.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 822 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+- Dishes with modifiers: 0 ⚠️
+- **ISSUE:** No modifiers defined - may need to verify if modifiers are required based on live menu structure
+
+```sql
+-- Check modifier relationships - which dishes have modifiers
+SELECT 
+    d.id as dish_id,
+    d.name as dish_name,
+    c.name as course_name,
+    COUNT(DISTINCT dm.id) as modifier_count,
+    COUNT(DISTINCT dm.ingredient_group_id) as modifier_groups_count
+FROM menuca_v3.dishes d
+LEFT JOIN menuca_v3.courses c ON d.course_id = c.id
+LEFT JOIN menuca_v3.dish_modifiers dm ON d.id = dm.dish_id AND dm.deleted_at IS NULL
+WHERE d.restaurant_id = 822 AND d.deleted_at IS NULL
+GROUP BY d.id, d.name, c.name
+HAVING COUNT(DISTINCT dm.id) > 0
+ORDER BY modifier_count DESC;
+```
+- [No results - no modifiers exist]
+
+```sql
+-- Check modifier group structure
+SELECT 
+    dm.dish_id,
+    d.name as dish_name,
+    dm.ingredient_group_id,
+    ig.name as group_name,
+    COUNT(DISTINCT dm.ingredient_id) as modifiers_in_group
+FROM menuca_v3.dish_modifiers dm
+LEFT JOIN menuca_v3.dishes d ON dm.dish_id = d.id
+LEFT JOIN menuca_v3.ingredient_groups ig ON dm.ingredient_group_id = ig.id
+WHERE dm.restaurant_id = 822 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
+GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
+ORDER BY dm.dish_id, dm.ingredient_group_id;
+```
+- [No results - no modifiers exist]
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **64 dishes** but **NO courses defined** (0 courses). **ALL 64 dishes have NULL course_id** (100% unmapped). No modifiers defined. **URGENT:** (1) Verify correct menu URL (provided URL appears to be for Papa Pizza, not Papa Burger), (2) Create proper course structure based on live menu (likely similar to Papa Burger Flandres: Spécials, Les Entrées Papa Burger, Les Papa Burgers, Plats de Spécialités, Les Enfants, Desserts, Breuvages), (3) Assign all 64 dishes to appropriate courses, (4) Verify if modifiers are needed based on live menu structure (size variants, combo options, etc.). **ACTION REQUIRED:** Create course structure and assign all dishes immediately - this is a critical data integrity issue preventing menu display.
+
 ---
 
 ### Restaurants with No Courses Defined
