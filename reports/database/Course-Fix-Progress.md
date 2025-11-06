@@ -2700,6 +2700,99 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 
 **Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - **Database contains only 6 dishes but live menu has 50+ items**. All 6 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Restaurant has 7 modifiers assigned to 4 dishes, but modifiers are not organized into groups. **Root Cause:** Incomplete menu data migration - most menu items were never imported. **URGENT:** (1) Complete menu data migration required - 50+ dishes need to be imported, (2) Create proper course structure based on live menu (Plates, Bowls, Salads, Sandwiches, Poutines, Appetizers, Beverages), (3) Assign all dishes to appropriate courses, (4) Verify modifier assignments (size variants, combo options, family size options, etc.) match live menu structure. **ACTION REQUIRED:** Complete menu data migration immediately - this is a critical data integrity issue.
 
+#### Oka's Hull 1030 Boulevard Saint-Joseph (Restaurant ID: 681)
+**Status:** ⚠️ ISSUE - All 26 dishes in "Uncategorized", needs course structure
+**Date:** 2025-11-03
+**Address:** 1030 Boulevard Saint-Joseph ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (to verify course structure and ensure all dishes are present)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Oka%';
+```
+- Restaurant ID: 681
+- Name: Oka's Hull
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 681;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 681 AND deleted_at IS NULL;
+```
+- Total dishes: 26 ✅
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 26 (100%) ✅
+- **ISSUE:** All 26 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 681 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution:
+  - Uncategorized: 26 dishes ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** Only 1 course ("Uncategorized") exists. All 26 dishes are incorrectly assigned to this course. Need to create proper course structure and reassign all dishes.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 681 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+```sql
+-- Check modifier relationships - which dishes have modifiers
+SELECT 
+    d.id as dish_id,
+    d.name as dish_name,
+    c.name as course_name,
+    COUNT(DISTINCT dm.id) as modifier_count,
+    COUNT(DISTINCT dm.ingredient_group_id) as modifier_groups_count
+FROM menuca_v3.dishes d
+LEFT JOIN menuca_v3.courses c ON d.course_id = c.id
+LEFT JOIN menuca_v3.dish_modifiers dm ON d.id = dm.dish_id AND dm.deleted_at IS NULL
+WHERE d.restaurant_id = 681 AND d.deleted_at IS NULL
+GROUP BY d.id, d.name, c.name
+HAVING COUNT(DISTINCT dm.id) > 0
+ORDER BY modifier_count DESC;
+```
+- No dishes with modifiers found
+
+```sql
+-- Check modifier group structure
+SELECT 
+    dm.dish_id,
+    d.name as dish_name,
+    dm.ingredient_group_id,
+    ig.name as group_name,
+    COUNT(DISTINCT dm.ingredient_id) as modifiers_in_group
+FROM menuca_v3.dish_modifiers dm
+LEFT JOIN menuca_v3.dishes d ON dm.dish_id = d.id
+LEFT JOIN menuca_v3.ingredient_groups ig ON dm.ingredient_group_id = ig.id
+WHERE dm.restaurant_id = 681 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
+GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
+ORDER BY dm.dish_id, dm.ingredient_group_id;
+```
+- No modifier groups found
+
+**Result:** ⚠️ ISSUE - All 26 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. No modifiers found. **ACTION REQUIRED:** Obtain menu link to verify: (1) Course structure from live menu, (2) Whether 26 dishes is complete, (3) Proper course assignment for all dishes, (4) Whether modifiers are needed for any dishes (size variants, options, etc.).
+
 ---
 
 ### Restaurants with No Courses Defined
