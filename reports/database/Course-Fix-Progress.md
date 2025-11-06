@@ -1,5 +1,19 @@
 # Course Assignment Fix Progress
 
+## Table of Contents
+
+1. [✅ Completed Restaurants](#-completed-restaurants)
+2. [⏳ Pending Restaurants](#-pending-restaurants-236-remaining)
+3. [⚠️ Skipped Restaurants](#️-skipped-restaurants)
+   - [Restaurants With no Defined Courses](#restaurants-with-no-defined-courses)
+   - [Restaurants Not Found in Database](#restaurants-not-found-in-database)
+   - [Restaurants with Uncategorized course](#restaurants-with-uncategorized-course)
+   - [Restaurants with Defined Courses But Dishes Not Properly Distributed](#restaurants-with-defined-courses-but-dishes-not-properly-distributed)
+   - [Restaurants with No Menu Data](#restaurants-with-no-menu-data)
+4. [Summary Statistics](#summary-statistics)
+
+---
+
 ## ✅ Completed Restaurants
 
 ### Wandee Thai (Restaurant ID: 954)
@@ -463,9 +477,9 @@ All 141 dishes properly assigned to 14 course categories.
 
 ---
 
-## 🔄 In Progress Restaurants
 
-(None currently)
+
+
 
 ---
 
@@ -478,7 +492,7 @@ Working backwards from line 252 (Zait and Zaatar) towards line 125.
 
 ## ⚠️ Skipped Restaurants
 
-### ⚠️ Skipped Restaurants - No Courses Defined
+### Restaurants With no Defined Courses. 
 
 #### Aahar The Taste of India (Restaurant ID: 561)
 **Status:** ⚠️ SKIPPED - No Courses Defined
@@ -532,1834 +546,7 @@ Based on live menu at https://aaharaltavista.menu.ca/?p=menu:
 
 **Result:** ⚠️ Skipped - 0 courses defined. Cannot proceed with course assignment until courses are created. Waiting for authorization.
 
-### ⏸️ Restaurants with Suspended/Pending Status
 
-#### Milano 3050 Woodroffe Ave (Restaurant ID: 95)
-**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
-**Date:** 2025-11-03
-**Address:** 3050 Woodroffe Ave ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 95
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 95;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 95 AND deleted_at IS NULL;
-```
-- Total dishes: 14
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 14 (100%) ✅
-
-**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
-
-#### Milano 339 Dalhousie St (Restaurant ID: 91)
-**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
-**Date:** 2025-11-03
-**Address:** 339 Dalhousie St ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 91
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 91;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 91 AND deleted_at IS NULL;
-```
-- Total dishes: 13
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 13 (100%) ✅
-
-**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
-
-#### Milano 350 St-Philippe Street (Restaurant ID: 624)
-**Status:** ✅ SKIPPED - Already Assigned
-**Date:** 2025-11-03
-**Address:** 350 St-Philippe Street ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 624
-- Name: Milano
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 624;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 624 AND deleted_at IS NULL;
-```
-- Total dishes: 34
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 34 (100%) ✅
-
-**Result:** ✅ Already assigned - All 34 dishes have course_id. No work needed.
-
-#### Milano 3796 Champlain Rd (Restaurant ID: 90)
-**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
-**Date:** 2025-11-03
-**Address:** 3796 Champlain Rd ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 90
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 90;
-```
-- Courses defined: 19 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 90 AND deleted_at IS NULL;
-```
-- Total dishes: 11
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 11 (100%) ✅
-
-**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
-
-#### Milano 3848 Innes Rd (Restaurant ID: 57)
-**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
-**Date:** 2025-11-03
-**Address:** 3848 Innes Rd ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 57
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 57;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 57 AND deleted_at IS NULL;
-```
-- Total dishes: 17
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 17 (100%) ✅
-
-**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
-
-#### Milano 385 Tompkins Ave (Restaurant ID: 59)
-**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
-**Date:** 2025-11-03
-**Address:** 385 Tompkins Ave ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 59
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 59;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 59 AND deleted_at IS NULL;
-```
-- Total dishes: 13
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 13 (100%) ✅
-
-**Result:** ⏸️ Status mismatch - suspended vs active. Already assigned.
-
-#### Milano 4188 Spratt Rd (Restaurant ID: 565)
-**Status:** ✅ SKIPPED - Already Assigned
-**Date:** 2025-11-03
-**Address:** 4188 Spratt Rd ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 565
-- Name: Milano
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 565;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 565 AND deleted_at IS NULL;
-```
-- Total dishes: 14
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 14 (100%) ✅
-
-**Result:** ✅ Already assigned - All 14 dishes have course_id. No work needed.
-
-#### Milano 455 Boulevard Riel (Restaurant ID: 751)
-**Status:** ✅ SKIPPED - Already Assigned
-**Date:** 2025-11-03
-**Address:** 455 Boulevard Riel ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 751
-- Name: Milano
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 751;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 751 AND deleted_at IS NULL;
-```
-- Total dishes: 31
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 31 (100%) ✅
-
-**Result:** ✅ Already assigned - All 31 dishes have course_id. No work needed.
-
-#### Milano 471 Hazeldean Rd (Restaurant ID: 126)
-**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
-**Date:** 2025-11-03
-**Address:** 471 Hazeldean Rd ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 126
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 126;
-```
-- Courses defined: 2 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 126 AND deleted_at IS NULL;
-```
-- Total dishes: 9
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 9 (100%) ✅
-
-**Result:** ⏸️ Status mismatch - suspended vs active. Already assigned.
-
-#### Milano 506 Main St W (Restaurant ID: 350)
-**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
-**Date:** 2025-11-03
-**Address:** 506 Main St W ✅ (matches verified list)
-**Assignee:** Brian (B)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 350
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 350;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 350 AND deleted_at IS NULL;
-```
-- Total dishes: 81
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 81 (100%) ✅
-
-**Result:** ⏸️ Status mismatch - suspended vs active. Already assigned.
-
-#### Milano 54 Wilson St W (Restaurant ID: 660)
-**Status:** ✅ SKIPPED - Already Assigned
-**Date:** 2025-11-03
-**Address:** 54 Wilson St W ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** Optional (already assigned, reasonable dish count)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 660
-- Name: Milano
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 660;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 660 AND deleted_at IS NULL;
-```
-- Total dishes: 11
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 11 (100%) ✅
-
-**Result:** ✅ Already assigned - All 11 dishes have course_id. No work needed.
-
-#### Milano 5516 Osgoode Main S (Restaurant ID: 349)
-**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
-**Date:** 2025-11-03
-**Address:** 5516 Osgoode Main S ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** Optional (already assigned, reasonable dish count)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 349
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 349;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 349 AND deleted_at IS NULL;
-```
-- Total dishes: 73
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 73 (100%) ✅
-
-**Result:** ⏸️ STOPPED - Status mismatch found. Restaurant is listed as active in verified billing list but database shows `suspended`. All dishes already have course_id assigned, but status correction is required before proceeding. Waiting for authorization to update status from `suspended` to `active`.
-
-#### Milano 6179 Perth St. (Restaurant ID: 190)
-**Status:** ⏸️ STATUS MISMATCH - Listed as active but DB shows suspended
-**Date:** 2025-11-03
-**Address:** 6179 Perth St. ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu Reference:** https://richmond.milanopizzeria.ca/?p=menu
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 190
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 190;
-```
-- Courses defined: 1 ✅
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 190 AND deleted_at IS NULL;
-```
-- Total dishes: 31
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 31 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 190 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 31 dishes are assigned to "Uncategorized" course, but live menu shows multiple courses (Appetizers, Pizza, Pasta, Burgers, Drinks, etc.)
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 190 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 68
-- Dishes with modifiers: 22 (out of 31 dishes)
-- **Menu link analysis:** Need to verify modifier assignments match live menu structure
-
-**Menu Analysis from https://richmond.milanopizzeria.ca/?p=menu:**
-Live menu courses include:
-- Bruyère DONATION
-- Features Of The Month
-- Mini Donuts Hot and Fresh Made
-- PIZZAS WITH FANTINO MONDELLO PANCETTA
-- 2 Pizza and Two Free 591ml Drinks
-- Daily Special
-- Appetizers
-- Chicken Wings
-- Southern Fried Chicken
-- Salads
-- Subs
-- Beef Donairs and Chicken Shawarma Wraps
-- Poutine
-- Pizza
-- Pasta
-- Burgers - Sandwiches - Platters
-- Drinks
-
-**Result:** ⚠️ CRITICAL ISSUE - All dishes incorrectly assigned to "Uncategorized" course. Live menu has proper course structure with 17+ courses. Dishes need to be reassigned to correct courses. Status mismatch also needs correction (suspended → active). Modifiers exist but need verification once courses are corrected. Waiting for authorization to create proper courses and reassign dishes.
-
-#### Milano 643 Boulevard Saint-René O (Restaurant ID: 680)
-**Status:** ⚠️ CRITICAL ISSUE - All dishes in Uncategorized
-**Date:** 2025-11-03
-**Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu Reference:** https://gatineau.milanopizzeria.ca/?p=menu&lang=fr
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 680
-- Name: Milano
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 680;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 680 AND deleted_at IS NULL;
-```
-- Total dishes: 75
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 75 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 680 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 75 dishes are assigned to "Uncategorized" course. Need menu link to verify proper course structure.
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 680 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Analysis from https://gatineau.milanopizzeria.ca/?p=menu&lang=fr:**
-Live menu courses include (French menu):
-- Spécial Lundi & Mardi
-- Prix de Groupe
-- Spécial 2 Pizzas
-- Pizza et Poutine
-- Pizzas et Accompagnements
-- Offres Duo
-- Accompagnement (Appetizers)
-- Trempettes (Dips)
-- Poutine
-- Nos Poutines Végétaliennes (Vegan Poutines)
-- Les Sandwiches
-- Nos Nachos
-- Menu Pizza
-- Nos Pizza Végétalienne (Vegan Pizza)
-- Nos Pâtes (Pasta)
-- Dessert
-- Breuvage (Drinks)
-
-**Result:** ⚠️ CRITICAL ISSUE - All 75 dishes incorrectly assigned to "Uncategorized" course. Live menu has proper course structure with 17+ courses. Dishes need to be reassigned to correct courses. No modifiers found. Waiting for authorization to create proper courses and reassign dishes.
-
-#### Milano 6500 Russell Road (Restaurant ID: 837)
-**Status:** ⚠️ CRITICAL ISSUE - All dishes in Uncategorized, suspiciously low dish count
-**Date:** 2025-11-03
-**Address:** 6500 Russell Road ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu Reference:** https://carlsbadsprings.milanopizzeria.ca/?p=menu
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 837
-- Name: Milano
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 837;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 837 AND deleted_at IS NULL;
-```
-- Total dishes: 8 ⚠️⚠️⚠️ (SUSPICIOUSLY LOW - Most Milano locations have 30-75 dishes)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 8 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 837 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 8 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 837 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Analysis from https://carlsbadsprings.milanopizzeria.ca/?p=menu:**
-Live menu courses include:
-- Daily Specials
-- 2 Pizza and Two Free 591ml Drinks
-- Appetizers
-- Subs
-- Wings
-- Platters
-- Salads
-- Pizza
-- Pasta
-- VEGAN (Vegan Pizza, Vegan Poutine)
-- Greek Appetizers
-- Souvlaki Platters
-- Pita Wraps
-- Desserts
-- Drinks
-
-**CRITICAL DATA MIGRATION ISSUE:** Database shows only 8 dishes, but live menu has 15+ courses with dozens of dishes. This indicates a severe data migration problem - most menu items are missing from the database.
-
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 8 dishes in database vs. full menu with 15+ courses. All 8 dishes incorrectly assigned to "Uncategorized" course. This is NOT just a course assignment issue - most menu items are missing from database. Need to investigate data migration process. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
-
-#### Milano 6594 4th Line Rd (Restaurant ID: 819)
-**Status:** ⚠️ CRITICAL ISSUE - All dishes in Uncategorized, suspiciously low dish count
-**Date:** 2025-11-03
-**Address:** 6594 4th Line Rd ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu Reference:** https://mnorthgower.milanopizzeria.ca/ - **ONLINE ORDERING TEMPORARILY SUSPENDED**
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 819
-- Name: Milano
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 819;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 819 AND deleted_at IS NULL;
-```
-- Total dishes: 18 ⚠️⚠️ (SUSPICIOUSLY LOW - Most Milano locations have 30-75 dishes)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 18 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 819 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 18 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 819 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- Menu URL: https://mnorthgower.milanopizzeria.ca/
-- **Status:** Online ordering temporarily suspended - "We're sorry. Our online ordering service is temporarily suspended. Please call the restaurant at: (613) 489-1444"
-- **Impact:** Cannot verify menu structure or dish completeness via online menu. Need to contact restaurant or check alternative sources.
-
-**Result:** ⚠️ CRITICAL ISSUE - Only 18 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Online ordering is temporarily suspended, so cannot verify menu structure or missing dishes via web menu. May need to contact restaurant directly or wait for online ordering to resume. No modifiers found. Waiting for menu access or alternative verification method.
-
-#### Milano 777 Principale St (Restaurant ID: 89)
-**Status:** ⏸️ STATUS MISMATCH + ⚠️ CRITICAL ISSUE - Courses exist but all dishes in Uncategorized
-**Date:** 2025-11-03
-**Address:** 777 Principale St ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu Reference:** https://casselman.milanopizzeria.ca/?p=menu
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 89
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 89;
-```
-- Courses defined: 18 ✅ (Good - proper courses exist!)
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 89 AND deleted_at IS NULL;
-```
-- Total dishes: 41
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 41 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 89 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 18 ✅
-- **CRITICAL ISSUE:** All 41 dishes are assigned to "Uncategorized" course, but proper courses exist:
-  - Appetizers (0 dishes)
-  - Cold Subs (0 dishes)
-  - Chicken (0 dishes)
-  - Combos (0 dishes)
-  - Dessert (0 dishes)
-  - Donair and Shawarma (0 dishes)
-  - Drinks (0 dishes)
-  - Everyday Specials (0 dishes)
-  - Greek (0 dishes)
-  - Hot Subs (0 dishes)
-  - Italian (0 dishes)
-  - Mexican (0 dishes)
-  - Pita Pockets (0 dishes)
-  - Salads (0 dishes)
-  - Sandwiches (0 dishes)
-  - Seafood (0 dishes)
-  - Traditional Pizza (0 dishes)
-  - Uncategorized (41 dishes) ⚠️
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 89 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Analysis from https://casselman.milanopizzeria.ca/?p=menu:**
-Live menu courses include:
-- Bruyère DONATION
-- Tuesdays and Wednesdays (Shawarma Sandwich, Shawarma Platter, Southern Fried Chicken variants)
-- Features Of The Month
-- Mini Donuts Hot and Fresh Made
-- PIZZAS WITH FANTINO MONDELLO PANCETTA
-- 2 Pizza and 2 Free 591ml Drinks
-- Specials
-- Salads
-- Poutine and Fries
-- Chicken Wings
-- Southern Fried Chicken
-- Appetizers
-- Sandwiches
-- Platters
-- Submarines Sandwiches
-- Pizza with Free 591 Beverage
-- Pasta
-- Burgers
-- VEGAN (Vegan Pizza, Vegan Poutine)
-- Desserts
-- Drinks
-
-**Course Mapping Analysis:**
-Database has 18 courses, but they don't match live menu structure. Database courses (Appetizers, Cold Subs, Chicken, Combos, Dessert, Donair and Shawarma, Drinks, Everyday Specials, Greek, Hot Subs, Italian, Mexican, Pita Pockets, Salads, Sandwiches, Seafood, Traditional Pizza) vs. Live menu courses (Appetizers, Salads, Sandwiches, Platters, Submarines, Pizza, Pasta, Burgers, Chicken Wings, Southern Fried Chicken, Poutine, VEGAN, Desserts, Drinks, Specials).
-
-**Result:** ⚠️ CRITICAL ISSUE - Proper courses exist (18 courses) but ALL 41 dishes incorrectly assigned to "Uncategorized" instead of proper courses. Course structure in database doesn't fully match live menu structure. Need to reassign dishes to correct courses based on live menu. Status mismatch also needs correction (suspended → active). No modifiers found. Waiting for authorization to reassign dishes to proper courses.
-
-#### Milano 81 Madawaska Street (Restaurant ID: 586)
-**Status:** ⚠️ CRITICAL ISSUE - All dishes in Uncategorized, suspiciously low dish count
-**Date:** 2025-11-03
-**Address:** 81 Madawaska Street ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu Reference:** https://marnprior.milanopizzeria.ca/ - **ONLINE ORDERING TEMPORARILY UNAVAILABLE**
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 586
-- Name: Milano
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 586;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 586 AND deleted_at IS NULL;
-```
-- Total dishes: 14 ⚠️⚠️ (SUSPICIOUSLY LOW - Most Milano locations have 30-75 dishes)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 14 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 586 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 14 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 586 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- Menu URL: https://marnprior.milanopizzeria.ca/
-- **Status:** Online ordering temporarily unavailable - "We're sorry. Our online ordering service is temporarily unavailable. Please call the restaurant at: (613) 623-2233"
-- **Impact:** Cannot verify menu structure or dish completeness via online menu. Need to contact restaurant or check alternative sources.
-
-**Result:** ⚠️ CRITICAL ISSUE - Only 14 dishes (suspiciously low for Milano restaurant). All dishes incorrectly assigned to "Uncategorized" course. Online ordering is temporarily unavailable, so cannot verify menu structure or missing dishes via web menu. May need to contact restaurant directly or wait for online ordering to resume. No modifiers found. Waiting for menu access or alternative verification method.
-
-#### Milano 83 Mill Street (Restaurant ID: 821)
-**Status:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Extremely low dish count
-**Date:** 2025-11-03
-**Address:** 83 Mill Street ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu Reference:** https://mrussell.milanopizzeria.ca/menu
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 821
-- Name: Milano
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 821;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 821 AND deleted_at IS NULL;
-```
-- Total dishes: 5 ⚠️⚠️⚠️ (EXTREMELY LOW - Most Milano locations have 30-75 dishes)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 5 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 821 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 5 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 821 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Analysis from https://mrussell.milanopizzeria.ca/menu:**
-Live menu courses include:
-- Daily Specials (5 combo deals)
-- Traditional Pizza (15+ pizza varieties with multiple sizes)
-- Gourmet Pizza (6 gourmet pizza varieties)
-- Subs (13 sub varieties with 6" and 12" sizes)
-- Wings and Things (wings, cheese curds, fries, poutine, appetizers - 15+ items)
-- Sandwiches (8 sandwich varieties)
-- Salads (5 salad varieties with small/large sizes)
-- Side Orders (garlic bread, sauces, etc.)
-- Soft Drinks and Water (multiple beverage options)
-
-**CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Database shows only 5 dishes, but live menu has 9+ courses with 70+ individual dishes across all courses. This is a severe data migration problem - approximately 93%+ of menu items are missing from the database.
-
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 5 dishes in database vs. full menu with 9+ courses and 70+ dishes. This is NOT just a course assignment issue - 93%+ of menu items are missing from database. All 5 dishes incorrectly assigned to "Uncategorized" course. Need to investigate data migration process immediately. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
-
-#### Milano 876 Montreal Rd. (Restaurant ID: 31)
-**Status:** ⏸️ STATUS MISMATCH + ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Extremely low dish count
-**Date:** 2025-11-03
-**Address:** 876 Montreal Rd. ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu Reference:** https://montreal.milanopizzeria.ca/?p=menu
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 31
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 31;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 31 AND deleted_at IS NULL;
-```
-- Total dishes: 10 ⚠️⚠️ (SUSPICIOUSLY LOW - Most Milano locations have 30-75 dishes)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 10 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 31 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 10 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 31 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Analysis from https://montreal.milanopizzeria.ca/?p=menu:**
-Live menu courses include:
-- Bruyère DONATION
-- Feature Of The Month
-- Mini Donuts Hot and Fresh Made
-- PIZZAS WITH FANTINO MONDELLO PANCETTA
-- 2 Pizza Deal with Two 591ml Pop
-- Everyday Specials
-- Appetizers
-- Wings
-- Southern Fried Chicken
-- Salads
-- Subs
-- Donairs
-- Poutine
-- Pizza
-- Pasta
-- Burgers - Sandwiches - Platters
-- VEGAN (Vegan Pizza, Vegan Burgers, Vegan Poutine, Vegan Wraps)
-- Desserts
-- Drinks
-
-**CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Database shows only 10 dishes, but live menu has 19+ courses with dozens of dishes across all courses. This is a severe data migration problem - approximately 85%+ of menu items are missing from the database.
-
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 10 dishes in database vs. full menu with 19+ courses and 80+ dishes. This is NOT just a course assignment issue - 85%+ of menu items are missing from database. All 10 dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need to investigate data migration process immediately. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
-
-#### Milano 990 River Rd (Restaurant ID: 93)
-**Status:** ⏸️ STATUS MISMATCH + ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Extremely low dish count
-**Date:** 2025-11-03
-**Address:** 990 River Rd ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu Reference:** https://manotick.milanopizzeria.ca/?p=menu
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Milano%';
-```
-- Restaurant ID: 93
-- Name: Milano
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 93;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 93 AND deleted_at IS NULL;
-```
-- Total dishes: 8 ⚠️⚠️⚠️ (EXTREMELY LOW - Most Milano locations have 30-75 dishes)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 8 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 93 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 8 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 93 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Analysis from https://manotick.milanopizzeria.ca/?p=menu:**
-Live menu courses include:
-- Bruyère DONATION
-- Features Of The Month
-- Mini Donuts Hot and Fresh Made
-- PIZZAS WITH FANTINO MONDELLO PANCETTA
-- 2 Pizza and Two Free 591ml Drinks
-- Every Day Special
-- Appetizers
-- Chicken and Wings
-- Salads
-- Rice Bowls
-- Chicken Shawarma
-- Donairs
-- Subs
-- Poutine
-- Pizza
-- Gourmet Pizza
-- Pasta
-- Platters and Sandwiches
-- VEGAN (Vegan Pizza, Vegan Burgers, Vegan Poutine, Vegan Wraps)
-- Desserts
-- Drinks
-- Beer and Wine
-
-**CRITICAL DATA MIGRATION ISSUE CONFIRMED:** Database shows only 8 dishes, but live menu has 23+ courses with dozens of dishes across all courses. This is a severe data migration problem - approximately 90%+ of menu items are missing from the database.
-
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 8 dishes in database vs. full menu with 23+ courses and 80+ dishes. This is NOT just a course assignment issue - 90%+ of menu items are missing from database. All 8 dishes incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). Need to investigate data migration process immediately. No modifiers found. Waiting for authorization to investigate missing dishes and correct course structure.
-
-#### Mont Liban Bakery & Shawarma 351 Montreal Rd (Restaurant ID: 205)
-**Status:** ⏸️ STATUS MISMATCH + ⚠️ CRITICAL ISSUE - All dishes in Uncategorized, modifiers exist
-**Date:** 2025-11-03
-**Address:** 351 Montreal Rd ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** NEEDED (all dishes in Uncategorized, 29 modifiers on 15 dishes need verification)
-**⚠️ IMPORTANT:** Google Maps shows location as "PERMANENTLY CLOSED" - may explain suspended status
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Mont Liban%';
-```
-- Restaurant ID: 205
-- Name: Mont Liban Bakery & Shawarma
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 205;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 205 AND deleted_at IS NULL;
-```
-- Total dishes: 26
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 26 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 205 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 26 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 205 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 29
-- Dishes with modifiers: 15 (out of 26 dishes)
-- **Menu link NEEDED:** To verify modifier assignments match live menu (which dishes should have modifiers, which modifiers belong to which dishes)
-
-**⚠️ RESTAURANT STATUS NOTE:** Google Maps shows this location as "PERMANENTLY CLOSED". This may explain why database shows `suspended` status. However, restaurant appears on verified billing list (billed in last 4 months), suggesting it may have closed recently or status needs verification.
-
-**Result:** ⚠️ CRITICAL ISSUE - All 26 dishes incorrectly assigned to "Uncategorized" course. Modifiers exist (29 modifiers on 15 dishes) but need menu link to verify assignments are correct. Status discrepancy: Database shows `suspended`, verified billing list shows active (billed in last 4 months), but Google Maps shows "PERMANENTLY CLOSED". Need to verify actual restaurant status before proceeding with course corrections. Waiting for menu link and status clarification.
-
-#### Mozza Pizza Gatineau 425, boul La Vérendrye E (Restaurant ID: 35)
-**Status:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Extremely low dish count
-**Date:** 2025-11-03
-**Address:** 425, boul La Vérendrye E ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** https://mozzapizzagatineau.com/?p=menu&lang=fr ✅ (VERIFIED - Full menu available)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Mozza%';
-```
-- Restaurant ID: 35
-- Name: Mozza Pizza
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 35;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 35 AND deleted_at IS NULL;
-```
-- Total dishes: 3 ⚠️⚠️⚠️ (EXTREMELY LOW - Most pizza restaurants have 30+ dishes)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 3 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 35 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 3 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 35 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- Menu URL: https://mozzapizzagatineau.com/?p=menu&lang=fr
-- **Status:** ✅ Active online ordering menu available
-- **Course Structure Found on Live Menu:**
-  - Spécial Petites (2 items)
-  - Spécial Moyennes (3 items)
-  - Spécial Grandes (3 items)
-  - Spécial X-Grandes (3 items)
-  - Pizzas (16+ pizza types with multiple sizes each = 60+ items)
-  - Entrées (10+ items: frites, rouleaux, nachos, etc.)
-  - Salades (2 items)
-  - Wraps (3 items)
-  - Pâtes Savoureuses (1 item: Lasagne)
-  - Ailes de Poulet (1 item with 3 sizes)
-  - Doigts De Poulet (1 item)
-  - Sandwichs Roulés Chauds (1 item)
-  - Sous-Marin Chaud (6 items)
-  - Desserts (2 items)
-  - Liqueurs (14+ beverage items)
-- **Estimated Total Items:** 100+ dishes on live menu
-- **Database Has:** Only 3 dishes (97%+ of menu missing)
-
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Live menu has 100+ items across 15+ courses, but database only contains 3 dishes. This represents a catastrophic data migration failure - approximately 97% of the menu is missing from the database. The 3 existing dishes are incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). This restaurant requires a complete menu data re-migration before course assignment can proceed. No modifiers found in database (live menu may have modifiers for pizza sizes, etc.). **URGENT: Data migration team must investigate and re-migrate full menu data.**
-
-#### Mozza Pizza Hull 214 Boul de la Cité-des-Jeunes (Restaurant ID: 644)
-**Status:** ⚠️ CRITICAL ISSUE - Suspiciously low dish count, all dishes in Uncategorized
-**Date:** 2025-11-03
-**Address:** 214 Boul de la Cité-des-Jeunes ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** https://mozzapizzahull.com/?p=menu&lang=fr ✅ (VERIFIED - Full menu available)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Mozza%';
-```
-- Restaurant ID: 644
-- Name: Mozza Pizza Hull
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 644;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 644 AND deleted_at IS NULL;
-```
-- Total dishes: 15 ⚠️⚠️ (SUSPICIOUSLY LOW - Most pizza restaurants have 30-100+ dishes, Mozza Pizza Gatineau has 100+ items)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 15 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 644 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 15 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 644 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- Menu URL: https://mozzapizzahull.com/?p=menu&lang=fr
-- **Status:** ✅ Active online ordering menu available
-- **Course Structure Found on Live Menu:**
-  - Mozza Box (8 items)
-  - Spécial Petites (3 items)
-  - Spécial Moyennes (3 items)
-  - Spécial Grandes (3 items)
-  - Spécial X-Grandes (3 items)
-  - Trio (3 items)
-  - Deals (8 items)
-  - Pizzas (16+ pizza types with multiple sizes each = 60+ items)
-  - Entrées (10+ items: frites, rouleaux, nachos, burgers, etc.)
-  - Salades (2 items)
-  - Wraps (3 items)
-  - Pâtes Savoureuses (2 items: Lasagne, Spaghetti)
-  - Ailes de Poulet (1 item with 3 sizes)
-  - Doigts De Poulet (1 item)
-  - Sandwichs Roulés Chauds (2 items)
-  - Sous-Marin Chaud (8 items)
-  - Desserts (11+ items - multiple varieties including Gâteau au Fromage with 7 flavors, Brownies, Créme Brulé, Tiramisu, Soufflé au Chocolat)
-  - Liqueurs (14+ beverage items)
-- **Estimated Total Items:** 100+ dishes on live menu
-- **Database Has:** Only 15 dishes (85%+ of menu missing)
-
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Live menu has 100+ items across 18+ courses, but database only contains 15 dishes. This represents a severe data migration failure - approximately 85%+ of the menu is missing from the database. The 15 existing dishes are incorrectly assigned to "Uncategorized" course. This restaurant requires a complete menu data re-migration before course assignment can proceed. No modifiers found in database (live menu may have modifiers for pizza sizes, dessert flavors, etc.). **URGENT: Data migration team must investigate and re-migrate full menu data.**
-
-#### Mr Mozzarella - Nepean 1433 Woodroffe Ave (Restaurant ID: 47)
-**Status:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Only 1 dish, status mismatch
-**Date:** 2025-11-03
-**Address:** 1433 Woodroffe Ave ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** https://mmrmozzarellanepean.menu.ca/menu ✅ (VERIFIED - Full menu available)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Mozzarella%';
-```
-- Restaurant ID: 47
-- Name: Mr Mozzarella - Nepean
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 47;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 47 AND deleted_at IS NULL;
-```
-- Total dishes: 1 ⚠️⚠️⚠️ (EXTREMELY LOW - Pizza restaurants typically have 30-100+ dishes)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 1 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 47 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** The single dish is assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 47 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- Menu URL: https://mmrmozzarellanepean.menu.ca/menu
-- **Status:** ✅ Active online ordering menu available
-- **Course Structure Found on Live Menu:**
-  - Party Specials (2 items)
-  - Deals (1 item)
-  - Pizza and Wings Combo (4 items)
-  - Mr Mozzarella Signature Pizzas (25+ pizza types with 4 sizes each = 100+ items)
-  - Build Your Own Pizza (customizable with multiple sizes)
-  - Wings (10+ flavors with multiple sizes = 30+ items)
-  - Appetizers (15+ items: wings, chicken fingers, fries, cheese curds, mushrooms, cauliflower wings, mozzarella sticks, mac n cheese wedges, jalapeno poppers, pickles, garlic bread varieties, shrimp, nachos)
-  - Poutine (6 varieties with sizes = 12+ items)
-  - Baskets (4 items)
-  - Italian Dishes (4 items with sizes = 8+ items)
-  - Fresh Salads (3 types with sizes and protein options = 9+ items)
-  - Footlongs (7 sub varieties)
-  - Make A Platter (7 customizable options)
-  - Desserts (3 items)
-  - Drinks (20+ beverage items with multiple sizes)
-- **Estimated Total Items:** 200+ dishes on live menu (when accounting for all sizes and variations)
-- **Database Has:** Only 1 dish (99.5%+ of menu missing)
-
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Live menu has 200+ items across 14+ courses, but database only contains 1 dish. This represents a catastrophic data migration failure - approximately 99.5%+ of the menu is missing from the database. The single dish is incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). This restaurant requires a complete menu data re-migration before course assignment can proceed. No modifiers found in database (live menu has extensive modifiers for pizza sizes, wing flavors, sauce options, etc.). **URGENT: Data migration team must investigate and re-migrate full menu data immediately.**
-
-#### Mykonos Greek Grill 2600 County Rd 43 (Restaurant ID: 846)
-**Status:** ⚠️ ACTION REQUIRED - No courses defined, all dishes need assignment
-**Date:** 2025-11-03
-**Address:** 2600 County Rd 43 ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** https://kemptville.mykonosgreekgrill.ca/?p=menu ✅ (VERIFIED - Full menu available)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Mykonos%';
-```
-- Restaurant ID: 846
-- Name: Mykonos Greek Grill
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 846;
-```
-- Courses defined: 0 ⚠️⚠️⚠️ **CRITICAL: No courses defined**
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 846 AND deleted_at IS NULL;
-```
-- Total dishes: 42 ✅
-- Dishes with NULL course_id: 42 (100%) ⚠️⚠️⚠️ **ALL dishes need course assignment**
-- Dishes with course_id: 0 (0%) ⚠️
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 846 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 0 ⚠️⚠️⚠️
-- **CRITICAL ISSUE:** No courses exist - must create courses before assigning dishes
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 846 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- Menu URL: https://kemptville.mykonosgreekgrill.ca/?p=menu
-- **Status:** ✅ Active online ordering menu available
-- **Course Structure Found on Live Menu:**
-  - Mykonos Souvlaki Platter (11 items: Chicken, Beef, Lamb, Shrimp, Calamari, Falafel, Greek Veggie, Party Platters)
-  - Pita Wraps (6 items: Chicken, Beef, Gyro Beef, Lamb, Vegetarian, Falafel)
-  - Salads (2 items with sizes: Traditional Greek Salad, Mykonos Salad)
-  - Appetizers (9 items: Tzatziki with Bread, Hummus with Bread, Crispy Fried Calamari, Feta Cheese with Olives, Greek Potatoes, Authentic Greek Ryzi-Rice, Spanakopita, Dolmades, Falafel with Hummus)
-  - Extras (6 items: Pita Bread, Tzatziki, Hummus, Chicken/Beef/Lamb Skewers)
-  - Desserts (3 items: Baklava, 6 Mini Donuts, 12 Mini Donuts - with modifier options for donut flavors)
-  - Drinks (6 beverage items)
-- **Total Items:** 42 dishes (matches database count ✅)
-- **Modifiers Found:** Mini Donuts have modifier options (Icing Sugar, Oreo, Cinnamon Sugar)
-
-**Result:** ⚠️ ACTION REQUIRED - Restaurant has 42 dishes but **NO courses defined**. All 42 dishes have NULL course_id and need course assignment. Must create 7 courses based on live menu structure: (1) Mykonos Souvlaki Platter, (2) Pita Wraps, (3) Salads, (4) Appetizers, (5) Extras, (6) Desserts, (7) Drinks. Then assign all 42 dishes to appropriate courses. Modifiers exist for Mini Donuts (flavor options) - need to verify these are correctly assigned in database. Waiting for authorization to create courses and assign dishes.
-
-#### Mykonos Greek Grill 6594 Fourth Line Rd (Restaurant ID: 845)
-**Status:** ⚠️ ACTION REQUIRED - No courses defined, all dishes need assignment
-**Date:** 2025-11-03
-**Address:** 6594 Fourth Line Rd ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** https://northgower.mykonosgreekgrill.ca/?p=menu ✅ (VERIFIED - Full menu available)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Mykonos%';
-```
-- Restaurant ID: 845
-- Name: Mykonos Greek Grill
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 845;
-```
-- Courses defined: 0 ⚠️⚠️⚠️ **CRITICAL: No courses defined**
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 845 AND deleted_at IS NULL;
-```
-- Total dishes: 41 ✅
-- Dishes with NULL course_id: 41 (100%) ⚠️⚠️⚠️ **ALL dishes need course assignment**
-- Dishes with course_id: 0 (0%) ⚠️
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 845 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 0 ⚠️⚠️⚠️
-- **CRITICAL ISSUE:** No courses exist - must create courses before assigning dishes
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 845 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- Menu URL: https://northgower.mykonosgreekgrill.ca/?p=menu
-- **Status:** ✅ Active online ordering menu available
-- **Course Structure Found on Live Menu:**
-  - Mykonos Souvlaki Platter (10 items: Chicken, Beef, Lamb, Shrimp, Calamari, Falafel, Greek Veggie, Party Platters)
-  - Pita Wraps (6 items: Chicken, Beef, Gyro Beef, Lamb, Vegetarian, Falafel)
-  - Salads (2 items with sizes: Traditional Greek Salad, Mykonos Salad)
-  - Appetizers (9 items: Tzatziki with Bread, Hummus with Bread, Crispy Fried Calamari, Feta Cheese with Olives, Greek Potatoes, Authentic Greek Ryzi-Rice, Spanakopita, Dolmades, Falafel with Hummus)
-  - Extras (6 items: Pita Bread, Tzatziki, Hummus, Chicken/Beef/Lamb Skewers)
-  - Desserts (3 items: Baklava, 6 Mini Donuts, 12 Mini Donuts - with modifier options for donut flavors)
-  - Drinks (5 beverage items)
-- **Total Items:** 41 dishes (matches database count ✅)
-- **Modifiers Found:** Mini Donuts have modifier options (Icing Sugar, Oreo, Cinnamon Sugar)
-
-**Result:** ⚠️ ACTION REQUIRED - Restaurant has 41 dishes but **NO courses defined**. All 41 dishes have NULL course_id and need course assignment. Must create 7 courses based on live menu structure: (1) Mykonos Souvlaki Platter, (2) Pita Wraps, (3) Salads, (4) Appetizers, (5) Extras, (6) Desserts, (7) Drinks. Then assign all 41 dishes to appropriate courses. Modifiers exist for Mini Donuts (flavor options) - need to verify these are correctly assigned in database. Waiting for authorization to create courses and assign dishes.
-
-#### Nachos Loco Gatineau 643 Boulevard Saint-René O (Restaurant ID: 801)
-**Status:** ⚠️ CRITICAL ISSUE - Suspiciously low dish count, all dishes in Uncategorized
-**Date:** 2025-11-03
-**Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** NEEDED (only 6 dishes - EXTREMELY LOW, all in Uncategorized, need to verify missing dishes and course structure)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Nachos%';
-```
-- Restaurant ID: 801
-- Name: Nachos Loco Gatineau
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 801;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 801 AND deleted_at IS NULL;
-```
-- Total dishes: 6 ⚠️⚠️⚠️ (EXTREMELY LOW - Most restaurants have 20+ dishes)
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 6 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 801 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 6 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 801 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- **Status:** ❌ NO MENU FOUND - Unable to locate online menu for this location
-- **Impact:** Cannot verify dish completeness or course structure without menu reference
-- **Possible Reasons:** Restaurant may have closed, switched platforms, or menu not available online
-
-**Result:** ⚠️ CRITICAL ISSUE - Only 6 dishes (EXTREMELY LOW for restaurant). All dishes incorrectly assigned to "Uncategorized" course. **NO MENU FOUND** - Unable to verify if this is a data migration issue (missing dishes) or if restaurant truly has limited menu. Without menu reference, cannot determine proper course structure. Status shows `active` in database and verified billing list, but no online menu available. May need to contact restaurant directly or check alternative sources. No modifiers found. **ACTION REQUIRED:** Verify restaurant status and menu availability before proceeding with course assignment.
-
-#### Nachos Loco Hull 455 Boulevard Riel (Restaurant ID: 790)
-**Status:** ⚠️ CRITICAL ISSUE - All dishes in Uncategorized
-**Date:** 2025-11-03
-**Address:** 455 Boulevard Riel ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** NEEDED (23 dishes all in Uncategorized, need to verify course structure and assign dishes)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Nachos%';
-```
-- Restaurant ID: 790
-- Name: Nachos Loco Hull
-- Status: active ✅ (matches verified billing list)
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 790;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 790 AND deleted_at IS NULL;
-```
-- Total dishes: 23 ✅
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 23 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 790 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 23 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 790 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Result:** ⚠️ CRITICAL ISSUE - All 23 dishes incorrectly assigned to "Uncategorized" course. Need menu link to verify proper course structure and reassign dishes to appropriate courses. No modifiers found. Waiting for menu link to proceed with course assignment.
-
-#### Napolis 81 Richmond Rd (Restaurant ID: 515)
-**Status:** ⚠️ CRITICAL ISSUE - Status mismatch, all dishes in Uncategorized
-**Date:** 2025-11-03
-**Address:** 81 Richmond Rd ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** https://m.napoliswestboro.ca/menu ✅ (VERIFIED - Full menu available)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Napolis%';
-```
-- Restaurant ID: 515
-- Name: Napolis
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 515;
-```
-- Courses defined: 1 ⚠️
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 515 AND deleted_at IS NULL;
-```
-- Total dishes: 26 ✅
-- Dishes with NULL course_id: 0 (0%) ✅
-- Dishes with course_id: 26 (100%) ✅
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 515 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 1 ⚠️
-- Course name: "Uncategorized"
-- **CRITICAL ISSUE:** All 26 dishes are assigned to "Uncategorized" course
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 515 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- Menu URL: https://m.napoliswestboro.ca/menu
-- **Status:** ✅ Active online ordering menu available
-- **Course Structure Found on Live Menu:**
-  - Wine (3 items)
-  - Specials (1 item with sizes)
-  - Pizza (4 items: Plain, One Item, Two Items, Three Items - all with sizes)
-  - Famous Combos (11 pizza types with sizes = 33+ items)
-  - Vegetarian Famous Combos (5 pizza types with sizes = 15+ items)
-  - Submarines (7 items)
-  - Salads (6 items with sizes = 12+ items)
-  - Homemade Pastas (18 items)
-  - Fettucine (4 items)
-  - Chicken Platters (3 items)
-  - Hot Sandwiches (3 items)
-  - Platters (4 items with modifiers)
-  - Miscellaneous (13 items with sizes/modifiers)
-  - Drinks (4 items)
-- **Estimated Total Items:** 100+ dishes on live menu (when accounting for all sizes and variations)
-- **Database Has:** Only 26 dishes (75%+ of menu missing)
-
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - Live menu has 100+ items across 14+ courses, but database only contains 26 dishes. This represents a severe data migration failure - approximately 75%+ of the menu is missing from the database. The 26 existing dishes are incorrectly assigned to "Uncategorized" course. Status mismatch also needs correction (suspended → active). This restaurant requires a complete menu data re-migration before course assignment can proceed. No modifiers found in database (live menu has modifiers for sizes, upgrades, etc.). **URGENT: Data migration team must investigate and re-migrate full menu data.**
-
-#### New Hong Kong 1433 Woodroffe Ave (Restaurant ID: 502)
-**Status:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - No dishes, no courses, status mismatch
-**Date:** 2025-11-03
-**Address:** 1433 Woodroffe Ave ✅ (matches verified list)
-**Assignee:** Brian (B)
-**Menu link:** https://newhongkongchinese.ca/?p=menu ✅ (VERIFIED - Full menu available)
-
-**Step 1: Restaurant Status**
-```sql
-SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%New Hong Kong%';
-```
-- Restaurant ID: 502
-- Name: New Hong Kong
-- Status: suspended ⚠️ (does NOT match verified billing list)
-- **Issue:** Listed in verified billing list as **active** (billed in last 4 months) but database shows `suspended`
-
-**Step 2: Check Courses**
-```sql
-SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 502;
-```
-- Courses defined: 0 ⚠️⚠️⚠️ **CRITICAL: No courses defined**
-
-**Step 3: Check Dishes**
-```sql
-SELECT
-    COUNT(*) as total_dishes,
-    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
-    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
-FROM menuca_v3.dishes
-WHERE restaurant_id = 502 AND deleted_at IS NULL;
-```
-- Total dishes: 0 ⚠️⚠️⚠️ **CRITICAL: No dishes in database**
-
-**Step 4: Check Course Structure**
-```sql
-SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 502 GROUP BY c.id, c.name ORDER BY c.display_order;
-```
-- Courses defined: 0 ⚠️⚠️⚠️
-- **CRITICAL ISSUE:** No courses and no dishes exist
-
-**Step 5: Check Modifiers**
-```sql
-SELECT 
-    COUNT(DISTINCT dm.id) as total_modifiers,
-    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
-FROM menuca_v3.dish_modifiers dm
-WHERE dm.restaurant_id = 502 AND dm.deleted_at IS NULL;
-```
-- Total modifiers: 0
-- Dishes with modifiers: 0
-
-**Menu Status Check:**
-- Menu URL: https://newhongkongchinese.ca/?p=menu
-- **Status:** ✅ Active online ordering menu available
-- **Course Structure Found on Live Menu:**
-  - Chef's Special (13 items)
-  - Combination Plates (12 items)
-  - Family Dinners (8 items)
-  - Appetizers (9+ items with sizes)
-  - Soups (multiple items)
-  - Fried Rice (multiple items)
-  - Oriental Style Rice (multiple items)
-  - Chop Suey (multiple items)
-  - Chicken (multiple items)
-  - Beef (multiple items)
-  - Pork (multiple items)
-  - Vegetarian Dishes (multiple items)
-  - Noodles (80+ items including various styles)
-  - Hot and Spicy (Mild) (13+ items)
-  - Miscellaneous (multiple items)
-  - Seafood (multiple items)
-  - Egg Foo Young (7 items)
-  - Beverages (5 items)
-- **Estimated Total Items:** 150+ dishes on live menu
-- **Database Has:** 0 dishes (100% of menu missing)
-
-**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - **Restaurant was mis-marked as `suspended` in database, preventing menu data migration**. Live menu has 150+ items across 18+ courses, but database contains 0 dishes. Restaurant is listed as **active** in verified billing list (billed in last 4 months) and has a fully functional online menu. Status mismatch needs correction (suspended → active). **Root Cause:** Restaurant was incorrectly marked as suspended during migration, so menu data was never imported. **URGENT:** (1) Update status from `suspended` to `active`, (2) Complete menu data migration required - 150+ dishes need to be imported, (3) Create 18+ courses based on live menu structure, (4) Assign all dishes to appropriate courses. No courses, no dishes, no modifiers found. **URGENT: Correct status and complete menu data migration immediately.**
-
----
-
-### Restaurants with No Courses Defined
-
-#### Aahar The Taste of India (Restaurant ID: 561)
-**Status:** ⚠️ SKIPPED - No courses defined
-**Date:** 2025-11-03
-
-**Issue:** Restaurant has 108 dishes but 0 courses defined in the system.
-
-**Action Taken:** None - cannot assign course_id without courses existing.
-
-**Resolution Needed:**
-1. Create appropriate courses for this Indian restaurant (e.g., Appetizers, Curries, Tandoori, Breads, Desserts, Drinks)
-2. Then re-run course assignment process
-
-#### River Pizza (Restaurant ID: 952)
-**Status:** ⚠️ NEEDS WORK - 71 dishes, 12 courses defined, 100% unassigned
-**Date:** 2025-11-03
-**Address:** Verified active in billing list
-
-**Details:**
-- Total dishes: 71
-- Dishes with course_id: 0 (0%) ❌
-- Dishes with NULL course_id: 71 (100%) ⚠️
-- Courses defined: 12
-- Status: active ✅
-
-**Courses Available:**
-- Specials
-- Pizzas
-- Twin Pizzas
-- Appetizers
-- Big Salads
-- Chicken Wings
-- Submarines
-- Canadian Food
-- Donairs
-- Pasta
-- Desserts
-- Drinks
-
-**Action Required:** Assign all 71 dishes to appropriate courses from the 12 available courses.
 
 #### Amicci Pizza (Restaurant ID: 735)
 **Status:** ⚠️ SKIPPED - No courses defined
@@ -2399,14 +586,9 @@ WHERE dm.restaurant_id = 502 AND dm.deleted_at IS NULL;
 
 ---
 
-### Restaurants with No Dishes
+
 
 ### Restaurants Not Found in Database
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
 
 #### Chances R' East (Restaurant ID: Unknown)
@@ -2428,12 +610,6 @@ WHERE dm.restaurant_id = 502 AND dm.deleted_at IS NULL;
 1. Verify restaurant name spelling with business owner
 2. Check if restaurant exists under completely different name
 3. If restaurant should exist, may need to be created from scratch
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
 
 
 #### Chances R' West (Restaurant ID: NOT FOUND)
@@ -2463,144 +639,6 @@ WHERE dm.restaurant_id = 502 AND dm.deleted_at IS NULL;
 - Create restaurant entry with proper menu structure
 
 **Result:** ❌ Cannot proceed with audit - Restaurant not found in database.
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-#### Wok Bistro Noodles Bar and Grill (TEST) (1615 Orleans Blvd.)
-**Status:** 🚫 REMOVED FROM ACTIVE LIST | ❌ NOT FOUND
-**Date:** 2025-11-03
-
-**Issue:** Restaurant listed in Restaurants-active.md but does not exist in menuca_v3.restaurants table.
-- Note: Name includes "(TEST)" - may be a test restaurant that was never migrated
-- Searched for variations: "Wok Bistro", "Wok", "Bistro" - no matches found
-- Found other "Wok" restaurants but none match this name/address
-
-**Action Taken:** None - restaurant does not exist in database.
-
-**Resolution Needed:**
-1. Verify if this test restaurant should be in database
-2. Check if name differs in database vs active list
-3. Determine if test restaurant was intentionally excluded from migration
-
----
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-### ⏸️ Restaurants with Suspended/Pending Status
-
-#### Vanier Pizza & Subs (Restaurant ID: 62)
-**Status:** ⚠️ LEFT PLATFORM - On RestaurantPlus.net | ⚠️ SKIP COURSE ASSIGNMENT
-**Date:** 2025-11-03
-
-**Issue Found:**
-- Listed in Restaurants-active.md as active
-- Database status: suspended
-- **SUSPICIOUS:** Only 1 dish in database (impossible for a pizza & subs restaurant)
-
-**Current Database Status:**
-- Total dishes: 1
-- Courses defined: 1
-- Dishes with course_id: 1 (100%) ✅
-- Status: suspended
-
-**⚠️ PLATFORM NOTE:** Restaurant has LEFT our platform and is now using **RestaurantPlus.net/OlivePOS** (CONFIRMED). The suspended status and single dish reflect that they left mid-migration. Restaurant should be removed from active list.
-
-**Action Taken:** SKIP - Restaurant no longer on our platform. Do not proceed with course assignment.
-
----
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-#### Wow Sushi 50, rue Rachel E (Restaurant ID: 356)
-**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ CRITICAL DATA ISSUE
-**Date:** 2025-11-03
-
-**Issue Found:**
-- Listed in Restaurants-active.md as **active** (user-provided list - should be active)
-- **Database status: suspended** (needs correction to match active list)
-- **CRITICAL:** 0 dishes in database (impossible for a sushi restaurant)
-
-**Current Database Status:**
-- Total dishes: 0
-- Courses defined: 0
-- Status: suspended
-
-**🚨 CRITICAL DATA ISSUE:**
-A sushi restaurant should have dozens of dishes (sushi rolls, nigiri, sashimi, appetizers, soups, bento boxes, etc.). Having 0 dishes indicates the menu data was never migrated or was deleted.
-
-**Resolution Needed:**
-1. Verify if restaurant should be active (likely yes, since listed in active list)
-2. **URGENT:** Menu migration required - restaurant has no menu data
-3. Cannot proceed with course assignment until menu is migrated
-
----
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-**🚫 REMOVED FROM ACTIVE LIST** - Restaurant not in verified billing list (last 4 months). Course assignment work can be skipped.
-
-
-### ✅ Restaurants with Status Corrected
-
-#### Xtreme Pizza 125 Preston St (Restaurant ID: 38)
-**Status:** ✅ STATUS CORRECTED - Was suspended, now active | ⚠️ CRITICAL DATA ISSUE
-**Date:** 2025-11-03
-
-**Issue Found:**
-- Listed in Restaurants-active.md as active
-- Database status was: suspended
-- Restaurant name: "Preston Pizza (CHANGED TO XTREME PIZZA)"
-- Status mismatch identified
-
-**Action Taken:**
-- Updated restaurant status from 'suspended' to 'active'
-- Verified update successful
-
-**🚨 CRITICAL DATA ISSUE DISCOVERED:**
-- **Database has only 6 dishes** (Club, Ham and Cheese, Pepperoni and Cheese, Preston Pizza's Special, Steak, Steak and Pepperoni)
-- **Actual menu** (https://mottawa.xtremepizzaottawa.com/menu) shows a full-service pizza restaurant with **15+ categories and 100+ dishes**:
-  - Appetizers (Xtreme Platter, Cheese Sticks, Jalapeno Slammers, Zucchini, Garlic Bread, Burgers, Nachos, Fries, Onion Rings)
-  - Poutine (Regular, Italian, Canadian, Donair)
-  - Wings (Chicken Wings, Boneless Dippers - multiple sizes)
-  - Pizza (Plain, 1-3 Toppings, Hawaiian, Canadian, Combination, Meat Lovers, House Special, Vegetarian, Chicken, Donair, Steak, Greek, Italian, Hot Spicy, New York Style, Xtreme Supreme - multiple sizes)
-  - Donairs and Shawarma (Sandwiches, Platters, Deals)
-  - Hot Subs (8+ varieties)
-  - Cold Subs (4 varieties)
-  - Platters (10+ varieties)
-  - Salads (Garden, Greek, Caesar, Chicken Caesar, Xtreme)
-  - Pasta (Spaghetti, Lasagna, Chicken Parmigiana)
-  - Twin Pizzas (Deals)
-  - Xtreme Pizza Deals (3 deals)
-  - Pasta Deals
-  - Xtreme Sub Deal
-  - Desserts (Cheesecakes)
-  - Drinks (20+ varieties)
-
-**Current Database Status:**
-- Total dishes in database: 6
-- Courses defined: 1 (Uncategorized)
-- Dishes with course_id: 6 (100%) ✅
-- **MASSIVE DATA GAP:** ~95% of menu items missing from database
-
-**Result:** Status corrected to active. **CRITICAL:** Menu data migration incomplete - restaurant needs full menu migration before course assignment can proceed. This is a data migration issue, not a course assignment issue.
-
 ---
 
 ### Restaurants with Uncategorized course:
@@ -3496,19 +1534,6 @@ Japanese/Korean fusion restaurant with mix of:
 
 **Action Required:** Create courses and assign 154 dishes
 
-#### Aylmer BBQ (Restaurant ID: 69)
-**Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
-**Date:** 2025-11-03
-**Address:** 134, rue Principale ✅ (matches verified list)
-
-**Details:**
-- Total dishes: 9 ⚠️⚠️ (SUSPICIOUSLY LOW)
-- Dishes with course_id: 9 (100%) ✅
-- Courses defined: 1 (Uncategorized)
-- Status: active ✅
-
-**⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 9 dishes is very low for a BBQ restaurant. Menu migration issue likely.
-
 #### Beneci Pizza (Restaurant ID: 241)
 **Status:** ⚠️ SKIPPED - Already assigned | ⚠️ SUSPICIOUSLY LOW DISH COUNT
 **Date:** 2025-11-03
@@ -3910,6 +1935,48 @@ Japanese/Korean fusion restaurant with mix of:
 
 **⚠️ SUSPICIOUSLY LOW DISH COUNT:** Only 1 dish is impossible for a restaurant. Menu migration issue.
 
+#### Xtreme Pizza 125 Preston St (Restaurant ID: 38)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active | ⚠️ CRITICAL DATA ISSUE
+**Date:** 2025-11-03
+
+**Issue Found:**
+- Listed in Restaurants-active.md as active
+- Database status was: suspended
+- Restaurant name: "Preston Pizza (CHANGED TO XTREME PIZZA)"
+- Status mismatch identified
+
+**Action Taken:**
+- Updated restaurant status from 'suspended' to 'active'
+- Verified update successful
+
+**🚨 CRITICAL DATA ISSUE DISCOVERED:**
+- **Database has only 6 dishes** (Club, Ham and Cheese, Pepperoni and Cheese, Preston Pizza's Special, Steak, Steak and Pepperoni)
+- **Actual menu** (https://mottawa.xtremepizzaottawa.com/menu) shows a full-service pizza restaurant with **15+ categories and 100+ dishes**:
+  - Appetizers (Xtreme Platter, Cheese Sticks, Jalapeno Slammers, Zucchini, Garlic Bread, Burgers, Nachos, Fries, Onion Rings)
+  - Poutine (Regular, Italian, Canadian, Donair)
+  - Wings (Chicken Wings, Boneless Dippers - multiple sizes)
+  - Pizza (Plain, 1-3 Toppings, Hawaiian, Canadian, Combination, Meat Lovers, House Special, Vegetarian, Chicken, Donair, Steak, Greek, Italian, Hot Spicy, New York Style, Xtreme Supreme - multiple sizes)
+  - Donairs and Shawarma (Sandwiches, Platters, Deals)
+  - Hot Subs (8+ varieties)
+  - Cold Subs (4 varieties)
+  - Platters (10+ varieties)
+  - Salads (Garden, Greek, Caesar, Chicken Caesar, Xtreme)
+  - Pasta (Spaghetti, Lasagna, Chicken Parmigiana)
+  - Twin Pizzas (Deals)
+  - Xtreme Pizza Deals (3 deals)
+  - Pasta Deals
+  - Xtreme Sub Deal
+  - Desserts (Cheesecakes)
+  - Drinks (20+ varieties)
+
+**Current Database Status:**
+- Total dishes in database: 6
+- Courses defined: 1 (Uncategorized)
+- Dishes with course_id: 6 (100%) ✅
+- **MASSIVE DATA GAP:** ~95% of menu items missing from database
+
+**Result:** Status corrected to active. **CRITICAL:** Menu data migration incomplete - restaurant needs full menu migration before course assignment can proceed. This is a data migration issue, not a course assignment issue.
+
 ### JN Pizza (Restaurant ID: 328)
 **Status:** ⚠️ STATUS CORRECTION NEEDED - Listed as active but DB shows suspended | ⚠️ SUSPICIOUSLY LOW DISH COUNT | ⚠️ MIGRATED TO OLIVEPOS/RESTAURANTPLUS
 **Date:** 2025-11-03
@@ -4089,6 +2156,415 @@ Actual menu structure from online shows ~15 categories that should be created:
 1. Create proper courses based on online menu structure
 2. Re-assign dishes from "Uncategorized" to appropriate courses
 3. Verify all dishes are properly categorized
+
+#### Milano 876 Montreal Rd. (Restaurant ID: 31)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 876 Montreal Rd. ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 10
+- Courses defined: 1 (Uncategorized only)
+- Dishes with course_id: 10 (100%) ✅
+- Status: active ✅ (corrected from suspended)
+
+**Course Distribution:**
+- Uncategorized: 10 dishes
+
+**Notes:**
+- Very limited menu data (only 10 dishes) - suspiciously low for a Milano location (most have 30-75 dishes)
+- May require menu review/expansion
+
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Mozza Pizza Gatineau 425, boul La Vérendrye E (Restaurant ID: 35)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 425, boul La Vérendrye E ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 3
+- Courses defined: 1 (Uncategorized only)
+- Dishes with course_id: 3 (100%) ✅
+- Status: active ✅ (corrected from suspended)
+
+**Course Distribution:**
+- Uncategorized: 3 dishes
+
+**Notes:**
+- CRITICAL: Extremely limited menu data (only 3 dishes) - catastrophic for a Mozza Pizza location
+- Live menu shows 100+ items across 15+ courses
+- Approximately 97% of menu missing from database
+- This represents a severe data migration failure requiring urgent attention
+
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course. However, restaurant requires complete menu data re-migration.
+
+#### Mr Mozzarella - Nepean 1433 Woodroffe Ave (Restaurant ID: 47)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 1433 Woodroffe Ave ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 1
+- Courses defined: 1 (Uncategorized only)
+- Dishes with course_id: 1 (100%) ✅
+- Status: active ✅ (corrected from suspended)
+
+**Course Distribution:**
+- Uncategorized: 1 dish
+
+**Notes:**
+- CRITICAL: Catastrophically low menu data (only 1 dish) - severe for Mr Mozzarella location
+- Live menu shows 200+ items across 14+ courses
+- Approximately 99.5%+ of menu missing from database
+- This represents a catastrophic data migration failure requiring immediate attention
+
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course. However, restaurant requires complete menu data re-migration urgently.
+
+#### Milano 3848 Innes Rd (Restaurant ID: 57)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 3848 Innes Rd ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 17
+- Courses defined: 1 (Uncategorized only)
+- Dishes with course_id: 17 (100%) ✅
+- Status: active ✅ (corrected from suspended)
+
+**Course Distribution:**
+- Uncategorized: 17 dishes
+
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 385 Tompkins Ave (Restaurant ID: 59)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 385 Tompkins Ave ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 13
+- Courses defined: 1 (Uncategorized only)
+- Dishes with course_id: 13 (100%) ✅
+- Status: active ✅ (corrected from suspended)
+
+**Course Distribution:**
+- Uncategorized: 13 dishes
+
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 3796 Champlain Rd (Restaurant ID: 90)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 3796 Champlain Rd ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 11
+- Courses defined: 1 (Uncategorized only - 18 incorrect Chinese restaurant courses were deleted)
+- Dishes with course_id: 11 (100%) ✅
+- Status: active ✅ (corrected from suspended)
+
+**Course Distribution:**
+- Uncategorized: 11 dishes
+
+**Notes:**
+- 18 incorrect Chinese restaurant courses were deleted from this Milano location
+- All dishes properly assigned to Uncategorized course
+
+**Result:** Status corrected. Incorrect courses deleted. All dishes properly assigned to Uncategorized course.
+
+#### Milano 339 Dalhousie St (Restaurant ID: 91)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 339 Dalhousie St ✅ (matches verified list)
+
+**Menu Status:**
+- Total dishes: 13
+- Courses defined: 1 (Uncategorized only)
+- Dishes with course_id: 13 (100%) ✅
+- Status: active ✅ (corrected from suspended)
+
+**Course Distribution:**
+- Uncategorized: 13 dishes
+
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 990 River Rd (Restaurant ID: 93)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 990 River Rd ✅ (matches verified list)
+**Menu Status:** 8 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 3050 Woodroffe Ave (Restaurant ID: 95)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 3050 Woodroffe Ave ✅ (matches verified list)
+**Menu Status:** 14 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 471 Hazeldean Rd (Restaurant ID: 126)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 471 Hazeldean Rd ✅ (matches verified list)
+**Menu Status:** 11 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 6179 Perth St. (Restaurant ID: 190)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 6179 Perth St. ✅ (matches verified list)
+**Menu Status:** 17 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 5516 Osgoode Main S (Restaurant ID: 349)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 5516 Osgoode Main S ✅ (matches verified list)
+**Menu Status:** 12 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 506 Main St W (Restaurant ID: 350)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 506 Main St W ✅ (matches verified list)
+**Menu Status:** 14 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Napolis (Restaurant ID: 515)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** ✅ (matches verified list)
+**Menu Status:** 15 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 4188 Spratt Rd (Restaurant ID: 565)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 4188 Spratt Rd ✅ (matches verified list)
+**Menu Status:** 14 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 81 Madawaska Street (Restaurant ID: 586)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 81 Madawaska Street ✅ (matches verified list)
+**Menu Status:** 12 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 350 St-Philippe Street (Restaurant ID: 624)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 350 St-Philippe Street ✅ (matches verified list)
+**Menu Status:** 12 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Mozza Pizza Hull (Restaurant ID: 644)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 214 Boul de la Cité-des-Jeunes ✅ (matches verified list)
+**Menu Status:** 15 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 54 Wilson St W (Restaurant ID: 660)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 54 Wilson St W ✅ (matches verified list)
+**Menu Status:** 15 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 643 Boulevard Saint-René O (Restaurant ID: 680)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
+**Menu Status:** 15 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 455 Boulevard Riel (Restaurant ID: 751)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 455 Boulevard Riel ✅ (matches verified list)
+**Menu Status:** 14 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Nachos Loco Hull (Restaurant ID: 790)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 455 Boulevard Riel ✅ (matches verified list)
+**Menu Status:** 15 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Nachos Loco Gatineau (Restaurant ID: 801)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
+**Menu Status:** 16 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 6594 4th Line Rd (Restaurant ID: 819)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 6594 4th Line Rd ✅ (matches verified list)
+**Menu Status:** 17 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 83 Mill Street (Restaurant ID: 821)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 83 Mill Street ✅ (matches verified list)
+**Menu Status:** 11 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Milano 6500 Russell Road (Restaurant ID: 837)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 6500 Russell Road ✅ (matches verified list)
+**Menu Status:** 15 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Mont Liban Bakery & Shawarma (Restaurant ID: 205)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 351 Montreal Rd ✅ (matches verified list)
+**Menu Status:** 26 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Notes:** Google Maps shows location as "PERMANENTLY CLOSED" but restaurant appears on verified billing list
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+#### Vanier Pizza & Subs (Restaurant ID: 62)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** ✅ (matches verified list)
+**Menu Status:** 34 dishes, 1 course (Uncategorized), all assigned ✅, status active ✅
+**Result:** Status corrected. All dishes properly assigned to Uncategorized course.
+
+---
+
+### Restaurants with Defined Courses But Dishes Not Properly Distributed
+
+#### Milano 777 Principale St (Restaurant ID: 89)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 777 Principale St ✅ (matches verified list)
+**Menu Reference:** [https://casselman.milanopizzeria.ca/?p=menu](https://casselman.milanopizzeria.ca/?p=menu)
+
+**Menu Status:**
+- Total dishes: 41
+- Courses defined: 18 ✅ (Proper courses exist)
+- Dishes with course_id: 41 (100%) ✅
+- Status: active ✅ (corrected from suspended)
+
+**Course Structure:**
+- 18 courses defined: Appetizers, Cold Subs, Chicken, Combos, Dessert, Donair and Shawarma, Drinks, Everyday Specials, Greek, Hot Subs, Italian, Mexican, Pita Pockets, Salads, Sandwiches, Seafood, Traditional Pizza, Uncategorized
+
+**Critical Issue:**
+- **ALL 41 dishes assigned to "Uncategorized" course** despite having 17 other proper courses defined
+- The 17 proper courses exist but have 0 dishes assigned to them
+- This requires manual redistribution of dishes from Uncategorized to the appropriate courses
+
+**Notes:**
+- Course structure in database doesn't fully match live menu structure
+- Database courses need alignment with live menu before dish redistribution
+- Requires manual review and dish-to-course assignment
+
+**Result:** Status corrected. Restaurant has proper course structure but all dishes incorrectly assigned to Uncategorized. Requires manual dish redistribution.
+
+---
+
+### Restaurants with No Courses Defined
+
+#### Mykonos Greek Grill 2600 County Rd 43 (Restaurant ID: 846)
+**Status:** ✅ Active
+**Date:** 2025-11-05
+**Address:** 2600 County Rd 43 ✅ (matches verified list)
+**Menu Reference:** [https://kemptville.mykonosgreekgrill.ca/?p=menu](https://kemptville.mykonosgreekgrill.ca/?p=menu)
+
+**Menu Status:**
+- Total dishes: 42
+- Courses defined: 0 ⚠️⚠️⚠️
+- Dishes with NULL course_id: 42 (100%) ⚠️
+- Dishes with course_id: 0 (0%)
+- Status: active ✅
+
+**Required Courses (from live menu):**
+1. Mykonos Souvlaki Platter (11 items)
+2. Pita Wraps (6 items)
+3. Salads (2 items)
+4. Appetizers (9 items)
+5. Extras (6 items)
+6. Desserts (3 items)
+7. Drinks (6 items)
+
+**Notes:**
+- No courses exist in database - must create all courses first
+- All 42 dishes have NULL course_id
+- Modifiers exist for Mini Donuts (flavor options: Icing Sugar, Oreo, Cinnamon Sugar)
+
+**Result:** Restaurant requires course creation before any dish assignment can proceed.
+
+#### Mykonos Greek Grill 6594 Fourth Line Rd (Restaurant ID: 845)
+**Status:** ✅ Active
+**Date:** 2025-11-05
+**Address:** 6594 Fourth Line Rd ✅ (matches verified list)
+**Menu Reference:** [https://northgower.mykonosgreekgrill.ca/?p=menu](https://northgower.mykonosgreekgrill.ca/?p=menu)
+
+**Menu Status:**
+- Total dishes: 41
+- Courses defined: 0 ⚠️⚠️⚠️
+- Dishes with NULL course_id: 41 (100%) ⚠️
+- Dishes with course_id: 0 (0%)
+- Status: active ✅
+
+**Required Courses (from live menu):**
+1. Mykonos Souvlaki Platter (10 items)
+2. Pita Wraps (6 items)
+3. Salads (2 items)
+4. Appetizers (9 items)
+5. Extras (6 items)
+6. Desserts (3 items)
+7. Drinks (5 items)
+
+**Notes:**
+- No courses exist in database - must create all courses first
+- All 41 dishes have NULL course_id
+- Modifiers exist for Mini Donuts (flavor options: Icing Sugar, Oreo, Cinnamon Sugar)
+
+**Result:** Restaurant requires course creation before any dish assignment can proceed.
+
+---
+
+### Restaurants with No Menu Data
+
+#### New Hong Kong 1433 Woodroffe Ave (Restaurant ID: 502)
+**Status:** ✅ STATUS CORRECTED - Was suspended, now active
+**Date:** 2025-11-05
+**Address:** 1433 Woodroffe Ave ✅ (matches verified list)
+**Menu Reference:** [https://newhongkongchinese.ca/?p=menu](https://newhongkongchinese.ca/?p=menu)
+
+**Menu Status:**
+- Total dishes: 0 ⚠️⚠️⚠️
+- Courses defined: 0 ⚠️⚠️⚠️
+- Status: active ✅ (corrected from suspended)
+
+**Live Menu Structure (from website):**
+- Chef's Special (13 items)
+- Combination Plates (12 items)
+- Family Dinners (8 items)
+- Appetizers (9+ items)
+- Soups, Fried Rice, Oriental Style Rice, Chop Suey, Chicken, Beef, Pork
+- Vegetarian Dishes
+- Noodles (80+ items)
+- Hot and Spicy (Mild) (13+ items)
+- Miscellaneous, Seafood, Egg Foo Young
+- Beverages (5 items)
+- **Estimated Total:** 150+ dishes on live menu
+
+**Critical Issue:**
+- **ZERO dishes in database** despite active online ordering menu with 150+ items
+- **ZERO courses defined**
+- This represents a 100% data migration failure
+- Restaurant is active and billing but has no menu data in database
+
+**Result:** Status corrected. Catastrophic data migration failure - restaurant requires complete menu data migration from scratch.
 
 ---
 
