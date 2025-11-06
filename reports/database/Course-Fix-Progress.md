@@ -3368,6 +3368,354 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 
 **Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **45 dishes** but **NO courses defined** (0 courses). **ALL 45 dishes have NULL course_id** (100% unmapped). No modifiers defined. **URGENT:** (1) Verify menu URL to check course structure from live menu, (2) Create proper course structure based on live menu (Greek restaurant - likely courses like Appetizers, Salads, Soups, Main Dishes, Sides, Desserts, Drinks), (3) Assign all 45 dishes to appropriate courses, (4) Verify if modifiers are needed based on live menu structure (size variants, protein options, etc.). **ACTION REQUIRED:** Create course structure and assign all dishes immediately - this is a critical data integrity issue preventing menu display.
 
+#### Papa Grecque Maloney 253 Boul Maloney (Restaurant ID: 616)
+**Status:** ⚠️⚠️⚠️ CRITICAL - No courses defined, ALL 55 dishes have NULL course_id
+**Date:** 2025-11-03
+**Address:** 253 Boul Maloney ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://gatineau-est.papapizza.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 616;
+```
+- Restaurant ID: 616
+- Name: Papa Grecque Maloney
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 616;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ (NO COURSES DEFINED)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 616 AND deleted_at IS NULL;
+```
+- Total dishes: 55 ✅ (good dish count)
+- Dishes with NULL course_id: 55 (100%) ⚠️⚠️⚠️
+- Dishes with course_id: 0 (0%) ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** ALL 55 dishes have NULL course_id - no courses exist to assign them to
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 616 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
+- Course distribution: N/A (no courses exist)
+- **CRITICAL ISSUE:** No courses defined at all. All 55 dishes are unmapped and cannot be displayed properly.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 616 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+- Dishes with modifiers: 0 ⚠️
+- **ISSUE:** No modifiers defined - may need to verify if modifiers are required based on live menu structure
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **55 dishes** but **NO courses defined** (0 courses). **ALL 55 dishes have NULL course_id** (100% unmapped). No modifiers defined. **URGENT:** (1) Verify menu URL to check course structure from live menu, (2) Create proper course structure based on live menu (Greek restaurant - likely courses like Appetizers, Salads, Soups, Main Dishes, Sides, Desserts, Drinks), (3) Assign all 55 dishes to appropriate courses, (4) Verify if modifiers are needed based on live menu structure (size variants, protein options, etc.). **ACTION REQUIRED:** Create course structure and assign all dishes immediately - this is a critical data integrity issue preventing menu display.
+
+#### Papa Grecque des Flandres 22 rue des flandres (Restaurant ID: 540)
+**Status:** ⚠️⚠️⚠️ CRITICAL - No courses defined, ALL 49 dishes have NULL course_id
+**Date:** 2025-11-03
+**Address:** 22 rue des flandres ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://gatineau-ouest.papapizza.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 540;
+```
+- Restaurant ID: 540
+- Name: Papa Grecque des Flandres
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 540;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ (NO COURSES DEFINED)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 540 AND deleted_at IS NULL;
+```
+- Total dishes: 49 ✅ (good dish count)
+- Dishes with NULL course_id: 49 (100%) ⚠️⚠️⚠️
+- Dishes with course_id: 0 (0%) ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** ALL 49 dishes have NULL course_id - no courses exist to assign them to
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 540 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
+- Course distribution: N/A (no courses exist)
+- **CRITICAL ISSUE:** No courses defined at all. All 49 dishes are unmapped and cannot be displayed properly.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 540 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+- Dishes with modifiers: 0 ⚠️
+- **ISSUE:** No modifiers defined - may need to verify if modifiers are required based on live menu structure
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **49 dishes** but **NO courses defined** (0 courses). **ALL 49 dishes have NULL course_id** (100% unmapped). No modifiers defined. **URGENT:** (1) Verify menu URL to check course structure from live menu, (2) Create proper course structure based on live menu (Greek restaurant - likely courses like Appetizers, Salads, Soups, Main Dishes, Sides, Desserts, Drinks), (3) Assign all 49 dishes to appropriate courses, (4) Verify if modifiers are needed based on live menu structure (size variants, protein options, etc.). **ACTION REQUIRED:** Create course structure and assign all dishes immediately - this is a critical data integrity issue preventing menu display.
+
+#### Papa Joe's Fried Chicken - Downtown 527 Bronson Ave (Restaurant ID: 437)
+**Status:** ⚠️⚠️⚠️ STATUS MISMATCH - Database shows suspended, but on active list
+**Date:** 2025-11-03
+**Address:** 527 Bronson Ave ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://mbronson.papajoespizza.ca/menu ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 437;
+```
+- Restaurant ID: 437
+- Name: Papa Joe's Fried Chicken - Downtown
+- Status: suspended ⚠️⚠️⚠️ (database shows suspended, but restaurant is on active list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 437;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 437 AND deleted_at IS NULL;
+```
+- Total dishes: 1 ⚠️⚠️⚠️ (suspiciously low - may indicate incomplete migration or closed restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 1 (100%) ✅
+- **ISSUE:** Only 1 dish exists - may indicate incomplete menu data migration
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 437 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution:
+  - Uncategorized: 1 dish ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** Only 1 course ("Uncategorized") exists. Only 1 dish in database - suspiciously low for a fried chicken restaurant.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 437 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+- Dishes with modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **STATUS MISMATCH + DATA MIGRATION ISSUE** - Restaurant is listed as **active** in Restaurants-active.md but database shows **suspended**. **Database contains only 1 dish** (suspiciously low for a fried chicken restaurant). All dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** (1) Verify restaurant status (active vs. suspended) - check if restaurant is actually active or should be removed from active list, (2) If active, update database status from `suspended` to `active`, (3) Verify menu URL to check if menu data migration is complete (1 dish seems incomplete), (4) Create proper course structure based on live menu, (5) Assign all dishes to appropriate courses, (6) Verify if modifiers are needed.
+
+#### Papa Joe's Pizza - Downtown 527 Bronson Ave (Restaurant ID: 13)
+**Status:** ⚠️⚠️⚠️ STATUS MISMATCH - Database shows suspended, but on active list
+**Date:** 2025-11-03
+**Address:** 527 Bronson Ave ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://mbronson.papajoespizza.ca/menu ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 13;
+```
+- Restaurant ID: 13
+- Name: Papa Joe's Pizza - Downtown
+- Status: suspended ⚠️⚠️⚠️ (database shows suspended, but restaurant is on active list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 13;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 13 AND deleted_at IS NULL;
+```
+- Total dishes: 9 ⚠️ (suspiciously low for a pizza restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 9 (100%) ✅
+- **ISSUE:** Only 9 dishes exist - may indicate incomplete menu data migration
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 13 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution:
+  - Uncategorized: 9 dishes ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** Only 1 course ("Uncategorized") exists. All 9 dishes incorrectly assigned to this course. Only 9 dishes in database - suspiciously low for a pizza restaurant.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 13 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+- Dishes with modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **STATUS MISMATCH + DATA MIGRATION ISSUE** - Restaurant is listed as **active** in Restaurants-active.md but database shows **suspended**. **Database contains only 9 dishes** (suspiciously low for a pizza restaurant). All dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** (1) Verify restaurant status (active vs. suspended) - check if restaurant is actually active or should be removed from active list, (2) If active, update database status from `suspended` to `active`, (3) Verify menu URL to check if menu data migration is complete (9 dishes seems incomplete), (4) Create proper course structure based on live menu, (5) Assign all dishes to appropriate courses, (6) Verify if modifiers are needed.
+
+#### Papa Pizza - Hull 574, boul Saint-Joseph (Restaurant ID: 70)
+**Status:** ⚠️⚠️⚠️ STATUS MISMATCH - Database shows suspended, but on active list
+**Date:** 2025-11-03
+**Address:** 574, boul Saint-Joseph ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://papapizzahull.com/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 70;
+```
+- Restaurant ID: 70
+- Name: Papa Pizza - Hull
+- Status: suspended ⚠️⚠️⚠️ (database shows suspended, but restaurant is on active list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 70;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 70 AND deleted_at IS NULL;
+```
+- Total dishes: 13 ⚠️ (suspiciously low for a pizza restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 13 (100%) ✅
+- **ISSUE:** Only 13 dishes exist - may indicate incomplete menu data migration
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 70 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution:
+  - Uncategorized: 13 dishes ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** Only 1 course ("Uncategorized") exists. All 13 dishes incorrectly assigned to this course. Only 13 dishes in database - suspiciously low for a pizza restaurant.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 70 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+- Dishes with modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **STATUS MISMATCH + DATA MIGRATION ISSUE** - Restaurant is listed as **active** in Restaurants-active.md but database shows **suspended**. **Database contains only 13 dishes** (suspiciously low for a pizza restaurant). All dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** (1) Verify restaurant status (active vs. suspended) - check if restaurant is actually active or should be removed from active list, (2) If active, update database status from `suspended` to `active`, (3) Verify menu URL to check if menu data migration is complete (13 dishes seems incomplete), (4) Create proper course structure based on live menu, (5) Assign all dishes to appropriate courses, (6) Verify if modifiers are needed.
+
+#### Papa Pizza Chem. de Masson 855 Chem. de Masson (Restaurant ID: 795)
+**Status:** ⚠️ ISSUE - All 6 dishes in "Uncategorized", suspiciously low dish count
+**Date:** 2025-11-03
+**Address:** 855 Chem. de Masson ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://mmasson.papapizza.ca/menu ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 795;
+```
+- Restaurant ID: 795
+- Name: Papa Pizza Chem. de Masson
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 795;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 795 AND deleted_at IS NULL;
+```
+- Total dishes: 6 ⚠️⚠️⚠️ (suspiciously low for a pizza restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 6 (100%) ✅
+- **ISSUE:** Only 6 dishes exist - may indicate incomplete menu data migration
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 795 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution:
+  - Uncategorized: 6 dishes ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** Only 1 course ("Uncategorized") exists. All 6 dishes incorrectly assigned to this course. Only 6 dishes in database - suspiciously low for a pizza restaurant.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 795 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+- Dishes with modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant has **6 dishes** but all incorrectly assigned to "Uncategorized" course. Only 1 course exists. **Database contains only 6 dishes** (suspiciously low for a pizza restaurant - may indicate incomplete menu data migration). **URGENT:** (1) Verify menu URL to check if menu data migration is complete (6 dishes seems incomplete), (2) Create proper course structure based on live menu, (3) Assign all dishes to appropriate courses, (4) Verify if modifiers are needed based on live menu structure. **ACTION REQUIRED:** Verify menu completeness and create course structure immediately - this is a critical data integrity issue.
+
 ---
 
 ### Restaurants with No Courses Defined
