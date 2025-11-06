@@ -940,46 +940,68 @@ The restaurant has a well-organized menu structure with the following courses:
 **Note:** There is also another "Sala Thai" (ID: 940) at the same address (2666 Alta Vista Dr) with status "pending" - may be duplicate or pending activation.
 
 
-#### Roulas Grecque et Pizza (Line 219)
-**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ NOT FOUND IN DATABASE - Has menu online | 🚨 DATA MIGRATION ISSUE
-**Date:** 2025-11-03
-**Address:** 245, rue de Cannes, Gatineau ✅ (matches active list)
+#### Roulas Grecque et Pizza 245, rue de Cannes (Restaurant ID: 777)
+**Status:** ⚠️ ISSUE - All 38 dishes with NULL course_id, 0 courses defined, database name mismatch
+**Date:** 2025-11-05
+**Address:** 245, rue de Cannes ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://roulas.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+**Note:** Database name is "Roulas Jus et Gelato" but live menu shows "Roulas Grecque et Pizza" - same restaurant, name needs updating
 
-**Details:**
-- Restaurant name from active list: "Roulas Grecque et Pizza"
-- **🌐 Online Menu Available:** https://roulas.ca/?p=menu&lang=fr
-- **RESTAURANT EXISTS AND HAS MENU WITH US** (user verified)
-- Searched database for variations: "Roulas Grecque", "Roula Grec", "Grecque Pizza"
-- Found restaurants at same address (245, rue de Cannes):
-  - Roulas Jus et Gelato (ID: 777) - active
-  - Opa's (ID: 60) - suspended
-- No exact match found for "Roulas Grecque et Pizza" in database
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 777;
+```
+- Restaurant ID: 777
+- Name: Roulas Jus et Gelato ⚠️ (database name doesn't match active list name "Roulas Grecque et Pizza")
+- Status: active ✅ (matches verified billing list)
 
-**🚨 DATA MIGRATION ISSUE:**
-Restaurant exists and has a full menu online but is **NOT IN DATABASE**. This indicates:
-- Restaurant was never migrated to menuca_v3, OR
-- Restaurant is listed under a different name in database, OR
-- Data migration was incomplete
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 777;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ (no courses defined)
 
-**Menu Structure (from online menu - French):**
-- Plus pour Moins (Deals - Family Shawarma Plate, Trio Sandwich, Trio Poutine, Trio Submarine, Family Special, Special Roula)
-- Les Spécialités Roulas (Platters - 1 Brochette, Donair Beef, Chicken Shawarma, Marinated Chicken, Various Brochettes, Combos, Vegetarian)
-- Les Sandwiches (Shawarma KETO, Souvlaki on Pita, Gyro, Vegetarian Gyro, Donair, Chicken Shawarma, Kafta on Pita, Vegetarian Pita, Club on Pita)
-- Les Sous-Marins (Submarines - Club, Hot Chicken, Donair, Shawarma, Tuna, Veggie)
-- A la Carte Pizza (Many varieties - Regular, All Dressed, Pepperoni, Hawaiian, Vegetarian, BBQ, Mexicali, Chef's Specialty, etc.)
-- Kalzone (Create Your Own)
-- Les Salades (Greek Salad, Caesar Salad, Fattoush - with/without chicken, VIP versions)
-- Ailes (Wings - 6, 12, 24 pieces, Wing and Fries combo - Hot, BBQ, Honey Garlic)
-- Poutines (Regular, Shawarma, Donair, Club)
-- Les Desserts Roulas (Baklava)
-- Boissons (Drinks - Pepsi, Diet Pepsi, 7 Up, Ginger Ale)
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 777 AND deleted_at IS NULL;
+```
+- Total dishes: 38 ⚠️
+- Dishes with NULL course_id: 38 (100%) ⚠️⚠️⚠️
+- Dishes with course_id: 0 (0%) ⚠️
+- **ISSUE:** All 38 dishes have NULL course_id
 
-**Action Required:**
-1. **URGENT:** Find restaurant in database (may be under different name) OR migrate restaurant data
-2. Once found/migrated, create courses matching online menu structure
-3. Assign dishes to courses
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 777 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
 
-**Resolution Needed:** RESTAURANT DATA MIGRATION REQUIRED - Restaurant exists and has menu but not in database
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 777 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Step 6: Verify Menu Structure (Live Menu)**
+**Menu Link:** https://roulas.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Live Menu Course Structure (from verified menu):**
+- **Plus pour Moins** (Deals): 6 items (Assiette Shawarma Familiale, Trio Sandwich, Trio Poutine, Trio Sous-Marin, Spécial Familial, Spécial Roula)
+- **Les Spécialités Roulas** (Platters): 20+ items (Assiette 1 Brochette with protein variants, Assiette Donair au Boeuf, Assiette Shawarma au poulet, Assiette Poulet Mariné, Various Brochettes, Combos, Assiette Végétarienne Roulas - each with protein/size variants)
+- **Les Sandwiches**: 9 items (Shawarma KETO, Souvlaki sur Pita with variants, Gyro with variants, Gyro Vegetarien, Donair au boeuf, Shawarma au poulet, Kafta sur Pita, Pita Végétarien, Club sur pita with sauce variants)
+- **Les Sous-Marins**: 6 items (Club, Hot Chicken, Donair, Shawarma, Thon, Végétarien)
+- **A la Carte Pizza**: 15+ items (Pizza au Fromage, Toute Garnie, Hawaïenne, La Canadienne, La Québecoise, La Mily, La Rita, La Gatinoise, La BBQ, La Végétarienne, La Mexicali, La Spécialité Du Chef - each with size variants: Petite, Moyenne, Grande, X-Grande)
+- **Kalzone**: 1 item (Créer votre Kalzone)
+- **Les Salades**: 8 items (Salade Grecque, Salade Grecque avec poulet, Salade César, Salade César avec poulet, Salade Fattoush, Salade Fattoush avec poulet, VIP Fattoush, VIP Grecque - with size variants: Enfant, Petite, Grande)
+- **Ailes** (Wings): 4 items (6 pièces, 12 pièces, 24 pièces, Assiette de 12 ailes et frites - each with sauce variants: Forte, BBQ, Miel et Ail)
+- **Poutines**: 4 items (Poutine with size variants, Poutine Shawarma, Poutine Donair, Poutine Club)
+- **Les Desserts Roulas**: 1 item (Backlava with quantity variants)
+- **Boissons** (Drinks): 4 items (Pepsi, Diet Pepsi, 7 Up, Ginger Ale Schwepps - with size variants: Canette, Bouteille, 2L)
+- **Estimated Total Items:** 80+ dishes on live menu (counting size/protein/sauce variants)
+- **Database Has:** 38 dishes (52%+ of menu missing) ⚠️⚠️⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE + DATA MIGRATION ISSUE** - Restaurant has **38 dishes** all with NULL course_id. **0 courses defined**. Database name is "Roulas Jus et Gelato" but live menu shows "Roulas Grecque et Pizza" - same restaurant, name needs updating. **CRITICAL FINDING:** Database has 38 dishes but live menu has 80+ items (52%+ of menu missing). Live menu has **12 courses** (Plus pour Moins, Les Spécialités Roulas, Les Sandwiches, Les Sous-Marins, A la Carte Pizza, Kalzone, Les Salades, Ailes, Poutines, Les Desserts Roulas, Boissons). **URGENT:** (1) Update restaurant name from "Roulas Jus et Gelato" to "Roulas Grecque et Pizza", (2) Complete menu data migration - 40+ dishes need to be imported, (3) Create proper course structure based on live menu (12 courses), (4) Assign all dishes to appropriate courses, (5) Verify modifier assignments (size variants, protein options, sauce options) match live menu structure.
 
 #### Riverside Pizzeria (Restaurant ID: 978)
 **Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE

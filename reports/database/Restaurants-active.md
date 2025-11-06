@@ -173,7 +173,7 @@
 - [x] Restaurant Le Choix 139, rue Principale (B)
 - [ ] River Pizza 4042 Innes Road (S)
 - [x] Riverside Pizzeria 3679 Riverside Dr (B)
-- [ ] Roulas Grecque et Pizza 245, rue de Cannes (B)
+- [x] Roulas Grecque et Pizza 245, rue de Cannes (B)
 - [x] Sachi Sushi 4931, rue Beaubien E (B)
 - [x] Sala Thai 2666 Alta Vista Dr (B)
 - [x] Season's Pizza 725 Somerset Street West (B)

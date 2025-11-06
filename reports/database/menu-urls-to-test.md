@@ -144,8 +144,9 @@ Test each URL and mark with:
 ### 12. iCook Pho You 2006 Robertson Rd
 - [ ] https://m.icookphoyou.com/menu
 
-### 13. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
-- ⚠️ ALREADY AUDITED - NOT FOUND IN DATABASE (has menu online at roulas.ca)
+### 13. ✅ Roulas Grecque et Pizza 245, rue de Cannes - AUDITED
+- ✅ https://roulas.ca/?p=menu&lang=fr
+- ⚠️ FOUND IN DATABASE as "Roulas Jus et Gelato" (ID: 777) - name mismatch, 38 dishes with NULL course_id, 0 courses
 
 ---
 
@@ -158,10 +159,10 @@ Test each URL and mark with:
 - ⏳ **Batch 5:** 6 restaurants - NEED URLs (Brian's ACTUALLY remaining - Batch 2)
 
 **ACTUAL NUMBERS (checkboxes now updated in Restaurants-active.md):**
-- **Total Audited:** 143 restaurants ✅ (141 + 2 Poutinerie locations)
-- **Brian (B):** 82 completed, **1 remaining** (Roulas - already audited, not in DB)
+- **Total Audited:** 144 restaurants ✅ (143 + 1 Roulas)
+- **Brian (B):** 83 completed, **0 remaining** ✅ (ALL COMPLETE!)
 - **Santiago (S):** 55 completed, **45 remaining**
-- **Total Remaining:** 46 restaurants (1 + 45)
+- **Total Remaining:** 45 restaurants (all Santiago's)
 - **Total in Active List:** 189 restaurants
 
 ---
