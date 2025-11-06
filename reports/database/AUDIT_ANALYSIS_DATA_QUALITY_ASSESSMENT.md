@@ -249,41 +249,46 @@
 
 ## Recommendations
 
-### Option 1: Fix In-Place (Recommended for Partial Issues)
+### Option 1: Re-Import from V1/V2 Source Data (NOT Scraping)
 
 **When to Use:**
-- Restaurant has dishes but missing courses
-- Restaurant has partial menu (50-80% complete)
-- Status mismatches
-- Modifier issues
+- Restaurant has V1/V2 data in `staging` schema
+- Source data is complete and accurate
+- Restaurant was filtered out during migration (status mismatch)
+
+**Available Source Data:**
+- `staging.menuca_v1_menu`: 14,884 rows from 396 restaurants ✅
+- `staging.menuca_v2_restaurants_dishes`: V2 dish data (check availability)
+- Restaurant mapping tables exist
 
 **Approach:**
-1. Update status mismatches
-2. Create course structures from live menu URLs
-3. Assign dishes to courses
-4. Import missing dishes from source data (if available)
-5. Fix modifier assignments
+1. Identify restaurants with source data in staging
+2. Re-run migration with correct status (active, not suspended)
+3. Import dishes, courses, modifiers from staging tables
+4. Verify completeness (may need to cross-check with live menu for updates)
 
 **Pros:**
-- Preserves existing data
-- Faster for partial issues
-- Less disruptive
+- Uses original source data (preserves historical accuracy)
+- **NO SCRAPING** - uses existing database data
+- Faster for bulk processing
+- Preserves data lineage
 
 **Cons:**
-- Time-consuming for many restaurants
-- May miss edge cases
-- Requires manual verification
+- Only works if source data exists in staging
+- May have same filtering issues if not fixed
+- Source data may be outdated vs. live menu (need to verify)
 
-**Estimated Effort:** 2-3 weeks for 144 restaurants
+**Estimated Effort:** 1 week for restaurants with source data
 
 ---
 
-### Option 2: Scrape & Re-Import (Recommended for Complete Loss)
+### Option 2: Scrape from Live Menu URLs (100% Scraping)
 
 **When to Use:**
-- Restaurant has 0 dishes
-- Restaurant has <50% of menu
-- Source data unavailable or corrupted
+- Restaurant has no source data in staging
+- Restaurant has <50% of menu in database
+- Source data is incomplete or corrupted
+- Need current menu state (not historical)
 
 **Approach:**
 1. Build scraper for live menu URLs
@@ -295,42 +300,74 @@
 - Gets 100% accurate current data
 - Handles restaurants with no source data
 - Can automate for bulk processing
+- Always up-to-date
 
 **Cons:**
 - Requires scraper development
 - May break if menu structure changes
 - Need to handle different menu formats
+- Loses historical data if source doesn't exist
 
 **Estimated Effort:** 1 week development + 1 week execution
 
 ---
 
-### Option 3: Hybrid Approach (RECOMMENDED)
+### Option 3: True Hybrid Approach (RECOMMENDED)
 
 **Strategy:**
-1. **Fix In-Place** for restaurants with >50% menu data:
-   - Update status mismatches
-   - Create course structures
-   - Assign dishes to courses
-   - Import missing dishes from source
+1. **Re-Import from Source** (NOT scraping) for restaurants with V1/V2 data in staging:
+   - Check if restaurant has data in `staging.menuca_v1_menu` or V2 staging tables
+   - Re-run migration with correct status
+   - Import from staging tables (original source data)
+   - **Then verify against live menu** - if source is outdated, update from live menu
 
-2. **Scrape & Re-Import** for restaurants with <50% menu data:
+2. **Scrape from Live Menu** (100% scraping) for restaurants without source data:
    - Build scraper
-   - Extract from live menu
+   - Extract from live menu URLs
    - Import fresh data
 
-3. **Verify All** against live menu URLs
+3. **Fix Course Structure** for all restaurants (uses live menu as reference):
+   - Use live menu URLs to verify course structure
+   - Create/update courses
+   - Assign dishes to courses
+
+4. **Verify All** against live menu URLs
+
+**Key Distinction:**
+- **Re-import from staging** = Using existing database source data (NOT scraping)
+- **Scrape from live menu** = Extracting from current website (IS scraping)
+- **Hybrid** = Use source data where available, scrape where missing
 
 **Pros:**
-- Optimizes effort (fix what's fixable, replace what's not)
+- Uses source data where available (preserves historical accuracy, no scraping needed)
+- Scrapes where source missing (gets current state)
+- Optimizes effort (use best available data source)
 - Gets to 100% accuracy
-- Handles all cases
 
 **Cons:**
 - Requires both approaches
 - More complex project management
+- Need to identify which restaurants have source data
 
 **Estimated Effort:** 2-3 weeks total
+
+**Decision Tree:**
+```
+Does restaurant have V1/V2 data in staging?
+├─ YES → Re-import from staging (NOT scraping - uses existing DB data)
+│        └─ Then verify against live menu (may need updates)
+└─ NO → Scrape from live menu (100% scraping)
+
+Then for ALL restaurants:
+├─ Verify course structure against live menu (reference only)
+├─ Assign dishes to courses
+└─ Fix modifiers
+```
+
+**Clarification:** If you're using live menu URLs to **fix** data, that's still scraping. The hybrid approach means:
+- **Re-import from staging** = Use existing V1/V2 data in database (no scraping)
+- **Scrape from live menu** = Extract from website (scraping)
+- **Hybrid** = Do both depending on what's available
 
 ---
 
