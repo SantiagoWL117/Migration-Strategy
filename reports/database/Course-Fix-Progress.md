@@ -2469,6 +2469,63 @@ Actual menu structure from online shows ~15 categories that should be created:
 
 **Result:** Status corrected. Restaurant has proper course structure but all dishes incorrectly assigned to Uncategorized. Requires manual dish redistribution.
 
+#### Ogilvie Pizza 631 Montreal Rd (Restaurant ID: 714)
+**Status:** ⚠️ ISSUE - All 16 dishes in "Uncategorized", needs course structure and assignment
+**Date:** 2025-11-03
+**Address:** 631 Montreal Rd ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** NEEDED (to verify course structure and ensure all dishes are present)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Ogilvie Pizza%';
+```
+- Restaurant ID: 714
+- Name: Ogilvie Pizza
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 714;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 714 AND deleted_at IS NULL;
+```
+- Total dishes: 16 ⚠️ (suspiciously low for a pizza restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 16 (100%) ✅
+- **ISSUE:** All 16 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 714 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution:
+  - Uncategorized: 16 dishes ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** Only 1 course ("Uncategorized") exists. All 16 dishes are incorrectly assigned to this course. Need to create proper course structure (e.g., Pizzas, Appetizers, Salads, Wings, Sides, Drinks, etc.) and reassign all dishes.
+
+**Step 5: Check Modifiers**
+```sql
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 714 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+- Dishes with modifiers: 0
+
+**Result:** ⚠️ ISSUE - All 16 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Need menu link to verify: (1) Course structure from live menu, (2) Whether 16 dishes is complete (suspiciously low for pizza restaurant), (3) Proper course assignment for all dishes. **ACTION REQUIRED:** Obtain menu link, verify dish count completeness, create proper course structure, and reassign all 16 dishes to appropriate courses.
+
 ---
 
 ### Restaurants with No Courses Defined
