@@ -2952,7 +2952,7 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 **Date:** 2025-11-03
 **Address:** 25 Tapiola Cres ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** N/A (status issue must be resolved first)
+**Menu link:** https://palermopizzeria.ca/?p=menu ✅ (VERIFIED - Full menu available, confirms restaurant should be ACTIVE, CRITICAL DATA MIGRATION ISSUE identified)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -3038,7 +3038,32 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 ```
 - No modifier groups found
 
-**Result:** 🛑 **STOPPED - STATUS MISMATCH** - Restaurant is listed as **active** in Restaurants-active.md but database shows **suspended**. All 13 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Dish count (13) is suspiciously low for a pizza restaurant. No modifiers found. **ACTION REQUIRED:** (1) Verify restaurant status - is it actually active or suspended? (2) If active, update database status from `suspended` to `active`, (3) If suspended, remove from active list or verify billing status, (4) Once status resolved, proceed with course structure creation and dish reassignment.
+**Menu Status Check:**
+- Menu URL: https://palermopizzeria.ca/?p=menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Pizza (16+ items: Garlic Fingers, Plain, 1 Topping, Hawaiian, Combination, Canadian, BBQ Pizza, Vegetarian, Pizza Lovers, Greek Pizza, Mediterranean, Mexican Pizza, Meat Lovers, Palermo's Pizza - each with Small/Medium/Large/X-Large size variants)
+  - Gourmet Pizza (8+ items: Margerita, Hawaiian Plus, Kicking Four Cheese, Chicken Lovers Pizza, etc. - with size variants)
+  - Two Pizza Deal (multiple options)
+  - Pasta (multiple items with size variants)
+  - Salads (multiple items with size variants)
+  - Platters (multiple items)
+  - Hot Subs (multiple items with size variants)
+  - Cold Subs (multiple items)
+  - Appetizers (multiple items)
+  - Wings (multiple items with size variants)
+  - Wrap (multiple items)
+  - Burger (multiple items)
+  - Poutine (10+ items: Regular, Deluxe, Mexican, Club, Buffalo Chicken, Italian, Steak, Farmer - with Small/Large variants)
+  - Pizza & Wings (4 items: XLarge/Large/Medium/Small Pizza & Wings combos)
+  - Daily Special (Pasta Special with options)
+  - Desserts (10+ items: Red Velvet Cake, Carrot Cake, Chocolate Cake, Pecan Pie, Key Lime Pie, Apple Pie, Cheese Cake with flavor options, Mini Donuts with size and flavor options)
+  - Drinks (15+ items: Coke, Diet Coke, Ginger Ale, 7 Up, Orange Crush, Cream Soda, Grape Crush, Root Beer, Dr. Pepper, Pepsi, Diet Pepsi, Gatorade with flavor options, Basil Seed Drink with flavor options - with Can/2L size variants)
+- **Estimated Total Items:** 100+ dishes on live menu (counting size variants and options)
+- **Database Has:** 13 dishes (87%+ of menu missing) ⚠️⚠️⚠️
+- **STATUS CONFIRMATION:** Live menu is fully functional and active - confirms restaurant should be **active**, not suspended
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE + STATUS MISMATCH** - Restaurant is listed as **active** in Restaurants-active.md and has a **fully functional active online menu**, but database shows **suspended**. **Database contains only 13 dishes but live menu has 100+ items** (87%+ of menu missing). All 13 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ROOT CAUSE:** Restaurant was incorrectly marked as suspended during migration, preventing menu data migration. **URGENT:** (1) Update status from `suspended` to `active` (restaurant is clearly active with full menu), (2) Complete menu data migration required - 100+ dishes need to be imported, (3) Create proper course structure based on live menu (Pizza, Gourmet Pizza, Two Pizza Deal, Pasta, Salads, Platters, Hot Subs, Cold Subs, Appetizers, Wings, Wrap, Burger, Poutine, Pizza & Wings, Daily Special, Desserts, Drinks), (4) Assign all dishes to appropriate courses, (5) Verify modifier assignments (size variants, flavor options, etc.) match live menu structure. **ACTION REQUIRED:** Correct status and complete menu data migration immediately - this is a critical data integrity issue.
 
 ---
 
