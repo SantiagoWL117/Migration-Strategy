@@ -3031,7 +3031,11 @@ GROUP BY d.id, d.name, c.name
 HAVING COUNT(DISTINCT dm.id) > 0
 ORDER BY modifier_count DESC;
 ```
-- [Results: 43 dishes with modifiers - details available in database]
+- Dishes with modifiers (43 total, sample of top 20):
+  - Pizza dishes (15+): All have 3 modifiers, 3 modifier groups (Pizza Toppings, Crust Type, Sauce Options) ✅
+    - Examples: "Fromage Pizza", "Pepperoni Pizza", "Champignons Pizza", "Piments Verts Pizza", "Bacon Pizza", "Olives Pizza", "Combiné Pizza", "Super Deluxe Pizza", "Spécial du Chef Pizza", "Hawaïenne Pizza", "Végétarienne Pizza", "Mexicaine Pizza", "Amateur de Viande Pizza", "GREBER Spécial Pizza"
+  - Other dishes: "Assiette de Shawarma" (3 modifiers), "Sub Spécial" (2 modifiers), "Donair Spécial" (1 modifier), "Donair au Boeuf" (1 modifier), "Donair au Poulet" (1 modifier), "Frites (grosses)" (1 modifier)
+- **ISSUE:** All dishes with modifiers are in "Uncategorized" course, but modifier groups are properly structured ✅
 
 ```sql
 -- Check modifier group structure
@@ -3048,7 +3052,10 @@ WHERE dm.restaurant_id = 974 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
 GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
 ORDER BY dm.dish_id, dm.ingredient_group_id;
 ```
-- [Results: Modifier group structure available in database]
+- Modifier group structure:
+  - Pizza dishes have proper modifier groups: Pizza Toppings, Crust Type, Sauce Options ✅
+  - Modifier groups are properly organized and match pizza restaurant context ✅
+  - **ISSUE:** All dishes with modifiers are in "Uncategorized" course - need course reassignment
 
 **Result:** ⚠️⚠️⚠️ CRITICAL ISSUE - All 98 dishes incorrectly assigned to "Uncategorized" course. All 12 proper courses (Deals, Kebab Combos, Pizza, Appetizers, Salads, Poutine, Platters, Kabab Platters, Kabab Sandwiches on Charcoal, Subs, Middle Eastern Pies, Drinks) exist but are EMPTY. Restaurant has 74 modifiers assigned to 43 dishes, which is good. **ACTION REQUIRED:** Obtain menu link to verify: (1) Course structure from live menu, (2) Whether 98 dishes is complete, (3) Reassign all 98 dishes from "Uncategorized" to appropriate courses based on dish names and live menu structure, (4) Verify modifier assignments match live menu structure.
 
