@@ -3066,11 +3066,12 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 **Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE + STATUS MISMATCH** - Restaurant is listed as **active** in Restaurants-active.md and has a **fully functional active online menu**, but database shows **suspended**. **Database contains only 13 dishes but live menu has 100+ items** (87%+ of menu missing). All 13 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ROOT CAUSE:** Restaurant was incorrectly marked as suspended during migration, preventing menu data migration. **URGENT:** (1) Update status from `suspended` to `active` (restaurant is clearly active with full menu), (2) Complete menu data migration required - 100+ dishes need to be imported, (3) Create proper course structure based on live menu (Pizza, Gourmet Pizza, Two Pizza Deal, Pasta, Salads, Platters, Hot Subs, Cold Subs, Appetizers, Wings, Wrap, Burger, Poutine, Pizza & Wings, Daily Special, Desserts, Drinks), (4) Assign all dishes to appropriate courses, (5) Verify modifier assignments (size variants, flavor options, etc.) match live menu structure. **ACTION REQUIRED:** Correct status and complete menu data migration immediately - this is a critical data integrity issue.
 
 #### Papa Burger 22, rue des Flandres (Restaurant ID: 797)
-**Status:** ⚠️ ISSUE - All 4 dishes in "Uncategorized", suspiciously low dish count, has modifiers
+**Status:** ⚠️⚠️⚠️ LOCATION ISSUE - Restaurant is in Gatineau, not Ottawa
 **Date:** 2025-11-03
 **Address:** 22, rue des Flandres ✅ (matches verified list)
+**City:** Gatineau (city_id: 32) ⚠️ **NOT Ottawa**
 **Assignee:** Brian (B)
-**Menu link:** https://papaburger.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+**Menu link:** https://papaburger.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided, but user notes: "there's no papa burger even listed in ottawa at all anywhere")
 
 **Step 1: Restaurant Status**
 ```sql
@@ -3165,7 +3166,7 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
   - All 4 dishes have 1 modifier each (ungrouped)
 - **ISSUE:** Modifiers exist but are not organized into modifier groups - may need group structure for proper menu display
 
-**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - All 4 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Dish names are numbered 14-17, indicating dishes 1-13 are missing from database. Restaurant has 4 modifiers assigned to 4 dishes, but modifiers are not organized into groups. **ACTION REQUIRED:** Verify menu link to check: (1) Course structure from live menu, (2) Whether all dishes are present (dishes 1-13 appear to be missing), (3) Proper course assignment for all dishes, (4) Modifier assignments match live menu structure, (5) Complete menu data migration if dishes are missing.
+**Result:** ⚠️⚠️⚠️ **LOCATION VERIFICATION NEEDED** - Restaurant is in **Gatineau** (city_id: 32), not Ottawa. User notes: "there's no papa burger even listed in ottawa at all anywhere". **CRITICAL DATA MIGRATION ISSUE:** All 4 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Dish names are numbered 14-17, indicating dishes 1-13 are missing from database. Restaurant has 4 modifiers assigned to 4 dishes, but modifiers are not organized into groups. **ACTION REQUIRED:** (1) Verify if this restaurant should be on Ottawa active list (it's in Gatineau), (2) Verify menu link to check course structure from live menu, (3) Whether all dishes are present (dishes 1-13 appear to be missing), (4) Proper course assignment for all dishes, (5) Modifier assignments match live menu structure, (6) Complete menu data migration if dishes are missing.
 
 ---
 
