@@ -101,8 +101,10 @@ Test each URL and mark with:
 
 ## Batch 4: Next 10 Restaurants - NEED URLs ⏳
 
-### 27. Roulas Grecque et Pizza 245, rue de Cannes
-- [ ] NEED URL
+**Note:** We were working bottom-up before, now going top-down. These have NOT been audited yet.
+
+### 27. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
+- ⚠️ ALREADY AUDITED - NOT FOUND IN DATABASE (has menu online at roulas.ca)
 
 ### 28. Sachi Sushi 4931, rue Beaubien E
 - [ ] NEED URL
@@ -116,11 +118,11 @@ Test each URL and mark with:
 ### 31. Sushi Express Chambly 886 ch de Chambly
 - [ ] NEED URL
 
-### 32. Pizzalicious 1009 Merivale Rd (S)
-- [ ] NEED URL
+### 32. ⏭️ Pizzalicious 1009 Merivale Rd (S)
+- ⚠️ ALREADY AUDITED - SKIPPED (no longer a client, only 1 dish)
 
 ### 33. River Pizza 4042 Innes Road (S)
-- [ ] NEED URL
+- [ ] NEED URL (mentioned in summary but no full audit entry - needs proper HANDOFF format audit)
 
 ### 34. [Next un-audited restaurant from active list]
 - [ ] NEED URL
