@@ -4102,6 +4102,201 @@ SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as d
 
 **Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant has **1 dish** (suspiciously low for a pizza restaurant). Dish incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** Verify menu URL to check if menu data migration is complete (1 dish seems incomplete), create proper course structure, and assign all dishes.
 
+#### Pizza Lovers Hunt Club 800 Hunt Club Road (Restaurant ID: 507)
+**Status:** ⚠️ ISSUE - All 2 dishes in "Uncategorized", suspiciously low dish count
+**Date:** 2025-11-03
+**Address:** 800 Hunt Club Road ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://papaburger.ca/?p=menu&lang=fr ⚠️ (URL appears incorrect - should be pizzalovers, not papaburger)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 507;
+```
+- Restaurant ID: 507
+- Name: Pizza Lovers Hunt Club
+- Status: suspended (verified active list is source of truth)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 507;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 507 AND deleted_at IS NULL;
+```
+- Total dishes: 2 ⚠️⚠️⚠️ (suspiciously low for a pizza restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 2 (100%) ✅
+- **ISSUE:** All 2 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 507 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 2 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 507 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant has **2 dishes** (suspiciously low for a pizza restaurant). All dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** Verify correct menu URL (provided URL appears incorrect), verify if menu data migration is complete (2 dishes seems incomplete), create proper course structure, and assign all dishes.
+
+#### Pizza Maisonneuve 574 Boulevard Saint-Joseph (Restaurant ID: 696)
+**Status:** ⚠️ ISSUE - All 35 dishes in "Uncategorized"
+**Date:** 2025-11-03
+**Address:** 574 Boulevard Saint-Joseph ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://pizzalovershc.menu.ca/?p=menu ⚠️ (URL appears incorrect - should be pizzamaisonneuve, not pizzalovershc)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 696;
+```
+- Restaurant ID: 696
+- Name: Pizza Maisonneuve
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 696;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 696 AND deleted_at IS NULL;
+```
+- Total dishes: 35 ✅
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 35 (100%) ✅
+- **ISSUE:** All 35 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 696 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 35 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 696 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️ ISSUE - All 35 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Need to create proper course structure and reassign all dishes.
+
+#### Pizza Marie 4 Rue d'Orléans (Restaurant ID: 976)
+**Status:** ⚠️ ISSUE - 70 dishes with NULL course_id, 32 in "Uncategorized", has course structure but empty courses
+**Date:** 2025-11-03
+**Address:** 4 Rue d'Orléans ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://pizzamaisonneuve.com/?p=menu&lang=fr ⚠️ (URL appears incorrect - should be pizzamarie, not pizzamaisonneuve)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 976;
+```
+- Restaurant ID: 976
+- Name: Pizza Marie
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 976;
+```
+- Courses defined: 14 ✅ (proper course structure exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 976 AND deleted_at IS NULL;
+```
+- Total dishes: 102 ✅ (good dish count - includes dishes from both restaurant entries 975 and 976)
+- Dishes with NULL course_id: 70 (69%) ⚠️⚠️⚠️
+- Dishes with course_id: 32 (31%) ⚠️
+- **CRITICAL ISSUE:** 70 dishes have NULL course_id - need to assign to courses
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 976 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 14 ✅
+- Course distribution:
+  - Uncategorized: 32 dishes ⚠️⚠️⚠️
+  - Specials: 0 dishes
+  - Spéciaux: 0 dishes
+  - Mets Canadiens: 0 dishes
+  - Canadian Food: 0 dishes
+  - Mets Italiens: 0 dishes
+  - Italian Food: 0 dishes
+  - Subs: 0 dishes
+  - Sous Marins: 0 dishes
+  - Pizza: 0 dishes
+  - Salades: 0 dishes
+  - Salads: 0 dishes
+  - Drinks: 0 dishes
+  - Boissons: 0 dishes
+- **CRITICAL ISSUE:** Course structure exists but all courses are empty. 32 dishes in "Uncategorized" and 70 dishes with NULL course_id need to be assigned to proper courses.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 976 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **102 dishes** but **70 dishes have NULL course_id** (69% unmapped). Restaurant has proper course structure (14 courses) but all courses are empty. 32 dishes incorrectly assigned to "Uncategorized" course. **ACTION REQUIRED:** Assign all 102 dishes to appropriate courses (70 NULL course_id dishes + 32 Uncategorized dishes).
+
+#### Pizza des Hautes Plaines 760 Boulevard des Hautes-Plaines (Restaurant ID: 562)
+**Status:** ⚠️ ISSUE - All 14 dishes in "Uncategorized"
+**Date:** 2025-11-03
+**Address:** 760 Boulevard des Hautes-Plaines ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://pizzadeshautesplaines.com/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 562;
+```
+- Restaurant ID: 562
+- Name: Pizza des Hautes Plaines
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 562;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 562 AND deleted_at IS NULL;
+```
+- Total dishes: 14 ✅
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 14 (100%) ✅
+- **ISSUE:** All 14 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 562 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 14 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 562 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️ ISSUE - All 14 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Need to create proper course structure and reassign all dishes.
+
 ---
 
 ### Restaurants with No Courses Defined
