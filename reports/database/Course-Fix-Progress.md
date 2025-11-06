@@ -4861,3 +4861,117 @@ SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as d
 - Total modifiers: 0 ⚠️
 
 **Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE + STATUS MISMATCH** - Restaurant has **6 dishes** (suspiciously low for a pho restaurant). All dishes assigned to "Uncategorized" course. Only 1 course exists. Database status is **suspended** while active list shows **active**. **ROOT CAUSE:** Likely mis-marked as suspended, preventing complete menu data migration. **URGENT:** (1) Update database status from suspended to active, (2) Verify menu URL to check if menu data migration is complete (6 dishes seems incomplete), create proper course structure, and import all dishes.
+
+#### Poutinerie Québécurds Hull 455 Boulevard Riel (Restaurant ID: 789)
+**Status:** ⚠️ ISSUE - All 47 dishes in "Uncategorized" course
+**Date:** 2025-11-05
+**Address:** 455 Boulevard Riel ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://hull.poutineriequebecurds.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 789;
+```
+- Restaurant ID: 789
+- Name: Poutinerie Québécurds Hull
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 789;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 789 AND deleted_at IS NULL;
+```
+- Total dishes: 47 ⚠️
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 47 (100%) ✅
+- **ISSUE:** All 47 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 789 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 47 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 789 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 6 ✅ (3 dishes with modifiers)
+
+**Step 6: Verify Menu Structure (Live Menu)**
+**Menu Link:** https://hull.poutineriequebecurds.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Live Menu Course Structure (from verified menu):**
+- **Spécials** (Specials): 3 items (2 Petites Poutines avec Breuvages, Special SOLO avec Beignets, Special SOLO avec Churros)
+- **Les Entrées** (Appetizers): 9 items (Frite, Patate douce, Bouchée de pomme de terre, Rondelle d'oignon, PopCurds, Bâtonnets de fromage, Jalapeno poppers, Zucchini panées, Cornichons frits panées - with size variants)
+- **Les Poutines**: 14 items (Poutine Classique, Poutine Buffalo, Poutine Poulet Thai, La Gatinoise, Poutine des Amateurs de Viande, Poutine de Steak au Fromage Philly, Poutine Pop Curds, Poutine au Poulet Croustillant, Poutine au Bacon, Poutine La Club, Poutine Végétarienne, Poutine de Viande Fumée, Poutine Épicé, Poutine Donaire - each with size variants: Petit, Grand)
+- **Desserts**: 2 items (Mini Beignets, Mini Churros - with quantity variants)
+- **Breuvages** (Drinks): 14 items (Pepsi, Pepsi Diet, 7Up, Ginger Ale, Crush variants, Crème soda, Root Beer, Dr.Pepper, Thé Glacé, Mountain Dew variants, Aquafina, Jus variants, Rockstar variants - with size variants)
+- **Estimated Total Items:** 40+ dishes on live menu (counting size/quantity variants)
+- **Database Has:** 47 dishes (matches live menu count) ✅
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **47 dishes** all assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Database has correct dish count (47 dishes matches live menu), but all dishes are in "Uncategorized" course. Live menu has **5 courses** (Spécials, Les Entrées, Les Poutines, Desserts, Breuvages). **ACTION REQUIRED:** (1) Create proper course structure based on live menu (Spécials, Les Entrées, Les Poutines, Desserts, Breuvages), (2) Assign all 47 dishes to appropriate courses, (3) Verify modifier assignments (6 modifiers for 3 dishes) match live menu structure.
+
+#### Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O (Restaurant ID: 802)
+**Status:** ⚠️ ISSUE - All 36 dishes in "Uncategorized" course
+**Date:** 2025-11-05
+**Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://gatineau.poutineriequebecurds.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 802;
+```
+- Restaurant ID: 802
+- Name: Poutinerie Québécurds Gatineau
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 802;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 802 AND deleted_at IS NULL;
+```
+- Total dishes: 36 ⚠️
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 36 (100%) ✅
+- **ISSUE:** All 36 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 802 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 36 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 802 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Step 6: Verify Menu Structure (Live Menu)**
+**Menu Link:** https://gatineau.poutineriequebecurds.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Live Menu Course Structure (from verified menu):**
+- **Spécials** (Specials): 3 items (2 Petites Poutines avec Breuvages, Special SOLO avec Beignets, Special SOLO avec Churros)
+- **Les Entrées** (Appetizers): 9 items (Frite, Patate douce, Bouchée de pomme de terre, Rondelle d'oignon, PopCurds, Bâtonnets de fromage, Jalapeno poppers, Zucchini panées, Cornichons frits panées - with size variants)
+- **Les Poutines**: 14 items (Poutine Classique, Poutine Buffalo, Poutine Poulet Thai, La Gatinoise, Poutine des Amateurs de Viande, Poutine de Steak au Fromage Philly, Poutine Pop Curds, Poutine au Poulet Croustillant, Poutine au Bacon, Poutine La Club, Poutine Végétarienne, Poutine de Viande Fumée, Poutine Épicé, Poutine Donaire - each with size variants: Petit, Grand)
+- **Desserts**: 2 items (Mini Beignets, Mini Churros - with quantity variants)
+- **Breuvages** (Drinks): 14 items (Pepsi, Pepsi Diet, 7Up, Ginger Ale, Crush variants, Crème soda, Root Beer, Dr.Pepper, Thé Glacé, Mountain Dew variants, Aquafina, Jus variants, Rockstar variants - with size variants)
+- **Estimated Total Items:** 40+ dishes on live menu (counting size/quantity variants)
+- **Database Has:** 36 dishes (slightly lower than live menu, may be missing some variants) ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **36 dishes** all assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Database has 36 dishes (slightly lower than live menu count of 40+), but all dishes are in "Uncategorized" course. Live menu has **5 courses** (Spécials, Les Entrées, Les Poutines, Desserts, Breuvages). **ACTION REQUIRED:** (1) Create proper course structure based on live menu (Spécials, Les Entrées, Les Poutines, Desserts, Breuvages), (2) Assign all 36 dishes to appropriate courses, (3) Verify if additional dishes need to be imported to match live menu count.

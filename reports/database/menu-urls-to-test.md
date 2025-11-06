@@ -115,11 +115,11 @@ Test each URL and mark with:
 ### 4. New Mukut Restaurant Indian Cuisine 1968 Portobello Blvd
 - [ ] https://mukutorleans.menu.ca/?p=menu
 
-### 5. Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O
-- [ ] NEED URL
+### 5. ✅ Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O - AUDITED
+- ✅ https://gatineau.poutineriequebecurds.ca/?p=menu&lang=fr
 
-### 6. Poutinerie Québécurds Hull 455 Boulevard Riel
-- [ ] NEED URL
+### 6. ✅ Poutinerie Québécurds Hull 455 Boulevard Riel - AUDITED
+- ✅ https://hull.poutineriequebecurds.ca/?p=menu&lang=fr
 
 ---
 
@@ -130,19 +130,19 @@ Test each URL and mark with:
 - Menu link: https://pizzajoanna.menu.ca/?p=menu&lang=fr ✅
 
 ### 8. Sachi Sushi 4931, rue Beaubien E
-- [ ] NEED URL
+- [ ] https://sachisushimontreal.menu.ca/?p=menu&lang=fr
 
 ### 9. Supreme Pizzeria 380 Chemin Vanier
-- [ ] NEED URL
+- [ ] https://m.pizzeriasupreme.ca/menu
 
 ### 10. Supreme Pizzeria 425 Donald St
-- [ ] NEED URL
+- [ ] https://supremepizzeriadonald.ca/?p=menu
 
 ### 11. Sushi Express Chambly 886 ch de Chambly
-- [ ] NEED URL
+- [ ] https://m.sushiexpressfantasia.ca/menu
 
 ### 12. iCook Pho You 2006 Robertson Rd
-- [ ] NEED URL
+- [ ] https://m.icookphoyou.com/menu
 
 ### 13. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
 - ⚠️ ALREADY AUDITED - NOT FOUND IN DATABASE (has menu online at roulas.ca)
@@ -158,11 +158,11 @@ Test each URL and mark with:
 - ⏳ **Batch 5:** 6 restaurants - NEED URLs (Brian's ACTUALLY remaining - Batch 2)
 
 **ACTUAL NUMBERS (checkboxes now updated in Restaurants-active.md):**
-- **Total Audited:** 132+ restaurants ✅
-- **Brian (B):** ~77 completed, **~12 remaining** (removed already-audited duplicates)
+- **Total Audited:** 143 restaurants ✅ (141 + 2 Poutinerie locations)
+- **Brian (B):** 82 completed, **1 remaining** (Roulas - already audited, not in DB)
 - **Santiago (S):** 55 completed, **45 remaining**
-- **Total Remaining:** 64 restaurants (19 + 45)
-- **Total in Active List:** 190 restaurants
+- **Total Remaining:** 46 restaurants (1 + 45)
+- **Total in Active List:** 189 restaurants
 
 ---
 
