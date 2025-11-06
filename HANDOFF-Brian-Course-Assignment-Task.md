@@ -80,7 +80,55 @@ WHERE restaurant_id = [id] AND deleted_at IS NULL;
 - Create UPDATE statements to assign course_id
 - Map based on dish names (e.g., "Pepsi" → Drinks, "Cheesecake" → Desserts)
 
-**Step 5: Verify**
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = [id] AND dm.deleted_at IS NULL;
+```
+
+```sql
+-- Check modifier relationships - which dishes have modifiers
+SELECT 
+    d.id as dish_id,
+    d.name as dish_name,
+    c.name as course_name,
+    COUNT(DISTINCT dm.id) as modifier_count,
+    COUNT(DISTINCT dm.ingredient_group_id) as modifier_groups_count
+FROM menuca_v3.dishes d
+LEFT JOIN menuca_v3.courses c ON d.course_id = c.id
+LEFT JOIN menuca_v3.dish_modifiers dm ON d.id = dm.dish_id AND dm.deleted_at IS NULL
+WHERE d.restaurant_id = [id] AND d.deleted_at IS NULL
+GROUP BY d.id, d.name, c.name
+HAVING COUNT(DISTINCT dm.id) > 0
+ORDER BY modifier_count DESC;
+```
+
+```sql
+-- Check modifier group structure
+SELECT 
+    dm.dish_id,
+    d.name as dish_name,
+    dm.ingredient_group_id,
+    ig.name as group_name,
+    COUNT(DISTINCT dm.ingredient_id) as modifiers_in_group
+FROM menuca_v3.dish_modifiers dm
+LEFT JOIN menuca_v3.dishes d ON dm.dish_id = d.id
+LEFT JOIN menuca_v3.ingredient_groups ig ON dm.ingredient_group_id = ig.id
+WHERE dm.restaurant_id = [id] AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
+GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
+ORDER BY dm.dish_id, dm.ingredient_group_id;
+```
+
+- Document modifier counts and relationships
+- Verify modifiers are assigned to correct dishes
+- Check if modifier groups are properly structured
+- Compare with live menu if available to verify modifier assignments match
+
+**Step 6: Verify Course Assignments**
 ```sql
 -- Check remaining NULL values
 SELECT COUNT(*) FROM menuca_v3.dishes
@@ -88,7 +136,7 @@ WHERE restaurant_id = [id] AND course_id IS NULL AND deleted_at IS NULL;
 ```
 - Must be 0 remaining NULL values
 
-**Step 6: Report & Pause**
+**Step 7: Report & Pause**
 - Document results in `Course-Fix-Progress.md`
 - Report findings
 - 🛑 STOP and wait for authorization before next restaurant

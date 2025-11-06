@@ -2513,8 +2513,9 @@ SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOI
   - Uncategorized: 16 dishes ⚠️⚠️⚠️
 - **CRITICAL ISSUE:** Only 1 course ("Uncategorized") exists. All 16 dishes are incorrectly assigned to this course. Need to create proper course structure (e.g., Pizzas, Appetizers, Salads, Wings, Sides, Drinks, etc.) and reassign all dishes.
 
-**Step 5: Check Modifiers**
+**Step 5: Check Modifiers and Relationships**
 ```sql
+-- Count total modifiers
 SELECT 
     COUNT(DISTINCT dm.id) as total_modifiers,
     COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
@@ -2523,6 +2524,41 @@ WHERE dm.restaurant_id = 714 AND dm.deleted_at IS NULL;
 ```
 - Total modifiers: 0
 - Dishes with modifiers: 0
+
+```sql
+-- Check modifier relationships - which dishes have modifiers
+SELECT 
+    d.id as dish_id,
+    d.name as dish_name,
+    c.name as course_name,
+    COUNT(DISTINCT dm.id) as modifier_count,
+    COUNT(DISTINCT dm.ingredient_group_id) as modifier_groups_count
+FROM menuca_v3.dishes d
+LEFT JOIN menuca_v3.courses c ON d.course_id = c.id
+LEFT JOIN menuca_v3.dish_modifiers dm ON d.id = dm.dish_id AND dm.deleted_at IS NULL
+WHERE d.restaurant_id = 714 AND d.deleted_at IS NULL
+GROUP BY d.id, d.name, c.name
+HAVING COUNT(DISTINCT dm.id) > 0
+ORDER BY modifier_count DESC;
+```
+- No dishes with modifiers found
+
+```sql
+-- Check modifier group structure
+SELECT 
+    dm.dish_id,
+    d.name as dish_name,
+    dm.ingredient_group_id,
+    ig.name as group_name,
+    COUNT(DISTINCT dm.ingredient_id) as modifiers_in_group
+FROM menuca_v3.dish_modifiers dm
+LEFT JOIN menuca_v3.dishes d ON dm.dish_id = d.id
+LEFT JOIN menuca_v3.ingredient_groups ig ON dm.ingredient_group_id = ig.id
+WHERE dm.restaurant_id = 714 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
+GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
+ORDER BY dm.dish_id, dm.ingredient_group_id;
+```
+- No modifier groups found
 
 **Result:** ⚠️ ISSUE - All 16 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Need menu link to verify: (1) Course structure from live menu, (2) Whether 16 dishes is complete (suspiciously low for pizza restaurant), (3) Proper course assignment for all dishes. **ACTION REQUIRED:** Obtain menu link, verify dish count completeness, create proper course structure, and reassign all 16 dishes to appropriate courses.
 
