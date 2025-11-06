@@ -99,70 +99,49 @@ Test each URL and mark with:
 
 ---
 
-## Batch 4: Brian's Remaining Restaurants - Batch 1 (10 restaurants) ⏳
+## Batch 4: Brian's ACTUALLY Remaining Restaurants - Batch 1 (6 restaurants) ⏳
 
-**Note:** These are the 19 remaining restaurants assigned to Brian (B). Split into 2 batches.
+**Note:** Removed already-audited restaurants. These are the TRULY remaining ones.
 
 ### 1. Milano 643 Boulevard Saint-René O
-- [ ] NEED URL
+- [ ] https://gatineau.milanopizzeria.ca/?p=menu&lang=fr
 
 ### 2. Mozza Pizza Gatineau 425, boul La Vérendrye E
-- [ ] NEED URL
+- [ ] https://mozzapizzagatineau.com/?p=menu&lang=fr
 
 ### 3. New Mee Fung Restaurant 350 Booth St
-- [ ] NEED URL
+- [ ] https://newmeefung.com/?p=menu
 
 ### 4. New Mukut Restaurant Indian Cuisine 1968 Portobello Blvd
+- [ ] https://mukutorleans.menu.ca/?p=menu
+
+### 5. Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O
 - [ ] NEED URL
 
-### 5. Number One Chinese Take Out 988 Wellington St
-- [ ] NEED URL
-
-### 6. Pachino Pizza 3515 Albion Road South
-- [ ] NEED URL
-
-### 7. Papa Grecque Cantley 393 Montée de la Source
-- [ ] NEED URL
-
-### 8. Papa Pizza Cantley 393 Montée de la Source
-- [ ] NEED URL (same address as Papa Grecque Cantley)
-
-### 9. Parea Authentic Greek 1675 Tenth Line Road
-- [ ] NEED URL
-
-### 10. Parea Express 540 Montréal Road
+### 6. Poutinerie Québécurds Hull 455 Boulevard Riel
 - [ ] NEED URL
 
 ---
 
-## Batch 5: Brian's Remaining Restaurants - Batch 2 (9 restaurants) ⏳
+## Batch 5: Brian's ACTUALLY Remaining Restaurants - Batch 2 (6 restaurants) ⏳
 
-### 11. Pizza Joanna 229 Boulevard Saint-René Ouest
+### 7. Sachi Sushi 4931, rue Beaubien E
 - [ ] NEED URL
 
-### 12. Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O
+### 8. Supreme Pizzeria 380 Chemin Vanier
 - [ ] NEED URL
 
-### 13. Poutinerie Québécurds Hull 455 Boulevard Riel
+### 9. Supreme Pizzeria 425 Donald St
 - [ ] NEED URL
 
-### 14. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
+### 10. Sushi Express Chambly 886 ch de Chambly
+- [ ] NEED URL
+
+### 11. iCook Pho You 2006 Robertson Rd
+- [ ] NEED URL
+
+### 12. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
 - ⚠️ ALREADY AUDITED - NOT FOUND IN DATABASE (has menu online at roulas.ca)
-
-### 15. Sachi Sushi 4931, rue Beaubien E
-- [ ] NEED URL
-
-### 16. Supreme Pizzeria 380 Chemin Vanier
-- [ ] NEED URL
-
-### 17. Supreme Pizzeria 425 Donald St
-- [ ] NEED URL
-
-### 18. Sushi Express Chambly 886 ch de Chambly
-- [ ] NEED URL
-
-### 19. iCook Pho You 2006 Robertson Rd
-- [ ] NEED URL
 
 ---
 
@@ -171,12 +150,12 @@ Test each URL and mark with:
 - ✅ **Batch 1:** 10 restaurants - COMPLETE
 - ✅ **Batch 2:** 10 restaurants - COMPLETE  
 - ✅ **Batch 3:** 4 restaurants - COMPLETE (2 skipped - already done)
-- ⏳ **Batch 4:** 10 restaurants - NEED URLs (Brian's remaining - Batch 1)
-- ⏳ **Batch 5:** 9 restaurants - NEED URLs (Brian's remaining - Batch 2)
+- ⏳ **Batch 4:** 6 restaurants - NEED URLs (Brian's ACTUALLY remaining - Batch 1)
+- ⏳ **Batch 5:** 6 restaurants - NEED URLs (Brian's ACTUALLY remaining - Batch 2)
 
 **ACTUAL NUMBERS (checkboxes now updated in Restaurants-active.md):**
-- **Total Audited:** 132 restaurants ✅
-- **Brian (B):** 71 completed, **19 remaining**
+- **Total Audited:** 132+ restaurants ✅
+- **Brian (B):** ~77 completed, **~12 remaining** (removed already-audited duplicates)
 - **Santiago (S):** 55 completed, **45 remaining**
 - **Total Remaining:** 64 restaurants (19 + 45)
 - **Total in Active List:** 190 restaurants
