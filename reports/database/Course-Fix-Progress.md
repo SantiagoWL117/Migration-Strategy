@@ -2656,7 +2656,12 @@ GROUP BY d.id, d.name, c.name
 HAVING COUNT(DISTINCT dm.id) > 0
 ORDER BY modifier_count DESC;
 ```
-- [Results pending - need to verify which dishes have modifiers]
+- Dishes with modifiers:
+  - "Oh Sweet Vegan" (ID: 5155): 4 modifiers
+  - "Small Perfect Combo Deal with PopCurds" (ID: 5111): 1 modifier
+  - "Medium Perfect Combo Deal with PopCurds" (ID: 5112): 1 modifier
+  - "Large Perfect Combo Deal with PopCurds" (ID: 5113): 1 modifier
+- Modifier groups: 0 (all modifiers have NULL ingredient_group_id) ⚠️
 
 ```sql
 -- Check modifier group structure
@@ -2673,7 +2678,11 @@ WHERE dm.restaurant_id = 807 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
 GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
 ORDER BY dm.dish_id, dm.ingredient_group_id;
 ```
-- [Results pending - need to verify modifier group structure]
+- Modifier group structure:
+  - All modifiers have NULL ingredient_group_id (no groups defined) ⚠️
+  - "Oh Sweet Vegan": 4 modifiers (ungrouped)
+  - "Small/Medium/Large Perfect Combo Deal with PopCurds": 1 modifier each (ungrouped)
+- **ISSUE:** Modifiers exist but are not organized into modifier groups - may need group structure for proper menu display
 
 **Result:** ⚠️ ISSUE - All 6 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Restaurant has 7 modifiers assigned to 4 dishes, which is good, but need to verify modifier relationships are correct. Dish count (6) is suspiciously low for a grill restaurant - may indicate incomplete menu data migration. **ACTION REQUIRED:** Obtain menu link to verify: (1) Course structure from live menu, (2) Whether 6 dishes is complete (suspiciously low), (3) Proper course assignment for all dishes, (4) Modifier assignments match live menu structure.
 
