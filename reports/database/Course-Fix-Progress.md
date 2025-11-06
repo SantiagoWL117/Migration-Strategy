@@ -2474,7 +2474,7 @@ Actual menu structure from online shows ~15 categories that should be created:
 **Date:** 2025-11-03
 **Address:** 631 Montreal Rd ✅ (matches verified list)
 **Assignee:** Brian (B)
-**Menu link:** NEEDED (to verify course structure and ensure all dishes are present)
+**Menu link:** https://m.ogilviepizzaottawa.com/menu ✅ (VERIFIED - Full menu available, CRITICAL DATA MIGRATION ISSUE identified)
 
 **Step 1: Restaurant Status**
 ```sql
@@ -2560,7 +2560,29 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 ```
 - No modifier groups found
 
-**Result:** ⚠️ ISSUE - All 16 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. Need menu link to verify: (1) Course structure from live menu, (2) Whether 16 dishes is complete (suspiciously low for pizza restaurant), (3) Proper course assignment for all dishes. **ACTION REQUIRED:** Obtain menu link, verify dish count completeness, create proper course structure, and reassign all 16 dishes to appropriate courses.
+**Menu Status Check:**
+- Menu URL: https://m.ogilviepizzaottawa.com/menu
+- **Status:** ✅ Active online ordering menu available
+- **Course Structure Found on Live Menu:**
+  - Everyday Special (2 items: Pasta Special, Beef Donair Special)
+  - Pizza & Wings Special (2 items: Large/Medium Pizza & Wings)
+  - Pizza Menu (16 pizza types: Plain, Pepperoni, Hawaiian, Combination, Canadian, Vegetarian, Hawaiian Plus, Pizza Burger, Mexican, Donair, Meat Man, Ogilvie Special, Chicken Pizza, Greek Pizza - each with Small/Medium/Large size variants)
+  - Two Pizza Deal (3 items: 2 Small/Medium/Large Pizzas)
+  - Our Famous Burgers (12 burger types: Ogilvie Super, Hamburger, Cheeseburger, Mushroom, Bacon Cheeseburger, Mushroom & Bacon, Double Hamburger, Double Cheeseburger, Double Bacon, Chicken Burger, BBQ Chicken, Club Burger - each with Sandwich/Platter options)
+  - Favorites/Appetizers (20+ items: Deep Fried Zucchini, Mozzarella Cheese Sticks, Mushroom Caps, Pizza Fingers, Nachos varieties, Garlic Bread, Onion Rings, French Fries, Poutine varieties, Ogilvie Sampler, Dips)
+  - Submarines (13 sub types: Steak, Style, Super Steak, Club, Pizza, Smoked Meat, Pepperoni, Meatball, Bacon, Roast Beef, Vegetarian, Ham, Salami, Chicken - each with Small/Large options)
+  - Italian Food (5 items: Ogilvie's Special Spaghetti, Baked Lasagna, Spaghetti with Meat Sauce, Spaghetti with Meatballs, Ravioli)
+  - Sandwiches (7 items: Club, BLT, Smoked Meat, Hot Chicken, Hot Beef, Hot Hamburger, Hamburger Steak - with Sandwich/Platter options)
+  - Wraps & Donairs (2 items: Beef Donair, Chicken Shawarma - with Sandwich/Platter options)
+  - Chicken (2 items: Buffalo Wings with 1Lb/2Lb/3Lb options, Chicken Fingers)
+  - Seafood (1 item: Fish & Chips)
+  - Salads (6 items: Chef's, Caesar, Chicken Caesar, Julienne, Greek, Chicken Greek - with Small/Large options)
+  - Desserts (3 items: Assorted Cheesecake, Chocolate Bars, 2 Bite Brownies)
+  - Drinks (15+ items: Coca Cola, Diet Coca Cola, Sprite, 7 Up, Ginger Ale, Grape Crush, Cream Soda, Dr. Pepper, Iced Tea, Pepsi, Diet Pepsi, Root Beer, Juice varieties, Water - with Can/1L/2L size variants)
+- **Estimated Total Items:** 100+ dishes on live menu (counting size variants and options)
+- **Database Has:** 16 dishes (84%+ of menu missing) ⚠️⚠️⚠️
+
+**Result:** ⚠️⚠️⚠️ CRITICAL DATA MIGRATION ISSUE - **Database contains only 16 dishes but live menu has 100+ items**. All 16 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **Root Cause:** Incomplete menu data migration - most menu items were never imported. **URGENT:** (1) Complete menu data migration required - 100+ dishes need to be imported, (2) Create proper course structure based on live menu (Everyday Special, Pizza & Wings Special, Pizza Menu, Two Pizza Deal, Our Famous Burgers, Favorites/Appetizers, Submarines, Italian Food, Sandwiches, Wraps & Donairs, Chicken, Seafood, Salads, Desserts, Drinks), (3) Assign all dishes to appropriate courses, (4) Verify modifier assignments (size variants, sandwich/platter options, etc.). **ACTION REQUIRED:** Complete menu data migration immediately - this is a critical data integrity issue.
 
 ---
 
