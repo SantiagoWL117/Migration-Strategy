@@ -116,19 +116,19 @@ Test each URL and mark with:
 ### 31. Sushi Express Chambly 886 ch de Chambly
 - [ ] NEED URL
 
-### 32. [Next restaurant from active list]
+### 32. Pizzalicious 1009 Merivale Rd (S)
 - [ ] NEED URL
 
-### 33. [Next restaurant from active list]
+### 33. River Pizza 4042 Innes Road (S)
 - [ ] NEED URL
 
-### 34. [Next restaurant from active list]
+### 34. [Next un-audited restaurant from active list]
 - [ ] NEED URL
 
-### 35. [Next restaurant from active list]
+### 35. [Next un-audited restaurant from active list]
 - [ ] NEED URL
 
-### 36. [Next restaurant from active list]
+### 36. [Next un-audited restaurant from active list]
 - [ ] NEED URL
 
 ---
