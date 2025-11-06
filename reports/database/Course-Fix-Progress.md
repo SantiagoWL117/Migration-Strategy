@@ -3166,7 +3166,21 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
   - All 4 dishes have 1 modifier each (ungrouped)
 - **ISSUE:** Modifiers exist but are not organized into modifier groups - may need group structure for proper menu display
 
-**Result:** ⚠️⚠️⚠️ **LOCATION VERIFICATION NEEDED** - Restaurant is in **Gatineau** (city_id: 32), not Ottawa. User notes: "there's no papa burger even listed in ottawa at all anywhere". **CRITICAL DATA MIGRATION ISSUE:** All 4 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Dish names are numbered 14-17, indicating dishes 1-13 are missing from database. Restaurant has 4 modifiers assigned to 4 dishes, but modifiers are not organized into groups. **ACTION REQUIRED:** (1) Verify if this restaurant should be on Ottawa active list (it's in Gatineau), (2) Verify menu link to check course structure from live menu, (3) Whether all dishes are present (dishes 1-13 appear to be missing), (4) Proper course assignment for all dishes, (5) Modifier assignments match live menu structure, (6) Complete menu data migration if dishes are missing.
+**Step 6: Verify Menu Structure (Live Menu)**
+**Menu Link:** https://papaburger.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided and confirmed working)
+
+**Live Menu Course Structure (from verified menu):**
+- **Spécials** (Specials): 2 items (Combo Pour 1, Combo Pour 2)
+- **Les Entrées Papa Burger** (Appetizers): 15+ items (Frites with size variants, Frites épicée, Rondelles d'oignon, Pain à l'ail, Bâtonnetes de fromage, Doigts de poulet, Zucchinis, Frites Patates Douces, Cornichons Panés Frits, Poutine with size variants, Papa Poutine, Poutine au Poulet, Poutine au Steak, Ailes de Poulet with size variants)
+- **Les Papa Burgers** (Burgers): 12+ items (Burger Originale, Cheeseburger, Papa Burger, Hot Burger, Burger Amateur de Viande, Hamburger Double, Burger au poulet et bacon, Burger au poulet, Burger Brie Fondant - each with "Burger Seule" and "Combo" variants)
+- **Plats de Spécialités** (Specialty Platters): 5 items (Hamburger Steak, Papa Nachos, Papa Club Sandwich, Club Sandwich Poutine, Salade de Poulet Suprême with salad type variants)
+- **Les Enfants** (Kids Menu): 3 items (Burger au poulet avec frites, Bouchées de poulet avec frites, Doigts de pouet avec frites)
+- **Desserts**: 5 items (Tartelette 3 choco, Tartelette au sirop d'érable, Gâteau fromage, Brownies pour enfant, Gâteau carrots)
+- **Breuvages** (Drinks): 15+ items (Pepsi, Diet Pepsi, 7 Up, Ginger Ale, Orange Crush, Grape Crush, Iced Tea, Cream Soda, Mountain Dew, Bubbly with flavor variants, Juice with flavor variants, Root Beer, Perrier, Eau Aquafina - with size variants)
+- **Estimated Total Items:** 50+ dishes on live menu (counting size variants and combo options)
+- **Database Has:** 4 dishes (92%+ of menu missing) ⚠️⚠️⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant is in **Gatineau** (city_id: 32), not Ottawa, but is on active list (likely serves Ottawa-Gatineau region). **CRITICAL DATA MIGRATION ISSUE:** Database contains only **4 dishes** (numbered 14-17) but live menu has **50+ items** across **7 courses** (92%+ of menu missing). All 4 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists in database. Restaurant has 4 modifiers assigned to 4 dishes, but modifiers are not organized into groups. **ROOT CAUSE:** Incomplete menu data migration - dishes 1-13 and most of the menu are missing. **URGENT:** (1) Complete menu data migration required - 50+ dishes need to be imported, (2) Create proper course structure based on live menu (Spécials, Les Entrées Papa Burger, Les Papa Burgers, Plats de Spécialités, Les Enfants, Desserts, Breuvages), (3) Assign all dishes to appropriate courses, (4) Verify modifier assignments (size variants, combo options, flavor variants) match live menu structure, (5) Organize modifiers into proper groups. **ACTION REQUIRED:** Complete menu data migration immediately - this is a critical data integrity issue.
 
 ---
 
