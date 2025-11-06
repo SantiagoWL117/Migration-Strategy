@@ -1,27 +1,27 @@
 # Source Data Availability Analysis
 
 **Date:** 2025-11-05  
-**Scope:** 142 audited restaurants (out of 189 total active)  
+**Scope:** 142 audited restaurants from verified active list (out of 189 total)  
 **Purpose:** Determine which restaurants can be re-imported from staging (NOT scraping) vs. need scraping
+
+**Note:** All 142 restaurants are on the verified active list - the verified list is the source of truth.
 
 ---
 
 ## Summary Statistics
 
-**Total Analyzed:** 142 audited restaurants (114 active, 28 suspended)
+**Total Analyzed:** 142 verified active restaurants
 
-| Source Data Status | Count | Active | Suspended | Action Required |
-|-------------------|-------|--------|-----------|-----------------|
-| **V1 Available in Staging** | 46 | 30 | 16 | ✅ Re-import from staging (NOT scraping) |
-| **V2 Available** | 21 | 20 | 1 | ✅ Re-import from V2 (NOT scraping - check staging tables) |
-| **V1 Mapped but No Data** | 75 | 64 | 11 | ⚠️ Scrape from live menu (source data missing) |
-| **No Source Data** | 0 | 0 | 0 | ⚠️ Scrape from live menu |
+| Source Data Status | Count | % | Action Required |
+|-------------------|-------|---|-----------------|
+| **V1 Available in Staging** | 46 | 32% | ✅ Re-import from staging (NOT scraping) |
+| **V2 Available** | 21 | 15% | ✅ Re-import from V2 (NOT scraping - check staging tables) |
+| **V1 Mapped but No Data** | 75 | 53% | ⚠️ Scrape from live menu (source data missing) |
+| **No Source Data** | 0 | 0% | ⚠️ Scrape from live menu |
 
 **Key Finding:** 
 - **66% (94 restaurants)** can be re-imported from source data (NOT scraping)
-  - **66 active** restaurants can re-import
 - **34% (48 restaurants)** need scraping from live menus (IS scraping)
-  - **48 active** restaurants need scraping
 
 ---
 
@@ -30,16 +30,12 @@
 ### ✅ Can Re-Import from Staging (NOT Scraping) - 94 Restaurants
 
 **V1 Available (46 restaurants):** Have V1 data in `staging.menuca_v1_menu`
-- 30 active restaurants
-- 16 suspended restaurants
 
 **V2 Available (21 restaurants):** Have V2 legacy IDs (need to verify V2 staging tables)
-- 20 active restaurants
-- 1 suspended restaurant
 
 **Action:** 
-- Re-run migration with correct status (active, not suspended) to import from `staging.menuca_v1_menu`
-- Check V2 staging tables and re-import with correct status
+- Re-run migration to import from `staging.menuca_v1_menu`
+- Check V2 staging tables and re-import
 
 **Note:** Need to verify which V2 staging tables exist and contain dish data.
 
@@ -47,9 +43,7 @@
 
 ### ⚠️ Need Scraping (V1 Mapped but No Data) - 75 Restaurants
 
-These restaurants have V1 mapping but no data in `staging.menuca_v1_menu`:
-- 64 active restaurants
-- 11 suspended restaurants
+These restaurants have V1 mapping but no data in `staging.menuca_v1_menu`.
 
 **Action:** Scrape from live menu URLs (source data not available in staging)
 
@@ -61,16 +55,16 @@ These restaurants have V1 mapping but no data in `staging.menuca_v1_menu`:
 
 ### Pattern 1: Status Mismatch = Data Loss
 
-**Finding:** Many restaurants with V1/V2 source data are marked as `suspended` in database but `active` in verified list.
+**Finding:** Many restaurants with V1/V2 source data have incorrect status in database but are on verified active list.
 
 **Examples:**
-- Papa Joe's Pizza (ID: 13) - suspended, has V1 data
-- New Mee Fung (ID: 15) - suspended, has V1 data
-- New Mukut (ID: 234) - suspended, has V1 data
+- Papa Joe's Pizza (ID: 13) - has V1 data
+- New Mee Fung (ID: 15) - has V1 data
+- New Mukut (ID: 234) - has V1 data
 
 **Impact:** These restaurants have source data available but were filtered out during migration due to incorrect status.
 
-**Fix:** Update status to `active`, then re-run migration.
+**Fix:** Re-run migration (verified list is source of truth - all are active).
 
 ---
 
@@ -107,27 +101,20 @@ These restaurants have V1 mapping but no data in `staging.menuca_v1_menu`:
 
 ### Immediate Actions:
 
-1. **Update Status Mismatches** (for suspended restaurants on active list)
-   - Change `suspended` → `active` for restaurants on verified list
-   - This will allow re-import from staging
-
-2. **Re-Import from V1 Staging** (46 restaurants)
+1. **Re-Import from V1 Staging** (46 restaurants)
    - Use `staging.menuca_v1_menu` 
-   - Re-run migration with correct status
+   - Re-run migration (verified list is source of truth)
    - Verify completeness against live menu
-   - **30 active** restaurants can be fixed this way
 
-3. **Check V2 Staging Tables** (21 restaurants)
+2. **Check V2 Staging Tables** (21 restaurants)
    - Verify V2 dish data exists in staging
    - Re-import if available
    - If not available, scrape from live menu
-   - **20 active** restaurants can potentially be fixed this way
 
-4. **Scrape from Live Menus** (75 restaurants)
+3. **Scrape from Live Menus** (75 restaurants)
    - Build scraper for live menu URLs
    - Extract and import menu data
    - These have no source data available
-   - **64 active** restaurants need scraping
 
 ---
 
@@ -157,20 +144,16 @@ These restaurants have V1 mapping but no data in `staging.menuca_v1_menu`:
 
 ## Conclusion
 
-**66% of audited restaurants (94 total, 66 active) can be re-imported from staging (NOT scraping)** - this is the preferred approach as it uses original source data.
+**66% of audited restaurants (94) can be re-imported from staging (NOT scraping)** - this is the preferred approach as it uses original source data.
 
-**34% need scraping from live menus (48 active)** - these have no source data available in staging.
+**34% need scraping from live menus (48)** - these have no source data available in staging.
 
 **Recommendation:** Proceed with **True Hybrid Approach**:
-1. Re-import from staging for 94 restaurants (66 active) - NOT scraping
-2. Scrape from live menus for 75 restaurants (64 active) - IS scraping
+1. Re-import from staging for 94 restaurants - NOT scraping
+2. Scrape from live menus for 75 restaurants - IS scraping
 3. Verify all against live menu URLs
 
 This optimizes effort and preserves historical accuracy where possible.
-
-**For Active Restaurants Specifically:**
-- 58% (66) can re-import from staging
-- 42% (48) need scraping from live menus
 
 ---
 
