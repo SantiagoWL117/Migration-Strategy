@@ -99,53 +99,69 @@ Test each URL and mark with:
 
 ---
 
-## Batch 4: Next 15 Restaurants - NEED URLs ⏳
+## Batch 4: Brian's Remaining Restaurants - Batch 1 (10 restaurants) ⏳
 
-**Note:** We were working bottom-up before, now going top-down. These have NOT been audited yet.
+**Note:** These are the 19 remaining restaurants assigned to Brian (B). Split into 2 batches.
 
-### 27. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
+### 1. Milano 643 Boulevard Saint-René O
+- [ ] NEED URL
+
+### 2. Mozza Pizza Gatineau 425, boul La Vérendrye E
+- [ ] NEED URL
+
+### 3. New Mee Fung Restaurant 350 Booth St
+- [ ] NEED URL
+
+### 4. New Mukut Restaurant Indian Cuisine 1968 Portobello Blvd
+- [ ] NEED URL
+
+### 5. Number One Chinese Take Out 988 Wellington St
+- [ ] NEED URL
+
+### 6. Pachino Pizza 3515 Albion Road South
+- [ ] NEED URL
+
+### 7. Papa Grecque Cantley 393 Montée de la Source
+- [ ] NEED URL
+
+### 8. Papa Pizza Cantley 393 Montée de la Source
+- [ ] NEED URL (same address as Papa Grecque Cantley)
+
+### 9. Parea Authentic Greek 1675 Tenth Line Road
+- [ ] NEED URL
+
+### 10. Parea Express 540 Montréal Road
+- [ ] NEED URL
+
+---
+
+## Batch 5: Brian's Remaining Restaurants - Batch 2 (9 restaurants) ⏳
+
+### 11. Pizza Joanna 229 Boulevard Saint-René Ouest
+- [ ] NEED URL
+
+### 12. Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O
+- [ ] NEED URL
+
+### 13. Poutinerie Québécurds Hull 455 Boulevard Riel
+- [ ] NEED URL
+
+### 14. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
 - ⚠️ ALREADY AUDITED - NOT FOUND IN DATABASE (has menu online at roulas.ca)
 
-### 28. Sachi Sushi 4931, rue Beaubien E
+### 15. Sachi Sushi 4931, rue Beaubien E
 - [ ] NEED URL
 
-### 29. Supreme Pizzeria 380 Chemin Vanier
+### 16. Supreme Pizzeria 380 Chemin Vanier
 - [ ] NEED URL
 
-### 30. Supreme Pizzeria 425 Donald St
+### 17. Supreme Pizzeria 425 Donald St
 - [ ] NEED URL
 
-### 31. Sushi Express Chambly 886 ch de Chambly
+### 18. Sushi Express Chambly 886 ch de Chambly
 - [ ] NEED URL
 
-### 32. ⏭️ Pizzalicious 1009 Merivale Rd (S)
-- ⚠️ ALREADY AUDITED - SKIPPED (no longer a client, only 1 dish)
-
-### 33. River Pizza 4042 Innes Road (S)
-- [ ] NEED URL (mentioned in summary but no full audit entry - needs proper HANDOFF format audit)
-
-### 34. iCook Pho You 2006 Robertson Rd
-- [ ] NEED URL
-
-### 35. Ting's Kitchen 3-701 Eagleson Rd (S)
-- [ ] NEED URL
-
-### 36. Vanier Pizza & Subs 201 Marier Ave (S)
-- [ ] NEED URL
-
-### 37. Sushi Fleury 2481 Fleury Est (S)
-- [ ] NEED URL
-
-### 38. Poutinerie Québécurds Hull 455 Boulevard Riel
-- [ ] NEED URL
-
-### 39. Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O
-- [ ] NEED URL
-
-### 40. [Next un-audited restaurant from active list]
-- [ ] NEED URL
-
-### 41. [Next un-audited restaurant from active list]
+### 19. iCook Pho You 2006 Robertson Rd
 - [ ] NEED URL
 
 ---
@@ -155,7 +171,8 @@ Test each URL and mark with:
 - ✅ **Batch 1:** 10 restaurants - COMPLETE
 - ✅ **Batch 2:** 10 restaurants - COMPLETE  
 - ✅ **Batch 3:** 4 restaurants - COMPLETE (2 skipped - already done)
-- ⏳ **Batch 4:** 15 restaurants - NEED URLs
+- ⏳ **Batch 4:** 10 restaurants - NEED URLs (Brian's remaining - Batch 1)
+- ⏳ **Batch 5:** 9 restaurants - NEED URLs (Brian's remaining - Batch 2)
 
 **ACTUAL NUMBERS (checkboxes now updated in Restaurants-active.md):**
 - **Total Audited:** 132 restaurants ✅
