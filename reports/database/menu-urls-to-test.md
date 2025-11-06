@@ -99,7 +99,7 @@ Test each URL and mark with:
 
 ---
 
-## Batch 4: Next 10 Restaurants - NEED URLs ⏳
+## Batch 4: Next 15 Restaurants - NEED URLs ⏳
 
 **Note:** We were working bottom-up before, now going top-down. These have NOT been audited yet.
 
@@ -124,13 +124,28 @@ Test each URL and mark with:
 ### 33. River Pizza 4042 Innes Road (S)
 - [ ] NEED URL (mentioned in summary but no full audit entry - needs proper HANDOFF format audit)
 
-### 34. [Next un-audited restaurant from active list]
+### 34. iCook Pho You 2006 Robertson Rd
 - [ ] NEED URL
 
-### 35. [Next un-audited restaurant from active list]
+### 35. Ting's Kitchen 3-701 Eagleson Rd (S)
 - [ ] NEED URL
 
-### 36. [Next un-audited restaurant from active list]
+### 36. Vanier Pizza & Subs 201 Marier Ave (S)
+- [ ] NEED URL
+
+### 37. Sushi Fleury 2481 Fleury Est (S)
+- [ ] NEED URL
+
+### 38. Poutinerie Québécurds Hull 455 Boulevard Riel
+- [ ] NEED URL
+
+### 39. Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O
+- [ ] NEED URL
+
+### 40. [Next un-audited restaurant from active list]
+- [ ] NEED URL
+
+### 41. [Next un-audited restaurant from active list]
 - [ ] NEED URL
 
 ---
@@ -140,10 +155,12 @@ Test each URL and mark with:
 - ✅ **Batch 1:** 10 restaurants - COMPLETE
 - ✅ **Batch 2:** 10 restaurants - COMPLETE  
 - ✅ **Batch 3:** 4 restaurants - COMPLETE (2 skipped - already done)
-- ⏳ **Batch 4:** 10 restaurants - NEED URLs
+- ⏳ **Batch 4:** 15 restaurants - NEED URLs
 
 **Total Audited:** 24 restaurants
-**Remaining:** ~165 restaurants (from active list of 189)
+**Remaining for Brian (B):** 72 restaurants
+**Remaining for Santiago (S):** 47 restaurants
+**Total Remaining:** 119 restaurants (from active list of 190)
 
 ---
 
