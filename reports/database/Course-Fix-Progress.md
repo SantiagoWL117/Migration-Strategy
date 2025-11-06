@@ -3065,6 +3065,108 @@ ORDER BY dm.dish_id, dm.ingredient_group_id;
 
 **Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE + STATUS MISMATCH** - Restaurant is listed as **active** in Restaurants-active.md and has a **fully functional active online menu**, but database shows **suspended**. **Database contains only 13 dishes but live menu has 100+ items** (87%+ of menu missing). All 13 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ROOT CAUSE:** Restaurant was incorrectly marked as suspended during migration, preventing menu data migration. **URGENT:** (1) Update status from `suspended` to `active` (restaurant is clearly active with full menu), (2) Complete menu data migration required - 100+ dishes need to be imported, (3) Create proper course structure based on live menu (Pizza, Gourmet Pizza, Two Pizza Deal, Pasta, Salads, Platters, Hot Subs, Cold Subs, Appetizers, Wings, Wrap, Burger, Poutine, Pizza & Wings, Daily Special, Desserts, Drinks), (4) Assign all dishes to appropriate courses, (5) Verify modifier assignments (size variants, flavor options, etc.) match live menu structure. **ACTION REQUIRED:** Correct status and complete menu data migration immediately - this is a critical data integrity issue.
 
+#### Papa Burger 22, rue des Flandres (Restaurant ID: 797)
+**Status:** ⚠️ ISSUE - All 4 dishes in "Uncategorized", suspiciously low dish count, has modifiers
+**Date:** 2025-11-03
+**Address:** 22, rue des Flandres ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://papaburger.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE name ILIKE '%Papa Burger%';
+```
+- Restaurant ID: 797
+- Name: Papa Burger
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 797;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT
+    COUNT(*) as total_dishes,
+    COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count,
+    COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count
+FROM menuca_v3.dishes
+WHERE restaurant_id = 797 AND deleted_at IS NULL;
+```
+- Total dishes: 4 ⚠️ (suspiciously low for a burger restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 4 (100%) ✅
+- **ISSUE:** All 4 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 797 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution:
+  - Uncategorized: 4 dishes ⚠️⚠️⚠️
+- **CRITICAL ISSUE:** Only 1 course ("Uncategorized") exists. All 4 dishes are incorrectly assigned to this course. Need to create proper course structure and reassign all dishes.
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+-- Count total modifiers
+SELECT 
+    COUNT(DISTINCT dm.id) as total_modifiers,
+    COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers
+FROM menuca_v3.dish_modifiers dm
+WHERE dm.restaurant_id = 797 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 4 ✅
+- Dishes with modifiers: 4 ✅
+
+```sql
+-- Check modifier relationships - which dishes have modifiers
+SELECT 
+    d.id as dish_id,
+    d.name as dish_name,
+    c.name as course_name,
+    COUNT(DISTINCT dm.id) as modifier_count,
+    COUNT(DISTINCT dm.ingredient_group_id) as modifier_groups_count
+FROM menuca_v3.dishes d
+LEFT JOIN menuca_v3.courses c ON d.course_id = c.id
+LEFT JOIN menuca_v3.dish_modifiers dm ON d.id = dm.dish_id AND dm.deleted_at IS NULL
+WHERE d.restaurant_id = 797 AND d.deleted_at IS NULL
+GROUP BY d.id, d.name, c.name
+HAVING COUNT(DISTINCT dm.id) > 0
+ORDER BY modifier_count DESC;
+```
+- Dishes with modifiers (4 total):
+  - "14. Blackened Steak Salad" (ID: 3233): 1 modifier (ungrouped)
+  - "15. Clocktower Club Sandwich" (ID: 3234): 1 modifier (ungrouped)
+  - "16. Falafel Sandwich" (ID: 3236): 1 modifier (ungrouped)
+  - "17. Lettuce Wraps" (ID: 3237): 1 modifier (ungrouped)
+- **ISSUE:** Dish names are numbered 14-17, suggesting dishes 1-13 are missing ⚠️⚠️⚠️
+- Modifier groups: 0 (all modifiers have NULL ingredient_group_id) ⚠️
+
+```sql
+-- Check modifier group structure
+SELECT 
+    dm.dish_id,
+    d.name as dish_name,
+    dm.ingredient_group_id,
+    ig.name as group_name,
+    COUNT(DISTINCT dm.ingredient_id) as modifiers_in_group
+FROM menuca_v3.dish_modifiers dm
+LEFT JOIN menuca_v3.dishes d ON dm.dish_id = d.id
+LEFT JOIN menuca_v3.ingredient_groups ig ON dm.ingredient_group_id = ig.id
+WHERE dm.restaurant_id = 797 AND dm.deleted_at IS NULL AND d.deleted_at IS NULL
+GROUP BY dm.dish_id, d.name, dm.ingredient_group_id, ig.name
+ORDER BY dm.dish_id, dm.ingredient_group_id;
+```
+- Modifier group structure:
+  - All modifiers have NULL ingredient_group_id (no groups defined) ⚠️
+  - All 4 dishes have 1 modifier each (ungrouped)
+- **ISSUE:** Modifiers exist but are not organized into modifier groups - may need group structure for proper menu display
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - All 4 dishes incorrectly assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Dish names are numbered 14-17, indicating dishes 1-13 are missing from database. Restaurant has 4 modifiers assigned to 4 dishes, but modifiers are not organized into groups. **ACTION REQUIRED:** Verify menu link to check: (1) Course structure from live menu, (2) Whether all dishes are present (dishes 1-13 appear to be missing), (3) Proper course assignment for all dishes, (4) Modifier assignments match live menu structure, (5) Complete menu data migration if dishes are missing.
+
 ---
 
 ### Restaurants with No Courses Defined
