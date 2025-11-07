@@ -1,17 +1,7 @@
 # Cursor Ignore File - Exclude large data files from indexing
 # This prevents Out of Memory crashes
 
-# ============================================
-# CRITICAL: ALL SQL Files (to prevent OOM)
-# ============================================
-**/*.sql
-Database/**/*.sql
 
-# ============================================
-# Large CSV Data Files (Memory intensive)
-# ============================================
-**/*.csv
-Database/**/*.csv
 
 # ============================================
 # JSON Data Dumps
