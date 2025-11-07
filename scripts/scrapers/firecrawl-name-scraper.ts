@@ -47,99 +47,94 @@ async function scrapeNamesWithFirecrawl(url: string, restaurantName: string, out
     const lines = result.markdown.split('\n');
 
     let currentCategory: string | null = null;
-    let potentialDishName: string | null = null;
-    let potentialDescription: string | null = null;
+    let buffer: string[] = []; // Buffer to collect lines before price table
     let dishIndex = 0;
+    let categoryBuffer: string[] = []; // Separate buffer for category detection
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
 
-      // Skip empty lines and navigation
-      if (!line || line === 'Haut' || line.includes('![')) {
+      // Skip empty lines
+      if (!line) continue;
+
+      // Detect categories after [Haut] links
+      if (line.includes('[Haut]')) {
+        // Next non-empty line after [Haut] is usually a category
+        categoryBuffer = [];
+        buffer = [];
         continue;
       }
 
-      // Detect category headers (headers appear after "Haut" or at start)
-      const prevLine = i > 0 ? lines[i - 1].trim() : '';
-      const nextLine = i < lines.length - 1 ? lines[i + 1].trim() : '';
-
-      // Category detection: standalone text line followed by a dish name
-      if (line.length > 3 && line.length < 50 &&
-          !line.includes('$') && !line.includes('|') && !line.match(/^-+/) &&
-          !line.includes('Burger Original') && !line.includes('Frites') &&
-          (prevLine === 'Haut' || prevLine === '' || i === 31)) {
-        // Check if next non-empty line looks like a dish name (not a description)
-        let j = i + 1;
-        while (j < lines.length && !lines[j].trim()) j++;
-        const potentialNext = lines[j]?.trim() || '';
-
-        // If next line is short and doesn't start with description patterns
-        if (potentialNext.length > 0 && potentialNext.length < 60 &&
-            !potentialNext.includes('Burger Original') &&
-            !potentialNext.includes('Avec frites')) {
-          currentCategory = line;
-          console.log(`\n📁 ${currentCategory}`);
-          continue;
-        }
-      }
-
-      // Check if this is an order button line (has price)
-      const isMenuItem = line.includes('Choisissez cet item') || line.includes('order.png');
-
-      // Potential dish name or description: non-table line that's not too long
-      if (!isMenuItem && !line.match(/^\|/) && !line.match(/^-+/) &&
-          !line.includes('$') && line.length > 2 && line.length < 200) {
-
-        // Check if next line is a table with order button (indicates this is dish-related)
-        const nextIsTable = nextLine.match(/^\|/) || nextLine.includes('order.png');
-        const nextNextLine = i < lines.length - 2 ? lines[i + 2].trim() : '';
-        const nextNextIsTable = nextNextLine.match(/^\|/) || nextNextLine.includes('order.png');
-
-        if (nextIsTable) {
-          // Next line is price table - this is dish name
-          potentialDishName = line;
-          potentialDescription = null;
-        } else if (nextNextIsTable && potentialDishName === null) {
-          // Two lines before table - first is name, second will be description
-          potentialDishName = line;
-        } else if (nextNextIsTable && potentialDishName !== null) {
-          // Second line before table - this is description
-          potentialDescription = line;
-        }
+      // Skip standalone images
+      if (line.startsWith('![') && !line.startsWith('|')) {
         continue;
       }
 
-      // Look for price in table format
-      if (isMenuItem && line.includes('$')) {
-        const priceMatch = line.match(/\$\s*(\d+[.,]\d{2})/);
+      // Skip table separator lines
+      if (line.match(/^\|\s*---/)) continue;
 
-        if (priceMatch && potentialDishName) {
-          // Check for size variant
-          const sizeMatch = line.match(/\|\s*»\s*([^|$]+?)\s*\|/);
+      // Check if this is a table row (starts with |)
+      if (line.match(/^\|/)) {
+        // Check if this line has a price and order button (it's a price row)
+        if (line.includes('Choisissez cet item') && line.includes('$')) {
+          const priceMatch = line.match(/\$\s*(\d+[.,]\d{2})/);
 
-          let finalDishName: string;
-          let finalDescription: string | null = potentialDescription;
+          if (priceMatch && buffer.length > 0) {
+            // Check for size variant in price line
+            const sizeMatch = line.match(/\|\s*»\s*([^|$]+?)\s*\|/);
 
-          if (sizeMatch && sizeMatch[1].trim()) {
-            // Has size variant - use potential name
-            finalDishName = `${potentialDishName} (${sizeMatch[1].trim()})`;
-          } else {
-            // No size variant
-            finalDishName = potentialDishName;
-            potentialDishName = null; // Clear after use
-            potentialDescription = null;
+            let dishName: string;
+            let description: string | null = null;
+
+            // Use category buffer if we just passed [Haut] and buffer[0] looks like category
+            if (categoryBuffer.length > 0 && buffer.length >= 2 && buffer[0].length < 50 && !buffer[0].includes(',')) {
+              currentCategory = categoryBuffer[0] || buffer[0];
+              console.log(`\n📁 ${currentCategory}`);
+              categoryBuffer = [];
+            }
+
+            if (sizeMatch && sizeMatch[1].trim()) {
+              // Has size variant (e.g., "Petit", "Grande")
+              // First line in buffer is dish name
+              dishName = `${buffer[0]} (${sizeMatch[1].trim()})`;
+              // Second line (if exists) is description
+              if (buffer.length > 1) {
+                description = buffer.slice(1).join(' ').trim() || null;
+              }
+            } else {
+              // No size variant
+              // First line is dish name
+              dishName = buffer[0];
+              // Remaining lines are description
+              if (buffer.length > 1) {
+                description = buffer.slice(1).join(' ').trim() || null;
+              }
+              // Clear buffer after use
+              buffer = [];
+            }
+
+            dishes.push({
+              index: dishIndex++,
+              name: dishName,
+              description,
+              price: priceMatch[1],
+              category: currentCategory
+            });
+
+            console.log(`  ${dishIndex}. ${dishName} - $${priceMatch[1]}`);
           }
-
-          dishes.push({
-            index: dishIndex++,
-            name: finalDishName,
-            description: finalDescription,
-            price: priceMatch[1],
-            category: currentCategory
-          });
-
-          console.log(`  ${dishIndex}. ${finalDishName} - $${priceMatch[1]}`);
         }
+        continue;
+      }
+
+      // Regular text line - add to buffer
+      // If we just passed [Haut], first line is likely category
+      if (categoryBuffer.length === 0 && buffer.length === 0) {
+        categoryBuffer.push(line);
+        currentCategory = line;
+        console.log(`\n📁 ${currentCategory}`);
+      } else {
+        buffer.push(line);
       }
     }
 

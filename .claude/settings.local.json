@@ -7,7 +7,8 @@
       "Bash(npm run scrape:*)",
       "Bash(npx ts-node:*)",
       "Bash(cat:*)",
-      "mcp__supabase__*"
+      "mcp__supabase__*",
+      "Bash(jq:*)"
     ],
     "deny": [],
     "ask": [],

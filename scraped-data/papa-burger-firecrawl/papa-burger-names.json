@@ -1,7 +1,526 @@
 {
   "restaurant": "Papa Burger",
   "url": "https://papaburger.ca/?p=menu",
-  "scrapedAt": "2025-11-07T19:55:45.510Z",
-  "totalDishes": 0,
-  "dishes": []
+  "scrapedAt": "2025-11-07T19:59:51.887Z",
+  "totalDishes": 74,
+  "dishes": [
+    {
+      "index": 0,
+      "name": "* * *",
+      "description": "Spécials Combo Pour 1 Burger Original, Frites avec Sauce Brune, 6 Ailes et 1 Canette.",
+      "price": "22.95",
+      "category": "[![](https://menu-v1.storage.googleapis.com/themes/theme_3/FR/close.png)](https://papaburger.ca/?p=menu#)"
+    },
+    {
+      "index": 1,
+      "name": "2 Burger Original, Frites avec Sauce Brune, 12 Ailes et 2 Canette.",
+      "description": null,
+      "price": "44.80",
+      "category": "Combo Pour 2"
+    },
+    {
+      "index": 2,
+      "name": "Frites (Petit)",
+      "description": null,
+      "price": "9.15",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 3,
+      "name": "Frites (Grande)",
+      "description": null,
+      "price": "11.50",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 4,
+      "name": "Frites (Familiale)",
+      "description": null,
+      "price": "16.05",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 5,
+      "name": "Frites (Petit)",
+      "description": "Frites épicée",
+      "price": "9.15",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 6,
+      "name": "Frites (Grande)",
+      "description": "Frites épicée",
+      "price": "11.50",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 7,
+      "name": "Frites (Familiale)",
+      "description": "Frites épicée",
+      "price": "16.05",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 8,
+      "name": "Frites (Petit)",
+      "description": "Frites épicée Rondelles d'oignon",
+      "price": "9.15",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 9,
+      "name": "Frites (Grande)",
+      "description": "Frites épicée Rondelles d'oignon",
+      "price": "11.50",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 10,
+      "name": "Frites (Familiale)",
+      "description": "Frites épicée Rondelles d'oignon",
+      "price": "16.05",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 11,
+      "name": "Frites",
+      "description": "Frites épicée Rondelles d'oignon Pain à l'ail (12\")",
+      "price": "5.70",
+      "category": "Les Entrées Papa Burger"
+    },
+    {
+      "index": 12,
+      "name": "Doigts de poulet (4)",
+      "description": "Avec frites et sauce BBQ.",
+      "price": "20.65",
+      "category": "Bâtonnetes de fromage"
+    },
+    {
+      "index": 13,
+      "name": "Frites Patates Douces",
+      "description": "Avec mayo épicée.",
+      "price": "11.80",
+      "category": "Zucchinis"
+    },
+    {
+      "index": 14,
+      "name": "Poutine (Petit)",
+      "description": null,
+      "price": "10.30",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 15,
+      "name": "Poutine (Grande)",
+      "description": null,
+      "price": "17.55",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 16,
+      "name": "Poutine (Familiale)",
+      "description": null,
+      "price": "20.70",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 17,
+      "name": "Poutine (Petit)",
+      "description": "Papa Poutine Saucisse Italienne et bacon.",
+      "price": "13.75",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 18,
+      "name": "Poutine (Grande)",
+      "description": "Papa Poutine Saucisse Italienne et bacon.",
+      "price": "21.80",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 19,
+      "name": "Poutine (Petit)",
+      "description": "Papa Poutine Saucisse Italienne et bacon. Poutine au Poulet",
+      "price": "13.80",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 20,
+      "name": "Poutine (Grande)",
+      "description": "Papa Poutine Saucisse Italienne et bacon. Poutine au Poulet",
+      "price": "21.80",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 21,
+      "name": "Poutine (Petit)",
+      "description": "Papa Poutine Saucisse Italienne et bacon. Poutine au Poulet Poutine au Steak",
+      "price": "13.80",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 22,
+      "name": "Poutine (Grande)",
+      "description": "Papa Poutine Saucisse Italienne et bacon. Poutine au Poulet Poutine au Steak",
+      "price": "21.80",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 23,
+      "name": "Poutine (12 mcx)",
+      "description": "Papa Poutine Saucisse Italienne et bacon. Poutine au Poulet Poutine au Steak Ailes de Poulet",
+      "price": "17.20",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 24,
+      "name": "Poutine (18 mcx)",
+      "description": "Papa Poutine Saucisse Italienne et bacon. Poutine au Poulet Poutine au Steak Ailes de Poulet",
+      "price": "18.95",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 25,
+      "name": "Poutine (24 mcx)",
+      "description": "Papa Poutine Saucisse Italienne et bacon. Poutine au Poulet Poutine au Steak Ailes de Poulet",
+      "price": "22.95",
+      "category": "Cornichons Panés Frits"
+    },
+    {
+      "index": 26,
+      "name": "Combos sont servis avec frites, canettes et salade de chou.",
+      "description": "Burger Originale (Burger Seule) Boeuf, tomate, oignon, salade, ketchup, mayo.",
+      "price": "9.20",
+      "category": "Les Papa Burgers"
+    },
+    {
+      "index": 27,
+      "name": "Burger Originale Combo",
+      "description": "Boeuf, tomate, oignon, salade, ketchup, mayo.",
+      "price": "14.95",
+      "category": "Les Papa Burgers"
+    },
+    {
+      "index": 28,
+      "name": "Boeuf, fromage cheddar, tomate, oignon, salade, ketchup, mayo.",
+      "description": null,
+      "price": "10.65",
+      "category": "Cheeseburger (Burger Seule)"
+    },
+    {
+      "index": 29,
+      "name": "Cheeseburger Combo",
+      "description": "Boeuf, fromage cheddar, tomate, oignon, salade, ketchup, mayo.",
+      "price": "16.10",
+      "category": "Cheeseburger (Burger Seule)"
+    },
+    {
+      "index": 30,
+      "name": "Boeuf, bacon, tomates, oignon, salade, ketchup, mayo.",
+      "description": null,
+      "price": "10.65",
+      "category": "Papa Burger (Burger Seule)"
+    },
+    {
+      "index": 31,
+      "name": "Papa Burger Combo",
+      "description": "Boeuf, bacon, tomates, oignon, salade, ketchup, mayo.",
+      "price": "16.10",
+      "category": "Papa Burger (Burger Seule)"
+    },
+    {
+      "index": 32,
+      "name": "Boeuf épicé, fromage, salade, tomate, piments forts, mayo, ketchup.",
+      "description": null,
+      "price": "10.65",
+      "category": "Hot Burger (Burger Seule)"
+    },
+    {
+      "index": 33,
+      "name": "Hot Burger Combo",
+      "description": "Boeuf épicé, fromage, salade, tomate, piments forts, mayo, ketchup.",
+      "price": "16.10",
+      "category": "Hot Burger (Burger Seule)"
+    },
+    {
+      "index": 34,
+      "name": "Boeuf, bacon, saucisse, tomates, salade, ketchup, mayo.",
+      "description": null,
+      "price": "11.90",
+      "category": "Burger Amateur de Viande (Burger Seule)"
+    },
+    {
+      "index": 35,
+      "name": "Burger Amateur de Viande Combo",
+      "description": "Boeuf, bacon, saucisse, tomates, salade, ketchup, mayo. Avec frites épicée.",
+      "price": "19.55",
+      "category": "Burger Amateur de Viande (Burger Seule)"
+    },
+    {
+      "index": 36,
+      "name": "2 X Boeuf fromage, ketchup, salade, mayonnaise, tomate.",
+      "description": null,
+      "price": "11.90",
+      "category": "Hamburger Double (Burger Seule)"
+    },
+    {
+      "index": 37,
+      "name": "Hamburger Double Combo",
+      "description": "2 X Boeuf fromage, ketchup, salade, mayonnaise, tomate.",
+      "price": "19.55",
+      "category": "Hamburger Double (Burger Seule)"
+    },
+    {
+      "index": 38,
+      "name": "Poulet, bacon, tomates, laitue, ketchup, mayo.",
+      "description": null,
+      "price": "11.20",
+      "category": "Burger au poulet et bacon (Burger Seule)"
+    },
+    {
+      "index": 39,
+      "name": "Burger au poulet et bacon Combo",
+      "description": "Poulet, bacon, tomates, laitue, ketchup, mayo.",
+      "price": "18.35",
+      "category": "Burger au poulet et bacon (Burger Seule)"
+    },
+    {
+      "index": 40,
+      "name": "Poulet, sauce BBQ, tomates, laitue, oignons.",
+      "description": null,
+      "price": "11.20",
+      "category": "Burger au poulet (Burger Seule)"
+    },
+    {
+      "index": 41,
+      "name": "Burger au poulet Combo",
+      "description": "Poulet, sauce BBQ, tomates, laitue, oignons.",
+      "price": "18.35",
+      "category": "Burger au poulet (Burger Seule)"
+    },
+    {
+      "index": 42,
+      "name": "Boeuf, fromage brie, tomates, laitue, oignons, sauce miel & ail.",
+      "description": null,
+      "price": "11.90",
+      "category": "Burger Brie Fondant (Burger Seule)"
+    },
+    {
+      "index": 43,
+      "name": "Burger Brie Fondant Combo",
+      "description": "Boeuf, fromage brie, tomates, laitue, oignons, sauce miel & ail.",
+      "price": "19.50",
+      "category": "Burger Brie Fondant (Burger Seule)"
+    },
+    {
+      "index": 44,
+      "name": "Hamburger Steak",
+      "description": "Servi avec 2 boulettes, onions, champignons et frites.",
+      "price": "18.40",
+      "category": "Plats de Spécialités"
+    },
+    {
+      "index": 45,
+      "name": "Nachos, olives, piments verts, onions, tomates servi avec salsa et crème sure (à côté).",
+      "description": null,
+      "price": "19.85",
+      "category": "Papa Nachos"
+    },
+    {
+      "index": 46,
+      "name": "Papa Club Sandwich",
+      "description": "Poulet, bacon, jambon, salade, tomate, mayo, frites et salade de chou.",
+      "price": "19.85",
+      "category": "Papa Nachos"
+    },
+    {
+      "index": 47,
+      "name": "Salade de Poulet Suprême (Avec salade Maison)",
+      "description": "Poitrine de poulet grillée servie sur un nid de salade maison ou César.",
+      "price": "20.70",
+      "category": "Club Sandwich Poutine"
+    },
+    {
+      "index": 48,
+      "name": "Salade de Poulet Suprême (Avec salade César)",
+      "description": "Poitrine de poulet grillée servie sur un nid de salade maison ou César.",
+      "price": "20.70",
+      "category": "Club Sandwich Poutine"
+    },
+    {
+      "index": 49,
+      "name": "Burger au poulet avec frites",
+      "description": null,
+      "price": "12.60",
+      "category": "Les Enfants"
+    },
+    {
+      "index": 50,
+      "name": "Bouchées de poulet avec frites",
+      "description": null,
+      "price": "12.60",
+      "category": "Les Enfants"
+    },
+    {
+      "index": 51,
+      "name": "Doigts de pouet (2) avec frites",
+      "description": null,
+      "price": "12.60",
+      "category": "Les Enfants"
+    },
+    {
+      "index": 52,
+      "name": "Tartelette 3 choco",
+      "description": null,
+      "price": "6.60",
+      "category": "Desserts"
+    },
+    {
+      "index": 53,
+      "name": "Tartelette au sirop d’érable du Québec",
+      "description": null,
+      "price": "6.60",
+      "category": "Desserts"
+    },
+    {
+      "index": 54,
+      "name": "Gâteau fromage",
+      "description": null,
+      "price": "9.15",
+      "category": "Desserts"
+    },
+    {
+      "index": 55,
+      "name": "Brownies pour enfant",
+      "description": null,
+      "price": "6.25",
+      "category": "Desserts"
+    },
+    {
+      "index": 56,
+      "name": "Gâteau carrots",
+      "description": null,
+      "price": "9.15",
+      "category": "Desserts"
+    },
+    {
+      "index": 57,
+      "name": "Pepsi (591ml)",
+      "description": null,
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 58,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 59,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi 7 Up",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 60,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi 7 Up Ginger Ale",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 61,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 62,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 63,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 64,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 65,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda Mountain Dew",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 66,
+      "name": "Pepsi (Lime)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda Mountain Dew Bubbly",
+      "price": "2.75",
+      "category": "Breuvages"
+    },
+    {
+      "index": 67,
+      "name": "Pepsi (Cherry)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda Mountain Dew Bubbly",
+      "price": "2.75",
+      "category": "Breuvages"
+    },
+    {
+      "index": 68,
+      "name": "Pepsi (Grapefruit)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda Mountain Dew Bubbly",
+      "price": "2.75",
+      "category": "Breuvages"
+    },
+    {
+      "index": 69,
+      "name": "Pepsi (Pomme)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda Mountain Dew Bubbly Juice",
+      "price": "2.75",
+      "category": "Breuvages"
+    },
+    {
+      "index": 70,
+      "name": "Pepsi (Orange)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda Mountain Dew Bubbly Juice",
+      "price": "2.75",
+      "category": "Breuvages"
+    },
+    {
+      "index": 71,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda Mountain Dew Bubbly Juice Root Beer",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 72,
+      "name": "Pepsi (591ml)",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda Mountain Dew Bubbly Juice Root Beer Perrier",
+      "price": "2.50",
+      "category": "Breuvages"
+    },
+    {
+      "index": 73,
+      "name": "Pepsi",
+      "description": "Diet Pepsi 7 Up Ginger Ale Orange Crush Grape Crush Iced Tea Cream Soda Mountain Dew Bubbly Juice Root Beer Perrier Eau Aquafina",
+      "price": "2.20",
+      "category": "Breuvages"
+    }
+  ]
 }

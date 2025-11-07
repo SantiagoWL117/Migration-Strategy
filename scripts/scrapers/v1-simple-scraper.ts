@@ -183,75 +183,45 @@ export class V1SimpleScraper {
     return await this.page.evaluate(() => {
       const dishes: Array<{ name: string; price: number | null; description: string | null }> = [];
 
-      // Remove all script tags from consideration
-      const scripts = Array.from(document.querySelectorAll('script'));
-      scripts.forEach(s => s.remove());
+      // Find all forms with order buttons (each form is a dish)
+      const forms = Array.from(document.querySelectorAll('form[id^="form_"]'));
 
-      // Find all tables that contain menu items
-      const tables = Array.from(document.querySelectorAll('table'));
+      for (const form of forms) {
+        let dishName = '';
+        let price: number | null = null;
+        let description: string | null = null;
 
-      for (const table of tables) {
-        // Look for rows with order buttons
-        const rows = Array.from(table.querySelectorAll('tr'));
-
-        for (const row of rows) {
-          // Check if row has an order button/link
-          const hasOrderButton = row.querySelector('a[href*="menu#"], img[src*="order"]');
-          if (!hasOrderButton) continue;
-
-          let dishName = '';
-          let price: number | null = null;
-          let description: string | null = null;
-
-          // Find all TD cells in this row
-          const cells = Array.from(row.querySelectorAll('td'));
-
-          // Look for cells with bold/strong text (usually dish name)
-          for (const cell of cells) {
-            const bold = cell.querySelector('strong, b, font[size="4"]');
-            if (bold) {
-              const boldText = bold.textContent?.trim() || '';
-              if (boldText.length > 2 && boldText.length < 150 && !boldText.includes('Choisissez')) {
-                dishName = boldText;
-                break;
-              }
-            }
+        // Find the dish name (first bold <p> in the left float div)
+        const leftDiv = form.querySelector('div[style*="float:left"]');
+        if (leftDiv) {
+          const boldPs = Array.from(leftDiv.querySelectorAll('p[style*="font-weight: bold"], p[style*="font-weight:bold"]'));
+          if (boldPs.length > 0) {
+            dishName = boldPs[0].textContent?.trim() || '';
           }
 
-          // Get full row text for price extraction
-          const rowText = row.textContent?.replace(/\s+/g, ' ').trim() || '';
-          const priceMatch = rowText.match(/\$\s*(\d+[.,]\d{2})/);
+          // Find description (second <p> in left div, not bold)
+          const allPs = Array.from(leftDiv.querySelectorAll('p'));
+          if (allPs.length > 1) {
+            // Skip the first (name), get second (description)
+            const descP = allPs[1];
+            if (descP && !descP.style.fontWeight) {
+              description = descP.textContent?.trim() || null;
+            }
+          }
+        }
+
+        // Find price in the table
+        const priceCell = form.querySelector('td:nth-child(2)');
+        if (priceCell) {
+          const priceText = priceCell.textContent?.trim() || '';
+          const priceMatch = priceText.match(/\$\s*(\d+[.,]\d{2})/);
           if (priceMatch) {
             price = parseFloat(priceMatch[1].replace(',', '.'));
           }
+        }
 
-          // Look for description (non-bold text in cells)
-          for (const cell of cells) {
-            const cellClone = cell.cloneNode(true) as HTMLElement;
-            // Remove bold elements to get description
-            const bolds = cellClone.querySelectorAll('strong, b');
-            bolds.forEach(b => b.remove());
-            const desc = cellClone.textContent?.trim() || '';
-            if (desc.length > 10 && desc.length < 500 && !desc.includes('Choisissez')) {
-              description = desc.replace(/\$\s*\d+[.,]\d{2}/, '').trim();
-              if (description.length > 10) break;
-            }
-          }
-
-          // Fallback: if no name found, use first cell with substantial text
-          if (!dishName) {
-            for (const cell of cells) {
-              const text = cell.textContent?.trim() || '';
-              if (text.length > 3 && text.length < 150 && !text.includes('Choisissez') && !text.includes('function')) {
-                dishName = text.split('\n')[0].trim().substring(0, 100);
-                break;
-              }
-            }
-          }
-
-          if (dishName && dishName.length > 0 && !dishName.includes('function') && !dishName.includes('observe')) {
-            dishes.push({ name: dishName, price, description });
-          }
+        if (dishName && dishName.length > 0) {
+          dishes.push({ name: dishName, price, description });
         }
       }
 
