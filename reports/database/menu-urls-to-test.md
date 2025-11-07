@@ -99,39 +99,54 @@ Test each URL and mark with:
 
 ---
 
-## Batch 4: Next 10 Restaurants - NEED URLs ⏳
+## Batch 4: Brian's ACTUALLY Remaining Restaurants - Batch 1 (6 restaurants) ⏳
 
-**Note:** We were working bottom-up before, now going top-down. These have NOT been audited yet.
+**Note:** Removed already-audited restaurants. These are the TRULY remaining ones.
 
-### 27. ⏭️ Roulas Grecque et Pizza 245, rue de Cannes
-- ⚠️ ALREADY AUDITED - NOT FOUND IN DATABASE (has menu online at roulas.ca)
+### 1. Milano 643 Boulevard Saint-René O
+- [ ] https://gatineau.milanopizzeria.ca/?p=menu&lang=fr
 
-### 28. Sachi Sushi 4931, rue Beaubien E
-- [ ] NEED URL
+### 2. Mozza Pizza Gatineau 425, boul La Vérendrye E
+- [ ] https://mozzapizzagatineau.com/?p=menu&lang=fr
 
-### 29. Supreme Pizzeria 380 Chemin Vanier
-- [ ] NEED URL
+### 3. New Mee Fung Restaurant 350 Booth St
+- [ ] https://newmeefung.com/?p=menu
 
-### 30. Supreme Pizzeria 425 Donald St
-- [ ] NEED URL
+### 4. New Mukut Restaurant Indian Cuisine 1968 Portobello Blvd
+- [ ] https://mukutorleans.menu.ca/?p=menu
 
-### 31. Sushi Express Chambly 886 ch de Chambly
-- [ ] NEED URL
+### 5. ✅ Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O - AUDITED
+- ✅ https://gatineau.poutineriequebecurds.ca/?p=menu&lang=fr
 
-### 32. ⏭️ Pizzalicious 1009 Merivale Rd (S)
-- ⚠️ ALREADY AUDITED - SKIPPED (no longer a client, only 1 dish)
+### 6. ✅ Poutinerie Québécurds Hull 455 Boulevard Riel - AUDITED
+- ✅ https://hull.poutineriequebecurds.ca/?p=menu&lang=fr
 
-### 33. River Pizza 4042 Innes Road (S)
-- [ ] NEED URL (mentioned in summary but no full audit entry - needs proper HANDOFF format audit)
+---
 
-### 34. [Next un-audited restaurant from active list]
-- [ ] NEED URL
+## Batch 5: Brian's ACTUALLY Remaining Restaurants - Batch 2 (6 restaurants) ⏳
 
-### 35. [Next un-audited restaurant from active list]
-- [ ] NEED URL
+### 7. ⏭️ Pizza Joanna 229 Boulevard Saint-René Ouest
+- ✅ ALREADY AUDITED - Updated with live menu structure (1 dish in DB, 100+ on live menu)
+- Menu link: https://pizzajoanna.menu.ca/?p=menu&lang=fr ✅
 
-### 36. [Next un-audited restaurant from active list]
-- [ ] NEED URL
+### 8. Sachi Sushi 4931, rue Beaubien E
+- [ ] https://sachisushimontreal.menu.ca/?p=menu&lang=fr
+
+### 9. Supreme Pizzeria 380 Chemin Vanier
+- [ ] https://m.pizzeriasupreme.ca/menu
+
+### 10. Supreme Pizzeria 425 Donald St
+- [ ] https://supremepizzeriadonald.ca/?p=menu
+
+### 11. Sushi Express Chambly 886 ch de Chambly
+- [ ] https://m.sushiexpressfantasia.ca/menu
+
+### 12. iCook Pho You 2006 Robertson Rd
+- [ ] https://m.icookphoyou.com/menu
+
+### 13. ✅ Roulas Grecque et Pizza 245, rue de Cannes - AUDITED
+- ✅ https://roulas.ca/?p=menu&lang=fr
+- ⚠️ FOUND IN DATABASE as "Roulas Jus et Gelato" (ID: 777) - name mismatch, 38 dishes with NULL course_id, 0 courses
 
 ---
 
@@ -140,10 +155,15 @@ Test each URL and mark with:
 - ✅ **Batch 1:** 10 restaurants - COMPLETE
 - ✅ **Batch 2:** 10 restaurants - COMPLETE  
 - ✅ **Batch 3:** 4 restaurants - COMPLETE (2 skipped - already done)
-- ⏳ **Batch 4:** 10 restaurants - NEED URLs
+- ⏳ **Batch 4:** 6 restaurants - NEED URLs (Brian's ACTUALLY remaining - Batch 1)
+- ⏳ **Batch 5:** 6 restaurants - NEED URLs (Brian's ACTUALLY remaining - Batch 2)
 
-**Total Audited:** 24 restaurants
-**Remaining:** ~165 restaurants (from active list of 189)
+**ACTUAL NUMBERS (checkboxes now updated in Restaurants-active.md):**
+- **Total Audited:** 144 restaurants ✅ (143 + 1 Roulas)
+- **Brian (B):** 83 completed, **0 remaining** ✅ (ALL COMPLETE!)
+- **Santiago (S):** 55 completed, **45 remaining**
+- **Total Remaining:** 45 restaurants (all Santiago's)
+- **Total in Active List:** 189 restaurants
 
 ---
 

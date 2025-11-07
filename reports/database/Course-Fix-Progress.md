@@ -1388,46 +1388,68 @@ The restaurant has a well-organized menu structure with the following courses:
 **Note:** There is also another "Sala Thai" (ID: 940) at the same address (2666 Alta Vista Dr) with status "pending" - may be duplicate or pending activation.
 
 
-#### Roulas Grecque et Pizza (Line 219)
-**Status:** 🚫 REMOVED FROM ACTIVE LIST | ⚠️ NOT FOUND IN DATABASE - Has menu online | 🚨 DATA MIGRATION ISSUE
-**Date:** 2025-11-03
-**Address:** 245, rue de Cannes, Gatineau ✅ (matches active list)
+#### Roulas Grecque et Pizza 245, rue de Cannes (Restaurant ID: 777)
+**Status:** ⚠️ ISSUE - All 38 dishes with NULL course_id, 0 courses defined, database name mismatch
+**Date:** 2025-11-05
+**Address:** 245, rue de Cannes ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://roulas.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+**Note:** Database name is "Roulas Jus et Gelato" but live menu shows "Roulas Grecque et Pizza" - same restaurant, name needs updating
 
-**Details:**
-- Restaurant name from active list: "Roulas Grecque et Pizza"
-- **🌐 Online Menu Available:** https://roulas.ca/?p=menu&lang=fr
-- **RESTAURANT EXISTS AND HAS MENU WITH US** (user verified)
-- Searched database for variations: "Roulas Grecque", "Roula Grec", "Grecque Pizza"
-- Found restaurants at same address (245, rue de Cannes):
-  - Roulas Jus et Gelato (ID: 777) - active
-  - Opa's (ID: 60) - suspended
-- No exact match found for "Roulas Grecque et Pizza" in database
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 777;
+```
+- Restaurant ID: 777
+- Name: Roulas Jus et Gelato ⚠️ (database name doesn't match active list name "Roulas Grecque et Pizza")
+- Status: active ✅ (matches verified billing list)
 
-**🚨 DATA MIGRATION ISSUE:**
-Restaurant exists and has a full menu online but is **NOT IN DATABASE**. This indicates:
-- Restaurant was never migrated to menuca_v3, OR
-- Restaurant is listed under a different name in database, OR
-- Data migration was incomplete
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 777;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ (no courses defined)
 
-**Menu Structure (from online menu - French):**
-- Plus pour Moins (Deals - Family Shawarma Plate, Trio Sandwich, Trio Poutine, Trio Submarine, Family Special, Special Roula)
-- Les Spécialités Roulas (Platters - 1 Brochette, Donair Beef, Chicken Shawarma, Marinated Chicken, Various Brochettes, Combos, Vegetarian)
-- Les Sandwiches (Shawarma KETO, Souvlaki on Pita, Gyro, Vegetarian Gyro, Donair, Chicken Shawarma, Kafta on Pita, Vegetarian Pita, Club on Pita)
-- Les Sous-Marins (Submarines - Club, Hot Chicken, Donair, Shawarma, Tuna, Veggie)
-- A la Carte Pizza (Many varieties - Regular, All Dressed, Pepperoni, Hawaiian, Vegetarian, BBQ, Mexicali, Chef's Specialty, etc.)
-- Kalzone (Create Your Own)
-- Les Salades (Greek Salad, Caesar Salad, Fattoush - with/without chicken, VIP versions)
-- Ailes (Wings - 6, 12, 24 pieces, Wing and Fries combo - Hot, BBQ, Honey Garlic)
-- Poutines (Regular, Shawarma, Donair, Club)
-- Les Desserts Roulas (Baklava)
-- Boissons (Drinks - Pepsi, Diet Pepsi, 7 Up, Ginger Ale)
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 777 AND deleted_at IS NULL;
+```
+- Total dishes: 38 ⚠️
+- Dishes with NULL course_id: 38 (100%) ⚠️⚠️⚠️
+- Dishes with course_id: 0 (0%) ⚠️
+- **ISSUE:** All 38 dishes have NULL course_id
 
-**Action Required:**
-1. **URGENT:** Find restaurant in database (may be under different name) OR migrate restaurant data
-2. Once found/migrated, create courses matching online menu structure
-3. Assign dishes to courses
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 777 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
 
-**Resolution Needed:** RESTAURANT DATA MIGRATION REQUIRED - Restaurant exists and has menu but not in database
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 777 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Step 6: Verify Menu Structure (Live Menu)**
+**Menu Link:** https://roulas.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Live Menu Course Structure (from verified menu):**
+- **Plus pour Moins** (Deals): 6 items (Assiette Shawarma Familiale, Trio Sandwich, Trio Poutine, Trio Sous-Marin, Spécial Familial, Spécial Roula)
+- **Les Spécialités Roulas** (Platters): 20+ items (Assiette 1 Brochette with protein variants, Assiette Donair au Boeuf, Assiette Shawarma au poulet, Assiette Poulet Mariné, Various Brochettes, Combos, Assiette Végétarienne Roulas - each with protein/size variants)
+- **Les Sandwiches**: 9 items (Shawarma KETO, Souvlaki sur Pita with variants, Gyro with variants, Gyro Vegetarien, Donair au boeuf, Shawarma au poulet, Kafta sur Pita, Pita Végétarien, Club sur pita with sauce variants)
+- **Les Sous-Marins**: 6 items (Club, Hot Chicken, Donair, Shawarma, Thon, Végétarien)
+- **A la Carte Pizza**: 15+ items (Pizza au Fromage, Toute Garnie, Hawaïenne, La Canadienne, La Québecoise, La Mily, La Rita, La Gatinoise, La BBQ, La Végétarienne, La Mexicali, La Spécialité Du Chef - each with size variants: Petite, Moyenne, Grande, X-Grande)
+- **Kalzone**: 1 item (Créer votre Kalzone)
+- **Les Salades**: 8 items (Salade Grecque, Salade Grecque avec poulet, Salade César, Salade César avec poulet, Salade Fattoush, Salade Fattoush avec poulet, VIP Fattoush, VIP Grecque - with size variants: Enfant, Petite, Grande)
+- **Ailes** (Wings): 4 items (6 pièces, 12 pièces, 24 pièces, Assiette de 12 ailes et frites - each with sauce variants: Forte, BBQ, Miel et Ail)
+- **Poutines**: 4 items (Poutine with size variants, Poutine Shawarma, Poutine Donair, Poutine Club)
+- **Les Desserts Roulas**: 1 item (Backlava with quantity variants)
+- **Boissons** (Drinks): 4 items (Pepsi, Diet Pepsi, 7 Up, Ginger Ale Schwepps - with size variants: Canette, Bouteille, 2L)
+- **Estimated Total Items:** 80+ dishes on live menu (counting size/protein/sauce variants)
+- **Database Has:** 38 dishes (52%+ of menu missing) ⚠️⚠️⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE + DATA MIGRATION ISSUE** - Restaurant has **38 dishes** all with NULL course_id. **0 courses defined**. Database name is "Roulas Jus et Gelato" but live menu shows "Roulas Grecque et Pizza" - same restaurant, name needs updating. **CRITICAL FINDING:** Database has 38 dishes but live menu has 80+ items (52%+ of menu missing). Live menu has **12 courses** (Plus pour Moins, Les Spécialités Roulas, Les Sandwiches, Les Sous-Marins, A la Carte Pizza, Kalzone, Les Salades, Ailes, Poutines, Les Desserts Roulas, Boissons). **URGENT:** (1) Update restaurant name from "Roulas Jus et Gelato" to "Roulas Grecque et Pizza", (2) Complete menu data migration - 40+ dishes need to be imported, (3) Create proper course structure based on live menu (12 courses), (4) Assign all dishes to appropriate courses, (5) Verify modifier assignments (size variants, protein options, sauce options) match live menu structure.
 
 #### Riverside Pizzeria (Restaurant ID: 978)
 **Status:** ⚠️ SKIPPED - Already assigned | 🚨 CRITICAL DATA MIGRATION ISSUE
@@ -4652,7 +4674,30 @@ SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as d
 ```
 - Total modifiers: 0 ⚠️
 
-**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant has **1 dish** (suspiciously low for a pizza restaurant). Dish incorrectly assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** Verify menu URL to check if menu data migration is complete (1 dish seems incomplete), create proper course structure, and assign all dishes.
+**Step 6: Verify Menu Structure (Live Menu)**
+**Menu Link:** https://pizzajoanna.menu.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Live Menu Course Structure (from verified menu):**
+- **Special Jumelles** (Twin Specials): 8 items (2 Petites/Moyennes/Grandes/XGrande Pizzas, 1 Petite/Moyenne/Grande/XGrande Pizza avec Ailes)
+- **Special Familial** (Family Specials): 3 items (2 Petites/Moyennes/Grandes Pizzas avec Frite et Canettes)
+- **Les Trios** (Trios): 3 items (Trio Shawarma, Trio Burger with protein variants, Trio Souvlaki)
+- **Pizza**: 20+ items (Pizza au Fromage, 1 Ingrédient Pizza, Toute Garnie, Hawaïenne, Tia Spéciale, La Canadienne, La Québecoise, La Mily, La Rita, La Gatinoise, and many more - each with size variants: Petit, Moyenne, Grande, X-Grande)
+- **Salades** (Salads): Multiple items (Salade Grecque, Salade César, Salade Mixte, etc.)
+- **Nachos**: Multiple items with size variants
+- **Ailes De Poulet** (Chicken Wings): Multiple items with size variants and sauce options
+- **Mets Canadiens** (Canadian Food): Multiple items (Poutine with variants, Hamburger Steak, etc.)
+- **Mets Italiens** (Italian Food): Multiple items (Pasta dishes, etc.)
+- **Sous Marins** (Submarines): 10+ items (Steak Sub variants, Pepperoni Sub, Végétarien Sub, Pizza Sub, Poulet Sub, Club Sub, Amateur de Viande Sub)
+- **Assiettes Brochettes** (Brochette Platters): 3 items (Brochette de Poulet, Brochette de Filet Mignon, Assiette Mixte)
+- **Assiettes Shawarma** (Shawarma Platters): 3 items (Shawarma au Poulet, Donair au Boeuf, Assiette Mixte)
+- **Les Pitas**: 4 items (Souvlaki au Poulet/Filet Mignon, Shawarma au Poulet, Donair au Boeuf - with size variants)
+- **Extras**: Multiple items (Pita, Trempettes with variants, Tzatziki, Hummus, Sauces with size variants)
+- **Desserts**: 3 items (Gâteau au Fromage, Baklava, Brownies)
+- **Breuvages** (Drinks): 8 items (Pepsi, Coke, 7 Up, Sprite, Ginger Ale, Crush Couleurs, Thé Glacé, Eau - with size variants)
+- **Estimated Total Items:** 100+ dishes on live menu (counting size variants and options)
+- **Database Has:** 1 dish (99%+ of menu missing) ⚠️⚠️⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant has **1 dish** (suspiciously low for a pizza restaurant). Dish incorrectly assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Database contains only **1 dish** but live menu has **100+ items** across **17+ courses** (99%+ of menu missing). **ROOT CAUSE:** Incomplete menu data migration - restaurant has full active menu online but database only has 1 dish. **URGENT:** (1) Complete menu data migration required - 100+ dishes need to be imported, (2) Create proper course structure based on live menu (Special Jumelles, Special Familial, Les Trios, Pizza, Salades, Nachos, Ailes De Poulet, Mets Canadiens, Mets Italiens, Sous Marins, Assiettes Brochettes, Assiettes Shawarma, Les Pitas, Extras, Desserts, Breuvages), (3) Assign all dishes to appropriate courses, (4) Verify modifier assignments (size variants, protein options, sauce options) match live menu structure. **ACTION REQUIRED:** Complete menu data migration immediately - this is a critical data integrity issue.
 
 #### Pizza Lovers Hunt Club 800 Hunt Club Road (Restaurant ID: 507)
 **Status:** ⚠️ ISSUE - All 2 dishes in "Uncategorized", suspiciously low dish count
@@ -5037,3 +5082,524 @@ SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as d
 - **Orphaned Flags Removed:** 25+ markers
 - **Empty Sections:** 3 (No Dishes, Not Found in Database, Suspended/Pending Status)
 - **All Remaining Restaurants:** Verified active in billing list ✅
+
+---
+
+## Batch 4 & 5 Audits (2025-11-05)
+
+#### Milano 643 Boulevard Saint-René O (Restaurant ID: 680)
+**Status:** ⚠️ ISSUE - All 75 dishes in "Uncategorized" course
+**Date:** 2025-11-05
+**Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://gatineau.milanopizzeria.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 680;
+```
+- Restaurant ID: 680
+- Name: Milano
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 680;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 680 AND deleted_at IS NULL;
+```
+- Total dishes: 75 ⚠️
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 75 (100%) ✅
+- **ISSUE:** All 75 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 680 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 75 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 680 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **75 dishes** all assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** Verify menu URL to check course structure, create proper course structure, and assign all dishes to appropriate courses.
+
+#### Mozza Pizza Gatineau 425, boul La Vérendrye E (Restaurant ID: 35)
+**Status:** ⚠️ ISSUE - All 3 dishes in "Uncategorized" course, suspiciously low dish count
+**Date:** 2025-11-05
+**Address:** 425, boul La Vérendrye E ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://mozzapizzagatineau.com/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 35;
+```
+- Restaurant ID: 35
+- Name: Mozza Pizza
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 35;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 35 AND deleted_at IS NULL;
+```
+- Total dishes: 3 ⚠️⚠️⚠️ (suspiciously low for a pizza restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 3 (100%) ✅
+- **ISSUE:** Only 3 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 35 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 3 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 35 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE** - Restaurant has **3 dishes** (suspiciously low for a pizza restaurant). All dishes assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** Verify menu URL to check if menu data migration is complete (3 dishes seems incomplete), create proper course structure, and assign all dishes.
+
+#### New Mee Fung Restaurant 350 Booth St (Restaurant ID: 15)
+**Status:** ⚠️ STATUS MISMATCH - Database shows suspended, active list shows active
+**Date:** 2025-11-05
+**Address:** 350 Booth St ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://newmeefung.com/?p=menu ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 15;
+```
+- Restaurant ID: 15
+- Name: New Mee Fung Restaurant
+- Status: suspended ⚠️⚠️⚠️ (DOES NOT MATCH active list - should be active)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 15;
+```
+- Courses defined: 13 ✅ (good course structure)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 15 AND deleted_at IS NULL;
+```
+- Total dishes: 144 ✅ (good dish count)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 144 (100%) ✅
+- **GOOD:** All dishes have course assignments
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 15 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 13 ✅
+- Course distribution: Multiple courses with proper dish distribution ✅
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 15 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **STATUS MISMATCH** - Restaurant has **144 dishes** properly assigned across **13 courses** ✅, but database status is **suspended** while active list shows **active**. **ACTION REQUIRED:** (1) Update database status from suspended to active, (2) Verify menu URL to check if modifier assignments are needed.
+
+#### New Mukut Restaurant Indian Cuisine 1968 Portobello Blvd (Restaurant ID: 234)
+**Status:** ⚠️ STATUS MISMATCH - Database shows suspended, active list shows active
+**Date:** 2025-11-05
+**Address:** 1968 Portobello Blvd ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://mukutorleans.menu.ca/?p=menu ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 234;
+```
+- Restaurant ID: 234
+- Name: New Mukut Restaurant Indian Cuisine
+- Status: suspended ⚠️⚠️⚠️ (DOES NOT MATCH active list - should be active)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 234;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ (no courses defined)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 234 AND deleted_at IS NULL;
+```
+- Total dishes: 0 ⚠️⚠️⚠️ (no dishes in database)
+- Dishes with NULL course_id: 0
+- Dishes with course_id: 0
+- **ISSUE:** No dishes found in database
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 234 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 234 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE + STATUS MISMATCH** - Restaurant has **0 dishes** and **0 courses** in database, but active list shows active. Database status is **suspended** while active list shows **active**. **ROOT CAUSE:** Likely mis-marked as suspended, preventing menu data migration. **URGENT:** (1) Update database status from suspended to active, (2) Complete menu data migration required - verify menu URL to check menu structure, (3) Create proper course structure, (4) Import all dishes.
+
+#### Sachi Sushi 4931, rue Beaubien E (Restaurant ID: 376)
+**Status:** ⚠️ STATUS MISMATCH - Database shows suspended, active list shows active
+**Date:** 2025-11-05
+**Address:** 4931, rue Beaubien E ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://sachisushimontreal.menu.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 376;
+```
+- Restaurant ID: 376
+- Name: Sachi Sushi
+- Status: suspended ⚠️⚠️⚠️ (DOES NOT MATCH active list - should be active)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 376;
+```
+- Courses defined: 0 ⚠️⚠️⚠️ (no courses defined)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 376 AND deleted_at IS NULL;
+```
+- Total dishes: 0 ⚠️⚠️⚠️ (no dishes in database)
+- Dishes with NULL course_id: 0
+- Dishes with course_id: 0
+- **ISSUE:** No dishes found in database
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 376 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 0 ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 376 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE + STATUS MISMATCH** - Restaurant has **0 dishes** and **0 courses** in database, but active list shows active. Database status is **suspended** while active list shows **active**. **ROOT CAUSE:** Likely mis-marked as suspended, preventing menu data migration. **URGENT:** (1) Update database status from suspended to active, (2) Complete menu data migration required - verify menu URL to check menu structure, (3) Create proper course structure, (4) Import all dishes.
+
+#### Supreme Pizzeria 380 Chemin Vanier (Restaurant ID: 711)
+**Status:** ⚠️ ISSUE - All 14 dishes in "Uncategorized" course
+**Date:** 2025-11-05
+**Address:** 380 Chemin Vanier ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://m.pizzeriasupreme.ca/menu ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 711;
+```
+- Restaurant ID: 711
+- Name: Supreme Pizzeria
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 711;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 711 AND deleted_at IS NULL;
+```
+- Total dishes: 14 ⚠️
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 14 (100%) ✅
+- **ISSUE:** All 14 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 711 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 14 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 711 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **14 dishes** all assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** Verify menu URL to check course structure, create proper course structure, and assign all dishes to appropriate courses.
+
+#### Supreme Pizzeria 425 Donald St (Restaurant ID: 595)
+**Status:** ⚠️ ISSUE - All 13 dishes in "Uncategorized" course
+**Date:** 2025-11-05
+**Address:** 425 Donald St ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://supremepizzeriadonald.ca/?p=menu ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 595;
+```
+- Restaurant ID: 595
+- Name: Supreme Pizzeria
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 595;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 595 AND deleted_at IS NULL;
+```
+- Total dishes: 13 ⚠️
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 13 (100%) ✅
+- **ISSUE:** All 13 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 595 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 13 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 595 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **13 dishes** all assigned to "Uncategorized" course. Only 1 course exists. **ACTION REQUIRED:** Verify menu URL to check course structure, create proper course structure, and assign all dishes to appropriate courses.
+
+#### Sushi Express Chambly 886 ch de Chambly (Restaurant ID: 348)
+**Status:** ⚠️ STATUS MISMATCH - Database shows suspended, active list shows active
+**Date:** 2025-11-05
+**Address:** 886 ch de Chambly ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://m.sushiexpressfantasia.ca/menu ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 348;
+```
+- Restaurant ID: 348
+- Name: Sushi Express Fantasia
+- Status: suspended ⚠️⚠️⚠️ (DOES NOT MATCH active list - should be active)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 348;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 348 AND deleted_at IS NULL;
+```
+- Total dishes: 182 ⚠️ (all in Uncategorized)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 182 (100%) ✅
+- **ISSUE:** All 182 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 348 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 182 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 348 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 74 ✅ (72 dishes with modifiers)
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE + STATUS MISMATCH** - Restaurant has **182 dishes** all assigned to "Uncategorized" course. Only 1 course exists. Database status is **suspended** while active list shows **active**. **ACTION REQUIRED:** (1) Update database status from suspended to active, (2) Verify menu URL to check course structure, create proper course structure, and assign all 182 dishes to appropriate courses, (3) Verify modifier assignments (74 modifiers for 72 dishes).
+
+#### iCook Pho You 2006 Robertson Rd (Restaurant ID: 479)
+**Status:** ⚠️ STATUS MISMATCH - Database shows suspended, active list shows active
+**Date:** 2025-11-05
+**Address:** 2006 Robertson Rd ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://m.icookphoyou.com/menu ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 479;
+```
+- Restaurant ID: 479
+- Name: iCook Pho You
+- Status: suspended ⚠️⚠️⚠️ (DOES NOT MATCH active list - should be active)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 479;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 479 AND deleted_at IS NULL;
+```
+- Total dishes: 6 ⚠️ (suspiciously low for a pho restaurant)
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 6 (100%) ✅
+- **ISSUE:** Only 6 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 479 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 6 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 479 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL DATA MIGRATION ISSUE + STATUS MISMATCH** - Restaurant has **6 dishes** (suspiciously low for a pho restaurant). All dishes assigned to "Uncategorized" course. Only 1 course exists. Database status is **suspended** while active list shows **active**. **ROOT CAUSE:** Likely mis-marked as suspended, preventing complete menu data migration. **URGENT:** (1) Update database status from suspended to active, (2) Verify menu URL to check if menu data migration is complete (6 dishes seems incomplete), create proper course structure, and import all dishes.
+
+#### Poutinerie Québécurds Hull 455 Boulevard Riel (Restaurant ID: 789)
+**Status:** ⚠️ ISSUE - All 47 dishes in "Uncategorized" course
+**Date:** 2025-11-05
+**Address:** 455 Boulevard Riel ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://hull.poutineriequebecurds.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 789;
+```
+- Restaurant ID: 789
+- Name: Poutinerie Québécurds Hull
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 789;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 789 AND deleted_at IS NULL;
+```
+- Total dishes: 47 ⚠️
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 47 (100%) ✅
+- **ISSUE:** All 47 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 789 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 47 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 789 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 6 ✅ (3 dishes with modifiers)
+
+**Step 6: Verify Menu Structure (Live Menu)**
+**Menu Link:** https://hull.poutineriequebecurds.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Live Menu Course Structure (from verified menu):**
+- **Spécials** (Specials): 3 items (2 Petites Poutines avec Breuvages, Special SOLO avec Beignets, Special SOLO avec Churros)
+- **Les Entrées** (Appetizers): 9 items (Frite, Patate douce, Bouchée de pomme de terre, Rondelle d'oignon, PopCurds, Bâtonnets de fromage, Jalapeno poppers, Zucchini panées, Cornichons frits panées - with size variants)
+- **Les Poutines**: 14 items (Poutine Classique, Poutine Buffalo, Poutine Poulet Thai, La Gatinoise, Poutine des Amateurs de Viande, Poutine de Steak au Fromage Philly, Poutine Pop Curds, Poutine au Poulet Croustillant, Poutine au Bacon, Poutine La Club, Poutine Végétarienne, Poutine de Viande Fumée, Poutine Épicé, Poutine Donaire - each with size variants: Petit, Grand)
+- **Desserts**: 2 items (Mini Beignets, Mini Churros - with quantity variants)
+- **Breuvages** (Drinks): 14 items (Pepsi, Pepsi Diet, 7Up, Ginger Ale, Crush variants, Crème soda, Root Beer, Dr.Pepper, Thé Glacé, Mountain Dew variants, Aquafina, Jus variants, Rockstar variants - with size variants)
+- **Estimated Total Items:** 40+ dishes on live menu (counting size/quantity variants)
+- **Database Has:** 47 dishes (matches live menu count) ✅
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **47 dishes** all assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Database has correct dish count (47 dishes matches live menu), but all dishes are in "Uncategorized" course. Live menu has **5 courses** (Spécials, Les Entrées, Les Poutines, Desserts, Breuvages). **ACTION REQUIRED:** (1) Create proper course structure based on live menu (Spécials, Les Entrées, Les Poutines, Desserts, Breuvages), (2) Assign all 47 dishes to appropriate courses, (3) Verify modifier assignments (6 modifiers for 3 dishes) match live menu structure.
+
+#### Poutinerie Québécurds Gatineau 643 Boulevard Saint-René O (Restaurant ID: 802)
+**Status:** ⚠️ ISSUE - All 36 dishes in "Uncategorized" course
+**Date:** 2025-11-05
+**Address:** 643 Boulevard Saint-René O ✅ (matches verified list)
+**Assignee:** Brian (B)
+**Menu link:** https://gatineau.poutineriequebecurds.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Step 1: Restaurant Status**
+```sql
+SELECT id, name, status FROM menuca_v3.restaurants WHERE id = 802;
+```
+- Restaurant ID: 802
+- Name: Poutinerie Québécurds Gatineau
+- Status: active ✅ (matches verified billing list)
+
+**Step 2: Check Courses**
+```sql
+SELECT COUNT(*) FROM menuca_v3.courses WHERE restaurant_id = 802;
+```
+- Courses defined: 1 ⚠️ (only "Uncategorized" course exists)
+
+**Step 3: Check Dishes**
+```sql
+SELECT COUNT(*) as total_dishes, COUNT(CASE WHEN course_id IS NULL THEN 1 END) as null_course_id_count, COUNT(CASE WHEN course_id IS NOT NULL THEN 1 END) as has_course_id_count FROM menuca_v3.dishes WHERE restaurant_id = 802 AND deleted_at IS NULL;
+```
+- Total dishes: 36 ⚠️
+- Dishes with NULL course_id: 0 (0%) ✅
+- Dishes with course_id: 36 (100%) ✅
+- **ISSUE:** All 36 dishes assigned to "Uncategorized" course
+
+**Step 4: Check Course Structure**
+```sql
+SELECT c.id, c.name, COUNT(d.id) as dish_count FROM menuca_v3.courses c LEFT JOIN menuca_v3.dishes d ON c.id = d.course_id AND d.deleted_at IS NULL WHERE c.restaurant_id = 802 GROUP BY c.id, c.name ORDER BY c.display_order;
+```
+- Courses defined: 1 ⚠️
+- Course distribution: Uncategorized: 36 dishes ⚠️⚠️⚠️
+
+**Step 5: Check Modifiers and Relationships**
+```sql
+SELECT COUNT(DISTINCT dm.id) as total_modifiers, COUNT(DISTINCT dm.dish_id) as dishes_with_modifiers FROM menuca_v3.dish_modifiers dm WHERE dm.restaurant_id = 802 AND dm.deleted_at IS NULL;
+```
+- Total modifiers: 0 ⚠️
+
+**Step 6: Verify Menu Structure (Live Menu)**
+**Menu Link:** https://gatineau.poutineriequebecurds.ca/?p=menu&lang=fr ✅ (VERIFIED - User provided)
+
+**Live Menu Course Structure (from verified menu):**
+- **Spécials** (Specials): 3 items (2 Petites Poutines avec Breuvages, Special SOLO avec Beignets, Special SOLO avec Churros)
+- **Les Entrées** (Appetizers): 9 items (Frite, Patate douce, Bouchée de pomme de terre, Rondelle d'oignon, PopCurds, Bâtonnets de fromage, Jalapeno poppers, Zucchini panées, Cornichons frits panées - with size variants)
+- **Les Poutines**: 14 items (Poutine Classique, Poutine Buffalo, Poutine Poulet Thai, La Gatinoise, Poutine des Amateurs de Viande, Poutine de Steak au Fromage Philly, Poutine Pop Curds, Poutine au Poulet Croustillant, Poutine au Bacon, Poutine La Club, Poutine Végétarienne, Poutine de Viande Fumée, Poutine Épicé, Poutine Donaire - each with size variants: Petit, Grand)
+- **Desserts**: 2 items (Mini Beignets, Mini Churros - with quantity variants)
+- **Breuvages** (Drinks): 14 items (Pepsi, Pepsi Diet, 7Up, Ginger Ale, Crush variants, Crème soda, Root Beer, Dr.Pepper, Thé Glacé, Mountain Dew variants, Aquafina, Jus variants, Rockstar variants - with size variants)
+- **Estimated Total Items:** 40+ dishes on live menu (counting size/quantity variants)
+- **Database Has:** 36 dishes (slightly lower than live menu, may be missing some variants) ⚠️
+
+**Result:** ⚠️⚠️⚠️ **CRITICAL COURSE ASSIGNMENT ISSUE** - Restaurant has **36 dishes** all assigned to "Uncategorized" course. Only 1 course exists. **CRITICAL FINDING:** Database has 36 dishes (slightly lower than live menu count of 40+), but all dishes are in "Uncategorized" course. Live menu has **5 courses** (Spécials, Les Entrées, Les Poutines, Desserts, Breuvages). **ACTION REQUIRED:** (1) Create proper course structure based on live menu (Spécials, Les Entrées, Les Poutines, Desserts, Breuvages), (2) Assign all 36 dishes to appropriate courses, (3) Verify if additional dishes need to be imported to match live menu count.
