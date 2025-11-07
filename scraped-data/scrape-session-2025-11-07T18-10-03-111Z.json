@@ -1,0 +1,26 @@
+{
+  "startTime": "2025-11-07T18:09:59.951Z",
+  "totalRestaurants": 1,
+  "results": [
+    {
+      "restaurantId": "papa-burger",
+      "restaurantName": "Papa Burger",
+      "version": "v1",
+      "success": true,
+      "dishCount": 0,
+      "groupCount": 0,
+      "optionCount": 0,
+      "errorCount": 0,
+      "outputFile": "./scraped-data/papa-burger/papa-burger-latest.json",
+      "duration": 3159
+    }
+  ],
+  "summary": {
+    "successCount": 1,
+    "failureCount": 0,
+    "totalDishes": 0,
+    "totalGroups": 0,
+    "totalOptions": 0
+  },
+  "endTime": "2025-11-07T18:10:03.111Z"
+}

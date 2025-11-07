@@ -1,15 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "Bash(supabase --version:*)",
-      "Bash($env:SUPABASE_ACCESS_TOKEN = \"sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9\")",
-      "Bash(supabase projects:*)",
-      "Bash(export SUPABASE_ACCESS_TOKEN=\"sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9\")",
-      "Bash(supabase db pull:*)",
-      "Bash(supabase migration:*)",
-      "Bash(supabase status:*)",
-      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT current_database(), current_user, version();\")"
+      "Bash(npm install:*)",
+      "Bash(npm run test-scraper:*)",
+      "Bash(curl:*)",
+      "Bash(npm run scrape:*)",
+      "Bash(npx ts-node:*)",
+      "Bash(cat:*)",
+      "mcp__supabase__*",
+      "Bash(jq:*)",
+      "Bash(npm run list:*)"
     ],
+    "deny": [],
+    "ask": [],
     "defaultMode": "bypassPermissions"
   }
 }

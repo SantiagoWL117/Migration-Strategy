@@ -1,0 +1,425 @@
+{
+  "success": true,
+  "dishes": [
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "{\"success\":true,\"toCart\":true,\"dish\":10670}",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:06.040Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10670/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "{\"success\":true,\"toCart\":true,\"dish\":10671}",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:08.140Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10671/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "{\"success\":true,\"toCart\":true,\"dish\":10672}",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:10.256Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10672/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "{\"success\":true,\"toCart\":true,\"dish\":10673}",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:12.356Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10673/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "{\"success\":true,\"toCart\":true,\"dish\":10674}",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:14.481Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10674/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "{\"success\":true,\"toCart\":true,\"dish\":10675}",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:16.588Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10675/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "{\"success\":true,\"toCart\":true,\"dish\":10676}",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:18.721Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10676/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "{\"success\":true,\"toCart\":true,\"dish\":10677}",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:20.840Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10677/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "Horiatiki Greek Salad",
+        "description": "Tomato, cucumber, red onion, green pepper and feta.",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Choice of extra proteins",
+          "selectType": "multi",
+          "minSelections": 1,
+          "maxSelections": null,
+          "isRequired": true,
+          "displayOrder": 0,
+          "options": [
+            {
+              "name": "Shrimp Brochette\n                                            12.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Gyro\n                                            7.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Pork Gyro\n                                            7.00",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:22.955Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10678/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "Paréa Salad",
+        "description": "Lettuce, mixed vegetables, Paréa dressing.",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Choice of extra proteins",
+          "selectType": "multi",
+          "minSelections": 1,
+          "maxSelections": null,
+          "isRequired": true,
+          "displayOrder": 0,
+          "options": [
+            {
+              "name": "Shrimp Brochette\n                                            12.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Gyro\n                                            7.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Pork Gyro\n                                            7.00",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:25.075Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10679/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "Village Greek Salad",
+        "description": "Tomato, cucumber, red onions, feta, olives, green peppers.",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Add protein to salad",
+          "selectType": "multi",
+          "minSelections": 1,
+          "maxSelections": null,
+          "isRequired": true,
+          "displayOrder": 0,
+          "options": [
+            {
+              "name": "Pork Gyro Meat\n                                            6.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Shrimp Brochette\n                                            12.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Stick\n                                            8.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Gyro Meat\n                                            6.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Pork Stick\n                                            8.00",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:27.210Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10911/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "Roasted Greek Salad",
+        "description": "Grilled zucchini, eggplant, red peppers, asparagus and crumbled feta.",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Add protein to salad",
+          "selectType": "multi",
+          "minSelections": 1,
+          "maxSelections": null,
+          "isRequired": true,
+          "displayOrder": 0,
+          "options": [
+            {
+              "name": "Pork Gyro Meat\n                                            6.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Shrimp Brochette\n                                            12.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Stick\n                                            8.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Gyro Meat\n                                            6.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Pork Stick\n                                            8.00",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:29.325Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10912/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "Halloumi Salad",
+        "description": "Arugula lettuce, mint, cherry tomatoes, pomegranate, cucumber, olive oil, lemon zest. Topped with grilled halloumi and grilled vegetables.",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Add protein to salad",
+          "selectType": "multi",
+          "minSelections": 1,
+          "maxSelections": null,
+          "isRequired": true,
+          "displayOrder": 0,
+          "options": [
+            {
+              "name": "Pork Gyro Meat\n                                            6.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Shrimp Brochette\n                                            12.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Stick\n                                            8.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Gyro Meat\n                                            6.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Pork Stick\n                                            8.00",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:31.459Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10913/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "Green Salad",
+        "description": "Finely chopped lettuce, cucumber, fresh dill, evo olive oil and balsamic. Topped with crumbled feta.",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Add protein to salad",
+          "selectType": "multi",
+          "minSelections": 1,
+          "maxSelections": null,
+          "isRequired": true,
+          "displayOrder": 0,
+          "options": [
+            {
+              "name": "Pork Gyro Meat\n                                            6.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Shrimp Brochette\n                                            12.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Stick\n                                            8.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chicken Gyro Meat\n                                            6.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Pork Stick\n                                            8.00",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:33.587Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10914/0"
+      }
+    },
+    {
+      "restaurant": "Paréa Authentic Greek",
+      "restaurantUrl": "https://ordereast.eatparea.com/index.php/menu",
+      "dish": {
+        "name": "{\"success\":true,\"toCart\":true,\"dish\":10927}",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:11:35.705Z",
+        "version": "v2",
+        "dishUrl": "https://ordereast.eatparea.com/index.php/dish/create/10927/0"
+      }
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "totalDishes": 15,
+    "successCount": 15,
+    "errorCount": 0,
+    "totalGroups": 6,
+    "totalOptions": 26
+  }
+}
