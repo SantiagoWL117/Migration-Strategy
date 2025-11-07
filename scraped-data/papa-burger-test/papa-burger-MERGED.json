@@ -1,0 +1,1785 @@
+{
+  "restaurant": "Papa Burger Maloney",
+  "restaurant_id": 822,
+  "total_dishes": 80,
+  "matched_dishes": 64,
+  "new_dishes": 16,
+  "dishes": [
+    {
+      "database_id": 15769,
+      "legacy_v1_id": 121201,
+      "name": "Diet Pepsi",
+      "description": null,
+      "basePrice": 0,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 15810,
+      "legacy_v1_id": 121202,
+      "name": "7 Up",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 15817,
+      "legacy_v1_id": 121203,
+      "name": "Ginger Ale",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 15861,
+      "legacy_v1_id": 121204,
+      "name": "Orange Crush",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 15955,
+      "legacy_v1_id": 121205,
+      "name": "Grape Crush",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 15961,
+      "legacy_v1_id": 121206,
+      "name": "Iced Tea",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 15962,
+      "legacy_v1_id": 121207,
+      "name": "Cream Soda",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 15963,
+      "legacy_v1_id": 121208,
+      "name": "Mountain Dew",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 15990,
+      "legacy_v1_id": 121209,
+      "name": "Bubbly",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 16255,
+      "legacy_v1_id": 121210,
+      "name": "Juice",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 16256,
+      "legacy_v1_id": 121211,
+      "name": "Root Beer",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 16257,
+      "legacy_v1_id": 121212,
+      "name": "Perrier",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 16258,
+      "legacy_v1_id": 121213,
+      "name": "Eau Aquafina",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21154,
+      "legacy_v1_id": 121152,
+      "name": "Frites",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21155,
+      "legacy_v1_id": 121153,
+      "name": "Frites épicée",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21156,
+      "legacy_v1_id": 121154,
+      "name": "Rondelles d'oignon",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21157,
+      "legacy_v1_id": 121155,
+      "name": "Pain à l'ail (12\")",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21158,
+      "legacy_v1_id": 121156,
+      "name": "Bâtonnetes de fromage",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21159,
+      "legacy_v1_id": 121157,
+      "name": "Doigts de poulet",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21160,
+      "legacy_v1_id": 121158,
+      "name": "Zucchinis",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21161,
+      "legacy_v1_id": 121159,
+      "name": "Frites Patates Douces",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21162,
+      "legacy_v1_id": 121160,
+      "name": "Cornichons Panés Frits",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21163,
+      "legacy_v1_id": 121161,
+      "name": "Poutine",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21164,
+      "legacy_v1_id": 121162,
+      "name": "Papa Poutine",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21165,
+      "legacy_v1_id": 121163,
+      "name": "Poutine au Poulet",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21166,
+      "legacy_v1_id": 121164,
+      "name": "Poutine au Steak",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21167,
+      "legacy_v1_id": 121165,
+      "name": "Burger Originale (Burger Seule)",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21168,
+      "legacy_v1_id": 121166,
+      "name": "Burger Originale Combo",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21169,
+      "legacy_v1_id": 121167,
+      "name": "Cheeseburger (Burger Seule)",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21170,
+      "legacy_v1_id": 121168,
+      "name": "Cheeseburger Combo",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21171,
+      "legacy_v1_id": 121169,
+      "name": "Papa Burger (Burger Seule)",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21172,
+      "legacy_v1_id": 121170,
+      "name": "Papa Burger Combo",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21173,
+      "legacy_v1_id": 121171,
+      "name": "American Burger (Burger Seule) HIDE",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21174,
+      "legacy_v1_id": 121172,
+      "name": "American Burger Combo HIDE",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21175,
+      "legacy_v1_id": 121173,
+      "name": "Hot Burger (Burger Seule)",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21176,
+      "legacy_v1_id": 121174,
+      "name": "Hot Burger Combo",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21177,
+      "legacy_v1_id": 121175,
+      "name": "Burger Amateur de Viande (Burger Seule)",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21178,
+      "legacy_v1_id": 121176,
+      "name": "Burger Amateur de Viande Combo",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21179,
+      "legacy_v1_id": 121177,
+      "name": "Hamburger Double (Burger Seule)",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21180,
+      "legacy_v1_id": 121178,
+      "name": "Hamburger Double Combo",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21181,
+      "legacy_v1_id": 121179,
+      "name": "Burger au poulet et bacon (Burger Seule)",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21182,
+      "legacy_v1_id": 121180,
+      "name": "Burger au poulet Combo",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21183,
+      "legacy_v1_id": 121181,
+      "name": "Club Burger (Burger Seule) HIDE",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21184,
+      "legacy_v1_id": 121182,
+      "name": "Burger Végétarien (Burger Seule) HIDE",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21185,
+      "legacy_v1_id": 121183,
+      "name": "Burger Végétarien Combo HIDE",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21186,
+      "legacy_v1_id": 121184,
+      "name": "Hamburger Steak",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21187,
+      "legacy_v1_id": 121185,
+      "name": "Papa Nachos",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21188,
+      "legacy_v1_id": 121186,
+      "name": "Papa Club Sandwich",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21189,
+      "legacy_v1_id": 121187,
+      "name": "Club Sandwich Poutine",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21190,
+      "legacy_v1_id": 121188,
+      "name": "Burger au poulet avec frites",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21191,
+      "legacy_v1_id": 121189,
+      "name": "Bouchées de poulet avec frites",
+      "description": null,
+      "basePrice": null,
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Boeuf",
+              "priceDelta": 4
+            },
+            {
+              "name": "Poulet",
+              "priceDelta": 4
+            }
+          ]
+        }
+      ],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21192,
+      "legacy_v1_id": 121190,
+      "name": "Doigts de pouet (2) avec frites",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21193,
+      "legacy_v1_id": 121191,
+      "name": "Tartelette 3 choco",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21194,
+      "legacy_v1_id": 121192,
+      "name": "Tartelette au sirop d'érable du Québec",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21195,
+      "legacy_v1_id": 121193,
+      "name": "Gâteau fromage",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21196,
+      "legacy_v1_id": 121194,
+      "name": "Brownies pour enfant",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21197,
+      "legacy_v1_id": 121195,
+      "name": "Gâteau carrots",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21198,
+      "legacy_v1_id": 121196,
+      "name": "Baklava",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21199,
+      "legacy_v1_id": 121197,
+      "name": "12 Mini Beignets HIDE",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21200,
+      "legacy_v1_id": 121198,
+      "name": "24 Mini Beignets HIDE",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21201,
+      "legacy_v1_id": 121199,
+      "name": "36 Mini Beignets HIDE",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21202,
+      "legacy_v1_id": 121200,
+      "name": "Pepsi",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21203,
+      "legacy_v1_id": 121214,
+      "name": "Club Burger Combo HIDE",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": 21396,
+      "legacy_v1_id": 122855,
+      "name": "Salade de Poulet Suprême",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "position-based"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    },
+    {
+      "database_id": null,
+      "legacy_v1_id": null,
+      "name": "Unknown",
+      "description": null,
+      "basePrice": null,
+      "groups": [],
+      "match_confidence": "new-dish"
+    }
+  ]
+}

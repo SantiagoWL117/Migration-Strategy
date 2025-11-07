@@ -1,0 +1,2189 @@
+{
+  "success": true,
+  "dishes": [
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "TaxesTPS:",
+        "basePrice": 0
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:11.273Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:15.433Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu#"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:19.999Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:24.565Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:28.600Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:32.601Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:36.604Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:40.638Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:44.649Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:48.669Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:52.651Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:25:56.660Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:00.681Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:04.702Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:08.654Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:12.631Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:16.670Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:20.638Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:24.671Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:29.234Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:33.800Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:38.349Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:42.902Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:47.450Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:52.017Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:26:56.602Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:01.150Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Sauce BBQ",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Blanche",
+              "priceDelta": 0
+            },
+            {
+              "name": "Sauce Brune",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:05.667Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:10.214Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:14.751Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Douce",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moyenne",
+              "priceDelta": 0
+            },
+            {
+              "name": "Fort",
+              "priceDelta": 0
+            },
+            {
+              "name": "Miel et Ail",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:19.284Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:23.747Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:28.285Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:32.851Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:37.417Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:41.924Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:46.432Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:51.019Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:27:55.583Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:00.141Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:04.649Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:09.115Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:13.582Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:18.580Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:23.078Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:27.530Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:31.977Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:36.430Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Oignons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Moutard",
+              "priceDelta": 0
+            },
+            {
+              "name": "Cornichons",
+              "priceDelta": 0
+            },
+            {
+              "name": "Condiment",
+              "priceDelta": 0
+            },
+            {
+              "name": "Ginger Ale",
+              "priceDelta": 0
+            },
+            {
+              "name": "Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "Diet Pepsi",
+              "priceDelta": 0
+            },
+            {
+              "name": "7 Up",
+              "priceDelta": 0
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:40.867Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:44.757Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [
+        {
+          "name": "Papa Burger",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Boeuf",
+              "priceDelta": 4
+            },
+            {
+              "name": "Poulet",
+              "priceDelta": 4
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:49.197Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:53.106Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:28:57.005Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:00.903Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:04.820Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:08.721Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:12.619Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:16.519Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:20.451Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:24.485Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:28.447Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:32.485Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:36.500Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:40.504Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:44.517Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:48.512Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:52.487Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:29:56.498Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:00.519Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:04.517Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:08.569Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:12.600Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:16.597Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:20.579Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:24.610Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:28.599Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:32.595Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:36.613Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:40.565Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    },
+    {
+      "restaurant": "Papa Burger",
+      "restaurantUrl": "https://papaburger.ca/?p=menu",
+      "dish": {
+        "name": "Unknown",
+        "basePrice": null
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-07T18:30:44.580Z",
+        "version": "v1",
+        "dishUrl": "https://papaburger.ca/?p=menu"
+      }
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "totalDishes": 80,
+    "successCount": 80,
+    "errorCount": 0,
+    "totalGroups": 33,
+    "totalOptions": 165
+  }
+}
