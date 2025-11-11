@@ -22,13 +22,12 @@ export const V1_RESTAURANTS: Record<string, Omit<ScraperConfig, 'headless' | 'sc
 };
 
 export const V2_RESTAURANTS: Record<string, Omit<ScraperConfig, 'headless' | 'screenshotsDir' | 'outputDir'>> = {
-  // Add V2 restaurants here when ready
-  // Example:
-  // 'parea-greek': {
-  //   restaurantName: 'Parea Greek',
-  //   baseUrl: 'https://order.menu.ca/merchant/17322',
-  //   version: 'v2'
-  // },
+  'cosenza-pizza': {
+    restaurantName: 'Cosenza Pizza & Calzones',
+    baseUrl: 'https://cosenzapizzancalzones.ca/index.php/menu',
+    version: 'v2'
+  },
+  // Add more V2 restaurants here
 };
 
 export function getRestaurantConfig(slug: string): Omit<ScraperConfig, 'headless' | 'screenshotsDir' | 'outputDir'> | null {

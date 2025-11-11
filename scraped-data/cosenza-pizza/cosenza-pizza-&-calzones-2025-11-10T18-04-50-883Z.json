@@ -1,0 +1,467 @@
+{
+  "success": false,
+  "dishes": [
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "French Fries",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T17:57:01.036Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Onion Rings",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T17:57:04.134Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Poutine",
+        "basePrice": 9.75
+      },
+      "groups": [
+        {
+          "name": "10% OFF All Online Pickup Orders",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Small\n\t\t\t\t\t\t\t\t\t- 9.75",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Large\n\t\t\t\t\t\t\t\t\t- 11.75",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-10T17:57:07.745Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "dishName": "Deep Fried Pickles (8 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:57:13.259Z"
+    },
+    {
+      "dishName": "Mozzarella Sticks (8 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:57:19.274Z"
+    },
+    {
+      "dishName": "Zucchini Sticks",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:57:25.287Z"
+    },
+    {
+      "dishName": "Jalapeno Poppers (8 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:57:31.309Z"
+    },
+    {
+      "dishName": "Pop Curds",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:57:37.322Z"
+    },
+    {
+      "dishName": "Mac & Cheese Wedges (8 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:57:43.335Z"
+    },
+    {
+      "dishName": "Chicken Wings",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:57:49.349Z"
+    },
+    {
+      "dishName": "Boneless Chicken Bites",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:57:55.361Z"
+    },
+    {
+      "dishName": "Chicken Fingers (5 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:01.374Z"
+    },
+    {
+      "dishName": "Nachos",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:07.386Z"
+    },
+    {
+      "dishName": "Chicken Nachos",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:13.400Z"
+    },
+    {
+      "dishName": "Beef Nachos",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:19.411Z"
+    },
+    {
+      "dishName": "Meatball Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:25.422Z"
+    },
+    {
+      "dishName": "Club Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:31.435Z"
+    },
+    {
+      "dishName": "Philly Steak Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:37.448Z"
+    },
+    {
+      "dishName": "Greek Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:43.461Z"
+    },
+    {
+      "dishName": "Pizza Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:49.473Z"
+    },
+    {
+      "dishName": "Crispy Chicken Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:58:55.503Z"
+    },
+    {
+      "dishName": "Classic Club Sandwich",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:01.517Z"
+    },
+    {
+      "dishName": "Cheesy Garlic Fingers",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:07.528Z"
+    },
+    {
+      "dishName": "Garlic Bread",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:13.545Z"
+    },
+    {
+      "dishName": "Garlic Bread with Cheese",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:19.555Z"
+    },
+    {
+      "dishName": "Doughballs (10 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:25.570Z"
+    },
+    {
+      "dishName": "Dips",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:31.587Z"
+    },
+    {
+      "dishName": "Spaghetti",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:37.603Z"
+    },
+    {
+      "dishName": "Lasagna",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:43.620Z"
+    },
+    {
+      "dishName": "Cosenza Lasagna",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:49.636Z"
+    },
+    {
+      "dishName": "Chicken Parmesan",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:59:55.661Z"
+    },
+    {
+      "dishName": "Garden Salad",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:01.678Z"
+    },
+    {
+      "dishName": "Greek Salad",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:07.695Z"
+    },
+    {
+      "dishName": "Caesar Salad",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:13.710Z"
+    },
+    {
+      "dishName": "Orleans Special",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:19.725Z"
+    },
+    {
+      "dishName": "Vegetarian Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:25.740Z"
+    },
+    {
+      "dishName": "Greek Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:31.814Z"
+    },
+    {
+      "dishName": "Margherita Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:37.871Z"
+    },
+    {
+      "dishName": "Parmesan Chicken Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:43.883Z"
+    },
+    {
+      "dishName": "Butter Chicken Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:49.899Z"
+    },
+    {
+      "dishName": "Canadian Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:00:55.931Z"
+    },
+    {
+      "dishName": "Combination Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:01.956Z"
+    },
+    {
+      "dishName": "Hawaiian Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:07.973Z"
+    },
+    {
+      "dishName": "Donair Meat Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:13.999Z"
+    },
+    {
+      "dishName": "Cosenza Special Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:20.021Z"
+    },
+    {
+      "dishName": "BBQ Chicken Ranch Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:26.039Z"
+    },
+    {
+      "dishName": "Meat Lovers Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:32.053Z"
+    },
+    {
+      "dishName": "Poutine Lovers Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:38.069Z"
+    },
+    {
+      "dishName": "Mexicanachos Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:44.086Z"
+    },
+    {
+      "dishName": "The Italian Special Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:50.099Z"
+    },
+    {
+      "dishName": "Pepperoni Lovers Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:01:56.113Z"
+    },
+    {
+      "dishName": "Steak Supreme Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:02.126Z"
+    },
+    {
+      "dishName": "Garlic Garlic Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:08.138Z"
+    },
+    {
+      "dishName": "Sam's Special Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:14.152Z"
+    },
+    {
+      "dishName": "Bacon Lovers Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:20.266Z"
+    },
+    {
+      "dishName": "New Yorker Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:26.323Z"
+    },
+    {
+      "dishName": "Soprano Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:32.337Z"
+    },
+    {
+      "dishName": "House Special Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:38.353Z"
+    },
+    {
+      "dishName": "Plain Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:44.368Z"
+    },
+    {
+      "dishName": "1 Topping Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:50.419Z"
+    },
+    {
+      "dishName": "2 Toppings Pizza",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:02:56.455Z"
+    },
+    {
+      "dishName": "Double Pepperoni Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:02.470Z"
+    },
+    {
+      "dishName": "Meat Lovers Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:08.486Z"
+    },
+    {
+      "dishName": "Veggie Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:14.501Z"
+    },
+    {
+      "dishName": "Combo Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:20.514Z"
+    },
+    {
+      "dishName": "Canadian Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:26.530Z"
+    },
+    {
+      "dishName": "Donair Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:32.544Z"
+    },
+    {
+      "dishName": "Hawaiian Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:38.558Z"
+    },
+    {
+      "dishName": "Parmesan Chicken Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:44.574Z"
+    },
+    {
+      "dishName": "BBQ Chicken Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:50.605Z"
+    },
+    {
+      "dishName": "Bacon Lovers Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:03:56.628Z"
+    },
+    {
+      "dishName": "Butter Chicken Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:04:02.645Z"
+    },
+    {
+      "dishName": "BYO Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:04:08.930Z"
+    },
+    {
+      "dishName": "Hamburger",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:04:14.946Z"
+    },
+    {
+      "dishName": "Cheeseburger",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:04:20.963Z"
+    },
+    {
+      "dishName": "Bacon Cheeseburger",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:04:26.976Z"
+    },
+    {
+      "dishName": "Nutella Calzone",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:04:32.989Z"
+    },
+    {
+      "dishName": "Cinnamon Balls",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:04:39.001Z"
+    },
+    {
+      "dishName": "Pecan Pie",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:04:45.014Z"
+    },
+    {
+      "dishName": "Tiramisu",
+      "error": "locator.all: Target page, context or browser has been closed",
+      "timestamp": "2025-11-10T18:04:50.879Z"
+    },
+    {
+      "error": "Fatal: page.waitForTimeout: Target page, context or browser has been closed",
+      "timestamp": "2025-11-10T18:04:50.883Z"
+    }
+  ],
+  "summary": {
+    "totalDishes": 86,
+    "successCount": 3,
+    "errorCount": 77,
+    "totalGroups": 1,
+    "totalOptions": 2
+  }
+}

@@ -105,7 +105,8 @@ export class V1SimpleScraper {
             dish: {
               name: dishManifest[i].name,
               description: dishManifest[i].description || undefined,
-              basePrice: dishManifest[i].price
+              basePrice: dishManifest[i].price,
+              category: dishManifest[i].category || undefined
             },
             groups,
             metadata: {
@@ -177,51 +178,67 @@ export class V1SimpleScraper {
     }
   }
 
-  private async extractDishManifest(): Promise<Array<{ name: string; price: number | null; description: string | null }>> {
+  private async extractDishManifest(): Promise<Array<{ name: string; price: number | null; description: string | null; category: string | null }>> {
     if (!this.page) return [];
 
     return await this.page.evaluate(() => {
-      const dishes: Array<{ name: string; price: number | null; description: string | null }> = [];
+      const dishes: Array<{ name: string; price: number | null; description: string | null; category: string | null }> = [];
 
-      // Find all forms with order buttons (each form is a dish)
-      const forms = Array.from(document.querySelectorAll('form[id^="form_"]'));
+      // Find all category sections (divs with id starting with "f_")
+      const sections = Array.from(document.querySelectorAll('div[id^="f_"]'));
 
-      for (const form of forms) {
-        let dishName = '';
-        let price: number | null = null;
-        let description: string | null = null;
+      for (const section of sections) {
+        let categoryName: string | null = null;
 
-        // Find the dish name (first bold <p> in the left float div)
-        const leftDiv = form.querySelector('div[style*="float:left"]');
-        if (leftDiv) {
-          const boldPs = Array.from(leftDiv.querySelectorAll('p[style*="font-weight: bold"], p[style*="font-weight:bold"]'));
-          if (boldPs.length > 0) {
-            dishName = boldPs[0].textContent?.trim() || '';
+        // Find category name in the category name div (id starting with "cname_")
+        const cnameDiv = section.querySelector('div[id^="cname_"]');
+        if (cnameDiv) {
+          const categoryP = cnameDiv.querySelector('p[style*="font-weight: bold"], p[style*="font-weight:bold"]');
+          if (categoryP) {
+            categoryName = categoryP.textContent?.trim() || null;
           }
+        }
 
-          // Find description (second <p> in left div, not bold)
-          const allPs = Array.from(leftDiv.querySelectorAll('p'));
-          if (allPs.length > 1) {
-            // Skip the first (name), get second (description)
-            const descP = allPs[1];
-            if (descP && !descP.style.fontWeight) {
-              description = descP.textContent?.trim() || null;
+        // Find all forms (dishes) within this section
+        const forms = Array.from(section.querySelectorAll('form[id^="form_"]'));
+
+        for (const form of forms) {
+          let dishName = '';
+          let price: number | null = null;
+          let description: string | null = null;
+
+          // Find the dish name (first bold <p> in the left float div)
+          const leftDiv = form.querySelector('div[style*="float:left"]');
+          if (leftDiv) {
+            const boldPs = Array.from(leftDiv.querySelectorAll('p[style*="font-weight: bold"], p[style*="font-weight:bold"]'));
+            if (boldPs.length > 0) {
+              dishName = boldPs[0].textContent?.trim() || '';
+            }
+
+            // Find description (second <p> in left div, not bold)
+            const allPs = Array.from(leftDiv.querySelectorAll('p'));
+            if (allPs.length > 1) {
+              // Skip the first (name), get second (description)
+              const descP = allPs[1];
+              if (descP && !descP.style.fontWeight) {
+                description = descP.textContent?.trim() || null;
+              }
             }
           }
-        }
 
-        // Find price in the table
-        const priceCell = form.querySelector('td:nth-child(2)');
-        if (priceCell) {
-          const priceText = priceCell.textContent?.trim() || '';
-          const priceMatch = priceText.match(/\$\s*(\d+[.,]\d{2})/);
-          if (priceMatch) {
-            price = parseFloat(priceMatch[1].replace(',', '.'));
+          // Find price in the table
+          const priceCell = form.querySelector('td:nth-child(2)');
+          if (priceCell) {
+            const priceText = priceCell.textContent?.trim() || '';
+            const priceMatch = priceText.match(/\$\s*(\d+[.,]\d{2})/);
+            if (priceMatch) {
+              price = parseFloat(priceMatch[1].replace(',', '.'));
+            }
           }
-        }
 
-        if (dishName && dishName.length > 0) {
-          dishes.push({ name: dishName, price, description });
+          if (dishName && dishName.length > 0) {
+            dishes.push({ name: dishName, price, description, category: categoryName });
+          }
         }
       }
 

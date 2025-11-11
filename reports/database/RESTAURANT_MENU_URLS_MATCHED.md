@@ -180,6 +180,34 @@
 
 ---
 
+## ⚠️ IMPORTANT FINDING
+
+After thorough search of `Course-Fix-Progress.md` audit file:
+
+**Menu URLs Found in Audit File:**
+- ✅ **Parea Authentic Greek** - `https://ordereast.eatparea.com/index.php/menu` (VERIFIED)
+- ✅ **Parea Express** - `https://orderwest.eatparea.com/index.php/menu` (VERIFIED)
+- ⚠️ **Pizza Marie** - `https://pizzamaisonneuve.com/?p=menu&lang=fr` (marked as incorrect URL)
+
+**Menu URLs NOT Found in Audit File:**
+- ❌ Al-s Drive In - No URL recorded
+- ❌ Capital Bites - No URL recorded
+- ❌ Capri Pizza - No URL recorded
+- ❌ All Chicco restaurants (6 locations) - No URLs recorded
+- ❌ Cosenza - No URL recorded
+- ❌ Cuisine Bombay Indienne - No URL recorded
+- ❌ La Nawab - No URL recorded
+- ❌ Pachino Pizza - No URL recorded
+- ❌ River Pizza - No URL recorded
+- ❌ Sushi Presse - No URL recorded
+- ❌ Wandee Thai - No URL recorded
+- ❌ Chances R' West/East - Not in database
+- ❌ Econo Pizza - Not in database
+
+**Conclusion:** The audit file (`Course-Fix-Progress.md`) contains detailed status information for these restaurants but **does NOT contain menu URLs** for most of them. Only 3 restaurants have URLs recorded (2 Parea locations + 1 Pizza Marie with incorrect URL).
+
+---
+
 ## URL Pattern Notes
 
 Most menu URLs follow these patterns:
@@ -187,8 +215,9 @@ Most menu URLs follow these patterns:
 - `https://{restaurant-slug}.menu.ca/?p=menu&lang=fr` (French restaurants)
 - `https://{restaurant-slug}.ca/?p=menu` (alternative)
 - `https://order{east/west}.eatparea.com/index.php/menu` (Parea restaurants)
+- `https://m.{restaurant-slug}ottawa.com/menu` (mobile subdomain)
 
-**Note:** Constructed URLs (marked as "constructed from slug") need to be verified by testing the actual URLs.
+**Note:** All URLs except the 3 found in audit file are constructed/estimated and need verification.
 
 ---
 

@@ -1,0 +1,690 @@
+{
+  "success": false,
+  "dishes": [
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "French Fries",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:03.719Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Onion Rings",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:06.813Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Poutine",
+        "basePrice": 9.75
+      },
+      "groups": [
+        {
+          "name": "10% OFF All Online Pickup Orders",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Small\n\t\t\t\t\t\t\t\t\t- 9.75",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Large\n\t\t\t\t\t\t\t\t\t- 11.75",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:12.945Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Deep Fried Pickles (8 pcs)",
+        "basePrice": 11.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:16.033Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Mozzarella Sticks (8 pcs)",
+        "basePrice": 11.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:19.134Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Zucchini Sticks",
+        "basePrice": 11.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:22.234Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Jalapeno Poppers (8 pcs)",
+        "basePrice": 11.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:25.336Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Pop Curds",
+        "basePrice": 11.5
+      },
+      "groups": [
+        {
+          "name": "10% OFF All Online Pickup Orders",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Half\n\t\t\t\t\t\t\t\t\t- 11.50",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Full\n\t\t\t\t\t\t\t\t\t- 21.50",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:31.476Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Mac & Cheese Wedges (8 pcs)",
+        "basePrice": 11.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:34.570Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Chicken Wings",
+        "basePrice": 12.99
+      },
+      "groups": [
+        {
+          "name": "10% OFF All Online Pickup Orders",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "10 wings\n\t\t\t\t\t\t\t\t\t- 12.99",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "20 wings\n\t\t\t\t\t\t\t\t\t- 24.50",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "30 wings\n\t\t\t\t\t\t\t\t\t- 32.95",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        },
+        {
+          "name": "10% OFF All Online Pickup Orders",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 1,
+          "stepOrder": 2,
+          "options": [
+            {
+              "name": "Mild\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "BBQ\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Hot\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Medium\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Honey Garlic\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Ghost Peppers\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Salt and Pepper\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Creamy Garlic\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:43.254Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Boneless Chicken Bites",
+        "basePrice": 12.99
+      },
+      "groups": [
+        {
+          "name": "10% OFF All Online Pickup Orders",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "10 pcs\n\t\t\t\t\t\t\t\t\t- 12.99",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "20 pcs\n\t\t\t\t\t\t\t\t\t- 24.50",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "30 pcs\n\t\t\t\t\t\t\t\t\t- 32.95",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        },
+        {
+          "name": "10% OFF All Online Pickup Orders",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 1,
+          "stepOrder": 2,
+          "options": [
+            {
+              "name": "Mild\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "BBQ\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Hot\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Medium\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Honey Garlic\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Ghost Peppers\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Salt and Pepper\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Creamy Garlic\n                                            0.00",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:51.940Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Chicken Fingers (5 pcs)",
+        "description": "Served with french fries & gravy.",
+        "basePrice": 14.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:55.019Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Nachos",
+        "description": "Tomatoes, green peppers, onions, jalapeno peppers, drizzled with chipotle (served with salsa & sour cream).",
+        "basePrice": 14.95
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:49:58.103Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Chicken Nachos",
+        "description": "Chicken, tomatoes, green peppers, onions, jalapeno peppers, drizzled with chipotle (served with salsa & sour cream).",
+        "basePrice": 17.95
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:01.187Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Beef Nachos",
+        "description": "Donair beef, tomatoes, green peppers, onions, jalapeno peppers, drizzled with chipotle (served with salsa & sour cream).",
+        "basePrice": 17.95
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:04.256Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Meatball Sub",
+        "description": "Meatballs, Cheese, Marinara Sauce.",
+        "basePrice": 11.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:07.401Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Club Sub",
+        "description": "Chicken, Bacon, Cheese, Tomatoes, Lettuce, Mayo.",
+        "basePrice": 11.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:10.472Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Philly Steak Sub",
+        "description": "Steak, Cheese, Fried Onions, Sauteed Mushrooms, Green Peppers, Ancho Chipotle.",
+        "basePrice": 13.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:13.542Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Greek Sub",
+        "description": "Cheese, Tomatoes, Onions, Green Peppers, Black Olives, Feta Cheese, Italian Seasoning.",
+        "basePrice": 11.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:16.608Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Pizza Sub",
+        "description": "Pepperoni, mushrooms, green peppers, meat sauce.",
+        "basePrice": 12.15
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:19.673Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Crispy Chicken Sub",
+        "description": "Lettuce, tomatoes, mayo.",
+        "basePrice": 12.49
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:22.748Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Classic Club Sandwich",
+        "description": "Bacon, Chicken, Tomatoes, Lettuce, Mayo. Served with French Fries.",
+        "basePrice": 12.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:25.808Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Cheesy Garlic Fingers",
+        "description": "Medium size only.",
+        "basePrice": 12.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:28.874Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Garlic Bread",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:31.956Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Garlic Bread with Cheese",
+        "basePrice": 9
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:35.024Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Doughballs (10 pcs)",
+        "description": "Served with Marinara sauce.",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:38.113Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Dips",
+        "basePrice": 1.85
+      },
+      "groups": [
+        {
+          "name": "10% OFF All Online Pickup Orders",
+          "selectType": "single",
+          "minSelections": 1,
+          "maxSelections": 1,
+          "isRequired": true,
+          "displayOrder": 0,
+          "stepOrder": 1,
+          "options": [
+            {
+              "name": "Homemade Creamy Garlic\n\t\t\t\t\t\t\t\t\t- 1.85",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Ranch\n\t\t\t\t\t\t\t\t\t- 1.85",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Hot sauce\n\t\t\t\t\t\t\t\t\t- 1.85",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Honey Garlic\n\t\t\t\t\t\t\t\t\t- 1.85",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Chipotle\n\t\t\t\t\t\t\t\t\t- 1.85",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Italian Marinara\n\t\t\t\t\t\t\t\t\t- 1.85",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "Sour Cream\n\t\t\t\t\t\t\t\t\t- 1.85",
+              "priceDelta": 0,
+              "isDefault": false
+            },
+            {
+              "name": "BBQ\n\t\t\t\t\t\t\t\t\t- 1.85",
+              "priceDelta": 0,
+              "isDefault": false
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:44.261Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Spaghetti",
+        "basePrice": 11.99
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T18:50:47.353Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "dishName": "Lasagna",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:50:52.870Z"
+    },
+    {
+      "dishName": "Cosenza Lasagna",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T18:50:58.886Z"
+    },
+    {
+      "dishName": "Chicken Parmesan",
+      "error": "locator.all: Target page, context or browser has been closed",
+      "timestamp": "2025-11-10T18:51:02.978Z"
+    },
+    {
+      "error": "Fatal: page.waitForTimeout: Target page, context or browser has been closed",
+      "timestamp": "2025-11-10T18:51:02.982Z"
+    }
+  ],
+  "summary": {
+    "totalDishes": 86,
+    "successCount": 28,
+    "errorCount": 3,
+    "totalGroups": 7,
+    "totalOptions": 34
+  }
+}
