@@ -1,0 +1,223 @@
+{
+  "success": true,
+  "dishes": [],
+  "errors": [
+    {
+      "dishName": "Shawarma 6”",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:01.865Z"
+    },
+    {
+      "dishName": "Shawarma 6” TRIO",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:07.879Z"
+    },
+    {
+      "dishName": "Shawarma 12”",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:13.890Z"
+    },
+    {
+      "dishName": "Shawarma 12” TRIO",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:19.903Z"
+    },
+    {
+      "dishName": "Petit Assiette Shawarma",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:25.916Z"
+    },
+    {
+      "dishName": "Petit Assiette Shawarma TRIO",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:31.934Z"
+    },
+    {
+      "dishName": "Grand Assiette Shawarma",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:37.958Z"
+    },
+    {
+      "dishName": "Grand Assiette Shawarma TRIO",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:43.975Z"
+    },
+    {
+      "dishName": "Assiette Vegetarienne",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:49.995Z"
+    },
+    {
+      "dishName": "Assiette Vegetarienne TRIO",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:56.015Z"
+    },
+    {
+      "dishName": "Assiette Familiale",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:02.041Z"
+    },
+    {
+      "dishName": "Assiette Familiale Mixte",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:08.083Z"
+    },
+    {
+      "dishName": "Assiette 1 Viande Pour Deux",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:14.100Z"
+    },
+    {
+      "dishName": "Assiette 2 Viandes Pour Deux",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:20.129Z"
+    },
+    {
+      "dishName": "Salade César",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:26.337Z"
+    },
+    {
+      "dishName": "Salade Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:32.403Z"
+    },
+    {
+      "dishName": "Salade Mixte",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:38.421Z"
+    },
+    {
+      "dishName": "Salade Fattouche",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:44.436Z"
+    },
+    {
+      "dishName": "Salade Taboulé",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:50.464Z"
+    },
+    {
+      "dishName": "Club Shawarma",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:56.482Z"
+    },
+    {
+      "dishName": "Ailes de Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:02.505Z"
+    },
+    {
+      "dishName": "Sauce à l’ail",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:08.539Z"
+    },
+    {
+      "dishName": "Humus",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:14.681Z"
+    },
+    {
+      "dishName": "Sauce Sésame",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:20.708Z"
+    },
+    {
+      "dishName": "Sauce Sucré",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:26.746Z"
+    },
+    {
+      "dishName": "Patate à l’ail",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:32.777Z"
+    },
+    {
+      "dishName": "Frites",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:38.802Z"
+    },
+    {
+      "dishName": "Pita Chip",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:44.828Z"
+    },
+    {
+      "dishName": "Poutine",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:50.845Z"
+    },
+    {
+      "dishName": "Poutine au Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:56.862Z"
+    },
+    {
+      "dishName": "Riz",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:02.884Z"
+    },
+    {
+      "dishName": "Trempettes",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:08.909Z"
+    },
+    {
+      "dishName": "Baklava",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:14.976Z"
+    },
+    {
+      "dishName": "Pepsi",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:21.002Z"
+    },
+    {
+      "dishName": "Diet Pepsi",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:27.024Z"
+    },
+    {
+      "dishName": "Mug Root Beer",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:33.041Z"
+    },
+    {
+      "dishName": "Orange Crush",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:39.059Z"
+    },
+    {
+      "dishName": "Brisk Iced Tea",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:45.080Z"
+    },
+    {
+      "dishName": "Dr.Pepper",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:51.096Z"
+    },
+    {
+      "dishName": "7 Up",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:57.115Z"
+    },
+    {
+      "dishName": "Diet 7 Up",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:29:03.137Z"
+    },
+    {
+      "dishName": "Eau",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:29:09.157Z"
+    }
+  ],
+  "summary": {
+    "totalDishes": 42,
+    "successCount": 0,
+    "errorCount": 42,
+    "totalGroups": 0,
+    "totalOptions": 0
+  }
+}
