@@ -1,3 +1,384 @@
+I want to create a new scapper. 
+
+The scrapper should follow the exact same tools and guidelines followed by the Scrapper Handoff. It is meant to scrap the data from https://aggregator-admin.menu.ca/index.php/restaurants/show/active. I will provide the html markup for Chicco Shawarma Cantley	435 Montée de la Source so you have a clear idea from where to scrap the information that you need. The Scraper should follow 2 Phases:
+
+Phase 1. Courses & Dishes: 
+
+1. For each restaurant   find it in https://aggregator-admin.menu.ca/index.php/restaurants/show/active in the table <table class="table table-condensed table-striped table-responsive table-bordered" id="restaurantList"></table>. Each restaurant can be found inside a <tr> element. For example, Chicco Shawarma Cantley restaurant can be found inside:
+
+<tr>
+                                    <td class="text-left">
+                                        <a href="https://aggregator-admin.menu.ca/index.php/restaurants/edit/1658/info" class="btn btn-default btn-xs">
+                                            <i class="glyphicon glyphicon-edit"></i> Edit
+                                        </a>
+                                    </td>
+                                    <td>Chicco Shawarma Cantley</td>
+                                    <td>435 Montée de la Source</td>
+                                    <td><a href="tel:(819) 607-0712">(819) 607-0712</a></td>
+                                </tr>
+
+Click the <a href="https://aggregator-admin.menu.ca/index.php/restaurants/edit/1658/info" class="btn btn-default btn-xs"> <i class="glyphicon glyphicon-edit"></i> Edit </a>. It will tale you to the details of each restaurant.
+
+2. In the detais of the restaurant, navigate to <a href="https://aggregator-admin.menu.ca/index.php/restaurants/edit/1658/menu" class="dropdown-toggle" data-toggle="dropdown">Menu<span class="caret"></span></a> to navigate to the menu of the restaurant click on <a href="https://aggregator-admin.menu.ca/index.php/restaurants/edit/1658/menu/restaurant">Restaurant</a>
+
+3. Verify if this div exists: <div class="col-sm-12" id="sortable"></div>. If it doesn't click on the <a href="https://aggregator-admin.menu.ca/index.php/restaurants/edit/1658/menu/2/restaurant" class="btn btn-default">French</a> this will take you to a new URL where the menu data is located for Restaurants with French menus. Then you will find all the courses for the restaurant and its respective courses with thir respective name, description, size(s) and price(s). For the course Shawarma you will find the information contained in this html:
+<div class="jarviswidget jarviswidget-color-darken course-listing jarviswidget-sortable" id="c_1122" data-id="1122" data-course="Shawarmas" role="widget">
+                            <header role="heading"><div class="jarviswidget-ctrls" role="menu">    <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a>  </div>
+                                <h2>
+                                    <a href="#" class="rename" data-course-id="1122" title="click to rename this course" style="color: #fff">
+                                        Shawarmas
+                                    </a>
+                                </h2>
+                            <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+
+                            <div id="course_1122" class="widget-body" role="content">
+                                                                <form action="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/update_course_description" method="post" class="form_update_course">
+                                    <input type="hidden" name="course_id" value="1122">
+                                    <div class="form-group">
+                                        <label for="course_desc_1122">course description</label>
+                                        <div class="input-group input-group-sm">
+                                            <textarea name="desc" id="course_desc_1122" cols="1" rows="3" class="form-control"></textarea>
+                                            <span class="input-group-btn">
+										<button class="btn btn-primary">Update course description</button>
+									</span>
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                                                <form action="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/update_dishes" method="post" class="form_update_course">
+                                    <div class="table-responsive">
+                                        <input type="hidden" name="course" value="1122">
+                                        <table class="table table-bordered table-striped table-condensed show-dishes" id="table_1122">
+                                            <thead>
+                                            <tr>
+                                                <td colspan="3" class="text-right">
+
+                                                                                                    </td>
+                                                <td colspan="2" class="text-right">
+                                                    <span class="form-control-static">course available for - if none chosen, course will not show: </span>&nbsp;
+                                                                                                            <label class="checkbox-inline">
+                                                            <input type="checkbox" name="available_for[1]" value="1" data-name="1" data-course="1122" checked="">
+                                                            Takeout
+                                                        </label>
+                                                                                                            <label class="checkbox-inline">
+                                                            <input type="checkbox" name="available_for[2]" value="2" data-name="2" data-course="1122">
+                                                            Delivery
+                                                        </label>
+                                                                                                        <button type="button" class="btn btn-default btn-xs available_for">
+                                                        update
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="dish-actions visible-xs">
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+                                                            add dish <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a href="#mod_add_dish" class="add-dish-modal" data-course="1122" data-toggle="modal">
+                                                                    regular dish
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/showCreateCombo/1122/1658" data-target="#mod_create_combo" data-toggle="modal" data-backdrop="static" data-keyboard="true" data-course="1122">
+                                                                    combo dish
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/showImportDish/1122/1658" data-target="#mod_import_dish" class="add-dish-modal" data-course="1122" data-toggle="modal" data-backdrop="static" data-keyboard="true">
+                                                                    import dishes
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </th>
+                                                <th class="dish-name">name</th>
+                                                <th class="dish-desc">description</th>
+                                                <th class="dish-size">size(s)</th>
+                                                <th class="dish-price">price(s)</th>
+                                                <th class="text-center dish-actions hidden-xs">
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+                                                            add dish <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a href="#mod_add_dish" class="add-dish-modal" data-course="1122" data-toggle="modal">
+                                                                    regular dish
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/showCreateCombo/1122/1658" data-target="#mod_create_combo" data-toggle="modal" data-backdrop="static" data-keyboard="true" data-course="1122">
+                                                                    combo dish
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/showImportDish/1122/1658" data-target="#mod_import_dish" class="add-dish-modal" data-course="1122" data-toggle="modal" data-backdrop="static" data-keyboard="true">
+                                                                    import dishes
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tfoot>
+                                            <tr>
+                                                <td class="visible-xs">
+                                                    <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/manage_dishes/1122" data-backdrop="static" data-keyboard="true" data-toggle="modal" data-target="#mod_manage_dishes" class="sort_dishes btn btn-default" data-course="1122">dish order</a>
+                                                    <button type="submit" class="btn btn-primary ">
+                                                        Update
+                                                    </button>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div class="input-group">
+												<span class="input-group-btn">
+													<a href="#" data-update-type="value" class="btn btn-default update-prices">value</a>
+												</span>
+                                                        <input type="number" name="update_prices_by" id="update_prices_by_1122" class="form-control update_prices_by" value="0" placeholder="update prices by" min="0" step="0.1">
+                                                        <span class="input-group-btn">
+													<a href="#" data-update-type="percent" class="btn btn-default update-prices">percent</a>
+												</span>
+                                                    </div>
+                                                </td>
+                                                <td colspan="2"></td>
+                                                <td class="text-right hidden-xs">
+                                                    <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/manage_dishes/1122" data-backdrop="static" data-keyboard="true" data-toggle="modal" data-target="#mod_manage_dishes" class="sort_dishes btn btn-default" data-course="1122">dish order</a>
+                                                    <button type="submit" class="btn btn-primary ">
+                                                        Update
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                                                                                                                <tr class="sort" data-id="9000" style="" data-dish="Shawarma 6&quot;" data-display_order="0">
+                                                        <td class="visible-xs">
+                                                                                                                            <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9000/1658/2" data-dish="9000" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Shawarma 6&quot;">
+                                                                    edit
+                                                                </a>
+                                                                                                                        <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9000" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                        <td><input type="text" name="name[9000]" value="Shawarma 6&quot;" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="desc[9000]" value="" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="size[9000]" value="Poulet,Boeuf,Mixte" class="form-control size"></td>
+                                                        <td><input type="text" name="price[9000]" value="7.99,7.99,8.70" class="form-control price"></td>
+                                                        <td class="text-center dish-actions hidden-xs">
+                                                            <input type="hidden" name="ids[9000]" value="9000">
+                                                                                                                                                                                        <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9000/1658/2" data-dish="9000" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Shawarma 6&quot;">
+                                                                    edit
+                                                                </a>
+                                                            
+                                                            <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9000" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                                                                                                                <tr class="sort" data-id="9001" style="" data-dish="Shawarma 6&quot; TRIO" data-display_order="1">
+                                                        <td class="visible-xs">
+                                                                                                                            <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9001/1658/2" data-dish="9001" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Shawarma 6&quot; TRIO">
+                                                                    edit
+                                                                </a>
+                                                                                                                        <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9001" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                        <td><input type="text" name="name[9001]" value="Shawarma 6&quot; TRIO" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="desc[9001]" value="Avec patate, un riz ou une salade (petit format) et un liqueur." class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="size[9001]" value="Poulet,Boeuf,Mixte" class="form-control size"></td>
+                                                        <td><input type="text" name="price[9001]" value="12.98,12.98,13.69" class="form-control price"></td>
+                                                        <td class="text-center dish-actions hidden-xs">
+                                                            <input type="hidden" name="ids[9001]" value="9001">
+                                                                                                                            <a href="#" class="btn btn-default cleanImage" data-dish="9001">
+                                                                    <i class="fa fa-file-image-o"></i> image
+                                                                </a>
+                                                                                                                                                                                        <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9001/1658/2" data-dish="9001" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Shawarma 6&quot; TRIO">
+                                                                    edit
+                                                                </a>
+                                                            
+                                                            <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9001" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                                                                                                                <tr class="sort" data-id="9002" style="" data-dish="Shawarma 12&quot;" data-display_order="2">
+                                                        <td class="visible-xs">
+                                                                                                                            <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9002/1658/2" data-dish="9002" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Shawarma 12&quot;">
+                                                                    edit
+                                                                </a>
+                                                                                                                        <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9002" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                        <td><input type="text" name="name[9002]" value="Shawarma 12&quot;" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="desc[9002]" value="" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="size[9002]" value="Poulet,Boeuf,Mixte" class="form-control size"></td>
+                                                        <td><input type="text" name="price[9002]" value="12.75,12.75,14.75" class="form-control price"></td>
+                                                        <td class="text-center dish-actions hidden-xs">
+                                                            <input type="hidden" name="ids[9002]" value="9002">
+                                                                                                                                                                                        <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9002/1658/2" data-dish="9002" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Shawarma 12&quot;">
+                                                                    edit
+                                                                </a>
+                                                            
+                                                            <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9002" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                                                                                                                <tr class="sort" data-id="9003" style="" data-dish="Shawarma 12&quot; TRIO" data-display_order="3">
+                                                        <td class="visible-xs">
+                                                                                                                            <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9003/1658/2" data-dish="9003" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Shawarma 12&quot; TRIO">
+                                                                    edit
+                                                                </a>
+                                                                                                                        <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9003" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                        <td><input type="text" name="name[9003]" value="Shawarma 12&quot; TRIO" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="desc[9003]" value="Avec patate, un riz ou une salade (petit format) et un liqueur." class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="size[9003]" value="Poulet,Boeuf,Mixte" class="form-control size"></td>
+                                                        <td><input type="text" name="price[9003]" value="17.74,17.74,19.74" class="form-control price"></td>
+                                                        <td class="text-center dish-actions hidden-xs">
+                                                            <input type="hidden" name="ids[9003]" value="9003">
+                                                                                                                            <a href="#" class="btn btn-default cleanImage" data-dish="9003">
+                                                                    <i class="fa fa-file-image-o"></i> image
+                                                                </a>
+                                                                                                                                                                                        <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9003/1658/2" data-dish="9003" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Shawarma 12&quot; TRIO">
+                                                                    edit
+                                                                </a>
+                                                            
+                                                            <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9003" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                                                                                                                <tr class="sort" data-id="9004" style="" data-dish="Assiette Shawarma" data-display_order="4">
+                                                        <td class="visible-xs">
+                                                                                                                            <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9004/1658/2" data-dish="9004" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Assiette Shawarma">
+                                                                    edit
+                                                                </a>
+                                                                                                                        <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9004" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                        <td><input type="text" name="name[9004]" value="Assiette Shawarma" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="desc[9004]" value="" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="size[9004]" value="Poulet,Boeuf,Mixte" class="form-control size"></td>
+                                                        <td><input type="text" name="price[9004]" value="18.75,18.75,19.95" class="form-control price"></td>
+                                                        <td class="text-center dish-actions hidden-xs">
+                                                            <input type="hidden" name="ids[9004]" value="9004">
+                                                                                                                                                                                        <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9004/1658/2" data-dish="9004" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Assiette Shawarma">
+                                                                    edit
+                                                                </a>
+                                                            
+                                                            <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9004" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                                                                                                                <tr class="sort" data-id="9005" style="" data-dish="Assiette Shawarma TRIO" data-display_order="5">
+                                                        <td class="visible-xs">
+                                                                                                                            <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9005/1658/2" data-dish="9005" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Assiette Shawarma TRIO">
+                                                                    edit
+                                                                </a>
+                                                                                                                        <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9005" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                        <td><input type="text" name="name[9005]" value="Assiette Shawarma TRIO" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="desc[9005]" value="Avec patate, un riz ou une salade (petit format) et un liqueur." class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="size[9005]" value="Poulet,Boeuf,Mixte" class="form-control size"></td>
+                                                        <td><input type="text" name="price[9005]" value="23.74,23.74,24.94" class="form-control price"></td>
+                                                        <td class="text-center dish-actions hidden-xs">
+                                                            <input type="hidden" name="ids[9005]" value="9005">
+                                                                                                                                                                                        <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9005/1658/2" data-dish="9005" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Assiette Shawarma TRIO">
+                                                                    edit
+                                                                </a>
+                                                            
+                                                            <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9005" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                                                                                                                <tr class="sort" data-id="9006" style="" data-dish="Assiette Vegetarienne Falafel" data-display_order="6">
+                                                        <td class="visible-xs">
+                                                                                                                            <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9006/1658/2" data-dish="9006" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Assiette Vegetarienne Falafel">
+                                                                    edit
+                                                                </a>
+                                                                                                                        <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9006" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                        <td><input type="text" name="name[9006]" value="Assiette Vegetarienne Falafel" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="desc[9006]" value="" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="size[9006]" value="" class="form-control size"></td>
+                                                        <td><input type="text" name="price[9006]" value="16.95" class="form-control price"></td>
+                                                        <td class="text-center dish-actions hidden-xs">
+                                                            <input type="hidden" name="ids[9006]" value="9006">
+                                                                                                                                                                                        <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9006/1658/2" data-dish="9006" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Assiette Vegetarienne Falafel">
+                                                                    edit
+                                                                </a>
+                                                            
+                                                            <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9006" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                                                                                                                <tr class="sort" data-id="9007" style="" data-dish="Assiette Vegetarienne Falafel TRIO" data-display_order="7">
+                                                        <td class="visible-xs">
+                                                                                                                            <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9007/1658/2" data-dish="9007" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Assiette Vegetarienne Falafel TRIO">
+                                                                    edit
+                                                                </a>
+                                                                                                                        <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9007" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                        <td><input type="text" name="name[9007]" value="Assiette Vegetarienne Falafel TRIO" class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="desc[9007]" value="Avec patate, un riz ou une salade (petit format) et un liqueur." class="form-control">
+                                                        </td>
+                                                        <td><input type="text" name="size[9007]" value="" class="form-control size"></td>
+                                                        <td><input type="text" name="price[9007]" value="21.94" class="form-control price"></td>
+                                                        <td class="text-center dish-actions hidden-xs">
+                                                            <input type="hidden" name="ids[9007]" value="9007">
+                                                                                                                                                                                        <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9007/1658/2" data-dish="9007" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Assiette Vegetarienne Falafel TRIO">
+                                                                    edit
+                                                                </a>
+                                                            
+                                                            <a data-msg="Change status of this dish?" href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/changeDishStatus" data-dish="9007" class="btn btn-danger remove_dish" title="disable dish">
+                                                                disable
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                                                        </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+                                                            </div>
+                        </div>
+
+
+4. Scrap each course, name and modifier for each restaurant.
+
+Phase 2: Modifiers and modifier'prices:
+1. Each of the dishes under https://aggregator-admin.menu.ca/index.php/restaurants/edit/1658/menu/2/restaurant have an edit button <a href="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/edit_dish/9000/1658/2" data-dish="9000" class="btn btn-primary edit_dish" title="edit dish" data-toggle="modal" data-target="#mod_edit_dish" data-backdrop="static" data-keyboard="true" data-dishname="Shawarma 6&quot;">edit</a> that must be click to open the modal with the modifier's prices. this markup contains the modifiers and prices of the dish Shawarma 6 Trio:
 <div class="modal-content">
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
@@ -502,3 +883,5 @@
 </div>
 
 <script src="https://aggregator-admin.menu.ca/assets/js/mc/dist/dishes.min.js"></script></div>
+
+For each dish click this button and scan the modifiers and their prices
