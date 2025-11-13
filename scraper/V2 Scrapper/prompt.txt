@@ -1,0 +1,504 @@
+<div class="modal-content">
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title" id="dish-modal-title">Shawarma 6" TRIO</h4>
+</div>
+
+<div class="modal-body">
+    <form action="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/update_dish" method="post" id="form_edit_dish">
+        <input type="hidden" name="dish_id" value="9001">
+
+        <div class="radio">
+            <p>Dish has customization</p>
+            <label class="label-inline">
+                <input type="radio" name="has_customization" value="y" checked=""> Yes
+            </label>
+
+            <label class="label-inline">
+                <input type="radio" name="has_customization" value="n"> No
+            </label>
+        </div>
+                <div class="panel-group" id="group_dish_customization">
+                            <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#extra" data-toggle="collapse" data-parent="#group_dish_customization" class="collapsed" aria-expanded="false"> Extras </a>
+                        </h4>
+                    </div>
+                    <div id="extra" class="panel-collapse out collapse" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body" style="padding: 0 15px;">
+                            <div class="panel-group" id="collapse_groups_extra">
+                                <h5>Customization</h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input data-type="extra" type="checkbox" name="customization[extra][use]" value="1">
+                                        enable extras
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="customization[extra][pizza_icons]" id="pizza_icons_extra" value="y">
+                                        show pizza icons
+                                    </label>
+                                </div>
+
+                                <div class="form-group div_options">
+                                                                        <label for="c_extra_title_f">use tile - free items</label>
+                                    <input type="text" name="customization[extra][title_free]" id="c_extra_title_f" class="form-control" value="Extras">
+                                </div>
+                                <div class="form-group div_options">
+                                                                        <label for="c_extra_title_p">use tile - <strong>payable</strong>
+                                        items</label>
+                                    <input type="text" name="customization[extra][title_paid]" id="c_extra_title_p" class="form-control" value="Extras">
+                                </div>
+
+                                <div class="row form-group div_options">
+                                    <div class="col-sm-3">
+                                                                                <label for="c_extra_min">min items</label>
+                                        <input type="number" class="form-control" name="customization[extra][min]" id="c_extra_min" min="0" value="1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                                                                <label for="c_extra_max">max items</label>
+                                        <input type="number" class="form-control" name="customization[extra][max]" id="c_extra_max" min="0" value="1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                                                                <label for="c_extra_free">free items</label>
+                                        <input type="number" class="form-control" name="customization[extra][free]" id="c_extra_free" min="0" value="0">
+                                    </div>
+                                    <div class="col-sm-3">
+                                                                                <label for="c_extra_do" title="Display order">display order</label>
+                                        <input type="number" class="form-control" name="customization[extra][display_order]" id="c_extra_do" min="0" value="9">
+                                    </div>
+                                </div>
+
+                                <h5>Available groups</h5>
+                                                                                                    <div class="panel panel-default" id="panel_group_486">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">
+                                                <label style="margin: 0; display: block">
+                                                    <input type="hidden" name="group" value="486">
+                                                    <input class="selected_group" data-type="extra" type="radio" name="customization[extra][group]" value="486" data-target="#dishes_486" data-toggle="collapse" data-parent="#collapse_groups_extra">
+                                                    Ajouter une autre personne 12.99
+                                                </label>
+                                            </h5>
+                                        </div>
+                                        <div id="dishes_486" class="panel-collapse collapse  out">
+                                            <div class="panel-body">
+                                                <div class="radio">
+                                                                                                        <p>Use global group prices</p>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="customization[extra][486][global_prices]" value="y" class="use_global_prices">
+                                                        Yes
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="customization[extra][486][global_prices]" value="n" class="use_global_prices" checked="">
+                                                        No
+                                                    </label>
+                                                </div>
+                                                <div class="group-content">
+                                                    <p>group content</p>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_486_45e8a6e1" class="control-label text-left input-xs">Ajouter une autre personne</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[486][45e8a6e1]" id="item_486_45e8a6e1" class="form-control input-xs" value="12.99">
+                                                            </div>
+                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="panel panel-default" id="panel_group_487">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">
+                                                <label style="margin: 0; display: block">
+                                                    <input type="hidden" name="group" value="487">
+                                                    <input class="selected_group" data-type="extra" type="radio" name="customization[extra][group]" value="487" data-target="#dishes_487" data-toggle="collapse" data-parent="#collapse_groups_extra">
+                                                    Ajouter une autre personne 14.50
+                                                </label>
+                                            </h5>
+                                        </div>
+                                        <div id="dishes_487" class="panel-collapse collapse  out">
+                                            <div class="panel-body">
+                                                <div class="radio">
+                                                                                                        <p>Use global group prices</p>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="customization[extra][487][global_prices]" value="y" class="use_global_prices">
+                                                        Yes
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="customization[extra][487][global_prices]" value="n" class="use_global_prices" checked="">
+                                                        No
+                                                    </label>
+                                                </div>
+                                                <div class="group-content">
+                                                    <p>group content</p>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_487_45e8a6e1" class="control-label text-left input-xs">Ajouter une autre personne</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[487][45e8a6e1]" id="item_487_45e8a6e1" class="form-control input-xs" value="14.50">
+                                                            </div>
+                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#side_dish" data-toggle="collapse" data-parent="#group_dish_customization" class="collapsed" aria-expanded="false"> Side dishes </a>
+                        </h4>
+                    </div>
+                    <div id="side_dish" class="panel-collapse out collapse" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body" style="padding: 0 15px;">
+                            <div class="panel-group" id="collapse_groups_side_dish">
+                                <h5>Customization</h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input data-type="side_dish" type="checkbox" name="customization[side_dish][use]" value="1" checked="">
+                                        enable side dishes
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="customization[side_dish][pizza_icons]" id="pizza_icons_side_dish" value="y">
+                                        show pizza icons
+                                    </label>
+                                </div>
+
+                                <div class="form-group div_options">
+                                                                        <label for="c_side_dish_title_f">use tile - free items</label>
+                                    <input type="text" name="customization[side_dish][title_free]" id="c_side_dish_title_f" class="form-control" value="Side dish">
+                                </div>
+                                <div class="form-group div_options">
+                                                                        <label for="c_side_dish_title_p">use tile - <strong>payable</strong>
+                                        items</label>
+                                    <input type="text" name="customization[side_dish][title_paid]" id="c_side_dish_title_p" class="form-control" value="Plat d'accompagnement">
+                                </div>
+
+                                <div class="row form-group div_options">
+                                    <div class="col-sm-3">
+                                                                                <label for="c_side_dish_min">min items</label>
+                                        <input type="number" class="form-control" name="customization[side_dish][min]" id="c_side_dish_min" min="0" value="1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                                                                <label for="c_side_dish_max">max items</label>
+                                        <input type="number" class="form-control" name="customization[side_dish][max]" id="c_side_dish_max" min="0" value="1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                                                                <label for="c_side_dish_free">free items</label>
+                                        <input type="number" class="form-control" name="customization[side_dish][free]" id="c_side_dish_free" min="0" value="0">
+                                    </div>
+                                    <div class="col-sm-3">
+                                                                                <label for="c_side_dish_do" title="Display order">display order</label>
+                                        <input type="number" class="form-control" name="customization[side_dish][display_order]" id="c_side_dish_do" min="0" value="7">
+                                    </div>
+                                </div>
+
+                                <h5>Available groups</h5>
+                                                                                                    <div class="panel panel-default" id="panel_group_488">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">
+                                                <label style="margin: 0; display: block">
+                                                    <input type="hidden" name="group" value="488">
+                                                    <input class="selected_group" data-type="side_dish" type="radio" name="customization[side_dish][group]" value="488" data-target="#dishes_488" data-toggle="collapse" data-parent="#collapse_groups_side_dish" checked="">
+                                                    TRIO Side Dishes
+                                                </label>
+                                            </h5>
+                                        </div>
+                                        <div id="dishes_488" class="panel-collapse collapse  in">
+                                            <div class="panel-body">
+                                                <div class="radio">
+                                                                                                        <p>Use global group prices</p>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="customization[side_dish][488][global_prices]" value="y" class="use_global_prices">
+                                                        Yes
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="customization[side_dish][488][global_prices]" value="n" class="use_global_prices" checked="">
+                                                        No
+                                                    </label>
+                                                </div>
+                                                <div class="group-content">
+                                                    <p>group content</p>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_488_d5ca8697" class="control-label text-left input-xs">Riz</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[488][d5ca8697]" id="item_488_d5ca8697" class="form-control input-xs" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_488_7d2155f1" class="control-label text-left input-xs">Salade (petit)</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[488][7d2155f1]" id="item_488_7d2155f1" class="form-control input-xs" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#drink" data-toggle="collapse" data-parent="#group_dish_customization" class="collapsed" aria-expanded="false"> Drinks </a>
+                        </h4>
+                    </div>
+                    <div id="drink" class="panel-collapse out collapse" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body" style="padding: 0 15px;">
+                            <div class="panel-group" id="collapse_groups_drink">
+                                <h5>Customization</h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input data-type="drink" type="checkbox" name="customization[drink][use]" value="1" checked="">
+                                        enable drinks
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="customization[drink][pizza_icons]" id="pizza_icons_drink" value="y">
+                                        show pizza icons
+                                    </label>
+                                </div>
+
+                                <div class="form-group div_options">
+                                                                        <label for="c_drink_title_f">use tile - free items</label>
+                                    <input type="text" name="customization[drink][title_free]" id="c_drink_title_f" class="form-control" value="Drinks">
+                                </div>
+                                <div class="form-group div_options">
+                                                                        <label for="c_drink_title_p">use tile - <strong>payable</strong>
+                                        items</label>
+                                    <input type="text" name="customization[drink][title_paid]" id="c_drink_title_p" class="form-control" value="Liqueur">
+                                </div>
+
+                                <div class="row form-group div_options">
+                                    <div class="col-sm-3">
+                                                                                <label for="c_drink_min">min items</label>
+                                        <input type="number" class="form-control" name="customization[drink][min]" id="c_drink_min" min="0" value="1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                                                                <label for="c_drink_max">max items</label>
+                                        <input type="number" class="form-control" name="customization[drink][max]" id="c_drink_max" min="0" value="1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                                                                <label for="c_drink_free">free items</label>
+                                        <input type="number" class="form-control" name="customization[drink][free]" id="c_drink_free" min="0" value="0">
+                                    </div>
+                                    <div class="col-sm-3">
+                                                                                <label for="c_drink_do" title="Display order">display order</label>
+                                        <input type="number" class="form-control" name="customization[drink][display_order]" id="c_drink_do" min="0" value="8">
+                                    </div>
+                                </div>
+
+                                <h5>Available groups</h5>
+                                                                                                    <div class="panel panel-default" id="panel_group_489">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">
+                                                <label style="margin: 0; display: block">
+                                                    <input type="hidden" name="group" value="489">
+                                                    <input class="selected_group" data-type="drink" type="radio" name="customization[drink][group]" value="489" data-target="#dishes_489" data-toggle="collapse" data-parent="#collapse_groups_drink" checked="">
+                                                    Drinks Can
+                                                </label>
+                                            </h5>
+                                        </div>
+                                        <div id="dishes_489" class="panel-collapse collapse  in">
+                                            <div class="panel-body">
+                                                <div class="radio">
+                                                                                                        <p>Use global group prices</p>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="customization[drink][489][global_prices]" value="y" class="use_global_prices">
+                                                        Yes
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="customization[drink][489][global_prices]" value="n" class="use_global_prices" checked="">
+                                                        No
+                                                    </label>
+                                                </div>
+                                                <div class="group-content">
+                                                    <p>group content</p>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_489_a50fd5d2" class="control-label text-left input-xs">Pepsi</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[489][a50fd5d2]" id="item_489_a50fd5d2" class="form-control input-xs" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_489_69b53ddd" class="control-label text-left input-xs">Diet Pepsi</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[489][69b53ddd]" id="item_489_69b53ddd" class="form-control input-xs" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_489_31b54968" class="control-label text-left input-xs">Mug Root Beer</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[489][31b54968]" id="item_489_31b54968" class="form-control input-xs" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_489_b16786e7" class="control-label text-left input-xs">Orange Crush</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[489][b16786e7]" id="item_489_b16786e7" class="form-control input-xs" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_489_972ea3ae" class="control-label text-left input-xs">7Up</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[489][972ea3ae]" id="item_489_972ea3ae" class="form-control input-xs" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_489_7010244a" class="control-label text-left input-xs">Dr.Pepper</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[489][7010244a]" id="item_489_7010244a" class="form-control input-xs" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                                                                                                                                    
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="item_489_3bf16974" class="control-label text-left input-xs">Eau</label>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="item[489][3bf16974]" id="item_489_3bf16974" class="form-control input-xs" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                <div class="checkbox">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="dish_info[gluten_free]" value="y" class="dish_info" data-type="gluten_free">
+                gluten free
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="dish_info[vegetarian]" value="y" class="dish_info" data-type="vegetarian">
+                vegetarian
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="dish_info[spicy]" value="y" class="dish_info" data-type="spicy">
+                spicy
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="dish_info[nuts]" value="y" class="dish_info" data-type="nuts">
+                contains nuts
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="dish_info[vegan]" value="y" class="dish_info" data-type="vegan">
+                vegan
+            </label>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label for="calories">Dish calories</label>
+                <input type="text" name="dish_info[calories]" id="calories" class="form-control input-xs" value="">
+            </div>
+            <div class="col-sm-3 spicy-container">
+                <label for="hot_level">spice level</label>
+                <input type="number" name="dish_info[hot_level]" id="hot_level" class="form-control input-xs" value="" min="0" max="3">
+            </div>
+        </div>
+        <div class="checkbox">
+                        
+			<span style="display: block">
+				dish available on - <a href="#" class="check_all_days" data-action="check">check all</a> - <a href="#" class="check_all_days" data-action="uncheck">uncheck all</a>
+			</span>
+
+                            <label class="checkbox-inline" title="monday">
+                                        <input type="checkbox" name="dish_info[show_on][mon]" checked="" data-smt="true"> mon
+                </label>
+                            <label class="checkbox-inline" title="tuesday">
+                                        <input type="checkbox" name="dish_info[show_on][tue]" checked="" data-smt="true"> tue
+                </label>
+                            <label class="checkbox-inline" title="wednesday">
+                                        <input type="checkbox" name="dish_info[show_on][wed]" checked="" data-smt="true"> wed
+                </label>
+                            <label class="checkbox-inline" title="thursday">
+                                        <input type="checkbox" name="dish_info[show_on][thu]" checked="" data-smt="true"> thu
+                </label>
+                            <label class="checkbox-inline" title="friday">
+                                        <input type="checkbox" name="dish_info[show_on][fri]" checked="" data-smt="true"> fri
+                </label>
+                            <label class="checkbox-inline" title="saturday">
+                                        <input type="checkbox" name="dish_info[show_on][sat]" checked="" data-smt="true"> sat
+                </label>
+                            <label class="checkbox-inline" title="sunday">
+                                        <input type="checkbox" name="dish_info[show_on][sun]" checked="" data-smt="true"> sun
+                </label>
+                    </div>
+
+        <div class="radio">
+			<span style="display: block">
+				upsell dish
+			</span>
+
+            <label class="radio-inline">
+                <input type="radio" name="upsell" value="y"> Yes
+            </label>
+
+            <label>
+                <input type="radio" name="upsell" value="n" checked=""> No
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-xs">Update dish</button>
+    </form>
+
+
+    <h3 style="margin: 20px 0 0">Upload dish image</h3>
+    <form action="https://aggregator-admin.menu.ca/index.php/ajax/restaurant_menu/update_dish_image" method="post" id="form_upload_image" class="form-inline">
+        <input type="hidden" name="dish_id" value="9001" id="upload_dish_id">
+        <input type="hidden" name="restaurant_id" value="1658" id="upload_restaurant_id">
+        <div class="form-group">
+            <input type="file" name="image" id="image" accept="image/*">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default btn-xs btn-block">
+                <i class="fa fa-save"></i> Upload image
+            </button>
+        </div>
+    </form>
+</div>
+
+<script src="https://aggregator-admin.menu.ca/assets/js/mc/dist/dishes.min.js"></script></div>

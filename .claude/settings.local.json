@@ -29,7 +29,8 @@
       "Bash(while ! grep -q 'Test complete!' /tmp/RETRY-LOGIC-TEST.log)",
       "Bash(do sleep 15)",
       "Bash(while ! grep -q \"✅\" /tmp/FIXED-CONDITIONAL.log)",
-      "Bash(do sleep 3)"
+      "Bash(do sleep 3)",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT COUNT(*) as course_count FROM menuca_v3.courses;\")"
     ],
     "deny": [],
     "ask": [],
