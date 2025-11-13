@@ -9,7 +9,8 @@
       "Bash(cat:*)",
       "mcp__supabase__*",
       "Bash(jq:*)",
-      "Bash(npm run list:*)"
+      "Bash(npm run list:*)",
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" \"postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres\" -c \"SELECT COUNT(*) as course_count FROM menuca_v3.courses;\")"
     ],
     "deny": [],
     "ask": [],

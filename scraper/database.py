@@ -34,6 +34,41 @@ class DatabaseManager:
         if self.conn:
             self.conn.close()
             logger.info("Database connection closed")
+    
+    def is_connected(self) -> bool:
+        """Check if database connection is alive."""
+        if not self.conn or not self.cursor:
+            return False
+        try:
+            # Test the connection with a simple query
+            self.cursor.execute("SELECT 1")
+            return True
+        except (psycopg2.OperationalError, psycopg2.InterfaceError):
+            return False
+    
+    def ensure_connection(self):
+        """Ensure database connection is active, reconnect if needed."""
+        if not self.is_connected():
+            logger.warning("Database connection lost, reconnecting...")
+            try:
+                # Close existing connection objects if they exist
+                if self.cursor:
+                    try:
+                        self.cursor.close()
+                    except:
+                        pass
+                if self.conn:
+                    try:
+                        self.conn.close()
+                    except:
+                        pass
+                
+                # Establish new connection
+                self.connect()
+                logger.info("Database reconnection successful")
+            except Exception as e:
+                logger.error(f"Failed to reconnect to database: {e}")
+                raise
 
     def __enter__(self):
         self.connect()
@@ -58,74 +93,301 @@ class DatabaseManager:
 
     def insert_course(self, restaurant_id: int, name: str, description: str,
                      display_order: int) -> Optional[int]:
-        """Insert a course (menu category) and return its ID."""
-        query = f"""
-            INSERT INTO {self.schema}.courses
-            (restaurant_id, name, description, display_order, is_active, source_system)
-            VALUES (%s, %s, %s, %s, TRUE, 'crm_scraper')
-            ON CONFLICT (restaurant_id, name)
-            DO UPDATE SET
-                description = EXCLUDED.description,
-                display_order = EXCLUDED.display_order,
-                updated_at = NOW()
-            RETURNING id
+        """Insert a course (menu category) and return its ID.
+
+        Uses manual upsert logic since unique constraints were removed.
+        Checks if course exists first, then updates or inserts accordingly.
         """
+        self.ensure_connection()
         try:
-            self.cursor.execute(query, (restaurant_id, name, description, display_order))
-            result = self.cursor.fetchone()
+            # Check if course already exists
+            check_query = f"""
+                SELECT id FROM {self.schema}.courses
+                WHERE restaurant_id = %s AND name = %s
+                LIMIT 1
+            """
+            self.cursor.execute(check_query, (restaurant_id, name))
+            existing = self.cursor.fetchone()
+
+            if existing:
+                # Update existing course
+                update_query = f"""
+                    UPDATE {self.schema}.courses
+                    SET description = %s,
+                        display_order = %s,
+                        updated_at = NOW()
+                    WHERE id = %s
+                    RETURNING id
+                """
+                self.cursor.execute(update_query, (description, display_order, existing['id']))
+                result = self.cursor.fetchone()
+            else:
+                # Insert new course
+                insert_query = f"""
+                    INSERT INTO {self.schema}.courses
+                    (restaurant_id, name, description, display_order, is_active)
+                    VALUES (%s, %s, %s, %s, TRUE)
+                    RETURNING id
+                """
+                self.cursor.execute(insert_query, (restaurant_id, name, description, display_order))
+                result = self.cursor.fetchone()
+
             self.conn.commit()
             return result['id'] if result else None
         except Exception as e:
             self.conn.rollback()
-            logger.error(f"Failed to insert course '{name}': {e}")
+            logger.error(f"Failed to insert/update course '{name}': {e}")
             return None
 
     def insert_dish(self, restaurant_id: int, course_id: int, name: str,
                    description: str, display_order: int,
                    legacy_menu_entry_id: int = None) -> Optional[int]:
-        """Insert a dish and return its ID."""
-        query = f"""
-            INSERT INTO {self.schema}.dishes
-            (restaurant_id, course_id, name, description, display_order,
-             is_active, source_system, source_id)
-            VALUES (%s, %s, %s, %s, %s, TRUE, 'crm_scraper', %s)
-            ON CONFLICT (restaurant_id, course_id, name)
-            DO UPDATE SET
-                description = EXCLUDED.description,
-                display_order = EXCLUDED.display_order,
-                updated_at = NOW()
-            RETURNING id
+        """Insert a dish and return its ID.
+
+        Uses manual upsert logic since unique constraints were removed.
+        Checks if dish exists first, then updates or inserts accordingly.
         """
+        self.ensure_connection()
         try:
-            self.cursor.execute(query, (
-                restaurant_id, course_id, name, description,
-                display_order, legacy_menu_entry_id
-            ))
-            result = self.cursor.fetchone()
+            # Check if dish already exists
+            check_query = f"""
+                SELECT id FROM {self.schema}.dishes
+                WHERE restaurant_id = %s AND course_id = %s AND name = %s
+                LIMIT 1
+            """
+            self.cursor.execute(check_query, (restaurant_id, course_id, name))
+            existing = self.cursor.fetchone()
+
+            if existing:
+                # Update existing dish
+                update_query = f"""
+                    UPDATE {self.schema}.dishes
+                    SET description = %s,
+                        display_order = %s,
+                        source_id = %s,
+                        updated_at = NOW()
+                    WHERE id = %s
+                    RETURNING id
+                """
+                self.cursor.execute(update_query, (
+                    description, display_order, legacy_menu_entry_id, existing['id']
+                ))
+                result = self.cursor.fetchone()
+            else:
+                # Insert new dish
+                insert_query = f"""
+                    INSERT INTO {self.schema}.dishes
+                    (restaurant_id, course_id, name, description, display_order,
+                     is_active, source_id)
+                    VALUES (%s, %s, %s, %s, %s, TRUE, %s)
+                    RETURNING id
+                """
+                self.cursor.execute(insert_query, (
+                    restaurant_id, course_id, name, description,
+                    display_order, legacy_menu_entry_id
+                ))
+                result = self.cursor.fetchone()
+
             self.conn.commit()
             return result['id'] if result else None
         except Exception as e:
             self.conn.rollback()
-            logger.error(f"Failed to insert dish '{name}': {e}")
+            logger.error(f"Failed to insert/update dish '{name}': {e}")
             return None
 
     def insert_dish_price(self, dish_id: int, size_variant: Optional[str],
                          price: float, display_order: int = 0) -> Optional[int]:
-        """Insert a dish price."""
-        query = f"""
-            INSERT INTO {self.schema}.dish_prices
-            (dish_id, size_variant, price, display_order, is_active)
-            VALUES (%s, %s, %s, %s, TRUE)
-            RETURNING id
-        """
+        """Insert a dish price with manual upsert logic."""
+        self.ensure_connection()
         try:
-            self.cursor.execute(query, (dish_id, size_variant, price, display_order))
-            result = self.cursor.fetchone()
+            # Check if price exists
+            check_query = f"""
+                SELECT id FROM {self.schema}.dish_prices
+                WHERE dish_id = %s AND 
+                      COALESCE(size_variant, '') = COALESCE(%s, '')
+                LIMIT 1
+            """
+            self.cursor.execute(check_query, (dish_id, size_variant))
+            existing = self.cursor.fetchone()
+
+            if existing:
+                # Update existing price
+                update_query = f"""
+                    UPDATE {self.schema}.dish_prices
+                    SET price = %s,
+                        display_order = %s,
+                        updated_at = NOW()
+                    WHERE id = %s
+                    RETURNING id
+                """
+                self.cursor.execute(update_query, (price, display_order, existing['id']))
+                result = self.cursor.fetchone()
+            else:
+                # Insert new price
+                insert_query = f"""
+                    INSERT INTO {self.schema}.dish_prices
+                    (dish_id, size_variant, price, display_order, is_active)
+                    VALUES (%s, %s, %s, %s, TRUE)
+                    RETURNING id
+                """
+                self.cursor.execute(insert_query, (dish_id, size_variant, price, display_order))
+                result = self.cursor.fetchone()
+
             self.conn.commit()
             return result['id'] if result else None
         except Exception as e:
             self.conn.rollback()
-            logger.error(f"Failed to insert price for dish_id {dish_id}: {e}")
+            logger.error(f"Failed to insert/update price for dish_id {dish_id}: {e}")
+            return None
+
+    def insert_modifier_group(self, dish_id: int, name: str, is_required: bool = False,
+                             min_selections: int = 0, max_selections: int = 1,
+                             display_order: int = 0) -> Optional[int]:
+        """Insert a modifier group with manual upsert logic."""
+        self.ensure_connection()
+        try:
+            # Check if modifier group exists
+            check_query = f"""
+                SELECT id FROM {self.schema}.modifier_groups
+                WHERE dish_id = %s AND name = %s
+                LIMIT 1
+            """
+            self.cursor.execute(check_query, (dish_id, name))
+            existing = self.cursor.fetchone()
+
+            if existing:
+                # Update existing modifier group
+                update_query = f"""
+                    UPDATE {self.schema}.modifier_groups
+                    SET is_required = %s,
+                        min_selections = %s,
+                        max_selections = %s,
+                        display_order = %s,
+                        updated_at = NOW()
+                    WHERE id = %s
+                    RETURNING id
+                """
+                self.cursor.execute(update_query, (
+                    is_required, min_selections, max_selections, display_order, existing['id']
+                ))
+                result = self.cursor.fetchone()
+            else:
+                # Insert new modifier group
+                insert_query = f"""
+                    INSERT INTO {self.schema}.modifier_groups
+                    (dish_id, name, is_required, min_selections, max_selections, display_order)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                    RETURNING id
+                """
+                self.cursor.execute(insert_query, (
+                    dish_id, name, is_required, min_selections, max_selections, display_order
+                ))
+                result = self.cursor.fetchone()
+
+            self.conn.commit()
+            return result['id'] if result else None
+        except Exception as e:
+            self.conn.rollback()
+            logger.error(f"Failed to insert/update modifier group '{name}' for dish {dish_id}: {e}")
+            return None
+
+    def insert_dish_modifier(self, restaurant_id: int, dish_id: int, modifier_group_id: int,
+                           name: str, modifier_type: str = 'other',
+                           is_default: bool = False, display_order: int = 0) -> Optional[int]:
+        """Insert a dish modifier item with manual upsert logic (no price - use insert_dish_modifier_price for prices)."""
+        self.ensure_connection()
+        try:
+            # Check if modifier item exists
+            check_query = f"""
+                SELECT id FROM {self.schema}.dish_modifiers
+                WHERE dish_id = %s AND modifier_group_id = %s AND name = %s
+                LIMIT 1
+            """
+            self.cursor.execute(check_query, (dish_id, modifier_group_id, name))
+            existing = self.cursor.fetchone()
+
+            if existing:
+                # Update existing modifier item
+                update_query = f"""
+                    UPDATE {self.schema}.dish_modifiers
+                    SET is_default = %s,
+                        display_order = %s,
+                        modifier_type = %s,
+                        updated_at = NOW()
+                    WHERE id = %s
+                    RETURNING id
+                """
+                self.cursor.execute(update_query, (
+                    is_default, display_order, modifier_type, existing['id']
+                ))
+                result = self.cursor.fetchone()
+            else:
+                # Insert new modifier item
+                insert_query = f"""
+                    INSERT INTO {self.schema}.dish_modifiers
+                    (restaurant_id, dish_id, modifier_group_id, name, 
+                     modifier_type, is_default, display_order)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s)
+                    RETURNING id
+                """
+                self.cursor.execute(insert_query, (
+                    restaurant_id, dish_id, modifier_group_id, name,
+                    modifier_type, is_default, display_order
+                ))
+                result = self.cursor.fetchone()
+
+            self.conn.commit()
+            return result['id'] if result else None
+        except Exception as e:
+            self.conn.rollback()
+            logger.error(f"Failed to insert/update modifier item '{name}': {e}")
+            return None
+
+    def insert_dish_modifier_price(self, dish_modifier_id: int, dish_id: int, restaurant_id: int,
+                                   size_variant: str = 'standard', price: float = 0.0,
+                                   display_order: int = 0) -> Optional[int]:
+        """Insert a dish modifier price for a specific size variant."""
+        self.ensure_connection()
+        try:
+            # Check if price for this size variant exists
+            check_query = f"""
+                SELECT id FROM {self.schema}.dish_modifier_prices
+                WHERE dish_modifier_id = %s AND size_variant = %s
+                LIMIT 1
+            """
+            self.cursor.execute(check_query, (dish_modifier_id, size_variant))
+            existing = self.cursor.fetchone()
+
+            if existing:
+                # Update existing price
+                update_query = f"""
+                    UPDATE {self.schema}.dish_modifier_prices
+                    SET price = %s,
+                        display_order = %s,
+                        updated_at = NOW()
+                    WHERE id = %s
+                    RETURNING id
+                """
+                self.cursor.execute(update_query, (price, display_order, existing['id']))
+                result = self.cursor.fetchone()
+            else:
+                # Insert new price
+                insert_query = f"""
+                    INSERT INTO {self.schema}.dish_modifier_prices
+                    (dish_modifier_id, dish_id, restaurant_id, size_variant, price, display_order)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                    RETURNING id
+                """
+                self.cursor.execute(insert_query, (
+                    dish_modifier_id, dish_id, restaurant_id, size_variant, price, display_order
+                ))
+                result = self.cursor.fetchone()
+
+            self.conn.commit()
+            return result['id'] if result else None
+        except Exception as e:
+            self.conn.rollback()
+            logger.error(f"Failed to insert/update modifier price for size '{size_variant}': {e}")
             return None
 
     def course_exists(self, restaurant_id: int, name: str) -> bool:
