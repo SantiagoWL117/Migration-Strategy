@@ -1,0 +1,243 @@
+{
+  "success": true,
+  "dishes": [],
+  "errors": [
+    {
+      "dishName": "Combo Poulet au Beurre",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:24:55.803Z"
+    },
+    {
+      "dishName": "Combo Biryani au Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:01.831Z"
+    },
+    {
+      "dishName": "Combo Légumes au Choix",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:07.860Z"
+    },
+    {
+      "dishName": "Samosa (2mcx)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:13.876Z"
+    },
+    {
+      "dishName": "Pakora (6mcx)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:19.893Z"
+    },
+    {
+      "dishName": "Mulligatawny",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:25.908Z"
+    },
+    {
+      "dishName": "Rouleaux de printemps aux légumes (6 mcx)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:31.932Z"
+    },
+    {
+      "dishName": "Tikka Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:37.954Z"
+    },
+    {
+      "dishName": "Sindhi Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:43.973Z"
+    },
+    {
+      "dishName": "Sindhi Agneau",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:49.996Z"
+    },
+    {
+      "dishName": "Saag",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:25:56.015Z"
+    },
+    {
+      "dishName": "Saag Paneer",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:02.053Z"
+    },
+    {
+      "dishName": "Aloo Gobi",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:08.085Z"
+    },
+    {
+      "dishName": "Chana Masala",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:14.102Z"
+    },
+    {
+      "dishName": "Dal Masala",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:20.133Z"
+    },
+    {
+      "dishName": "Malai Kofta",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:26.366Z"
+    },
+    {
+      "dishName": "Poulet au beurre",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:32.439Z"
+    },
+    {
+      "dishName": "Poulet Jalfrezi",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:38.456Z"
+    },
+    {
+      "dishName": "Korma Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:44.471Z"
+    },
+    {
+      "dishName": "Korma Boeuf",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:50.494Z"
+    },
+    {
+      "dishName": "Korma Agneau",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:26:56.522Z"
+    },
+    {
+      "dishName": "Vindaloo Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:02.559Z"
+    },
+    {
+      "dishName": "Vindaloo Boeuf",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:08.585Z"
+    },
+    {
+      "dishName": "Vindaloo Agneau",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:14.632Z"
+    },
+    {
+      "dishName": "Achor Gosht Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:20.646Z"
+    },
+    {
+      "dishName": "Achor Gosht Boeuf",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:26.660Z"
+    },
+    {
+      "dishName": "Achor Gpsht Agneau",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:32.709Z"
+    },
+    {
+      "dishName": "Boeuf Kofta",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:38.726Z"
+    },
+    {
+      "dishName": "Poulet Tikka Masala",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:44.743Z"
+    },
+    {
+      "dishName": "Curry Poulet",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:50.761Z"
+    },
+    {
+      "dishName": "Curry Boeuf",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:27:56.776Z"
+    },
+    {
+      "dishName": "Curry Agneau",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:02.793Z"
+    },
+    {
+      "dishName": "Poulet Tikka",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:08.808Z"
+    },
+    {
+      "dishName": "Pain Naan",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:14.848Z"
+    },
+    {
+      "dishName": "Pain Naan à l'ail",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:20.869Z"
+    },
+    {
+      "dishName": "Riz Basmati Tarka",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:26.887Z"
+    },
+    {
+      "dishName": "Chutney",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:32.901Z"
+    },
+    {
+      "dishName": "Raita",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:38.913Z"
+    },
+    {
+      "dishName": "Gulab Jamun (2mcx)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:44.932Z"
+    },
+    {
+      "dishName": "Kheer",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:50.949Z"
+    },
+    {
+      "dishName": "Shake à la mangue",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:28:56.965Z"
+    },
+    {
+      "dishName": "Lassi à la mangue",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:29:02.978Z"
+    },
+    {
+      "dishName": "Boissons gazeuses",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:29:08.993Z"
+    },
+    {
+      "dishName": "Thé",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:29:15.009Z"
+    },
+    {
+      "dishName": "Thé Masala",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:29:21.021Z"
+    },
+    {
+      "dishName": "Thé Cardamome",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-11T13:29:27.049Z"
+    }
+  ],
+  "summary": {
+    "totalDishes": 46,
+    "successCount": 0,
+    "errorCount": 46,
+    "totalGroups": 0,
+    "totalOptions": 0
+  }
+}

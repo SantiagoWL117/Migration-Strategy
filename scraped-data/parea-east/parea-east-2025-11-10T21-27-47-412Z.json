@@ -1,0 +1,343 @@
+{
+  "success": true,
+  "dishes": [],
+  "errors": [
+    {
+      "dishName": "Dolmades",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:21:15.300Z"
+    },
+    {
+      "dishName": "Dakkos",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:21:21.333Z"
+    },
+    {
+      "dishName": "Spanakopita",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:21:27.360Z"
+    },
+    {
+      "dishName": "Calamari",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:21:33.382Z"
+    },
+    {
+      "dishName": "Biftekia",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:21:39.432Z"
+    },
+    {
+      "dishName": "Loukaniko",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:21:45.459Z"
+    },
+    {
+      "dishName": "Feta and Olives",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:21:51.485Z"
+    },
+    {
+      "dishName": "Pikilia for 2",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:21:57.504Z"
+    },
+    {
+      "dishName": "Horiatiki Greek Salad",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:03.519Z"
+    },
+    {
+      "dishName": "Paréa Salad",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:09.542Z"
+    },
+    {
+      "dishName": "Village Greek Salad",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:15.568Z"
+    },
+    {
+      "dishName": "Roasted Greek Salad",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:21.594Z"
+    },
+    {
+      "dishName": "Halloumi Salad",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:27.621Z"
+    },
+    {
+      "dishName": "Green Salad",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:33.655Z"
+    },
+    {
+      "dishName": "Poseidon Bowl",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:39.681Z"
+    },
+    {
+      "dishName": "Hercules Bowl",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:45.703Z"
+    },
+    {
+      "dishName": "Athena Bowl",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:51.733Z"
+    },
+    {
+      "dishName": "Aegean Shrimp Scampi",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:22:57.759Z"
+    },
+    {
+      "dishName": "Santorini Shrimps",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:03.779Z"
+    },
+    {
+      "dishName": "Grilled Kalamata Chicken",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:09.802Z"
+    },
+    {
+      "dishName": "Greek Fish Plate",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:15.830Z"
+    },
+    {
+      "dishName": "Bifteki Plate",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:21.852Z"
+    },
+    {
+      "dishName": "Moussaka",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:27.877Z"
+    },
+    {
+      "dishName": "Cretan Lamb Chops",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:33.898Z"
+    },
+    {
+      "dishName": "Spartan Meat Board",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:39.923Z"
+    },
+    {
+      "dishName": "Limnos Greek Island Feast",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:45.950Z"
+    },
+    {
+      "dishName": "Pork Pita - Regular",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:51.974Z"
+    },
+    {
+      "dishName": "Chicken Pita - Regular",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:23:57.997Z"
+    },
+    {
+      "dishName": "Pork Gyro Pita - Regular",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:04.014Z"
+    },
+    {
+      "dishName": "Chicken Gyro Pita - Regular",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:10.039Z"
+    },
+    {
+      "dishName": "Chicken Souvlaki Stick - Regular",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:16.060Z"
+    },
+    {
+      "dishName": "Pork Souvlaki Stick - Regular",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:22.088Z"
+    },
+    {
+      "dishName": "Chicken Pita - Platter",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:28.113Z"
+    },
+    {
+      "dishName": "Pork Pita - Platter",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:34.133Z"
+    },
+    {
+      "dishName": "Chicken Gyro Pita - Platter",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:40.158Z"
+    },
+    {
+      "dishName": "Pork Gyro Pita - Platter",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:46.185Z"
+    },
+    {
+      "dishName": "Chicken Souvlaki Stick - Platter",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:52.207Z"
+    },
+    {
+      "dishName": "Pork Souvlaki Stick - Platter",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:24:58.225Z"
+    },
+    {
+      "dishName": "Loose Chicken Gyro (3oz)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:04.244Z"
+    },
+    {
+      "dishName": "Loose Pork Gyro (3oz)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:10.273Z"
+    },
+    {
+      "dishName": "Montreal Poutine",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:16.297Z"
+    },
+    {
+      "dishName": "Greek Poutine with Chicken Gyro",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:22.319Z"
+    },
+    {
+      "dishName": "Greek Poutine with Pork Gyro",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:28.336Z"
+    },
+    {
+      "dishName": "Greek Fries",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:34.357Z"
+    },
+    {
+      "dishName": "Tzatziki",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:40.385Z"
+    },
+    {
+      "dishName": "Mykonos Kopanisti",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:46.406Z"
+    },
+    {
+      "dishName": "Taramosalata",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:52.430Z"
+    },
+    {
+      "dishName": "Kalamata Olives",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:25:58.455Z"
+    },
+    {
+      "dishName": "Chicken Gyro Meat",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:04.481Z"
+    },
+    {
+      "dishName": "Chicken Stick Souvlaki",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:10.502Z"
+    },
+    {
+      "dishName": "Roasted Lemon Garlic Potatoes",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:16.535Z"
+    },
+    {
+      "dishName": "Rice",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:22.558Z"
+    },
+    {
+      "dishName": "Salad Dressing",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:28.583Z"
+    },
+    {
+      "dishName": "Pita Bread",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:34.621Z"
+    },
+    {
+      "dishName": "Pork Gyro Meat",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:40.642Z"
+    },
+    {
+      "dishName": "Pork Stick Souvlaki",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:46.663Z"
+    },
+    {
+      "dishName": "Athenian Fries",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:52.682Z"
+    },
+    {
+      "dishName": "Baklava",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:26:58.706Z"
+    },
+    {
+      "dishName": "Chocolate Cake",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:27:04.731Z"
+    },
+    {
+      "dishName": "Baklava Cheesecake",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:27:10.756Z"
+    },
+    {
+      "dishName": "Pepsi",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:27:16.782Z"
+    },
+    {
+      "dishName": "7 Up",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:27:22.807Z"
+    },
+    {
+      "dishName": "Iced Tea",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:27:28.829Z"
+    },
+    {
+      "dishName": "Diet Pepsi",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:27:34.858Z"
+    },
+    {
+      "dishName": "Ginger Ale",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:27:40.883Z"
+    },
+    {
+      "dishName": "Bottled Water",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T21:27:46.909Z"
+    }
+  ],
+  "summary": {
+    "totalDishes": 66,
+    "successCount": 0,
+    "errorCount": 66,
+    "totalGroups": 0,
+    "totalOptions": 0
+  }
+}

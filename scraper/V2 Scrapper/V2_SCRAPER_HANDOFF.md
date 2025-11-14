@@ -29,11 +29,30 @@ You need to create a **scraper system for V2-only restaurants** - these are rest
 This proven approach should be followed for V2 restaurants:
 
 ### **Phase 1: Courses & Dishes**
-1. Get list of V2 restaurants from database
-2. For each restaurant, navigate to their menu page
-3. Extract course names (Appetizers, Main Courses, etc.)
-4. Extract dish names and descriptions
-5. Insert into `menuca_v3.courses` and `menuca_v3.dishes` tables
+
+**Detailed HTML structure guide**: See `V2_PHASE1_HTML_STRUCTURE.md` for complete parsing instructions.
+
+**Workflow**:
+1. Navigate to restaurant list: `https://aggregator-admin.menu.ca/index.php/restaurants/show/active`
+2. For each V2 restaurant (matched by `legacy_v2_id`):
+   - Extract V2 restaurant ID from edit link
+   - Navigate to menu page: `.../restaurants/edit/{V2_ID}/menu/restaurant`
+   - Check if `<div id="sortable">` exists:
+     - **If exists**: English menu (proceed)
+     - **If not**: Click "French" button → Navigate to `.../menu/2/restaurant`
+3. Parse courses from `<div class="course-listing">` elements:
+   - Extract course name from `data-course` attribute
+   - Extract course description from `<textarea name="desc">`
+4. Parse dishes from table within each course:
+   - Extract dish name from `<input name="name[DISH_ID]">`
+   - Extract description from `<input name="desc[DISH_ID]">`
+   - Extract sizes from `<input class="size">` (comma-separated)
+   - Extract prices from `<input class="price">` (comma-separated)
+   - Store V2 dish ID in `source_id` column
+5. Insert into database:
+   - `menuca_v3.courses` (course name, description, display_order)
+   - `menuca_v3.dishes` (dish name, description, source_id, display_order)
+   - `menuca_v3.dish_prices` (size_variant, price, display_order)
 
 **Estimated Time**: 2-4 hours to build, 1-2 hours to run
 
@@ -472,15 +491,20 @@ class V2MenuScraper:
             {
                 'courses': [
                     {
-                        'name': 'Appetizers',
+                        'name': 'Shawarmas',
                         'description': '',
                         'display_order': 0,
                         'dishes': [
                             {
-                                'name': 'Spring Rolls',
-                                'description': 'Crispy vegetable rolls',
+                                'name': 'Shawarma 6" TRIO',
+                                'description': 'Avec patate...',
                                 'display_order': 0,
-                                'v2_dish_id': '9001'
+                                'v2_dish_id': '9001',
+                                'prices': [
+                                    {'size_variant': 'Poulet', 'price': 12.98, 'display_order': 0},
+                                    {'size_variant': 'Boeuf', 'price': 12.98, 'display_order': 1},
+                                    {'size_variant': 'Mixte', 'price': 13.69, 'display_order': 2}
+                                ]
                             }
                         ]
                     }
@@ -492,29 +516,113 @@ class V2MenuScraper:
             return None
         
         try:
-            # Navigate to restaurant menu page
-            menu_url = f"{self.base_url}/index.php/restaurant_menu/restaurant/{v2_restaurant_id}"
+            # Navigate to restaurant menu page (English first)
+            menu_url = f"{self.base_url}/index.php/restaurants/edit/{v2_restaurant_id}/menu/restaurant"
             logger.info(f"Navigating to: {menu_url}")
             
             self.page.goto(menu_url, wait_until='networkidle')
             time.sleep(2)  # Wait for dynamic content
             
-            # Parse HTML
+            # Check if English or French menu
             html = self.page.content()
             soup = BeautifulSoup(html, 'lxml')
             
-            # Extract courses and dishes
-            # (Implementation depends on V2 menu page HTML structure)
+            # Check for sortable div (indicates English menu)
+            sortable_div = soup.find('div', id='sortable')
+            
+            if not sortable_div:
+                # French menu - click French button
+                logger.info("French menu detected, navigating to French version")
+                french_url = f"{self.base_url}/index.php/restaurants/edit/{v2_restaurant_id}/menu/2/restaurant"
+                self.page.goto(french_url, wait_until='networkidle')
+                time.sleep(2)
+                html = self.page.content()
+                soup = BeautifulSoup(html, 'lxml')
+            
+            # Extract courses
             courses = []
+            course_divs = soup.find_all('div', class_='course-listing', attrs={'data-id': True})
             
-            # TODO: Parse V2 menu page HTML
-            # Look for course sections and dish items
-            # This will vary based on actual V2 HTML structure
+            for course_idx, course_div in enumerate(course_divs):
+                course_v2_id = course_div.get('data-id')
+                course_name = course_div.get('data-course', '')
+                
+                # Get course description
+                desc_textarea = course_div.find('textarea', attrs={'name': 'desc'})
+                course_description = desc_textarea.text.strip() if desc_textarea else ''
+                
+                # Find dishes table
+                dishes_table = course_div.find('table', class_='show-dishes')
+                if not dishes_table:
+                    logger.warning(f"No dishes table found for course: {course_name}")
+                    continue
+                
+                # Extract dishes
+                dishes = []
+                dish_rows = dishes_table.find('tbody').find_all('tr', class_='sort') if dishes_table.find('tbody') else []
+                
+                for dish_idx, dish_row in enumerate(dish_rows):
+                    v2_dish_id = dish_row.get('data-id')
+                    if not v2_dish_id:
+                        continue
+                    
+                    # Dish name
+                    name_input = dish_row.find('input', attrs={'name': f'name[{v2_dish_id}]'})
+                    dish_name = name_input.get('value', '').strip() if name_input else ''
+                    
+                    if not dish_name:
+                        continue
+                    
+                    # Dish description
+                    desc_input = dish_row.find('input', attrs={'name': f'desc[{v2_dish_id}]'})
+                    dish_description = desc_input.get('value', '').strip() if desc_input else ''
+                    
+                    # Size variants (comma-separated)
+                    size_input = dish_row.find('input', class_='size')
+                    sizes_str = size_input.get('value', '').strip() if size_input else ''
+                    size_variants = [s.strip() for s in sizes_str.split(',') if s.strip()] if sizes_str else ['standard']
+                    
+                    # Prices (comma-separated)
+                    price_input = dish_row.find('input', class_='price')
+                    prices_str = price_input.get('value', '').strip() if price_input else ''
+                    price_values = [float(p.strip()) for p in prices_str.split(',') if p.strip()] if prices_str else [0.0]
+                    
+                    # Match sizes to prices
+                    prices = []
+                    for idx, (size, price) in enumerate(zip(size_variants, price_values)):
+                        prices.append({
+                            'size_variant': size,
+                            'price': price,
+                            'display_order': idx
+                        })
+                    
+                    # Display order
+                    display_order = int(dish_row.get('data-display_order', dish_idx))
+                    
+                    dishes.append({
+                        'name': dish_name,
+                        'description': dish_description,
+                        'display_order': display_order,
+                        'v2_dish_id': v2_dish_id,
+                        'prices': prices
+                    })
+                
+                if dishes:
+                    courses.append({
+                        'name': course_name,
+                        'description': course_description,
+                        'display_order': course_idx,
+                        'v2_course_id': course_v2_id,
+                        'dishes': dishes
+                    })
             
+            logger.info(f"Extracted {len(courses)} courses with dishes")
             return {'courses': courses}
             
         except Exception as e:
             logger.error(f"Error scraping restaurant menu: {e}")
+            import traceback
+            traceback.print_exc()
             return None
     
     def scrape_dish_details(self, v2_dish_id: int) -> Optional[Dict]:
@@ -823,6 +931,15 @@ def main():
                             
                             if dish_id:
                                 total_dishes += 1
+                                
+                                # Insert prices (from Phase 1 data)
+                                for price_data in dish_data.get('prices', []):
+                                    db.insert_dish_price(
+                                        dish_id=dish_id,
+                                        size_variant=price_data['size_variant'],
+                                        price=price_data['price'],
+                                        display_order=price_data['display_order']
+                                    )
                 
                 logger.info(f"✓ Success: {total_courses} courses, {total_dishes} dishes inserted")
                 successful += 1

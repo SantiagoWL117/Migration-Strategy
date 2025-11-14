@@ -1,0 +1,155 @@
+{
+  "success": false,
+  "dishes": [
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "French Fries",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T17:40:35.838Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Onion Rings",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T17:40:38.933Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Poutine",
+        "basePrice": 9.75
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T17:40:42.058Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "dishName": "Deep Fried Pickles (8 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:40:47.612Z"
+    },
+    {
+      "dishName": "Mozzarella Sticks (8 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:40:53.658Z"
+    },
+    {
+      "dishName": "Zucchini Sticks",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:40:59.696Z"
+    },
+    {
+      "dishName": "Jalapeno Poppers (8 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:41:05.739Z"
+    },
+    {
+      "dishName": "Pop Curds",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:41:11.772Z"
+    },
+    {
+      "dishName": "Mac & Cheese Wedges (8 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:41:17.805Z"
+    },
+    {
+      "dishName": "Chicken Wings",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:41:23.837Z"
+    },
+    {
+      "dishName": "Boneless Chicken Bites",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:41:29.974Z"
+    },
+    {
+      "dishName": "Chicken Fingers (5 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:41:36.004Z"
+    },
+    {
+      "dishName": "Nachos",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:41:42.038Z"
+    },
+    {
+      "dishName": "Chicken Nachos",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:41:48.092Z"
+    },
+    {
+      "dishName": "Beef Nachos",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:41:54.138Z"
+    },
+    {
+      "dishName": "Meatball Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:42:00.173Z"
+    },
+    {
+      "dishName": "Club Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:42:06.204Z"
+    },
+    {
+      "dishName": "Philly Steak Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:42:12.237Z"
+    },
+    {
+      "dishName": "Greek Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:42:18.271Z"
+    },
+    {
+      "dishName": "Pizza Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:42:24.305Z"
+    },
+    {
+      "dishName": "Crispy Chicken Sub",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:42:30.424Z"
+    },
+    {
+      "dishName": "Classic Club Sandwich",
+      "error": "locator.all: Target page, context or browser has been closed",
+      "timestamp": "2025-11-10T17:42:31.985Z"
+    },
+    {
+      "error": "Fatal: page.waitForTimeout: Target page, context or browser has been closed",
+      "timestamp": "2025-11-10T17:42:31.989Z"
+    }
+  ],
+  "summary": {
+    "totalDishes": 86,
+    "successCount": 3,
+    "errorCount": 19,
+    "totalGroups": 0,
+    "totalOptions": 0
+  }
+}

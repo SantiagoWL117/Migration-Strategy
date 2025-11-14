@@ -11,6 +11,7 @@
 
 import * as path from 'path';
 import { scrapeV1RestaurantSimple } from './scrapers/v1-scraper';
+import { scrapeV2Restaurant } from './scrapers/v2-scraper';
 import { getRestaurantConfig, listAllRestaurants } from './config';
 import { ScraperResult } from './types';
 
@@ -103,22 +104,28 @@ async function scrapeRestaurant(slug: string, visible: boolean = false): Promise
   console.log(`📦 Version: ${config.version}`);
   console.log(`👁️  Headless: ${!visible}\n`);
 
+  const scraperConfig = {
+    ...config,
+    headless: !visible,
+    screenshotsDir: path.join(__dirname, '..', 'screenshots', slug),
+    outputDir: path.join(__dirname, '..', 'output', slug)
+  };
+
+  let result: ScraperResult;
+
   if (config.version === 'v1') {
-    const result = await scrapeV1RestaurantSimple({
-      ...config,
-      headless: !visible,
-      screenshotsDir: path.join(__dirname, '..', 'screenshots', slug),
-      outputDir: path.join(__dirname, '..', 'output', slug)
-    });
-
-    console.log('\n✅ Done!');
-    console.log(`📁 Output: ./output/${slug}/`);
-    console.log(`📸 Screenshots: ./screenshots/${slug}/\n`);
-
-    return result;
+    result = await scrapeV1RestaurantSimple(scraperConfig);
+  } else if (config.version === 'v2') {
+    result = await scrapeV2Restaurant(scraperConfig);
   } else {
-    throw new Error('V2 scraper not implemented yet');
+    throw new Error(`Unknown scraper version: ${config.version}`);
   }
+
+  console.log('\n✅ Done!');
+  console.log(`📁 Output: ./output/${slug}/`);
+  console.log(`📸 Screenshots: ./screenshots/${slug}/\n`);
+
+  return result;
 }
 
 // Run CLI

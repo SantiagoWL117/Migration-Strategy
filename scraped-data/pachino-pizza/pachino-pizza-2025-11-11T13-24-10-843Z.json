@@ -1,0 +1,17 @@
+{
+  "success": false,
+  "dishes": [],
+  "errors": [
+    {
+      "error": "Fatal: page.goto: net::ERR_CERT_DATE_INVALID at https://order.pachinopizza.ca/index.php/menu\nCall log:\n  - navigating to \"https://order.pachinopizza.ca/index.php/menu\", waiting until \"domcontentloaded\"\n",
+      "timestamp": "2025-11-11T13:24:10.841Z"
+    }
+  ],
+  "summary": {
+    "totalDishes": 0,
+    "successCount": 0,
+    "errorCount": 0,
+    "totalGroups": 0,
+    "totalOptions": 0
+  }
+}

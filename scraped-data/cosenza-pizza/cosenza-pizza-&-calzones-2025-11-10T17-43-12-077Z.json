@@ -1,0 +1,70 @@
+{
+  "success": false,
+  "dishes": [
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "French Fries",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T17:42:53.119Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Onion Rings",
+        "basePrice": 6.5
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T17:42:56.731Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    },
+    {
+      "restaurant": "Cosenza Pizza & Calzones",
+      "restaurantUrl": "https://cosenzapizzancalzones.ca/index.php/menu",
+      "dish": {
+        "name": "Poutine",
+        "basePrice": 9.75
+      },
+      "groups": [],
+      "metadata": {
+        "scrapedAt": "2025-11-10T17:43:00.348Z",
+        "version": "v2",
+        "dishUrl": "https://cosenzapizzancalzones.ca/index.php/menu"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "dishName": "Deep Fried Pickles (8 pcs)",
+      "error": "Could not find clickable dish item",
+      "timestamp": "2025-11-10T17:43:06.395Z"
+    },
+    {
+      "dishName": "Mozzarella Sticks (8 pcs)",
+      "error": "locator.all: Target page, context or browser has been closed",
+      "timestamp": "2025-11-10T17:43:12.076Z"
+    },
+    {
+      "error": "Fatal: page.waitForTimeout: Target page, context or browser has been closed",
+      "timestamp": "2025-11-10T17:43:12.077Z"
+    }
+  ],
+  "summary": {
+    "totalDishes": 86,
+    "successCount": 3,
+    "errorCount": 2,
+    "totalGroups": 0,
+    "totalOptions": 0
+  }
+}
