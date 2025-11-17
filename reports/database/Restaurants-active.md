@@ -1,6 +1,6 @@
 # Active Restaurant Locations (Verified)
 
-**Updated:** 2025-11-03
+**Updated:** 2025-11-17
 **Verified against:** Billing records (last 4 months)
 **Total:** 190 restaurants
 
