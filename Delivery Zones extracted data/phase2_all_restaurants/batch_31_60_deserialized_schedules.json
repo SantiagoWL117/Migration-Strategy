@@ -1,0 +1,2092 @@
+{
+  "209": {
+    "v1_id": 209,
+    "v3_id": "93",
+    "restaurant_name": "Milano",
+    "schedule_entries": [
+      {
+        "restaurant_id": "93",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "93",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "93",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "93",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "93",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "93",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "93",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      }
+    ]
+  },
+  "211": {
+    "v1_id": 211,
+    "v3_id": "95",
+    "restaurant_name": "Milano",
+    "schedule_entries": [
+      {
+        "restaurant_id": "95",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "95",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "95",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "95",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "95",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "95",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "95",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "95",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "95",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      }
+    ]
+  },
+  "213": {
+    "v1_id": 213,
+    "v3_id": "97",
+    "restaurant_name": "Milano",
+    "schedule_entries": [
+      {
+        "restaurant_id": "97",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "97",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "97",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "97",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "97",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "97",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "97",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      }
+    ]
+  },
+  "219": {
+    "v1_id": 219,
+    "v3_id": "1010",
+    "restaurant_name": "Lemongrass Thai Cuisine",
+    "schedule_entries": [
+      {
+        "restaurant_id": "1010",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "12:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "1010",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "12:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "1010",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "12:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "1010",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "12:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "1010",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "12:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "1010",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "12:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "1010",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "12:00",
+        "time_stop": "20:30"
+      }
+    ]
+  },
+  "225": {
+    "v1_id": 225,
+    "v3_id": "106",
+    "restaurant_name": "Restaurant Le Choix",
+    "schedule_entries": [
+      {
+        "restaurant_id": "106",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "15:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "106",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "15:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "106",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "15:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "106",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "15:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "106",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "15:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "106",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "15:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "106",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "15:00",
+        "time_stop": "20:00"
+      }
+    ]
+  },
+  "228": {
+    "v1_id": 228,
+    "v3_id": "109",
+    "restaurant_name": "Restaurant Chez Gerry",
+    "schedule_entries": [
+      {
+        "restaurant_id": "109",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "16:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "109",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "16:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "109",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "16:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "109",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "16:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "109",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "16:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "109",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "16:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "109",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "16:00",
+        "time_stop": "21:00"
+      }
+    ]
+  },
+  "231": {
+    "v1_id": 231,
+    "v3_id": "1012",
+    "restaurant_name": "Papa Pizza Des Flandres",
+    "schedule_entries": [
+      {
+        "restaurant_id": "1012",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "1012",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "1012",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "1012",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "10:30",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "1012",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "10:30",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "1012",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "10:30",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "1012",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      }
+    ]
+  },
+  "238": {
+    "v1_id": 238,
+    "v3_id": "118",
+    "restaurant_name": "Mano City Pizza",
+    "schedule_entries": [
+      {
+        "restaurant_id": "118",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "10:00",
+        "time_stop": "21:45"
+      },
+      {
+        "restaurant_id": "118",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "10:00",
+        "time_stop": "21:45"
+      },
+      {
+        "restaurant_id": "118",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "10:00",
+        "time_stop": "21:45"
+      },
+      {
+        "restaurant_id": "118",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "10:00",
+        "time_stop": "21:45"
+      },
+      {
+        "restaurant_id": "118",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "10:00",
+        "time_stop": "22:45"
+      },
+      {
+        "restaurant_id": "118",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "10:00",
+        "time_stop": "22:45"
+      },
+      {
+        "restaurant_id": "118",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "13:00",
+        "time_stop": "21:45"
+      }
+    ]
+  },
+  "245": {
+    "v1_id": 245,
+    "v3_id": "123",
+    "restaurant_name": "Milano",
+    "schedule_entries": [
+      {
+        "restaurant_id": "123",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "123",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "123",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "123",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "123",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "123",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "123",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      }
+    ]
+  },
+  "246": {
+    "v1_id": 246,
+    "v3_id": "124",
+    "restaurant_name": "Carlo's Pizza",
+    "schedule_entries": [
+      {
+        "restaurant_id": "124",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "124",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "124",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "124",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "124",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "124",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "124",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "16:00",
+        "time_stop": "22:00"
+      }
+    ]
+  },
+  "248": {
+    "v1_id": 248,
+    "v3_id": "126",
+    "restaurant_name": "Milano",
+    "schedule_entries": [
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "00:00",
+        "time_stop": "00:40"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "00:00",
+        "time_stop": "00:40"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "00:00",
+        "time_stop": "00:40"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "00:00",
+        "time_stop": "01:40"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "00:00",
+        "time_stop": "02:40"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "00:00",
+        "time_stop": "02:40"
+      },
+      {
+        "restaurant_id": "126",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "12:30",
+        "time_stop": "22:40"
+      }
+    ]
+  },
+  "255": {
+    "v1_id": 255,
+    "v3_id": "131",
+    "restaurant_name": "Centertown Donair & Pizza",
+    "schedule_entries": [
+      {
+        "restaurant_id": "131",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "19:00"
+      },
+      {
+        "restaurant_id": "131",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "19:00"
+      },
+      {
+        "restaurant_id": "131",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "131",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "131",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "12:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "131",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "15:00",
+        "time_stop": "19:00"
+      }
+    ]
+  },
+  "257": {
+    "v1_id": 257,
+    "v3_id": "133",
+    "restaurant_name": "Riverside Pizzeria",
+    "schedule_entries": [
+      {
+        "restaurant_id": "133",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "13:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "133",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "13:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "133",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "13:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "133",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "13:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "133",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "13:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "133",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "13:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "133",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "13:00",
+        "time_stop": "21:00"
+      }
+    ]
+  },
+  "264": {
+    "v1_id": 264,
+    "v3_id": "139",
+    "restaurant_name": "Pizza Bravo",
+    "schedule_entries": [
+      {
+        "restaurant_id": "139",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "15:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "139",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "15:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "139",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "15:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "139",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "15:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "139",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "15:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "139",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "15:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "139",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "15:00",
+        "time_stop": "21:00"
+      }
+    ]
+  },
+  "275": {
+    "v1_id": 275,
+    "v3_id": "143",
+    "restaurant_name": "Tony's Pizza",
+    "schedule_entries": [
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "00:00",
+        "time_stop": "01:00"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "00:00",
+        "time_stop": "01:00"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "00:00",
+        "time_stop": "01:00"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "00:00",
+        "time_stop": "01:00"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "143",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      }
+    ]
+  },
+  "280": {
+    "v1_id": 280,
+    "v3_id": "147",
+    "restaurant_name": "Pho Dau Bo Restaurant - Kitchener",
+    "schedule_entries": [
+      {
+        "restaurant_id": "147",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "10:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "147",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "10:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "147",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "10:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "147",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "10:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "147",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "09:00",
+        "time_stop": "22:30"
+      },
+      {
+        "restaurant_id": "147",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "09:00",
+        "time_stop": "22:30"
+      },
+      {
+        "restaurant_id": "147",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "09:30",
+        "time_stop": "22:00"
+      }
+    ]
+  },
+  "294": {
+    "v1_id": 294,
+    "v3_id": "160",
+    "restaurant_name": "Hong Kong Chinese Food Takeout",
+    "schedule_entries": [
+      {
+        "restaurant_id": "160",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "15:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "160",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "15:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "160",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "15:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "160",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "15:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "160",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "15:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "160",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "15:00",
+        "time_stop": "22:00"
+      }
+    ]
+  },
+  "312": {
+    "v1_id": 312,
+    "v3_id": "174",
+    "restaurant_name": "Lucky King Take Out",
+    "schedule_entries": [
+      {
+        "restaurant_id": "174",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:30",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "174",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:30",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "174",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:30",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "174",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:30",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "174",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "16:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "174",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "16:00",
+        "time_stop": "21:30"
+      }
+    ]
+  },
+  "318": {
+    "v1_id": 318,
+    "v3_id": "180",
+    "restaurant_name": "Indian Punjabi Clay Oven",
+    "schedule_entries": [
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:30",
+        "time_stop": "14:00"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "17:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:30",
+        "time_stop": "14:00"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "17:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:30",
+        "time_stop": "14:00"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "17:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:30",
+        "time_stop": "14:00"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "17:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:30",
+        "time_stop": "14:00"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "17:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "17:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "180",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "17:00",
+        "time_stop": "21:00"
+      }
+    ]
+  },
+  "323": {
+    "v1_id": 323,
+    "v3_id": "943",
+    "restaurant_name": "Charm Thai Cuisine",
+    "schedule_entries": [
+      {
+        "restaurant_id": "943",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "15:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "943",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "15:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "943",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "15:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "943",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "15:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "943",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "15:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "943",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "15:00",
+        "time_stop": "20:30"
+      },
+      {
+        "restaurant_id": "943",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "15:00",
+        "time_stop": "20:30"
+      }
+    ]
+  },
+  "328": {
+    "v1_id": 328,
+    "v3_id": "190",
+    "restaurant_name": "Milano",
+    "schedule_entries": [
+      {
+        "restaurant_id": "190",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "190",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "190",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "190",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "190",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "22:30"
+      },
+      {
+        "restaurant_id": "190",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "22:30"
+      },
+      {
+        "restaurant_id": "190",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "14:00",
+        "time_stop": "21:30"
+      }
+    ]
+  },
+  "334": {
+    "v1_id": 334,
+    "v3_id": "196",
+    "restaurant_name": "Colonnade Pizza",
+    "schedule_entries": [
+      {
+        "restaurant_id": "196",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "196",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "196",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "196",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "196",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "196",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "21:30"
+      },
+      {
+        "restaurant_id": "196",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "15:00",
+        "time_stop": "21:30"
+      }
+    ]
+  },
+  "337": {
+    "v1_id": 337,
+    "v3_id": "199",
+    "restaurant_name": "Pho Bo Ga King - Somerset",
+    "schedule_entries": [
+      {
+        "restaurant_id": "199",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "16:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "199",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "16:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "199",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "16:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "199",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "16:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "199",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "16:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "199",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "16:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "199",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "16:00",
+        "time_stop": "23:00"
+      }
+    ]
+  },
+  "344": {
+    "v1_id": 344,
+    "v3_id": "205",
+    "restaurant_name": "Mont Liban Bakery & Shawarma",
+    "schedule_entries": [
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "00:00",
+        "time_stop": "02:00"
+      },
+      {
+        "restaurant_id": "205",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "16:00",
+        "time_stop": "22:00"
+      }
+    ]
+  },
+  "346": {
+    "v1_id": 346,
+    "v3_id": "1013",
+    "restaurant_name": "Papa Pizza Maloney",
+    "schedule_entries": [
+      {
+        "restaurant_id": "1013",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "1013",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "1013",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "1013",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "1013",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "1013",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "1013",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      }
+    ]
+  },
+  "350": {
+    "v1_id": 350,
+    "v3_id": "211",
+    "restaurant_name": "Erman Pizza",
+    "schedule_entries": [
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      },
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "00:00",
+        "time_stop": "01:00"
+      },
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "00:00",
+        "time_stop": "01:00"
+      },
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "23:59"
+      },
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "00:00",
+        "time_stop": "01:00"
+      },
+      {
+        "restaurant_id": "211",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "11:00",
+        "time_stop": "23:00"
+      }
+    ]
+  },
+  "374": {
+    "v1_id": 374,
+    "v3_id": "234",
+    "restaurant_name": "New Mukut Restaurant Indian Cuisine",
+    "schedule_entries": [
+      {
+        "restaurant_id": "234",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "17:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "234",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "17:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "234",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "17:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "234",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "17:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "234",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "17:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "234",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "17:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "234",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "17:00",
+        "time_stop": "19:00"
+      }
+    ]
+  },
+  "383": {
+    "v1_id": 383,
+    "v3_id": "241",
+    "restaurant_name": "Beneci Pizza",
+    "schedule_entries": [
+      {
+        "restaurant_id": "241",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "15:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "241",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "15:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "241",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "15:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "241",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "15:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "241",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "241",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "241",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "15:00",
+        "time_stop": "20:00"
+      }
+    ]
+  },
+  "411": {
+    "v1_id": 411,
+    "v3_id": "265",
+    "restaurant_name": "Milano",
+    "schedule_entries": [
+      {
+        "restaurant_id": "265",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "19:00"
+      },
+      {
+        "restaurant_id": "265",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "265",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "265",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "265",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "20:00"
+      },
+      {
+        "restaurant_id": "265",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "16:00",
+        "time_stop": "20:00"
+      }
+    ]
+  },
+  "413": {
+    "v1_id": 413,
+    "v3_id": "267",
+    "restaurant_name": "Lucky Fortune",
+    "schedule_entries": [
+      {
+        "restaurant_id": "267",
+        "type": "delivery",
+        "day_start": 1,
+        "day_stop": 1,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "267",
+        "type": "delivery",
+        "day_start": 2,
+        "day_stop": 2,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "267",
+        "type": "delivery",
+        "day_start": 3,
+        "day_stop": 3,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "267",
+        "type": "delivery",
+        "day_start": 4,
+        "day_stop": 4,
+        "time_start": "11:00",
+        "time_stop": "21:00"
+      },
+      {
+        "restaurant_id": "267",
+        "type": "delivery",
+        "day_start": 5,
+        "day_stop": 5,
+        "time_start": "11:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "267",
+        "type": "delivery",
+        "day_start": 6,
+        "day_stop": 6,
+        "time_start": "11:00",
+        "time_stop": "22:00"
+      },
+      {
+        "restaurant_id": "267",
+        "type": "delivery",
+        "day_start": 7,
+        "day_stop": 7,
+        "time_start": "11:30",
+        "time_stop": "21:00"
+      }
+    ]
+  }
+}

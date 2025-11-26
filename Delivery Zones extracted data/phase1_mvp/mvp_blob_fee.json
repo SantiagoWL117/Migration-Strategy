@@ -1,0 +1,67 @@
+[
+  {
+    "v1_id": 90,
+    "v3_id": "8",
+    "restaurant_name": "Lucky Star Chinese Food",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 203,
+    "v3_id": "87",
+    "restaurant_name": "Champa Thai Cuisine",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 224,
+    "v3_id": "105",
+    "restaurant_name": "Ginkgo Garden",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 239,
+    "v3_id": "119",
+    "restaurant_name": "Hung Mein",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 387,
+    "v3_id": "245",
+    "restaurant_name": "Orchid Sushi",
+    "blob_data": "3",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  }
+]

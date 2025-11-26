@@ -1,0 +1,119 @@
+[
+  {
+    "v1_id": 1082,
+    "v3_id": "835",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"0.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1083,
+    "v3_id": "836",
+    "restaurant_name": "Souvlaki Souvlaki",
+    "blob_data": "a:10:{i:0;s:4:\\\"0.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1084,
+    "v3_id": "837",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"0.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1087,
+    "v3_id": "840",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.50\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1088,
+    "v3_id": "841",
+    "restaurant_name": "All Out Burger",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1089,
+    "v3_id": "842",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"0.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1092,
+    "v3_id": "845",
+    "restaurant_name": "Mykonos Greek Grill",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:4:\\\"5.99\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1093,
+    "v3_id": "846",
+    "restaurant_name": "Mykonos Greek Grill",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:4:\\\"5.99\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1094,
+    "v3_id": "847",
+    "restaurant_name": "Sushiyana",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  }
+]

@@ -1,0 +1,392 @@
+[
+  {
+    "v1_id": 89,
+    "v3_id": "7",
+    "restaurant_name": "Imilio's Pizzeria",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 94,
+    "v3_id": "12",
+    "restaurant_name": "Mama Rosa",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 95,
+    "v3_id": "13",
+    "restaurant_name": "Papa Joe's Pizza - Downtown",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 101,
+    "v3_id": "15",
+    "restaurant_name": "New Mee Fung Restaurant",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 117,
+    "v3_id": "22",
+    "restaurant_name": "House of Lasagna",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 124,
+    "v3_id": "28",
+    "restaurant_name": "Eastview Pizza",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 127,
+    "v3_id": "31",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.50\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 132,
+    "v3_id": "1011",
+    "restaurant_name": "Mozza Pizza Gatineau",
+    "blob_data": "a:10:{i:0;s:4:\\\"4.89\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 142,
+    "v3_id": "44",
+    "restaurant_name": "Kiki Lebanese Pineview Pizza",
+    "blob_data": "a:10:{i:0;s:4:\\\"0.00\\\";i:1;s:4:\\\"4.00\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 143,
+    "v3_id": "45",
+    "restaurant_name": "Bobbie's Pizza & Subs",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 145,
+    "v3_id": "47",
+    "restaurant_name": "Mr Mozzarella - Nepean",
+    "blob_data": "a:10:{i:0;s:1:\\\"2\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 146,
+    "v3_id": "48",
+    "restaurant_name": "Merivale Pizza & Wings",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 161,
+    "v3_id": "55",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.50\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 164,
+    "v3_id": "57",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.50\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 172,
+    "v3_id": "59",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 173,
+    "v3_id": "1016",
+    "restaurant_name": "Roulas Grecque et Pizza",
+    "blob_data": "a:10:{i:0;s:4:\\\"4.95\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 175,
+    "v3_id": "62",
+    "restaurant_name": "Vanier Pizza & Subs",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 179,
+    "v3_id": "65",
+    "restaurant_name": "Number One Chinese Take Out",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.50\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 183,
+    "v3_id": "69",
+    "restaurant_name": "Aylmer BBQ",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.25\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 184,
+    "v3_id": "70",
+    "restaurant_name": "Papa Pizza - Hull",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 187,
+    "v3_id": "72",
+    "restaurant_name": "Cathay Restaurants",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 190,
+    "v3_id": "75",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.50\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 192,
+    "v3_id": "77",
+    "restaurant_name": "Lorenzo's Pizzeria - Vanier",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 199,
+    "v3_id": "83",
+    "restaurant_name": "Season's Pizza",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 200,
+    "v3_id": "84",
+    "restaurant_name": "The Original Georgie's",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.00\\\";i:1;s:4:\\\"3.00\\\";i:2;s:4:\\\"5.00\\\";i:3;s:5:\\\"10.00\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 204,
+    "v3_id": "88",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:1:\\\"0\\\";i:1;s:1:\\\"4\\\";i:2;s:1:\\\"6\\\";i:3;s:1:\\\"7\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 205,
+    "v3_id": "89",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"1.99\\\";i:1;s:4:\\\"7.50\\\";i:2;s:2:\\\"10\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 206,
+    "v3_id": "90",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"1.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 207,
+    "v3_id": "91",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 208,
+    "v3_id": "92",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.50\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  }
+]

@@ -1,0 +1,392 @@
+[
+  {
+    "v1_id": 987,
+    "v3_id": "749",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 989,
+    "v3_id": "751",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 998,
+    "v3_id": "756",
+    "restaurant_name": "Little Gyros Greek Grill",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1013,
+    "v3_id": "924",
+    "restaurant_name": "All Out Burger Bank St.",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1025,
+    "v3_id": "783",
+    "restaurant_name": "Colonnade Pizza",
+    "blob_data": "a:10:{i:0;s:1:\\\"3\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1027,
+    "v3_id": "784",
+    "restaurant_name": "Colonnade Pizza",
+    "blob_data": "a:10:{i:0;s:1:\\\"3\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1028,
+    "v3_id": "785",
+    "restaurant_name": "Colonnade Pizza",
+    "blob_data": "a:10:{i:0;s:1:\\\"3\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1032,
+    "v3_id": "789",
+    "restaurant_name": "Poutinerie Qu\u00e9becurds Hull",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1033,
+    "v3_id": "790",
+    "restaurant_name": "Nachos Loco Hull",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1035,
+    "v3_id": "792",
+    "restaurant_name": "Dumpling Bowl",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1038,
+    "v3_id": "948",
+    "restaurant_name": "All Out Burger Gladstone",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1039,
+    "v3_id": "795",
+    "restaurant_name": "Papa Pizza Chem. de Masson",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.50\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1041,
+    "v3_id": "797",
+    "restaurant_name": "Papa Burger",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1042,
+    "v3_id": "798",
+    "restaurant_name": "Kabylie Pizza",
+    "blob_data": "a:10:{i:0;s:4:\\\"4.00\\\";i:1;s:4:\\\"4.50\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1045,
+    "v3_id": "801",
+    "restaurant_name": "Nachos Loco Gatineau",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:4:\\\"3.99\\\";i:2;s:4:\\\"4.99\\\";i:3;s:4:\\\"3.99\\\";i:4;s:4:\\\"4.99\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1046,
+    "v3_id": "1015",
+    "restaurant_name": "Poutinerie Qu\u00e9becurds Gatineau",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:4:\\\"3.99\\\";i:2;s:4:\\\"4.99\\\";i:3;s:4:\\\"3.99\\\";i:4;s:4:\\\"4.99\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1050,
+    "v3_id": "806",
+    "restaurant_name": "Crispy's Bank Street",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1051,
+    "v3_id": "807",
+    "restaurant_name": "Oh My Grill",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1054,
+    "v3_id": "810",
+    "restaurant_name": "Papa Grecque Cantley",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1059,
+    "v3_id": "815",
+    "restaurant_name": "Golden Center Pizza",
+    "blob_data": "a:10:{i:0;s:1:\\\"0\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1060,
+    "v3_id": "816",
+    "restaurant_name": "D\u00e9panneur G\u00e9n\u00e9reux",
+    "blob_data": "a:10:{i:0;s:4:\\\"4.99\\\";i:1;s:1:\\\"7\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1062,
+    "v3_id": "818",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:4:\\\"6.00\\\";i:2;s:4:\\\"7.00\\\";i:3;s:4:\\\"9.00\\\";i:4;s:2:\\\"13\\\";i:5;s:2:\\\"16\\\";i:6;s:2:\\\"28\\\";i:7;s:2:\\\"32\\\";i:8;s:2:\\\"40\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1063,
+    "v3_id": "819",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:4:\\\"2.99\\\";i:1;s:4:\\\"5.99\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1064,
+    "v3_id": "820",
+    "restaurant_name": "Vieux Hull Pizza",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1065,
+    "v3_id": "821",
+    "restaurant_name": "Milano",
+    "blob_data": "a:10:{i:0;s:1:\\\"3\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1066,
+    "v3_id": "822",
+    "restaurant_name": "Papa Burger Maloney",
+    "blob_data": "a:10:{i:0;s:4:\\\"3.00\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1069,
+    "v3_id": "824",
+    "restaurant_name": "Prima Pizza",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1070,
+    "v3_id": "825",
+    "restaurant_name": "La Nawab V2",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1071,
+    "v3_id": "949",
+    "restaurant_name": "All Out Burger Montreal Rd",
+    "blob_data": "0",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  },
+  {
+    "v1_id": 1074,
+    "v3_id": "829",
+    "restaurant_name": "Pizzalicious",
+    "blob_data": "a:10:{i:0;s:3:\\\"1.5\\\";i:1;s:0:\\\"\\\";i:2;s:0:\\\"\\\";i:3;s:0:\\\"\\\";i:4;s:0:\\\"\\\";i:5;s:0:\\\"\\\";i:6;s:0:\\\"\\\";i:7;s:0:\\\"\\\";i:8;s:0:\\\"\\\";i:9;s:0:\\\"\\\";}",
+    "target_table": "menuca_v3.restaurant_delivery_fees",
+    "target_columns": [
+      "restaurant_id",
+      "fee_type",
+      "tier_value",
+      "total_delivery_fee"
+    ]
+  }
+]

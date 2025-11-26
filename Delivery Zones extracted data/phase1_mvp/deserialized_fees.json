@@ -1,0 +1,54 @@
+{
+  "90": {
+    "v1_id": 90,
+    "v3_id": "8",
+    "restaurant_name": "Lucky Star Chinese Food",
+    "fee_entries": [
+      {
+        "restaurant_id": "8",
+        "fee_tier": 0,
+        "fee_value": "3.00",
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "203": {
+    "v1_id": 203,
+    "v3_id": "87",
+    "restaurant_name": "Champa Thai Cuisine",
+    "fee_entries": [
+      {
+        "restaurant_id": "87",
+        "fee_tier": 0,
+        "fee_value": "3.00",
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "224": {
+    "v1_id": 224,
+    "v3_id": "105",
+    "restaurant_name": "Ginkgo Garden",
+    "fee_entries": [
+      {
+        "restaurant_id": "105",
+        "fee_tier": 0,
+        "fee_value": "3.00",
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "239": {
+    "v1_id": 239,
+    "v3_id": "119",
+    "restaurant_name": "Hung Mein",
+    "fee_entries": [
+      {
+        "restaurant_id": "119",
+        "fee_tier": 0,
+        "fee_value": "3.00",
+        "fee_type": "flat"
+      }
+    ]
+  }
+}

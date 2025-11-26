@@ -1,0 +1,461 @@
+{
+  "824": {
+    "v1_id": 824,
+    "v3_id": "601",
+    "restaurant_name": "Milano",
+    "fee_entries": [
+      {
+        "restaurant_id": "601",
+        "fee_tier": 0,
+        "fee_value": 2.5,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "601",
+        "fee_tier": 1,
+        "fee_value": 5.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "825": {
+    "v1_id": 825,
+    "v3_id": "602",
+    "restaurant_name": "Papa Pizza Cantley",
+    "fee_entries": [
+      {
+        "restaurant_id": "602",
+        "fee_tier": 0,
+        "fee_value": 4.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "830": {
+    "v1_id": 830,
+    "v3_id": "607",
+    "restaurant_name": "Aroy Thai",
+    "fee_entries": [
+      {
+        "restaurant_id": "607",
+        "fee_tier": 0,
+        "fee_value": 5.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "838": {
+    "v1_id": 838,
+    "v3_id": "614",
+    "restaurant_name": "Marina Pizza des Flandres",
+    "fee_entries": [
+      {
+        "restaurant_id": "614",
+        "fee_tier": 0,
+        "fee_value": 3.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "840": {
+    "v1_id": 840,
+    "v3_id": "616",
+    "restaurant_name": "Papa Grecque Maloney",
+    "fee_entries": [
+      {
+        "restaurant_id": "616",
+        "fee_tier": 0,
+        "fee_value": 3.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "850": {
+    "v1_id": 850,
+    "v3_id": "624",
+    "restaurant_name": "Milano",
+    "fee_entries": [
+      {
+        "restaurant_id": "624",
+        "fee_tier": 0,
+        "fee_value": 5.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "856": {
+    "v1_id": 856,
+    "v3_id": "630",
+    "restaurant_name": "Asia Garden Ottawa",
+    "fee_entries": [
+      {
+        "restaurant_id": "630",
+        "fee_tier": 0,
+        "fee_value": 3.5,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "630",
+        "fee_tier": 1,
+        "fee_value": 3.5,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "863": {
+    "v1_id": 863,
+    "v3_id": "636",
+    "restaurant_name": "Joes Family Pizzeria",
+    "fee_entries": [
+      {
+        "restaurant_id": "636",
+        "fee_tier": 0,
+        "fee_value": 4.99,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "636",
+        "fee_tier": 1,
+        "fee_value": 6.99,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "865": {
+    "v1_id": 865,
+    "v3_id": "638",
+    "restaurant_name": "Digby's Restaurant",
+    "fee_entries": [
+      {
+        "restaurant_id": "638",
+        "fee_tier": 0,
+        "fee_value": 1.5,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "869": {
+    "v1_id": 869,
+    "v3_id": "641",
+    "restaurant_name": "China Moon",
+    "fee_entries": [
+      {
+        "restaurant_id": "641",
+        "fee_tier": 0,
+        "fee_value": 4.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "872": {
+    "v1_id": 872,
+    "v3_id": "644",
+    "restaurant_name": "Mozza Pizza Hull",
+    "fee_entries": [
+      {
+        "restaurant_id": "644",
+        "fee_tier": 0,
+        "fee_value": 2.5,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "874": {
+    "v1_id": 874,
+    "v3_id": "646",
+    "restaurant_name": "JC Royal Thai Cuisine",
+    "fee_entries": []
+  },
+  "879": {
+    "v1_id": 879,
+    "v3_id": "651",
+    "restaurant_name": "Milano",
+    "fee_entries": [
+      {
+        "restaurant_id": "651",
+        "fee_tier": 0,
+        "fee_value": 2.5,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "889": {
+    "v1_id": 889,
+    "v3_id": "660",
+    "restaurant_name": "Milano",
+    "fee_entries": [
+      {
+        "restaurant_id": "660",
+        "fee_tier": 0,
+        "fee_value": 0.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "913": {
+    "v1_id": 913,
+    "v3_id": "680",
+    "restaurant_name": "Milano",
+    "fee_entries": [
+      {
+        "restaurant_id": "680",
+        "fee_tier": 0,
+        "fee_value": 2.99,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "680",
+        "fee_tier": 1,
+        "fee_value": 3.99,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "680",
+        "fee_tier": 2,
+        "fee_value": 4.99,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "680",
+        "fee_tier": 3,
+        "fee_value": 3.99,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "680",
+        "fee_tier": 4,
+        "fee_value": 4.99,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "914": {
+    "v1_id": 914,
+    "v3_id": "681",
+    "restaurant_name": "Oka's Hull",
+    "fee_entries": [
+      {
+        "restaurant_id": "681",
+        "fee_tier": 0,
+        "fee_value": 2.0,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "681",
+        "fee_tier": 1,
+        "fee_value": 3.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "930": {
+    "v1_id": 930,
+    "v3_id": "696",
+    "restaurant_name": "Pizza Maisonneuve",
+    "fee_entries": [
+      {
+        "restaurant_id": "696",
+        "fee_tier": 0,
+        "fee_value": 2.5,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "937": {
+    "v1_id": 937,
+    "v3_id": "701",
+    "restaurant_name": "Milano",
+    "fee_entries": [
+      {
+        "restaurant_id": "701",
+        "fee_tier": 0,
+        "fee_value": 0.0,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "701",
+        "fee_tier": 1,
+        "fee_value": 5.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "947": {
+    "v1_id": 947,
+    "v3_id": "711",
+    "restaurant_name": "Supreme Pizzeria",
+    "fee_entries": [
+      {
+        "restaurant_id": "711",
+        "fee_tier": 0,
+        "fee_value": 4.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "948": {
+    "v1_id": 948,
+    "v3_id": "712",
+    "restaurant_name": "Patate Lou Lou",
+    "fee_entries": [
+      {
+        "restaurant_id": "712",
+        "fee_tier": 0,
+        "fee_value": 3.25,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "951": {
+    "v1_id": 951,
+    "v3_id": "714",
+    "restaurant_name": "Ogilvie Pizza",
+    "fee_entries": [
+      {
+        "restaurant_id": "714",
+        "fee_tier": 0,
+        "fee_value": 1.5,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "952": {
+    "v1_id": 952,
+    "v3_id": "715",
+    "restaurant_name": "La Poutinerie Ogilvie",
+    "fee_entries": [
+      {
+        "restaurant_id": "715",
+        "fee_tier": 0,
+        "fee_value": 3.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "953": {
+    "v1_id": 953,
+    "v3_id": "716",
+    "restaurant_name": "PizzaRama",
+    "fee_entries": [
+      {
+        "restaurant_id": "716",
+        "fee_tier": 0,
+        "fee_value": 3.0,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "716",
+        "fee_tier": 1,
+        "fee_value": 3.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "959": {
+    "v1_id": 959,
+    "v3_id": "721",
+    "restaurant_name": "La Maison Pho",
+    "fee_entries": []
+  },
+  "964": {
+    "v1_id": 964,
+    "v3_id": "726",
+    "restaurant_name": "Pizza Joanna",
+    "fee_entries": [
+      {
+        "restaurant_id": "726",
+        "fee_tier": 0,
+        "fee_value": 2.5,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "726",
+        "fee_tier": 1,
+        "fee_value": 4.0,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "726",
+        "fee_tier": 2,
+        "fee_value": 5.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "965": {
+    "v1_id": 965,
+    "v3_id": "727",
+    "restaurant_name": "La Maison du Burger",
+    "fee_entries": [
+      {
+        "restaurant_id": "727",
+        "fee_tier": 0,
+        "fee_value": 2.25,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "968": {
+    "v1_id": 968,
+    "v3_id": "730",
+    "restaurant_name": "Friendly Restaurant and Pizzeria",
+    "fee_entries": [
+      {
+        "restaurant_id": "730",
+        "fee_tier": 0,
+        "fee_value": 3.0,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "730",
+        "fee_tier": 1,
+        "fee_value": 6.5,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "730",
+        "fee_tier": 2,
+        "fee_value": 8.5,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "973": {
+    "v1_id": 973,
+    "v3_id": "735",
+    "restaurant_name": "Amicci Pizza",
+    "fee_entries": [
+      {
+        "restaurant_id": "735",
+        "fee_tier": 0,
+        "fee_value": 2.5,
+        "fee_type": "flat"
+      },
+      {
+        "restaurant_id": "735",
+        "fee_tier": 1,
+        "fee_value": 3.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "974": {
+    "v1_id": 974,
+    "v3_id": "736",
+    "restaurant_name": "Greber Pizza et Shawarma",
+    "fee_entries": [
+      {
+        "restaurant_id": "736",
+        "fee_tier": 0,
+        "fee_value": 2.0,
+        "fee_type": "flat"
+      }
+    ]
+  },
+  "983": {
+    "v1_id": 983,
+    "v3_id": "745",
+    "restaurant_name": "Sala Thai",
+    "fee_entries": []
+  }
+}

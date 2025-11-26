@@ -1,0 +1,84 @@
+v3_id,v3_name,v3_address,v3_version,v2_id,v2_v1_id,v2_name,v2_address,v2_area_count,similarity
+8,Lucky Star Chinese Food,1615 Orleans Blvd.,V1,1032,90,Lucky Star Chinese Food,1615 Orleans Blvd.,1,100.0%
+12,Mama Rosa,375 Des Epinettes Ave,V1,1036,94,Mama Rosa,375 Des Epinettes Ave,1,100.0%
+13,Papa Joe's Pizza - Downtown,527 Bronson Ave,V1,1037,95,Papa Joe's Pizza - Downtown,527 Bronson Ave,1,100.0%
+15,New Mee Fung Restaurant,350 Booth St,V1,1039,101,New Mee Fung Restaurant,350 Booth St,1,100.0%
+22,House of Lasagna,984 Merivale Rd,V1,1046,117,House of Lasagna,984 Merivale Rd,1,100.0%
+28,Eastview Pizza,251 Montreal Rd,V1,1052,124,Eastview Pizza,251 Montreal Rd,1,100.0%
+31,Milano,876 Montreal Rd.,V1,1055,127,Milano,876 Montreal Rd.,1,100.0%
+44,Kiki Lebanese Pineview Pizza,2045 Meadowbrook Rd,V1,1068,142,Kiki Lebanese Pineview Pizza,2045 Meadowbrook Rd,2,100.0%
+45,Bobbie's Pizza & Subs,1443 Ogilvie Rd,V1,1069,143,Bobbie's Pizza & Subs,1443 Ogilvie Rd,1,100.0%
+47,Mr Mozzarella - Nepean,1433 Woodroffe Ave,V1,1071,145,Mr Mozzarella - Nepean,1433 Woodroffe Ave,1,100.0%
+48,Merivale Pizza & Wings,1610 Merivale Rd,V1,1072,146,Merivale Pizza & Wings,1610 Merivale Rd,1,100.0%
+57,Milano,3848 Innes Rd,V1,1081,164,Milano,3848 Innes Rd,1,100.0%
+59,Milano,385 Tompkins Ave,V1,1083,172,Milano,385 Tompkins Ave,1,100.0%
+62,Vanier Pizza & Subs,201 Marier Ave,V1,1086,175,Vanier Pizza & Subs,201 Marier Ave,1,100.0%
+65,Number One Chinese Take Out,988 Wellington St,V1,1089,179,Number One Chinese Take Out,988 Wellington St,1,100.0%
+69,Aylmer BBQ,"134, rue Principale",V1,1093,183,Aylmer BBQ,"134, rue Principale",1,100.0%
+70,Papa Pizza - Hull,"574, boul Saint-Joseph",V1,1094,184,Papa Pizza - Hull,"574, boul Saint-Joseph",1,100.0%
+72,Cathay Restaurants,1423 Woodroffe Ave,V1,1096,187,Cathay Restaurants,1423 Woodroffe Ave,1,100.0%
+75,Milano,2430 Bank St,V1,1099,190,Milano,2430 Bank St,1,100.0%
+77,Lorenzo's Pizzeria - Vanier,94 Montreal Rd,V1,1101,192,Lorenzo's Pizzeria - Vanier,94 Montreal Rd,1,100.0%
+84,The Original Georgie's,1661 Carling Ave,V1,1108,200,The Original Georgie's,1661 Carling Ave,1,100.0%
+88,Milano,14 Main St E,V1,1112,204,Milano,14 Main St E,1,100.0%
+89,Milano,777 Principale St,V1,1113,205,Milano,777 Principale St,2,100.0%
+90,Milano,3796 Champlain Rd,V1,1114,206,Milano,3796 Champlain Rd,1,100.0%
+91,Milano,339 Dalhousie St,V1,1115,207,Milano,339 Dalhousie St,1,100.0%
+92,Milano,2241 St Laurent Blvd,V1,1116,208,Milano,2241 St Laurent Blvd,1,100.0%
+93,Milano,990 River Rd,V1,1117,209,Milano,990 River Rd,1,100.0%
+95,Milano,3050 Woodroffe Ave,V1,1119,211,Milano,3050 Woodroffe Ave,1,100.0%
+97,Milano,2600 County Rd 43,V1,1121,213,Milano,2600 County Rd 43,1,100.0%
+119,Hung Mein,2567 Baseline Rd,V1,1143,239,Hung Mein,2567 Baseline Rd,1,100.0%
+123,Milano,26 Bridge St,V1,1147,245,Milano,26 Bridge St,1,100.0%
+124,Carlo's Pizza,60 Harmer Ave,V1,1148,246,Carlo's Pizza,60 Harmer Ave,1,100.0%
+126,Milano,471 Hazeldean Rd,V1,1150,248,Milano,471 Hazeldean Rd,1,100.0%
+131,Centertown Donair & Pizza,422 Bronson Ave,V1,1155,255,Centertown Donair & Pizza,422 Bronson Ave,1,100.0%
+133,Riverside Pizzeria,3679 Riverside Dr,V1,1157,257,Riverside Pizzeria,3679 Riverside Dr,1,100.0%
+139,Pizza Bravo,"108, boul Lorrain",V1,1163,264,Pizza Bravo,"108, boul Lorrain",1,100.0%
+143,Tony's Pizza,7772 Jeanne d'Arc Blvd,V1,1167,275,Tony's Pizza,7772 Jeanne d'Arc Blvd,1,100.0%
+160,Hong Kong Chinese Food Takeout,800 Hunt Club Rd,V1,1184,294,Hong Kong Chinese Food Takeout,800 Hunt Club Rd,1,100.0%
+174,Lucky King Take Out,1134 Cadboro Rd,V1,1199,312,Lucky King Take Out,1134 Cadboro Rd,1,100.0%
+180,Indian Punjabi Clay Oven,6-4055 Carling Ave.,V1,1205,318,Indian Punjabi Clay Oven,6-4055 Carling Ave.,1,100.0%
+190,Milano,6179 Perth St.,V1,1215,328,Milano,5925 Perth St.,1,86.2%
+199,Pho Bo Ga King - Somerset,778 Somerset St W,V1,1224,337,Pho Bo Ga King - Somerset,778 Somerset St W,1,100.0%
+205,Mont Liban Bakery & Shawarma,351 Montreal Rd,V1,1230,344,Mont Liban Bakery & Shawarma,351 Montreal Rd,1,100.0%
+211,Erman Pizza,"3628, av des Églises",V1,1236,350,Erman Pizza,"3628, av des Ã‰glises ",1,96.8%
+234,New Mukut Restaurant Indian Cuisine,1968 Portobello Blvd,V1,1259,374,New Mukut Restaurant Indian Cuisine,1968 Portobello Blvd,1,100.0%
+241,Beneci Pizza,4 Lorry Greenberg Dr,V1,1266,383,Beneci Pizza,4 Lorry Greenberg Dr,1,100.0%
+245,Orchid Sushi,445 Laurier Ave W,V1,1270,387,Orchid Sushi,445 Laurier Ave W,1,100.0%
+267,Lucky Fortune,1970 Trim Rd,V1,1292,413,Lucky Fortune,1970 Trim Rd,1,100.0%
+269,Shaan Tandoori,"2550, boul Lapinière",V1,1294,415,Shaan Tandoori,"2550, boul LapiniÃ¨re",1,96.8%
+328,JN Pizza,1663 Cyrville Rd,V1,1353,489,JN Pizza,1663 Cyrville Rd,2,100.0%
+349,Milano,5516 Osgoode Main S,V1,1374,512,Milano,5516 Osgoode Main S,1,100.0%
+350,Milano,506 Main St W,V1,1375,513,Milano,506 Main St W,2,100.0%
+367,Xtreme Pizza,125 Preston St,V1,1392,532,Xtreme Pizza,125 Preston St,1,100.0%
+376,Sachi Sushi,"4931, rue Beaubien E",V1,1401,542,Sachi Sushi,"4931, rue Beaubien E",1,100.0%
+437,Papa Joe's Fried Chicken - Downtown,527 Bronson Ave,V1,1462,612,Papa Joe's Fried Chicken - Downtown,527 Bronson Ave,1,100.0%
+491,Light of India,730 Bank St,V1,1516,695,Light of India,730 Bank St,1,100.0%
+497,Rangoli,2491 St-Joseph Blvd,V1,1522,701,Rangoli,2491 St-Joseph Blvd,1,100.0%
+502,New Hong Kong,1433 Woodroffe Ave,V1,1527,707,New Hong Kong,1433 Woodroffe Ave,1,100.0%
+507,Pizza Lovers Hunt Club,800 Hunt Club Road,V1,1532,712,Pizza Lovers Hunt Club,800 Hunt Club Road,1,100.0%
+511,Egg Roll Factory,261 Centrepointe drive,V1,1536,716,Egg Roll Factory,261 Centrepointe drive,1,100.0%
+515,Napolis,81 Richmond Rd,V1,1540,721,Napolis,81 Richmond Rd,1,100.0%
+521,Palermo Pizzeria,25 Tapiola Cres,V1,1546,729,Palermo Pizzeria,25 Tapiola Cres,1,100.0%
+601,Milano,1589 Main St,V1,1112,204,Milano,14 Main St E,1,85.0%
+696,Pizza Maisonneuve,574 Boulevard Saint-Joseph,V1,1509,683,Pizza Maisonneuve,"574, boul Saint-Joseph",1,93.6%
+835,Milano,1216 Bank St,V1,1099,190,Milano,2430 Bank St,1,85.0%
+924,All Out Burger,2560 Bank Street,V1,1611,\N,All Out Burger Bank St.,2560 Bank Street,1,91.1%
+950,Kirkwood Pizza,1078 Merivale Road,V2,1637,\N,Kirkwood Pizza,1078 Merivale Road,1,100.0%
+952,River Pizza,4042 Innes Road,V2,1639,\N,River Pizza,4042 Innes Road,1,100.0%
+954,Wandee Thai,40 Beech Street,V2,1641,\N,Wandee Thai,40 Beech Street,1,100.0%
+960,Cuisine Bombay Indienne,120 Rue Richelieu,V2,1657,\N,Cuisine Bombay Indienne,120 Rue Richelieu,1,100.0%
+962,Chicco Pizza & Shawarma Buckingham,1009 Chemin de Masson,V2,1659,\N,Chicco Pizza & Shawarma Buckingham,1009 Chemin de Masson,1,100.0%
+963,Chicco Pizza Shawarma Anger,1096 Chemin de Montréal Ouest,V2,1660,\N,Chicco Pizza Shawarma Anger,1096 Chemin de MontrÃ©al Ouest,1,97.9%
+964,Chicco Pizza Maloney,842 Boulevard Maloney Est,V2,1661,\N,Chicco Pizza Maloney,842 Boulevard Maloney Est,1,100.0%
+965,Chicco Shawarma Maloney,922 Boulevard Maloney Est,V2,1662,\N,Chicco Shawarma Maloney,922 Boulevard Maloney Est,1,100.0%
+966,Chicco Pizza de l'Hopital,405 Boulevard de l'Hôpital,V2,1663,\N,Chicco Pizza de l’Hopital,405 Boulevard de l'HÃ´pital,1,97.6%
+967,Chicco Pizza St-Louis,1783 Rue Saint-Louis,V2,1664,\N,Chicco Pizza St-Louis,1783 Rue Saint-Louis,1,100.0%
+973,Capital Bites,34 Grenfell Crescent,V2,1670,\N,Capital Bites,34 Grenfell Crescent,1,100.0%
+974,Pachino Pizza,3515 Albion Road South,V2,1671,\N,Pachino Pizza,3515 Albion Road South,1,100.0%
+976,Pizza Marie,4 Rue d'Orléans,V2,1673,\N,Pizza Marie,4 Rue d'OrlÃ©ans,5,95.7%
+977,Capri Pizza,4000 Bridle Path Drive,V2,1674,\N,Capri Pizza,4000 Bridle Path Drive,1,100.0%
+981,Al-s Drive In,5474 Osgoode Main Street,V2,1678,\N,Al-s Drive In,5474 Osgoode Main Street,1,100.0%
+985,Yorgo's - Nepean,1356 Clyde Ave,V1,1406,547,Yorgo's - Nepean,1356 Clyde Ave,2,100.0%
+1014,Papa Pizza Val-Des-Monts,"1797, rte du Carrefour",V1,1523,703,Papa Pizza - Val-des-Monts,"1797, rte du Carrefour",1,98.4%
