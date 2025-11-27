@@ -1,0 +1,93 @@
+{
+  "extraction_date": "2025-11-26",
+  "method": "Phase 1 MVP deserialization",
+  "source_file": "v1_restaurants_dump.sql",
+  "total_restaurants": 2,
+  "total_areas_extracted": 12,
+  "areas": [
+    {
+      "v1_id": 968,
+      "v3_id": 730,
+      "restaurant_name": "Friendly Restaurant and Pizzeria",
+      "area_number": 1,
+      "num_points": 37
+    },
+    {
+      "v1_id": 968,
+      "v3_id": 730,
+      "restaurant_name": "Friendly Restaurant and Pizzeria",
+      "area_number": 2,
+      "num_points": 79
+    },
+    {
+      "v1_id": 968,
+      "v3_id": 730,
+      "restaurant_name": "Friendly Restaurant and Pizzeria",
+      "area_number": 3,
+      "num_points": 85
+    },
+    {
+      "v1_id": 1062,
+      "v3_id": 818,
+      "restaurant_name": "Milano",
+      "area_number": 1,
+      "num_points": 17
+    },
+    {
+      "v1_id": 1062,
+      "v3_id": 818,
+      "restaurant_name": "Milano",
+      "area_number": 2,
+      "num_points": 20
+    },
+    {
+      "v1_id": 1062,
+      "v3_id": 818,
+      "restaurant_name": "Milano",
+      "area_number": 3,
+      "num_points": 24
+    },
+    {
+      "v1_id": 1062,
+      "v3_id": 818,
+      "restaurant_name": "Milano",
+      "area_number": 4,
+      "num_points": 28
+    },
+    {
+      "v1_id": 1062,
+      "v3_id": 818,
+      "restaurant_name": "Milano",
+      "area_number": 5,
+      "num_points": 22
+    },
+    {
+      "v1_id": 1062,
+      "v3_id": 818,
+      "restaurant_name": "Milano",
+      "area_number": 6,
+      "num_points": 23
+    },
+    {
+      "v1_id": 1062,
+      "v3_id": 818,
+      "restaurant_name": "Milano",
+      "area_number": 7,
+      "num_points": 28
+    },
+    {
+      "v1_id": 1062,
+      "v3_id": 818,
+      "restaurant_name": "Milano",
+      "area_number": 8,
+      "num_points": 28
+    },
+    {
+      "v1_id": 1062,
+      "v3_id": 818,
+      "restaurant_name": "Milano",
+      "area_number": 9,
+      "num_points": 34
+    }
+  ]
+}

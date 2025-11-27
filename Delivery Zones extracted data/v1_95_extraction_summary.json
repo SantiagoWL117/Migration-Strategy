@@ -1,0 +1,627 @@
+{
+  "extraction_date": "2025-11-26T17:04:15.019023",
+  "source_file": "Database/Legacy Schemas/v1_restaurants_dump.sql",
+  "total_target_restaurants": 95,
+  "excluded_already_migrated": 2,
+  "excluded_ids": [
+    968,
+    1062
+  ],
+  "summary": {
+    "with_polygons": 60,
+    "empty_blob": 13,
+    "null_blob": 15,
+    "malformed": 0,
+    "not_found_in_dump": 7
+  },
+  "totals": {
+    "delivery_areas_extracted": 94,
+    "total_polygon_points": 1328
+  },
+  "restaurants": {
+    "with_polygons": [
+      {
+        "v1_id": 1032,
+        "v3_id": 789,
+        "name": "Poutinerie QuÃ¯Â¿Â½becurds Hull",
+        "area_count": 1,
+        "total_points": 15
+      },
+      {
+        "v1_id": 1033,
+        "v3_id": 790,
+        "name": "Nachos Loco Hull",
+        "area_count": 1,
+        "total_points": 15
+      },
+      {
+        "v1_id": 1039,
+        "v3_id": 795,
+        "name": "Papa Pizza Chem. de Masson",
+        "area_count": 1,
+        "total_points": 12
+      },
+      {
+        "v1_id": 1041,
+        "v3_id": 797,
+        "name": "Papa Burger",
+        "area_count": 1,
+        "total_points": 11
+      },
+      {
+        "v1_id": 1042,
+        "v3_id": 798,
+        "name": "Kabylie Pizza",
+        "area_count": 2,
+        "total_points": 21
+      },
+      {
+        "v1_id": 1045,
+        "v3_id": 801,
+        "name": "Nachos Loco Gatineau",
+        "area_count": 5,
+        "total_points": 43
+      },
+      {
+        "v1_id": 1046,
+        "v3_id": 1015,
+        "name": "Poutinerie QuÃ©becurds Gatineau",
+        "area_count": 5,
+        "total_points": 43
+      },
+      {
+        "v1_id": 1059,
+        "v3_id": 815,
+        "name": "Golden Center Pizza",
+        "area_count": 1,
+        "total_points": 13
+      },
+      {
+        "v1_id": 1060,
+        "v3_id": 816,
+        "name": "DÃ¯Â¿Â½panneur GÃ¯Â¿Â½nÃ¯Â¿Â½reux",
+        "area_count": 2,
+        "total_points": 28
+      },
+      {
+        "v1_id": 1063,
+        "v3_id": 819,
+        "name": "Milano",
+        "area_count": 2,
+        "total_points": 38
+      },
+      {
+        "v1_id": 1065,
+        "v3_id": 821,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 20
+      },
+      {
+        "v1_id": 1074,
+        "v3_id": 829,
+        "name": "Pizzalicious",
+        "area_count": 1,
+        "total_points": 11
+      },
+      {
+        "v1_id": 1080,
+        "v3_id": 833,
+        "name": "All Out Burger",
+        "area_count": 2,
+        "total_points": 29
+      },
+      {
+        "v1_id": 1082,
+        "v3_id": 835,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 16
+      },
+      {
+        "v1_id": 1083,
+        "v3_id": 836,
+        "name": "Souvlaki Souvlaki",
+        "area_count": 1,
+        "total_points": 18
+      },
+      {
+        "v1_id": 1084,
+        "v3_id": 837,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 20
+      },
+      {
+        "v1_id": 1087,
+        "v3_id": 840,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 8
+      },
+      {
+        "v1_id": 1089,
+        "v3_id": 842,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 11
+      },
+      {
+        "v1_id": 1092,
+        "v3_id": 845,
+        "name": "Mykonos Greek Grill",
+        "area_count": 2,
+        "total_points": 38
+      },
+      {
+        "v1_id": 1093,
+        "v3_id": 846,
+        "name": "Mykonos Greek Grill",
+        "area_count": 2,
+        "total_points": 28
+      },
+      {
+        "v1_id": 132,
+        "v3_id": 1011,
+        "name": "Mozza Pizza Gatineau",
+        "area_count": 1,
+        "total_points": 39
+      },
+      {
+        "v1_id": 161,
+        "v3_id": 55,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 20
+      },
+      {
+        "v1_id": 173,
+        "v3_id": 1016,
+        "name": "Roulas Grecque et Pizza",
+        "area_count": 1,
+        "total_points": 29
+      },
+      {
+        "v1_id": 225,
+        "v3_id": 106,
+        "name": "Restaurant Le Choix",
+        "area_count": 2,
+        "total_points": 16
+      },
+      {
+        "v1_id": 758,
+        "v3_id": 540,
+        "name": "Papa Grecque des Flandres",
+        "area_count": 1,
+        "total_points": 23
+      },
+      {
+        "v1_id": 781,
+        "v3_id": 561,
+        "name": "Aahar The Taste of India",
+        "area_count": 1,
+        "total_points": 10
+      },
+      {
+        "v1_id": 782,
+        "v3_id": 562,
+        "name": "Pizza des Hautes Plaines",
+        "area_count": 1,
+        "total_points": 13
+      },
+      {
+        "v1_id": 785,
+        "v3_id": 565,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 14
+      },
+      {
+        "v1_id": 789,
+        "v3_id": 569,
+        "name": "Milano",
+        "area_count": 2,
+        "total_points": 23
+      },
+      {
+        "v1_id": 807,
+        "v3_id": 586,
+        "name": "Milano",
+        "area_count": 4,
+        "total_points": 55
+      },
+      {
+        "v1_id": 817,
+        "v3_id": 595,
+        "name": "Supreme Pizzeria",
+        "area_count": 1,
+        "total_points": 20
+      },
+      {
+        "v1_id": 818,
+        "v3_id": 596,
+        "name": "Sushi Fleury",
+        "area_count": 2,
+        "total_points": 31
+      },
+      {
+        "v1_id": 824,
+        "v3_id": 601,
+        "name": "Milano",
+        "area_count": 2,
+        "total_points": 14
+      },
+      {
+        "v1_id": 825,
+        "v3_id": 602,
+        "name": "Papa Pizza Cantley",
+        "area_count": 1,
+        "total_points": 13
+      },
+      {
+        "v1_id": 830,
+        "v3_id": 607,
+        "name": "Aroy Thai",
+        "area_count": 1,
+        "total_points": 16
+      },
+      {
+        "v1_id": 323,
+        "v3_id": 943,
+        "name": "Charm Thai Cuisine",
+        "area_count": 1,
+        "total_points": 17
+      },
+      {
+        "v1_id": 838,
+        "v3_id": 614,
+        "name": "Marina Pizza des Flandres ",
+        "area_count": 1,
+        "total_points": 12
+      },
+      {
+        "v1_id": 840,
+        "v3_id": 616,
+        "name": "Papa Grecque Maloney ",
+        "area_count": 1,
+        "total_points": 10
+      },
+      {
+        "v1_id": 850,
+        "v3_id": 624,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 18
+      },
+      {
+        "v1_id": 856,
+        "v3_id": 630,
+        "name": "Asia Garden Ottawa",
+        "area_count": 2,
+        "total_points": 34
+      },
+      {
+        "v1_id": 863,
+        "v3_id": 636,
+        "name": "Joes Family Pizzeria",
+        "area_count": 2,
+        "total_points": 46
+      },
+      {
+        "v1_id": 869,
+        "v3_id": 641,
+        "name": "China Moon",
+        "area_count": 1,
+        "total_points": 24
+      },
+      {
+        "v1_id": 872,
+        "v3_id": 644,
+        "name": "Mozza Pizza Hull",
+        "area_count": 1,
+        "total_points": 25
+      },
+      {
+        "v1_id": 874,
+        "v3_id": 646,
+        "name": "JC Royal Thai Cuisine",
+        "area_count": 1,
+        "total_points": 47
+      },
+      {
+        "v1_id": 364,
+        "v3_id": 984,
+        "name": "La Famiglia on the Danforth",
+        "area_count": 1,
+        "total_points": 21
+      },
+      {
+        "v1_id": 879,
+        "v3_id": 651,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 9
+      },
+      {
+        "v1_id": 889,
+        "v3_id": 660,
+        "name": "Milano",
+        "area_count": 2,
+        "total_points": 26
+      },
+      {
+        "v1_id": 913,
+        "v3_id": 680,
+        "name": "Milano",
+        "area_count": 5,
+        "total_points": 43
+      },
+      {
+        "v1_id": 937,
+        "v3_id": 701,
+        "name": "Milano",
+        "area_count": 2,
+        "total_points": 22
+      },
+      {
+        "v1_id": 947,
+        "v3_id": 711,
+        "name": "Supreme Pizzeria",
+        "area_count": 1,
+        "total_points": 11
+      },
+      {
+        "v1_id": 948,
+        "v3_id": 712,
+        "name": "Patate Lou Lou",
+        "area_count": 1,
+        "total_points": 10
+      },
+      {
+        "v1_id": 951,
+        "v3_id": 714,
+        "name": "Ogilvie Pizza",
+        "area_count": 1,
+        "total_points": 15
+      },
+      {
+        "v1_id": 953,
+        "v3_id": 716,
+        "name": "PizzaRama",
+        "area_count": 2,
+        "total_points": 24
+      },
+      {
+        "v1_id": 964,
+        "v3_id": 726,
+        "name": "Pizza Joanna",
+        "area_count": 3,
+        "total_points": 16
+      },
+      {
+        "v1_id": 965,
+        "v3_id": 727,
+        "name": "La Maison du Burger",
+        "area_count": 1,
+        "total_points": 13
+      },
+      {
+        "v1_id": 973,
+        "v3_id": 735,
+        "name": "Amicci Pizza",
+        "area_count": 2,
+        "total_points": 27
+      },
+      {
+        "v1_id": 974,
+        "v3_id": 736,
+        "name": "Greber Pizza et Shawarma",
+        "area_count": 1,
+        "total_points": 15
+      },
+      {
+        "v1_id": 987,
+        "v3_id": 749,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 10
+      },
+      {
+        "v1_id": 989,
+        "v3_id": 751,
+        "name": "Milano",
+        "area_count": 1,
+        "total_points": 15
+      },
+      {
+        "v1_id": 511,
+        "v3_id": 1017,
+        "name": "Sushi Express Chambly",
+        "area_count": 2,
+        "total_points": 44
+      }
+    ],
+    "empty_blob": [
+      {
+        "v1_id": 1025,
+        "v3_id": 783,
+        "name": "Colonnade Pizza"
+      },
+      {
+        "v1_id": 1027,
+        "v3_id": 784,
+        "name": "Colonnade Pizza"
+      },
+      {
+        "v1_id": 1028,
+        "v3_id": 785,
+        "name": "Colonnade Pizza"
+      },
+      {
+        "v1_id": 1064,
+        "v3_id": 820,
+        "name": "Vieux Hull Pizza"
+      },
+      {
+        "v1_id": 1066,
+        "v3_id": 822,
+        "name": "Papa Burger Maloney"
+      },
+      {
+        "v1_id": 695,
+        "v3_id": 491,
+        "name": "Light of India"
+      },
+      {
+        "v1_id": 228,
+        "v3_id": 109,
+        "name": "Restaurant Chez Gerry"
+      },
+      {
+        "v1_id": 231,
+        "v3_id": 1012,
+        "name": "Papa Pizza Des Flandres"
+      },
+      {
+        "v1_id": 238,
+        "v3_id": 118,
+        "name": "Mano City Pizza"
+      },
+      {
+        "v1_id": 334,
+        "v3_id": 196,
+        "name": "Colonnade Pizza"
+      },
+      {
+        "v1_id": 346,
+        "v3_id": 1013,
+        "name": "Papa Pizza Maloney"
+      },
+      {
+        "v1_id": 411,
+        "v3_id": 265,
+        "name": "Milano"
+      },
+      {
+        "v1_id": 952,
+        "v3_id": 715,
+        "name": "La Poutinerie Ogilvie"
+      }
+    ],
+    "null_blob": [
+      {
+        "v1_id": 1035,
+        "v3_id": 792,
+        "name": "Dumpling Bowl"
+      },
+      {
+        "v1_id": 1038,
+        "v3_id": 948,
+        "name": "All Out Burger Gladstone"
+      },
+      {
+        "v1_id": 1051,
+        "v3_id": 807,
+        "name": "Oh My Grill"
+      },
+      {
+        "v1_id": 1054,
+        "v3_id": 810,
+        "name": "Papa Grecque Cantley"
+      },
+      {
+        "v1_id": 1069,
+        "v3_id": 824,
+        "name": "Prima Pizza"
+      },
+      {
+        "v1_id": 1070,
+        "v3_id": 825,
+        "name": "La Nawab V2"
+      },
+      {
+        "v1_id": 1071,
+        "v3_id": 949,
+        "name": "All Out Burger Montreal Rd"
+      },
+      {
+        "v1_id": 1088,
+        "v3_id": 841,
+        "name": "All Out Burger"
+      },
+      {
+        "v1_id": 1094,
+        "v3_id": 847,
+        "name": "Sushiyana"
+      },
+      {
+        "v1_id": 669,
+        "v3_id": 479,
+        "name": "iCook Pho You"
+      },
+      {
+        "v1_id": 727,
+        "v3_id": 519,
+        "name": "HaNoi Pho"
+      },
+      {
+        "v1_id": 815,
+        "v3_id": 593,
+        "name": "Milano"
+      },
+      {
+        "v1_id": 959,
+        "v3_id": 721,
+        "name": "La Maison Pho"
+      },
+      {
+        "v1_id": 983,
+        "v3_id": 745,
+        "name": "Sala Thai"
+      },
+      {
+        "v1_id": 998,
+        "v3_id": 756,
+        "name": "Little Gyros Greek Grill"
+      }
+    ],
+    "malformed": [],
+    "not_found_in_dump": [
+      {
+        "v1_id": 1050,
+        "v3_id": 806,
+        "name": "Crispy's Bank Street"
+      },
+      {
+        "v1_id": 1095,
+        "v3_id": 1009,
+        "name": "Econo Pizza"
+      },
+      {
+        "v1_id": 694,
+        "v3_id": 941,
+        "name": "Ting's Kitchen"
+      },
+      {
+        "v1_id": 246,
+        "v3_id": 124,
+        "name": "Carlo's Pizza"
+      },
+      {
+        "v1_id": 805,
+        "v3_id": 584,
+        "name": "Crispy's"
+      },
+      {
+        "v1_id": 865,
+        "v3_id": 638,
+        "name": "Digby's Restaurant"
+      },
+      {
+        "v1_id": 914,
+        "v3_id": 681,
+        "name": "Oka's Hull"
+      }
+    ]
+  }
+}

@@ -833,6 +833,115 @@ v_area_sq_km := ROUND((ST_Area(v_zone_geometry::geography) / 1000000)::NUMERIC, 
 
 ---
 
+## ✅ New Functionalities
+
+This section tracks all new features, tables, types, and schema elements that have been added during the validation and enhancement process.
+
+### 1. Payment Options System
+**Date Added:** 2025-11-26  
+**Reason:** Enable restaurant-level payment method configuration and order-level payment method validation
+
+**Schema Changes:**
+
+**1. Created Enum Type:** `menuca_v3.payment_method_type`
+   - **Purpose:** Provide database-level validation for payment methods
+   - **Values:**
+     1. `cash` - Cash payment
+     2. `credit_card` - Credit card (online or at door)
+     3. `interac` - Interac e-Transfer
+     4. `credit_or_debit_at_door` - Credit or debit card at delivery
+     5. `credit_at_door` - Credit card at delivery
+     6. `debit_at_door` - Debit card at delivery
+   - **Impact:** High - Prevents invalid payment methods from being stored in orders
+
+**2. Created Table:** `menuca_v3.restaurant_payment_options`
+   - **Purpose:** Store which payment methods each restaurant accepts
+   - **Columns:**
+     - `id` (BIGSERIAL PRIMARY KEY) - Unique identifier
+     - `restaurant_id` (BIGINT NOT NULL) - Foreign key to restaurants
+     - `payment_method` (payment_method_type NOT NULL) - Payment method enum
+     - `is_enabled` (BOOLEAN DEFAULT true) - Whether method is currently enabled
+     - `display_order` (INTEGER DEFAULT 0) - Order for UI display
+     - `english_label` (TEXT) - English display label
+     - `french_label` (TEXT) - French display label
+     - `created_at` (TIMESTAMPTZ) - Record creation timestamp
+     - `updated_at` (TIMESTAMPTZ) - Last update timestamp
+   - **Constraints:**
+     - `uq_restaurant_payment_method` - Unique constraint on (restaurant_id, payment_method)
+     - Foreign key to `restaurants(id)` with CASCADE delete
+   - **Indexes:**
+     - `idx_restaurant_payment_restaurant` - On (restaurant_id, is_enabled)
+     - `idx_restaurant_payment_method` - On (payment_method)
+   - **Impact:** High - Enables restaurant-specific payment configuration
+
+**3. Updated Column:** `orders.payment_method`
+   - **Before:** `character varying(50)` - No validation, any string allowed
+   - **After:** `menuca_v3.payment_method_type` - Enum type with strict validation
+   - **Impact:** High - All order payments must use valid payment methods
+   - **Existing Data:** Preserved (1 'credit_card' record + 17 NULL records)
+
+**MVP Restaurant Configuration:**
+- ✅ **Ginkgo Garden (105)** - 5 enabled methods, 1 disabled (Interac)
+- ✅ **Orchid Sushi (245)** - 5 enabled methods, 1 disabled (Interac)
+- ✅ **Lucky Star Chinese Food (8)** - 5 enabled methods, 1 disabled (Interac)
+- ✅ **Champa Thai Cuisine (87)** - 5 enabled methods, 1 disabled (Interac)
+- ✅ **Hung Mein (119)** - 5 enabled methods, 1 disabled (Interac)
+
+**Enabled Payment Methods (All MVP Restaurants):**
+1. ✅ Cash (Comptant)
+2. ✅ Credit card (Carte de crédit)
+3. ✅ Credit or debit at door (Crédit ou débit à la porte)
+4. ✅ Credit at door (Crédit à la porte)
+5. ✅ Debit at door (Débit à la porte)
+6. ❌ Interac (disabled by default)
+
+**Total Records Created:** 30 (6 payment options × 5 restaurants)
+
+**Benefits:**
+- ✅ Database-level validation prevents invalid payment methods
+- ✅ Restaurant-specific payment configuration
+- ✅ Bilingual support (English/French labels)
+- ✅ Flexible enable/disable per restaurant
+- ✅ Extensible for future payment methods
+- ✅ Display order control for consistent UI
+
+**Usage Examples:**
+
+```sql
+-- Query enabled payment methods for a restaurant
+SELECT 
+    payment_method,
+    english_label,
+    french_label
+FROM menuca_v3.restaurant_payment_options
+WHERE restaurant_id = 105 
+    AND is_enabled = true
+ORDER BY display_order;
+
+-- Create an order with validated payment method
+INSERT INTO menuca_v3.orders (
+    restaurant_id,
+    payment_method,
+    ...
+) VALUES (
+    105,
+    'cash',  -- ✅ Valid enum value
+    ...
+);
+
+-- This will FAIL with enum validation error:
+INSERT INTO menuca_v3.orders (payment_method) 
+VALUES ('paypal');  -- ❌ ERROR: invalid input value for enum
+```
+
+**Future Enhancements:**
+- Add application-level validation to check if payment method is enabled for restaurant
+- Add payment processing integration per method type
+- Add payment method availability by order type (delivery vs takeout)
+- Add payment method fees/surcharges if needed
+
+---
+
 ## 🎯 Objective
 
 Validate data completeness for 5 MVP restaurants across these core business entities:
@@ -841,6 +950,7 @@ Validate data completeness for 5 MVP restaurants across these core business enti
 3. **Menu & Catalog** - Dishes, courses, modifiers, pricing
 4. **Schedules & Hours** - Operating hours, service configs
 5. **Delivery & Zones** - Delivery config, zones, areas, partners
+6. **Payment Options** - Accepted payment methods per restaurant
 
 ---
 

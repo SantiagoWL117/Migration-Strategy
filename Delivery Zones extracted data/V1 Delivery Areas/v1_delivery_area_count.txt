@@ -1,0 +1,126 @@
+================================================================================
+V1 DELIVERY AREA ANALYSIS - RESULTS
+================================================================================
+
+Total restaurants in dump: 11
+Target restaurants to analyze: 97
+
+Found in dump: 0
+Not found in dump: 97
+
+Restaurants WITH deliveryArea data: 0
+Restaurants WITHOUT deliveryArea data: 0
+
+--------------------------------------------------------------------------------
+BREAKDOWN
+--------------------------------------------------------------------------------
+
+RESTAURANTS NOT FOUND IN DUMP (97):
+  - V1 ID: 132
+  - V1 ID: 161
+  - V1 ID: 173
+  - V1 ID: 225
+  - V1 ID: 228
+  - V1 ID: 231
+  - V1 ID: 238
+  - V1 ID: 246
+  - V1 ID: 323
+  - V1 ID: 334
+  - V1 ID: 346
+  - V1 ID: 364
+  - V1 ID: 411
+  - V1 ID: 511
+  - V1 ID: 669
+  - V1 ID: 694
+  - V1 ID: 695
+  - V1 ID: 727
+  - V1 ID: 758
+  - V1 ID: 781
+  - V1 ID: 782
+  - V1 ID: 785
+  - V1 ID: 789
+  - V1 ID: 805
+  - V1 ID: 807
+  - V1 ID: 815
+  - V1 ID: 817
+  - V1 ID: 818
+  - V1 ID: 824
+  - V1 ID: 825
+  - V1 ID: 830
+  - V1 ID: 838
+  - V1 ID: 840
+  - V1 ID: 850
+  - V1 ID: 856
+  - V1 ID: 863
+  - V1 ID: 865
+  - V1 ID: 869
+  - V1 ID: 872
+  - V1 ID: 874
+  - V1 ID: 879
+  - V1 ID: 889
+  - V1 ID: 913
+  - V1 ID: 914
+  - V1 ID: 937
+  - V1 ID: 947
+  - V1 ID: 948
+  - V1 ID: 951
+  - V1 ID: 952
+  - V1 ID: 953
+  - V1 ID: 959
+  - V1 ID: 964
+  - V1 ID: 965
+  - V1 ID: 968
+  - V1 ID: 973
+  - V1 ID: 974
+  - V1 ID: 983
+  - V1 ID: 987
+  - V1 ID: 989
+  - V1 ID: 998
+  - V1 ID: 1025
+  - V1 ID: 1027
+  - V1 ID: 1028
+  - V1 ID: 1032
+  - V1 ID: 1033
+  - V1 ID: 1035
+  - V1 ID: 1038
+  - V1 ID: 1039
+  - V1 ID: 1041
+  - V1 ID: 1042
+  - V1 ID: 1045
+  - V1 ID: 1046
+  - V1 ID: 1050
+  - V1 ID: 1051
+  - V1 ID: 1054
+  - V1 ID: 1059
+  - V1 ID: 1060
+  - V1 ID: 1062
+  - V1 ID: 1063
+  - V1 ID: 1064
+  - V1 ID: 1065
+  - V1 ID: 1066
+  - V1 ID: 1069
+  - V1 ID: 1070
+  - V1 ID: 1071
+  - V1 ID: 1074
+  - V1 ID: 1080
+  - V1 ID: 1082
+  - V1 ID: 1083
+  - V1 ID: 1084
+  - V1 ID: 1087
+  - V1 ID: 1088
+  - V1 ID: 1089
+  - V1 ID: 1092
+  - V1 ID: 1093
+  - V1 ID: 1094
+  - V1 ID: 1095
+
+================================================================================
+MIGRATION IMPLICATIONS
+================================================================================
+
+Can migrate from V1: 0 restaurants
+Cannot migrate (no V1 data): 0 restaurants
+Missing from dump: 97 restaurants
+
+TOTAL UNABLE TO MIGRATE: 97 restaurants
+
