@@ -8,6 +8,35 @@
 
 ---
 
+## 📑 Complete Navigation Index
+
+### 🏠 Documentation Sections
+- [🤖 Agent Guidelines](#-agent-guidelines)
+- [🗑️ Removed Functionalities](#️-removed-functionalities)
+- [🔧 Schema Fixes Applied](#-schema-fixes-applied)
+- [📍 Location Point Geometry Documentation](#-location-point-geometry-documentation)
+- [✅ New Functionalities](#-new-functionalities)
+
+### 🎯 Validation Tracking
+- [🎯 Objective](#-objective)
+- [📊 Validation Progress Summary](#-validation-progress-summary)
+- [🔍 Entity Validation Checklist](#-entity-validation-checklist)
+
+### 🏆 MVP Restaurants
+- [🏆 MVP Restaurant Overview](#-mvp-restaurant-overview)
+- [Restaurant #1: Ginkgo Garden (ID: 105)](#restaurant-1-ginkgo-garden-id-105)
+- [Restaurant #2: Orchid Sushi (ID: 245)](#restaurant-2-orchid-sushi-id-245)
+- [Restaurant #3: Lucky Star Chinese Food (ID: 8)](#restaurant-3-lucky-star-chinese-food-id-8)
+- [Restaurant #4: Champa Thai Cuisine (ID: 87)](#restaurant-4-champa-thai-cuisine-id-87)
+- [Restaurant #5: Hung Mein (ID: 119)](#restaurant-5-hung-mein-id-119)
+
+### 📞 Reference & Documentation
+- [📞 Quick Reference](#-quick-reference)
+- [📊 Overall Progress Tracker](#-overall-progress-tracker)
+- [📚 Onboarding System Documentation](#-onboarding-system-documentation)
+
+---
+
 ## 🤖 Agent Guidelines
 
 ### Database Query Protocol
@@ -69,21 +98,6 @@ WHERE restaurant_id = 105;
    ```
 
 **Incorrect Format:** ❌ Single massive SQL script with multiple operations
-
----
-
-## 📑 Navigation Index
-
-**Jump to Restaurant:**
-- [#1 - Ginkgo Garden (ID: 105)](#restaurant-1-ginkgo-garden-id-105)
-- [#2 - Orchid Sushi (ID: 245)](#restaurant-2-orchid-sushi-id-245)
-- [#3 - Lucky Star Chinese Food (ID: 8)](#restaurant-3-lucky-star-chinese-food-id-8)
-- [#4 - Champa Thai Cuisine (ID: 87)](#restaurant-4-champa-thai-cuisine-id-87)
-- [#5 - Hung Mein (ID: 119)](#restaurant-5-hung-mein-id-119)
-
-**Quick Links:**
-- [Validation Progress Summary](#validation-progress-summary)
-- [Entity Validation Checklist](#entity-validation-checklist)
 
 ---
 
