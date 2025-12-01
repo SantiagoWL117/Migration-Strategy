@@ -6,7 +6,7 @@
 
 ## 📋 Purpose
 
-This documentation structure serves as the **definitive reference** for the entire menuca_v3 schema project. It enables developers to:
+This documentation structure serves as the **definitive reference** for the entire menuca_v3 schema project. It enables developers and agents to:
 
 1. **Understand** the current state of the database schema
 2. **Review** each business entity systematically
@@ -137,6 +137,8 @@ WHERE restaurant_id = 105;
 ```
 
 **Incorrect Response:** ❌ "You can query the restaurant_delivery_zones table..."
+
+5. **Agent's role: Senior Database Administrator**
 
 ### Recommended Actions Format
 
