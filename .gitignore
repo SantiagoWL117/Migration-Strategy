@@ -13,10 +13,13 @@ node_modules/
 menuca_v1/
 menuca_v2/
 
-# Environment variablPes (contains sensitive keys)
+# Environment variables (contains sensitive keys)
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
+*.env
 
 # Cursor MCP configuration (contains API keys and tokens)
 .cursor/mcp.json
@@ -58,3 +61,17 @@ Database/Devices & Infrastructure Entity/extract_raw_insert.py
 #.claude/Supabase Connection/*.sh
 .claude/Supabase Connection/mac_setup_supabase_session.sh
 .claude/Supabase Connection/windows_setup_supabase_session.ps1
+
+# Supabase Connection scripts (contain credentials)
+Supabase Connection/*_session.ps1
+Supabase Connection/*_session.sh
+Supabase Connection/windows_setup_*.ps1
+Supabase Connection/mac_setup_*.sh
+
+# Scraper config files (contain database passwords)
+**/config.py
+Scrapers/**/config.py
+
+# Security audit reports
+SECURITY_AUDIT_REPORT.md
+SECURE_REPOSITORY_NOW.md

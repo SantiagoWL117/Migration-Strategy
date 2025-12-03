@@ -3,15 +3,22 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
-# Load environment variables from project root
-env_path = Path(__file__).parent.parent.parent.parent / '.env'
+# Load environment variables from .env files/.env
+env_path = Path(__file__).parent.parent.parent.parent / '.env files' / '.env'
 load_dotenv(env_path)
 
-# V2 CRM Configuration - HARDCODED
+# V2 CRM Configuration - LOADED FROM ENVIRONMENT VARIABLES
 # V2 CRM URL: https://aggregator-admin.menu.ca/index.php/welcome/index
-V2_BASE_URL = 'https://aggregator-admin.menu.ca'
-V2_USERNAME = 'santiago@worklocal.ca'
-V2_PASSWORD = 'WL2129925*'
+V2_BASE_URL = os.getenv('CRM_BASE_URL', 'https://aggregator-admin.menu.ca')
+V2_USERNAME = os.getenv('CRM_USERNAME', 'santiago@worklocal.ca')
+V2_PASSWORD = os.getenv('CRM_PASSWORD')
+
+# Validate required credentials
+if not V2_PASSWORD:
+    raise ValueError(
+        "CRM_PASSWORD environment variable not set. "
+        f"Please verify .env file exists at: {env_path}"
+    )
 
 # URL Patterns
 LOGIN_URL = f"{V2_BASE_URL}/index.php/welcome/index"

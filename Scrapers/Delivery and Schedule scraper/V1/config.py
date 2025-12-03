@@ -3,15 +3,22 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
-# Load environment variables from project root
-env_path = Path(__file__).parent.parent.parent.parent / '.env'
+# Load environment variables from .env files/.env
+env_path = Path(__file__).parent.parent.parent.parent / '.env files' / '.env'
 load_dotenv(env_path)
 
-# V1 CRM Configuration - HARDCODED (V1 has different credentials than V2)
+# V1 CRM Configuration - LOADED FROM ENVIRONMENT VARIABLES
 # V1 CRM URL: https://menuadmin.menu.ca/?p=restaurants
-V1_BASE_URL = 'https://menuadmin.menu.ca'
-V1_USERNAME = 'santiago@worklocal.ca'
-V1_PASSWORD = '542sfgsgeerg4%$'
+V1_BASE_URL = os.getenv('CRM_BASE_URL', 'https://menuadmin.menu.ca')
+V1_USERNAME = os.getenv('CRM_USERNAME', 'santiago@worklocal.ca')
+V1_PASSWORD = os.getenv('CRM_PASSWORD')
+
+# Validate required credentials
+if not V1_PASSWORD:
+    raise ValueError(
+        "CRM_PASSWORD environment variable not set. "
+        f"Please verify .env file exists at: {env_path}"
+    )
 
 # URL Patterns
 RESTAURANTS_LIST_URL = f"{V1_BASE_URL}/?p=restaurants"

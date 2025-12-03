@@ -1,39 +1,36 @@
 # Agent Quick Start: Supabase Connection
 
-**Purpose:** Connect Claude Code session to Supabase database and test backend functionality.
+**Purpose:** Connect any agent to Supabase database securely using environment variables.
+
+**Project:** `menu-rebuild-vo` (nthpbtdjhhnwfxqsxbvy)
 
 ---
 
-## ⭐ Recommended Approach: Supabase CLI with Setup Scripts
+## 🔐 SECURITY FIRST: Environment Variables
 
-**Why:** Supabase CLI is the **ONLY accurate way** to test backend functionality because it:
-- ✅ **Tests with Auth Context** - Uses JWT tokens (`auth.uid()` works correctly)
-- ✅ **Enforces RLS Policies** - Tests security policies as production would
-- ✅ **Tests Edge Functions** - Can invoke and test Edge Functions
-- ✅ **Production-Accurate** - Exactly how frontend and API clients interact
-- ✅ **Complete Stack Testing** - Tests full auth → RLS → function flow
+**ALL credentials are stored in:**
+```
+.env files/.env
+```
 
-**When to use psql:** Only for quick database debugging (see bottom of this guide).
+**⚠️ NEVER hardcode credentials in this file or any other file!**
+
+**To access credentials, see:** `.env files/ENV_ACCESS_GUIDE.md`
 
 ---
 
-## 🚀 Step 1: Detect Operating System & Run Setup Script
+## 🚀 Quick Start: Choose Your Method
 
-### **For Windows Users:**
+### **Method 1: Use Setup Scripts (Recommended)**
 
-Run the PowerShell setup script:
+The setup scripts automatically load all credentials from `.env files/.env`.
+
+**Windows:**
 ```powershell
 . "Supabase Connection\windows_setup_supabase_session.ps1"
 ```
 
-**Then verify connection:**
-```powershell
-supabase projects list
-```
-
-### **For Mac/Linux Users:**
-
-Run the bash setup script:
+**Mac/Linux:**
 ```bash
 source "Supabase Connection/mac_setup_supabase_session.sh"
 ```
@@ -45,21 +42,41 @@ supabase projects list
 
 ---
 
-## 📦 What the Setup Scripts Configure
+### **Method 2: Load Environment Variables Manually**
 
-Both setup scripts set these environment variables:
+If you need to run a single command without the setup script:
 
-| Variable | Purpose |
-|----------|---------|
-| `SUPABASE_ACCESS_TOKEN` | CLI access token for project management |
-| `SUPABASE_SERVICE_ROLE_KEY` | Service role key for admin operations & Edge Functions |
-| `SUPABASE_PROJECT_REF` | Project reference ID (`nthpbtdjhhnwfxqsxbvy`) |
-| `SUPABASE_URL` | Project API URL (`https://nthpbtdjhhnwfxqsxbvy.supabase.co`) |
-| `SUPABASE_CONNECTION_STRING` | PostgreSQL connection string |
-| `SUPABASE_REST_API` | REST API endpoint |
-| `PSQL_PATH` | Path to PostgreSQL client |
+**Load from .env first:**
+```powershell
+# PowerShell - Load variables
+Get-Content ".\.env files\.env" | ForEach-Object {
+    if ($_ -match '^([A-Z_]+)=(.*)$') {
+        [System.Environment]::SetEnvironmentVariable($matches[1], $matches[2], 'Process')
+    }
+}
 
-**Important for Claude Code:** Since each bash command runs in a separate session, you need to chain the setup script with your commands using `&&` or `; ` or run the script in each command.
+# Then use them
+supabase projects list
+```
+
+---
+
+## 📦 What Gets Configured
+
+The setup scripts configure these environment variables from `.env files/.env`:
+
+| Variable | Purpose | Source in .env |
+|----------|---------|----------------|
+| `SUPABASE_URL` | Project API URL | `SUPABASE_URL` |
+| `SUPABASE_KEY` | Service role key for admin operations | `SUPABASE_KEY` |
+| `DB_CONNECTION_STRING` | PostgreSQL connection string | `DB_CONNECTION_STRING` |
+| `CRM_USERNAME` | Legacy CRM username | `CRM_USERNAME` |
+| `CRM_PASSWORD` | Legacy CRM password | `CRM_PASSWORD` |
+
+**Additional derived variables:**
+- `SUPABASE_PROJECT_REF` = `nthpbtdjhhnwfxqsxbvy`
+- `SUPABASE_REST_API` = `${SUPABASE_URL}/rest/v1`
+- `PSQL_PATH` = Path to PostgreSQL client
 
 ---
 
@@ -78,11 +95,206 @@ Both setup scripts set these environment variables:
 | **Execute Raw SQL** | psql | Direct database access |
 | **Performance Analysis** | psql | EXPLAIN ANALYZE queries |
 
-### **Tool Capabilities Comparison**
+---
 
-#### **1. Supabase CLI** ✅ Project & Function Management
+## 🎯 Common Operations
 
-**What it CAN do:**
+### 1. List Supabase Projects
+
+```bash
+# After running setup script:
+supabase projects list
+
+# Or inline (loads from .env):
+. "Supabase Connection\windows_setup_supabase_session.ps1" && supabase projects list
+```
+
+---
+
+### 2. List Edge Functions
+
+```bash
+# After running setup script:
+supabase functions list
+
+# Or inline:
+. "Supabase Connection\windows_setup_supabase_session.ps1" && supabase functions list
+```
+
+---
+
+### 3. Pull Database Schema
+
+```bash
+# After running setup script:
+supabase db pull
+
+# Or inline:
+. "Supabase Connection\windows_setup_supabase_session.ps1" && supabase db pull
+```
+
+---
+
+### 4. Query Database with psql
+
+**⚠️ For debugging only! Does NOT test auth context or RLS.**
+
+```powershell
+# Windows - After running setup script:
+. "Supabase Connection\windows_setup_supabase_session.ps1"
+& $env:PSQL_PATH $env:DB_CONNECTION_STRING -c "SELECT COUNT(*) FROM menuca_v3.restaurants;"
+```
+
+```bash
+# Mac/Linux - After running setup script:
+source "Supabase Connection/mac_setup_supabase_session.sh"
+psql "$DB_CONNECTION_STRING" -c "SELECT COUNT(*) FROM menuca_v3.restaurants;"
+```
+
+---
+
+### 5. Test SQL Functions (Production-Accurate)
+
+**Important:** SQL functions that use `auth.uid()` MUST be tested via REST API, not psql!
+
+```bash
+# Step 1: Load environment
+. "Supabase Connection\windows_setup_supabase_session.ps1"
+
+# Step 2: Create test user
+curl -X POST "${SUPABASE_URL}/auth/v1/signup" \
+  -H "apikey: ${SUPABASE_ANON_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "test@example.com",
+    "password": "TestPass123!",
+    "options": {
+      "data": {
+        "first_name": "Test",
+        "last_name": "User"
+      }
+    }
+  }'
+
+# Step 3: Login to get JWT token
+curl -X POST "${SUPABASE_URL}/auth/v1/token?grant_type=password" \
+  -H "apikey: ${SUPABASE_ANON_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "test@example.com",
+    "password": "TestPass123!"
+  }' | jq -r '.access_token'
+
+# Step 4: Test function with JWT (replace YOUR_JWT_TOKEN with token from step 3)
+curl -X POST "${SUPABASE_URL}/rest/v1/rpc/get_user_profile" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -H "apikey: ${SUPABASE_ANON_KEY}" \
+  -H "Content-Type: application/json"
+```
+
+---
+
+### 6. Invoke Edge Functions
+
+```bash
+# Load environment
+. "Supabase Connection\windows_setup_supabase_session.ps1"
+
+# Invoke function (requires service role key)
+curl -X POST "${SUPABASE_URL}/functions/v1/create-admin-user" \
+  -H "Authorization: Bearer ${SUPABASE_SERVICE_ROLE_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "admin@example.com",
+    "password": "SecurePass123!",
+    "first_name": "Admin",
+    "last_name": "User",
+    "restaurant_ids": [349]
+  }'
+```
+
+---
+
+### 7. View Edge Function Logs
+
+```bash
+# After running setup script:
+supabase functions logs create-admin-user --follow
+```
+
+---
+
+## 🧪 Testing Backend Functionality
+
+### Complete Test Flow Example
+
+```bash
+# 1. Load environment variables
+. "Supabase Connection\windows_setup_supabase_session.ps1"
+
+# 2. Create test user
+TEST_EMAIL="test-$(date +%s)@example.com"
+curl -X POST "${SUPABASE_URL}/auth/v1/signup" \
+  -H "apikey: ${SUPABASE_ANON_KEY}" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"email\": \"${TEST_EMAIL}\",
+    \"password\": \"TestPass123!\",
+    \"options\": {
+      \"data\": {
+        \"first_name\": \"Test\",
+        \"last_name\": \"User\"
+      }
+    }
+  }"
+
+# 3. Login and capture JWT token
+JWT_TOKEN=$(curl -X POST "${SUPABASE_URL}/auth/v1/token?grant_type=password" \
+  -H "apikey: ${SUPABASE_ANON_KEY}" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"email\": \"${TEST_EMAIL}\",
+    \"password\": \"TestPass123!\"
+  }" | jq -r '.access_token')
+
+# 4. Test SQL function with auth context
+curl -X POST "${SUPABASE_URL}/rest/v1/rpc/get_user_profile" \
+  -H "Authorization: Bearer ${JWT_TOKEN}" \
+  -H "apikey: ${SUPABASE_ANON_KEY}" \
+  -H "Content-Type: application/json"
+
+# 5. Cleanup - Delete test user (requires user UUID from step 2)
+# curl -X DELETE "${SUPABASE_URL}/auth/v1/admin/users/USER_UUID" \
+#   -H "Authorization: Bearer ${SUPABASE_SERVICE_ROLE_KEY}" \
+#   -H "apikey: ${SUPABASE_SERVICE_ROLE_KEY}"
+```
+
+---
+
+## 🔌 Project Details
+
+| Detail | Value | Where to Find |
+|--------|-------|---------------|
+| **Project Name** | menu-rebuild-vo | Dashboard |
+| **Project Ref** | nthpbtdjhhnwfxqsxbvy | Dashboard / `.env files/.env` |
+| **Host** | db.nthpbtdjhhnwfxqsxbvy.supabase.co | From `DB_CONNECTION_STRING` |
+| **Port** | 5432 | Standard PostgreSQL |
+| **Database** | postgres | Standard |
+| **Schema** | menuca_v3 | Application schema |
+| **Project URL** | https://nthpbtdjhhnwfxqsxbvy.supabase.co | `.env files/.env` → `SUPABASE_URL` |
+| **Connection String** | See `.env files/.env` | `DB_CONNECTION_STRING` |
+| **Service Role Key** | See `.env files/.env` | `SUPABASE_KEY` |
+| **Anon Key** | Contact admin | Not in .env (public key) |
+
+**🔐 To access any credential:** See `.env files/ENV_ACCESS_GUIDE.md`
+
+---
+
+## 🛠️ Tool Comparison
+
+### **1. Supabase CLI** ✅ Project & Function Management
+
+**Can do:**
 - ✅ List Edge Functions: `supabase functions list`
 - ✅ Deploy Edge Functions: `supabase functions deploy`
 - ✅ View function logs: `supabase functions logs`
@@ -90,41 +302,41 @@ Both setup scripts set these environment variables:
 - ✅ Manage projects: `supabase projects list`
 - ✅ Push migrations: `supabase db push`
 
-**What it CANNOT do:**
+**Cannot do:**
 - ❌ Execute SQL queries directly
 - ❌ Call SQL functions with auth context
 - ❌ Test RLS policies
-- ❌ Create/read/update/delete table data
+- ❌ CRUD operations on tables
 
-**Authentication:** Uses `SUPABASE_ACCESS_TOKEN`
+**Authentication:** Uses `SUPABASE_ACCESS_TOKEN` (from .env)
 
 ---
 
-#### **2. curl (Supabase REST API)** ✅ Production-Accurate Testing
+### **2. curl (Supabase REST API)** ✅ Production-Accurate Testing
 
-**What it CAN do:**
-- ✅ Call SQL functions with JWT tokens (auth.uid() works!)
+**Can do:**
+- ✅ Call SQL functions with JWT tokens (`auth.uid()` works!)
 - ✅ Test RLS policies (properly enforced)
 - ✅ Invoke Edge Functions
 - ✅ Create/login users via Auth API
 - ✅ CRUD operations on tables (as user would)
 - ✅ Test exactly how frontend interacts with backend
 
-**What it CANNOT do:**
+**Cannot do:**
 - ❌ Deploy functions
 - ❌ Manage schema/migrations
 - ❌ Execute arbitrary SQL (only via SQL functions)
 - ❌ Direct database administration
 
 **Authentication:**
-- `Anon Key` + User JWT Token (for customer operations)
-- `Service Role Key` (for admin operations)
+- Anon Key + User JWT Token (for customer operations)
+- Service Role Key (for admin operations) - from `.env files/.env`
 
 ---
 
-#### **3. psql (PostgreSQL Client)** ✅ Database Debugging
+### **3. psql (PostgreSQL Client)** ✅ Database Debugging
 
-**What it CAN do:**
+**Can do:**
 - ✅ Execute ANY SQL query
 - ✅ Check table structure: `\dt`, `\d table_name`
 - ✅ View function definitions: `\sf function_name`
@@ -132,426 +344,240 @@ Both setup scripts set these environment variables:
 - ✅ Manual data inspection/fixes
 - ✅ Check indexes, triggers, constraints
 
-**What it CANNOT do:**
-- ❌ Test auth context (auth.uid() returns NULL)
+**Cannot do:**
+- ❌ Test auth context (`auth.uid()` returns NULL)
 - ❌ Properly test RLS policies (connects as superuser)
 - ❌ Test Edge Functions
 - ❌ Represent production behavior
 
-**Authentication:** PostgreSQL credentials (postgres user + password)
+**Authentication:** PostgreSQL credentials (from `DB_CONNECTION_STRING`)
 
-⚠️ **WARNING:** Use psql ONLY for debugging. It bypasses auth and RLS!
-
----
-
-### **Decision Matrix: Which Tool for Your Task?**
-
-**Need to test backend functionality?**
-→ Use **curl** (REST API) with JWT tokens
-
-**Need to deploy or manage Edge Functions?**
-→ Use **Supabase CLI**
-
-**Need to check schema or debug data?**
-→ Use **psql** (debugging only)
-
-**Need to test as a user would (with auth)?**
-→ Use **curl** (REST API) with user JWT token
-
-**Need to perform admin operations?**
-→ Use **curl** with Service Role Key
-
-**Need to pull database schema for version control?**
-→ Use **Supabase CLI** (`db pull`)
+**⚠️ WARNING:** Use psql ONLY for debugging. It bypasses auth and RLS!
 
 ---
 
-## 💡 Agent Instructions: How to Use in Claude Code
+## 💡 Decision Matrix: Which Tool for Your Task?
 
-**Since Claude Code runs each command in a separate session**, you have two options:
-
-### **Option A: Chain Setup Script with Commands (Recommended for single commands)**
-
-**Windows (PowerShell syntax in bash):**
-```bash
-. "Supabase Connection\windows_setup_supabase_session.ps1" && supabase functions list
-```
-
-**Mac/Linux:**
-```bash
-source "Supabase Connection/mac_setup_supabase_session.sh" && supabase functions list
-```
-
-### **Option B: Export Variables Inline (Recommended for multiple commands)**
-
-**For any OS (bash syntax):**
-```bash
-export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && export SUPABASE_SERVICE_ROLE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NTI3MzQ4NCwiZXhwIjoyMDcwODQ5NDg0fQ.THhg9RhwfeN2B9V1SZdef0iJIeBntwd2w67p_J0ch1g" && supabase functions list
-```
+| Your Goal | Use This Tool | Why |
+|-----------|---------------|-----|
+| **Test user-facing functionality** | curl + JWT | Tests auth, RLS, exactly like production |
+| **Test admin operations** | curl + Service Role Key | Admin-level testing |
+| **Deploy Edge Functions** | Supabase CLI | Only way to deploy |
+| **View function logs** | Supabase CLI | Built-in log viewer |
+| **Check table schema** | psql | Quick schema inspection |
+| **Debug SQL performance** | psql | EXPLAIN ANALYZE |
+| **Pull schema for version control** | Supabase CLI | Schema management |
+| **Create/authenticate users** | curl + Auth API | User management |
 
 ---
 
-## 🎯 Common Supabase CLI Operations
+## 🔧 Common psql Commands (Debugging Only)
 
-### Check Supabase projects
+**⚠️ Remember: psql does NOT test auth context or RLS!**
+
 ```bash
-export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && supabase projects list
-```
+# Load environment first
+. "Supabase Connection\windows_setup_supabase_session.ps1"
 
-### List all deployed Edge Functions
-```bash
-export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && supabase functions list
-```
+# List all tables in menuca_v3 schema
+& $env:PSQL_PATH $env:DB_CONNECTION_STRING -c "\dt menuca_v3.*"
 
-### Pull database schema
-```bash
-export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && supabase db pull
-```
+# Describe a specific table
+& $env:PSQL_PATH $env:DB_CONNECTION_STRING -c "\d menuca_v3.restaurants"
 
-**Note:** Supabase CLI does **not** support direct SQL query execution. For SQL queries, use:
-- **REST API with curl** (see Testing Backend Functionality section below)
-- **psql client** (see Alternative: Direct Database Access section below)
+# View function definition
+& $env:PSQL_PATH $env:DB_CONNECTION_STRING -c "\sf menuca_v3.get_user_profile"
 
----
+# List all functions in schema
+& $env:PSQL_PATH $env:DB_CONNECTION_STRING -c "\df menuca_v3.*"
 
-## 🧪 Testing Backend Functionality
+# Count rows in table
+& $env:PSQL_PATH $env:DB_CONNECTION_STRING -c "SELECT COUNT(*) FROM menuca_v3.restaurants;"
 
-### Test SQL Functions via Supabase API
+# Check indexes
+& $env:PSQL_PATH $env:DB_CONNECTION_STRING -c "SELECT indexname, indexdef FROM pg_indexes WHERE schemaname = 'menuca_v3';"
 
-**Important:** SQL functions that use `auth.uid()` (like `get_user_profile()`) MUST be tested with proper auth context, not via direct psql.
-
-**Create Test User via Supabase Auth API:**
-```bash
-curl -X POST "https://nthpbtdjhhnwfxqsxbvy.supabase.co/auth/v1/signup" \
-  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyNzM0ODQsImV4cCI6MjA3MDg0OTQ4NH0.CfgwjVvf2DS37QguV20jf7--QZTXf6-DJR_IhFauedA" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "test@example.com",
-    "password": "password123",
-    "options": {
-      "data": {
-        "first_name": "Test",
-        "last_name": "User",
-        "phone": "+1234567890"
-      }
-    }
-  }'
-```
-
-**Login and Get JWT Token:**
-```bash
-curl -X POST "https://nthpbtdjhhnwfxqsxbvy.supabase.co/auth/v1/token?grant_type=password" \
-  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyNzM0ODQsImV4cCI6MjA3MDg0OTQ4NH0.CfgwjVvf2DS37QguV20jf7--QZTXf6-DJR_IhFauedA" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "test@example.com",
-    "password": "password123"
-  }'
-```
-
-**Test SQL Function with JWT Token:**
-```bash
-# Use the access_token from login response
-curl -X POST "https://nthpbtdjhhnwfxqsxbvy.supabase.co/rest/v1/rpc/get_user_profile" \
-  -H "Authorization: Bearer YOUR_USER_JWT_TOKEN" \
-  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyNzM0ODQsImV4cCI6MjA3MDg0OTQ4NH0.CfgwjVvf2DS37QguV20jf7--QZTXf6-DJR_IhFauedA" \
-  -H "Content-Type: application/json"
-```
-
-**Delete Test User (Cleanup):**
-```bash
-# Use service role key to delete user
-curl -X DELETE "https://nthpbtdjhhnwfxqsxbvy.supabase.co/auth/v1/admin/users/USER_UUID" \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NTI3MzQ4NCwiZXhwIjoyMDcwODQ5NDg0fQ.THhg9RhwfeN2B9V1SZdef0iJIeBntwd2w67p_J0ch1g" \
-  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NTI3MzQ4NCwiZXhwIjoyMDcwODQ5NDg0fQ.THhg9RhwfeN2B9V1SZdef0iJIeBntwd2w67p_J0ch1g"
+# Query with formatting
+& $env:PSQL_PATH $env:DB_CONNECTION_STRING -c "SELECT id, name, status FROM menuca_v3.restaurants LIMIT 5;"
 ```
 
 ---
 
-## 🔌 Testing Edge Functions
+## 🚨 Important Security Notes
 
-### List all Edge Functions
-```bash
-export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && supabase functions list
-```
+### ✅ DO's
 
-### Invoke Edge Function (Service Role Required)
+- ✅ **Always load credentials from `.env files/.env`**
+- ✅ **Use setup scripts for consistent environment**
+- ✅ **Test with proper auth context (curl + JWT)**
+- ✅ **Use psql only for debugging schema**
+- ✅ **Verify environment variables are loaded before commands**
 
-**Example: Create Admin User**
-```bash
-curl -X POST "https://nthpbtdjhhnwfxqsxbvy.supabase.co/functions/v1/create-admin-user" \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NTI3MzQ4NCwiZXhwIjoyMDcwODQ5NDg0fQ.THhg9RhwfeN2B9V1SZdef0iJIeBntwd2w67p_J0ch1g" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "admin@example.com",
-    "password": "password123",
-    "first_name": "Admin",
-    "last_name": "User",
-    "restaurant_ids": [349]
-  }'
-```
+### ❌ DON'Ts
 
-**Example: Assign Admin Restaurants**
-```bash
-curl -X POST "https://nthpbtdjhhnwfxqsxbvy.supabase.co/functions/v1/assign-admin-restaurants" \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NTI3MzQ4NCwiZXhwIjoyMDcwODQ5NDg0fQ.THhg9RhwfeN2B9V1SZdef0iJIeBntwd2w67p_J0ch1g" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "admin_user_id": 1,
-    "action": "add",
-    "restaurant_ids": [349, 350]
-  }'
-```
-
-### View Edge Function Logs
-```bash
-export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && supabase functions logs create-admin-user --follow
-```
-
----
-
-## 🔑 Connection Details Reference
-
-| Detail | Value |
-|--------|-------|
-| **Host** | `db.nthpbtdjhhnwfxqsxbvy.supabase.co` |
-| **Port** | `5432` |
-| **Database** | `postgres` |
-| **User** | `postgres` |
-| **Password** | `Gz35CPTom1RnsmGM` |
-| **Project Ref** | `nthpbtdjhhnwfxqsxbvy` |
-| **Project URL** | `https://nthpbtdjhhnwfxqsxbvy.supabase.co` |
-| **Full Connection String** | `postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres` |
-| **Access Token** | `sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9` |
-| **Anon Key** | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyNzM0ODQsImV4cCI6MjA3MDg0OTQ4NH0.CfgwjVvf2DS37QguV20jf7--QZTXf6-DJR_IhFauedA` |
-| **Service Role Key** | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NTI3MzQ4NCwiZXhwIjoyMDcwODQ5NDg0fQ.THhg9RhwfeN2B9V1SZdef0iJIeBntwd2w67p_J0ch1g` |
-
----
-
-## 🛠️ Alternative: Direct Database Access (DEBUGGING ONLY)
-
-**⚠️ WARNING:** Direct psql access should ONLY be used for debugging database schema or quick data inspection. It does NOT:
-- ❌ Test auth context (`auth.uid()` returns NULL)
-- ❌ Enforce RLS policies properly
-- ❌ Test Edge Functions
-- ❌ Represent how frontend/API interacts with backend
-
-**Use psql only for:**
-- Quick schema inspection
-- Direct data queries (not function testing)
-- Performance analysis (EXPLAIN)
-- Migration verification
-
-### PostgreSQL Client (psql) - Debugging Only
-
-**For Windows:**
-```bash
-"C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "YOUR_SQL_HERE"
-```
-
-**For Mac/Linux:**
-```bash
-psql "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "YOUR_SQL_HERE"
-```
-
-### Quick psql Commands (Debugging)
-
-**List all tables:**
-```bash
-"C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "\dt menuca_v3.*"
-```
-
-**Check function definitions:**
-```bash
-"C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "\sf menuca_v3.get_user_profile"
-```
-
-**Query data directly:**
-```bash
-"C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "SELECT id, name FROM menuca_v3.restaurants LIMIT 5;"
-```
+- ❌ **NEVER hardcode credentials in files**
+- ❌ **NEVER use psql to test SQL functions** (auth.uid() returns NULL!)
+- ❌ **NEVER commit `.env files/.env` to git**
+- ❌ **NEVER share credentials in chat, logs, or documentation**
+- ❌ **NEVER test production features without auth context**
 
 ---
 
 ## 🔧 Troubleshooting
 
-### Supabase CLI not found
-Install Supabase CLI:
-```bash
-# macOS
-brew install supabase/tap/supabase
+### Issue: "SUPABASE_ACCESS_TOKEN not set"
 
-# Windows (via npm)
-npm install -g supabase
+**Solution:**
+```powershell
+# Run the setup script first
+. "Supabase Connection\windows_setup_supabase_session.ps1"
 
-# Or via scoop
-scoop bucket add supabase https://github.com/supabase/scoop-bucket.git
-scoop install supabase
+# Verify it's loaded
+echo $env:SUPABASE_ACCESS_TOKEN
 ```
-
-### psql not found (Mac/Linux)
-Install PostgreSQL client:
-```bash
-# macOS
-brew install postgresql@17
-
-# Ubuntu/Debian
-sudo apt install postgresql-client
-```
-
-### psql not found (Windows)
-PostgreSQL may be installed but not in PATH. Use full path:
-```bash
-"C:\Program Files\PostgreSQL\17\bin\psql.exe"
-```
-
-### Setup script not loading environment variables
-**Issue:** Variables not persisting in Claude Code.
-
-**Solution:** Chain the script with your command using `&&`:
-```bash
-source "Supabase Connection/mac_setup_supabase_session.sh" && supabase functions list
-```
-
-### Connection timeout
-- Check internet connection
-- Verify Supabase project is not paused
-- Confirm credentials are correct
-
-### Permission denied
-- Verify you're using the correct key (anon vs service role)
-- Check if IP is whitelisted (if applicable)
-- Ensure proper Authorization header
-
-### Edge Function not found
-- Verify function is deployed: `supabase functions list`
-- Check function name spelling
-- Ensure service role key is used (not anon key)
 
 ---
 
-## 📝 Summary for Agents
+### Issue: "Connection refused" or "Timeout"
 
-### ⭐ CRITICAL: Choose the Right Tool for Each Task
-
-**Before executing any command, determine which tool to use:**
-
-| Your Task | Use This Tool | Command Pattern |
-|-----------|---------------|-----------------|
-| List/deploy Edge Functions | Supabase CLI | `export SUPABASE_ACCESS_TOKEN="..." && supabase functions list` |
-| Test SQL functions | curl + JWT | `curl -X POST ".../rpc/function" -H "Authorization: Bearer JWT"` |
-| Test Edge Functions | curl + Service Key | `curl -X POST ".../functions/v1/func" -H "Authorization: Bearer SERVICE_KEY"` |
-| Create/login users | curl + Anon Key | `curl -X POST ".../auth/v1/signup" -H "apikey: ANON_KEY"` |
-| Pull schema | Supabase CLI | `export SUPABASE_ACCESS_TOKEN="..." && supabase db pull` |
-| Debug schema | psql | `psql "CONNECTION_STRING" -c "\sf function_name"` |
+**Checklist:**
+1. Verify `.env files/.env` exists and contains `DB_CONNECTION_STRING`
+2. Check internet connection
+3. Verify Supabase project is not paused
+4. Test with: `curl ${SUPABASE_URL}/rest/v1/`
 
 ---
 
-### **1. For Supabase CLI Operations (Functions & Schema Management)**
+### Issue: "psql not found"
 
 **Windows:**
-```bash
-. "Supabase Connection\windows_setup_supabase_session.ps1" && supabase [command]
+```powershell
+# Use full path
+& "C:\Program Files\PostgreSQL\17\bin\psql.exe" $env:DB_CONNECTION_STRING -c "SELECT 1;"
 ```
 
 **Mac/Linux:**
 ```bash
-source "Supabase Connection/mac_setup_supabase_session.sh" && supabase [command]
-```
-
-**Or use inline:**
-```bash
-export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && supabase [command]
+# Install PostgreSQL client
+brew install postgresql@17  # macOS
+sudo apt install postgresql-client  # Ubuntu/Debian
 ```
 
 ---
 
-### **2. For Backend Testing (SQL Functions, Edge Functions, Auth)**
+### Issue: "auth.uid() returns NULL in function"
 
-**Test SQL Functions (as authenticated user):**
+**Problem:** You're using psql to test the function.
+
+**Solution:** Test via REST API with JWT token (see "Test SQL Functions" section above).
+
+---
+
+### Issue: "Setup script errors"
+
+**Check:**
+```powershell
+# Verify .env file exists
+Test-Path ".\.env files\.env"
+
+# Check file contents (without exposing secrets)
+Get-Content ".\.env files\.env" | Select-String "SUPABASE_URL"
+```
+
+---
+
+### Issue: "Edge Function not found"
+
+**Solution:**
 ```bash
-# Step 1: Create user and get JWT token
-curl -X POST "https://nthpbtdjhhnwfxqsxbvy.supabase.co/auth/v1/signup" \
-  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyNzM0ODQsImV4cCI6MjA3MDg0OTQ4NH0.CfgwjVvf2DS37QguV20jf7--QZTXf6-DJR_IhFauedA" \
-  -H "Content-Type: application/json" \
-  -d '{"email": "test@example.com", "password": "password123"}'
+# List all deployed functions
+. "Supabase Connection\windows_setup_supabase_session.ps1" && supabase functions list
 
-# Step 2: Call SQL function with JWT token
-curl -X POST "https://nthpbtdjhhnwfxqsxbvy.supabase.co/rest/v1/rpc/function_name" \
-  -H "Authorization: Bearer USER_JWT_TOKEN" \
-  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyNzM0ODQsImV4cCI6MjA3MDg0OTQ4NH0.CfgwjVvf2DS37QguV20jf7--QZTXf6-DJR_IhFauedA" \
+# Verify function name spelling
+# Deploy if needed (from function directory):
+# supabase functions deploy function-name
+```
+
+---
+
+## 📚 Additional Resources
+
+### Documentation Files
+
+- **`.env files/ENV_ACCESS_GUIDE.md`** - How to access environment variables
+- **`windows_setup_supabase_session.ps1`** - Windows setup script
+- **`mac_setup_supabase_session.sh`** - Mac/Linux setup script
+- **`ENVIRONMENT_LOADING_UPDATE.md`** - Security implementation details
+
+### Supabase Dashboard
+
+- **URL:** https://supabase.com/dashboard
+- **Project:** menu-rebuild-vo (nthpbtdjhhnwfxqsxbvy)
+- **View:** Tables, Functions, Policies, Edge Functions, Logs
+
+### External Documentation
+
+- **Supabase Docs:** https://supabase.com/docs
+- **Supabase CLI:** https://supabase.com/docs/guides/cli
+- **PostgreSQL Docs:** https://www.postgresql.org/docs/
+
+---
+
+## ✅ Quick Reference Card
+
+### For New Agents: 3-Step Connection
+
+```bash
+# 1. Load environment
+. "Supabase Connection\windows_setup_supabase_session.ps1"
+
+# 2. Verify connection
+supabase projects list
+
+# 3. Start working
+# - Use Supabase CLI for Edge Functions
+# - Use curl for API testing
+# - Use psql for schema debugging only
+```
+
+### Command Templates
+
+**Supabase CLI:**
+```bash
+. "Supabase Connection\windows_setup_supabase_session.ps1" && supabase [command]
+```
+
+**REST API Call:**
+```bash
+. "Supabase Connection\windows_setup_supabase_session.ps1"
+curl -X POST "${SUPABASE_URL}/rest/v1/rpc/function_name" \
+  -H "Authorization: Bearer ${JWT_TOKEN}" \
+  -H "apikey: ${SUPABASE_ANON_KEY}" \
   -H "Content-Type: application/json"
 ```
 
-**Test Edge Functions (as admin):**
+**psql Query:**
 ```bash
-curl -X POST "https://nthpbtdjhhnwfxqsxbvy.supabase.co/functions/v1/function-name" \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50aHBidGRqaGhud2Z4cXN4YnZ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NTI3MzQ4NCwiZXhwIjoyMDcwODQ5NDg0fQ.THhg9RhwfeN2B9V1SZdef0iJIeBntwd2w67p_J0ch1g" \
-  -H "Content-Type: application/json" \
-  -d '{"data": "value"}'
+. "Supabase Connection\windows_setup_supabase_session.ps1"
+& $env:PSQL_PATH $env:DB_CONNECTION_STRING -c "YOUR_SQL"
 ```
 
 ---
 
-### **3. For Debugging ONLY (Schema Inspection)**
+## 🎯 Summary
 
-**Use psql for quick checks:**
-```bash
-"C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "\sf menuca_v3.function_name"
-```
+**To connect to Supabase securely:**
 
-⚠️ **CRITICAL:** psql does NOT test auth context, RLS policies, or represent production behavior!
+1. ✅ **All credentials are in** `.env files/.env`
+2. ✅ **Use setup scripts** to load environment
+3. ✅ **Choose the right tool** for each task
+4. ✅ **Test with auth context** (curl + JWT)
+5. ✅ **Use psql only for debugging** schema
 
----
-
-### **🚨 Common Mistakes to Avoid**
-
-❌ **WRONG:** Using psql to test SQL functions
-- Problem: auth.uid() returns NULL, RLS not enforced
-- Solution: Use curl with JWT token
-
-❌ **WRONG:** Using Supabase CLI to execute SQL queries
-- Problem: `supabase db execute` doesn't exist
-- Solution: Use curl for queries or psql for debugging
-
-❌ **WRONG:** Using curl to deploy Edge Functions
-- Problem: No API endpoint for deployment
-- Solution: Use Supabase CLI `supabase functions deploy`
-
-✅ **CORRECT:** Match the tool to the task using the table above
+**Never hardcode credentials anywhere!**
 
 ---
 
-## ✅ Testing Checklist
-
-When testing backend functionality, use this checklist:
-
-### For SQL Functions:
-- [ ] Use Supabase REST API with curl (NOT psql)
-- [ ] Create test user via Auth API
-- [ ] Login and get JWT token
-- [ ] Test function with proper Authorization header
-- [ ] Verify RLS policies are enforced
-- [ ] Test error cases (unauthorized, missing params)
-- [ ] Clean up test data when done
-
-### For Edge Functions:
-- [ ] List functions: `supabase functions list`
-- [ ] Invoke with service role key via curl
-- [ ] Check response for success/error
-- [ ] Check logs: `supabase functions logs function-name`
-- [ ] Test error cases
-- [ ] Clean up test data when done
-
-### For Database Schema:
-- [x] Use psql for quick inspection (OK for this)
-- [ ] Verify indexes exist
-- [ ] Check function definitions
-- [ ] Validate table structure
-
----
-
-**Location:** `Supabase Connection/`
-**Full Documentation:** See `README.md` in this directory
-**Last Updated:** 2025-12-01
-**Version:** 4.1 (Updated paths to new location)
+**Last Updated:** December 3, 2025  
+**Version:** 5.0 (Secure - Environment Variables Only)  
+**Project:** menu-rebuild-vo (nthpbtdjhhnwfxqsxbvy)
