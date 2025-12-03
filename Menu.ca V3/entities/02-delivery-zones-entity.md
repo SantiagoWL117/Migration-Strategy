@@ -113,7 +113,6 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | `deleted_at`                  | timestamptz            | YES      | -                  | Soft delete timestamp                    |
 | `deleted_by`                  | bigint                 | YES      | -                  | FK to admin_users                        |
 | `estimated_delivery_minutes`  | integer                | YES      | -                  | Estimated delivery time                  |
-| `distance_based_delivery_fee` | boolean                | NO       | false              | Uses distance-based fees instead of flat |
 
 **Constraints:**
 
@@ -126,7 +125,6 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 - `delivery_min_order`: 235/235 populated (100%)
 - `geometry`: 216/235 populated (92%) - 19 missing are distance-based or have no delivery area defined
 - `estimated_delivery_minutes`: 235/235 populated (100%)
-- `distance_based_delivery_fee`: 8 restaurants = true, 227 = false
 
 ---
 
@@ -150,6 +148,7 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | `requires_phone`          | boolean     | YES      | true               | Phone required for orders     |
 | `closing_warning_minutes` | integer     | YES      | -                  | Warning before closing        |
 | `twilio_call`             | boolean     | YES      | -                  | Enable Twilio call on order   |
+| `distance_based_delivery_fee` | boolean | NO       | false              | Uses distance-based fees      |
 | `created_at`              | timestamptz | NO       | now()              | Creation timestamp            |
 | `created_by`              | integer     | YES      | -                  | Admin who created             |
 | `updated_at`              | timestamptz | YES      | -                  | Last update timestamp         |
@@ -164,6 +163,7 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 - `takeout_time_minutes`: 185/185 populated (100%)
 - `closing_warning_minutes`: 158/185 populated (85%)
 - `twilio_call`: 169 = true (91%), 16 = false (9%)
+- `distance_based_delivery_fee`: 8 = true, 177 = false
 
 ---
 
@@ -359,6 +359,7 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | `idx_delivery_pickup_configs_deleted`  | `restaurant_id`        | BTREE       | WHERE deleted_at IS NULL         |
 | `idx_delivery_pickup_delivery_enabled` | `has_delivery_enabled` | BTREE       | WHERE has_delivery_enabled=true  |
 | `idx_delivery_pickup_takeout_enabled`  | `pickup_enabled`       | BTREE       | WHERE pickup_enabled=true        |
+| `idx_delivery_pickup_distance_based`   | `restaurant_id`        | BTREE       | WHERE distance_based_delivery_fee=true |
 
 ---
 
@@ -582,13 +583,16 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 
 ### Data Quality
 
-| Column                        | Populated   | Missing                                            |
-| ----------------------------- | ----------- | -------------------------------------------------- |
-| `delivery_fee`                | 229 (97%)   | 6 areas (distance-based restaurants)               |
-| `delivery_min_order`          | 235 (100%)  | 0                                                  |
-| `geometry`                    | 216 (92%)   | 19 areas (distance-based or no delivery defined)   |
-| `estimated_delivery_minutes`  | 235 (100%)  | 0                                                  |
-| `distance_based_delivery_fee` | 235 (100%)  | 0 (8 = true, 227 = false)                          |
+| Column (restaurant_delivery_areas)  | Populated   | Missing                                            |
+| ----------------------------------- | ----------- | -------------------------------------------------- |
+| `delivery_fee`                      | 229 (97%)   | 6 areas (distance-based restaurants)               |
+| `delivery_min_order`                | 235 (100%)  | 0                                                  |
+| `geometry`                          | 216 (92%)   | 19 areas (distance-based or no delivery defined)   |
+| `estimated_delivery_minutes`        | 235 (100%)  | 0                                                  |
+
+| Column (delivery_and_pickup_configs) | Populated   | Notes                              |
+| ------------------------------------ | ----------- | ---------------------------------- |
+| `distance_based_delivery_fee`        | 185 (100%)  | 8 = true, 177 = false              |
 
 ---
 
@@ -599,6 +603,30 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 - **User Entity** → Validates user addresses against zones, stores delivery addresses
 - **Geography Entity** → Uses cities/provinces for location data
 - **Admin Users Entity** → FK for audit columns (`created_by`, `updated_by`, `deleted_by`)
+
+### Delivery Fee Lookup Flow
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                        DELIVERY FEE LOOKUP                          │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  1. Query delivery_and_pickup_configs by restaurant_id              │
+│     → has_delivery_enabled, distance_based_delivery_fee             │
+│                                                                     │
+│  2. IF has_delivery_enabled = false → No delivery available         │
+│                                                                     │
+│  3. IF distance_based_delivery_fee = false                          │
+│     → Query restaurant_delivery_areas.delivery_fee (flat fee)       │
+│     → Use ST_Contains() to check if address is in geometry          │
+│                                                                     │
+│  4. IF distance_based_delivery_fee = true                           │
+│     → Calculate distance from restaurant to delivery address        │
+│     → Query restaurant_distance_based_delivery_fees by distance_km  │
+│     → Return total_delivery_fee for matching tier                   │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 ### Distance-Based Delivery Fee Relationships
 
@@ -611,34 +639,43 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
     │             │                        │
     ▼             ▼                        ▼
 ┌─────────────────────────┐  ┌─────────────────────────────┐  ┌─────────────────────────────────┐
-│ restaurant_delivery_    │  │ restaurant_delivery_        │  │ restaurant_distance_based_      │
-│ areas (235)             │  │ companies (18)              │  │ delivery_fees (44)              │
+│ delivery_and_pickup_    │  │ restaurant_delivery_        │  │ restaurant_distance_based_      │
+│ configs (185)           │  │ areas (235)                 │  │ delivery_fees (44)              │
 ├─────────────────────────┤  ├─────────────────────────────┤  ├─────────────────────────────────┤
-│ distance_based_         │  │ company_email_id ──────────┐│  │ company_email_id ──────────────┐│
-│ delivery_fee (bool)     │  │ commission                 ││  │ distance_in_km                 ││
-│ delivery_fee (flat)     │  │ restaurant_pays_difference ││  │ total_delivery_fee             ││
-│ delivery_min_order      │  │ sends_to_delivery          ││  │ driver_earning                 ││
-└─────────────────────────┘  └────────────────────────────┼┘  │ restaurant_pays                ││
-                                                          │   │ vendor_pays                    ││
-                                                          │   └────────────────────────────────┼┘
-                                                          │                                    │
-                                                          ▼                                    │
-                                            ┌─────────────────────────────┐◄───────────────────┘
-                                            │  delivery_company_emails    │
-                                            │         (9)                 │
-                                            ├─────────────────────────────┤
-                                            │ email (unique)              │
-                                            │ company_name                │
-                                            └─────────────────────────────┘
+│ has_delivery_enabled    │  │ geometry (polygon)          │  │ company_email_id ──────────────┐│
+│ distance_based_         │  │ delivery_fee (flat)         │  │ distance_in_km                 ││
+│ delivery_fee (bool)     │  │ delivery_min_order          │  │ total_delivery_fee             ││
+│ pickup_enabled          │  │ estimated_delivery_minutes  │  │ driver_earning                 ││
+└────────────┬────────────┘  └─────────────────────────────┘  │ restaurant_pays                ││
+             │                                                │ vendor_pays                    ││
+             │ IF distance_based_delivery_fee = true          └────────────────────────────────┼┘
+             └────────────────────────────────────────────────────────────────────────────────►│
+                                                                                               │
+┌──────────────────────────────────────┐                                                       │
+│ restaurant_delivery_companies (18)   │                                                       │
+├──────────────────────────────────────┤                                                       │
+│ company_email_id ───────────────────┐│                                                       │
+│ commission                          ││                                                       │
+│ restaurant_pays_difference          ││                                                       │
+└─────────────────────────────────────┼┘                                                       │
+                                      │                                                        │
+                                      ▼                                                        │
+                        ┌─────────────────────────────┐◄───────────────────────────────────────┘
+                        │  delivery_company_emails    │
+                        │         (9)                 │
+                        ├─────────────────────────────┤
+                        │ email (unique)              │
+                        │ company_name                │
+                        └─────────────────────────────┘
 ```
 
 **Flow:**
 
-1. `restaurant_delivery_areas.distance_based_delivery_fee = true` → Restaurant uses distance-based pricing
+1. `delivery_and_pickup_configs.distance_based_delivery_fee = true` → Restaurant uses distance-based pricing
 2. `restaurant_delivery_companies` → Links restaurant to delivery company with commission terms
 3. `restaurant_distance_based_delivery_fees` → Fee tiers (5-10 km) with driver/restaurant/vendor split
 4. `delivery_company_emails` → Shared delivery company contact info
 
 ---
 
-**Last Updated:** 2025-12-03 (Renamed restaurant_service_configs → delivery_and_pickup_configs, added twilio_call column)
+**Last Updated:** 2025-12-03 (Moved distance_based_delivery_fee to delivery_and_pickup_configs for optimized lookups)
