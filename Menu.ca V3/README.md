@@ -108,15 +108,26 @@ Entities are numbered by **dependency order**:
 
 ## 🤖 Agent Guidelines
 
+### Role:
+You are a Senior Database Administrator with expertise in PostgreSQL and Supabase.
+
 ### Database Query Protocol
 
 **When User Requests: "Give me a query that..."**
 
 1. **Always return executable PostgreSQL/Supabase queries** - Not descriptions, not summaries, actual SQL
-2. **Use psql for menuca_v3 schema queries:**
-   ```bash
-   & "C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "YOUR_SQL_HERE"
+
+2. **CRITICAL: Use this EXACT psql command for ALL menuca_v3 schema queries:**
+   ```powershell
+   $env:PGCLIENTENCODING="UTF8"; $env:PAGER=""; & "C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" --pset pager=off -c "YOUR_SQL_HERE"
    ```
+   
+   **Why each component is required:**
+   - `$env:PGCLIENTENCODING="UTF8"` - Handles special characters (é, è, ñ) in restaurant names/addresses
+   - `$env:PAGER=""` - Disables system pager to prevent hangs
+   - `--pset pager=off` - Disables psql pager to prevent `-- More --` prompts that cause infinite hangs
+   
+   **❌ DO NOT use simplified commands - they will hang on large result sets!**
 3. **Use Supabase CLI for function/Edge Function operations:**
    ```bash
    export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && supabase [command]
@@ -130,15 +141,62 @@ Entities are numbered by **dependency order**:
 **Example Request:** "Give me a query that returns all delivery zones for restaurant 105"
 
 **Correct Response:**
-```sql
+```powershell
+$env:PGCLIENTENCODING="UTF8"; $env:PAGER=""; & "C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" --pset pager=off -c "
 SELECT id, zone_name, delivery_fee_cents, minimum_order_cents
 FROM menuca_v3.restaurant_delivery_zones
 WHERE restaurant_id = 105;
+"
 ```
 
-**Incorrect Response:** ❌ "You can query the restaurant_delivery_zones table..."
+**Incorrect Responses:** 
+- ❌ "You can query the restaurant_delivery_zones table..."
+- ❌ Providing SQL without the full psql command wrapper
+- ❌ Omitting `$env:PGCLIENTENCODING="UTF8"` or `$env:PAGER=""` or `--pset pager=off`
 
 5. **Agent's role: Senior Database Administrator**
+
+---
+
+### 🚨 Enforcing Standard Query Protocol Across All Agents
+
+**To ensure ALL agents use the correct command:**
+
+1. **Include this README in agent context** by mentioning it in prompts:
+   ```
+   Follow the database query protocol in @Menu.ca V3/README.md
+   ```
+
+2. **Add to agent system prompts:**
+   ```
+   CRITICAL: Always use the EXACT psql command from Menu.ca V3/README.md for database queries.
+   Never simplify or omit any part of the command.
+   ```
+
+3. **In agent prompts, reference the standard:**
+   ```
+   Execute this query using the standard command from README.md:
+   [your SQL here]
+   ```
+
+4. **Create agent templates** that include the full command by default
+
+5. **When agents provide queries:**
+   - They must include the full command wrapper
+   - Not just the SQL query
+   - All environment variables and flags included
+
+**Example of proper agent response:**
+```powershell
+$env:PGCLIENTENCODING="UTF8"; $env:PAGER=""; & "C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" --pset pager=off -c "
+SELECT id, name, status 
+FROM menuca_v3.restaurants 
+WHERE deleted_at IS NULL 
+ORDER BY name;
+"
+```
+
+---
 
 ### Recommended Actions Format
 
@@ -218,13 +276,46 @@ When making schema changes:
 
 ### Windows psql Command Template
 ```powershell
-& "C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "YOUR_SQL_HERE"
+$env:PGCLIENTENCODING="UTF8"; $env:PAGER=""; & "C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" --pset pager=off -c "YOUR_SQL_HERE"
 ```
+
+> **CRITICAL:** This command MUST be used exactly as shown:
+> - `$env:PGCLIENTENCODING="UTF8"` - Required for special characters
+> - `$env:PAGER=""` - Required to prevent system pager hangs
+> - `--pset pager=off` - Required to prevent `-- More --` prompts that cause infinite hangs
+> 
+> **Without all three components, queries will hang on large result sets (>20-50 rows)**
 
 ### Supabase CLI Command Template
 ```bash
 export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && supabase [command]
 ```
+
+---
+
+## 🔧 Troubleshooting
+
+### Query Hangs at "-- More --"
+**Problem:** Query stops and shows `-- More --` prompt  
+**Cause:** Missing `--pset pager=off` flag  
+**Fix:** Use the complete command from the template above
+
+### Encoding Error (WIN1252)
+**Problem:** `ERROR: character with byte sequence 0xef in encoding "UTF8" has no equivalent in encoding "WIN1252"`  
+**Cause:** Missing `$env:PGCLIENTENCODING="UTF8"`  
+**Fix:** Include encoding variable at the start of command
+
+### Query Times Out
+**Problem:** Command times out before completion  
+**Cause:** Query taking >15 minutes or pager causing hang  
+**Fix:** 
+- Ensure `$env:PAGER=""` and `--pset pager=off` are included
+- For very long queries (>15 min), use async script: `.\scripts\run_psql_async.ps1`
+
+### Incomplete Results
+**Problem:** Only partial results returned  
+**Cause:** Pager was triggered and results were cut off  
+**Fix:** Verify all three components in command template are present
 
 ---
 

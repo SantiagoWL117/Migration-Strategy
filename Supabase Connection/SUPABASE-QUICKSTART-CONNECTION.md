@@ -23,7 +23,7 @@
 
 Run the PowerShell setup script:
 ```powershell
-. ".claude\Supabase Connection\windows_setup_supabase_session.ps1"
+. "Supabase Connection\windows_setup_supabase_session.ps1"
 ```
 
 **Then verify connection:**
@@ -35,7 +35,7 @@ supabase projects list
 
 Run the bash setup script:
 ```bash
-source ".claude/Supabase Connection/mac_setup_supabase_session.sh"
+source "Supabase Connection/mac_setup_supabase_session.sh"
 ```
 
 **Then verify connection:**
@@ -174,12 +174,12 @@ Both setup scripts set these environment variables:
 
 **Windows (PowerShell syntax in bash):**
 ```bash
-. ".claude\Supabase Connection\windows_setup_supabase_session.ps1" && supabase functions list
+. "Supabase Connection\windows_setup_supabase_session.ps1" && supabase functions list
 ```
 
 **Mac/Linux:**
 ```bash
-source ".claude/Supabase Connection/mac_setup_supabase_session.sh" && supabase functions list
+source "Supabase Connection/mac_setup_supabase_session.sh" && supabase functions list
 ```
 
 ### **Option B: Export Variables Inline (Recommended for multiple commands)**
@@ -410,7 +410,7 @@ PostgreSQL may be installed but not in PATH. Use full path:
 
 **Solution:** Chain the script with your command using `&&`:
 ```bash
-source ".claude/Supabase Connection/mac_setup_supabase_session.sh" && supabase functions list
+source "Supabase Connection/mac_setup_supabase_session.sh" && supabase functions list
 ```
 
 ### Connection timeout
@@ -451,12 +451,12 @@ source ".claude/Supabase Connection/mac_setup_supabase_session.sh" && supabase f
 
 **Windows:**
 ```bash
-. ".claude\Supabase Connection\windows_setup_supabase_session.ps1" && supabase [command]
+. "Supabase Connection\windows_setup_supabase_session.ps1" && supabase [command]
 ```
 
 **Mac/Linux:**
 ```bash
-source ".claude/Supabase Connection/mac_setup_supabase_session.sh" && supabase [command]
+source "Supabase Connection/mac_setup_supabase_session.sh" && supabase [command]
 ```
 
 **Or use inline:**
@@ -551,7 +551,7 @@ When testing backend functionality, use this checklist:
 
 ---
 
-**Location:** `.claude/Supabase Connection/`
+**Location:** `Supabase Connection/`
 **Full Documentation:** See `README.md` in this directory
-**Last Updated:** 2025-10-28
-**Version:** 4.0 (Complete Tool Comparison & Decision Guide)
+**Last Updated:** 2025-12-01
+**Version:** 4.1 (Updated paths to new location)

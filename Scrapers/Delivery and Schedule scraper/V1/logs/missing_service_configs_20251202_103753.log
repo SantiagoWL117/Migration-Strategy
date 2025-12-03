@@ -1,0 +1,106 @@
+2025-12-02 10:37:53,133 - INFO - ============================================================
+2025-12-02 10:37:53,133 - INFO - V1 Missing Service Configs Scraper
+2025-12-02 10:37:53,133 - INFO - ============================================================
+2025-12-02 10:37:53,134 - INFO - Target restaurants: 7
+2025-12-02 10:37:53,134 - INFO - Log file: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Delivery and Schedule scraper\V1\logs\missing_service_configs_20251202_103753.log
+2025-12-02 10:37:53,134 - INFO - Starting browser...
+2025-12-02 10:37:53,617 - INFO - Browser started successfully
+2025-12-02 10:37:53,617 - INFO - Logging in to V1 CRM...
+2025-12-02 10:37:53,618 - INFO -   URL: https://menuadmin.menu.ca/?p=restaurants
+2025-12-02 10:37:54,584 - INFO -   Filling credentials for user: santiago@worklocal.ca
+2025-12-02 10:37:57,767 - INFO - ✓ Login successful
+2025-12-02 10:37:57,767 - INFO - 
+============================================================
+2025-12-02 10:37:57,767 - INFO - Scraping: Lemongrass Thai Cuisine (V3: 1010, V1: 219)
+2025-12-02 10:37:57,768 - INFO - ============================================================
+2025-12-02 10:37:57,768 - INFO - Scraping Lemongrass Thai Cuisine (V1 ID: 219)...
+2025-12-02 10:38:00,027 - INFO -   ✓ Scraped successfully: delivery=65min, takeout=35min, delivery_enabled=False, pickup_enabled=True
+2025-12-02 10:38:00,027 - INFO -   ✓ takeout_time: 35
+2025-12-02 10:38:00,027 - INFO -   ✓ has_delivery_enabled: False
+2025-12-02 10:38:00,028 - INFO -   ✓ pickup_enabled: True
+2025-12-02 10:38:00,028 - INFO -   ✓ closing_warning_minutes: 30
+2025-12-02 10:38:00,028 - INFO - 
+============================================================
+2025-12-02 10:38:00,028 - INFO - Scraping: Papa Pizza Des Flandres (V3: 1012, V1: 231)
+2025-12-02 10:38:00,028 - INFO - ============================================================
+2025-12-02 10:38:00,029 - INFO - Scraping Papa Pizza Des Flandres (V1 ID: 231)...
+2025-12-02 10:38:01,939 - INFO -   ✓ Scraped successfully: delivery=50min, takeout=25min, delivery_enabled=True, pickup_enabled=True
+2025-12-02 10:38:01,939 - INFO -   ✓ takeout_time: 25
+2025-12-02 10:38:01,939 - INFO -   ✓ has_delivery_enabled: True
+2025-12-02 10:38:01,940 - INFO -   ✓ pickup_enabled: True
+2025-12-02 10:38:01,940 - INFO -   ✓ closing_warning_minutes: 30
+2025-12-02 10:38:01,940 - INFO - 
+============================================================
+2025-12-02 10:38:01,940 - INFO - Scraping: Papa Pizza Maloney (V3: 1013, V1: 346)
+2025-12-02 10:38:01,941 - INFO - ============================================================
+2025-12-02 10:38:01,941 - INFO - Scraping Papa Pizza Maloney (V1 ID: 346)...
+2025-12-02 10:38:03,907 - INFO -   ✓ Scraped successfully: delivery=40min, takeout=15min, delivery_enabled=True, pickup_enabled=True
+2025-12-02 10:38:03,907 - INFO -   ✓ takeout_time: 15
+2025-12-02 10:38:03,907 - INFO -   ✓ has_delivery_enabled: True
+2025-12-02 10:38:03,908 - INFO -   ✓ pickup_enabled: True
+2025-12-02 10:38:03,908 - INFO -   ✓ closing_warning_minutes: 30
+2025-12-02 10:38:03,908 - INFO - 
+============================================================
+2025-12-02 10:38:03,908 - INFO - Scraping: Papa Pizza Val-Des-Monts (V3: 1014, V1: 703)
+2025-12-02 10:38:03,908 - INFO - ============================================================
+2025-12-02 10:38:03,908 - INFO - Scraping Papa Pizza Val-Des-Monts (V1 ID: 703)...
+2025-12-02 10:38:05,842 - INFO -   ✓ Scraped successfully: delivery=75min, takeout=25min, delivery_enabled=True, pickup_enabled=True
+2025-12-02 10:38:05,842 - INFO -   ✓ takeout_time: 25
+2025-12-02 10:38:05,842 - INFO -   ✓ has_delivery_enabled: True
+2025-12-02 10:38:05,843 - INFO -   ✓ pickup_enabled: True
+2025-12-02 10:38:05,843 - INFO -   ✓ closing_warning_minutes: 30
+2025-12-02 10:38:05,843 - INFO - 
+============================================================
+2025-12-02 10:38:05,843 - INFO - Scraping: Poutinerie Québecurds Gatineau (V3: 1015, V1: 1046)
+2025-12-02 10:38:05,844 - INFO - ============================================================
+2025-12-02 10:38:05,844 - INFO - Scraping Poutinerie Québecurds Gatineau (V1 ID: 1046)...
+2025-12-02 10:38:07,776 - INFO -   ✓ Scraped successfully: delivery=50min, takeout=30min, delivery_enabled=True, pickup_enabled=False
+2025-12-02 10:38:07,776 - INFO -   ✓ takeout_time: 30
+2025-12-02 10:38:07,777 - INFO -   ✓ has_delivery_enabled: True
+2025-12-02 10:38:07,777 - INFO -   ✓ pickup_enabled: False
+2025-12-02 10:38:07,777 - INFO -   ✓ closing_warning_minutes: 30
+2025-12-02 10:38:07,777 - INFO - 
+============================================================
+2025-12-02 10:38:07,777 - INFO - Scraping: Roulas Grecque et Pizza (V3: 1016, V1: 173)
+2025-12-02 10:38:07,778 - INFO - ============================================================
+2025-12-02 10:38:07,778 - INFO - Scraping Roulas Grecque et Pizza (V1 ID: 173)...
+2025-12-02 10:38:09,692 - INFO -   ✓ Scraped successfully: delivery=50min, takeout=28min, delivery_enabled=True, pickup_enabled=False
+2025-12-02 10:38:09,692 - INFO -   ✓ takeout_time: 28
+2025-12-02 10:38:09,692 - INFO -   ✓ has_delivery_enabled: True
+2025-12-02 10:38:09,692 - INFO -   ✓ pickup_enabled: False
+2025-12-02 10:38:09,693 - INFO -   ✓ closing_warning_minutes: 30
+2025-12-02 10:38:09,693 - INFO - 
+============================================================
+2025-12-02 10:38:09,693 - INFO - Scraping: Sushi Express Chambly (V3: 1017, V1: 511)
+2025-12-02 10:38:09,693 - INFO - ============================================================
+2025-12-02 10:38:09,693 - INFO - Scraping Sushi Express Chambly (V1 ID: 511)...
+2025-12-02 10:38:11,617 - INFO -   ✓ Scraped successfully: delivery=40min, takeout=20min, delivery_enabled=True, pickup_enabled=True
+2025-12-02 10:38:11,618 - INFO -   ✓ takeout_time: 20
+2025-12-02 10:38:11,618 - INFO -   ✓ has_delivery_enabled: True
+2025-12-02 10:38:11,618 - INFO -   ✓ pickup_enabled: True
+2025-12-02 10:38:11,618 - INFO -   ✓ closing_warning_minutes: 30
+2025-12-02 10:38:11,666 - INFO - Browser stopped
+2025-12-02 10:38:11,667 - INFO - Results saved to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Delivery and Schedule scraper\output\missing_service_configs_20251202_103811.json
+2025-12-02 10:38:11,668 - INFO - Results saved to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Delivery and Schedule scraper\output\missing_service_configs_latest.json
+2025-12-02 10:38:11,668 - INFO - 
+============================================================
+2025-12-02 10:38:11,668 - INFO - SCRAPE SUMMARY
+2025-12-02 10:38:11,668 - INFO - ============================================================
+2025-12-02 10:38:11,668 - INFO - Total: 7
+2025-12-02 10:38:11,669 - INFO - Successful: 7
+2025-12-02 10:38:11,669 - INFO - Failed: 0
+2025-12-02 10:38:11,669 - INFO - 
+============================================================
+2025-12-02 10:38:11,669 - INFO - Inserting 7 service configs
+2025-12-02 10:38:11,669 - INFO - ============================================================
+2025-12-02 10:38:12,306 - INFO -   ✓ Inserted: Lemongrass Thai Cuisine (ID: 1040)
+2025-12-02 10:38:12,421 - INFO -   ✓ Inserted: Papa Pizza Des Flandres (ID: 1041)
+2025-12-02 10:38:12,535 - INFO -   ✓ Inserted: Papa Pizza Maloney (ID: 1042)
+2025-12-02 10:38:12,650 - INFO -   ✓ Inserted: Papa Pizza Val-Des-Monts (ID: 1043)
+2025-12-02 10:38:12,763 - INFO -   ✓ Inserted: Poutinerie Québecurds Gatineau (ID: 1044)
+2025-12-02 10:38:12,872 - INFO -   ✓ Inserted: Roulas Grecque et Pizza (ID: 1045)
+2025-12-02 10:38:12,982 - INFO -   ✓ Inserted: Sushi Express Chambly (ID: 1046)
+2025-12-02 10:38:12,982 - INFO - 
+Inserted 7/7 service configs
+2025-12-02 10:38:12,983 - INFO - 
+Done!

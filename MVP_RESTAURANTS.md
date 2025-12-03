@@ -39,15 +39,80 @@
 
 ## 🤖 Agent Guidelines
 
+### ⚠️ Terminal Timeout Fix
+
+**IMPORTANT:** Agent terminal commands now support up to **15 minutes** timeout.
+
+📖 **Full details:** See `AGENT_TERMINAL_TIMEOUT_FIX.md`
+
+---
+
 ### Database Query Protocol
 
 **When User Requests: "Give me a query that..."**
 
 1. **Always return executable PostgreSQL/Supabase queries** - Not descriptions, not summaries, actual SQL
-2. **Use psql for menuca_v3 schema queries:**
-   ```bash
-   & "C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "YOUR_SQL_HERE"
+
+2. **Default Method (use for all queries unless specified otherwise):**
+   ```powershell
+   $env:PGCLIENTENCODING="UTF8"; $env:PAGER=""; & "C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" --pset pager=off -c "YOUR_SQL_HERE"
    ```
+   
+   **CRITICAL:** 
+   - Always include `--pset pager=off` to prevent `-- More --` prompts that cause hangs!
+   - Always set `$env:PGCLIENTENCODING="UTF8"` to handle special characters properly!
+
+3. **Async Method (only for bulk operations affecting 100+ rows):**
+   ```powershell
+   .\scripts\run_psql_async.ps1 -Query "YOUR_SQL_HERE" -OutputFile "results.txt"
+   Start-Sleep -Seconds 5
+   Get-Content .\output\results.txt
+   ```
+   
+   **Use async when:**
+   - Bulk UPDATE/DELETE with large IN clauses
+   - Complex multi-table migrations
+   - User explicitly requests async execution
+
+---
+
+### 🔐 Environment Variables Access
+
+**All credentials are stored in:** `.env` file at project root
+
+**Quick Access Methods:**
+
+1. **View all variables (with masking):**
+   ```powershell
+   .\scripts\load_env.ps1 -Show
+   ```
+
+2. **Get specific variable:**
+   ```powershell
+   $dbConn = .\scripts\load_env.ps1 -Get "DB_CONNECTION_STRING"
+   $supabaseUrl = .\scripts\load_env.ps1 -Get "SUPABASE_URL"
+   ```
+
+3. **Use in database queries:**
+   ```powershell
+   # Option A: Direct connection string
+   $env:PGCLIENTENCODING="UTF8"; $env:PAGER=""; $conn = .\scripts\get_db_connection.ps1
+   & "C:\Program Files\PostgreSQL\17\bin\psql.exe" $conn --pset pager=off -c "YOUR_QUERY"
+   
+   # Option B: Helper script
+   $env:PGCLIENTENCODING="UTF8"; $env:PAGER=""; $conn = .\scripts\load_env.ps1 -Get "DB_CONNECTION_STRING"
+   & "C:\Program Files\PostgreSQL\17\bin\psql.exe" $conn --pset pager=off -c "YOUR_QUERY"
+   ```
+
+**Available Variables:**
+- `DB_CONNECTION_STRING` - PostgreSQL connection for menuca_v3
+- `SUPABASE_URL` - Supabase project URL
+- `SUPABASE_KEY` - Service role key
+- `CRM_USERNAME` - Legacy CRM admin username
+- `CRM_PASSWORD` - Legacy CRM admin password
+- `CRM_BASE_URL` - Legacy CRM URL
+
+📖 **Full guide:** See `ENV_ACCESS_GUIDE.md`
 3. **Use Supabase CLI for function/Edge Function operations:**
    ```bash
    export SUPABASE_ACCESS_TOKEN="sbp_c6c07320cadc875cfd087fd8f8edd03769c8b2b9" && supabase [command]

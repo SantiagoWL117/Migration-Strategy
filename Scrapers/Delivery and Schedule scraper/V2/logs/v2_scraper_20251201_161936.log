@@ -1,0 +1,176 @@
+2025-12-01 16:19:36,800 - INFO - ============================================================
+2025-12-01 16:19:36,800 - INFO - V2 Delivery & Schedule Scraper
+2025-12-01 16:19:36,800 - INFO - ============================================================
+2025-12-01 16:19:37,134 - INFO - Database connection established
+2025-12-01 16:19:37,250 - INFO - Excluding 6 MVP restaurants from V2 scraping
+2025-12-01 16:19:37,251 - INFO - Database connection closed
+2025-12-01 16:19:37,251 - INFO - Found 22 restaurants to scrape
+2025-12-01 16:19:37,251 - INFO - Starting browser...
+2025-12-01 16:19:37,775 - INFO - Browser started successfully
+2025-12-01 16:19:37,775 - INFO - Logging in to V2 CRM...
+2025-12-01 16:19:37,775 - INFO -   URL: https://aggregator-admin.menu.ca/index.php/welcome/index
+2025-12-01 16:19:43,911 - INFO - ✓ Login successful
+2025-12-01 16:19:43,911 - INFO - [1/22] Processing Al-s Drive In...
+2025-12-01 16:19:43,911 - INFO - Scraping Al-s Drive In (V2 ID: 1678)...
+2025-12-01 16:19:48,664 - INFO -   ✓ Scraped successfully: delivery=45min, takeout=20min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:19:48,664 - INFO - [2/22] Processing All Out Burger Bank St....
+2025-12-01 16:19:48,665 - INFO - Scraping All Out Burger Bank St. (V2 ID: 1611)...
+2025-12-01 16:19:53,110 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=25min, delivery_enabled=False, pickup_enabled=True
+2025-12-01 16:19:53,110 - INFO - [3/22] Processing All Out Burger Gladstone...
+2025-12-01 16:19:53,110 - INFO - Scraping All Out Burger Gladstone (V2 ID: 1635)...
+2025-12-01 16:19:58,020 - INFO -   ✓ Scraped successfully: delivery=58min, takeout=25min, delivery_enabled=False, pickup_enabled=True
+2025-12-01 16:19:58,020 - INFO - [4/22] Processing All Out Burger Montreal Rd...
+2025-12-01 16:19:58,020 - INFO - Scraping All Out Burger Montreal Rd (V2 ID: 1636)...
+2025-12-01 16:20:03,370 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=30min, delivery_enabled=False, pickup_enabled=True
+2025-12-01 16:20:03,371 - INFO - [5/22] Processing Capital Bites...
+2025-12-01 16:20:03,371 - INFO - Scraping Capital Bites (V2 ID: 1670)...
+2025-12-01 16:20:08,217 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=35min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:20:08,217 - INFO - [6/22] Processing Capri Pizza...
+2025-12-01 16:20:08,217 - INFO - Scraping Capri Pizza (V2 ID: 1674)...
+2025-12-01 16:20:13,107 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=30min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:20:13,107 - INFO - [7/22] Processing Chicco Pizza de l�Hopital...
+2025-12-01 16:20:13,107 - INFO - Scraping Chicco Pizza de l�Hopital (V2 ID: 1663)...
+2025-12-01 16:20:17,959 - INFO -   ✓ Scraped successfully: delivery=45min, takeout=20min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:20:17,959 - INFO - [8/22] Processing Chicco Pizza Maloney...
+2025-12-01 16:20:17,960 - INFO - Scraping Chicco Pizza Maloney (V2 ID: 1661)...
+2025-12-01 16:20:22,716 - INFO -   ✓ Scraped successfully: delivery=45min, takeout=25min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:20:22,716 - INFO - [9/22] Processing Chicco Pizza Shawarma Anger...
+2025-12-01 16:20:22,717 - INFO - Scraping Chicco Pizza Shawarma Anger (V2 ID: 1660)...
+2025-12-01 16:20:27,585 - INFO -   ✓ Scraped successfully: delivery=45min, takeout=30min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:20:27,586 - INFO - [10/22] Processing Chicco Pizza St-Louis...
+2025-12-01 16:20:27,586 - INFO - Scraping Chicco Pizza St-Louis (V2 ID: 1664)...
+2025-12-01 16:20:32,366 - INFO -   ✓ Scraped successfully: delivery=45min, takeout=20min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:20:32,367 - INFO - [11/22] Processing Chicco Shawarma Cantley...
+2025-12-01 16:20:32,367 - INFO - Scraping Chicco Shawarma Cantley (V2 ID: 1658)...
+2025-12-01 16:20:37,150 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=30min, delivery_enabled=False, pickup_enabled=True
+2025-12-01 16:20:37,151 - INFO - [12/22] Processing Chicco Shawarma Maloney...
+2025-12-01 16:20:37,151 - INFO - Scraping Chicco Shawarma Maloney (V2 ID: 1662)...
+2025-12-01 16:20:41,907 - INFO -   ✓ Scraped successfully: delivery=45min, takeout=20min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:20:41,907 - INFO - [13/22] Processing Cosenza...
+2025-12-01 16:20:41,908 - INFO - Scraping Cosenza (V2 ID: 1654)...
+2025-12-01 16:20:46,766 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=20min, delivery_enabled=False, pickup_enabled=True
+2025-12-01 16:20:46,767 - INFO - [14/22] Processing Cuisine Bombay Indienne...
+2025-12-01 16:20:46,767 - INFO - Scraping Cuisine Bombay Indienne (V2 ID: 1657)...
+2025-12-01 16:20:51,582 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=30min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:20:51,582 - INFO - [15/22] Processing Kirkwood Pizza...
+2025-12-01 16:20:51,583 - INFO - Scraping Kirkwood Pizza (V2 ID: 1637)...
+2025-12-01 16:20:56,462 - INFO -   ✓ Scraped successfully: delivery=40min, takeout=20min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:20:56,462 - INFO - [16/22] Processing Little Gyros Greek Grill...
+2025-12-01 16:20:56,462 - INFO - Scraping Little Gyros Greek Grill (V2 ID: 1668)...
+2025-12-01 16:21:01,210 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=20min, delivery_enabled=False, pickup_enabled=True
+2025-12-01 16:21:01,211 - INFO - [17/22] Processing Pachino Pizza...
+2025-12-01 16:21:01,211 - INFO - Scraping Pachino Pizza (V2 ID: 1671)...
+2025-12-01 16:21:06,108 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=30min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:21:06,109 - INFO - [18/22] Processing Pho Dau Bo Restaurant - Kitchener...
+2025-12-01 16:21:06,109 - INFO - Scraping Pho Dau Bo Restaurant - Kitchener (V2 ID: 1171)...
+2025-12-01 16:21:10,922 - INFO -   ✓ Scraped successfully: delivery=0min, takeout=30min, delivery_enabled=False, pickup_enabled=True
+2025-12-01 16:21:10,922 - INFO - [19/22] Processing Pizza Marie...
+2025-12-01 16:21:10,923 - INFO - Scraping Pizza Marie (V2 ID: 1673)...
+2025-12-01 16:21:15,763 - INFO -   ✓ Scraped successfully: delivery=55min, takeout=30min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:21:15,764 - INFO - [20/22] Processing River Pizza...
+2025-12-01 16:21:15,765 - INFO - Scraping River Pizza (V2 ID: 1639)...
+2025-12-01 16:21:20,627 - INFO -   ✓ Scraped successfully: delivery=45min, takeout=25min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:21:20,627 - INFO - [21/22] Processing Riverside Pizzeria...
+2025-12-01 16:21:20,627 - INFO - Scraping Riverside Pizzeria (V2 ID: 1157)...
+2025-12-01 16:21:25,416 - INFO -   ✓ Scraped successfully: delivery=Nonemin, takeout=Nonemin, delivery_enabled=False, pickup_enabled=False
+2025-12-01 16:21:25,416 - INFO - [22/22] Processing Wandee Thai...
+2025-12-01 16:21:25,416 - INFO - Scraping Wandee Thai (V2 ID: 1641)...
+2025-12-01 16:21:30,363 - INFO -   ✓ Scraped successfully: delivery=60min, takeout=25min, delivery_enabled=True, pickup_enabled=True
+2025-12-01 16:21:30,578 - INFO - Browser stopped
+2025-12-01 16:21:30,580 - INFO - Results saved to C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Delivery and Schedule scraper\output\v2_scraped_data_20251201_161936.json
+2025-12-01 16:21:30,582 - INFO - Results saved to C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Delivery and Schedule scraper\output\v2_scraped_data.json
+2025-12-01 16:21:30,582 - INFO - ============================================================
+2025-12-01 16:21:30,582 - INFO - Scraping Summary:
+2025-12-01 16:21:30,583 - INFO -   Total: 22
+2025-12-01 16:21:30,583 - INFO -   Successful: 22
+2025-12-01 16:21:30,583 - INFO -   Failed: 0
+2025-12-01 16:21:30,583 - INFO - ============================================================
+2025-12-01 16:21:30,903 - INFO - Database connection established
+2025-12-01 16:21:31,071 - INFO -   ✓ Updated service config for Al-s Drive In (V3 ID: 981)
+2025-12-01 16:21:31,236 - INFO -   ✓ Updated delivery area for Al-s Drive In (V3 ID: 981)
+2025-12-01 16:21:31,394 - INFO -   ✓ Deleted 7 existing delivery schedules for Al-s Drive In
+2025-12-01 16:21:31,548 - INFO -   ✓ Deleted 7 existing takeout schedules for Al-s Drive In
+2025-12-01 16:21:33,893 - INFO -   ✓ Updated service config for All Out Burger Bank St. (V3 ID: 924)
+2025-12-01 16:21:34,059 - INFO -   ✓ Updated delivery area for All Out Burger Bank St. (V3 ID: 924)
+2025-12-01 16:21:34,232 - INFO -   ✓ Deleted 7 existing takeout schedules for All Out Burger Bank St.
+2025-12-01 16:21:35,450 - INFO -   ✓ Updated service config for All Out Burger Gladstone (V3 ID: 948)
+2025-12-01 16:21:35,619 - INFO -   ✓ Updated delivery area for All Out Burger Gladstone (V3 ID: 948)
+2025-12-01 16:21:35,787 - INFO -   ✓ Deleted 7 existing delivery schedules for All Out Burger Gladstone
+2025-12-01 16:21:35,941 - INFO -   ✓ Deleted 7 existing takeout schedules for All Out Burger Gladstone
+2025-12-01 16:21:38,265 - INFO -   ✓ Updated service config for All Out Burger Montreal Rd (V3 ID: 949)
+2025-12-01 16:21:38,420 - INFO -   ✓ Updated delivery area for All Out Burger Montreal Rd (V3 ID: 949)
+2025-12-01 16:21:38,584 - INFO -   ✓ Deleted 7 existing delivery schedules for All Out Burger Montreal Rd
+2025-12-01 16:21:38,734 - INFO -   ✓ Deleted 7 existing takeout schedules for All Out Burger Montreal Rd
+2025-12-01 16:21:41,096 - INFO -   ✓ Updated service config for Capital Bites (V3 ID: 973)
+2025-12-01 16:21:41,386 - INFO -   ✓ Updated delivery area for Capital Bites (V3 ID: 973)
+2025-12-01 16:21:41,549 - INFO -   ✓ Deleted 7 existing delivery schedules for Capital Bites
+2025-12-01 16:21:41,704 - INFO -   ✓ Deleted 8 existing takeout schedules for Capital Bites
+2025-12-01 16:21:44,046 - INFO -   ✓ Updated service config for Capri Pizza (V3 ID: 977)
+2025-12-01 16:21:44,193 - INFO -   ✓ Updated delivery area for Capri Pizza (V3 ID: 977)
+2025-12-01 16:21:44,342 - INFO -   ✓ Deleted 14 existing delivery schedules for Capri Pizza
+2025-12-01 16:21:44,500 - INFO -   ✓ Deleted 7 existing takeout schedules for Capri Pizza
+2025-12-01 16:21:46,869 - INFO -   ✓ Updated service config for Chicco Pizza de l�Hopital (V3 ID: 966)
+2025-12-01 16:21:47,016 - INFO -   ✓ Updated delivery area for Chicco Pizza de l�Hopital (V3 ID: 966)
+2025-12-01 16:21:47,171 - INFO -   ✓ Deleted 7 existing delivery schedules for Chicco Pizza de l�Hopital
+2025-12-01 16:21:47,325 - INFO -   ✓ Deleted 7 existing takeout schedules for Chicco Pizza de l�Hopital
+2025-12-01 16:21:49,640 - INFO -   ✓ Updated service config for Chicco Pizza Maloney (V3 ID: 964)
+2025-12-01 16:21:49,787 - INFO -   ✓ Updated delivery area for Chicco Pizza Maloney (V3 ID: 964)
+2025-12-01 16:21:49,941 - INFO -   ✓ Deleted 9 existing delivery schedules for Chicco Pizza Maloney
+2025-12-01 16:21:50,091 - INFO -   ✓ Deleted 9 existing takeout schedules for Chicco Pizza Maloney
+2025-12-01 16:21:52,401 - INFO -   ✓ Updated service config for Chicco Pizza Shawarma Anger (V3 ID: 963)
+2025-12-01 16:21:52,564 - INFO -   ✓ Updated delivery area for Chicco Pizza Shawarma Anger (V3 ID: 963)
+2025-12-01 16:21:52,716 - INFO -   ✓ Deleted 6 existing delivery schedules for Chicco Pizza Shawarma Anger
+2025-12-01 16:21:52,873 - INFO -   ✓ Deleted 7 existing takeout schedules for Chicco Pizza Shawarma Anger
+2025-12-01 16:21:54,898 - INFO -   ✓ Updated service config for Chicco Pizza St-Louis (V3 ID: 967)
+2025-12-01 16:21:55,043 - INFO -   ✓ Updated delivery area for Chicco Pizza St-Louis (V3 ID: 967)
+2025-12-01 16:21:55,189 - INFO -   ✓ Deleted 6 existing delivery schedules for Chicco Pizza St-Louis
+2025-12-01 16:21:55,350 - INFO -   ✓ Deleted 6 existing takeout schedules for Chicco Pizza St-Louis
+2025-12-01 16:21:57,395 - INFO -   ✓ Updated service config for Chicco Shawarma Cantley (V3 ID: 961)
+2025-12-01 16:21:57,541 - INFO -   ✓ Updated delivery area for Chicco Shawarma Cantley (V3 ID: 961)
+2025-12-01 16:21:57,702 - INFO -   ✓ Deleted 6 existing delivery schedules for Chicco Shawarma Cantley
+2025-12-01 16:21:57,868 - INFO -   ✓ Deleted 6 existing takeout schedules for Chicco Shawarma Cantley
+2025-12-01 16:21:59,890 - INFO -   ✓ Updated service config for Chicco Shawarma Maloney (V3 ID: 965)
+2025-12-01 16:22:00,061 - INFO -   ✓ Updated delivery area for Chicco Shawarma Maloney (V3 ID: 965)
+2025-12-01 16:22:00,221 - INFO -   ✓ Deleted 6 existing delivery schedules for Chicco Shawarma Maloney
+2025-12-01 16:22:00,378 - INFO -   ✓ Deleted 6 existing takeout schedules for Chicco Shawarma Maloney
+2025-12-01 16:22:02,363 - INFO -   ✓ Updated service config for Cosenza (V3 ID: 957)
+2025-12-01 16:22:02,511 - INFO -   ✓ Updated delivery area for Cosenza (V3 ID: 957)
+2025-12-01 16:22:02,654 - INFO -   ✓ Deleted 16 existing takeout schedules for Cosenza
+2025-12-01 16:22:03,898 - INFO -   ✓ Updated service config for Cuisine Bombay Indienne (V3 ID: 960)
+2025-12-01 16:22:04,047 - INFO -   ✓ Updated delivery area for Cuisine Bombay Indienne (V3 ID: 960)
+2025-12-01 16:22:04,196 - INFO -   ✓ Deleted 6 existing delivery schedules for Cuisine Bombay Indienne
+2025-12-01 16:22:04,343 - INFO -   ✓ Deleted 8 existing takeout schedules for Cuisine Bombay Indienne
+2025-12-01 16:22:05,679 - INFO -   ✓ Updated service config for Kirkwood Pizza (V3 ID: 950)
+2025-12-01 16:22:05,830 - INFO -   ✓ Updated delivery area for Kirkwood Pizza (V3 ID: 950)
+2025-12-01 16:22:05,984 - INFO -   ✓ Deleted 38 existing delivery schedules for Kirkwood Pizza
+2025-12-01 16:22:06,137 - INFO -   ✓ Deleted 45 existing takeout schedules for Kirkwood Pizza
+2025-12-01 16:22:08,441 - INFO -   ✓ Updated service config for Little Gyros Greek Grill (V3 ID: 971)
+2025-12-01 16:22:08,588 - INFO -   ✓ Updated delivery area for Little Gyros Greek Grill (V3 ID: 971)
+2025-12-01 16:22:08,748 - INFO -   ✓ Deleted 12 existing delivery schedules for Little Gyros Greek Grill
+2025-12-01 16:22:08,904 - INFO -   ✓ Deleted 12 existing takeout schedules for Little Gyros Greek Grill
+2025-12-01 16:22:11,288 - INFO -   ✓ Updated service config for Pachino Pizza (V3 ID: 974)
+2025-12-01 16:22:11,444 - INFO -   ✓ Updated delivery area for Pachino Pizza (V3 ID: 974)
+2025-12-01 16:22:11,608 - INFO -   ✓ Deleted 9 existing delivery schedules for Pachino Pizza
+2025-12-01 16:22:11,764 - INFO -   ✓ Deleted 9 existing takeout schedules for Pachino Pizza
+2025-12-01 16:22:14,034 - INFO -   ✓ Updated service config for Pho Dau Bo Restaurant - Kitchener (V3 ID: 147)
+2025-12-01 16:22:14,192 - INFO -   ✓ Deleted 14 existing takeout schedules for Pho Dau Bo Restaurant - Kitchener
+2025-12-01 16:22:15,395 - INFO -   ✓ Updated service config for Pizza Marie (V3 ID: 976)
+2025-12-01 16:22:15,563 - INFO -   ✓ Updated delivery area for Pizza Marie (V3 ID: 976)
+2025-12-01 16:22:15,719 - INFO -   ✓ Deleted 14 existing delivery schedules for Pizza Marie
+2025-12-01 16:22:15,877 - INFO -   ✓ Deleted 8 existing takeout schedules for Pizza Marie
+2025-12-01 16:22:18,109 - INFO -   ✓ Updated service config for River Pizza (V3 ID: 952)
+2025-12-01 16:22:18,251 - INFO -   ✓ Updated delivery area for River Pizza (V3 ID: 952)
+2025-12-01 16:22:18,400 - INFO -   ✓ Deleted 8 existing delivery schedules for River Pizza
+2025-12-01 16:22:18,553 - INFO -   ✓ Deleted 8 existing takeout schedules for River Pizza
+2025-12-01 16:22:20,834 - INFO -   ✓ Updated service config for Riverside Pizzeria (V3 ID: 133)
+2025-12-01 16:22:20,985 - INFO -   ✓ Updated service config for Wandee Thai (V3 ID: 954)
+2025-12-01 16:22:21,130 - INFO -   ✓ Updated delivery area for Wandee Thai (V3 ID: 954)
+2025-12-01 16:22:21,278 - INFO -   ✓ Deleted 25 existing delivery schedules for Wandee Thai
+2025-12-01 16:22:21,425 - INFO -   ✓ Deleted 20 existing takeout schedules for Wandee Thai
+2025-12-01 16:22:23,524 - INFO - Database connection closed
+2025-12-01 16:22:23,525 - INFO - Database updates complete:
+2025-12-01 16:22:23,525 - INFO -   - Service configs updated: 22
+2025-12-01 16:22:23,526 - INFO -   - Delivery areas updated: 20
+2025-12-01 16:22:23,527 - INFO -   - Schedules deleted: 418
+2025-12-01 16:22:23,527 - INFO -   - Schedules inserted: 259
+2025-12-01 16:22:23,527 - INFO - Done!

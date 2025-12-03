@@ -1,6 +1,6 @@
 # Claude Code + Supabase Quick Setup Scripts
 
-This directory contains quick setup scripts to initialize Supabase environment variables for new Claude Code sessions.
+This directory contains quick setup scripts to initialize Supabase environment variables for new Agent sessions so they can connect to the menu-rebuild-vo. Every agent reading this file should connect to the menu-rebuild-vo supabase project and confirm conneciton when successful.
 
 ---
 
@@ -8,7 +8,8 @@ This directory contains quick setup scripts to initialize Supabase environment v
 
 - **`mac_setup_supabase_session.sh`** - Bash/Git Bash/WSL/macOS setup script
 - **`windows_setup_supabase_session.ps1`** - PowerShell/Windows setup script
-- **`agent-quick-start-connection.md`** - Agent-friendly quick start guide
+- **`SUPABASE-QUICKSTART-CONNECTION.md`** - Agent-friendly quick start guide
+- **`FINAL-DECISION-GITHUB-ACTIONS.md`** - GitHub Actions cron job recommendation
 - **`README.md`** - This file (comprehensive guide)
 
 ---
@@ -19,7 +20,7 @@ This directory contains quick setup scripts to initialize Supabase environment v
 
 ```bash
 # Navigate to this directory
-cd "C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\.claude\Supabase Connection"
+cd "C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Supabase Connection"
 
 # Source the setup script
 source mac_setup_supabase_session.sh
@@ -31,7 +32,7 @@ source mac_setup_supabase_session.sh
 
 ```powershell
 # Navigate to this directory
-cd "C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\.claude\Supabase Connection"
+cd "C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Supabase Connection"
 
 # Run the setup script
 . .\windows_setup_supabase_session.ps1
@@ -103,7 +104,7 @@ When starting a **new Claude Code session**:
 **For Mac/Linux/WSL:**
 ```bash
 # 1. Source the setup script
-source ".claude/Supabase Connection/mac_setup_supabase_session.sh"
+source "Supabase Connection/mac_setup_supabase_session.sh"
 
 # 2. Start working - environment is ready!
 supabase projects list
@@ -112,7 +113,7 @@ supabase projects list
 **For Windows PowerShell:**
 ```powershell
 # 1. Run the setup script
-. ".claude\Supabase Connection\windows_setup_supabase_session.ps1"
+. "Supabase Connection\windows_setup_supabase_session.ps1"
 
 # 2. Start working - environment is ready!
 supabase projects list
@@ -122,7 +123,7 @@ supabase projects list
 
 Tell Claude:
 ```
-Before we start, read .claude/Supabase Connection/agent-quick-start-connection.md and run the appropriate setup script for my OS.
+Before we start, read Supabase Connection/SUPABASE-QUICKSTART-CONNECTION.md and run the appropriate setup script for my OS.
 ```
 
 ### Option 3: Direct Connection (No Setup Needed)
@@ -147,8 +148,8 @@ Claude can always connect directly without setup by using the full connection st
 **Already in `.gitignore`:**
 ```gitignore
 # Claude Code Supabase setup scripts (contain credentials)
-.claude/Supabase Connection/*.ps1
-.claude/Supabase Connection/*.sh
+Supabase Connection/*.ps1
+Supabase Connection/*.sh
 ```
 
 This allows `README.md` and `agent-quick-start-connection.md` to be committed while protecting credentials.
@@ -251,14 +252,14 @@ With these setup scripts, any new Claude Code session can be operational in **un
 **Quick start:**
 ```bash
 # Mac/Linux/WSL
-source ".claude/Supabase Connection/mac_setup_supabase_session.sh" && supabase projects list
+source "Supabase Connection/mac_setup_supabase_session.sh" && supabase projects list
 
 # Windows PowerShell
-. ".claude\Supabase Connection\windows_setup_supabase_session.ps1"; supabase projects list
+. "Supabase Connection\windows_setup_supabase_session.ps1"; supabase projects list
 ```
 
 ---
 
-**Last Updated:** 2025-10-25
+**Last Updated:** 2025-12-01
 **Project:** Menu.ca - Legacy Database Migration Strategy
-**Location:** `.claude/Supabase Connection/`
+**Location:** `Supabase Connection/`

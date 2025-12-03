@@ -115,21 +115,19 @@ git push
 
 **Supabase Configuration:**
 ```
-.claude/Supabase Connection/
-├── SETUP-CRON-SECRET.md (✅ completed)
-├── SETUP-EXTERNAL-CRON.md (alternative)
-├── CRON-SERVICE-READY-TO-USE.md (alternative)
-└── FINAL-DECISION-GITHUB-ACTIONS.md (you are here)
+Supabase Connection/
+├── README.md
+├── SUPABASE-QUICKSTART-CONNECTION.md
+├── FINAL-DECISION-GITHUB-ACTIONS.md (you are here)
+├── windows_setup_supabase_session.ps1
+└── mac_setup_supabase_session.sh
 ```
 
 ---
 
 ## Alternative: cron-job.org
 
-If you still prefer cron-job.org, the configuration is ready at:
-```
-.claude/Supabase Connection/CRON-SERVICE-READY-TO-USE.md
-```
+If you still prefer cron-job.org, you can configure it separately based on the Edge Function setup.
 
 **Reasons you might choose cron-job.org:**
 - Non-technical team member needs to manage it

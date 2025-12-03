@@ -4,6 +4,7 @@
 *.exe
 *.zip
 tools/php/
+*.json
 
 # Node.js dependencies
 node_modules/
