@@ -9,10 +9,6 @@ tools/php/
 # Node.js dependencies
 node_modules/
 
-# Database source folders (contains raw database dumps)
-menuca_v1/
-menuca_v2/
-
 # Environment variables (contains sensitive keys)
 .env
 .env.local
@@ -20,41 +16,6 @@ menuca_v2/
 .env.production
 .env.development
 *.env
-
-# Cursor MCP configuration (contains API keys and tokens)
-.cursor/mcp.json
-.cursor/mcp.json.backup
-
-# Large database dump files (exceed GitHub's 100MB limit)
-Database/Users_&_Access/dumps/menuca_v1_users.sql
-Database/Users_&_Access/dumps/users dump/menuca_v1_users.sql
-
-# Database backup files (too large for GitHub)
-Database/Menuca_v3 backup/*.sql
-Database/Menuca_v3 backup/*.dump
-
-# Large CSV files (exceed or close to GitHub's limits)
-Database/Users_&_Access/CSV/menuca_v1_users.csv
-
-# Database dumps with binary data (cause git issues)
-Database/Devices & Infrastructure Entity/menuca_v1_tablets.sql
-Database/Devices & Infrastructure Entity/menuca_v2_tablets.sql
-
-# Generated SQL files (can be regenerated)
-Database/Devices & Infrastructure Entity/FINAL/*.sql
-Database/Devices & Infrastructure Entity/postgres_batches/*.sql
-Database/Devices & Infrastructure Entity/staging_inserts/*.sql
-Database/Devices & Infrastructure Entity/raw_insert/*.txt
-
-# Python parsing scripts (keep only final working version)
-Database/Devices & Infrastructure Entity/extract_v1_tablets_inserts.py
-Database/Devices & Infrastructure Entity/parse_mysql_dump_correctly.py
-Database/Devices & Infrastructure Entity/final_parser.py
-Database/Devices & Infrastructure Entity/simple_split_parser.py
-Database/Devices & Infrastructure Entity/correct_parser.py
-Database/Devices & Infrastructure Entity/split_then_convert.py
-Database/Devices & Infrastructure Entity/convert_mysql_to_postgres.py
-Database/Devices & Infrastructure Entity/extract_raw_insert.py
 
 # Claude Code Supabase setup scripts (contain credentials)
 #.claude/Supabase Connection/*.ps1
@@ -72,6 +33,32 @@ Supabase Connection/mac_setup_*.sh
 **/config.py
 Scrapers/**/config.py
 
-# Security audit reports
-SECURITY_AUDIT_REPORT.md
-SECURE_REPOSITORY_NOW.md
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Playwright
+playwright/.local-browsers/
+
+# Data files
+*.csv
+*.json
+data/
+output/
+screenshots/
