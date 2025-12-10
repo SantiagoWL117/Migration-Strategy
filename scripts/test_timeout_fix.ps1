@@ -80,3 +80,13 @@ Write-Host "`n⚡ Reload Cursor to apply: Ctrl+Shift+P > 'Reload Window'" -Foreg
 Write-Host ""
 
 
+
+
+
+
+
+
+
+
+
+
