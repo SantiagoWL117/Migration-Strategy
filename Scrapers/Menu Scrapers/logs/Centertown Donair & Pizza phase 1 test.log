@@ -1,0 +1,78 @@
+[2025-12-08 15:52:19] [INFO] Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Menu Scrapers\logs\combo_phase1_20251208_155219.log
+[2025-12-08 15:52:20] [INFO] Database connection established
+[2025-12-08 15:52:20] [INFO] Database connection closed
+[2025-12-08 15:52:20] [INFO] === TEST MODE ===
+[2025-12-08 15:52:20] [INFO] Will process 1 restaurant(s)
+[2025-12-08 15:52:20] [INFO] Starting Combo Scraper...
+[2025-12-08 15:52:21] [INFO] Database connection established
+[2025-12-08 15:52:21] [INFO] Browser and database connections established
+[2025-12-08 15:52:21] [INFO] Logging in to https://menuadmin.menu.ca/...
+[2025-12-08 15:52:25] [INFO] Found login form with name='username'
+[2025-12-08 15:52:28] [INFO] Current URL after login: https://menuadmin.menu.ca/?p=restaurants
+[2025-12-08 15:52:28] [INFO] Login successful - found restaurant list
+[2025-12-08 15:52:28] [INFO] ============================================================
+[2025-12-08 15:52:28] [INFO] Processing: Centertown Donair & Pizza (V3: 131, V1: 255)
+[2025-12-08 15:52:28] [INFO] ============================================================
+[2025-12-08 15:52:28] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=255&load=comboGroups&showLang=en
+[2025-12-08 15:52:29] [INFO] Page URL after navigation: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=255&load=comboGroups&showLang=en
+[2025-12-08 15:52:29] [INFO] Page HTML length: 100810 bytes
+[2025-12-08 15:52:29] [INFO] Saved page HTML to debug_page.html
+[2025-12-08 15:52:29] [INFO] Found 'editGroupJS' in page HTML
+[2025-12-08 15:52:29] [INFO] Found 33 combo groups
+[2025-12-08 15:52:29] [INFO] Processing combo group: Pizza Toppings (source_id=1493)
+[2025-12-08 15:53:24] [INFO] Processing combo group: Dips (source_id=1494)
+[2025-12-08 15:53:31] [INFO] Processing combo group: Double Pizza 1 Topping (source_id=1495)
+[2025-12-08 15:54:25] [INFO] Processing combo group: Premium Toppings ---1st Pizza (source_id=1496)
+[2025-12-08 15:55:18] [INFO] Processing combo group: Premium Toppings---2nd pizza (source_id=1497)
+[2025-12-08 15:56:13] [INFO] Processing combo group: Double Pizza 2 Toppings (source_id=1498)
+[2025-12-08 15:57:08] [INFO] Processing combo group: Punjabi Pizza (source_id=1499)
+[2025-12-08 15:58:03] [INFO] Processing combo group: 1 Small 3 toppings (source_id=1500)
+[2025-12-08 15:58:54] [INFO] Processing combo group: Premium Toppings Small (source_id=1501)
+[2025-12-08 15:59:49] [INFO] Processing combo group: 1 Medium 3 toppings (source_id=1502)
+[2025-12-08 16:00:38] [INFO] Processing combo group: Premium Toppings Medium (source_id=1503)
+[2025-12-08 16:01:31] [INFO] Processing combo group: 1 Large 3 toppings (source_id=1504)
+[2025-12-08 16:02:20] [INFO] Processing combo group: Premium Toppings Large (source_id=1505)
+[2025-12-08 16:03:12] [INFO] Processing combo group: Make it large (source_id=1506)
+[2025-12-08 16:03:18] [INFO] Processing combo group: 2 medium pizzas 3 toppings special (source_id=1507)
+[2025-12-08 16:04:07] [INFO] Processing combo group: Premium Toppings Medium-----1st Pizza (source_id=1508)
+[2025-12-08 16:05:01] [INFO] Processing combo group: Premium Toppings Medium-----2nd Pizza (source_id=1509)
+[2025-12-08 16:05:53] [INFO] Processing combo group: Wings Sauces (source_id=1510)
+[2025-12-08 16:05:59] [INFO] Processing combo group: 1 Topping for Single Pizza (source_id=1526)
+[2025-12-08 16:06:54] [INFO] Processing combo group: 2 Toppings for Single Pizza (source_id=1527)
+[2025-12-08 16:07:48] [INFO] Processing combo group: Premium Toppings for Single Pizza (source_id=1528)
+[2025-12-08 16:08:42] [INFO] Processing combo group: Extras Small Donair (source_id=3562)
+[2025-12-08 16:08:48] [INFO] Processing combo group: 2 Small Donairs (source_id=3563)
+[2025-12-08 16:08:55] [INFO] Processing combo group: Twin Pizzas and garlic fingers (source_id=3564)
+[2025-12-08 16:09:50] [INFO] Processing combo group: NEW 2 Small Pizza 3 Toppings (source_id=5071)
+[2025-12-08 16:10:39] [INFO] Processing combo group: NEW 2 Medium 3 Toppings Pizza (source_id=5072)
+[2025-12-08 16:11:28] [INFO] Processing combo group: NEW 2 Large 3 Toppings Pizza (source_id=5073)
+[2025-12-08 16:12:18] [INFO] Processing combo group: Premium Toppings Small --1st Pizza (source_id=5074)
+[2025-12-08 16:13:11] [INFO] Processing combo group: Premium Toppings Small ---2nd Pizza (source_id=5075)
+[2025-12-08 16:14:03] [INFO] Processing combo group: Premium Toppings Medium---1st Pizza (source_id=5076)
+[2025-12-08 16:14:56] [INFO] Processing combo group: Premium Toppings Medium ---2nd Pizza (source_id=5077)
+[2025-12-08 16:15:51] [INFO] Processing combo group: Premium Toppings Large ---1st Pizza (source_id=5078)
+[2025-12-08 16:16:44] [INFO] Processing combo group: Premium Toppings Large ---2nd Pizza (source_id=5079)
+[2025-12-08 16:17:38] [INFO] Results for Centertown Donair & Pizza:
+[2025-12-08 16:17:38] [INFO]   - Combo Groups: 33
+[2025-12-08 16:17:38] [INFO]   - Sections: 34
+[2025-12-08 16:17:38] [INFO]   - Modifier Groups: 221
+[2025-12-08 16:17:38] [INFO]   - Modifiers: 2022
+[2025-12-08 16:17:38] [INFO]   - Prices: 5561
+[2025-12-08 16:17:38] [INFO] Stopping Combo Scraper...
+[2025-12-08 16:17:38] [INFO] Database connection closed
+[2025-12-08 16:17:38] [INFO] All connections closed
+[2025-12-08 16:17:38] [INFO] Summary CSV written to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Menu Scrapers\logs\combo_phase1_summary_20251208_161738.csv
+[2025-12-08 16:17:38] [INFO] ============================================================
+[2025-12-08 16:17:38] [INFO] PHASE 1 COMPLETE
+[2025-12-08 16:17:38] [INFO] ============================================================
+[2025-12-08 16:17:38] [INFO] Restaurants processed: 1
+[2025-12-08 16:17:38] [INFO]   - Success: 1
+[2025-12-08 16:17:38] [INFO]   - No combos: 0
+[2025-12-08 16:17:38] [INFO]   - Errors: 0
+[2025-12-08 16:17:38] [INFO]   - Skipped: 0
+[2025-12-08 16:17:38] [INFO] 
+[2025-12-08 16:17:38] [INFO] Total combo groups: 33
+[2025-12-08 16:17:38] [INFO] Total sections: 34
+[2025-12-08 16:17:38] [INFO] Total modifier groups: 221
+[2025-12-08 16:17:38] [INFO] Total modifiers: 2022
+[2025-12-08 16:17:38] [INFO] Total prices: 5561
