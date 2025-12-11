@@ -1,0 +1,121 @@
+[2025-12-10 12:05:13] [INFO] Logging to: C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\logs\combo_phase2_20251210_120513.log
+[2025-12-10 12:05:14] [INFO] Database connection established
+[2025-12-10 12:05:14] [INFO] Found 162 restaurants with V1 IDs
+[2025-12-10 12:05:14] [INFO] Database connection closed
+[2025-12-10 12:05:14] [INFO] Starting Combo Scraper...
+[2025-12-10 12:05:14] [INFO] Database connection established
+[2025-12-10 12:05:14] [INFO] Browser and database connections established
+[2025-12-10 12:05:14] [INFO] Logging in to https://menuadmin.menu.ca/...
+[2025-12-10 12:05:17] [INFO] Found login form with name='username'
+[2025-12-10 12:05:20] [INFO] Current URL after login: https://menuadmin.menu.ca/?p=restaurants
+[2025-12-10 12:05:20] [INFO] Login successful - found restaurant list
+[2025-12-10 12:05:20] [INFO] ============================================================
+[2025-12-10 12:05:20] [INFO] Processing: Imilio's Pizzeria (V3: 7, V1: 89)
+[2025-12-10 12:05:20] [INFO] ============================================================
+[2025-12-10 12:05:20] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=89&load=menu&showLang=en
+[2025-12-10 12:05:24] [INFO] Found 7 combo dishes
+[2025-12-10 12:05:24] [INFO] Processing combo dish: One Topping (combo_id=87728)
+[2025-12-10 12:05:24] [INFO] Navigating to combo dish: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=89&load=editCombo&showLang=en&combo=87728
+[2025-12-10 12:05:26] [INFO] Processing combo dish: Two Toppings (combo_id=87729)
+[2025-12-10 12:05:26] [INFO] Navigating to combo dish: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=89&load=editCombo&showLang=en&combo=87729
+[2025-12-10 12:05:29] [INFO] Processing combo dish: Three Toppings (combo_id=87730)
+[2025-12-10 12:05:29] [INFO] Navigating to combo dish: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=89&load=editCombo&showLang=en&combo=87730
+[2025-12-10 12:05:31] [INFO] Processing combo dish: Large Pizza Deal (combo_id=4005)
+[2025-12-10 12:05:31] [INFO] Navigating to combo dish: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=89&load=editCombo&showLang=en&combo=4005
+[2025-12-10 12:05:33] [ERROR] Error processing Imilio's Pizzeria: ComboDatabase.insert_modifier_group() got an unexpected keyword argument 'instructions'
+Traceback (most recent call last):
+  File "C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\Combo scraper\run_phase2.py", line 175, in run_phase2
+    stats = scraper.scrape_combo_dishes(r_id, r_v1_id)
+  File "C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\Combo scraper\combo_scraper.py", line 860, in scrape_combo_dishes
+    drinks_inserted = self._insert_drinks_modifiers(
+        restaurant_id=restaurant_id,
+        dish_id=dish_id,
+        drinks_data=drinks_data
+    )
+  File "C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\Combo scraper\combo_scraper.py", line 892, in _insert_drinks_modifiers
+    modifier_group_id = self.db.insert_modifier_group(
+        dish_id=dish_id,
+    ...<6 lines>...
+        instructions=None
+    )
+TypeError: ComboDatabase.insert_modifier_group() got an unexpected keyword argument 'instructions'
+[2025-12-10 12:05:33] [INFO] ============================================================
+[2025-12-10 12:05:33] [INFO] Processing: Lucky Star Chinese Food (V3: 8, V1: 90)
+[2025-12-10 12:05:33] [INFO] ============================================================
+[2025-12-10 12:05:33] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=90&load=menu&showLang=en
+[2025-12-10 12:05:37] [INFO] Found 0 combo dishes
+[2025-12-10 12:05:37] [INFO] No combo dishes found for restaurant 8
+[2025-12-10 12:05:37] [INFO] Results for Lucky Star Chinese Food:
+[2025-12-10 12:05:37] [INFO]   - Dishes processed: 0
+[2025-12-10 12:05:37] [INFO]   - Combo links created: 0
+[2025-12-10 12:05:37] [INFO]   - Hide days set: 0
+[2025-12-10 12:05:37] [INFO]   - Drinks modifiers: 0
+[2025-12-10 12:05:37] [INFO] ============================================================
+[2025-12-10 12:05:37] [INFO] Processing: Mama Rosa (V3: 12, V1: 94)
+[2025-12-10 12:05:37] [INFO] ============================================================
+[2025-12-10 12:05:37] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=94&load=menu&showLang=en
+[2025-12-10 12:05:41] [INFO] Found 7 combo dishes
+[2025-12-10 12:05:41] [INFO] Processing combo dish: Mama's Meal Deal (combo_id=4576)
+[2025-12-10 12:05:41] [INFO] Navigating to combo dish: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=94&load=editCombo&showLang=en&combo=4576
+[2025-12-10 12:05:44] [ERROR] Error processing Mama Rosa: ComboDatabase.insert_modifier_group() got an unexpected keyword argument 'instructions'
+Traceback (most recent call last):
+  File "C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\Combo scraper\run_phase2.py", line 175, in run_phase2
+    stats = scraper.scrape_combo_dishes(r_id, r_v1_id)
+  File "C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\Combo scraper\combo_scraper.py", line 860, in scrape_combo_dishes
+    drinks_inserted = self._insert_drinks_modifiers(
+        restaurant_id=restaurant_id,
+        dish_id=dish_id,
+        drinks_data=drinks_data
+    )
+  File "C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\Combo scraper\combo_scraper.py", line 892, in _insert_drinks_modifiers
+    modifier_group_id = self.db.insert_modifier_group(
+        dish_id=dish_id,
+    ...<6 lines>...
+        instructions=None
+    )
+TypeError: ComboDatabase.insert_modifier_group() got an unexpected keyword argument 'instructions'
+[2025-12-10 12:05:44] [INFO] ============================================================
+[2025-12-10 12:05:44] [INFO] Processing: Papa Joe's Pizza - Downtown (V3: 13, V1: 95)
+[2025-12-10 12:05:44] [INFO] ============================================================
+[2025-12-10 12:05:44] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=95&load=menu&showLang=en
+[2025-12-10 12:05:48] [INFO] Found 22 combo dishes
+[2025-12-10 12:05:48] [INFO] Processing combo dish: Large Pizza 3 Toppings HIDE (combo_id=97180)
+[2025-12-10 12:05:48] [INFO] Navigating to combo dish: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=95&load=editCombo&showLang=en&combo=97180
+[2025-12-10 12:05:50] [ERROR] Error processing Papa Joe's Pizza - Downtown: ComboDatabase.insert_modifier_group() got an unexpected keyword argument 'instructions'
+Traceback (most recent call last):
+  File "C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\Combo scraper\run_phase2.py", line 175, in run_phase2
+    stats = scraper.scrape_combo_dishes(r_id, r_v1_id)
+  File "C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\Combo scraper\combo_scraper.py", line 860, in scrape_combo_dishes
+    drinks_inserted = self._insert_drinks_modifiers(
+        restaurant_id=restaurant_id,
+        dish_id=dish_id,
+        drinks_data=drinks_data
+    )
+  File "C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\Combo scraper\combo_scraper.py", line 892, in _insert_drinks_modifiers
+    modifier_group_id = self.db.insert_modifier_group(
+        dish_id=dish_id,
+    ...<6 lines>...
+        instructions=None
+    )
+TypeError: ComboDatabase.insert_modifier_group() got an unexpected keyword argument 'instructions'
+[2025-12-10 12:05:50] [INFO] ============================================================
+[2025-12-10 12:05:50] [INFO] Processing: New Mee Fung Restaurant (V3: 15, V1: 101)
+[2025-12-10 12:05:50] [INFO] ============================================================
+[2025-12-10 12:05:50] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=101&load=menu&showLang=en
+[2025-12-10 12:05:54] [INFO] Found 0 combo dishes
+[2025-12-10 12:05:54] [INFO] No combo dishes found for restaurant 15
+[2025-12-10 12:05:54] [INFO] Results for New Mee Fung Restaurant:
+[2025-12-10 12:05:54] [INFO]   - Dishes processed: 0
+[2025-12-10 12:05:54] [INFO]   - Combo links created: 0
+[2025-12-10 12:05:54] [INFO]   - Hide days set: 0
+[2025-12-10 12:05:54] [INFO]   - Drinks modifiers: 0
+[2025-12-10 12:05:54] [INFO] ============================================================
+[2025-12-10 12:05:54] [INFO] Processing: House of Lasagna (V3: 22, V1: 117)
+[2025-12-10 12:05:54] [INFO] ============================================================
+[2025-12-10 12:05:54] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=117&load=menu&showLang=en
+[2025-12-10 12:05:58] [INFO] Found 3 combo dishes
+[2025-12-10 12:05:58] [INFO] Processing combo dish: 1 Item Pizza (combo_id=10177)
+[2025-12-10 12:05:58] [INFO] Navigating to combo dish: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=117&load=editCombo&showLang=en&combo=10177
+[2025-12-10 12:06:00] [INFO] Processing combo dish: 2 Items Pizza (combo_id=10178)
+[2025-12-10 12:06:00] [INFO] Navigating to combo dish: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=117&load=editCombo&showLang=en&combo=10178
+[2025-12-10 12:06:03] [INFO] Stopping Combo Scraper...

@@ -1,216 +1,309 @@
-# Combo Group ID 7: "Dips" - Complete Data
+# Menu.ca V3 Schema - Menu Data Structure
 
-> **Restaurant:** Centertown Donair & Pizza (V3 ID: 131, V1 ID: 255)  
-> **Last Updated:** 2025-12-09
+## Overview
 
----
-
-## 1. COMBO_GROUPS Record
-
-| Field | Value |
-|-------|-------|
-| **id** | 7 |
-| **restaurant_id** | 131 |
-| **name** | Dips |
-| **number_of_items** | 1 |
-| **display_header** | *(empty)* |
-| **source_id** | 1494 |
-| **created_at** | 2025-12-08 20:53:25 |
-| **updated_at** | 2025-12-09 17:12:52 |
-| **deleted_at** | NULL |
+The `menuca_v3` schema stores menu data for restaurants, supporting both **normal dishes** (individual menu items) and **combo dishes** (meal deals with customization options). This document explains how these structures work using real examples from **Joes Family Pizzeria** (V3 ID: 636).
 
 ---
 
-## 2. COMBO_GROUP_SECTIONS Record
-
-| Field | Value |
-|-------|-------|
-| **id** | 13 |
-| **combo_group_id** | 7 |
-| **section_type** | sauce |
-| **use_header** | Dips |
-| **display_order** | 4 |
-| **free_items** | 0 |
-| **min_selection** | 0 |
-| **max_selection** | 0 |
-| **is_active** | true |
-
----
-
-## 3. COMBO_MODIFIER_GROUPS Records (3 groups)
-
-| ID | Section ID | Name | Type Code | is_selected | Source ID |
-|----|------------|------|-----------|-------------|-----------|
-| 131 | 13 | Dips | SA | ✅ **true** | 2043 |
-| 132 | 13 | Wings Sauces | SA | false | 2051 |
-| 133 | 13 | Sauces For Jesica Donair Poutine | SA | false | 4840 |
-
----
-
-## 4. COMBO_MODIFIERS Records (12 modifiers)
-
-### Group 131: "Dips" (default selection)
-
-| ID | Name | Display Order |
-|----|------|---------------|
-| 801 | Creamy Garlic | 0 |
-| 802 | Honey Garlic | 1 |
-| 804 | Hot | 2 |
-| 805 | B.B.Q | 3 |
-| 807 | Marinara | 4 |
-
-### Group 132: "Wings Sauces"
-
-| ID | Name | Display Order |
-|----|------|---------------|
-| 808 | Honey Garlic | 0 |
-| 810 | Hot | 1 |
-| 811 | B.B.Q | 2 |
-| 812 | Medium | 3 |
-| 814 | Mild | 4 |
-
-### Group 133: "Sauces For Jesica Donair Poutine"
-
-| ID | Name | Display Order |
-|----|------|---------------|
-| 815 | Gravy | 0 |
-| 817 | Donair Sauce | 1 |
-
----
-
-## 5. COMBO_MODIFIER_PRICES Records (12 prices)
-
-| Price ID | Modifier ID | Modifier Name | Size Variant | Price | Modifier Group |
-|----------|-------------|---------------|--------------|-------|----------------|
-| 1779 | 801 | Creamy Garlic | Standard | $1.00 | Dips |
-| 1781 | 802 | Honey Garlic | Standard | $1.00 | Dips |
-| 1784 | 804 | Hot | Standard | $1.00 | Dips |
-| 1787 | 805 | B.B.Q | Standard | $1.00 | Dips |
-| 1789 | 807 | Marinara | Standard | $1.00 | Dips |
-| 1793 | 808 | Honey Garlic | Standard | $1.00 | Wings Sauces |
-| 1795 | 810 | Hot | Standard | $1.00 | Wings Sauces |
-| 1798 | 811 | B.B.Q | Standard | $1.00 | Wings Sauces |
-| 1800 | 812 | Medium | Standard | $0.00 | Wings Sauces |
-| 1803 | 814 | Mild | Standard | $0.00 | Wings Sauces |
-| 1806 | 815 | Gravy | Standard | $0.00 | Sauces For Jesica Donair Poutine |
-| 1808 | 817 | Donair Sauce | Standard | $0.00 | Sauces For Jesica Donair Poutine |
-
----
-
-## 6. DISH_COMBO_GROUPS Records (10 dishes linked)
-
-| Link ID | Dish ID | Dish Name | Course | is_active |
-|---------|---------|-----------|--------|-----------|
-| 24 | 133654 | 1 Topping | Pizza | ✅ |
-| 27 | 133655 | 2 Toppings | Pizza | ✅ |
-| 31 | 133669 | 2 Small Pizza Special | Twins Pizza Special | ✅ |
-| 35 | 133670 | 2 Medium Pizza Special | Twins Pizza Special | ✅ |
-| 39 | 133671 | 2 Large Pizza Special | Twins Pizza Special | ✅ |
-| 7 | 133646 | Small Pizza and One Garlic Fingers | Specials | ✅ |
-| 10 | 133647 | Medium Pizza and One Garlic Fingers | Specials | ✅ |
-| 13 | 133648 | Large Pizza and One Garlic Fingers | Specials | ✅ |
-| 4 | 133645 | Medium Pizza and Donairs | Specials | ✅ |
-| 21 | 133652 | Large Pizza and Donair Special HIDE | Specials | ✅ |
-
----
-
-## 7. Visual Structure
+## Core Tables Hierarchy
 
 ```
-┌───────────────────────────────────────────────────────────────────────────────┐
-│  COMBO GROUP: "Dips" (ID: 7, source_id: 1494)                                 │
-│  restaurant_id: 131, number_of_items: 1                                       │
-│  Linked to 10 dishes                                                          │
-└───────────────────────────────────────┬───────────────────────────────────────┘
-                                        │
-                                        │ 1:N
-                                        ▼
-┌───────────────────────────────────────────────────────────────────────────────┐
-│  SECTION (ID: 13): sauce                                                      │
-│           use_header: "Dips"                                                  │
-│           display_order: 4, min: 0, max: 0, free_items: 0                     │
-└───────────────────────────────────────┬───────────────────────────────────────┘
-                                        │
-                                        │ 1:N
-        ┌───────────────────────────────┼───────────────────────────────┐
-        ▼                               ▼                               ▼
-┌────────────────────┐    ┌─────────────────────────┐    ┌─────────────────────────────┐
-│ Dips (ID: 131)     │    │ Wings Sauces (ID: 132)  │    │ Sauces For Jesica           │
-│ type_code: SA      │    │ type_code: SA           │    │ Donair Poutine (ID: 133)    │
-│ is_selected: ✅ YES │    │ is_selected: ❌ NO      │    │ type_code: SA               │
-└────────┬───────────┘    └─────────────┬───────────┘    │ is_selected: ❌ NO          │
-         │                              │                └─────────────┬───────────────┘
-         │ 1:N                          │ 1:N                          │ 1:N
-         ▼                              ▼                              ▼
-┌────────────────────┐    ┌─────────────────────────┐    ┌─────────────────────────────┐
-│ MODIFIERS:         │    │ MODIFIERS:              │    │ MODIFIERS:                  │
-│ • Creamy Garlic $1 │    │ • Honey Garlic $1       │    │ • Gravy         $0          │
-│ • Honey Garlic  $1 │    │ • Hot          $1       │    │ • Donair Sauce  $0          │
-│ • Hot           $1 │    │ • B.B.Q        $1       │    └─────────────────────────────┘
-│ • B.B.Q         $1 │    │ • Medium       $0       │
-│ • Marinara      $1 │    │ • Mild         $0       │
-└────────────────────┘    └─────────────────────────┘
+restaurants
+    └── courses (categories like "Spotlight Special", "Pizzas", etc.)
+            └── dishes (individual menu items)
+                    ├── dish_prices (base pricing)
+                    ├── modifier_groups (customization groups)
+                    │       └── dish_modifiers (individual options)
+                    │               └── dish_modifier_prices (option pricing)
+                    ├── dish_combo_groups (links to combo configurations)
+                    └── dish_availability (day-based visibility)
 ```
 
 ---
 
-## 8. Summary Statistics
+## Example 1: Normal Dish - "The People's Pie"
 
-| Metric | Count |
-|--------|-------|
-| **Combo Group Sections** | 1 |
-| **Combo Modifier Groups** | 3 |
-| **Combo Modifiers** | 12 |
-| **Combo Modifier Prices** | 12 |
-| **Linked Dishes** | 10 |
+A **normal dish** is a standalone menu item with optional modifiers for customization.
+
+### Dish Record
+
+| Field             | Value                    |
+| ----------------- | ------------------------ |
+| **id**            | 173660                   |
+| **name**          | The People's Pie         |
+| **course_id**     | 6412 (Spotlight Special) |
+| **is_combo**      | FALSE                    |
+| **restaurant_id** | 636                      |
+
+### Dish Price
+
+| dish_id | size_variant | price  |
+| ------- | ------------ | ------ |
+| 173660  | Standard     | $24.99 |
+
+### Modifier Groups
+
+Normal dishes have **modifier_groups** attached directly to the dish:
+
+| id    | name                          | min_selections | max_selections | free_items |
+| ----- | ----------------------------- | -------------- | -------------- | ---------- |
+| 40903 | Crust Type                    | 0              | 1              | 0          |
+| 40904 | Pizza Toppings                | 0              | 1              | 0          |
+| 40905 | BASE Sauce for PIZZA          | 0              | 1              | 0          |
+| 40906 | BASE CHEESE                   | 0              | 1              | 0          |
+| 40907 | EXTRA BASE Sauce for PIZZA    | 0              | 1              | 0          |
+| 40908 | Stuffed Crust with Mozzarella | 0              | 1              | 0          |
+
+### Dish Modifiers (options within groups)
+
+Each modifier group contains individual modifier options:
+
+| group_name | modifier_name     | modifier_type |
+| ---------- | ----------------- | ------------- |
+| Crust Type | Regular Crust     | bread         |
+| Crust Type | Gluten Free Crust | bread         |
+| Crust Type | Thick Crust       | bread         |
+| Crust Type | Deep Dish Crust   | bread         |
+| Crust Type | Thin Crust        | bread         |
+| ...        | ...               | ...           |
+
+### Dish Modifier Prices
+
+Each modifier can have different prices per size:
+
+| modifier_name            | size_variant | price  |
+| ------------------------ | ------------ | ------ |
+| Regular Crust            | Standard     | $0.00  |
+| Gluten Free Crust        | Small        | $0.00  |
+| Gluten Free Crust        | Medium       | $0.00  |
+| Deep Dish Crust          | Standard     | $1.50  |
+| Thick Garlic Bread Crust | Standard     | $2.99  |
+| Double Cheese            | Standard     | $11.98 |
+| Extra Cheese             | Standard     | $3.99  |
+
+### Normal Dish Data Flow
+
+```
+The People's Pie (dish)
+    ├── $24.99 (dish_price)
+    └── Modifier Groups:
+            ├── Crust Type
+            │       ├── Regular Crust ($0.00)
+            │       ├── Gluten Free Crust ($0.00)
+            │       ├── Thick Crust ($1.00)
+            │       └── Deep Dish Crust ($1.50)
+            ├── Pizza Toppings
+            │       ├── Pepperoni ($3.99)
+            │       ├── Mushrooms ($3.99)
+            │       └── ...
+            └── BASE CHEESE
+                    ├── Regular Mozzarella ($0.00)
+                    └── Vegan Cheese ($4.99)
+```
 
 ---
 
-## 9. Other Tables (Empty for this combo group)
+## Example 2: Combo Dish - "Spotlight Special Large Pizza"
 
-| Table | Records |
-|-------|---------|
-| combo_group_translations | 0 |
-| combo_group_modifier_pricing | 0 |
-| combo_modifier_placements | 0 |
+A **combo dish** is a meal deal that references one or more **combo groups** for its customization options. Combo dishes do NOT have their own `modifier_groups` - they inherit customization from `combo_groups`.
+
+### Dish Record
+
+| Field             | Value                         |
+| ----------------- | ----------------------------- |
+| **id**            | 173659                        |
+| **name**          | Spotlight Special Large Pizza |
+| **course_id**     | 6412 (Spotlight Special)      |
+| **is_combo**      | TRUE                          |
+| **restaurant_id** | 636                           |
+
+### Dish Price
+
+| dish_id | size_variant | price  |
+| ------- | ------------ | ------ |
+| 173659  | Standard     | $29.99 |
+
+### Combo Group Link (dish_combo_groups)
+
+Combo dishes are linked to **combo_groups** via the junction table:
+
+| dish_id | combo_group_id | combo_group_name         |
+| ------- | -------------- | ------------------------ |
+| 173659  | 2250           | 1 Large Pizza 5 Toppings |
+
+### Combo Group Structure
+
+The combo group defines the customization sections:
+
+**combo_groups** (ID: 2250)
+| Field | Value |
+|-------|-------|
+| name | 1 Large Pizza 5 Toppings |
+| restaurant_id | 636 |
+| source_id | 7562 (V1 ID) |
+
+**combo_group_sections** (attached to combo_group 2250)
+
+| section_type       | use_header                     | display_order | min_selection | max_selection | free_items |
+| ------------------ | ------------------------------ | ------------- | ------------- | ------------- | ---------- |
+| bread              | Crust type                     | 1             | 0             | 0             | 0          |
+| cooking_method     | Stuffed Crust with Mozzarella? | 2             | 1             | 1             | 0          |
+| dressing           | Base Sauce                     | 3             | 1             | 1             | 0          |
+| extras             | Extras                         | 4             | 0             | 1             | 0          |
+| side_dish          | Base Cheese                    | 5             | 1             | 1             | 0          |
+| custom_ingredients | First 5 Toppings Free          | 6             | 0             | 0             | **5**      |
+
+> Note: `free_items = 5` in custom_ingredients means the first 5 toppings are included free!
+
+### Combo Data Flow
+
+```
+Spotlight Special Large Pizza (dish, is_combo=TRUE)
+    ├── $29.99 (dish_price)
+    └── dish_combo_groups → links to:
+            └── Combo Group: "1 Large Pizza 5 Toppings"
+                    └── combo_group_sections:
+                            ├── bread: "Crust type"
+                            │       └── combo_modifier_groups
+                            │               └── combo_modifiers
+                            │                       └── combo_modifier_prices
+                            ├── cooking_method: "Stuffed Crust with Mozzarella?"
+                            ├── dressing: "Base Sauce"
+                            ├── extras: "Extras"
+                            ├── side_dish: "Base Cheese"
+                            └── custom_ingredients: "First 5 Toppings Free" (5 free!)
+```
 
 ---
 
-## 10. Query to Retrieve This Data
+## Key Differences: Normal vs Combo Dishes
+
+| Aspect                    | Normal Dish                          | Combo Dish                                                                            |
+| ------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------- |
+| **is_combo**              | FALSE                                | TRUE                                                                                  |
+| **Customization Source**  | `modifier_groups` → `dish_modifiers` | `combo_groups` → `combo_group_sections` → `combo_modifier_groups` → `combo_modifiers` |
+| **Modifier Prices Table** | `dish_modifier_prices`               | `combo_modifier_prices`                                                               |
+| **Reusability**           | Modifiers are dish-specific          | Combo groups can be shared across multiple dishes                                     |
+
+---
+
+## Section Type Mapping
+
+The `section_type` in `combo_group_sections` maps to specific customization categories:
+
+| section_type            | Description         | Example                           |
+| ----------------------- | ------------------- | --------------------------------- |
+| bread                   | Crust/bread options | Regular, Thin, Thick, Gluten Free |
+| custom_ingredients      | Toppings            | Pepperoni, Mushrooms, Onions      |
+| dressing                | Sauces for base     | Marinara, BBQ, Alfredo            |
+| sauces                  | Dipping sauces      | Ranch, Garlic Butter              |
+| side_dish / side_dishes | Side options        | Cheese types                      |
+| extras                  | Add-ons             | Extra toppings, premium items     |
+| cooking_method          | Preparation style   | Stuffed crust, well-done          |
+| drinks                  | Beverage options    | Pepsi, Coke, Sprite               |
+
+---
+
+## Hide on Days Functionality
+
+Dishes can be hidden on specific days using:
+
+1. **dishes.hide_option_enabled** = TRUE
+2. **dish_availability** table entries
+
+### Example: "WILD Wednesdays HIDE"
+
+This dish is only visible on Wednesday:
+
+**dishes table:**
+| id | name | hide_option_enabled |
+|----|------|---------------------|
+| 173664 | WILD Wednesdays HIDE | TRUE |
+
+**dish_availability table:**
+| dish_id | day_of_week | is_hidden |
+|---------|-------------|-----------|
+| 173664 | 0 (Sunday) | TRUE |
+| 173664 | 1 (Monday) | TRUE |
+| 173664 | 2 (Tuesday) | TRUE |
+| 173664 | 4 (Thursday) | TRUE |
+| 173664 | 5 (Friday) | TRUE |
+| 173664 | 6 (Saturday) | TRUE |
+
+> **Result:** Hidden every day except Wednesday (day 3)
+
+---
+
+## SQL Query Examples
+
+### Get all dishes for a restaurant with prices
 
 ```sql
--- Get complete combo group structure for ID 7
-SELECT 
-    cg.id as combo_group_id,
-    cg.name as combo_group_name,
-    cg.restaurant_id,
-    cg.number_of_items,
-    cg.source_id,
-    cgs.id as section_id,
-    cgs.section_type,
-    cgs.use_header,
-    cgs.display_order,
-    cgs.free_items,
-    cgs.min_selection,
-    cgs.max_selection,
-    cgs.is_active,
-    cmg.id as modifier_group_id,
-    cmg.name as modifier_group_name,
-    cmg.type_code,
-    cmg.is_selected,
-    cmg.source_id as cmg_source_id,
-    cm.id as modifier_id,
-    cm.name as modifier_name,
-    cm.display_order as modifier_order,
-    cmp.id as price_id,
-    cmp.size_variant,
-    cmp.price
-FROM menuca_v3.combo_groups cg
-JOIN menuca_v3.combo_group_sections cgs ON cgs.combo_group_id = cg.id
-JOIN menuca_v3.combo_modifier_groups cmg ON cmg.combo_group_section_id = cgs.id
-JOIN menuca_v3.combo_modifiers cm ON cm.combo_modifier_group_id = cmg.id
-JOIN menuca_v3.combo_modifier_prices cmp ON cmp.combo_modifier_id = cm.id
-WHERE cg.id = 7
-ORDER BY cgs.display_order, cmg.id, cm.display_order;
+SELECT d.id, d.name, d.is_combo, dp.price, c.name as category
+FROM menuca_v3.dishes d
+JOIN menuca_v3.courses c ON d.course_id = c.id
+LEFT JOIN menuca_v3.dish_prices dp ON dp.dish_id = d.id
+WHERE d.restaurant_id = 636 AND d.deleted_at IS NULL
+ORDER BY c.display_order, d.display_order;
 ```
 
+### Get combo groups for a combo dish
+
+```sql
+SELECT d.name as dish_name, cg.name as combo_group_name
+FROM menuca_v3.dishes d
+JOIN menuca_v3.dish_combo_groups dcg ON dcg.dish_id = d.id
+JOIN menuca_v3.combo_groups cg ON dcg.combo_group_id = cg.id
+WHERE d.id = 173659 AND cg.deleted_at IS NULL;
+```
+
+### Get modifier options for a normal dish
+
+```sql
+SELECT mg.name as group_name, dm.name as modifier_name, dmp.price
+FROM menuca_v3.modifier_groups mg
+JOIN menuca_v3.dish_modifiers dm ON dm.modifier_group_id = mg.id
+JOIN menuca_v3.dish_modifier_prices dmp ON dmp.dish_modifier_id = dm.id
+WHERE mg.dish_id = 173660
+  AND mg.deleted_at IS NULL
+  AND dm.deleted_at IS NULL
+ORDER BY mg.display_order, dm.display_order;
+```
+
+### Get visible dishes for current day
+
+```sql
+SELECT d.* FROM menuca_v3.dishes d
+WHERE d.restaurant_id = 636
+  AND d.is_active = TRUE
+  AND d.deleted_at IS NULL
+  AND (
+      d.hide_option_enabled = FALSE
+      OR NOT EXISTS (
+          SELECT 1 FROM menuca_v3.dish_availability da
+          WHERE da.dish_id = d.id
+            AND da.day_of_week = EXTRACT(DOW FROM CURRENT_TIMESTAMP)
+            AND da.is_hidden = TRUE
+      )
+  );
+```
+
+---
+
+## Summary Statistics for Joes Family Pizzeria
+
+| Table                          | Count |
+| ------------------------------ | ----- |
+| Courses                        | 37    |
+| Dishes (total)                 | 374   |
+| - Combo dishes                 | 73    |
+| - Normal dishes                | 301   |
+| Dish Prices                    | 651   |
+| Combo Groups                   | 80    |
+| Combo Group Sections           | 242   |
+| Dish Combo Group Links         | 171   |
+| Modifier Groups                | 343   |
+| Dish Modifiers                 | 3,394 |
+| Dish Modifier Prices           | 7,174 |
+| Dish Availability (hide rules) | 148   |

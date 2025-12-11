@@ -1,0 +1,1201 @@
+[2025-12-11 16:27:30] [INFO] Logging to: C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\logs\special_combo_scan_20251211_162730.log
+[2025-12-11 16:27:30] [INFO] ======================================================================
+[2025-12-11 16:27:30] [INFO] SPECIAL COMBO SECTION SCANNER
+[2025-12-11 16:27:30] [INFO] Identifying combo groups with pre-selected dish items
+[2025-12-11 16:27:30] [INFO] ======================================================================
+[2025-12-11 16:27:30] [INFO] Scanning 123 restaurants
+[2025-12-11 16:27:30] [INFO] Starting Special Combo Scanner...
+[2025-12-11 16:27:30] [INFO] Browser connection established
+[2025-12-11 16:27:30] [INFO] Logging in to https://menuadmin.menu.ca/...
+[2025-12-11 16:27:32] [INFO] Found login form with name='username'
+[2025-12-11 16:27:36] [INFO] Current URL after login: https://menuadmin.menu.ca/?p=restaurants
+[2025-12-11 16:27:36] [INFO] Login successful
+[2025-12-11 16:27:36] [INFO] 
+============================================================
+[2025-12-11 16:27:36] [INFO] [1/123] Scanning: Lucky Star Chinese Food (V3: 8, V1: 90)
+[2025-12-11 16:27:36] [INFO] ============================================================
+[2025-12-11 16:27:37] [INFO] No combo groups found for Lucky Star Chinese Food
+[2025-12-11 16:27:37] [INFO]   No special combo groups found
+[2025-12-11 16:27:37] [INFO] 
+============================================================
+[2025-12-11 16:27:37] [INFO] [2/123] Scanning: New Mee Fung Restaurant (V3: 15, V1: 101)
+[2025-12-11 16:27:37] [INFO] ============================================================
+[2025-12-11 16:27:39] [INFO] No combo groups found for New Mee Fung Restaurant
+[2025-12-11 16:27:39] [INFO]   No special combo groups found
+[2025-12-11 16:27:39] [INFO] 
+============================================================
+[2025-12-11 16:27:39] [INFO] [3/123] Scanning: Papa Pizza - Hull (V3: 70, V1: 184)
+[2025-12-11 16:27:39] [INFO] ============================================================
+[2025-12-11 16:27:40] [INFO] No combo groups found for Papa Pizza - Hull
+[2025-12-11 16:27:40] [INFO]   No special combo groups found
+[2025-12-11 16:27:40] [INFO] 
+============================================================
+[2025-12-11 16:27:40] [INFO] [4/123] Scanning: Cathay Restaurants (V3: 72, V1: 187)
+[2025-12-11 16:27:40] [INFO] ============================================================
+[2025-12-11 16:27:41] [INFO] No combo groups found for Cathay Restaurants
+[2025-12-11 16:27:41] [INFO]   No special combo groups found
+[2025-12-11 16:27:41] [INFO] 
+============================================================
+[2025-12-11 16:27:41] [INFO] [5/123] Scanning: Champa Thai Cuisine (V3: 87, V1: 203)
+[2025-12-11 16:27:41] [INFO] ============================================================
+[2025-12-11 16:27:43] [INFO] No combo groups found for Champa Thai Cuisine
+[2025-12-11 16:27:43] [INFO]   No special combo groups found
+[2025-12-11 16:27:43] [INFO] 
+============================================================
+[2025-12-11 16:27:43] [INFO] [6/123] Scanning: Milano (V3: 97, V1: 213)
+[2025-12-11 16:27:43] [INFO] ============================================================
+[2025-12-11 16:27:44] [INFO] Found 44 combo groups for Milano
+[2025-12-11 16:29:12] [INFO]   No special combo groups found
+[2025-12-11 16:29:12] [INFO] 
+============================================================
+[2025-12-11 16:29:12] [INFO] [7/123] Scanning: Ginkgo Garden (V3: 105, V1: 224)
+[2025-12-11 16:29:12] [INFO] ============================================================
+[2025-12-11 16:29:13] [INFO] No combo groups found for Ginkgo Garden
+[2025-12-11 16:29:13] [INFO]   No special combo groups found
+[2025-12-11 16:29:13] [INFO] 
+============================================================
+[2025-12-11 16:29:13] [INFO] [8/123] Scanning: Restaurant Le Choix (V3: 106, V1: 225)
+[2025-12-11 16:29:13] [INFO] ============================================================
+[2025-12-11 16:29:14] [INFO] Found 39 combo groups for Restaurant Le Choix
+[2025-12-11 16:30:29] [INFO]   No special combo groups found
+[2025-12-11 16:30:29] [INFO] 
+============================================================
+[2025-12-11 16:30:29] [INFO] [9/123] Scanning: Restaurant Chez Gerry (V3: 109, V1: 228)
+[2025-12-11 16:30:29] [INFO] ============================================================
+[2025-12-11 16:30:30] [INFO] Found 14 combo groups for Restaurant Chez Gerry
+[2025-12-11 16:30:57] [INFO]   No special combo groups found
+[2025-12-11 16:30:57] [INFO] 
+============================================================
+[2025-12-11 16:30:57] [INFO] [10/123] Scanning: Mano City Pizza (V3: 118, V1: 238)
+[2025-12-11 16:30:57] [INFO] ============================================================
+[2025-12-11 16:30:58] [INFO] Found 41 combo groups for Mano City Pizza
+[2025-12-11 16:31:32] [INFO]   [SPECIAL] Salads for special 1 (source_id=2474): 3 checked items
+[2025-12-11 16:31:36] [INFO]   [SPECIAL] Special #5 Lg Sahwarma or Donair (source_id=3615): 2 checked items
+[2025-12-11 16:32:13] [INFO]   [SPECIAL] 2 Large Subs (source_id=7533): 14 checked items
+[2025-12-11 16:32:19] [INFO]   FOUND 3 special combo groups with 19 total checked items
+[2025-12-11 16:32:19] [INFO] 
+============================================================
+[2025-12-11 16:32:19] [INFO] [11/123] Scanning: Hung Mein (V3: 119, V1: 239)
+[2025-12-11 16:32:19] [INFO] ============================================================
+[2025-12-11 16:32:20] [INFO] No combo groups found for Hung Mein
+[2025-12-11 16:32:20] [INFO]   No special combo groups found
+[2025-12-11 16:32:20] [INFO] 
+============================================================
+[2025-12-11 16:32:20] [INFO] [12/123] Scanning: Milano (V3: 123, V1: 245)
+[2025-12-11 16:32:20] [INFO] ============================================================
+[2025-12-11 16:32:22] [INFO] Found 38 combo groups for Milano
+[2025-12-11 16:32:50] [INFO]   [SPECIAL] Garden or Caesar Salad---small (source_id=1415): 2 checked items
+[2025-12-11 16:33:04] [INFO]   [SPECIAL] Garden or Caesar Salad- large (source_id=4896): 2 checked items
+[2025-12-11 16:33:38] [INFO]   FOUND 2 special combo groups with 4 total checked items
+[2025-12-11 16:33:38] [INFO] 
+============================================================
+[2025-12-11 16:33:38] [INFO] [13/123] Scanning: Carlo's Pizza (V3: 124, V1: 246)
+[2025-12-11 16:33:38] [INFO] ============================================================
+[2025-12-11 16:33:39] [INFO] Found 3 combo groups for Carlo's Pizza
+[2025-12-11 16:33:45] [INFO]   No special combo groups found
+[2025-12-11 16:33:45] [INFO] 
+============================================================
+[2025-12-11 16:33:45] [INFO] [14/123] Scanning: Milano (V3: 126, V1: 248)
+[2025-12-11 16:33:45] [INFO] ============================================================
+[2025-12-11 16:33:47] [INFO] Found 37 combo groups for Milano
+[2025-12-11 16:35:01] [INFO]   No special combo groups found
+[2025-12-11 16:35:01] [INFO] 
+============================================================
+[2025-12-11 16:35:01] [INFO] [15/123] Scanning: Pizza Bravo (V3: 139, V1: 264)
+[2025-12-11 16:35:01] [INFO] ============================================================
+[2025-12-11 16:35:02] [INFO] No combo groups found for Pizza Bravo
+[2025-12-11 16:35:02] [INFO]   No special combo groups found
+[2025-12-11 16:35:02] [INFO] 
+============================================================
+[2025-12-11 16:35:02] [INFO] [16/123] Scanning: Tony's Pizza (V3: 143, V1: 275)
+[2025-12-11 16:35:02] [INFO] ============================================================
+[2025-12-11 16:35:04] [INFO] Found 39 combo groups for Tony's Pizza
+[2025-12-11 16:36:23] [INFO]   No special combo groups found
+[2025-12-11 16:36:23] [INFO] 
+============================================================
+[2025-12-11 16:36:23] [INFO] [17/123] Scanning: Hong Kong Chinese Food Takeout (V3: 160, V1: 294)
+[2025-12-11 16:36:23] [INFO] ============================================================
+[2025-12-11 16:36:25] [INFO] No combo groups found for Hong Kong Chinese Food Takeout
+[2025-12-11 16:36:25] [INFO]   No special combo groups found
+[2025-12-11 16:36:25] [INFO] 
+============================================================
+[2025-12-11 16:36:25] [INFO] [18/123] Scanning: Lucky King Take Out (V3: 174, V1: 312)
+[2025-12-11 16:36:25] [INFO] ============================================================
+[2025-12-11 16:36:26] [INFO] No combo groups found for Lucky King Take Out
+[2025-12-11 16:36:26] [INFO]   No special combo groups found
+[2025-12-11 16:36:26] [INFO] 
+============================================================
+[2025-12-11 16:36:26] [INFO] [19/123] Scanning: Indian Punjabi Clay Oven (V3: 180, V1: 318)
+[2025-12-11 16:36:26] [INFO] ============================================================
+[2025-12-11 16:36:27] [INFO] No combo groups found for Indian Punjabi Clay Oven
+[2025-12-11 16:36:27] [INFO]   No special combo groups found
+[2025-12-11 16:36:27] [INFO] 
+============================================================
+[2025-12-11 16:36:27] [INFO] [20/123] Scanning: Milano (V3: 190, V1: 328)
+[2025-12-11 16:36:27] [INFO] ============================================================
+[2025-12-11 16:36:29] [INFO] Found 29 combo groups for Milano
+[2025-12-11 16:37:27] [INFO]   No special combo groups found
+[2025-12-11 16:37:27] [INFO] 
+============================================================
+[2025-12-11 16:37:27] [INFO] [21/123] Scanning: Colonnade Pizza (V3: 196, V1: 334)
+[2025-12-11 16:37:27] [INFO] ============================================================
+[2025-12-11 16:37:28] [INFO] Found 5 combo groups for Colonnade Pizza
+[2025-12-11 16:37:38] [INFO]   No special combo groups found
+[2025-12-11 16:37:38] [INFO] 
+============================================================
+[2025-12-11 16:37:38] [INFO] [22/123] Scanning: Pho Bo Ga King - Somerset (V3: 199, V1: 337)
+[2025-12-11 16:37:38] [INFO] ============================================================
+[2025-12-11 16:37:39] [INFO] No combo groups found for Pho Bo Ga King - Somerset
+[2025-12-11 16:37:39] [INFO]   No special combo groups found
+[2025-12-11 16:37:39] [INFO] 
+============================================================
+[2025-12-11 16:37:39] [INFO] [23/123] Scanning: Mont Liban Bakery & Shawarma (V3: 205, V1: 344)
+[2025-12-11 16:37:39] [INFO] ============================================================
+[2025-12-11 16:37:40] [INFO] No combo groups found for Mont Liban Bakery & Shawarma
+[2025-12-11 16:37:40] [INFO]   No special combo groups found
+[2025-12-11 16:37:40] [INFO] 
+============================================================
+[2025-12-11 16:37:40] [INFO] [24/123] Scanning: Erman Pizza (V3: 211, V1: 350)
+[2025-12-11 16:37:40] [INFO] ============================================================
+[2025-12-11 16:37:42] [INFO] No combo groups found for Erman Pizza
+[2025-12-11 16:37:42] [INFO]   No special combo groups found
+[2025-12-11 16:37:42] [INFO] 
+============================================================
+[2025-12-11 16:37:42] [INFO] [25/123] Scanning: New Mukut Restaurant Indian Cuisine (V3: 234, V1: 374)
+[2025-12-11 16:37:42] [INFO] ============================================================
+[2025-12-11 16:37:43] [INFO] No combo groups found for New Mukut Restaurant Indian Cuisine
+[2025-12-11 16:37:43] [INFO]   No special combo groups found
+[2025-12-11 16:37:43] [INFO] 
+============================================================
+[2025-12-11 16:37:43] [INFO] [26/123] Scanning: Beneci Pizza (V3: 241, V1: 383)
+[2025-12-11 16:37:43] [INFO] ============================================================
+[2025-12-11 16:37:44] [INFO] Found 8 combo groups for Beneci Pizza
+[2025-12-11 16:37:59] [INFO]   No special combo groups found
+[2025-12-11 16:37:59] [INFO] 
+============================================================
+[2025-12-11 16:37:59] [INFO] [27/123] Scanning: Orchid Sushi (V3: 245, V1: 387)
+[2025-12-11 16:37:59] [INFO] ============================================================
+[2025-12-11 16:38:01] [INFO] Found 1 combo groups for Orchid Sushi
+[2025-12-11 16:38:03] [INFO]   [SPECIAL] Combo lunch (source_id=2352): 8 checked items
+[2025-12-11 16:38:03] [INFO]   FOUND 1 special combo groups with 8 total checked items
+[2025-12-11 16:38:03] [INFO] 
+============================================================
+[2025-12-11 16:38:03] [INFO] [28/123] Scanning: Milano (V3: 265, V1: 411)
+[2025-12-11 16:38:03] [INFO] ============================================================
+[2025-12-11 16:38:04] [INFO] Found 34 combo groups for Milano
+[2025-12-11 16:39:11] [INFO]   No special combo groups found
+[2025-12-11 16:39:11] [INFO] 
+============================================================
+[2025-12-11 16:39:11] [INFO] [29/123] Scanning: Lucky Fortune (V3: 267, V1: 413)
+[2025-12-11 16:39:11] [INFO] ============================================================
+[2025-12-11 16:39:13] [INFO] No combo groups found for Lucky Fortune
+[2025-12-11 16:39:13] [INFO]   No special combo groups found
+[2025-12-11 16:39:13] [INFO] 
+============================================================
+[2025-12-11 16:39:13] [INFO] [30/123] Scanning: Shaan Tandoori (V3: 269, V1: 415)
+[2025-12-11 16:39:13] [INFO] ============================================================
+[2025-12-11 16:39:14] [INFO] No combo groups found for Shaan Tandoori
+[2025-12-11 16:39:14] [INFO]   No special combo groups found
+[2025-12-11 16:39:14] [INFO] 
+============================================================
+[2025-12-11 16:39:14] [INFO] [31/123] Scanning: JN Pizza (V3: 328, V1: 489)
+[2025-12-11 16:39:14] [INFO] ============================================================
+[2025-12-11 16:39:15] [INFO] Found 13 combo groups for JN Pizza
+[2025-12-11 16:39:40] [INFO]   No special combo groups found
+[2025-12-11 16:39:40] [INFO] 
+============================================================
+[2025-12-11 16:39:40] [INFO] [32/123] Scanning: Milano (V3: 349, V1: 512)
+[2025-12-11 16:39:40] [INFO] ============================================================
+[2025-12-11 16:39:42] [INFO] Found 34 combo groups for Milano
+[2025-12-11 16:40:51] [INFO]   No special combo groups found
+[2025-12-11 16:40:51] [INFO] 
+============================================================
+[2025-12-11 16:40:51] [INFO] [33/123] Scanning: Milano (V3: 350, V1: 513)
+[2025-12-11 16:40:51] [INFO] ============================================================
+[2025-12-11 16:40:52] [INFO] Found 37 combo groups for Milano
+[2025-12-11 16:41:16] [INFO]   [SPECIAL] Pasta Special (source_id=2994): 2 checked items
+[2025-12-11 16:41:34] [INFO]   [SPECIAL] Small Salad (Any) (source_id=3003): 5 checked items
+[2025-12-11 16:42:05] [INFO]   FOUND 2 special combo groups with 7 total checked items
+[2025-12-11 16:42:05] [INFO] 
+============================================================
+[2025-12-11 16:42:05] [INFO] [34/123] Scanning: Xtreme Pizza (V3: 367, V1: 532)
+[2025-12-11 16:42:05] [INFO] ============================================================
+[2025-12-11 16:42:06] [INFO] Found 25 combo groups for Xtreme Pizza
+[2025-12-11 16:42:55] [INFO]   No special combo groups found
+[2025-12-11 16:42:55] [INFO] 
+============================================================
+[2025-12-11 16:42:55] [INFO] [35/123] Scanning: Sachi Sushi (V3: 376, V1: 542)
+[2025-12-11 16:42:55] [INFO] ============================================================
+[2025-12-11 16:42:56] [INFO] No combo groups found for Sachi Sushi
+[2025-12-11 16:42:56] [INFO]   No special combo groups found
+[2025-12-11 16:42:56] [INFO] 
+============================================================
+[2025-12-11 16:42:56] [INFO] [36/123] Scanning: Papa Joe's Fried Chicken - Downtown (V3: 437, V1: 612)
+[2025-12-11 16:42:56] [INFO] ============================================================
+[2025-12-11 16:42:57] [INFO] No combo groups found for Papa Joe's Fried Chicken - Downtown
+[2025-12-11 16:42:57] [INFO]   No special combo groups found
+[2025-12-11 16:42:57] [INFO] 
+============================================================
+[2025-12-11 16:42:57] [INFO] [37/123] Scanning: iCook Pho You (V3: 479, V1: 669)
+[2025-12-11 16:42:57] [INFO] ============================================================
+[2025-12-11 16:42:59] [INFO] No combo groups found for iCook Pho You
+[2025-12-11 16:42:59] [INFO]   No special combo groups found
+[2025-12-11 16:42:59] [INFO] 
+============================================================
+[2025-12-11 16:42:59] [INFO] [38/123] Scanning: Light of India (V3: 491, V1: 695)
+[2025-12-11 16:42:59] [INFO] ============================================================
+[2025-12-11 16:43:00] [INFO] No combo groups found for Light of India
+[2025-12-11 16:43:00] [INFO]   No special combo groups found
+[2025-12-11 16:43:00] [INFO] 
+============================================================
+[2025-12-11 16:43:00] [INFO] [39/123] Scanning: Rangoli (V3: 497, V1: 701)
+[2025-12-11 16:43:00] [INFO] ============================================================
+[2025-12-11 16:43:01] [INFO] Found 4 combo groups for Rangoli
+[2025-12-11 16:43:09] [INFO]   No special combo groups found
+[2025-12-11 16:43:09] [INFO] 
+============================================================
+[2025-12-11 16:43:09] [INFO] [40/123] Scanning: New Hong Kong (V3: 502, V1: 707)
+[2025-12-11 16:43:09] [INFO] ============================================================
+[2025-12-11 16:43:10] [INFO] No combo groups found for New Hong Kong
+[2025-12-11 16:43:10] [INFO]   No special combo groups found
+[2025-12-11 16:43:10] [INFO] 
+============================================================
+[2025-12-11 16:43:10] [INFO] [41/123] Scanning: Pizza Lovers Hunt Club (V3: 507, V1: 712)
+[2025-12-11 16:43:10] [INFO] ============================================================
+[2025-12-11 16:43:12] [INFO] Found 4 combo groups for Pizza Lovers Hunt Club
+[2025-12-11 16:43:19] [INFO]   No special combo groups found
+[2025-12-11 16:43:19] [INFO] 
+============================================================
+[2025-12-11 16:43:19] [INFO] [42/123] Scanning: Egg Roll Factory (V3: 511, V1: 716)
+[2025-12-11 16:43:19] [INFO] ============================================================
+[2025-12-11 16:43:21] [INFO] No combo groups found for Egg Roll Factory
+[2025-12-11 16:43:21] [INFO]   No special combo groups found
+[2025-12-11 16:43:21] [INFO] 
+============================================================
+[2025-12-11 16:43:21] [INFO] [43/123] Scanning: HaNoi Pho (V3: 519, V1: 727)
+[2025-12-11 16:43:21] [INFO] ============================================================
+[2025-12-11 16:43:22] [INFO] No combo groups found for HaNoi Pho
+[2025-12-11 16:43:22] [INFO]   No special combo groups found
+[2025-12-11 16:43:22] [INFO] 
+============================================================
+[2025-12-11 16:43:22] [INFO] [44/123] Scanning: Palermo Pizzeria (V3: 521, V1: 729)
+[2025-12-11 16:43:22] [INFO] ============================================================
+[2025-12-11 16:43:23] [INFO] Found 29 combo groups for Palermo Pizzeria
+[2025-12-11 16:44:20] [INFO]   No special combo groups found
+[2025-12-11 16:44:20] [INFO] 
+============================================================
+[2025-12-11 16:44:20] [INFO] [45/123] Scanning: Papa Grecque des Flandres (V3: 540, V1: 758)
+[2025-12-11 16:44:20] [INFO] ============================================================
+[2025-12-11 16:44:21] [INFO] No combo groups found for Papa Grecque des Flandres
+[2025-12-11 16:44:21] [INFO]   No special combo groups found
+[2025-12-11 16:44:21] [INFO] 
+============================================================
+[2025-12-11 16:44:21] [INFO] [46/123] Scanning: Aahar The Taste of India (V3: 561, V1: 781)
+[2025-12-11 16:44:21] [INFO] ============================================================
+[2025-12-11 16:44:22] [INFO] No combo groups found for Aahar The Taste of India
+[2025-12-11 16:44:22] [INFO]   No special combo groups found
+[2025-12-11 16:44:22] [INFO] 
+============================================================
+[2025-12-11 16:44:22] [INFO] [47/123] Scanning: Pizza des Hautes Plaines (V3: 562, V1: 782)
+[2025-12-11 16:44:22] [INFO] ============================================================
+[2025-12-11 16:44:24] [INFO] No combo groups found for Pizza des Hautes Plaines
+[2025-12-11 16:44:24] [INFO]   No special combo groups found
+[2025-12-11 16:44:24] [INFO] 
+============================================================
+[2025-12-11 16:44:24] [INFO] [48/123] Scanning: Milano (V3: 565, V1: 785)
+[2025-12-11 16:44:24] [INFO] ============================================================
+[2025-12-11 16:44:25] [INFO] Found 28 combo groups for Milano
+[2025-12-11 16:45:21] [INFO]   No special combo groups found
+[2025-12-11 16:45:21] [INFO] 
+============================================================
+[2025-12-11 16:45:21] [INFO] [49/123] Scanning: Milano (V3: 569, V1: 789)
+[2025-12-11 16:45:21] [INFO] ============================================================
+[2025-12-11 16:45:23] [INFO] Found 31 combo groups for Milano
+[2025-12-11 16:46:27] [INFO]   No special combo groups found
+[2025-12-11 16:46:27] [INFO] 
+============================================================
+[2025-12-11 16:46:27] [INFO] [50/123] Scanning: Crispy's (V3: 584, V1: 805)
+[2025-12-11 16:46:27] [INFO] ============================================================
+[2025-12-11 16:46:28] [INFO] No combo groups found for Crispy's
+[2025-12-11 16:46:28] [INFO]   No special combo groups found
+[2025-12-11 16:46:28] [INFO] 
+============================================================
+[2025-12-11 16:46:28] [INFO] [51/123] Scanning: Milano (V3: 586, V1: 807)
+[2025-12-11 16:46:28] [INFO] ============================================================
+[2025-12-11 16:46:30] [INFO] Found 33 combo groups for Milano
+[2025-12-11 16:47:36] [INFO]   No special combo groups found
+[2025-12-11 16:47:36] [INFO] 
+============================================================
+[2025-12-11 16:47:36] [INFO] [52/123] Scanning: Milano (V3: 593, V1: 815)
+[2025-12-11 16:47:36] [INFO] ============================================================
+[2025-12-11 16:47:38] [INFO] Found 9 combo groups for Milano
+[2025-12-11 16:47:55] [INFO]   No special combo groups found
+[2025-12-11 16:47:55] [INFO] 
+============================================================
+[2025-12-11 16:47:55] [INFO] [53/123] Scanning: Supreme Pizzeria (V3: 595, V1: 817)
+[2025-12-11 16:47:55] [INFO] ============================================================
+[2025-12-11 16:47:57] [INFO] Found 26 combo groups for Supreme Pizzeria
+[2025-12-11 16:48:46] [INFO]   No special combo groups found
+[2025-12-11 16:48:46] [INFO] 
+============================================================
+[2025-12-11 16:48:46] [INFO] [54/123] Scanning: Sushi Fleury (V3: 596, V1: 818)
+[2025-12-11 16:48:46] [INFO] ============================================================
+[2025-12-11 16:48:48] [INFO] No combo groups found for Sushi Fleury
+[2025-12-11 16:48:48] [INFO]   No special combo groups found
+[2025-12-11 16:48:48] [INFO] 
+============================================================
+[2025-12-11 16:48:48] [INFO] [55/123] Scanning: Milano (V3: 601, V1: 824)
+[2025-12-11 16:48:48] [INFO] ============================================================
+[2025-12-11 16:48:49] [INFO] Found 32 combo groups for Milano
+[2025-12-11 16:49:53] [INFO]   No special combo groups found
+[2025-12-11 16:49:53] [INFO] 
+============================================================
+[2025-12-11 16:49:53] [INFO] [56/123] Scanning: Papa Pizza Cantley (V3: 602, V1: 825)
+[2025-12-11 16:49:53] [INFO] ============================================================
+[2025-12-11 16:49:55] [INFO] No combo groups found for Papa Pizza Cantley
+[2025-12-11 16:49:55] [INFO]   No special combo groups found
+[2025-12-11 16:49:55] [INFO] 
+============================================================
+[2025-12-11 16:49:55] [INFO] [57/123] Scanning: Aroy Thai (V3: 607, V1: 830)
+[2025-12-11 16:49:55] [INFO] ============================================================
+[2025-12-11 16:49:56] [INFO] Found 6 combo groups for Aroy Thai
+[2025-12-11 16:49:58] [INFO]   [SPECIAL] D1. Dinner for 2 without Shrimp (from #8 to #19) (source_id=6305): 47 checked items
+[2025-12-11 16:50:00] [INFO]   [SPECIAL] D1. Dinner for 2 ONLY Shrimp (from #8 to #19) (source_id=6306): 11 checked items
+[2025-12-11 16:50:02] [INFO]   [SPECIAL] D2. Dinner for 4 without Shrimp (from #8 to #19) (source_id=6307): 47 checked items
+[2025-12-11 16:50:03] [INFO]   [SPECIAL] D2. Dinner for 4 ONLY Shrimp (from #8 to #19) (source_id=6308): 11 checked items
+[2025-12-11 16:50:07] [INFO]   FOUND 4 special combo groups with 116 total checked items
+[2025-12-11 16:50:07] [INFO] 
+============================================================
+[2025-12-11 16:50:07] [INFO] [58/123] Scanning: Marina Pizza des Flandres (V3: 614, V1: 838)
+[2025-12-11 16:50:07] [INFO] ============================================================
+[2025-12-11 16:50:09] [INFO] No combo groups found for Marina Pizza des Flandres
+[2025-12-11 16:50:09] [INFO]   No special combo groups found
+[2025-12-11 16:50:09] [INFO] 
+============================================================
+[2025-12-11 16:50:09] [INFO] [59/123] Scanning: Papa Grecque Maloney (V3: 616, V1: 840)
+[2025-12-11 16:50:09] [INFO] ============================================================
+[2025-12-11 16:50:10] [INFO] No combo groups found for Papa Grecque Maloney
+[2025-12-11 16:50:10] [INFO]   No special combo groups found
+[2025-12-11 16:50:10] [INFO] 
+============================================================
+[2025-12-11 16:50:10] [INFO] [60/123] Scanning: Milano (V3: 624, V1: 850)
+[2025-12-11 16:50:10] [INFO] ============================================================
+[2025-12-11 16:50:11] [INFO] Found 24 combo groups for Milano
+[2025-12-11 16:50:58] [INFO]   No special combo groups found
+[2025-12-11 16:50:58] [INFO] 
+============================================================
+[2025-12-11 16:50:58] [INFO] [61/123] Scanning: Asia Garden Ottawa (V3: 630, V1: 856)
+[2025-12-11 16:50:58] [INFO] ============================================================
+[2025-12-11 16:50:59] [INFO] No combo groups found for Asia Garden Ottawa
+[2025-12-11 16:50:59] [INFO]   No special combo groups found
+[2025-12-11 16:50:59] [INFO] 
+============================================================
+[2025-12-11 16:50:59] [INFO] [62/123] Scanning: Digby's Restaurant (V3: 638, V1: 865)
+[2025-12-11 16:50:59] [INFO] ============================================================
+[2025-12-11 16:51:00] [INFO] No combo groups found for Digby's Restaurant
+[2025-12-11 16:51:00] [INFO]   No special combo groups found
+[2025-12-11 16:51:00] [INFO] 
+============================================================
+[2025-12-11 16:51:00] [INFO] [63/123] Scanning: China Moon (V3: 641, V1: 869)
+[2025-12-11 16:51:00] [INFO] ============================================================
+[2025-12-11 16:51:02] [INFO] No combo groups found for China Moon
+[2025-12-11 16:51:02] [INFO]   No special combo groups found
+[2025-12-11 16:51:02] [INFO] 
+============================================================
+[2025-12-11 16:51:02] [INFO] [64/123] Scanning: Mozza Pizza Hull (V3: 644, V1: 872)
+[2025-12-11 16:51:02] [INFO] ============================================================
+[2025-12-11 16:51:03] [INFO] No combo groups found for Mozza Pizza Hull
+[2025-12-11 16:51:03] [INFO]   No special combo groups found
+[2025-12-11 16:51:03] [INFO] 
+============================================================
+[2025-12-11 16:51:03] [INFO] [65/123] Scanning: JC Royal Thai Cuisine (V3: 646, V1: 874)
+[2025-12-11 16:51:03] [INFO] ============================================================
+[2025-12-11 16:51:04] [INFO] No combo groups found for JC Royal Thai Cuisine
+[2025-12-11 16:51:04] [INFO]   No special combo groups found
+[2025-12-11 16:51:04] [INFO] 
+============================================================
+[2025-12-11 16:51:04] [INFO] [66/123] Scanning: Milano (V3: 651, V1: 879)
+[2025-12-11 16:51:04] [INFO] ============================================================
+[2025-12-11 16:51:06] [INFO] Found 36 combo groups for Milano
+[2025-12-11 16:52:21] [INFO]   No special combo groups found
+[2025-12-11 16:52:21] [INFO] 
+============================================================
+[2025-12-11 16:52:21] [INFO] [67/123] Scanning: Milano (V3: 660, V1: 889)
+[2025-12-11 16:52:21] [INFO] ============================================================
+[2025-12-11 16:52:23] [INFO] Found 22 combo groups for Milano
+[2025-12-11 16:53:07] [INFO]   No special combo groups found
+[2025-12-11 16:53:07] [INFO] 
+============================================================
+[2025-12-11 16:53:07] [INFO] [68/123] Scanning: Milano (V3: 680, V1: 913)
+[2025-12-11 16:53:07] [INFO] ============================================================
+[2025-12-11 16:53:08] [INFO] Found 67 combo groups for Milano
+[2025-12-11 16:54:30] [INFO]   [SPECIAL] Medium Pizza MENU A (source_id=9180): 11 checked items
+[2025-12-11 16:54:33] [INFO]   [SPECIAL] Father’s Day Promo (source_id=9378): 29 checked items
+[2025-12-11 16:54:35] [INFO]   [SPECIAL] 2 Small Pizzas From Menu (source_id=9380): 24 checked items
+[2025-12-11 16:54:37] [INFO]   [SPECIAL] 2 Medium Pizzas From Menu (source_id=9381): 24 checked items
+[2025-12-11 16:54:39] [INFO]   [SPECIAL] 2 Large Pizzas From Menu (source_id=9382): 24 checked items
+[2025-12-11 16:54:41] [INFO]   [SPECIAL] 2 Small Pizzas VEGAN From Menu (source_id=9383): 7 checked items
+[2025-12-11 16:54:43] [INFO]   [SPECIAL] 2 Medium Pizzas VEGAN From Menu (source_id=9384): 7 checked items
+[2025-12-11 16:54:45] [INFO]   [SPECIAL] 2 Large Pizzas VEGAN From Menu (source_id=9385): 7 checked items
+[2025-12-11 16:54:47] [INFO]   [SPECIAL] Small Pizza From Menu (source_id=9386): 23 checked items
+[2025-12-11 16:54:50] [INFO]   [SPECIAL] Medium Pizza From Menu (source_id=9387): 24 checked items
+[2025-12-11 16:54:52] [INFO]   [SPECIAL] Large Pizza From Menu (source_id=9388): 24 checked items
+[2025-12-11 16:54:54] [INFO]   [SPECIAL] Small Pizza VEGAN From Menu (source_id=9389): 7 checked items
+[2025-12-11 16:54:56] [INFO]   [SPECIAL] Medium Pizza VEGAN From Menu (source_id=9390): 7 checked items
+[2025-12-11 16:54:58] [INFO]   [SPECIAL] Large Pizza VEGAN From Menu (source_id=9391): 7 checked items
+[2025-12-11 16:55:08] [INFO]   [SPECIAL] 2 Medium Poutines from Menu (source_id=9396): 9 checked items
+[2025-12-11 16:55:10] [INFO]   [SPECIAL] 2 Sandwich Combo (source_id=9397): 7 checked items
+[2025-12-11 16:55:13] [INFO]   [SPECIAL] 6 Medium Menu Choices (source_id=9398): 25 checked items
+[2025-12-11 16:55:15] [INFO]   [SPECIAL] 10 Medium Menu Choice (source_id=9399): 25 checked items
+[2025-12-11 16:55:17] [INFO]   [SPECIAL] 13 Medium Menu Choices (source_id=9400): 25 checked items
+[2025-12-11 16:55:19] [INFO]   [SPECIAL] Canada Day Special (Medium Pizza) (source_id=9401): 25 checked items
+[2025-12-11 16:55:25] [INFO]   [SPECIAL] Small Poutine Selection (source_id=62711): 8 checked items
+[2025-12-11 16:55:30] [INFO]   FOUND 21 special combo groups with 349 total checked items
+[2025-12-11 16:55:30] [INFO] 
+============================================================
+[2025-12-11 16:55:30] [INFO] [69/123] Scanning: Oka's Hull (V3: 681, V1: 914)
+[2025-12-11 16:55:30] [INFO] ============================================================
+[2025-12-11 16:55:31] [INFO] No combo groups found for Oka's Hull
+[2025-12-11 16:55:31] [INFO]   No special combo groups found
+[2025-12-11 16:55:31] [INFO] 
+============================================================
+[2025-12-11 16:55:31] [INFO] [70/123] Scanning: Pizza Maisonneuve (V3: 696, V1: 930)
+[2025-12-11 16:55:31] [INFO] ============================================================
+[2025-12-11 16:55:33] [INFO] No combo groups found for Pizza Maisonneuve
+[2025-12-11 16:55:33] [INFO]   No special combo groups found
+[2025-12-11 16:55:33] [INFO] 
+============================================================
+[2025-12-11 16:55:33] [INFO] [71/123] Scanning: Milano (V3: 701, V1: 937)
+[2025-12-11 16:55:33] [INFO] ============================================================
+[2025-12-11 16:55:34] [INFO] Found 16 combo groups for Milano
+[2025-12-11 16:56:07] [INFO]   No special combo groups found
+[2025-12-11 16:56:07] [INFO] 
+============================================================
+[2025-12-11 16:56:07] [INFO] [72/123] Scanning: Supreme Pizzeria (V3: 711, V1: 947)
+[2025-12-11 16:56:07] [INFO] ============================================================
+[2025-12-11 16:56:08] [INFO] Found 17 combo groups for Supreme Pizzeria
+[2025-12-11 16:56:40] [INFO]   No special combo groups found
+[2025-12-11 16:56:40] [INFO] 
+============================================================
+[2025-12-11 16:56:40] [INFO] [73/123] Scanning: Patate Lou Lou (V3: 712, V1: 948)
+[2025-12-11 16:56:40] [INFO] ============================================================
+[2025-12-11 16:56:42] [INFO] No combo groups found for Patate Lou Lou
+[2025-12-11 16:56:42] [INFO]   No special combo groups found
+[2025-12-11 16:56:42] [INFO] 
+============================================================
+[2025-12-11 16:56:42] [INFO] [74/123] Scanning: Ogilvie Pizza (V3: 714, V1: 951)
+[2025-12-11 16:56:42] [INFO] ============================================================
+[2025-12-11 16:56:44] [INFO] Found 16 combo groups for Ogilvie Pizza
+[2025-12-11 16:57:14] [INFO]   No special combo groups found
+[2025-12-11 16:57:14] [INFO] 
+============================================================
+[2025-12-11 16:57:14] [INFO] [75/123] Scanning: La Poutinerie Ogilvie (V3: 715, V1: 952)
+[2025-12-11 16:57:14] [INFO] ============================================================
+[2025-12-11 16:57:16] [INFO] Found 4 combo groups for La Poutinerie Ogilvie
+[2025-12-11 16:57:24] [INFO]   No special combo groups found
+[2025-12-11 16:57:24] [INFO] 
+============================================================
+[2025-12-11 16:57:24] [INFO] [76/123] Scanning: PizzaRama (V3: 716, V1: 953)
+[2025-12-11 16:57:24] [INFO] ============================================================
+[2025-12-11 16:57:25] [INFO] No combo groups found for PizzaRama
+[2025-12-11 16:57:25] [INFO]   No special combo groups found
+[2025-12-11 16:57:25] [INFO] 
+============================================================
+[2025-12-11 16:57:25] [INFO] [77/123] Scanning: La Maison Pho (V3: 721, V1: 959)
+[2025-12-11 16:57:25] [INFO] ============================================================
+[2025-12-11 16:57:26] [INFO] No combo groups found for La Maison Pho
+[2025-12-11 16:57:26] [INFO]   No special combo groups found
+[2025-12-11 16:57:26] [INFO] 
+============================================================
+[2025-12-11 16:57:26] [INFO] [78/123] Scanning: Pizza Joanna (V3: 726, V1: 964)
+[2025-12-11 16:57:26] [INFO] ============================================================
+[2025-12-11 16:57:28] [INFO] No combo groups found for Pizza Joanna
+[2025-12-11 16:57:28] [INFO]   No special combo groups found
+[2025-12-11 16:57:28] [INFO] 
+============================================================
+[2025-12-11 16:57:28] [INFO] [79/123] Scanning: La Maison du Burger (V3: 727, V1: 965)
+[2025-12-11 16:57:28] [INFO] ============================================================
+[2025-12-11 16:57:29] [INFO] No combo groups found for La Maison du Burger
+[2025-12-11 16:57:29] [INFO]   No special combo groups found
+[2025-12-11 16:57:29] [INFO] 
+============================================================
+[2025-12-11 16:57:29] [INFO] [80/123] Scanning: Friendly Restaurant and Pizzeria (V3: 730, V1: 968)
+[2025-12-11 16:57:29] [INFO] ============================================================
+[2025-12-11 16:57:30] [INFO] No combo groups found for Friendly Restaurant and Pizzeria
+[2025-12-11 16:57:30] [INFO]   No special combo groups found
+[2025-12-11 16:57:30] [INFO] 
+============================================================
+[2025-12-11 16:57:30] [INFO] [81/123] Scanning: Amicci Pizza (V3: 735, V1: 973)
+[2025-12-11 16:57:30] [INFO] ============================================================
+[2025-12-11 16:57:32] [INFO] Found 9 combo groups for Amicci Pizza
+[2025-12-11 16:57:40] [INFO]   [SPECIAL] 2 Large Pizza From Menu (source_id=8162): 12 checked items
+[2025-12-11 16:57:42] [INFO]   [SPECIAL] 2 Medium Pizza From Menu (source_id=8163): 12 checked items
+[2025-12-11 16:57:43] [INFO]   [SPECIAL] 1 Large Pizza from Menu (source_id=8164): 12 checked items
+[2025-12-11 16:57:45] [INFO]   [SPECIAL] 1 Medium Pizza from Menu (source_id=8165): 12 checked items
+[2025-12-11 16:57:47] [INFO]   [SPECIAL] 1 Small Pizza from Menu (source_id=8166): 12 checked items
+[2025-12-11 16:57:49] [INFO]   FOUND 5 special combo groups with 60 total checked items
+[2025-12-11 16:57:49] [INFO] 
+============================================================
+[2025-12-11 16:57:49] [INFO] [82/123] Scanning: Greber Pizza et Shawarma (V3: 736, V1: 974)
+[2025-12-11 16:57:49] [INFO] ============================================================
+[2025-12-11 16:57:51] [INFO] No combo groups found for Greber Pizza et Shawarma
+[2025-12-11 16:57:51] [INFO]   No special combo groups found
+[2025-12-11 16:57:51] [INFO] 
+============================================================
+[2025-12-11 16:57:51] [INFO] [83/123] Scanning: Sala Thai (V3: 745, V1: 983)
+[2025-12-11 16:57:51] [INFO] ============================================================
+[2025-12-11 16:57:52] [INFO] No combo groups found for Sala Thai
+[2025-12-11 16:57:52] [INFO]   No special combo groups found
+[2025-12-11 16:57:52] [INFO] 
+============================================================
+[2025-12-11 16:57:52] [INFO] [84/123] Scanning: Milano (V3: 749, V1: 987)
+[2025-12-11 16:57:52] [INFO] ============================================================
+[2025-12-11 16:57:53] [INFO] Found 18 combo groups for Milano
+[2025-12-11 16:58:28] [INFO]   No special combo groups found
+[2025-12-11 16:58:28] [INFO] 
+============================================================
+[2025-12-11 16:58:28] [INFO] [85/123] Scanning: Milano (V3: 751, V1: 989)
+[2025-12-11 16:58:28] [INFO] ============================================================
+[2025-12-11 16:58:30] [INFO] Found 31 combo groups for Milano
+[2025-12-11 16:59:32] [INFO]   No special combo groups found
+[2025-12-11 16:59:32] [INFO] 
+============================================================
+[2025-12-11 16:59:32] [INFO] [86/123] Scanning: Little Gyros Greek Grill (V3: 756, V1: 998)
+[2025-12-11 16:59:32] [INFO] ============================================================
+[2025-12-11 16:59:34] [INFO] Found 2 combo groups for Little Gyros Greek Grill
+[2025-12-11 16:59:36] [INFO]   [SPECIAL] Pita Combo for 2 (source_id=8504): 5 checked items
+[2025-12-11 16:59:38] [INFO]   [SPECIAL] Pita Combo for 4 (source_id=8505): 5 checked items
+[2025-12-11 16:59:38] [INFO]   FOUND 2 special combo groups with 10 total checked items
+[2025-12-11 16:59:38] [INFO] 
+============================================================
+[2025-12-11 16:59:38] [INFO] [87/123] Scanning: Colonnade Pizza (V3: 783, V1: 1025)
+[2025-12-11 16:59:38] [INFO] ============================================================
+[2025-12-11 16:59:39] [INFO] Found 5 combo groups for Colonnade Pizza
+[2025-12-11 16:59:49] [INFO]   No special combo groups found
+[2025-12-11 16:59:49] [INFO] 
+============================================================
+[2025-12-11 16:59:49] [INFO] [88/123] Scanning: Colonnade Pizza (V3: 784, V1: 1027)
+[2025-12-11 16:59:49] [INFO] ============================================================
+[2025-12-11 16:59:50] [INFO] Found 3 combo groups for Colonnade Pizza
+[2025-12-11 16:59:56] [INFO]   No special combo groups found
+[2025-12-11 16:59:56] [INFO] 
+============================================================
+[2025-12-11 16:59:56] [INFO] [89/123] Scanning: Colonnade Pizza (V3: 785, V1: 1028)
+[2025-12-11 16:59:56] [INFO] ============================================================
+[2025-12-11 16:59:57] [INFO] Found 4 combo groups for Colonnade Pizza
+[2025-12-11 17:00:05] [INFO]   No special combo groups found
+[2025-12-11 17:00:05] [INFO] 
+============================================================
+[2025-12-11 17:00:05] [INFO] [90/123] Scanning: Poutinerie Quebecurds Hull (V3: 789, V1: 1032)
+[2025-12-11 17:00:05] [INFO] ============================================================
+[2025-12-11 17:00:06] [INFO] Found 20 combo groups for Poutinerie Quebecurds Hull
+[2025-12-11 17:00:44] [INFO]   No special combo groups found
+[2025-12-11 17:00:44] [INFO] 
+============================================================
+[2025-12-11 17:00:44] [INFO] [91/123] Scanning: Nachos Loco Hull (V3: 790, V1: 1033)
+[2025-12-11 17:00:44] [INFO] ============================================================
+[2025-12-11 17:00:45] [INFO] Found 5 combo groups for Nachos Loco Hull
+[2025-12-11 17:00:47] [INFO]   [SPECIAL] Small Nacho Selection with Donuts (source_id=9120): 12 checked items
+[2025-12-11 17:00:49] [INFO]   [SPECIAL] 2 Small Nachos (source_id=9121): 12 checked items
+[2025-12-11 17:00:55] [INFO]   [SPECIAL] Small Nacho Selection with Churros (source_id=9185): 12 checked items
+[2025-12-11 17:00:55] [INFO]   FOUND 3 special combo groups with 36 total checked items
+[2025-12-11 17:00:55] [INFO] 
+============================================================
+[2025-12-11 17:00:55] [INFO] [92/123] Scanning: Dumpling Bowl (V3: 792, V1: 1035)
+[2025-12-11 17:00:55] [INFO] ============================================================
+[2025-12-11 17:00:56] [INFO] Found 1 combo groups for Dumpling Bowl
+[2025-12-11 17:00:58] [INFO]   [SPECIAL] Combo 1 Dumplings Selection (201-211) (source_id=9044): 22 checked items
+[2025-12-11 17:00:58] [INFO]   FOUND 1 special combo groups with 22 total checked items
+[2025-12-11 17:00:58] [INFO] 
+============================================================
+[2025-12-11 17:00:58] [INFO] [93/123] Scanning: Papa Pizza Chem. de Masson (V3: 795, V1: 1039)
+[2025-12-11 17:00:58] [INFO] ============================================================
+[2025-12-11 17:00:59] [INFO] No combo groups found for Papa Pizza Chem. de Masson
+[2025-12-11 17:00:59] [INFO]   No special combo groups found
+[2025-12-11 17:00:59] [INFO] 
+============================================================
+[2025-12-11 17:00:59] [INFO] [94/123] Scanning: Papa Burger (V3: 797, V1: 1041)
+[2025-12-11 17:00:59] [INFO] ============================================================
+[2025-12-11 17:01:01] [INFO] No combo groups found for Papa Burger
+[2025-12-11 17:01:01] [INFO]   No special combo groups found
+[2025-12-11 17:01:01] [INFO] 
+============================================================
+[2025-12-11 17:01:01] [INFO] [95/123] Scanning: Kabylie Pizza (V3: 798, V1: 1042)
+[2025-12-11 17:01:01] [INFO] ============================================================
+[2025-12-11 17:01:02] [INFO] No combo groups found for Kabylie Pizza
+[2025-12-11 17:01:02] [INFO]   No special combo groups found
+[2025-12-11 17:01:02] [INFO] 
+============================================================
+[2025-12-11 17:01:02] [INFO] [96/123] Scanning: Nachos Loco Gatineau (V3: 801, V1: 1045)
+[2025-12-11 17:01:02] [INFO] ============================================================
+[2025-12-11 17:01:03] [INFO] Found 5 combo groups for Nachos Loco Gatineau
+[2025-12-11 17:01:05] [INFO]   [SPECIAL] Small Nacho Selection with Donuts (source_id=9112): 12 checked items
+[2025-12-11 17:01:11] [INFO]   [SPECIAL] 2 Small Nachos (source_id=9115): 12 checked items
+[2025-12-11 17:01:13] [INFO]   [SPECIAL] Small Nacho Selection with Churros (source_id=9184): 12 checked items
+[2025-12-11 17:01:13] [INFO]   FOUND 3 special combo groups with 36 total checked items
+[2025-12-11 17:01:13] [INFO] 
+============================================================
+[2025-12-11 17:01:13] [INFO] [97/123] Scanning: Crispy's Bank Street (V3: 806, V1: 1050)
+[2025-12-11 17:01:13] [INFO] ============================================================
+[2025-12-11 17:01:14] [INFO] No combo groups found for Crispy's Bank Street
+[2025-12-11 17:01:14] [INFO]   No special combo groups found
+[2025-12-11 17:01:14] [INFO] 
+============================================================
+[2025-12-11 17:01:14] [INFO] [98/123] Scanning: Oh My Grill (V3: 807, V1: 1051)
+[2025-12-11 17:01:14] [INFO] ============================================================
+[2025-12-11 17:01:15] [INFO] No combo groups found for Oh My Grill
+[2025-12-11 17:01:15] [INFO]   No special combo groups found
+[2025-12-11 17:01:15] [INFO] 
+============================================================
+[2025-12-11 17:01:15] [INFO] [99/123] Scanning: Papa Grecque Cantley (V3: 810, V1: 1054)
+[2025-12-11 17:01:15] [INFO] ============================================================
+[2025-12-11 17:01:17] [INFO] No combo groups found for Papa Grecque Cantley
+[2025-12-11 17:01:17] [INFO]   No special combo groups found
+[2025-12-11 17:01:17] [INFO] 
+============================================================
+[2025-12-11 17:01:17] [INFO] [100/123] Scanning: Golden Center Pizza (V3: 815, V1: 1059)
+[2025-12-11 17:01:17] [INFO] ============================================================
+[2025-12-11 17:01:18] [INFO] Found 15 combo groups for Golden Center Pizza
+[2025-12-11 17:01:47] [INFO]   No special combo groups found
+[2025-12-11 17:01:47] [INFO] 
+============================================================
+[2025-12-11 17:01:47] [INFO] [101/123] Scanning: Depanneur Genereux (V3: 816, V1: 1060)
+[2025-12-11 17:01:47] [INFO] ============================================================
+[2025-12-11 17:01:48] [INFO] No combo groups found for Depanneur Genereux
+[2025-12-11 17:01:48] [INFO]   No special combo groups found
+[2025-12-11 17:01:48] [INFO] 
+============================================================
+[2025-12-11 17:01:48] [INFO] [102/123] Scanning: Milano (V3: 818, V1: 1062)
+[2025-12-11 17:01:48] [INFO] ============================================================
+[2025-12-11 17:01:50] [INFO] Found 13 combo groups for Milano
+[2025-12-11 17:02:15] [INFO]   No special combo groups found
+[2025-12-11 17:02:15] [INFO] 
+============================================================
+[2025-12-11 17:02:15] [INFO] [103/123] Scanning: Vieux Hull Pizza (V3: 820, V1: 1064)
+[2025-12-11 17:02:15] [INFO] ============================================================
+[2025-12-11 17:02:16] [INFO] No combo groups found for Vieux Hull Pizza
+[2025-12-11 17:02:16] [INFO]   No special combo groups found
+[2025-12-11 17:02:16] [INFO] 
+============================================================
+[2025-12-11 17:02:16] [INFO] [104/123] Scanning: Milano (V3: 821, V1: 1065)
+[2025-12-11 17:02:16] [INFO] ============================================================
+[2025-12-11 17:02:17] [INFO] Found 10 combo groups for Milano
+[2025-12-11 17:02:37] [INFO]   No special combo groups found
+[2025-12-11 17:02:37] [INFO] 
+============================================================
+[2025-12-11 17:02:37] [INFO] [105/123] Scanning: Papa Burger Maloney (V3: 822, V1: 1066)
+[2025-12-11 17:02:37] [INFO] ============================================================
+[2025-12-11 17:02:38] [INFO] No combo groups found for Papa Burger Maloney
+[2025-12-11 17:02:38] [INFO]   No special combo groups found
+[2025-12-11 17:02:38] [INFO] 
+============================================================
+[2025-12-11 17:02:38] [INFO] [106/123] Scanning: Prima Pizza (V3: 824, V1: 1069)
+[2025-12-11 17:02:38] [INFO] ============================================================
+[2025-12-11 17:02:39] [INFO] Found 14 combo groups for Prima Pizza
+[2025-12-11 17:03:06] [INFO]   No special combo groups found
+[2025-12-11 17:03:06] [INFO] 
+============================================================
+[2025-12-11 17:03:06] [INFO] [107/123] Scanning: La Nawab V2 (V3: 825, V1: 1070)
+[2025-12-11 17:03:06] [INFO] ============================================================
+[2025-12-11 17:03:07] [INFO] No combo groups found for La Nawab V2
+[2025-12-11 17:03:07] [INFO]   No special combo groups found
+[2025-12-11 17:03:07] [INFO] 
+============================================================
+[2025-12-11 17:03:07] [INFO] [108/123] Scanning: All Out Burger (V3: 833, V1: 1080)
+[2025-12-11 17:03:07] [INFO] ============================================================
+[2025-12-11 17:03:09] [INFO] Found 1 combo groups for All Out Burger
+[2025-12-11 17:03:11] [INFO]   [SPECIAL] Any 3 Burgers Special (source_id=9239): 12 checked items
+[2025-12-11 17:03:11] [INFO]   FOUND 1 special combo groups with 12 total checked items
+[2025-12-11 17:03:11] [INFO] 
+============================================================
+[2025-12-11 17:03:11] [INFO] [109/123] Scanning: Milano (V3: 835, V1: 1082)
+[2025-12-11 17:03:11] [INFO] ============================================================
+[2025-12-11 17:03:12] [INFO] Found 17 combo groups for Milano
+[2025-12-11 17:03:45] [INFO]   No special combo groups found
+[2025-12-11 17:03:45] [INFO] 
+============================================================
+[2025-12-11 17:03:45] [INFO] [110/123] Scanning: Souvlaki Souvlaki (V3: 836, V1: 1083)
+[2025-12-11 17:03:45] [INFO] ============================================================
+[2025-12-11 17:03:46] [INFO] No combo groups found for Souvlaki Souvlaki
+[2025-12-11 17:03:46] [INFO]   No special combo groups found
+[2025-12-11 17:03:46] [INFO] 
+============================================================
+[2025-12-11 17:03:46] [INFO] [111/123] Scanning: Mykonos Greek Grill (V3: 845, V1: 1092)
+[2025-12-11 17:03:46] [INFO] ============================================================
+[2025-12-11 17:03:47] [INFO] No combo groups found for Mykonos Greek Grill
+[2025-12-11 17:03:47] [INFO]   No special combo groups found
+[2025-12-11 17:03:47] [INFO] 
+============================================================
+[2025-12-11 17:03:47] [INFO] [112/123] Scanning: Mykonos Greek Grill (V3: 846, V1: 1093)
+[2025-12-11 17:03:47] [INFO] ============================================================
+[2025-12-11 17:03:48] [INFO] No combo groups found for Mykonos Greek Grill
+[2025-12-11 17:03:48] [INFO]   No special combo groups found
+[2025-12-11 17:03:48] [INFO] 
+============================================================
+[2025-12-11 17:03:48] [INFO] [113/123] Scanning: Sushiyana (V3: 847, V1: 1094)
+[2025-12-11 17:03:48] [INFO] ============================================================
+[2025-12-11 17:03:50] [INFO] No combo groups found for Sushiyana
+[2025-12-11 17:03:50] [INFO]   No special combo groups found
+[2025-12-11 17:03:50] [INFO] 
+============================================================
+[2025-12-11 17:03:50] [INFO] [114/123] Scanning: Ting's Kitchen (V3: 941, V1: 694)
+[2025-12-11 17:03:50] [INFO] ============================================================
+[2025-12-11 17:03:51] [INFO] No combo groups found for Ting's Kitchen
+[2025-12-11 17:03:51] [INFO]   No special combo groups found
+[2025-12-11 17:03:51] [INFO] 
+============================================================
+[2025-12-11 17:03:51] [INFO] [115/123] Scanning: Charm Thai Cuisine (V3: 943, V1: 323)
+[2025-12-11 17:03:51] [INFO] ============================================================
+[2025-12-11 17:03:52] [INFO] No combo groups found for Charm Thai Cuisine
+[2025-12-11 17:03:52] [INFO]   No special combo groups found
+[2025-12-11 17:03:52] [INFO] 
+============================================================
+[2025-12-11 17:03:52] [INFO] [116/123] Scanning: Econo Pizza (V3: 1009, V1: 1095)
+[2025-12-11 17:03:52] [INFO] ============================================================
+[2025-12-11 17:03:54] [INFO] No combo groups found for Econo Pizza
+[2025-12-11 17:03:54] [INFO]   No special combo groups found
+[2025-12-11 17:03:54] [INFO] 
+============================================================
+[2025-12-11 17:03:54] [INFO] [117/123] Scanning: Lemongrass Thai Cuisine (V3: 1010, V1: 219)
+[2025-12-11 17:03:54] [INFO] ============================================================
+[2025-12-11 17:03:55] [INFO] No combo groups found for Lemongrass Thai Cuisine
+[2025-12-11 17:03:55] [INFO]   No special combo groups found
+[2025-12-11 17:03:55] [INFO] 
+============================================================
+[2025-12-11 17:03:55] [INFO] [118/123] Scanning: Mozza Pizza Gatineau (V3: 1011, V1: 132)
+[2025-12-11 17:03:55] [INFO] ============================================================
+[2025-12-11 17:03:57] [INFO] No combo groups found for Mozza Pizza Gatineau
+[2025-12-11 17:03:57] [INFO]   No special combo groups found
+[2025-12-11 17:03:57] [INFO] 
+============================================================
+[2025-12-11 17:03:57] [INFO] [119/123] Scanning: Papa Pizza Des Flandres (V3: 1012, V1: 231)
+[2025-12-11 17:03:57] [INFO] ============================================================
+[2025-12-11 17:03:58] [INFO] No combo groups found for Papa Pizza Des Flandres
+[2025-12-11 17:03:58] [INFO]   No special combo groups found
+[2025-12-11 17:03:58] [INFO] 
+============================================================
+[2025-12-11 17:03:58] [INFO] [120/123] Scanning: Papa Pizza Maloney (V3: 1013, V1: 346)
+[2025-12-11 17:03:58] [INFO] ============================================================
+[2025-12-11 17:03:59] [INFO] No combo groups found for Papa Pizza Maloney
+[2025-12-11 17:03:59] [INFO]   No special combo groups found
+[2025-12-11 17:03:59] [INFO] 
+============================================================
+[2025-12-11 17:03:59] [INFO] [121/123] Scanning: Papa Pizza Val-Des-Monts (V3: 1014, V1: 703)
+[2025-12-11 17:03:59] [INFO] ============================================================
+[2025-12-11 17:04:00] [INFO] No combo groups found for Papa Pizza Val-Des-Monts
+[2025-12-11 17:04:00] [INFO]   No special combo groups found
+[2025-12-11 17:04:00] [INFO] 
+============================================================
+[2025-12-11 17:04:00] [INFO] [122/123] Scanning: Roulas Grecque et Pizza (V3: 1016, V1: 173)
+[2025-12-11 17:04:00] [INFO] ============================================================
+[2025-12-11 17:04:02] [INFO] No combo groups found for Roulas Grecque et Pizza
+[2025-12-11 17:04:02] [INFO]   No special combo groups found
+[2025-12-11 17:04:02] [INFO] 
+============================================================
+[2025-12-11 17:04:02] [INFO] [123/123] Scanning: Sushi Express Chambly (V3: 1017, V1: 511)
+[2025-12-11 17:04:02] [INFO] ============================================================
+[2025-12-11 17:04:03] [INFO] No combo groups found for Sushi Express Chambly
+[2025-12-11 17:04:03] [INFO]   No special combo groups found
+[2025-12-11 17:04:03] [INFO] 
+======================================================================
+[2025-12-11 17:04:03] [INFO] SCAN COMPLETE - SUMMARY
+[2025-12-11 17:04:03] [INFO] ======================================================================
+[2025-12-11 17:04:03] [INFO] Total restaurants scanned: 123
+[2025-12-11 17:04:03] [INFO] Restaurants with special combo sections: 12
+[2025-12-11 17:04:03] [INFO] Total special combo groups found: 48
+[2025-12-11 17:04:03] [INFO] 
+----------------------------------------------------------------------
+[2025-12-11 17:04:03] [INFO] RESTAURANTS WITH SPECIAL COMBO SECTIONS:
+[2025-12-11 17:04:03] [INFO] ----------------------------------------------------------------------
+[2025-12-11 17:04:03] [INFO] 
+Mano City Pizza (V3 ID: 118):
+[2025-12-11 17:04:03] [INFO]   - Salads for special 1 (source_id=2474)
+[2025-12-11 17:04:03] [INFO]     Checked items (3):
+[2025-12-11 17:04:03] [INFO]       * [Salads] Garden Salad Large (value=18309.1)
+[2025-12-11 17:04:03] [INFO]       * [Salads] Caesar Salad Large (value=18313.1)
+[2025-12-11 17:04:03] [INFO]       * [Salads] Greek Salad Large (value=18311.1)
+[2025-12-11 17:04:03] [INFO]   - Special #5 Lg Sahwarma or Donair (source_id=3615)
+[2025-12-11 17:04:03] [INFO]     Checked items (2):
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Chicken Shawarma Large (value=58787.1)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Donair Large (value=58788.1)
+[2025-12-11 17:04:03] [INFO]   - 2 Large Subs (source_id=7533)
+[2025-12-11 17:04:03] [INFO]     Checked items (14):
+[2025-12-11 17:04:03] [INFO]       * [Submarines] Steak 12" (value=18282.0)
+[2025-12-11 17:04:03] [INFO]       * [Submarines] Super Steak 12" (value=18283.0)
+[2025-12-11 17:04:03] [INFO]       * [Submarines] Volvo Breaded Chicken Sub 12" (value=18280.0)
+[2025-12-11 17:04:03] [INFO]       * [Submarines] Nitro Spicy Breaded Chicken Sub 12" (value=18281.0)
+[2025-12-11 17:04:03] [INFO]       * [Submarines] Meat Balls 12" (value=18284.0)
+[2025-12-11 17:04:03] [INFO]       ... and 9 more
+[2025-12-11 17:04:03] [INFO] 
+Milano (V3 ID: 123):
+[2025-12-11 17:04:03] [INFO]   - Garden or Caesar Salad---small (source_id=1415)
+[2025-12-11 17:04:03] [INFO]     Checked items (2):
+[2025-12-11 17:04:03] [INFO]       * [Salads] Garden Salad Small (value=18213.0)
+[2025-12-11 17:04:03] [INFO]       * [Salads] Caesar Salad Small (value=18217.0)
+[2025-12-11 17:04:03] [INFO]   - Garden or Caesar Salad- large (source_id=4896)
+[2025-12-11 17:04:03] [INFO]     Checked items (2):
+[2025-12-11 17:04:03] [INFO]       * [Salads] Garden Salad Large (value=18213.1)
+[2025-12-11 17:04:03] [INFO]       * [Salads] Caesar Salad Large (value=18217.1)
+[2025-12-11 17:04:03] [INFO] 
+Orchid Sushi (V3 ID: 245):
+[2025-12-11 17:04:03] [INFO]   - Combo lunch (source_id=2352)
+[2025-12-11 17:04:03] [INFO]     Checked items (8):
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Green Salad (value=34041)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Miso Soup (value=34042)
+[2025-12-11 17:04:03] [INFO]       * [Drinks] Coke Can (value=34022.0)
+[2025-12-11 17:04:03] [INFO]       * [Drinks] Diet Coke Can (value=34023.0)
+[2025-12-11 17:04:03] [INFO]       * [Drinks] Pepsi Can (value=34021.0)
+[2025-12-11 17:04:03] [INFO]       ... and 3 more
+[2025-12-11 17:04:03] [INFO] 
+Milano (V3 ID: 350):
+[2025-12-11 17:04:03] [INFO]   - Pasta Special (source_id=2994)
+[2025-12-11 17:04:03] [INFO]     Checked items (2):
+[2025-12-11 17:04:03] [INFO]       * [Pasta] Veal Parmesan (value=48449)
+[2025-12-11 17:04:03] [INFO]       * [Pasta] Chicken Parmesan (value=48450)
+[2025-12-11 17:04:03] [INFO]   - Small Salad (Any) (source_id=3003)
+[2025-12-11 17:04:03] [INFO]     Checked items (5):
+[2025-12-11 17:04:03] [INFO]       * [Salads] Garden Salad Small (value=48473.0)
+[2025-12-11 17:04:03] [INFO]       * [Salads] Super Salad Small (value=48474.0)
+[2025-12-11 17:04:03] [INFO]       * [Salads] Greek Salad Small (value=48475.0)
+[2025-12-11 17:04:03] [INFO]       * [Salads] Caesar Salad with Romain Lettuce Small (value=48478.0)
+[2025-12-11 17:04:03] [INFO]       * [Salads] Chicken Caesar Salad Small (value=48479.0)
+[2025-12-11 17:04:03] [INFO] 
+Aroy Thai (V3 ID: 607):
+[2025-12-11 17:04:03] [INFO]   - D1. Dinner for 2 without Shrimp (from #8 to #19) (source_id=6305)
+[2025-12-11 17:04:03] [INFO]     Checked items (47):
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Tofu (value=84098.0)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Chicken (value=84098.1)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Beef (value=84098.2)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Pork (value=84098.3)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P2. Pad Med Ma'Muang Tofu (value=84100.0)
+[2025-12-11 17:04:03] [INFO]       ... and 42 more
+[2025-12-11 17:04:03] [INFO]   - D1. Dinner for 2 ONLY Shrimp (from #8 to #19) (source_id=6306)
+[2025-12-11 17:04:03] [INFO]     Checked items (11):
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Shrimp (value=84098.4)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P2. Pad Med Ma'Muang Shrimp (value=84100.4)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P3. Pad Khing Shrimp (value=84099.4)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P4. Pad Kra Tiam Prick Thai Shrimp (value=84101.4)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P5. Pad Pak Ruam Mit Shrimp (value=84102.4)
+[2025-12-11 17:04:03] [INFO]       ... and 6 more
+[2025-12-11 17:04:03] [INFO]   - D2. Dinner for 4 without Shrimp (from #8 to #19) (source_id=6307)
+[2025-12-11 17:04:03] [INFO]     Checked items (47):
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Tofu (value=84098.0)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Chicken (value=84098.1)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Beef (value=84098.2)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Pork (value=84098.3)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P2. Pad Med Ma'Muang Tofu (value=84100.0)
+[2025-12-11 17:04:03] [INFO]       ... and 42 more
+[2025-12-11 17:04:03] [INFO]   - D2. Dinner for 4 ONLY Shrimp (from #8 to #19) (source_id=6308)
+[2025-12-11 17:04:03] [INFO]     Checked items (11):
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P1. Pad Bai Grapow Shrimp (value=84098.4)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P2. Pad Med Ma'Muang Shrimp (value=84100.4)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P3. Pad Khing Shrimp (value=84099.4)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P4. Pad Kra Tiam Prick Thai Shrimp (value=84101.4)
+[2025-12-11 17:04:03] [INFO]       * [Stir Fried] P5. Pad Pak Ruam Mit Shrimp (value=84102.4)
+[2025-12-11 17:04:03] [INFO]       ... and 6 more
+[2025-12-11 17:04:03] [INFO] 
+Milano (V3 ID: 680):
+[2025-12-11 17:04:03] [INFO]   - Medium Pizza MENU A (source_id=9180)
+[2025-12-11 17:04:03] [INFO]     Checked items (11):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Medium (value=96721.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Medium (value=115865.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Medium (value=96723.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Medium (value=96724.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Hawaiian Pizza Medium (value=96725.1)
+[2025-12-11 17:04:03] [INFO]       ... and 6 more
+[2025-12-11 17:04:03] [INFO]   - Father’s Day Promo (source_id=9378)
+[2025-12-11 17:04:03] [INFO]     Checked items (29):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Medium (value=96721.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Medium (value=115865.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Medium (value=96723.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Medium (value=96724.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Hawaiian Pizza Medium (value=96725.1)
+[2025-12-11 17:04:03] [INFO]       ... and 24 more
+[2025-12-11 17:04:03] [INFO]   - 2 Small Pizzas From Menu (source_id=9380)
+[2025-12-11 17:04:03] [INFO]     Checked items (24):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Small (value=96721.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Small (value=115865.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Small (value=125112.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Small (value=96723.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Hawaiian Pizza Small (value=96725.0)
+[2025-12-11 17:04:03] [INFO]       ... and 19 more
+[2025-12-11 17:04:03] [INFO]   - 2 Medium Pizzas From Menu (source_id=9381)
+[2025-12-11 17:04:03] [INFO]     Checked items (24):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Medium (value=96721.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Medium (value=115865.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Medium (value=125112.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Medium (value=96723.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Hawaiian Pizza Medium (value=96725.1)
+[2025-12-11 17:04:03] [INFO]       ... and 19 more
+[2025-12-11 17:04:03] [INFO]   - 2 Large Pizzas From Menu (source_id=9382)
+[2025-12-11 17:04:03] [INFO]     Checked items (24):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Large (value=96721.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Large (value=115865.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Large (value=125112.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Large (value=96723.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Hawaiian Pizza Large (value=96725.2)
+[2025-12-11 17:04:03] [INFO]       ... and 19 more
+[2025-12-11 17:04:03] [INFO]   - 2 Small Pizzas VEGAN From Menu (source_id=9383)
+[2025-12-11 17:04:03] [INFO]     Checked items (7):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Small (value=96724.0)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Veggie Fauxmage Pizza Small (value=125118.0)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Pepperoni Pizza Small (value=125119.0)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Jardinière Pizza Small (value=125120.0)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Mild Vegan Pizza Small (value=125121.0)
+[2025-12-11 17:04:03] [INFO]       ... and 2 more
+[2025-12-11 17:04:03] [INFO]   - 2 Medium Pizzas VEGAN From Menu (source_id=9384)
+[2025-12-11 17:04:03] [INFO]     Checked items (7):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Medium (value=96724.1)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Veggie Fauxmage Pizza Medium (value=125118.1)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Pepperoni Pizza Medium (value=125119.1)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Jardinière Pizza Medium (value=125120.1)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Mild Vegan Pizza Medium (value=125121.1)
+[2025-12-11 17:04:03] [INFO]       ... and 2 more
+[2025-12-11 17:04:03] [INFO]   - 2 Large Pizzas VEGAN From Menu (source_id=9385)
+[2025-12-11 17:04:03] [INFO]     Checked items (7):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Large (value=96724.2)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Veggie Fauxmage Pizza Large (value=125118.2)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Pepperoni Pizza Large (value=125119.2)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Jardinière Pizza Large (value=125120.2)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Mild Vegan Pizza Large (value=125121.2)
+[2025-12-11 17:04:03] [INFO]       ... and 2 more
+[2025-12-11 17:04:03] [INFO]   - Small Pizza From Menu (source_id=9386)
+[2025-12-11 17:04:03] [INFO]     Checked items (23):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Small (value=96721.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Small (value=115865.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Small (value=125112.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Small (value=96723.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Hawaiian Pizza Small (value=96725.0)
+[2025-12-11 17:04:03] [INFO]       ... and 18 more
+[2025-12-11 17:04:03] [INFO]   - Medium Pizza From Menu (source_id=9387)
+[2025-12-11 17:04:03] [INFO]     Checked items (24):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Medium (value=96721.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Medium (value=115865.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Medium (value=125112.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Medium (value=96723.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Hawaiian Pizza Medium (value=96725.1)
+[2025-12-11 17:04:03] [INFO]       ... and 19 more
+[2025-12-11 17:04:03] [INFO]   - Large Pizza From Menu (source_id=9388)
+[2025-12-11 17:04:03] [INFO]     Checked items (24):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Large (value=96721.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Large (value=115865.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Large (value=125112.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Large (value=96723.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Hawaiian Pizza Large (value=96725.2)
+[2025-12-11 17:04:03] [INFO]       ... and 19 more
+[2025-12-11 17:04:03] [INFO]   - Small Pizza VEGAN From Menu (source_id=9389)
+[2025-12-11 17:04:03] [INFO]     Checked items (7):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Small (value=96724.0)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Veggie Fauxmage Pizza Small (value=125118.0)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Pepperoni Pizza Small (value=125119.0)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Jardinière Pizza Small (value=125120.0)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Mild Vegan Pizza Small (value=125121.0)
+[2025-12-11 17:04:03] [INFO]       ... and 2 more
+[2025-12-11 17:04:03] [INFO]   - Medium Pizza VEGAN From Menu (source_id=9390)
+[2025-12-11 17:04:03] [INFO]     Checked items (7):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Medium (value=96724.1)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Veggie Fauxmage Pizza Medium (value=125118.1)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Pepperoni Pizza Medium (value=125119.1)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Jardinière Pizza Medium (value=125120.1)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Mild Vegan Pizza Medium (value=125121.1)
+[2025-12-11 17:04:03] [INFO]       ... and 2 more
+[2025-12-11 17:04:03] [INFO]   - Large Pizza VEGAN From Menu (source_id=9391)
+[2025-12-11 17:04:03] [INFO]     Checked items (7):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Large (value=96724.2)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Veggie Fauxmage Pizza Large (value=125118.2)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Pepperoni Pizza Large (value=125119.2)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Vegan Jardinière Pizza Large (value=125120.2)
+[2025-12-11 17:04:03] [INFO]       * [Our Vegan Pizzas] Mild Vegan Pizza Large (value=125121.2)
+[2025-12-11 17:04:03] [INFO]       ... and 2 more
+[2025-12-11 17:04:03] [INFO]   - 2 Medium Poutines from Menu (source_id=9396)
+[2025-12-11 17:04:03] [INFO]     Checked items (9):
+[2025-12-11 17:04:03] [INFO]       * [Poutine] Crispy Chicken Poutine Medium (value=96720.1)
+[2025-12-11 17:04:03] [INFO]       * [Poutine] Buffalo Chicken Poutine Medium (value=125103.1)
+[2025-12-11 17:04:03] [INFO]       * [Poutine] Thai Chicken Poutine Medium (value=125104.1)
+[2025-12-11 17:04:03] [INFO]       * [Poutine] PopCurds Poutine Medium (value=101594.1)
+[2025-12-11 17:04:03] [INFO]       * [Poutine] Bacon Poutine Medium (value=101596.1)
+[2025-12-11 17:04:03] [INFO]       ... and 4 more
+[2025-12-11 17:04:03] [INFO]   - 2 Sandwich Combo (source_id=9397)
+[2025-12-11 17:04:03] [INFO]     Checked items (7):
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Small Philly Steak Sub (value=125144)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Small Pizza Sub (value=125145)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Small Smoked Meat Sub (value=125146)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Small Chicken Bacon Sub (value=141267)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Crispy Chicken Wrap (value=125147)
+[2025-12-11 17:04:03] [INFO]       ... and 2 more
+[2025-12-11 17:04:03] [INFO]   - 6 Medium Menu Choices (source_id=9398)
+[2025-12-11 17:04:03] [INFO]     Checked items (25):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Medium (value=96721.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Medium (value=115865.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Medium (value=125112.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Medium (value=96723.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Medium (value=96724.1)
+[2025-12-11 17:04:03] [INFO]       ... and 20 more
+[2025-12-11 17:04:03] [INFO]   - 10 Medium Menu Choice (source_id=9399)
+[2025-12-11 17:04:03] [INFO]     Checked items (25):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Medium (value=96721.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Medium (value=115865.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Medium (value=125112.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Medium (value=96723.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Medium (value=96724.1)
+[2025-12-11 17:04:03] [INFO]       ... and 20 more
+[2025-12-11 17:04:03] [INFO]   - 13 Medium Menu Choices (source_id=9400)
+[2025-12-11 17:04:03] [INFO]     Checked items (25):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Medium (value=96721.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Medium (value=115865.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Medium (value=125112.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Medium (value=96723.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Medium (value=96724.1)
+[2025-12-11 17:04:03] [INFO]       ... and 20 more
+[2025-12-11 17:04:03] [INFO]   - Canada Day Special (Medium Pizza) (source_id=9401)
+[2025-12-11 17:04:03] [INFO]     Checked items (25):
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Cheese Pizza Medium (value=96721.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Pepperoni Pizza Medium (value=115865.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] New York Pepperoni Pizza Medium (value=125112.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Combination Pizza Medium (value=96723.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizza] Vegetarian Pizza Medium (value=96724.1)
+[2025-12-11 17:04:03] [INFO]       ... and 20 more
+[2025-12-11 17:04:03] [INFO]   - Small Poutine Selection (source_id=62711)
+[2025-12-11 17:04:03] [INFO]     Checked items (8):
+[2025-12-11 17:04:03] [INFO]       * [Poutine] Crispy Chicken Poutine Small (value=96720.0)
+[2025-12-11 17:04:03] [INFO]       * [Poutine] Buffalo Chicken Poutine Small (value=125103.0)
+[2025-12-11 17:04:03] [INFO]       * [Poutine] Thai Chicken Poutine Small (value=125104.0)
+[2025-12-11 17:04:03] [INFO]       * [Poutine] Bacon Poutine Small (value=101596.0)
+[2025-12-11 17:04:03] [INFO]       * [Poutine] Philly Steak Poutine Small (value=125105.0)
+[2025-12-11 17:04:03] [INFO]       ... and 3 more
+[2025-12-11 17:04:03] [INFO] 
+Amicci Pizza (V3 ID: 735):
+[2025-12-11 17:04:03] [INFO]   - 2 Large Pizza From Menu (source_id=8162)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Cheese Pizza Large (value=105963.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Combination Pizza Large (value=105965.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Vegetarian Pizza Large (value=105966.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Hawaiian Pizza Large (value=105967.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Taco Pizza Large (value=105974.2)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO]   - 2 Medium Pizza From Menu (source_id=8163)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Cheese Pizza Medium (value=105963.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Combination Pizza Medium (value=105965.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Vegetarian Pizza Medium (value=105966.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Hawaiian Pizza Medium (value=105967.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Taco Pizza Medium (value=105974.1)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO]   - 1 Large Pizza from Menu (source_id=8164)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Cheese Pizza Large (value=105963.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Combination Pizza Large (value=105965.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Vegetarian Pizza Large (value=105966.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Hawaiian Pizza Large (value=105967.2)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Taco Pizza Large (value=105974.2)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO]   - 1 Medium Pizza from Menu (source_id=8165)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Cheese Pizza Medium (value=105963.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Combination Pizza Medium (value=105965.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Vegetarian Pizza Medium (value=105966.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Hawaiian Pizza Medium (value=105967.1)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Taco Pizza Medium (value=105974.1)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO]   - 1 Small Pizza from Menu (source_id=8166)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Cheese Pizza Small (value=105963.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Combination Pizza Small (value=105965.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Vegetarian Pizza Small (value=105966.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Hawaiian Pizza Small (value=105967.0)
+[2025-12-11 17:04:03] [INFO]       * [Pizzas] Taco Pizza Small (value=105974.0)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO] 
+Little Gyros Greek Grill (V3 ID: 756):
+[2025-12-11 17:04:03] [INFO]   - Pita Combo for 2 (source_id=8504)
+[2025-12-11 17:04:03] [INFO]     Checked items (5):
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Original Gyros Pita (value=110956)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Pork Souvlaki Pita (value=110957)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Chicken Souvlaki Pita (value=110958)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Falafel in a Pita (value=110959)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Chicken Caesar Pita (value=110960)
+[2025-12-11 17:04:03] [INFO]   - Pita Combo for 4 (source_id=8505)
+[2025-12-11 17:04:03] [INFO]     Checked items (5):
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Original Gyros Pita (value=110956)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Pork Souvlaki Pita (value=110957)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Chicken Souvlaki Pita (value=110958)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Falafel in a Pita (value=110959)
+[2025-12-11 17:04:03] [INFO]       * [Unlisted Dishes] Chicken Caesar Pita (value=110960)
+[2025-12-11 17:04:03] [INFO] 
+Nachos Loco Hull (V3 ID: 790):
+[2025-12-11 17:04:03] [INFO]   - Small Nacho Selection with Donuts (source_id=9120)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] Regular Nachos 9" (value=115487.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] Cuatro Queso 9" (value=115488.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] El Vegetariano 9" (value=115489.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] El Griego 9" (value=115490.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] Filet de Queso Philly 9" (value=115491.0)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO]   - 2 Small Nachos (source_id=9121)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] Regular Nachos 9" (value=115487.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] Cuatro Queso 9" (value=115488.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] El Vegetariano 9" (value=115489.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] El Griego 9" (value=115490.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] Filet de Queso Philly 9" (value=115491.0)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO]   - Small Nacho Selection with Churros (source_id=9185)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] Regular Nachos 9" (value=115487.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] Cuatro Queso 9" (value=115488.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] El Vegetariano 9" (value=115489.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] El Griego 9" (value=115490.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos (12")] Filet de Queso Philly 9" (value=115491.0)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO] 
+Dumpling Bowl (V3 ID: 792):
+[2025-12-11 17:04:03] [INFO]   - Combo 1 Dumplings Selection (201-211) (source_id=9044)
+[2025-12-11 17:04:03] [INFO]     Checked items (22):
+[2025-12-11 17:04:03] [INFO]       * [House Made Dumplings] 201. Pork and Cabbage Boiled Dumplings (value=115418.0)
+[2025-12-11 17:04:03] [INFO]       * [House Made Dumplings] 201. Pork and Cabbage Pan-Fried Dumplings (value=115418.1)
+[2025-12-11 17:04:03] [INFO]       * [House Made Dumplings] 202. Pork and Mushrooms and Cabbage Boiled Dumplings (value=115419.0)
+[2025-12-11 17:04:03] [INFO]       * [House Made Dumplings] 202. Pork and Mushrooms and Cabbage Pan-Fried Dumplings (value=115419.1)
+[2025-12-11 17:04:03] [INFO]       * [House Made Dumplings] 203. Pork and Chives Boiled Dumplings (value=115420.0)
+[2025-12-11 17:04:03] [INFO]       ... and 17 more
+[2025-12-11 17:04:03] [INFO] 
+Nachos Loco Gatineau (V3 ID: 801):
+[2025-12-11 17:04:03] [INFO]   - Small Nacho Selection with Donuts (source_id=9112)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Nachos] Regular Nachos 9" (value=116616.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] Cuatro Queso 9" (value=116617.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] El Vegetariano 9" (value=116618.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] El Griego 9" (value=116619.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] Filet de Queso Philly 9" (value=116620.0)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO]   - 2 Small Nachos (source_id=9115)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Nachos] Regular Nachos 9" (value=116616.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] Cuatro Queso 9" (value=116617.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] El Vegetariano 9" (value=116618.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] El Griego 9" (value=116619.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] Filet de Queso Philly 9" (value=116620.0)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO]   - Small Nacho Selection with Churros (source_id=9184)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Nachos] Regular Nachos 9" (value=116616.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] Cuatro Queso 9" (value=116617.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] El Vegetariano 9" (value=116618.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] El Griego 9" (value=116619.0)
+[2025-12-11 17:04:03] [INFO]       * [Nachos] Filet de Queso Philly 9" (value=116620.0)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO] 
+All Out Burger (V3 ID: 833):
+[2025-12-11 17:04:03] [INFO]   - Any 3 Burgers Special (source_id=9239)
+[2025-12-11 17:04:03] [INFO]     Checked items (12):
+[2025-12-11 17:04:03] [INFO]       * [Burgers SOLO] Original Burger (value=122729)
+[2025-12-11 17:04:03] [INFO]       * [Burgers SOLO] Cheese Burger (value=122730)
+[2025-12-11 17:04:03] [INFO]       * [Burgers SOLO] Bacon Burger (value=122731)
+[2025-12-11 17:04:03] [INFO]       * [Burgers SOLO] Fried Mozzarella Burger (value=122732)
+[2025-12-11 17:04:03] [INFO]       * [Burgers SOLO] Heat Burger (value=122733)
+[2025-12-11 17:04:03] [INFO]       ... and 7 more
+[2025-12-11 17:04:03] [INFO] 
+======================================================================
+[2025-12-11 17:04:03] [INFO] SCAN FINISHED
+[2025-12-11 17:04:03] [INFO] ======================================================================
+[2025-12-11 17:04:03] [INFO] Stopping Special Combo Scanner...
+[2025-12-11 17:04:03] [INFO] All connections closed

@@ -3142,3 +3142,443 @@
 [2025-12-09 16:32:13] [INFO] Total prices: 20870
 [2025-12-09 16:32:13] [INFO] 
 [2025-12-09 16:32:13] [INFO] Log file: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Menu Scrapers\logs\combo_phase1_rescrape_20251209_133851.log
+[2025-12-10 11:22:51] [INFO] 
+[2025-12-10 11:22:51] [INFO] ============================================================
+[2025-12-10 11:22:51] [INFO] PHASE 1 RE-SCRAPE - 8 MISSED RESTAURANTS
+[2025-12-10 11:22:51] [INFO] ============================================================
+[2025-12-10 11:22:51] [INFO] Appending to: C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\logs\Combo Phase 1 successful.log
+[2025-12-10 11:22:51] [INFO] 
+[2025-12-10 11:22:52] [INFO] Database connection established
+[2025-12-10 11:22:52] [INFO] Database connection closed
+[2025-12-10 11:22:52] [INFO] Found 8 restaurants to process
+[2025-12-10 11:22:52] [INFO] Starting Combo Scraper...
+[2025-12-10 11:22:54] [INFO] Database connection established
+[2025-12-10 11:22:54] [INFO] Browser and database connections established
+[2025-12-10 11:22:54] [INFO] Logging in to https://menuadmin.menu.ca/...
+[2025-12-10 11:22:59] [INFO] Found login form with name='username'
+[2025-12-10 11:23:02] [INFO] Using role-based selectors for login form
+[2025-12-10 11:23:02] [ERROR] Login failed: Frame.fill() missing 1 required positional argument: 'value'
+[2025-12-10 11:23:02] [ERROR] Login failed. Aborting.
+[2025-12-10 11:23:02] [INFO] Stopping Combo Scraper...
+[2025-12-10 11:23:03] [INFO] Database connection closed
+[2025-12-10 11:23:03] [INFO] All connections closed
+[2025-12-10 11:23:35] [INFO] 
+[2025-12-10 11:23:35] [INFO] ============================================================
+[2025-12-10 11:23:35] [INFO] PHASE 1 RE-SCRAPE - 8 MISSED RESTAURANTS
+[2025-12-10 11:23:35] [INFO] ============================================================
+[2025-12-10 11:23:35] [INFO] Appending to: C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\logs\Combo Phase 1 successful.log
+[2025-12-10 11:23:35] [INFO] 
+[2025-12-10 11:23:35] [INFO] Database connection established
+[2025-12-10 11:23:36] [INFO] Database connection closed
+[2025-12-10 11:23:36] [INFO] Found 8 restaurants to process
+[2025-12-10 11:23:36] [INFO] Starting Combo Scraper...
+[2025-12-10 11:23:36] [INFO] Database connection established
+[2025-12-10 11:23:36] [INFO] Browser and database connections established
+[2025-12-10 11:23:36] [INFO] Logging in to https://menuadmin.menu.ca/...
+[2025-12-10 11:23:38] [INFO] Found login form with name='username'
+[2025-12-10 11:23:42] [INFO] Current URL after login: https://menuadmin.menu.ca/?p=restaurants
+[2025-12-10 11:23:42] [INFO] Login successful - found restaurant list
+[2025-12-10 11:23:42] [INFO] ============================================================
+[2025-12-10 11:23:42] [INFO] Processing: Milano (V3: 88, V1: 204)
+[2025-12-10 11:23:42] [INFO] ============================================================
+[2025-12-10 11:23:42] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=204&load=comboGroups&showLang=en
+[2025-12-10 11:23:43] [INFO] Combo group elements detected - page fully loaded
+[2025-12-10 11:23:43] [INFO] Page URL after navigation: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=204&load=comboGroups&showLang=en
+[2025-12-10 11:23:43] [INFO] Page HTML length: 264208 bytes
+[2025-12-10 11:23:43] [INFO] Saved page HTML to debug_page.html
+[2025-12-10 11:23:43] [INFO] Found 'editGroupJS' in page HTML
+[2025-12-10 11:23:44] [INFO] Found 42 combo groups
+[2025-12-10 11:23:44] [INFO] Processing combo group: One Topping (source_id=1063)
+[2025-12-10 11:24:02] [INFO] Processing combo group: Two Toppings (source_id=1064)
+[2025-12-10 11:24:19] [INFO] Processing combo group: Premium Toppings (source_id=1065)
+[2025-12-10 11:24:22] [INFO] Processing combo group: Dips (source_id=1066)
+[2025-12-10 11:24:30] [INFO] Processing combo group: 1 Topping Pizza Deal (source_id=1067)
+[2025-12-10 11:24:44] [INFO] Processing combo group: 2 Toppings Pizza Deal (source_id=1068)
+[2025-12-10 11:24:58] [INFO] Processing combo group: 3 Toppings Pizza Deal (source_id=1069)
+[2025-12-10 11:25:12] [INFO] Processing combo group: Premium Toppings Pizza Deal ----1st pizza (source_id=1070)
+[2025-12-10 11:25:14] [INFO] Processing combo group: Premium Toppings Pizza Deal ----2nd pizza (source_id=1071)
+[2025-12-10 11:25:17] [INFO] Processing combo group: Large Pizza 3 Toppings (source_id=1072)
+[2025-12-10 11:25:25] [INFO] Processing combo group: Premium Toppings large (source_id=1073)
+[2025-12-10 11:25:28] [INFO] Processing combo group: Wings Sauces (source_id=1074)
+[2025-12-10 11:25:33] [INFO] Processing combo group: Medium Pizza 3 Toppings (source_id=1075)
+[2025-12-10 11:25:42] [INFO] Processing combo group: Premium Toppings medium (source_id=1076)
+[2025-12-10 11:25:44] [INFO] Processing combo group: Donairs Special (source_id=1418)
+[2025-12-10 11:25:47] [INFO] Processing combo group: 2 Large Shawarma (source_id=1419)
+[2025-12-10 11:25:49] [INFO] Processing combo group: Half Priced Extra Cheese --- 1st pizza (source_id=5347)
+[2025-12-10 11:25:52] [INFO] Processing combo group: Half Priced Extra Cheese --- 2nd pizza (source_id=5348)
+[2025-12-10 11:25:54] [INFO] Processing combo group: 2 Medium 3 Toppings (source_id=5674)
+[2025-12-10 11:26:02] [INFO] Processing combo group: Premium Toppings Medium----1st pizza (source_id=5675)
+[2025-12-10 11:26:04] [INFO] Processing combo group: Premium Toppings Medium---2nd Pizza (source_id=5676)
+[2025-12-10 11:26:07] [INFO] Processing combo group: 2 Large 3 Toppings (source_id=5677)
+[2025-12-10 11:26:15] [INFO] Processing combo group: Premium Toppings large----1st pizza (source_id=5678)
+[2025-12-10 11:26:17] [INFO] Processing combo group: Premium Toppings large----2nd pizza (source_id=5679)
+[2025-12-10 11:26:19] [INFO] Processing combo group: The Perfect Combo Deal crust and toppings (source_id=5818)
+[2025-12-10 11:26:36] [INFO] Processing combo group: Premium Toppings (S,M,L,XL) (source_id=5819)
+[2025-12-10 11:26:39] [INFO] Processing combo group: Chicken Shawarma Special (source_id=6957)
+[2025-12-10 11:26:41] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 1st pizza (source_id=7124)
+[2025-12-10 11:26:43] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 2nd pizza (source_id=7125)
+[2025-12-10 11:26:45] [INFO] Processing combo group: 2 Pizza Deal 1 Topping (VEGAN) (source_id=7350)
+[2025-12-10 11:26:56] [INFO] Processing combo group: 2 Pizza Deal 2 Toppings (VEGAN) (source_id=7351)
+[2025-12-10 11:27:08] [INFO] Processing combo group: 2 Pizza Deal 3 Toppings (VEGAN) (source_id=7352)
+[2025-12-10 11:27:19] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----1st Pizza (VEGAN) (source_id=7353)
+[2025-12-10 11:27:22] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----2nd Pizza (VEGAN) (source_id=7354)
+[2025-12-10 11:27:24] [INFO] Processing combo group: Dips for VEGAN (source_id=7355)
+[2025-12-10 11:27:27] [INFO] Processing combo group: 10 Classic Wings or 10 Boneless Bites (source_id=8853)
+[2025-12-10 11:27:29] [INFO] Processing combo group: Small Pizza 3 Toppings (source_id=8854)
+[2025-12-10 11:27:37] [INFO] Processing combo group: Premium Toppings Small (source_id=8855)
+[2025-12-10 11:27:40] [INFO] Processing combo group: XL Pizza 3 Toppings (source_id=8856)
+[2025-12-10 11:27:48] [INFO] Processing combo group: Premium Toppings XL (source_id=8857)
+[2025-12-10 11:27:50] [INFO] Processing combo group: 1st Dip Free (source_id=9258)
+[2025-12-10 11:27:57] [INFO] Processing combo group: Medium Pizza 1 Topping (source_id=9259)
+[2025-12-10 11:28:06] [INFO] Results for Milano:
+[2025-12-10 11:28:06] [INFO]   - Combo Groups: 42
+[2025-12-10 11:28:06] [INFO]   - Sections: 60
+[2025-12-10 11:28:06] [INFO]   - Modifier Groups: 60
+[2025-12-10 11:28:06] [INFO]   - Modifiers: 399
+[2025-12-10 11:28:06] [INFO]   - Prices: 701
+[2025-12-10 11:28:06] [INFO] ============================================================
+[2025-12-10 11:28:06] [INFO] Processing: Milano (V3: 89, V1: 205)
+[2025-12-10 11:28:06] [INFO] ============================================================
+[2025-12-10 11:28:06] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=205&load=comboGroups&showLang=en
+[2025-12-10 11:28:07] [INFO] Combo group elements detected - page fully loaded
+[2025-12-10 11:28:07] [INFO] Page URL after navigation: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=205&load=comboGroups&showLang=en
+[2025-12-10 11:28:07] [INFO] Page HTML length: 230743 bytes
+[2025-12-10 11:28:07] [INFO] Saved page HTML to debug_page.html
+[2025-12-10 11:28:07] [INFO] Found 'editGroupJS' in page HTML
+[2025-12-10 11:28:07] [INFO] Found 45 combo groups
+[2025-12-10 11:28:07] [INFO] Processing combo group: 1 Topping (source_id=1093)
+[2025-12-10 11:28:30] [INFO] Processing combo group: 2 Toppings (source_id=1094)
+[2025-12-10 11:28:55] [INFO] Processing combo group: 3 Toppings (source_id=1095)
+[2025-12-10 11:29:18] [INFO] Processing combo group: Premium Toppings (source_id=1096)
+[2025-12-10 11:29:22] [INFO] Processing combo group: Small Pizza 3 toppings (source_id=1097)
+[2025-12-10 11:29:32] [INFO] Processing combo group: Premium Toppings small (source_id=1098)
+[2025-12-10 11:29:34] [INFO] Processing combo group: 2 Medium Pizza 3 toppings (source_id=1099)
+[2025-12-10 11:29:45] [INFO] Processing combo group: Premium Toppings Medium----1st pizza (source_id=1100)
+[2025-12-10 11:29:48] [INFO] Processing combo group: Premium Toppings Medium-----2nd Pizza (source_id=1101)
+[2025-12-10 11:29:50] [INFO] Processing combo group: XL Pizza (source_id=1102)
+[2025-12-10 11:30:02] [INFO] Processing combo group: Pizza Dips 2 (source_id=1181)
+[2025-12-10 11:30:07] [INFO] Processing combo group: Wings Sauces (source_id=1182)
+[2025-12-10 11:30:11] [INFO] Processing combo group: 1st Dip Free (source_id=4089)
+[2025-12-10 11:30:16] [INFO] Processing combo group: 4 Toppings (source_id=5181)
+[2025-12-10 11:30:40] [INFO] Processing combo group: Half Priced Extra Cheese --- 1st pizza (source_id=5349)
+[2025-12-10 11:30:42] [INFO] Processing combo group: Half Priced Extra Cheese --- 2nd pizza (source_id=5350)
+[2025-12-10 11:30:44] [INFO] Processing combo group: Half Priced Extra Cheese for Pizza (source_id=5351)
+[2025-12-10 11:30:47] [INFO] Processing combo group: 2 Medium 3 Toppings (source_id=5680)
+[2025-12-10 11:30:57] [INFO] Processing combo group: Premium Toppings Medium----1st pizza (source_id=5681)
+[2025-12-10 11:30:59] [INFO] Processing combo group: Premium Toppings Medium----2nd pizza (source_id=5682)
+[2025-12-10 11:31:02] [INFO] Processing combo group: 2 Large 3 Toppings (source_id=5683)
+[2025-12-10 11:31:12] [INFO] Processing combo group: Premium Toppings large----1st pizza (source_id=5684)
+[2025-12-10 11:31:14] [INFO] Processing combo group: Premium Toppings large---2nd pizza (source_id=5685)
+[2025-12-10 11:31:17] [INFO] Processing combo group: Medium Pizza 3 Toppings (source_id=5767)
+[2025-12-10 11:31:27] [INFO] Processing combo group: Premium Toppings Medium (source_id=5768)
+[2025-12-10 11:31:30] [INFO] Processing combo group: Large Pizza 3 Toppings (source_id=5769)
+[2025-12-10 11:31:40] [INFO] Processing combo group: Premium Toppings Large (source_id=5770)
+[2025-12-10 11:31:43] [INFO] Processing combo group: The Perfect Combo Deal (source_id=6438)
+[2025-12-10 11:32:02] [INFO] Processing combo group: Premium Toppings (SML) (source_id=6439)
+[2025-12-10 11:32:05] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 1st pizza (source_id=7100)
+[2025-12-10 11:32:07] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 2nd Pizza (source_id=7101)
+[2025-12-10 11:32:08] [INFO] Processing combo group: 1 Topping 2 Pizza Deal (source_id=7130)
+[2025-12-10 11:32:27] [INFO] Processing combo group: 2 Toppings 2 Pizza Deal (source_id=7131)
+[2025-12-10 11:32:47] [INFO] Processing combo group: 3 Toppings 2 Pizza Deal (source_id=7132)
+[2025-12-10 11:33:05] [INFO] Processing combo group: Premium Toppings Twins----1st Pizza (source_id=7133)
+[2025-12-10 11:33:09] [INFO] Processing combo group: Premium Toppings Twins----2nd Pizza (source_id=7134)
+[2025-12-10 11:33:12] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 1st Pizza (source_id=7135)
+[2025-12-10 11:33:13] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 2nd pizza (source_id=7136)
+[2025-12-10 11:33:15] [INFO] Processing combo group: 2 Pizza Deal 1 Topping & Two 591ml Drinks (V) (source_id=7922)
+[2025-12-10 11:33:31] [INFO] Processing combo group: 2 Pizza Deal 2 Toppings & Two 591ml Drinks (V) (source_id=7923)
+[2025-12-10 11:33:47] [INFO] Processing combo group: 2 Pizza Deal 3 Toppings & Two 591ml Drinks (V) (source_id=7924)
+[2025-12-10 11:34:03] [INFO] Processing combo group: Premium Toppings ------1st Pizza (V) (source_id=7925)
+[2025-12-10 11:34:06] [INFO] Processing combo group: Premium Toppings ----2nd Pizza (V) (source_id=7926)
+[2025-12-10 11:34:09] [INFO] Processing combo group: Dips for VEGAN (source_id=7927)
+[2025-12-10 11:34:15] [INFO] Processing combo group: Dips for VEGAN (source_id=7928)
+[2025-12-10 11:34:20] [INFO] Results for Milano:
+[2025-12-10 11:34:20] [INFO]   - Combo Groups: 45
+[2025-12-10 11:34:20] [INFO]   - Sections: 67
+[2025-12-10 11:34:20] [INFO]   - Modifier Groups: 67
+[2025-12-10 11:34:20] [INFO]   - Modifiers: 559
+[2025-12-10 11:34:20] [INFO]   - Prices: 1096
+[2025-12-10 11:34:20] [INFO] ============================================================
+[2025-12-10 11:34:20] [INFO] Processing: Milano (V3: 91, V1: 207)
+[2025-12-10 11:34:20] [INFO] ============================================================
+[2025-12-10 11:34:20] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=207&load=comboGroups&showLang=en
+[2025-12-10 11:34:21] [INFO] Combo group elements detected - page fully loaded
+[2025-12-10 11:34:22] [INFO] Page URL after navigation: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=207&load=comboGroups&showLang=en
+[2025-12-10 11:34:22] [INFO] Page HTML length: 259807 bytes
+[2025-12-10 11:34:22] [INFO] Saved page HTML to debug_page.html
+[2025-12-10 11:34:22] [INFO] Found 'editGroupJS' in page HTML
+[2025-12-10 11:34:22] [INFO] Found 51 combo groups
+[2025-12-10 11:34:22] [INFO] Processing combo group: One Topping (source_id=1077)
+[2025-12-10 11:34:50] [INFO] Processing combo group: Premium Toppings (source_id=1078)
+[2025-12-10 11:34:57] [INFO] Processing combo group: 1 Topping 2 Pizza Deal (source_id=1079)
+[2025-12-10 11:35:25] [INFO] Processing combo group: 2 Toppings 2 Pizza Deal (source_id=1080)
+[2025-12-10 11:35:52] [INFO] Processing combo group: 3 Toppings 2 Pizza Deal (source_id=1081)
+[2025-12-10 11:36:19] [INFO] Processing combo group: 4 Toppings 2 Pizza Deal (source_id=1082)
+[2025-12-10 11:36:47] [INFO] Processing combo group: Premium Toppings 2 pizza deal----1st pizza (source_id=1083)
+[2025-12-10 11:36:54] [INFO] Processing combo group: Premium Toppings 2 pizza deal----2nd pizza (source_id=1084)
+[2025-12-10 11:37:01] [INFO] Processing combo group: Pizza Dips (source_id=1184)
+[2025-12-10 11:37:06] [INFO] Processing combo group: Small Pizza 2 Toppings Special (source_id=1185)
+[2025-12-10 11:37:22] [INFO] Processing combo group: Premium Toppings Small (source_id=1186)
+[2025-12-10 11:37:26] [INFO] Processing combo group: Wings sauces (source_id=1187)
+[2025-12-10 11:37:33] [INFO] Processing combo group: 1 Dessert (source_id=1188)
+[2025-12-10 11:37:34] [INFO] Processing combo group: Medium Pizza 3 toppings (source_id=1189)
+[2025-12-10 11:37:47] [INFO] Processing combo group: Premium Toppings Medium (source_id=1190)
+[2025-12-10 11:37:51] [INFO] Processing combo group: Large Pizza Deal 3 Toppings and 2L pepsi (source_id=1191)
+[2025-12-10 11:38:03] [INFO] Processing combo group: Premium Toppings Large (source_id=1192)
+[2025-12-10 11:38:07] [INFO] Processing combo group: Large Pizza 3 Toppings and 2 dips (source_id=1193)
+[2025-12-10 11:38:22] [INFO] Processing combo group: 2 Pasta Special (source_id=1194)
+[2025-12-10 11:38:23] [INFO] Processing combo group: 3 Small Pizzas 3 toppings each (source_id=1195)
+[2025-12-10 11:38:36] [INFO] Processing combo group: 3 dips (source_id=1196)
+[2025-12-10 11:38:41] [INFO] Processing combo group: Premium Toppings Small----1st pizza (source_id=1197)
+[2025-12-10 11:38:45] [INFO] Processing combo group: Premium Toppings Small------2nd Pizza (source_id=1198)
+[2025-12-10 11:38:49] [INFO] Processing combo group: Premium Toppings Small---3rd Pizza (source_id=1199)
+[2025-12-10 11:38:54] [INFO] Processing combo group: Large pizza 3 toppings WC 2014 (source_id=2885)
+[2025-12-10 11:39:06] [INFO] Processing combo group: 4 Dips Free (source_id=2886)
+[2025-12-10 11:39:11] [INFO] Processing combo group: Upsize to XXL WC 2014 (source_id=2887)
+[2025-12-10 11:39:12] [INFO] Processing combo group: 2 Large Donairs (source_id=3321)
+[2025-12-10 11:39:16] [INFO] Processing combo group: 2 Chicken Wraps (source_id=3322)
+[2025-12-10 11:39:19] [INFO] Processing combo group: Half Priced Extra Cheese --- 1st pizza (source_id=5352)
+[2025-12-10 11:39:22] [INFO] Processing combo group: Half Priced Extra Cheese --- 2nd pizza (source_id=5353)
+[2025-12-10 11:39:24] [INFO] Processing combo group: 2 Medium 3 Toppings (source_id=5701)
+[2025-12-10 11:39:36] [INFO] Processing combo group: Premium Toppings Medium-----1st pizza (source_id=5702)
+[2025-12-10 11:39:40] [INFO] Processing combo group: Premium Toppings Medium----2nd Pizaa (source_id=5703)
+[2025-12-10 11:39:44] [INFO] Processing combo group: 2 Large 3 Toppings (source_id=5704)
+[2025-12-10 11:39:56] [INFO] Processing combo group: Premium Toppings Large---1st pizza (source_id=5705)
+[2025-12-10 11:40:00] [INFO] Processing combo group: Premium Toppings large----2nd pizza (source_id=5706)
+[2025-12-10 11:40:04] [INFO] Processing combo group: 1 Small 3 Toppings (source_id=5937)
+[2025-12-10 11:40:17] [INFO] Processing combo group: Premium Toppings Small (source_id=5938)
+[2025-12-10 11:40:20] [INFO] Processing combo group: 1 Large 3 Toppings (source_id=5939)
+[2025-12-10 11:40:32] [INFO] Processing combo group: Premium Toppings Large (source_id=5940)
+[2025-12-10 11:40:36] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 1st pizza (source_id=7102)
+[2025-12-10 11:40:38] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 2nd pizza (source_id=7103)
+[2025-12-10 11:40:40] [INFO] Processing combo group: 2 Pizza Deal 1 Topping (VEGAN) (source_id=7316)
+[2025-12-10 11:41:00] [INFO] Processing combo group: 2 Pizza Deal 2 Toppings (VEGAN) (source_id=7317)
+[2025-12-10 11:41:21] [INFO] Processing combo group: 2 Pizza Deal 3 Toppings (VEGAN) (source_id=7318)
+[2025-12-10 11:41:43] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----1st Pizza (VEGAN) (source_id=7319)
+[2025-12-10 11:41:47] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----2nd Pizza (VEGAN) (source_id=7320)
+[2025-12-10 11:41:52] [INFO] Processing combo group: Dips for VEGAN (source_id=7321)
+[2025-12-10 11:41:54] [INFO] Processing combo group: 2 Dips Free (source_id=7399)
+[2025-12-10 11:41:59] [INFO] Processing combo group: Dips for VEGAN VEGAN VEGAN (source_id=7630)
+[2025-12-10 11:42:01] [INFO] Results for Milano:
+[2025-12-10 11:42:01] [INFO]   - Combo Groups: 51
+[2025-12-10 11:42:01] [INFO]   - Sections: 72
+[2025-12-10 11:42:01] [INFO]   - Modifier Groups: 72
+[2025-12-10 11:42:01] [INFO]   - Modifiers: 741
+[2025-12-10 11:42:01] [INFO]   - Prices: 1330
+[2025-12-10 11:42:01] [INFO] ============================================================
+[2025-12-10 11:42:01] [INFO] Processing: Milano (V3: 93, V1: 209)
+[2025-12-10 11:42:01] [INFO] ============================================================
+[2025-12-10 11:42:01] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=209&load=comboGroups&showLang=en
+[2025-12-10 11:42:05] [INFO] Combo group elements detected - page fully loaded
+[2025-12-10 11:42:05] [INFO] Page URL after navigation: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=209&load=comboGroups&showLang=en
+[2025-12-10 11:42:05] [INFO] Page HTML length: 243644 bytes
+[2025-12-10 11:42:05] [INFO] Saved page HTML to debug_page.html
+[2025-12-10 11:42:05] [INFO] Found 'editGroupJS' in page HTML
+[2025-12-10 11:42:05] [INFO] Found 34 combo groups
+[2025-12-10 11:42:05] [INFO] Processing combo group: One Topping (source_id=1148)
+[2025-12-10 11:42:31] [INFO] Processing combo group: Two Toppings (source_id=1149)
+[2025-12-10 11:42:56] [INFO] Processing combo group: Premium Toppings (source_id=1150)
+[2025-12-10 11:43:01] [INFO] Processing combo group: 1 Topping 2 pizza deal (source_id=1151)
+[2025-12-10 11:43:21] [INFO] Processing combo group: 2 Toppings 2 pizza deal (source_id=1152)
+[2025-12-10 11:43:42] [INFO] Processing combo group: 3 Toppings 2 pizza deal (source_id=1153)
+[2025-12-10 11:44:02] [INFO] Processing combo group: Premium Toppings special----1st pizza (source_id=1154)
+[2025-12-10 11:44:07] [INFO] Processing combo group: Premium Toppings special----2nd pizza (source_id=1155)
+[2025-12-10 11:44:12] [INFO] Processing combo group: Wings Sauces (source_id=1156)
+[2025-12-10 11:44:16] [INFO] Processing combo group: Medium Pizza Special (source_id=1157)
+[2025-12-10 11:44:28] [INFO] Processing combo group: Premium Toppings Medium (source_id=1158)
+[2025-12-10 11:44:31] [INFO] Processing combo group: Large Pizza Special (source_id=1159)
+[2025-12-10 11:44:42] [INFO] Processing combo group: Premium Toppings Large (source_id=1160)
+[2025-12-10 11:44:45] [INFO] Processing combo group: Pizza Dips (source_id=1178)
+[2025-12-10 11:44:48] [INFO] Processing combo group: 2 Small Donairs Special (source_id=4113)
+[2025-12-10 11:44:52] [INFO] Processing combo group: 2 CHicken Shawarma Special (source_id=4114)
+[2025-12-10 11:44:54] [INFO] Processing combo group: Half Priced Extra Cheese ---1st pizza (source_id=5354)
+[2025-12-10 11:44:56] [INFO] Processing combo group: Half Priced Extra Cheese ---2nd pizza (source_id=5355)
+[2025-12-10 11:44:59] [INFO] Processing combo group: 2 Medium 3 Toppings (source_id=5713)
+[2025-12-10 11:45:10] [INFO] Processing combo group: Premium Toppings Medium----1st pizza (source_id=5714)
+[2025-12-10 11:45:13] [INFO] Processing combo group: Premium Toppings Medium---2nd Pizza (source_id=5715)
+[2025-12-10 11:45:16] [INFO] Processing combo group: 2 Large 3 Toppings (source_id=5716)
+[2025-12-10 11:45:27] [INFO] Processing combo group: Premium Toppings Large----1st pizza (source_id=5717)
+[2025-12-10 11:45:30] [INFO] Processing combo group: Premium Toppings Large---2nd Pizza (source_id=5718)
+[2025-12-10 11:45:33] [INFO] Processing combo group: The Perfect Combo Deal crust and toppings (source_id=5830)
+[2025-12-10 11:45:54] [INFO] Processing combo group: Premium Toppings (S,M,L) (source_id=5831)
+[2025-12-10 11:45:58] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 1st pizza (source_id=7106)
+[2025-12-10 11:46:00] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 2nd pizza (source_id=7107)
+[2025-12-10 11:46:02] [INFO] Processing combo group: 2 Pizza Deal 1 Topping (VEGAN) (source_id=7228)
+[2025-12-10 11:46:17] [INFO] Processing combo group: 2 Pizza Deal 2 Toppings (VEGAN) (source_id=7229)
+[2025-12-10 11:46:33] [INFO] Processing combo group: 2 Pizza Deal 3 Toppings (VEGAN) (source_id=7230)
+[2025-12-10 11:46:49] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----1st Pizza (VEGAN) (source_id=7231)
+[2025-12-10 11:46:52] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----2nd Pizza (VEGAN) (source_id=7232)
+[2025-12-10 11:46:56] [INFO] Processing combo group: Dips for VEGAN (source_id=7233)
+[2025-12-10 11:46:59] [INFO] Results for Milano:
+[2025-12-10 11:46:59] [INFO]   - Combo Groups: 34
+[2025-12-10 11:46:59] [INFO]   - Sections: 50
+[2025-12-10 11:46:59] [INFO]   - Modifier Groups: 50
+[2025-12-10 11:46:59] [INFO]   - Modifiers: 446
+[2025-12-10 11:46:59] [INFO]   - Prices: 885
+[2025-12-10 11:46:59] [INFO] ============================================================
+[2025-12-10 11:46:59] [INFO] Processing: Milano (V3: 95, V1: 211)
+[2025-12-10 11:46:59] [INFO] ============================================================
+[2025-12-10 11:46:59] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=211&load=comboGroups&showLang=en
+[2025-12-10 11:47:00] [INFO] Combo group elements detected - page fully loaded
+[2025-12-10 11:47:00] [INFO] Page URL after navigation: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=211&load=comboGroups&showLang=en
+[2025-12-10 11:47:00] [INFO] Page HTML length: 224823 bytes
+[2025-12-10 11:47:00] [INFO] Saved page HTML to debug_page.html
+[2025-12-10 11:47:00] [INFO] Found 'editGroupJS' in page HTML
+[2025-12-10 11:47:00] [INFO] Found 35 combo groups
+[2025-12-10 11:47:00] [INFO] Processing combo group: One Topping (source_id=1135)
+[2025-12-10 11:47:26] [INFO] Processing combo group: Two Toppings (source_id=1136)
+[2025-12-10 11:47:51] [INFO] Processing combo group: Premium Toppings (source_id=1137)
+[2025-12-10 11:47:56] [INFO] Processing combo group: 1 Topping 2 pizza deal (source_id=1138)
+[2025-12-10 11:48:16] [INFO] Processing combo group: 2 Toppings 2 pizza deal (source_id=1139)
+[2025-12-10 11:48:36] [INFO] Processing combo group: 3 Toppings 2 pizza deal (source_id=1140)
+[2025-12-10 11:48:56] [INFO] Processing combo group: Premium toppings special ----1st pizza (source_id=1141)
+[2025-12-10 11:49:02] [INFO] Processing combo group: Premium toppings special-----2nd pizza (source_id=1142)
+[2025-12-10 11:49:07] [INFO] Processing combo group: Medium Pizza Special (source_id=1143)
+[2025-12-10 11:49:18] [INFO] Processing combo group: Premium Toppings Medium (source_id=1144)
+[2025-12-10 11:49:21] [INFO] Processing combo group: Large Pizza 3 toppings Special (source_id=1145)
+[2025-12-10 11:49:33] [INFO] Processing combo group: Premium Toppings Large (source_id=1146)
+[2025-12-10 11:49:36] [INFO] Processing combo group: Wings Sauces (source_id=1147)
+[2025-12-10 11:49:40] [INFO] Processing combo group: Pizza Dips (source_id=1180)
+[2025-12-10 11:49:43] [INFO] Processing combo group: 2 donair (source_id=1219)
+[2025-12-10 11:49:46] [INFO] Processing combo group: Chicken Shawarma Special (source_id=2134)
+[2025-12-10 11:49:49] [INFO] Processing combo group: 1st Dip Free (source_id=3325)
+[2025-12-10 11:49:53] [INFO] Processing combo group: Half Priced Extra Cheese --- 1st pizza (source_id=5358)
+[2025-12-10 11:49:55] [INFO] Processing combo group: Half Priced Extra Cheese --- 2nd pizza (source_id=5359)
+[2025-12-10 11:49:57] [INFO] Processing combo group: 2 Medium 3 Toppings (source_id=5725)
+[2025-12-10 11:50:09] [INFO] Processing combo group: Premium Toppings Medium----1st pizza (source_id=5726)
+[2025-12-10 11:50:12] [INFO] Processing combo group: Premium Toppings Medium-----2nd pizza (source_id=5727)
+[2025-12-10 11:50:15] [INFO] Processing combo group: 2 Large 3 Toppings (source_id=5728)
+[2025-12-10 11:50:26] [INFO] Processing combo group: Premium Toppings Large-----1st pizza (source_id=5729)
+[2025-12-10 11:50:29] [INFO] Processing combo group: Premium Toppings Large ----2nd pizza (source_id=5730)
+[2025-12-10 11:50:33] [INFO] Processing combo group: The Perfect Combo Deal (source_id=6958)
+[2025-12-10 11:50:52] [INFO] Processing combo group: Premium Toppings (SML) (source_id=6959)
+[2025-12-10 11:50:57] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 1st pizza (source_id=7108)
+[2025-12-10 11:50:59] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 2nd pizza (source_id=7109)
+[2025-12-10 11:51:00] [INFO] Processing combo group: 2 Pizza Deal 1 Topping (VEGAN) (source_id=7322)
+[2025-12-10 11:51:16] [INFO] Processing combo group: 2 Pizza Deal 2 Toppings (VEGAN) (source_id=7323)
+[2025-12-10 11:51:32] [INFO] Processing combo group: 2 Pizza Deal 3 Toppings (VEGAN) (source_id=7324)
+[2025-12-10 11:51:49] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----1st Pizza (VEGAN) (source_id=7325)
+[2025-12-10 11:51:54] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----2nd Pizza (VEGAN) (source_id=7326)
+[2025-12-10 11:51:57] [INFO] Processing combo group: Dips VEGAN (source_id=7327)
+[2025-12-10 11:51:59] [INFO] Results for Milano:
+[2025-12-10 11:51:59] [INFO]   - Combo Groups: 35
+[2025-12-10 11:51:59] [INFO]   - Sections: 52
+[2025-12-10 11:51:59] [INFO]   - Modifier Groups: 52
+[2025-12-10 11:51:59] [INFO]   - Modifiers: 441
+[2025-12-10 11:51:59] [INFO]   - Prices: 879
+[2025-12-10 11:51:59] [INFO] ============================================================
+[2025-12-10 11:51:59] [INFO] Processing: Napolis (V3: 515, V1: 721)
+[2025-12-10 11:51:59] [INFO] ============================================================
+[2025-12-10 11:51:59] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=721&load=comboGroups&showLang=en
+[2025-12-10 11:52:00] [INFO] Combo group elements detected - page fully loaded
+[2025-12-10 11:52:00] [INFO] Page URL after navigation: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=721&load=comboGroups&showLang=en
+[2025-12-10 11:52:00] [INFO] Page HTML length: 101740 bytes
+[2025-12-10 11:52:00] [INFO] Saved page HTML to debug_page.html
+[2025-12-10 11:52:00] [INFO] Found 'editGroupJS' in page HTML
+[2025-12-10 11:52:01] [INFO] Found 14 combo groups
+[2025-12-10 11:52:01] [INFO] Processing combo group: 1 topping (source_id=5209)
+[2025-12-10 11:52:14] [INFO] Processing combo group: 2 toppings (source_id=5210)
+[2025-12-10 11:52:28] [INFO] Processing combo group: 3 toppings (source_id=5211)
+[2025-12-10 11:52:42] [INFO] Processing combo group: 4 toppings (source_id=5212)
+[2025-12-10 11:52:56] [INFO] Processing combo group: Premium toppings (source_id=5213)
+[2025-12-10 11:53:02] [INFO] Processing combo group: Dips (source_id=5214)
+[2025-12-10 11:53:04] [INFO] Processing combo group: two pizza deal 1 topping (source_id=5215)
+[2025-12-10 11:53:17] [INFO] Processing combo group: two pizza deal 2 toppings (source_id=5216)
+[2025-12-10 11:53:31] [INFO] Processing combo group: two pizza deal 3 toppings (source_id=5217)
+[2025-12-10 11:53:45] [INFO] Processing combo group: two pizza deal 4 toppings (source_id=5218)
+[2025-12-10 11:53:59] [INFO] Processing combo group: Premium toppings---1st Pizza (source_id=5219)
+[2025-12-10 11:54:05] [INFO] Processing combo group: Premium toppings-----2nd Pizza (source_id=5220)
+[2025-12-10 11:54:10] [INFO] Processing combo group: Wings Sauces (source_id=5234)
+[2025-12-10 11:54:13] [INFO] Processing combo group: Cup of Parmesan (source_id=8209)
+[2025-12-10 11:54:14] [INFO] Results for Napolis:
+[2025-12-10 11:54:14] [INFO]   - Combo Groups: 14
+[2025-12-10 11:54:14] [INFO]   - Sections: 22
+[2025-12-10 11:54:14] [INFO]   - Modifier Groups: 22
+[2025-12-10 11:54:14] [INFO]   - Modifiers: 176
+[2025-12-10 11:54:14] [INFO]   - Prices: 452
+[2025-12-10 11:54:14] [INFO] ============================================================
+[2025-12-10 11:54:14] [INFO] Processing: Milano (V3: 819, V1: 1063)
+[2025-12-10 11:54:14] [INFO] ============================================================
+[2025-12-10 11:54:14] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1063&load=comboGroups&showLang=en
+[2025-12-10 11:54:15] [INFO] Combo group elements detected - page fully loaded
+[2025-12-10 11:54:16] [INFO] Page URL after navigation: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1063&load=comboGroups&showLang=en
+[2025-12-10 11:54:16] [INFO] Page HTML length: 129062 bytes
+[2025-12-10 11:54:16] [INFO] Saved page HTML to debug_page.html
+[2025-12-10 11:54:16] [INFO] Found 'editGroupJS' in page HTML
+[2025-12-10 11:54:16] [INFO] Found 21 combo groups
+[2025-12-10 11:54:16] [INFO] Processing combo group: One Topping Pizza (source_id=9003)
+[2025-12-10 11:54:33] [INFO] Processing combo group: Two Toppings Pizza (source_id=9004)
+[2025-12-10 11:54:51] [INFO] Processing combo group: Premium Toppings (source_id=9005)
+[2025-12-10 11:54:53] [INFO] Processing combo group: Dips (source_id=9006)
+[2025-12-10 11:55:01] [INFO] Processing combo group: Twins 1 Toppings (source_id=9007)
+[2025-12-10 11:55:16] [INFO] Processing combo group: Twins 2 Toppings (source_id=9008)
+[2025-12-10 11:55:31] [INFO] Processing combo group: Twins 3 Toppings (source_id=9009)
+[2025-12-10 11:55:46] [INFO] Processing combo group: Premium Toppings --1st Pizza (source_id=9010)
+[2025-12-10 11:55:48] [INFO] Processing combo group: Premium Toppings---2nd Pizza (source_id=9011)
+[2025-12-10 11:55:50] [INFO] Processing combo group: Large Pizza 3 Toppings (source_id=9012)
+[2025-12-10 11:55:59] [INFO] Processing combo group: Premium Toppings Large (source_id=9013)
+[2025-12-10 11:56:00] [INFO] Processing combo group: Medium Pizza 3 Toppings (source_id=9014)
+[2025-12-10 11:56:09] [INFO] Processing combo group: Premium Toppings Medium (source_id=9015)
+[2025-12-10 11:56:11] [INFO] Processing combo group: 1 Pizza 3 Toppings (SML) (source_id=9016)
+[2025-12-10 11:56:26] [INFO] Processing combo group: Premium Toppings SML (source_id=9017)
+[2025-12-10 11:56:28] [INFO] Processing combo group: Wings Sauces (source_id=9018)
+[2025-12-10 11:56:32] [INFO] Processing combo group: March Special 1 Topping (source_id=9241)
+[2025-12-10 11:56:50] [INFO] Processing combo group: March Special 2 Toppings (source_id=9242)
+[2025-12-10 11:57:11] [INFO] Processing combo group: Premium toppings 1st pizza (all sizes) (source_id=9243)
+[2025-12-10 11:57:13] [INFO] Processing combo group: Premium toppings 2nd pizza (all sizes) (source_id=9244)
+[2025-12-10 11:57:15] [INFO] Processing combo group: March Special 3 Toppings (source_id=9245)
+[2025-12-10 11:57:33] [INFO] Results for Milano:
+[2025-12-10 11:57:33] [INFO]   - Combo Groups: 21
+[2025-12-10 11:57:33] [INFO]   - Sections: 32
+[2025-12-10 11:57:33] [INFO]   - Modifier Groups: 32
+[2025-12-10 11:57:33] [INFO]   - Modifiers: 256
+[2025-12-10 11:57:33] [INFO]   - Prices: 648
+[2025-12-10 11:57:33] [INFO] ============================================================
+[2025-12-10 11:57:33] [INFO] Processing: Milano (V3: 840, V1: 1087)
+[2025-12-10 11:57:33] [INFO] ============================================================
+[2025-12-10 11:57:33] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1087&load=comboGroups&showLang=en
+[2025-12-10 11:57:34] [INFO] Combo group elements detected - page fully loaded
+[2025-12-10 11:57:35] [INFO] Page URL after navigation: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1087&load=comboGroups&showLang=en
+[2025-12-10 11:57:35] [INFO] Page HTML length: 169950 bytes
+[2025-12-10 11:57:35] [INFO] Saved page HTML to debug_page.html
+[2025-12-10 11:57:35] [INFO] Found 'editGroupJS' in page HTML
+[2025-12-10 11:57:35] [INFO] Found 16 combo groups
+[2025-12-10 11:57:35] [INFO] Processing combo group: 1 Topping 2 pizza deal (source_id=9306)
+[2025-12-10 11:57:58] [INFO] Processing combo group: 2 Toppings 2 pizza deal (source_id=9307)
+[2025-12-10 11:58:22] [INFO] Processing combo group: 3 Toppings 2 pizza deal (source_id=9308)
+[2025-12-10 11:58:46] [INFO] Processing combo group: Premium toppings special ----1st pizza (source_id=9309)
+[2025-12-10 11:58:49] [INFO] Processing combo group: Premium toppings special-----2nd pizza (source_id=9310)
+[2025-12-10 11:58:53] [INFO] Processing combo group: Half Priced Extra Cheese --- 1st pizza (source_id=9311)
+[2025-12-10 11:58:55] [INFO] Processing combo group: Half Priced Extra Cheese --- 2nd pizza (source_id=9312)
+[2025-12-10 11:58:57] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 1st pizza (source_id=9313)
+[2025-12-10 11:58:59] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 2nd pizza (source_id=9314)
+[2025-12-10 11:59:01] [INFO] Processing combo group: 2 Pizza Deal 1 Topping (VEGAN) (source_id=9315)
+[2025-12-10 11:59:19] [INFO] Processing combo group: 2 Pizza Deal 2 Toppings (VEGAN) (source_id=9316)
+[2025-12-10 11:59:38] [INFO] Processing combo group: 2 Pizza Deal 3 Toppings (VEGAN) (source_id=9317)
+[2025-12-10 11:59:58] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----1st Pizza (VEGAN) (source_id=9318)
+[2025-12-10 12:00:02] [INFO] Processing combo group: 2 Pizza Deal Premium Toppings-----2nd Pizza (VEGAN) (source_id=9319)
+[2025-12-10 12:00:05] [INFO] Processing combo group: Pizza Dips (source_id=9320)
+[2025-12-10 12:00:09] [INFO] Processing combo group: Dips for VEGAN (source_id=9321)
+[2025-12-10 12:00:12] [INFO] Results for Milano:
+[2025-12-10 12:00:12] [INFO]   - Combo Groups: 16
+[2025-12-10 12:00:12] [INFO]   - Sections: 22
+[2025-12-10 12:00:12] [INFO]   - Modifier Groups: 22
+[2025-12-10 12:00:12] [INFO]   - Modifiers: 224
+[2025-12-10 12:00:12] [INFO]   - Prices: 508
+[2025-12-10 12:00:12] [INFO] Stopping Combo Scraper...
+[2025-12-10 12:00:12] [INFO] Database connection closed
+[2025-12-10 12:00:12] [INFO] All connections closed
+[2025-12-10 12:00:12] [INFO] Summary CSV written to: C:\Users\santi\Software Development Projects\Worklocal\Migration-Strategy\Scrapers\Menu Scrapers\logs\combo_phase1_rescrape_summary_20251210_120012.csv
+[2025-12-10 12:00:12] [INFO] ============================================================
+[2025-12-10 12:00:12] [INFO] PHASE 1 RE-SCRAPE COMPLETE
+[2025-12-10 12:00:12] [INFO] ============================================================
+[2025-12-10 12:00:12] [INFO] Restaurants processed: 8
+[2025-12-10 12:00:12] [INFO]   - Success: 8
+[2025-12-10 12:00:12] [INFO]   - No combos: 0
+[2025-12-10 12:00:12] [INFO]   - Errors: 0
+[2025-12-10 12:00:12] [INFO]   - Skipped: 0
+[2025-12-10 12:00:12] [INFO] 
+[2025-12-10 12:00:12] [INFO] Total combo groups: 258
+[2025-12-10 12:00:12] [INFO] Total sections: 377
+[2025-12-10 12:00:12] [INFO] Total modifier groups: 377
+[2025-12-10 12:00:12] [INFO] Total modifiers: 3242
+[2025-12-10 12:00:12] [INFO] Total prices: 6499
