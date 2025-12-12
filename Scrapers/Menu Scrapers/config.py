@@ -51,4 +51,3 @@ DISH_DETAIL_URL_PATTERN = "{base_url}/?p=restaurants&display=editRestaurant&rest
 
 # Database Schema
 SCHEMA = 'menuca_v3'
-

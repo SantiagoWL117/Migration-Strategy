@@ -1,0 +1,471 @@
+[2025-12-12 17:03:10] [INFO] Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Menu Scrapers\logs\special_combo_scraper_20251212_170310.log
+[2025-12-12 17:03:10] [INFO] Starting Special Combo Scraper...
+[2025-12-12 17:03:11] [INFO] Database connection established
+[2025-12-12 17:03:11] [INFO] Browser and database connections established
+[2025-12-12 17:03:11] [INFO] Logging in to https://menuadmin.menu.ca/...
+[2025-12-12 17:03:15] [INFO] Found login form with name='username'
+[2025-12-12 17:03:18] [INFO] Current URL after login: https://menuadmin.menu.ca/?p=restaurants
+[2025-12-12 17:03:18] [INFO] Login successful
+[2025-12-12 17:03:18] [INFO] ============================================================
+[2025-12-12 17:03:18] [INFO] Processing: Mano City Pizza (V3: 118, V1: 238)
+[2025-12-12 17:03:18] [INFO] ============================================================
+[2025-12-12 17:03:18] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=238&load=comboGroups&showLang=en
+[2025-12-12 17:03:20] [INFO] Combo group elements detected
+[2025-12-12 17:03:20] [INFO] Found 41 combo groups
+[2025-12-12 17:03:20] [INFO] Processing combo group: One Topping (source_id=1360)
+[2025-12-12 17:03:20] [INFO] Processing combo group: Premium Toppings (source_id=1361)
+[2025-12-12 17:03:21] [INFO] Processing combo group: Dips (source_id=1362)
+[2025-12-12 17:03:21] [INFO] Processing combo group: 1 Toppings 2 pizza deal (source_id=1464)
+[2025-12-12 17:03:21] [INFO] Processing combo group: 2 Toppings 2 pizza deal (source_id=1465)
+[2025-12-12 17:03:21] [INFO] Processing combo group: 3 Toppings 2 pizza deal (source_id=1466)
+[2025-12-12 17:03:22] [INFO] Processing combo group: Premium Toppings 2 pizza deal----1st pizza (source_id=1467)
+[2025-12-12 17:03:22] [INFO] Processing combo group: Premium Toppings 2 pizza deal----2nd pizza (source_id=1468)
+[2025-12-12 17:03:22] [INFO] Processing combo group: Large Pizza 3 toppings (source_id=1469)
+[2025-12-12 17:03:22] [INFO] Processing combo group: Premium Toppings Large (source_id=1470)
+[2025-12-12 17:03:23] [INFO] Processing combo group: Medium pizza 3 toppings (source_id=1472)
+[2025-12-12 17:03:23] [INFO] Processing combo group: Premium Toppings Medium (source_id=1473)
+[2025-12-12 17:03:23] [INFO] Processing combo group: Wings Sauces (source_id=1474)
+[2025-12-12 17:03:23] [INFO] Processing combo group: XLarge pizza 3 toppings (source_id=1475)
+[2025-12-12 17:03:23] [INFO] Processing combo group: Premium Toppings X-Large (source_id=1476)
+[2025-12-12 17:03:24] [INFO] Processing combo group: Medium pizza 1 topping (source_id=1477)
+[2025-12-12 17:03:24] [INFO] Processing combo group: Salads for special 1 (source_id=2474)
+[2025-12-12 17:03:24] [INFO] Found special section in: Salads for special 1
+[2025-12-12 17:03:25] [INFO] Found 3 checked dishes in Salads for special 1
+[2025-12-12 17:03:26] [INFO] Processing combo group: Boneless wings sauces (source_id=2476)
+[2025-12-12 17:03:26] [INFO] Processing combo group: Special #5 Lg Sahwarma or Donair (source_id=3615)
+[2025-12-12 17:03:27] [INFO] Found special section in: Special #5 Lg Sahwarma or Donair
+[2025-12-12 17:03:27] [INFO] Found 2 checked dishes in Special #5 Lg Sahwarma or Donair
+[2025-12-12 17:03:28] [INFO] Processing combo group: Sub Special (source_id=3616)
+[2025-12-12 17:03:28] [INFO] Processing combo group: 2 Large Beef Donairs (source_id=5545)
+[2025-12-12 17:03:28] [INFO] Processing combo group: Small Pizza 3 Toppings (source_id=6862)
+[2025-12-12 17:03:28] [INFO] Processing combo group: Premium Toppings Small (source_id=6863)
+[2025-12-12 17:03:29] [INFO] Processing combo group: 2 Small Pizza 3 Toppings (source_id=6864)
+[2025-12-12 17:03:29] [INFO] Processing combo group: Premium Toppings Small----1st pizza (source_id=6865)
+[2025-12-12 17:03:29] [INFO] Processing combo group: Premium Toppings Small----2nd pizza (source_id=6866)
+[2025-12-12 17:03:29] [INFO] Processing combo group: 2 Medium Pizza 3 Toppings (source_id=6867)
+[2025-12-12 17:03:30] [INFO] Processing combo group: Premium Toppings Medium-----1st pizza (source_id=6868)
+[2025-12-12 17:03:30] [INFO] Processing combo group: Premium Toppings Medium----2nd pizza (source_id=6869)
+[2025-12-12 17:03:30] [INFO] Processing combo group: 2 Large Pizza 3 Toppings (source_id=6870)
+[2025-12-12 17:03:30] [INFO] Processing combo group: Premium Toppings Large----1st pizza (source_id=6871)
+[2025-12-12 17:03:31] [INFO] Processing combo group: Premium Toppings Large-----2nd pizza (source_id=6872)
+[2025-12-12 17:03:31] [INFO] Processing combo group: Twins Pizzas 3 Toppings (source_id=7528)
+[2025-12-12 17:03:31] [INFO] Processing combo group: Premium Toppings S,M,L----1st Pizza (source_id=7529)
+[2025-12-12 17:03:31] [INFO] Processing combo group: Premium Toppings S,M,L---2nd pizza (source_id=7530)
+[2025-12-12 17:03:32] [INFO] Processing combo group: Single Pizza 3 Toppings (M,L) (source_id=7531)
+[2025-12-12 17:03:32] [INFO] Processing combo group: Premium Toppings M,L (source_id=7532)
+[2025-12-12 17:03:32] [INFO] Processing combo group: 2 Large Subs (source_id=7533)
+[2025-12-12 17:03:32] [INFO] Found special section in: 2 Large Subs
+[2025-12-12 17:03:33] [INFO] Found 14 checked dishes in 2 Large Subs
+[2025-12-12 17:03:36] [INFO] Processing combo group: 2 Large  Pizzas 3 Toppings (source_id=7534)
+[2025-12-12 17:03:36] [INFO] Processing combo group: Premium Toppings Large with chicken----1st pizza (source_id=7535)
+[2025-12-12 17:03:37] [INFO] Processing combo group: Premium Toppings Large with chicken----2nd pizza (source_id=7536)
+[2025-12-12 17:03:37] [INFO] Results for Mano City Pizza:
+[2025-12-12 17:03:37] [INFO]   - Combo groups processed: 41
+[2025-12-12 17:03:37] [INFO]   - Special combos found: 3
+[2025-12-12 17:03:37] [INFO]   - Dish selections inserted: 19
+[2025-12-12 17:03:37] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:03:37] [INFO] ============================================================
+[2025-12-12 17:03:37] [INFO] Processing: Milano (V3: 123, V1: 245)
+[2025-12-12 17:03:37] [INFO] ============================================================
+[2025-12-12 17:03:37] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=245&load=comboGroups&showLang=en
+[2025-12-12 17:03:38] [INFO] Combo group elements detected
+[2025-12-12 17:03:38] [INFO] Found 38 combo groups
+[2025-12-12 17:03:38] [INFO] Processing combo group: One Topping (source_id=1363)
+[2025-12-12 17:03:39] [INFO] Processing combo group: Two Toppings (source_id=1364)
+[2025-12-12 17:03:39] [INFO] Processing combo group: Premium Toppings (source_id=1366)
+[2025-12-12 17:03:39] [INFO] Processing combo group: Dips (source_id=1367)
+[2025-12-12 17:03:39] [INFO] Processing combo group: 1 Topping 2 Pizza Deal (source_id=1368)
+[2025-12-12 17:03:40] [INFO] Processing combo group: 2 Toppings 2 Pizza Deal (source_id=1369)
+[2025-12-12 17:03:40] [INFO] Processing combo group: 3 Toppings 2 Pizza Deal (source_id=1370)
+[2025-12-12 17:03:40] [INFO] Processing combo group: Premium Toppings 2 pizza deal----1st pizza (source_id=1371)
+[2025-12-12 17:03:41] [INFO] Processing combo group: Premium Toppings 2 pizza deal----2nd pizza (source_id=1372)
+[2025-12-12 17:03:41] [INFO] Processing combo group: Medium Pizza 3 toppings (source_id=1411)
+[2025-12-12 17:03:41] [INFO] Processing combo group: Premium Toppings Medium (source_id=1412)
+[2025-12-12 17:03:41] [INFO] Processing combo group: Large Pizza 3 toppings (source_id=1413)
+[2025-12-12 17:03:42] [INFO] Processing combo group: Premium Toppings Large (source_id=1414)
+[2025-12-12 17:03:42] [INFO] Processing combo group: Garden or Caesar Salad---small (source_id=1415)
+[2025-12-12 17:03:42] [INFO] Found special section in: Garden or Caesar Salad---small
+[2025-12-12 17:03:42] [INFO] Found 2 checked dishes in Garden or Caesar Salad---small
+[2025-12-12 17:03:43] [INFO] Processing combo group: 1st Dip Free (source_id=1416)
+[2025-12-12 17:03:44] [INFO] Processing combo group: Wings Sauces (source_id=1417)
+[2025-12-12 17:03:44] [INFO] Processing combo group: Donair Special (source_id=1420)
+[2025-12-12 17:03:44] [INFO] Processing combo group: 2 Large Pizza 3 Toppings (source_id=4893)
+[2025-12-12 17:03:44] [INFO] Processing combo group: Premium Toppings Large----1st Pizza (source_id=4894)
+[2025-12-12 17:03:45] [INFO] Processing combo group: Premium Toppings Large----2nd Pizza (source_id=4895)
+[2025-12-12 17:03:45] [INFO] Processing combo group: Garden or Caesar Salad- large (source_id=4896)
+[2025-12-12 17:03:45] [INFO] Found special section in: Garden or Caesar Salad- large
+[2025-12-12 17:03:45] [INFO] Found 2 checked dishes in Garden or Caesar Salad- large
+[2025-12-12 17:03:46] [INFO] Processing combo group: Half Priced Extra Cheese --- 1st pizza (source_id=5396)
+[2025-12-12 17:03:46] [INFO] Processing combo group: Half Priced Extra Cheese --- 2nd pizza (source_id=5397)
+[2025-12-12 17:03:47] [INFO] Processing combo group: Half Priced Extra Cheese for Pizza (source_id=5398)
+[2025-12-12 17:03:47] [INFO] Processing combo group: 2 Medium 3 Toppings (source_id=5743)
+[2025-12-12 17:03:47] [INFO] Processing combo group: Premium Toppings Medium-----1st pizza (source_id=5744)
+[2025-12-12 17:03:47] [INFO] Processing combo group: Premium Toppings Medium----2nd pizza (source_id=5745)
+[2025-12-12 17:03:48] [INFO] Processing combo group: 2 Large 3 Toppings (source_id=5746)
+[2025-12-12 17:03:48] [INFO] Processing combo group: Premium Toppings Large----1st Pizza (source_id=5747)
+[2025-12-12 17:03:48] [INFO] Processing combo group: Premium Toppings Large----2nd pizza (source_id=5748)
+[2025-12-12 17:03:48] [INFO] Processing combo group: 2 dips free (source_id=6102)
+[2025-12-12 17:03:49] [INFO] Processing combo group: Small Pizza 3 toppings (source_id=6104)
+[2025-12-12 17:03:49] [INFO] Processing combo group: Premium Toppings Small (source_id=6105)
+[2025-12-12 17:03:49] [INFO] Processing combo group: The Perfect Combo Deal (source_id=6440)
+[2025-12-12 17:03:49] [INFO] Processing combo group: Premium Toppings (SML) (source_id=6441)
+[2025-12-12 17:03:50] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 1st Pizza (source_id=7112)
+[2025-12-12 17:03:50] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 2nd pizza (source_id=7113)
+[2025-12-12 17:03:50] [INFO] Processing combo group: Small Garden or Caesar Salad (source_id=7253)
+[2025-12-12 17:03:50] [INFO] Results for Milano:
+[2025-12-12 17:03:50] [INFO]   - Combo groups processed: 38
+[2025-12-12 17:03:50] [INFO]   - Special combos found: 2
+[2025-12-12 17:03:50] [INFO]   - Dish selections inserted: 4
+[2025-12-12 17:03:50] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:03:50] [INFO] ============================================================
+[2025-12-12 17:03:50] [INFO] Processing: Orchid Sushi (V3: 245, V1: 387)
+[2025-12-12 17:03:50] [INFO] ============================================================
+[2025-12-12 17:03:50] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=387&load=comboGroups&showLang=en
+[2025-12-12 17:03:51] [INFO] Combo group elements detected
+[2025-12-12 17:03:52] [INFO] Found 1 combo groups
+[2025-12-12 17:03:52] [INFO] Processing combo group: Combo lunch (source_id=2352)
+[2025-12-12 17:03:52] [INFO] Found special section in: Combo lunch
+[2025-12-12 17:03:52] [INFO] Found 8 checked dishes in Combo lunch
+[2025-12-12 17:03:54] [INFO] Results for Orchid Sushi:
+[2025-12-12 17:03:54] [INFO]   - Combo groups processed: 1
+[2025-12-12 17:03:54] [INFO]   - Special combos found: 1
+[2025-12-12 17:03:54] [INFO]   - Dish selections inserted: 8
+[2025-12-12 17:03:54] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:03:54] [INFO] ============================================================
+[2025-12-12 17:03:54] [INFO] Processing: Milano (V3: 350, V1: 513)
+[2025-12-12 17:03:54] [INFO] ============================================================
+[2025-12-12 17:03:54] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=513&load=comboGroups&showLang=en
+[2025-12-12 17:03:55] [INFO] Combo group elements detected
+[2025-12-12 17:03:56] [INFO] Found 37 combo groups
+[2025-12-12 17:03:56] [INFO] Processing combo group: 2 pizza deal 1 topping (source_id=2965)
+[2025-12-12 17:03:56] [INFO] Processing combo group: 2 pizza deal 2 toppings (source_id=2966)
+[2025-12-12 17:03:56] [INFO] Processing combo group: 2 pizza deal 3 toppings (source_id=2967)
+[2025-12-12 17:03:56] [INFO] Processing combo group: Premium Toppings 2 pizza deals -----1st pizza (source_id=2968)
+[2025-12-12 17:03:57] [INFO] Processing combo group: Premium Toppings 2 pizza deals -----2nd pizza (source_id=2969)
+[2025-12-12 17:03:57] [INFO] Processing combo group: Dips (source_id=2970)
+[2025-12-12 17:03:57] [INFO] Processing combo group: 2 Large Shawarma (source_id=2988)
+[2025-12-12 17:03:57] [INFO] Processing combo group: 2 Large Donairs (source_id=2989)
+[2025-12-12 17:03:58] [INFO] Processing combo group: Large Pizza 3 toppings (source_id=2991)
+[2025-12-12 17:03:58] [INFO] Processing combo group: Medium Pizza 3 toppings (source_id=2992)
+[2025-12-12 17:03:58] [INFO] Processing combo group: 3 Small Pizzas with 3 toppings (source_id=2993)
+[2025-12-12 17:03:58] [INFO] Processing combo group: Pasta Special (source_id=2994)
+[2025-12-12 17:03:59] [INFO] Found special section in: Pasta Special
+[2025-12-12 17:03:59] [INFO] Found 2 checked dishes in Pasta Special
+[2025-12-12 17:04:00] [INFO] Processing combo group: Wings sauces (source_id=2995)
+[2025-12-12 17:04:00] [INFO] Processing combo group: Premium Toppings Large (source_id=2996)
+[2025-12-12 17:04:00] [INFO] Processing combo group: Premium Toppings Medium (source_id=2997)
+[2025-12-12 17:04:00] [INFO] Processing combo group: Premium Toppings Small------1st Pizza (source_id=2998)
+[2025-12-12 17:04:01] [INFO] Processing combo group: Premium Toppings Small-----2nd pizza (source_id=2999)
+[2025-12-12 17:04:01] [INFO] Processing combo group: Premium Toppings Small----3rd pizza (source_id=3000)
+[2025-12-12 17:04:01] [INFO] Processing combo group: 2 Dips (source_id=3001)
+[2025-12-12 17:04:01] [INFO] Processing combo group: 3 Dips (source_id=3002)
+[2025-12-12 17:04:02] [INFO] Processing combo group: Small Salad (Any) (source_id=3003)
+[2025-12-12 17:04:02] [INFO] Found special section in: Small Salad (Any)
+[2025-12-12 17:04:02] [INFO] Found 5 checked dishes in Small Salad (Any)
+[2025-12-12 17:04:04] [INFO] Processing combo group: 2 Medium 3 Toppings (source_id=5613)
+[2025-12-12 17:04:04] [INFO] Processing combo group: Premium Toppings Medium----1st pizza (source_id=5614)
+[2025-12-12 17:04:04] [INFO] Processing combo group: Premium Toppings Medium-----2nd Pizza (source_id=5615)
+[2025-12-12 17:04:04] [INFO] Processing combo group: 2 Large 3 Toppings (source_id=5616)
+[2025-12-12 17:04:05] [INFO] Processing combo group: Premium Toppings Large ---1st pizza (source_id=5617)
+[2025-12-12 17:04:05] [INFO] Processing combo group: Premium Toppings Large ----2nd pizza (source_id=5618)
+[2025-12-12 17:04:05] [INFO] Processing combo group: 1 X-Large Pizza with 3 toppings (source_id=6254)
+[2025-12-12 17:04:05] [INFO] Processing combo group: Premium Toppings X-Large (source_id=6255)
+[2025-12-12 17:04:06] [INFO] Processing combo group: 12 Chicken Wings or 10 Boneless Wings (source_id=6256)
+[2025-12-12 17:04:06] [INFO] Processing combo group: Salad Dressings (source_id=6257)
+[2025-12-12 17:04:06] [INFO] Processing combo group: 2 Small Pizza with 3 toppings (source_id=6258)
+[2025-12-12 17:04:06] [INFO] Processing combo group: 10 Chicken Wings or 10 Boneless Wings (source_id=6261)
+[2025-12-12 17:04:07] [INFO] Processing combo group: Small Pizza 3 Toppings (source_id=6747)
+[2025-12-12 17:04:07] [INFO] Processing combo group: Premium Toppings Small (source_id=6748)
+[2025-12-12 17:04:07] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 1st pizza (source_id=7126)
+[2025-12-12 17:04:07] [INFO] Processing combo group: Vegan Nondairy Cheese Substitute 2nd pizza (source_id=7127)
+[2025-12-12 17:04:07] [INFO] Results for Milano:
+[2025-12-12 17:04:07] [INFO]   - Combo groups processed: 37
+[2025-12-12 17:04:07] [INFO]   - Special combos found: 2
+[2025-12-12 17:04:07] [INFO]   - Dish selections inserted: 7
+[2025-12-12 17:04:07] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:04:07] [INFO] ============================================================
+[2025-12-12 17:04:07] [INFO] Processing: Aroy Thai (V3: 607, V1: 830)
+[2025-12-12 17:04:07] [INFO] ============================================================
+[2025-12-12 17:04:07] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=830&load=comboGroups&showLang=en
+[2025-12-12 17:04:08] [INFO] Combo group elements detected
+[2025-12-12 17:04:09] [INFO] Found 6 combo groups
+[2025-12-12 17:04:09] [INFO] Processing combo group: D1. Dinner for 2 without Shrimp (from #8 to #19) (source_id=6305)
+[2025-12-12 17:04:09] [INFO] Found special section in: D1. Dinner for 2 without Shrimp (from #8 to #19)
+[2025-12-12 17:04:09] [INFO] Found 47 checked dishes in D1. Dinner for 2 without Shrimp (from #8 to #19)
+[2025-12-12 17:04:20] [INFO] Processing combo group: D1. Dinner for 2 ONLY Shrimp (from #8 to #19) (source_id=6306)
+[2025-12-12 17:04:20] [INFO] Found special section in: D1. Dinner for 2 ONLY Shrimp (from #8 to #19)
+[2025-12-12 17:04:20] [INFO] Found 11 checked dishes in D1. Dinner for 2 ONLY Shrimp (from #8 to #19)
+[2025-12-12 17:04:23] [INFO] Processing combo group: D2. Dinner for 4 without Shrimp (from #8 to #19) (source_id=6307)
+[2025-12-12 17:04:24] [INFO] Found special section in: D2. Dinner for 4 without Shrimp (from #8 to #19)
+[2025-12-12 17:04:24] [INFO] Found 47 checked dishes in D2. Dinner for 4 without Shrimp (from #8 to #19)
+[2025-12-12 17:04:35] [INFO] Processing combo group: D2. Dinner for 4 ONLY Shrimp (from #8 to #19) (source_id=6308)
+[2025-12-12 17:04:35] [INFO] Found special section in: D2. Dinner for 4 ONLY Shrimp (from #8 to #19)
+[2025-12-12 17:04:35] [INFO] Found 11 checked dishes in D2. Dinner for 4 ONLY Shrimp (from #8 to #19)
+[2025-12-12 17:04:38] [INFO] Processing combo group: D1.  Rolls Selection (source_id=6309)
+[2025-12-12 17:04:38] [INFO] Processing combo group: D2.  Rolls Selection (source_id=6310)
+[2025-12-12 17:04:38] [INFO] Results for Aroy Thai:
+[2025-12-12 17:04:38] [INFO]   - Combo groups processed: 6
+[2025-12-12 17:04:38] [INFO]   - Special combos found: 4
+[2025-12-12 17:04:38] [INFO]   - Dish selections inserted: 116
+[2025-12-12 17:04:38] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:04:38] [INFO] ============================================================
+[2025-12-12 17:04:38] [INFO] Processing: Milano (V3: 680, V1: 913)
+[2025-12-12 17:04:38] [INFO] ============================================================
+[2025-12-12 17:04:38] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=913&load=comboGroups&showLang=en
+[2025-12-12 17:04:39] [INFO] Combo group elements detected
+[2025-12-12 17:04:40] [INFO] Found 67 combo groups
+[2025-12-12 17:04:40] [INFO] Processing combo group: Two Pizza Deal 1 Topping (source_id=7583)
+[2025-12-12 17:04:40] [INFO] Processing combo group: Two Pizza Deal 2 Toppings (source_id=7584)
+[2025-12-12 17:04:41] [INFO] Processing combo group: Two Pizza Deal 3 Toppings (source_id=7585)
+[2025-12-12 17:04:41] [INFO] Processing combo group: Premium Toppings Twins ---1st pizza (source_id=7586)
+[2025-12-12 17:04:41] [INFO] Processing combo group: Premium Toppings Twins ---2nd pizza (source_id=7587)
+[2025-12-12 17:04:41] [INFO] Processing combo group: Dips (source_id=7588)
+[2025-12-12 17:04:42] [INFO] Processing combo group: The Perfect Combo Deal (source_id=7589)
+[2025-12-12 17:04:42] [INFO] Processing combo group: Premium Toppings (S,M,L) (source_id=7590)
+[2025-12-12 17:04:42] [INFO] Processing combo group: Wings Sauces (source_id=7591)
+[2025-12-12 17:04:43] [INFO] Processing combo group: Large Pizza 3 Toppings (source_id=7592)
+[2025-12-12 17:04:43] [INFO] Processing combo group: Premium Toppings Large (source_id=7593)
+[2025-12-12 17:04:43] [INFO] Processing combo group: Medium Pizza 3 Toppings (source_id=7594)
+[2025-12-12 17:04:44] [INFO] Processing combo group: Premium Toppings Medium (source_id=7595)
+[2025-12-12 17:04:44] [INFO] Processing combo group: Twins Pizzas 1 Topping (V) (source_id=7596)
+[2025-12-12 17:04:44] [INFO] Processing combo group: Twins Pizzas 2 Toppings (V) (source_id=7597)
+[2025-12-12 17:04:45] [INFO] Processing combo group: Twins Pizzas 3 Toppings (V) (source_id=7598)
+[2025-12-12 17:04:45] [INFO] Processing combo group: Premium Toppings Twins ---1st pizza (V) (source_id=7599)
+[2025-12-12 17:04:45] [INFO] Processing combo group: Premium Toppings Twins ---2nd pizza (V) (source_id=7600)
+[2025-12-12 17:04:45] [INFO] Processing combo group: VEGAN 3 Toppings Pizza (source_id=7822)
+[2025-12-12 17:04:46] [INFO] Processing combo group: Premium Toppings VEGAN (source_id=7823)
+[2025-12-12 17:04:46] [INFO] Processing combo group: Small Pizza 3 Toppings (source_id=7929)
+[2025-12-12 17:04:46] [INFO] Processing combo group: Premium Toppings Small (source_id=7930)
+[2025-12-12 17:04:47] [INFO] Processing combo group: Medium Pizza 3 Toppings (source_id=7931)
+[2025-12-12 17:04:47] [INFO] Processing combo group: Premium Toppings Medium (source_id=7932)
+[2025-12-12 17:04:47] [INFO] Processing combo group: Large Pizza 3 Toppings (source_id=7933)
+[2025-12-12 17:04:48] [INFO] Processing combo group: Premium Toppings Large (source_id=7934)
+[2025-12-12 17:04:48] [INFO] Processing combo group: Vegan Pizza with 3 Toppings (SML) (source_id=8095)
+[2025-12-12 17:04:48] [INFO] Processing combo group: Premium Toppings VEGAN (SML) (source_id=8096)
+[2025-12-12 17:04:48] [INFO] Processing combo group: 1 Large Pizzas 2 Toppings (source_id=8121)
+[2025-12-12 17:04:49] [INFO] Processing combo group: Premium Toppings Large ---1st pizza (source_id=8122)
+[2025-12-12 17:04:49] [INFO] Processing combo group: Premium Toppings Large ---2nd pizza (source_id=8123)
+[2025-12-12 17:04:49] [INFO] Processing combo group: 2 Dips Free (source_id=8124)
+[2025-12-12 17:04:50] [INFO] Processing combo group: X-Large Pizza 1 Topping (source_id=8178)
+[2025-12-12 17:04:50] [INFO] Processing combo group: Premium Toppings X-Large (source_id=8179)
+[2025-12-12 17:04:50] [INFO] Processing combo group: Donuts Flavours (source_id=8525)
+[2025-12-12 17:04:51] [INFO] Processing combo group: Pizza & Wings Special (M,L) (source_id=8770)
+[2025-12-12 17:04:51] [INFO] Processing combo group: Premium Toppings Medium & Large (source_id=8771)
+[2025-12-12 17:04:51] [INFO] Processing combo group: 1 Medium 2 Toppings (source_id=8772)
+[2025-12-12 17:04:52] [INFO] Processing combo group: Medium Pizza MENU A (source_id=9180)
+[2025-12-12 17:04:52] [INFO] Found special section in: Medium Pizza MENU A
+[2025-12-12 17:04:52] [INFO] Found 11 checked dishes in Medium Pizza MENU A
+[2025-12-12 17:04:55] [INFO] Processing combo group: Father’s Day Promo (source_id=9378)
+[2025-12-12 17:04:55] [INFO] Found special section in: Father’s Day Promo
+[2025-12-12 17:04:56] [INFO] Found 29 checked dishes in Father’s Day Promo
+[2025-12-12 17:05:03] [INFO] Processing combo group: 2 Small Pizzas From Menu (source_id=9380)
+[2025-12-12 17:05:03] [INFO] Found special section in: 2 Small Pizzas From Menu
+[2025-12-12 17:05:03] [INFO] Found 24 checked dishes in 2 Small Pizzas From Menu
+[2025-12-12 17:05:09] [INFO] Processing combo group: 2 Medium Pizzas From Menu (source_id=9381)
+[2025-12-12 17:05:09] [INFO] Found special section in: 2 Medium Pizzas From Menu
+[2025-12-12 17:05:10] [INFO] Found 24 checked dishes in 2 Medium Pizzas From Menu
+[2025-12-12 17:05:15] [INFO] Processing combo group: 2 Large Pizzas From Menu (source_id=9382)
+[2025-12-12 17:05:16] [INFO] Found special section in: 2 Large Pizzas From Menu
+[2025-12-12 17:05:16] [INFO] Found 24 checked dishes in 2 Large Pizzas From Menu
+[2025-12-12 17:05:22] [INFO] Processing combo group: 2 Small Pizzas VEGAN From Menu (source_id=9383)
+[2025-12-12 17:05:22] [INFO] Found special section in: 2 Small Pizzas VEGAN From Menu
+[2025-12-12 17:05:22] [INFO] Found 7 checked dishes in 2 Small Pizzas VEGAN From Menu
+[2025-12-12 17:05:24] [INFO] Processing combo group: 2 Medium Pizzas VEGAN From Menu (source_id=9384)
+[2025-12-12 17:05:25] [INFO] Found special section in: 2 Medium Pizzas VEGAN From Menu
+[2025-12-12 17:05:25] [INFO] Found 7 checked dishes in 2 Medium Pizzas VEGAN From Menu
+[2025-12-12 17:05:27] [INFO] Processing combo group: 2 Large Pizzas VEGAN From Menu (source_id=9385)
+[2025-12-12 17:05:27] [INFO] Found special section in: 2 Large Pizzas VEGAN From Menu
+[2025-12-12 17:05:28] [INFO] Found 7 checked dishes in 2 Large Pizzas VEGAN From Menu
+[2025-12-12 17:05:30] [INFO] Processing combo group: Small Pizza From Menu (source_id=9386)
+[2025-12-12 17:05:30] [INFO] Found special section in: Small Pizza From Menu
+[2025-12-12 17:05:30] [INFO] Found 23 checked dishes in Small Pizza From Menu
+[2025-12-12 17:05:36] [INFO] Processing combo group: Medium Pizza From Menu (source_id=9387)
+[2025-12-12 17:05:36] [INFO] Found special section in: Medium Pizza From Menu
+[2025-12-12 17:05:36] [INFO] Found 24 checked dishes in Medium Pizza From Menu
+[2025-12-12 17:05:42] [INFO] Processing combo group: Large Pizza From Menu (source_id=9388)
+[2025-12-12 17:05:42] [INFO] Found special section in: Large Pizza From Menu
+[2025-12-12 17:05:43] [INFO] Found 24 checked dishes in Large Pizza From Menu
+[2025-12-12 17:05:48] [INFO] Processing combo group: Small Pizza VEGAN From Menu (source_id=9389)
+[2025-12-12 17:05:49] [INFO] Found special section in: Small Pizza VEGAN From Menu
+[2025-12-12 17:05:49] [INFO] Found 7 checked dishes in Small Pizza VEGAN From Menu
+[2025-12-12 17:05:51] [INFO] Processing combo group: Medium Pizza VEGAN From Menu (source_id=9390)
+[2025-12-12 17:05:51] [INFO] Found special section in: Medium Pizza VEGAN From Menu
+[2025-12-12 17:05:51] [INFO] Found 7 checked dishes in Medium Pizza VEGAN From Menu
+[2025-12-12 17:05:53] [INFO] Processing combo group: Large Pizza VEGAN From Menu (source_id=9391)
+[2025-12-12 17:05:54] [INFO] Found special section in: Large Pizza VEGAN From Menu
+[2025-12-12 17:05:54] [INFO] Found 7 checked dishes in Large Pizza VEGAN From Menu
+[2025-12-12 17:05:56] [INFO] Processing combo group: Small Poutine Customization (source_id=9392)
+[2025-12-12 17:05:56] [INFO] Processing combo group: Medium Poutine Customization (source_id=9393)
+[2025-12-12 17:05:57] [INFO] Processing combo group: Large Poutine Customization (source_id=9394)
+[2025-12-12 17:05:57] [INFO] Processing combo group: Appetizers Selection for Pizzas and Sides (source_id=9395)
+[2025-12-12 17:05:57] [INFO] Processing combo group: 2 Medium Poutines from Menu (source_id=9396)
+[2025-12-12 17:05:58] [INFO] Found special section in: 2 Medium Poutines from Menu
+[2025-12-12 17:05:58] [INFO] Found 9 checked dishes in 2 Medium Poutines from Menu
+[2025-12-12 17:06:00] [INFO] Processing combo group: 2 Sandwich Combo (source_id=9397)
+[2025-12-12 17:06:01] [INFO] Found special section in: 2 Sandwich Combo
+[2025-12-12 17:06:01] [INFO] Found 7 checked dishes in 2 Sandwich Combo
+[2025-12-12 17:06:03] [INFO] Processing combo group: 6 Medium Menu Choices (source_id=9398)
+[2025-12-12 17:06:03] [INFO] Found special section in: 6 Medium Menu Choices
+[2025-12-12 17:06:04] [INFO] Found 25 checked dishes in 6 Medium Menu Choices
+[2025-12-12 17:06:09] [INFO] Processing combo group: 10 Medium Menu Choice (source_id=9399)
+[2025-12-12 17:06:10] [INFO] Found special section in: 10 Medium Menu Choice
+[2025-12-12 17:06:10] [INFO] Found 25 checked dishes in 10 Medium Menu Choice
+[2025-12-12 17:06:16] [INFO] Processing combo group: 13 Medium Menu Choices (source_id=9400)
+[2025-12-12 17:06:16] [INFO] Found special section in: 13 Medium Menu Choices
+[2025-12-12 17:06:17] [INFO] Found 25 checked dishes in 13 Medium Menu Choices
+[2025-12-12 17:06:23] [INFO] Processing combo group: Canada Day Special (Medium Pizza) (source_id=9401)
+[2025-12-12 17:06:23] [INFO] Found special section in: Canada Day Special (Medium Pizza)
+[2025-12-12 17:06:23] [INFO] Found 25 checked dishes in Canada Day Special (Medium Pizza)
+[2025-12-12 17:06:29] [INFO] Processing combo group: Monday & Tuesday Special Pizza Selection (source_id=62707)
+[2025-12-12 17:06:30] [INFO] Processing combo group: Medium Pizza (Monday & Tuesday) customization (source_id=62708)
+[2025-12-12 17:06:30] [INFO] Processing combo group: Small Poutine Selection (source_id=62711)
+[2025-12-12 17:06:30] [INFO] Found special section in: Small Poutine Selection
+[2025-12-12 17:06:30] [INFO] Found 8 checked dishes in Small Poutine Selection
+[2025-12-12 17:06:33] [INFO] Processing combo group: Two Small Pizzas BOGO (source_id=62724)
+[2025-12-12 17:06:33] [INFO] Processing combo group: BOGO SMALL Pizza Selection (source_id=62725)
+[2025-12-12 17:06:33] [INFO] Results for Milano:
+[2025-12-12 17:06:33] [INFO]   - Combo groups processed: 67
+[2025-12-12 17:06:33] [INFO]   - Special combos found: 21
+[2025-12-12 17:06:33] [INFO]   - Dish selections inserted: 349
+[2025-12-12 17:06:33] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:06:33] [INFO] ============================================================
+[2025-12-12 17:06:33] [INFO] Processing: Amicci Pizza (V3: 735, V1: 973)
+[2025-12-12 17:06:33] [INFO] ============================================================
+[2025-12-12 17:06:33] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=973&load=comboGroups&showLang=en
+[2025-12-12 17:06:34] [INFO] Combo group elements detected
+[2025-12-12 17:06:35] [INFO] Found 9 combo groups
+[2025-12-12 17:06:35] [INFO] Processing combo group: 1 Topping Pizza (source_id=8139)
+[2025-12-12 17:06:35] [INFO] Processing combo group: Premium Toppings (source_id=8140)
+[2025-12-12 17:06:35] [INFO] Processing combo group: Dips (source_id=8161)
+[2025-12-12 17:06:36] [INFO] Processing combo group: 2 Large Pizza From Menu (source_id=8162)
+[2025-12-12 17:06:36] [INFO] Found special section in: 2 Large Pizza From Menu
+[2025-12-12 17:06:36] [INFO] Found 12 checked dishes in 2 Large Pizza From Menu
+[2025-12-12 17:06:39] [INFO] Processing combo group: 2 Medium Pizza From Menu (source_id=8163)
+[2025-12-12 17:06:39] [INFO] Found special section in: 2 Medium Pizza From Menu
+[2025-12-12 17:06:39] [INFO] Found 12 checked dishes in 2 Medium Pizza From Menu
+[2025-12-12 17:06:43] [INFO] Processing combo group: 1 Large Pizza from Menu (source_id=8164)
+[2025-12-12 17:06:43] [INFO] Found special section in: 1 Large Pizza from Menu
+[2025-12-12 17:06:43] [INFO] Found 12 checked dishes in 1 Large Pizza from Menu
+[2025-12-12 17:06:46] [INFO] Processing combo group: 1 Medium Pizza from Menu (source_id=8165)
+[2025-12-12 17:06:46] [INFO] Found special section in: 1 Medium Pizza from Menu
+[2025-12-12 17:06:47] [INFO] Found 12 checked dishes in 1 Medium Pizza from Menu
+[2025-12-12 17:06:50] [INFO] Processing combo group: 1 Small Pizza from Menu (source_id=8166)
+[2025-12-12 17:06:50] [INFO] Found special section in: 1 Small Pizza from Menu
+[2025-12-12 17:06:50] [INFO] Found 12 checked dishes in 1 Small Pizza from Menu
+[2025-12-12 17:06:53] [INFO] Processing combo group: Wings Sauces (source_id=8167)
+[2025-12-12 17:06:53] [INFO] Results for Amicci Pizza:
+[2025-12-12 17:06:53] [INFO]   - Combo groups processed: 9
+[2025-12-12 17:06:53] [INFO]   - Special combos found: 5
+[2025-12-12 17:06:53] [INFO]   - Dish selections inserted: 60
+[2025-12-12 17:06:53] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:06:53] [INFO] ============================================================
+[2025-12-12 17:06:53] [INFO] Processing: Little Gyros Greek Grill (V3: 756, V1: 998)
+[2025-12-12 17:06:53] [INFO] ============================================================
+[2025-12-12 17:06:53] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=998&load=comboGroups&showLang=en
+[2025-12-12 17:06:54] [INFO] Combo group elements detected
+[2025-12-12 17:06:55] [INFO] Found 2 combo groups
+[2025-12-12 17:06:55] [INFO] Processing combo group: Pita Combo for 2 (source_id=8504)
+[2025-12-12 17:06:55] [INFO] Found special section in: Pita Combo for 2
+[2025-12-12 17:06:55] [INFO] Found 5 checked dishes in Pita Combo for 2
+[2025-12-12 17:06:57] [INFO] Processing combo group: Pita Combo for 4 (source_id=8505)
+[2025-12-12 17:06:57] [INFO] Found special section in: Pita Combo for 4
+[2025-12-12 17:06:57] [INFO] Found 5 checked dishes in Pita Combo for 4
+[2025-12-12 17:06:59] [INFO] Results for Little Gyros Greek Grill:
+[2025-12-12 17:06:59] [INFO]   - Combo groups processed: 2
+[2025-12-12 17:06:59] [INFO]   - Special combos found: 2
+[2025-12-12 17:06:59] [INFO]   - Dish selections inserted: 10
+[2025-12-12 17:06:59] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:06:59] [INFO] ============================================================
+[2025-12-12 17:06:59] [INFO] Processing: Nachos Loco Hull (V3: 790, V1: 1033)
+[2025-12-12 17:06:59] [INFO] ============================================================
+[2025-12-12 17:06:59] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1033&load=comboGroups&showLang=en
+[2025-12-12 17:07:00] [INFO] Combo group elements detected
+[2025-12-12 17:07:00] [INFO] Found 5 combo groups
+[2025-12-12 17:07:00] [INFO] Processing combo group: Small Nacho Selection with Donuts (source_id=9120)
+[2025-12-12 17:07:00] [INFO] Found special section in: Small Nacho Selection with Donuts
+[2025-12-12 17:07:01] [INFO] Found 12 checked dishes in Small Nacho Selection with Donuts
+[2025-12-12 17:07:04] [INFO] Processing combo group: 2 Small Nachos (source_id=9121)
+[2025-12-12 17:07:04] [INFO] Found special section in: 2 Small Nachos
+[2025-12-12 17:07:04] [INFO] Found 12 checked dishes in 2 Small Nachos
+[2025-12-12 17:07:07] [INFO] Processing combo group: Donuts Sauces (source_id=9122)
+[2025-12-12 17:07:07] [INFO] Processing combo group: Churros Dips (source_id=9123)
+[2025-12-12 17:07:08] [INFO] Processing combo group: Small Nacho Selection with Churros (source_id=9185)
+[2025-12-12 17:07:08] [INFO] Found special section in: Small Nacho Selection with Churros
+[2025-12-12 17:07:08] [INFO] Found 12 checked dishes in Small Nacho Selection with Churros
+[2025-12-12 17:07:11] [INFO] Results for Nachos Loco Hull:
+[2025-12-12 17:07:11] [INFO]   - Combo groups processed: 5
+[2025-12-12 17:07:11] [INFO]   - Special combos found: 3
+[2025-12-12 17:07:11] [INFO]   - Dish selections inserted: 36
+[2025-12-12 17:07:11] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:07:11] [INFO] ============================================================
+[2025-12-12 17:07:11] [INFO] Processing: Dumpling Bowl (V3: 792, V1: 1035)
+[2025-12-12 17:07:11] [INFO] ============================================================
+[2025-12-12 17:07:11] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1035&load=comboGroups&showLang=en
+[2025-12-12 17:07:12] [INFO] Combo group elements detected
+[2025-12-12 17:07:12] [INFO] Found 1 combo groups
+[2025-12-12 17:07:12] [INFO] Processing combo group: Combo 1 Dumplings Selection (201-211) (source_id=9044)
+[2025-12-12 17:07:13] [INFO] Found special section in: Combo 1 Dumplings Selection (201-211)
+[2025-12-12 17:07:13] [INFO] Found 22 checked dishes in Combo 1 Dumplings Selection (201-211)
+[2025-12-12 17:07:18] [INFO] Results for Dumpling Bowl:
+[2025-12-12 17:07:18] [INFO]   - Combo groups processed: 1
+[2025-12-12 17:07:18] [INFO]   - Special combos found: 1
+[2025-12-12 17:07:18] [INFO]   - Dish selections inserted: 22
+[2025-12-12 17:07:18] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:07:18] [INFO] ============================================================
+[2025-12-12 17:07:18] [INFO] Processing: Nachos Loco Gatineau (V3: 801, V1: 1045)
+[2025-12-12 17:07:18] [INFO] ============================================================
+[2025-12-12 17:07:18] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1045&load=comboGroups&showLang=en
+[2025-12-12 17:07:19] [INFO] Combo group elements detected
+[2025-12-12 17:07:19] [INFO] Found 5 combo groups
+[2025-12-12 17:07:19] [INFO] Processing combo group: Small Nacho Selection with Donuts (source_id=9112)
+[2025-12-12 17:07:20] [INFO] Found special section in: Small Nacho Selection with Donuts
+[2025-12-12 17:07:20] [INFO] Found 12 checked dishes in Small Nacho Selection with Donuts
+[2025-12-12 17:07:23] [INFO] Processing combo group: Donuts Sauces (source_id=9113)
+[2025-12-12 17:07:23] [INFO] Processing combo group: Churros Dips (source_id=9114)
+[2025-12-12 17:07:23] [INFO] Processing combo group: 2 Small Nachos (source_id=9115)
+[2025-12-12 17:07:24] [INFO] Found special section in: 2 Small Nachos
+[2025-12-12 17:07:24] [INFO] Found 12 checked dishes in 2 Small Nachos
+[2025-12-12 17:07:27] [INFO] Processing combo group: Small Nacho Selection with Churros (source_id=9184)
+[2025-12-12 17:07:27] [INFO] Found special section in: Small Nacho Selection with Churros
+[2025-12-12 17:07:27] [INFO] Found 12 checked dishes in Small Nacho Selection with Churros
+[2025-12-12 17:07:30] [INFO] Results for Nachos Loco Gatineau:
+[2025-12-12 17:07:30] [INFO]   - Combo groups processed: 5
+[2025-12-12 17:07:30] [INFO]   - Special combos found: 3
+[2025-12-12 17:07:30] [INFO]   - Dish selections inserted: 36
+[2025-12-12 17:07:30] [INFO]   - Dish lookups failed: 0
+[2025-12-12 17:07:30] [INFO] ============================================================
+[2025-12-12 17:07:30] [INFO] Processing: All Out Burger (V3: 833, V1: 1080)
+[2025-12-12 17:07:30] [INFO] ============================================================
+[2025-12-12 17:07:30] [INFO] Navigating to combo groups: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1080&load=comboGroups&showLang=en
+[2025-12-12 17:07:31] [INFO] Combo group elements detected
+[2025-12-12 17:07:32] [INFO] Found 1 combo groups
+[2025-12-12 17:07:32] [INFO] Processing combo group: Any 3 Burgers Special (source_id=9239)
+[2025-12-12 17:07:32] [INFO] Found special section in: Any 3 Burgers Special
+[2025-12-12 17:07:32] [INFO] Found 12 checked dishes in Any 3 Burgers Special
+[2025-12-12 17:07:32] [WARNING] Dish not found: source_id=122729
+[2025-12-12 17:07:32] [WARNING] Dish not found: source_id=122730
+[2025-12-12 17:07:32] [WARNING] Dish not found: source_id=122731
+[2025-12-12 17:07:32] [WARNING] Dish not found: source_id=122732
+[2025-12-12 17:07:32] [WARNING] Dish not found: source_id=122733
+[2025-12-12 17:07:32] [WARNING] Dish not found: source_id=122735
+[2025-12-12 17:07:32] [WARNING] Dish not found: source_id=122736
+[2025-12-12 17:07:32] [WARNING] Dish not found: source_id=122737
+[2025-12-12 17:07:32] [WARNING] Dish not found: source_id=122738
+[2025-12-12 17:07:33] [WARNING] Dish not found: source_id=122739
+[2025-12-12 17:07:33] [WARNING] Dish not found: source_id=122741
+[2025-12-12 17:07:33] [WARNING] Dish not found: source_id=122742
+[2025-12-12 17:07:33] [INFO] Results for All Out Burger:
+[2025-12-12 17:07:33] [INFO]   - Combo groups processed: 1
+[2025-12-12 17:07:33] [INFO]   - Special combos found: 1
+[2025-12-12 17:07:33] [INFO]   - Dish selections inserted: 0
+[2025-12-12 17:07:33] [INFO]   - Dish lookups failed: 12
+[2025-12-12 17:07:33] [INFO] Stopping Special Combo Scraper...
+[2025-12-12 17:07:33] [INFO] Database connection closed
+[2025-12-12 17:07:33] [INFO] All connections closed
+[2025-12-12 17:07:33] [INFO] ============================================================
+[2025-12-12 17:07:33] [INFO] SPECIAL COMBO SCRAPER COMPLETE
+[2025-12-12 17:07:33] [INFO] ============================================================
+[2025-12-12 17:07:33] [INFO] Restaurants processed: 12
+[2025-12-12 17:07:33] [INFO] Total special combos found: 48
+[2025-12-12 17:07:33] [INFO] Total dish selections inserted: 667
+[2025-12-12 17:07:33] [INFO] Total dish lookups failed: 12
