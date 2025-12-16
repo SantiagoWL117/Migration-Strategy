@@ -24,7 +24,7 @@ def find_and_load_env():
         current_dir = os.path.dirname(current_dir)
     
     # Fall back to default behavior
-    load_dotenv()
+load_dotenv()
     return False
 
 find_and_load_env()

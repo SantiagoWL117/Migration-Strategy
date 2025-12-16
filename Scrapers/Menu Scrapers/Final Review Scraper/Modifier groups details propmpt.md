@@ -1,3 +1,4 @@
+
 # Mapping for the scraping process:
 
 We will use the legacy V1 CRM to scrape the data. Each restaurant in the phase 1 has a legacy_v1_id. This should be our primary criteria to determine which restaurant should be scraped in the v1 scraper.
@@ -565,7 +566,6 @@ combo_modifier_prices.combo_modifier_id
 
 # Instructions with examples for V3 ID 7     V1 ID 89    Imilio's Pizzeria
 
-## Phase 1
 
 1. In the landing page you will find the v1 restaurants under an <ul id="active"> element. Each V1 restaurant is stored in an <li> element:
 
@@ -585,7 +585,7 @@ Now, each course can have a combo dish or a normal dish. This scraper should onl
 You can identify a combo dish by the href attribute of the <a> element of each dish. All combo dishes have a combo= at the end of the href:
 <a href="?p=restaurants&amp;display=editRestaurant&amp;restaurant=89&amp;load=editCombo&amp;showLang=en&amp;combo=4004">Medium Pizza Deal</a>
 
-if you identify a dish with this href value, skip it and continue with the next dish.
+If you identify a dish with this href value, skip it and continue with the next dish.
 
 Normal dishes can be identified by the href attribute of the <a> element of each dish. All normal dishes have a menuEntry= at the end of the href:
 <a href="?p=restaurants&amp;display=editRestaurant&amp;restaurant=89&amp;load=editDish&amp;showLang=en&amp;menuEntry=3898">Plain</a>
@@ -611,7 +611,6 @@ For example, for the dish Plain. The Custom Ingredients section has these modifi
 <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px">Custom Ingredients</p>
 
 <div class="ingredientGroups" id="ci_id" style="border-width: 0px 1px 1px; border-style: solid; border-color: rgb(170, 170, 170); margin-bottom: 2px; padding: 1px;">
-
 <ul id="ulci" style="list-style-type:none;overflow: hidden">
 	    		<li>
 	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
@@ -1108,8 +1107,7 @@ if you find more than one price, it is because each price belongs to a different
 Do this process for all the active modifier groups (<input checked="" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_8174').show();}" type="radio" name="ci_radio" value="8174" id="radio_ci_8174">) in each dish.
 
 #### Modifier Groups Details:
-
- check this html section:
+The data that we need to scrape (min_selections, max_selections, free_items, display_order) is located within this html section:
 
 <li>
 		<p><input type="checkbox" id="hasBread" name="hasBread" checked="" value="Y" onclick="if(this.checked){ $('breadNo').show();$('br_id').appear() } else { $('br_id').fade(); $('breadNo').hide() }"> <label for="hasBread">Has Bread</label></p>
@@ -1200,7 +1198,7 @@ This same id can be found in this element:
 		    <label for="maxci" style="display: inline">Max custom items: </label><input type="text" name="maxci" id="maxci" size="3" value="0"><br>
 		    <label for="freeCI" style="display: inline">Free items: </label><input type="text" name="freeci" id="freeCI" size="3" value="0"><br>
 		    <label for="displayOrderCI">Display Order</label><input type="text" name="displayOrderCI" id="displayOrderCI" value="3" size="3">
-		</p>
+</p>
 
 modifier_groups.name:
 <label for="ciHeader">Use this title</label><input type="text" name="ciHeader" id="ciHeader" value="How about some extra toppings?"><br>
@@ -1224,6 +1222,7 @@ Finally, verify if the current dish should be hidden on certain days. By scrapin
 <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:10px">Hide dish on</p>
 
 <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:10px">Hide dish on</p>
+
 <div class="ingredientGroups" style="border-width:0 1px 1px 1px; border-style: solid;border-color: #aaa;margin-bottom:2px;padding:2px">
                             <input type="checkbox" name="hideOnDays[]" value="mon" id="d_mon" style="vertical-align: center"> <label for="d_mon" style="vertical-align: center">Monday</label>
                             <input type="checkbox" name="hideOnDays[]" value="tue" id="d_tue" style="vertical-align: center"> <label for="d_tue" style="vertical-align: center">Tuesday</label>
@@ -1232,6 +1231,5 @@ Finally, verify if the current dish should be hidden on certain days. By scrapin
                             <input type="checkbox" name="hideOnDays[]" value="fri" id="d_fri" style="vertical-align: center"> <label for="d_fri" style="vertical-align: center">Friday</label>
                             <input type="checkbox" name="hideOnDays[]" value="sat" id="d_sat" style="vertical-align: center"> <label for="d_sat" style="vertical-align: center">Saturday</label>
                             <input type="checkbox" name="hideOnDays[]" value="sun" id="d_sun" style="vertical-align: center"> <label for="d_sun" style="vertical-align: center">Sunday</label>
-            
-        </div>
+</div>
 

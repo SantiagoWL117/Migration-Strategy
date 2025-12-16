@@ -1,0 +1,1972 @@
+[2025-12-15 10:01:49] [INFO] Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Menu Scrapers\logs\modifier_group_scraper_20251215_100149.log
+[2025-12-15 10:01:49] [INFO] Starting Modifier Group Details Scraper...
+[2025-12-15 10:01:50] [INFO] Database connection established
+[2025-12-15 10:01:50] [INFO] Browser and database connections established
+[2025-12-15 10:01:50] [INFO] Logging in to https://menuadmin.menu.ca/...
+[2025-12-15 10:01:54] [INFO] Found login form with name='username'
+[2025-12-15 10:01:58] [INFO] Current URL after login: https://menuadmin.menu.ca/?p=restaurants
+[2025-12-15 10:01:58] [INFO] Login successful
+[2025-12-15 10:01:58] [INFO] ============================================================
+[2025-12-15 10:01:58] [INFO] Processing: Imilio's Pizzeria (V3: 7, V1: 89)
+[2025-12-15 10:01:58] [INFO] ============================================================
+[2025-12-15 10:01:58] [INFO] Found 131 dishes in database for restaurant 7
+[2025-12-15 10:01:58] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=89&load=menu&showLang=en
+[2025-12-15 10:02:02] [INFO] Found 131 non-combo dishes
+[2025-12-15 10:02:02] [INFO] Found 131 dish links on menu page
+[2025-12-15 10:05:42] [INFO] Results for Imilio's Pizzeria:
+[2025-12-15 10:05:42] [INFO]   - Dishes processed: 124
+[2025-12-15 10:05:42] [INFO]   - Modifier groups updated: 132
+[2025-12-15 10:05:42] [INFO]   - Dish availability records: 0
+[2025-12-15 10:05:42] [INFO]   - Errors: 0
+[2025-12-15 10:05:42] [INFO] ============================================================
+[2025-12-15 10:05:42] [INFO] Processing: Lucky Star Chinese Food (V3: 8, V1: 90)
+[2025-12-15 10:05:42] [INFO] ============================================================
+[2025-12-15 10:05:43] [INFO] Found 138 dishes in database for restaurant 8
+[2025-12-15 10:05:43] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=90&load=menu&showLang=en
+[2025-12-15 10:05:47] [INFO] Found 138 non-combo dishes
+[2025-12-15 10:05:47] [INFO] Found 138 dish links on menu page
+[2025-12-15 10:09:16] [INFO] Results for Lucky Star Chinese Food:
+[2025-12-15 10:09:16] [INFO]   - Dishes processed: 138
+[2025-12-15 10:09:16] [INFO]   - Modifier groups updated: 0
+[2025-12-15 10:09:16] [INFO]   - Dish availability records: 0
+[2025-12-15 10:09:16] [INFO]   - Errors: 0
+[2025-12-15 10:09:16] [INFO] ============================================================
+[2025-12-15 10:09:16] [INFO] Processing: Mama Rosa (V3: 12, V1: 94)
+[2025-12-15 10:09:16] [INFO] ============================================================
+[2025-12-15 10:09:16] [INFO] Found 131 dishes in database for restaurant 12
+[2025-12-15 10:09:16] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=94&load=menu&showLang=en
+[2025-12-15 10:09:21] [INFO] Found 124 non-combo dishes
+[2025-12-15 10:09:21] [INFO] Found 124 dish links on menu page
+[2025-12-15 10:12:59] [INFO] Results for Mama Rosa:
+[2025-12-15 10:12:59] [INFO]   - Dishes processed: 124
+[2025-12-15 10:12:59] [INFO]   - Modifier groups updated: 111
+[2025-12-15 10:12:59] [INFO]   - Dish availability records: 0
+[2025-12-15 10:12:59] [INFO]   - Errors: 0
+[2025-12-15 10:12:59] [INFO] ============================================================
+[2025-12-15 10:12:59] [INFO] Processing: Papa Joe's Pizza - Downtown (V3: 13, V1: 95)
+[2025-12-15 10:12:59] [INFO] ============================================================
+[2025-12-15 10:13:00] [INFO] Found 125 dishes in database for restaurant 13
+[2025-12-15 10:13:00] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=95&load=menu&showLang=en
+[2025-12-15 10:13:04] [INFO] Found 103 non-combo dishes
+[2025-12-15 10:13:04] [INFO] Found 103 dish links on menu page
+[2025-12-15 10:16:17] [INFO] Results for Papa Joe's Pizza - Downtown:
+[2025-12-15 10:16:17] [INFO]   - Dishes processed: 103
+[2025-12-15 10:16:17] [INFO]   - Modifier groups updated: 114
+[2025-12-15 10:16:17] [INFO]   - Dish availability records: 0
+[2025-12-15 10:16:17] [INFO]   - Errors: 0
+[2025-12-15 10:16:17] [INFO] ============================================================
+[2025-12-15 10:16:17] [INFO] Processing: New Mee Fung Restaurant (V3: 15, V1: 101)
+[2025-12-15 10:16:17] [INFO] ============================================================
+[2025-12-15 10:16:17] [INFO] Found 221 dishes in database for restaurant 15
+[2025-12-15 10:16:17] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=101&load=menu&showLang=en
+[2025-12-15 10:16:24] [INFO] Found 221 non-combo dishes
+[2025-12-15 10:16:24] [INFO] Found 221 dish links on menu page
+[2025-12-15 10:23:28] [INFO] Results for New Mee Fung Restaurant:
+[2025-12-15 10:23:28] [INFO]   - Dishes processed: 221
+[2025-12-15 10:23:28] [INFO]   - Modifier groups updated: 268
+[2025-12-15 10:23:28] [INFO]   - Dish availability records: 0
+[2025-12-15 10:23:28] [INFO]   - Errors: 0
+[2025-12-15 10:23:28] [INFO] ============================================================
+[2025-12-15 10:23:28] [INFO] Processing: House of Lasagna (V3: 22, V1: 117)
+[2025-12-15 10:23:28] [INFO] ============================================================
+[2025-12-15 10:23:28] [INFO] Found 87 dishes in database for restaurant 22
+[2025-12-15 10:23:28] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=117&load=menu&showLang=en
+[2025-12-15 10:23:32] [INFO] Found 84 non-combo dishes
+[2025-12-15 10:23:32] [INFO] Found 84 dish links on menu page
+[2025-12-15 10:25:57] [INFO] Results for House of Lasagna:
+[2025-12-15 10:25:57] [INFO]   - Dishes processed: 84
+[2025-12-15 10:25:57] [INFO]   - Modifier groups updated: 75
+[2025-12-15 10:25:57] [INFO]   - Dish availability records: 0
+[2025-12-15 10:25:57] [INFO]   - Errors: 0
+[2025-12-15 10:25:57] [INFO] ============================================================
+[2025-12-15 10:25:57] [INFO] Processing: Eastview Pizza (V3: 28, V1: 124)
+[2025-12-15 10:25:57] [INFO] ============================================================
+[2025-12-15 10:25:58] [INFO] Found 149 dishes in database for restaurant 28
+[2025-12-15 10:25:58] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=124&load=menu&showLang=en
+[2025-12-15 10:26:02] [INFO] Found 148 non-combo dishes
+[2025-12-15 10:26:02] [INFO] Found 148 dish links on menu page
+[2025-12-15 10:30:46] [INFO] Results for Eastview Pizza:
+[2025-12-15 10:30:46] [INFO]   - Dishes processed: 148
+[2025-12-15 10:30:46] [INFO]   - Modifier groups updated: 146
+[2025-12-15 10:30:46] [INFO]   - Dish availability records: 0
+[2025-12-15 10:30:46] [INFO]   - Errors: 0
+[2025-12-15 10:30:46] [INFO] ============================================================
+[2025-12-15 10:30:46] [INFO] Processing: Milano (V3: 31, V1: 127)
+[2025-12-15 10:30:46] [INFO] ============================================================
+[2025-12-15 10:30:47] [INFO] Found 172 dishes in database for restaurant 31
+[2025-12-15 10:30:47] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=127&load=menu&showLang=en
+[2025-12-15 10:30:52] [INFO] Found 160 non-combo dishes
+[2025-12-15 10:30:52] [INFO] Found 160 dish links on menu page
+[2025-12-15 10:36:39] [INFO] Results for Milano:
+[2025-12-15 10:36:39] [INFO]   - Dishes processed: 160
+[2025-12-15 10:36:39] [INFO]   - Modifier groups updated: 250
+[2025-12-15 10:36:39] [INFO]   - Dish availability records: 7
+[2025-12-15 10:36:39] [INFO]   - Errors: 0
+[2025-12-15 10:36:39] [INFO] ============================================================
+[2025-12-15 10:36:39] [INFO] Processing: Kiki Lebanese Pineview Pizza (V3: 44, V1: 142)
+[2025-12-15 10:36:39] [INFO] ============================================================
+[2025-12-15 10:36:40] [INFO] Found 173 dishes in database for restaurant 44
+[2025-12-15 10:36:40] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=142&load=menu&showLang=en
+[2025-12-15 10:36:45] [INFO] Found 173 non-combo dishes
+[2025-12-15 10:36:45] [INFO] Found 173 dish links on menu page
+[2025-12-15 10:42:21] [INFO] Results for Kiki Lebanese Pineview Pizza:
+[2025-12-15 10:42:21] [INFO]   - Dishes processed: 173
+[2025-12-15 10:42:21] [INFO]   - Modifier groups updated: 138
+[2025-12-15 10:42:21] [INFO]   - Dish availability records: 0
+[2025-12-15 10:42:21] [INFO]   - Errors: 0
+[2025-12-15 10:42:21] [INFO] ============================================================
+[2025-12-15 10:42:21] [INFO] Processing: Bobbie's Pizza & Subs (V3: 45, V1: 143)
+[2025-12-15 10:42:21] [INFO] ============================================================
+[2025-12-15 10:42:21] [INFO] Found 128 dishes in database for restaurant 45
+[2025-12-15 10:42:21] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=143&load=menu&showLang=en
+[2025-12-15 10:42:27] [INFO] Found 129 non-combo dishes
+[2025-12-15 10:42:27] [INFO] Found 129 dish links on menu page
+[2025-12-15 10:46:47] [INFO] Results for Bobbie's Pizza & Subs:
+[2025-12-15 10:46:47] [INFO]   - Dishes processed: 128
+[2025-12-15 10:46:47] [INFO]   - Modifier groups updated: 150
+[2025-12-15 10:46:47] [INFO]   - Dish availability records: 0
+[2025-12-15 10:46:47] [INFO]   - Errors: 0
+[2025-12-15 10:46:47] [INFO] ============================================================
+[2025-12-15 10:46:47] [INFO] Processing: Mr Mozzarella - Nepean (V3: 47, V1: 145)
+[2025-12-15 10:46:47] [INFO] ============================================================
+[2025-12-15 10:46:47] [INFO] Found 196 dishes in database for restaurant 47
+[2025-12-15 10:46:47] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=145&load=menu&showLang=en
+[2025-12-15 10:46:53] [INFO] Found 196 non-combo dishes
+[2025-12-15 10:46:53] [INFO] Found 196 dish links on menu page
+[2025-12-15 10:53:31] [INFO] Results for Mr Mozzarella - Nepean:
+[2025-12-15 10:53:31] [INFO]   - Dishes processed: 196
+[2025-12-15 10:53:31] [INFO]   - Modifier groups updated: 224
+[2025-12-15 10:53:31] [INFO]   - Dish availability records: 0
+[2025-12-15 10:53:31] [INFO]   - Errors: 0
+[2025-12-15 10:53:31] [INFO] ============================================================
+[2025-12-15 10:53:31] [INFO] Processing: Merivale Pizza & Wings (V3: 48, V1: 146)
+[2025-12-15 10:53:31] [INFO] ============================================================
+[2025-12-15 10:53:31] [INFO] Found 101 dishes in database for restaurant 48
+[2025-12-15 10:53:31] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=146&load=menu&showLang=en
+[2025-12-15 10:53:36] [INFO] Found 101 non-combo dishes
+[2025-12-15 10:53:36] [INFO] Found 101 dish links on menu page
+[2025-12-15 10:56:48] [INFO] Results for Merivale Pizza & Wings:
+[2025-12-15 10:56:48] [INFO]   - Dishes processed: 101
+[2025-12-15 10:56:48] [INFO]   - Modifier groups updated: 91
+[2025-12-15 10:56:48] [INFO]   - Dish availability records: 0
+[2025-12-15 10:56:48] [INFO]   - Errors: 0
+[2025-12-15 10:56:48] [INFO] ============================================================
+[2025-12-15 10:56:48] [INFO] Processing: Milano (V3: 55, V1: 161)
+[2025-12-15 10:56:48] [INFO] ============================================================
+[2025-12-15 10:56:48] [INFO] Found 195 dishes in database for restaurant 55
+[2025-12-15 10:56:48] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=161&load=menu&showLang=en
+[2025-12-15 10:56:54] [INFO] Found 194 non-combo dishes
+[2025-12-15 10:56:54] [INFO] Found 194 dish links on menu page
+[2025-12-15 11:04:19] [INFO] Results for Milano:
+[2025-12-15 11:04:19] [INFO]   - Dishes processed: 194
+[2025-12-15 11:04:19] [INFO]   - Modifier groups updated: 413
+[2025-12-15 11:04:19] [INFO]   - Dish availability records: 7
+[2025-12-15 11:04:19] [INFO]   - Errors: 0
+[2025-12-15 11:04:19] [INFO] ============================================================
+[2025-12-15 11:04:19] [INFO] Processing: Milano (V3: 57, V1: 164)
+[2025-12-15 11:04:19] [INFO] ============================================================
+[2025-12-15 11:04:20] [INFO] Found 216 dishes in database for restaurant 57
+[2025-12-15 11:04:20] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=164&load=menu&showLang=en
+[2025-12-15 11:04:25] [INFO] Found 214 non-combo dishes
+[2025-12-15 11:04:25] [INFO] Found 214 dish links on menu page
+[2025-12-15 11:12:31] [INFO] Results for Milano:
+[2025-12-15 11:12:31] [INFO]   - Dishes processed: 214
+[2025-12-15 11:12:31] [INFO]   - Modifier groups updated: 406
+[2025-12-15 11:12:31] [INFO]   - Dish availability records: 7
+[2025-12-15 11:12:31] [INFO]   - Errors: 0
+[2025-12-15 11:12:31] [INFO] ============================================================
+[2025-12-15 11:12:31] [INFO] Processing: Milano (V3: 59, V1: 172)
+[2025-12-15 11:12:31] [INFO] ============================================================
+[2025-12-15 11:12:31] [INFO] Found 236 dishes in database for restaurant 59
+[2025-12-15 11:12:31] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=172&load=menu&showLang=en
+[2025-12-15 11:12:37] [INFO] Found 235 non-combo dishes
+[2025-12-15 11:12:37] [INFO] Found 235 dish links on menu page
+[2025-12-15 11:21:19] [INFO] Results for Milano:
+[2025-12-15 11:21:19] [INFO]   - Dishes processed: 235
+[2025-12-15 11:21:19] [INFO]   - Modifier groups updated: 417
+[2025-12-15 11:21:19] [INFO]   - Dish availability records: 7
+[2025-12-15 11:21:19] [INFO]   - Errors: 0
+[2025-12-15 11:21:19] [INFO] ============================================================
+[2025-12-15 11:21:19] [INFO] Processing: Vanier Pizza & Subs (V3: 62, V1: 175)
+[2025-12-15 11:21:19] [INFO] ============================================================
+[2025-12-15 11:21:20] [INFO] Found 142 dishes in database for restaurant 62
+[2025-12-15 11:21:20] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=175&load=menu&showLang=en
+[2025-12-15 11:21:25] [INFO] Found 142 non-combo dishes
+[2025-12-15 11:21:25] [INFO] Found 142 dish links on menu page
+[2025-12-15 11:25:49] [INFO] Results for Vanier Pizza & Subs:
+[2025-12-15 11:25:49] [INFO]   - Dishes processed: 142
+[2025-12-15 11:25:49] [INFO]   - Modifier groups updated: 93
+[2025-12-15 11:25:49] [INFO]   - Dish availability records: 0
+[2025-12-15 11:25:49] [INFO]   - Errors: 0
+[2025-12-15 11:25:49] [INFO] ============================================================
+[2025-12-15 11:25:49] [INFO] Processing: Number One Chinese Take Out (V3: 65, V1: 179)
+[2025-12-15 11:25:49] [INFO] ============================================================
+[2025-12-15 11:25:49] [INFO] Found 122 dishes in database for restaurant 65
+[2025-12-15 11:25:49] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=179&load=menu&showLang=en
+[2025-12-15 11:25:54] [INFO] Found 122 non-combo dishes
+[2025-12-15 11:25:54] [INFO] Found 122 dish links on menu page
+[2025-12-15 11:29:14] [INFO] Results for Number One Chinese Take Out:
+[2025-12-15 11:29:14] [INFO]   - Dishes processed: 122
+[2025-12-15 11:29:14] [INFO]   - Modifier groups updated: 1
+[2025-12-15 11:29:14] [INFO]   - Dish availability records: 0
+[2025-12-15 11:29:14] [INFO]   - Errors: 0
+[2025-12-15 11:29:14] [INFO] ============================================================
+[2025-12-15 11:29:14] [INFO] Processing: Aylmer BBQ (V3: 69, V1: 183)
+[2025-12-15 11:29:14] [INFO] ============================================================
+[2025-12-15 11:29:14] [INFO] Found 220 dishes in database for restaurant 69
+[2025-12-15 11:29:14] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=183&load=menu&showLang=en
+[2025-12-15 11:29:19] [INFO] Found 220 non-combo dishes
+[2025-12-15 11:29:19] [INFO] Found 220 dish links on menu page
+[2025-12-15 11:35:52] [INFO] Results for Aylmer BBQ:
+[2025-12-15 11:35:52] [INFO]   - Dishes processed: 220
+[2025-12-15 11:35:52] [INFO]   - Modifier groups updated: 76
+[2025-12-15 11:35:52] [INFO]   - Dish availability records: 7
+[2025-12-15 11:35:52] [INFO]   - Errors: 0
+[2025-12-15 11:35:52] [INFO] ============================================================
+[2025-12-15 11:35:52] [INFO] Processing: Papa Pizza - Hull (V3: 70, V1: 184)
+[2025-12-15 11:35:52] [INFO] ============================================================
+[2025-12-15 11:35:52] [INFO] Found 164 dishes in database for restaurant 70
+[2025-12-15 11:35:52] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=184&load=menu&showLang=en
+[2025-12-15 11:35:58] [INFO] Found 0 non-combo dishes
+[2025-12-15 11:35:58] [INFO] Found 0 dish links on menu page
+[2025-12-15 11:35:58] [INFO] Results for Papa Pizza - Hull:
+[2025-12-15 11:35:58] [INFO]   - Dishes processed: 0
+[2025-12-15 11:35:58] [INFO]   - Modifier groups updated: 0
+[2025-12-15 11:35:58] [INFO]   - Dish availability records: 0
+[2025-12-15 11:35:58] [INFO]   - Errors: 0
+[2025-12-15 11:35:58] [INFO] ============================================================
+[2025-12-15 11:35:58] [INFO] Processing: Cathay Restaurants (V3: 72, V1: 187)
+[2025-12-15 11:35:58] [INFO] ============================================================
+[2025-12-15 11:35:58] [INFO] Found 150 dishes in database for restaurant 72
+[2025-12-15 11:35:58] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=187&load=menu&showLang=en
+[2025-12-15 11:36:03] [INFO] Found 150 non-combo dishes
+[2025-12-15 11:36:03] [INFO] Found 150 dish links on menu page
+[2025-12-15 11:40:08] [INFO] Results for Cathay Restaurants:
+[2025-12-15 11:40:08] [INFO]   - Dishes processed: 150
+[2025-12-15 11:40:08] [INFO]   - Modifier groups updated: 5
+[2025-12-15 11:40:08] [INFO]   - Dish availability records: 0
+[2025-12-15 11:40:08] [INFO]   - Errors: 0
+[2025-12-15 11:40:08] [INFO] ============================================================
+[2025-12-15 11:40:08] [INFO] Processing: Milano (V3: 75, V1: 190)
+[2025-12-15 11:40:08] [INFO] ============================================================
+[2025-12-15 11:40:08] [INFO] Found 206 dishes in database for restaurant 75
+[2025-12-15 11:40:08] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=190&load=menu&showLang=en
+[2025-12-15 11:40:14] [INFO] Found 206 non-combo dishes
+[2025-12-15 11:40:14] [INFO] Found 206 dish links on menu page
+[2025-12-15 11:48:13] [INFO] Results for Milano:
+[2025-12-15 11:48:13] [INFO]   - Dishes processed: 205
+[2025-12-15 11:48:13] [INFO]   - Modifier groups updated: 429
+[2025-12-15 11:48:13] [INFO]   - Dish availability records: 7
+[2025-12-15 11:48:13] [INFO]   - Errors: 0
+[2025-12-15 11:48:13] [INFO] ============================================================
+[2025-12-15 11:48:13] [INFO] Processing: Lorenzo's Pizzeria - Vanier (V3: 77, V1: 192)
+[2025-12-15 11:48:13] [INFO] ============================================================
+[2025-12-15 11:48:13] [INFO] Found 133 dishes in database for restaurant 77
+[2025-12-15 11:48:13] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=192&load=menu&showLang=en
+[2025-12-15 11:48:20] [INFO] Found 133 non-combo dishes
+[2025-12-15 11:48:20] [INFO] Found 133 dish links on menu page
+[2025-12-15 11:52:50] [INFO] Results for Lorenzo's Pizzeria - Vanier:
+[2025-12-15 11:52:50] [INFO]   - Dishes processed: 133
+[2025-12-15 11:52:50] [INFO]   - Modifier groups updated: 117
+[2025-12-15 11:52:50] [INFO]   - Dish availability records: 0
+[2025-12-15 11:52:50] [INFO]   - Errors: 0
+[2025-12-15 11:52:50] [INFO] ============================================================
+[2025-12-15 11:52:50] [INFO] Processing: Season's Pizza (V3: 83, V1: 199)
+[2025-12-15 11:52:50] [INFO] ============================================================
+[2025-12-15 11:52:50] [INFO] Found 136 dishes in database for restaurant 83
+[2025-12-15 11:52:50] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=199&load=menu&showLang=en
+[2025-12-15 11:52:56] [INFO] Found 136 non-combo dishes
+[2025-12-15 11:52:56] [INFO] Found 136 dish links on menu page
+[2025-12-15 11:57:23] [INFO] Results for Season's Pizza:
+[2025-12-15 11:57:23] [INFO]   - Dishes processed: 136
+[2025-12-15 11:57:23] [INFO]   - Modifier groups updated: 115
+[2025-12-15 11:57:23] [INFO]   - Dish availability records: 0
+[2025-12-15 11:57:23] [INFO]   - Errors: 0
+[2025-12-15 11:57:23] [INFO] ============================================================
+[2025-12-15 11:57:23] [INFO] Processing: The Original Georgie's (V3: 84, V1: 200)
+[2025-12-15 11:57:23] [INFO] ============================================================
+[2025-12-15 11:57:24] [INFO] Found 104 dishes in database for restaurant 84
+[2025-12-15 11:57:24] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=200&load=menu&showLang=en
+[2025-12-15 11:57:29] [INFO] Found 104 non-combo dishes
+[2025-12-15 11:57:29] [INFO] Found 104 dish links on menu page
+[2025-12-15 12:00:57] [INFO] Results for The Original Georgie's:
+[2025-12-15 12:00:57] [INFO]   - Dishes processed: 104
+[2025-12-15 12:00:57] [INFO]   - Modifier groups updated: 76
+[2025-12-15 12:00:57] [INFO]   - Dish availability records: 0
+[2025-12-15 12:00:57] [INFO]   - Errors: 0
+[2025-12-15 12:00:57] [INFO] ============================================================
+[2025-12-15 12:00:57] [INFO] Processing: Champa Thai Cuisine (V3: 87, V1: 203)
+[2025-12-15 12:00:57] [INFO] ============================================================
+[2025-12-15 12:00:58] [INFO] Found 82 dishes in database for restaurant 87
+[2025-12-15 12:00:58] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=203&load=menu&showLang=en
+[2025-12-15 12:01:03] [INFO] Found 81 non-combo dishes
+[2025-12-15 12:01:03] [INFO] Found 81 dish links on menu page
+[2025-12-15 12:03:16] [INFO] Results for Champa Thai Cuisine:
+[2025-12-15 12:03:16] [INFO]   - Dishes processed: 80
+[2025-12-15 12:03:16] [INFO]   - Modifier groups updated: 0
+[2025-12-15 12:03:16] [INFO]   - Dish availability records: 0
+[2025-12-15 12:03:16] [INFO]   - Errors: 0
+[2025-12-15 12:03:16] [INFO] ============================================================
+[2025-12-15 12:03:16] [INFO] Processing: Milano (V3: 88, V1: 204)
+[2025-12-15 12:03:16] [INFO] ============================================================
+[2025-12-15 12:03:16] [INFO] Found 307 dishes in database for restaurant 88
+[2025-12-15 12:03:16] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=204&load=menu&showLang=en
+[2025-12-15 12:03:21] [INFO] Found 309 non-combo dishes
+[2025-12-15 12:03:21] [INFO] Found 309 dish links on menu page
+[2025-12-15 12:14:14] [INFO] Results for Milano:
+[2025-12-15 12:14:14] [INFO]   - Dishes processed: 306
+[2025-12-15 12:14:14] [INFO]   - Modifier groups updated: 522
+[2025-12-15 12:14:14] [INFO]   - Dish availability records: 7
+[2025-12-15 12:14:14] [INFO]   - Errors: 0
+[2025-12-15 12:14:14] [INFO] ============================================================
+[2025-12-15 12:14:14] [INFO] Processing: Milano (V3: 89, V1: 205)
+[2025-12-15 12:14:14] [INFO] ============================================================
+[2025-12-15 12:14:14] [INFO] Found 182 dishes in database for restaurant 89
+[2025-12-15 12:14:14] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=205&load=menu&showLang=en
+[2025-12-15 12:14:20] [INFO] Found 181 non-combo dishes
+[2025-12-15 12:14:20] [INFO] Found 181 dish links on menu page
+[2025-12-15 12:21:30] [INFO] Results for Milano:
+[2025-12-15 12:21:30] [INFO]   - Dishes processed: 181
+[2025-12-15 12:21:30] [INFO]   - Modifier groups updated: 392
+[2025-12-15 12:21:30] [INFO]   - Dish availability records: 37
+[2025-12-15 12:21:30] [INFO]   - Errors: 0
+[2025-12-15 12:21:30] [INFO] ============================================================
+[2025-12-15 12:21:30] [INFO] Processing: Milano (V3: 90, V1: 206)
+[2025-12-15 12:21:30] [INFO] ============================================================
+[2025-12-15 12:21:30] [INFO] Found 157 dishes in database for restaurant 90
+[2025-12-15 12:21:30] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=206&load=menu&showLang=en
+[2025-12-15 12:21:37] [INFO] Found 156 non-combo dishes
+[2025-12-15 12:21:37] [INFO] Found 156 dish links on menu page
+[2025-12-15 12:26:50] [INFO] Results for Milano:
+[2025-12-15 12:26:50] [INFO]   - Dishes processed: 156
+[2025-12-15 12:26:50] [INFO]   - Modifier groups updated: 125
+[2025-12-15 12:26:50] [INFO]   - Dish availability records: 7
+[2025-12-15 12:26:50] [INFO]   - Errors: 0
+[2025-12-15 12:26:50] [INFO] ============================================================
+[2025-12-15 12:26:50] [INFO] Processing: Milano (V3: 91, V1: 207)
+[2025-12-15 12:26:50] [INFO] ============================================================
+[2025-12-15 12:26:50] [INFO] Found 222 dishes in database for restaurant 91
+[2025-12-15 12:26:50] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=207&load=menu&showLang=en
+[2025-12-15 12:26:55] [INFO] Found 220 non-combo dishes
+[2025-12-15 12:26:55] [INFO] Found 220 dish links on menu page
+[2025-12-15 12:35:44] [INFO] Results for Milano:
+[2025-12-15 12:35:44] [INFO]   - Dishes processed: 219
+[2025-12-15 12:35:44] [INFO]   - Modifier groups updated: 445
+[2025-12-15 12:35:44] [INFO]   - Dish availability records: 7
+[2025-12-15 12:35:44] [INFO]   - Errors: 0
+[2025-12-15 12:35:44] [INFO] ============================================================
+[2025-12-15 12:35:44] [INFO] Processing: Milano (V3: 92, V1: 208)
+[2025-12-15 12:35:44] [INFO] ============================================================
+[2025-12-15 12:35:44] [INFO] Found 136 dishes in database for restaurant 92
+[2025-12-15 12:35:44] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=208&load=menu&showLang=en
+[2025-12-15 12:35:50] [INFO] Found 135 non-combo dishes
+[2025-12-15 12:35:50] [INFO] Found 135 dish links on menu page
+[2025-12-15 12:40:57] [INFO] Results for Milano:
+[2025-12-15 12:40:57] [INFO]   - Dishes processed: 135
+[2025-12-15 12:40:57] [INFO]   - Modifier groups updated: 274
+[2025-12-15 12:40:57] [INFO]   - Dish availability records: 7
+[2025-12-15 12:40:57] [INFO]   - Errors: 0
+[2025-12-15 12:40:57] [INFO] ============================================================
+[2025-12-15 12:40:57] [INFO] Processing: Milano (V3: 93, V1: 209)
+[2025-12-15 12:40:57] [INFO] ============================================================
+[2025-12-15 12:40:57] [INFO] Found 236 dishes in database for restaurant 93
+[2025-12-15 12:40:57] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=209&load=menu&showLang=en
+[2025-12-15 12:41:03] [INFO] Found 234 non-combo dishes
+[2025-12-15 12:41:03] [INFO] Found 234 dish links on menu page
+[2025-12-15 12:49:48] [INFO] Results for Milano:
+[2025-12-15 12:49:48] [INFO]   - Dishes processed: 234
+[2025-12-15 12:49:48] [INFO]   - Modifier groups updated: 401
+[2025-12-15 12:49:48] [INFO]   - Dish availability records: 13
+[2025-12-15 12:49:48] [INFO]   - Errors: 0
+[2025-12-15 12:49:48] [INFO] ============================================================
+[2025-12-15 12:49:48] [INFO] Processing: Milano (V3: 95, V1: 211)
+[2025-12-15 12:49:48] [INFO] ============================================================
+[2025-12-15 12:49:49] [INFO] Found 220 dishes in database for restaurant 95
+[2025-12-15 12:49:49] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=211&load=menu&showLang=en
+[2025-12-15 12:49:54] [INFO] Found 219 non-combo dishes
+[2025-12-15 12:49:54] [INFO] Found 219 dish links on menu page
+[2025-12-15 12:57:57] [INFO] Results for Milano:
+[2025-12-15 12:57:57] [INFO]   - Dishes processed: 219
+[2025-12-15 12:57:57] [INFO]   - Modifier groups updated: 416
+[2025-12-15 12:57:57] [INFO]   - Dish availability records: 7
+[2025-12-15 12:57:57] [INFO]   - Errors: 0
+[2025-12-15 12:57:57] [INFO] ============================================================
+[2025-12-15 12:57:57] [INFO] Processing: Milano (V3: 97, V1: 213)
+[2025-12-15 12:57:57] [INFO] ============================================================
+[2025-12-15 12:57:57] [INFO] Found 204 dishes in database for restaurant 97
+[2025-12-15 12:57:57] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=213&load=menu&showLang=en
+[2025-12-15 12:58:02] [INFO] Found 204 non-combo dishes
+[2025-12-15 12:58:02] [INFO] Found 204 dish links on menu page
+[2025-12-15 13:05:32] [INFO] Results for Milano:
+[2025-12-15 13:05:32] [INFO]   - Dishes processed: 204
+[2025-12-15 13:05:32] [INFO]   - Modifier groups updated: 363
+[2025-12-15 13:05:32] [INFO]   - Dish availability records: 20
+[2025-12-15 13:05:32] [INFO]   - Errors: 0
+[2025-12-15 13:05:32] [INFO] ============================================================
+[2025-12-15 13:05:32] [INFO] Processing: Ginkgo Garden (V3: 105, V1: 224)
+[2025-12-15 13:05:32] [INFO] ============================================================
+[2025-12-15 13:05:32] [INFO] Found 147 dishes in database for restaurant 105
+[2025-12-15 13:05:32] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=224&load=menu&showLang=en
+[2025-12-15 13:05:37] [INFO] Found 147 non-combo dishes
+[2025-12-15 13:05:37] [INFO] Found 147 dish links on menu page
+[2025-12-15 13:09:39] [INFO] Results for Ginkgo Garden:
+[2025-12-15 13:09:39] [INFO]   - Dishes processed: 147
+[2025-12-15 13:09:39] [INFO]   - Modifier groups updated: 0
+[2025-12-15 13:09:39] [INFO]   - Dish availability records: 0
+[2025-12-15 13:09:39] [INFO]   - Errors: 0
+[2025-12-15 13:09:39] [INFO] ============================================================
+[2025-12-15 13:09:39] [INFO] Processing: Restaurant Le Choix (V3: 106, V1: 225)
+[2025-12-15 13:09:39] [INFO] ============================================================
+[2025-12-15 13:09:39] [INFO] Found 93 dishes in database for restaurant 106
+[2025-12-15 13:09:39] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=225&load=menu&showLang=en
+[2025-12-15 13:09:44] [INFO] Found 93 non-combo dishes
+[2025-12-15 13:09:44] [INFO] Found 93 dish links on menu page
+[2025-12-15 13:12:41] [INFO] Results for Restaurant Le Choix:
+[2025-12-15 13:12:41] [INFO]   - Dishes processed: 93
+[2025-12-15 13:12:41] [INFO]   - Modifier groups updated: 61
+[2025-12-15 13:12:41] [INFO]   - Dish availability records: 0
+[2025-12-15 13:12:41] [INFO]   - Errors: 0
+[2025-12-15 13:12:41] [INFO] ============================================================
+[2025-12-15 13:12:41] [INFO] Processing: Restaurant Chez Gerry (V3: 109, V1: 228)
+[2025-12-15 13:12:41] [INFO] ============================================================
+[2025-12-15 13:12:41] [INFO] Found 80 dishes in database for restaurant 109
+[2025-12-15 13:12:41] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=228&load=menu&showLang=en
+[2025-12-15 13:12:47] [INFO] Found 80 non-combo dishes
+[2025-12-15 13:12:47] [INFO] Found 80 dish links on menu page
+[2025-12-15 13:15:12] [INFO] Results for Restaurant Chez Gerry:
+[2025-12-15 13:15:12] [INFO]   - Dishes processed: 80
+[2025-12-15 13:15:12] [INFO]   - Modifier groups updated: 35
+[2025-12-15 13:15:12] [INFO]   - Dish availability records: 0
+[2025-12-15 13:15:12] [INFO]   - Errors: 0
+[2025-12-15 13:15:12] [INFO] ============================================================
+[2025-12-15 13:15:12] [INFO] Processing: Mano City Pizza (V3: 118, V1: 238)
+[2025-12-15 13:15:12] [INFO] ============================================================
+[2025-12-15 13:15:12] [INFO] Found 206 dishes in database for restaurant 118
+[2025-12-15 13:15:12] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=238&load=menu&showLang=en
+[2025-12-15 13:15:17] [INFO] Found 206 non-combo dishes
+[2025-12-15 13:15:17] [INFO] Found 206 dish links on menu page
+[2025-12-15 13:22:00] [INFO] Results for Mano City Pizza:
+[2025-12-15 13:22:00] [INFO]   - Dishes processed: 206
+[2025-12-15 13:22:00] [INFO]   - Modifier groups updated: 162
+[2025-12-15 13:22:00] [INFO]   - Dish availability records: 0
+[2025-12-15 13:22:00] [INFO]   - Errors: 0
+[2025-12-15 13:22:00] [INFO] ============================================================
+[2025-12-15 13:22:00] [INFO] Processing: Hung Mein (V3: 119, V1: 239)
+[2025-12-15 13:22:00] [INFO] ============================================================
+[2025-12-15 13:22:00] [INFO] Found 178 dishes in database for restaurant 119
+[2025-12-15 13:22:00] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=239&load=menu&showLang=en
+[2025-12-15 13:22:06] [INFO] Found 178 non-combo dishes
+[2025-12-15 13:22:06] [INFO] Found 178 dish links on menu page
+[2025-12-15 13:26:58] [INFO] Results for Hung Mein:
+[2025-12-15 13:26:58] [INFO]   - Dishes processed: 178
+[2025-12-15 13:26:58] [INFO]   - Modifier groups updated: 0
+[2025-12-15 13:26:58] [INFO]   - Dish availability records: 0
+[2025-12-15 13:26:58] [INFO]   - Errors: 0
+[2025-12-15 13:26:58] [INFO] ============================================================
+[2025-12-15 13:26:58] [INFO] Processing: Milano (V3: 123, V1: 245)
+[2025-12-15 13:26:58] [INFO] ============================================================
+[2025-12-15 13:26:58] [INFO] Found 175 dishes in database for restaurant 123
+[2025-12-15 13:26:58] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=245&load=menu&showLang=en
+[2025-12-15 13:27:03] [INFO] Found 175 non-combo dishes
+[2025-12-15 13:27:03] [INFO] Found 175 dish links on menu page
+[2025-12-15 13:33:39] [INFO] Results for Milano:
+[2025-12-15 13:33:39] [INFO]   - Dishes processed: 175
+[2025-12-15 13:33:39] [INFO]   - Modifier groups updated: 335
+[2025-12-15 13:33:39] [INFO]   - Dish availability records: 7
+[2025-12-15 13:33:39] [INFO]   - Errors: 0
+[2025-12-15 13:33:39] [INFO] ============================================================
+[2025-12-15 13:33:39] [INFO] Processing: Carlo's Pizza (V3: 124, V1: 246)
+[2025-12-15 13:33:39] [INFO] ============================================================
+[2025-12-15 13:33:39] [INFO] Found 102 dishes in database for restaurant 124
+[2025-12-15 13:33:39] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=246&load=menu&showLang=en
+[2025-12-15 13:33:45] [INFO] Found 102 non-combo dishes
+[2025-12-15 13:33:45] [INFO] Found 102 dish links on menu page
+[2025-12-15 13:37:07] [INFO] Results for Carlo's Pizza:
+[2025-12-15 13:37:07] [INFO]   - Dishes processed: 102
+[2025-12-15 13:37:07] [INFO]   - Modifier groups updated: 123
+[2025-12-15 13:37:07] [INFO]   - Dish availability records: 0
+[2025-12-15 13:37:07] [INFO]   - Errors: 0
+[2025-12-15 13:37:07] [INFO] ============================================================
+[2025-12-15 13:37:07] [INFO] Processing: Milano (V3: 126, V1: 248)
+[2025-12-15 13:37:07] [INFO] ============================================================
+[2025-12-15 13:37:07] [INFO] Found 195 dishes in database for restaurant 126
+[2025-12-15 13:37:07] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=248&load=menu&showLang=en
+[2025-12-15 13:37:13] [INFO] Found 194 non-combo dishes
+[2025-12-15 13:37:13] [INFO] Found 194 dish links on menu page
+[2025-12-15 13:44:57] [INFO] Results for Milano:
+[2025-12-15 13:44:57] [INFO]   - Dishes processed: 194
+[2025-12-15 13:44:57] [INFO]   - Modifier groups updated: 385
+[2025-12-15 13:44:57] [INFO]   - Dish availability records: 7
+[2025-12-15 13:44:57] [INFO]   - Errors: 0
+[2025-12-15 13:44:57] [INFO] ============================================================
+[2025-12-15 13:44:57] [INFO] Processing: Centertown Donair & Pizza (V3: 131, V1: 255)
+[2025-12-15 13:44:57] [INFO] ============================================================
+[2025-12-15 13:44:57] [INFO] Found 55 dishes in database for restaurant 131
+[2025-12-15 13:44:57] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=255&load=menu&showLang=en
+[2025-12-15 13:45:02] [INFO] Found 55 non-combo dishes
+[2025-12-15 13:45:02] [INFO] Found 55 dish links on menu page
+[2025-12-15 13:46:49] [INFO] Results for Centertown Donair & Pizza:
+[2025-12-15 13:46:49] [INFO]   - Dishes processed: 55
+[2025-12-15 13:46:49] [INFO]   - Modifier groups updated: 50
+[2025-12-15 13:46:49] [INFO]   - Dish availability records: 0
+[2025-12-15 13:46:49] [INFO]   - Errors: 0
+[2025-12-15 13:46:49] [INFO] ============================================================
+[2025-12-15 13:46:49] [INFO] Processing: Riverside Pizzeria (V3: 133, V1: 257)
+[2025-12-15 13:46:49] [INFO] ============================================================
+[2025-12-15 13:46:49] [INFO] Found 117 dishes in database for restaurant 133
+[2025-12-15 13:46:49] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=257&load=menu&showLang=en
+[2025-12-15 13:46:55] [INFO] Found 78 non-combo dishes
+[2025-12-15 13:46:55] [INFO] Found 78 dish links on menu page
+[2025-12-15 13:49:14] [INFO] Results for Riverside Pizzeria:
+[2025-12-15 13:49:14] [INFO]   - Dishes processed: 76
+[2025-12-15 13:49:14] [INFO]   - Modifier groups updated: 0
+[2025-12-15 13:49:14] [INFO]   - Dish availability records: 0
+[2025-12-15 13:49:14] [INFO]   - Errors: 0
+[2025-12-15 13:49:14] [INFO] ============================================================
+[2025-12-15 13:49:14] [INFO] Processing: Pizza Bravo (V3: 139, V1: 264)
+[2025-12-15 13:49:14] [INFO] ============================================================
+[2025-12-15 13:49:14] [INFO] Found 65 dishes in database for restaurant 139
+[2025-12-15 13:49:14] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=264&load=menu&showLang=en
+[2025-12-15 13:49:19] [INFO] Found 0 non-combo dishes
+[2025-12-15 13:49:19] [INFO] Found 0 dish links on menu page
+[2025-12-15 13:49:19] [INFO] Results for Pizza Bravo:
+[2025-12-15 13:49:19] [INFO]   - Dishes processed: 0
+[2025-12-15 13:49:19] [INFO]   - Modifier groups updated: 0
+[2025-12-15 13:49:19] [INFO]   - Dish availability records: 0
+[2025-12-15 13:49:19] [INFO]   - Errors: 0
+[2025-12-15 13:49:19] [INFO] ============================================================
+[2025-12-15 13:49:19] [INFO] Processing: Tony's Pizza (V3: 143, V1: 275)
+[2025-12-15 13:49:19] [INFO] ============================================================
+[2025-12-15 13:49:19] [INFO] Found 195 dishes in database for restaurant 143
+[2025-12-15 13:49:19] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=275&load=menu&showLang=en
+[2025-12-15 13:49:26] [INFO] Found 200 non-combo dishes
+[2025-12-15 13:49:26] [INFO] Found 200 dish links on menu page
+[2025-12-15 13:55:50] [INFO] Results for Tony's Pizza:
+[2025-12-15 13:55:50] [INFO]   - Dishes processed: 195
+[2025-12-15 13:55:50] [INFO]   - Modifier groups updated: 134
+[2025-12-15 13:55:50] [INFO]   - Dish availability records: 0
+[2025-12-15 13:55:50] [INFO]   - Errors: 0
+[2025-12-15 13:55:50] [INFO] ============================================================
+[2025-12-15 13:55:50] [INFO] Processing: Pho Dau Bo Restaurant - Kitchener (V3: 147, V1: 280)
+[2025-12-15 13:55:50] [INFO] ============================================================
+[2025-12-15 13:55:50] [INFO] Found 225 dishes in database for restaurant 147
+[2025-12-15 13:55:50] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=280&load=menu&showLang=en
+[2025-12-15 13:55:56] [INFO] Found 225 non-combo dishes
+[2025-12-15 13:55:56] [INFO] Found 225 dish links on menu page
+[2025-12-15 14:02:12] [INFO] Results for Pho Dau Bo Restaurant - Kitchener:
+[2025-12-15 14:02:12] [INFO]   - Dishes processed: 225
+[2025-12-15 14:02:12] [INFO]   - Modifier groups updated: 6
+[2025-12-15 14:02:12] [INFO]   - Dish availability records: 0
+[2025-12-15 14:02:12] [INFO]   - Errors: 0
+[2025-12-15 14:02:12] [INFO] ============================================================
+[2025-12-15 14:02:12] [INFO] Processing: Hong Kong Chinese Food Takeout (V3: 160, V1: 294)
+[2025-12-15 14:02:12] [INFO] ============================================================
+[2025-12-15 14:02:12] [INFO] Found 180 dishes in database for restaurant 160
+[2025-12-15 14:02:12] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=294&load=menu&showLang=en
+[2025-12-15 14:02:18] [INFO] Found 180 non-combo dishes
+[2025-12-15 14:02:18] [INFO] Found 180 dish links on menu page
+[2025-12-15 14:07:22] [INFO] Results for Hong Kong Chinese Food Takeout:
+[2025-12-15 14:07:22] [INFO]   - Dishes processed: 180
+[2025-12-15 14:07:22] [INFO]   - Modifier groups updated: 0
+[2025-12-15 14:07:22] [INFO]   - Dish availability records: 18
+[2025-12-15 14:07:22] [INFO]   - Errors: 0
+[2025-12-15 14:07:22] [INFO] ============================================================
+[2025-12-15 14:07:22] [INFO] Processing: Lucky King Take Out (V3: 174, V1: 312)
+[2025-12-15 14:07:22] [INFO] ============================================================
+[2025-12-15 14:07:22] [INFO] Found 144 dishes in database for restaurant 174
+[2025-12-15 14:07:22] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=312&load=menu&showLang=en
+[2025-12-15 14:07:29] [INFO] Found 144 non-combo dishes
+[2025-12-15 14:07:29] [INFO] Found 144 dish links on menu page
+[2025-12-15 14:11:33] [INFO] Results for Lucky King Take Out:
+[2025-12-15 14:11:33] [INFO]   - Dishes processed: 144
+[2025-12-15 14:11:33] [INFO]   - Modifier groups updated: 28
+[2025-12-15 14:11:33] [INFO]   - Dish availability records: 0
+[2025-12-15 14:11:33] [INFO]   - Errors: 0
+[2025-12-15 14:11:33] [INFO] ============================================================
+[2025-12-15 14:11:33] [INFO] Processing: Indian Punjabi Clay Oven (V3: 180, V1: 318)
+[2025-12-15 14:11:33] [INFO] ============================================================
+[2025-12-15 14:11:33] [INFO] Found 116 dishes in database for restaurant 180
+[2025-12-15 14:11:33] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=318&load=menu&showLang=en
+[2025-12-15 14:11:40] [INFO] Found 116 non-combo dishes
+[2025-12-15 14:11:40] [INFO] Found 116 dish links on menu page
+[2025-12-15 14:15:09] [INFO] Results for Indian Punjabi Clay Oven:
+[2025-12-15 14:15:09] [INFO]   - Dishes processed: 116
+[2025-12-15 14:15:09] [INFO]   - Modifier groups updated: 95
+[2025-12-15 14:15:09] [INFO]   - Dish availability records: 0
+[2025-12-15 14:15:09] [INFO]   - Errors: 0
+[2025-12-15 14:15:09] [INFO] ============================================================
+[2025-12-15 14:15:09] [INFO] Processing: Milano (V3: 190, V1: 328)
+[2025-12-15 14:15:09] [INFO] ============================================================
+[2025-12-15 14:15:09] [INFO] Found 154 dishes in database for restaurant 190
+[2025-12-15 14:15:09] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=328&load=menu&showLang=en
+[2025-12-15 14:15:15] [INFO] Found 153 non-combo dishes
+[2025-12-15 14:15:15] [INFO] Found 153 dish links on menu page
+[2025-12-15 14:21:14] [INFO] Results for Milano:
+[2025-12-15 14:21:14] [INFO]   - Dishes processed: 153
+[2025-12-15 14:21:14] [INFO]   - Modifier groups updated: 309
+[2025-12-15 14:21:14] [INFO]   - Dish availability records: 7
+[2025-12-15 14:21:14] [INFO]   - Errors: 0
+[2025-12-15 14:21:14] [INFO] ============================================================
+[2025-12-15 14:21:14] [INFO] Processing: Colonnade Pizza (V3: 196, V1: 334)
+[2025-12-15 14:21:14] [INFO] ============================================================
+[2025-12-15 14:21:14] [INFO] Found 89 dishes in database for restaurant 196
+[2025-12-15 14:21:14] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=334&load=menu&showLang=en
+[2025-12-15 14:21:19] [INFO] Found 89 non-combo dishes
+[2025-12-15 14:21:19] [INFO] Found 89 dish links on menu page
+[2025-12-15 14:23:59] [INFO] Results for Colonnade Pizza:
+[2025-12-15 14:23:59] [INFO]   - Dishes processed: 89
+[2025-12-15 14:23:59] [INFO]   - Modifier groups updated: 74
+[2025-12-15 14:23:59] [INFO]   - Dish availability records: 0
+[2025-12-15 14:23:59] [INFO]   - Errors: 0
+[2025-12-15 14:23:59] [INFO] ============================================================
+[2025-12-15 14:23:59] [INFO] Processing: Pho Bo Ga King - Somerset (V3: 199, V1: 337)
+[2025-12-15 14:23:59] [INFO] ============================================================
+[2025-12-15 14:23:59] [INFO] Found 174 dishes in database for restaurant 199
+[2025-12-15 14:23:59] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=337&load=menu&showLang=en
+[2025-12-15 14:24:04] [INFO] Found 174 non-combo dishes
+[2025-12-15 14:24:04] [INFO] Found 174 dish links on menu page
+[2025-12-15 14:28:38] [INFO] Results for Pho Bo Ga King - Somerset:
+[2025-12-15 14:28:38] [INFO]   - Dishes processed: 174
+[2025-12-15 14:28:38] [INFO]   - Modifier groups updated: 8
+[2025-12-15 14:28:38] [INFO]   - Dish availability records: 0
+[2025-12-15 14:28:38] [INFO]   - Errors: 0
+[2025-12-15 14:28:38] [INFO] ============================================================
+[2025-12-15 14:28:38] [INFO] Processing: Mont Liban Bakery & Shawarma (V3: 205, V1: 344)
+[2025-12-15 14:28:38] [INFO] ============================================================
+[2025-12-15 14:28:38] [INFO] Found 123 dishes in database for restaurant 205
+[2025-12-15 14:28:38] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=344&load=menu&showLang=en
+[2025-12-15 14:28:42] [INFO] Found 123 non-combo dishes
+[2025-12-15 14:28:42] [INFO] Found 123 dish links on menu page
+[2025-12-15 14:32:09] [INFO] Results for Mont Liban Bakery & Shawarma:
+[2025-12-15 14:32:09] [INFO]   - Dishes processed: 123
+[2025-12-15 14:32:09] [INFO]   - Modifier groups updated: 72
+[2025-12-15 14:32:09] [INFO]   - Dish availability records: 0
+[2025-12-15 14:32:09] [INFO]   - Errors: 0
+[2025-12-15 14:32:09] [INFO] ============================================================
+[2025-12-15 14:32:09] [INFO] Processing: Erman Pizza (V3: 211, V1: 350)
+[2025-12-15 14:32:09] [INFO] ============================================================
+[2025-12-15 14:32:09] [INFO] Found 102 dishes in database for restaurant 211
+[2025-12-15 14:32:09] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=350&load=menu&showLang=en
+[2025-12-15 14:32:13] [INFO] Found 0 non-combo dishes
+[2025-12-15 14:32:13] [INFO] Found 0 dish links on menu page
+[2025-12-15 14:32:13] [INFO] Results for Erman Pizza:
+[2025-12-15 14:32:13] [INFO]   - Dishes processed: 0
+[2025-12-15 14:32:13] [INFO]   - Modifier groups updated: 0
+[2025-12-15 14:32:13] [INFO]   - Dish availability records: 0
+[2025-12-15 14:32:13] [INFO]   - Errors: 0
+[2025-12-15 14:32:13] [INFO] ============================================================
+[2025-12-15 14:32:13] [INFO] Processing: New Mukut Restaurant Indian Cuisine (V3: 234, V1: 374)
+[2025-12-15 14:32:13] [INFO] ============================================================
+[2025-12-15 14:32:13] [INFO] Found 95 dishes in database for restaurant 234
+[2025-12-15 14:32:13] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=374&load=menu&showLang=en
+[2025-12-15 14:32:18] [INFO] Found 95 non-combo dishes
+[2025-12-15 14:32:18] [INFO] Found 95 dish links on menu page
+[2025-12-15 14:34:42] [INFO] Results for New Mukut Restaurant Indian Cuisine:
+[2025-12-15 14:34:42] [INFO]   - Dishes processed: 95
+[2025-12-15 14:34:42] [INFO]   - Modifier groups updated: 0
+[2025-12-15 14:34:42] [INFO]   - Dish availability records: 0
+[2025-12-15 14:34:42] [INFO]   - Errors: 0
+[2025-12-15 14:34:42] [INFO] ============================================================
+[2025-12-15 14:34:42] [INFO] Processing: Beneci Pizza (V3: 241, V1: 383)
+[2025-12-15 14:34:42] [INFO] ============================================================
+[2025-12-15 14:34:43] [INFO] Found 58 dishes in database for restaurant 241
+[2025-12-15 14:34:43] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=383&load=menu&showLang=en
+[2025-12-15 14:34:47] [INFO] Found 58 non-combo dishes
+[2025-12-15 14:34:47] [INFO] Found 58 dish links on menu page
+[2025-12-15 14:36:31] [INFO] Results for Beneci Pizza:
+[2025-12-15 14:36:31] [INFO]   - Dishes processed: 58
+[2025-12-15 14:36:31] [INFO]   - Modifier groups updated: 59
+[2025-12-15 14:36:31] [INFO]   - Dish availability records: 0
+[2025-12-15 14:36:31] [INFO]   - Errors: 0
+[2025-12-15 14:36:31] [INFO] ============================================================
+[2025-12-15 14:36:31] [INFO] Processing: Orchid Sushi (V3: 245, V1: 387)
+[2025-12-15 14:36:31] [INFO] ============================================================
+[2025-12-15 14:36:31] [INFO] Found 136 dishes in database for restaurant 245
+[2025-12-15 14:36:31] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=387&load=menu&showLang=en
+[2025-12-15 14:36:36] [INFO] Found 136 non-combo dishes
+[2025-12-15 14:36:36] [INFO] Found 136 dish links on menu page
+[2025-12-15 14:40:04] [INFO] Results for Orchid Sushi:
+[2025-12-15 14:40:04] [INFO]   - Dishes processed: 136
+[2025-12-15 14:40:04] [INFO]   - Modifier groups updated: 0
+[2025-12-15 14:40:04] [INFO]   - Dish availability records: 0
+[2025-12-15 14:40:04] [INFO]   - Errors: 0
+[2025-12-15 14:40:04] [INFO] ============================================================
+[2025-12-15 14:40:04] [INFO] Processing: Lucky Fortune (V3: 267, V1: 413)
+[2025-12-15 14:40:04] [INFO] ============================================================
+[2025-12-15 14:40:05] [INFO] Found 197 dishes in database for restaurant 267
+[2025-12-15 14:40:05] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=413&load=menu&showLang=en
+[2025-12-15 14:40:10] [INFO] Found 197 non-combo dishes
+[2025-12-15 14:40:10] [INFO] Found 197 dish links on menu page
+[2025-12-15 14:45:19] [INFO] Results for Lucky Fortune:
+[2025-12-15 14:45:19] [INFO]   - Dishes processed: 197
+[2025-12-15 14:45:19] [INFO]   - Modifier groups updated: 13
+[2025-12-15 14:45:19] [INFO]   - Dish availability records: 0
+[2025-12-15 14:45:19] [INFO]   - Errors: 0
+[2025-12-15 14:45:19] [INFO] ============================================================
+[2025-12-15 14:45:19] [INFO] Processing: Shaan Tandoori (V3: 269, V1: 415)
+[2025-12-15 14:45:19] [INFO] ============================================================
+[2025-12-15 14:45:19] [INFO] Found 117 dishes in database for restaurant 269
+[2025-12-15 14:45:19] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=415&load=menu&showLang=en
+[2025-12-15 14:45:24] [INFO] Found 117 non-combo dishes
+[2025-12-15 14:45:24] [INFO] Found 117 dish links on menu page
+[2025-12-15 14:48:22] [INFO] Results for Shaan Tandoori:
+[2025-12-15 14:48:22] [INFO]   - Dishes processed: 117
+[2025-12-15 14:48:22] [INFO]   - Modifier groups updated: 0
+[2025-12-15 14:48:22] [INFO]   - Dish availability records: 0
+[2025-12-15 14:48:22] [INFO]   - Errors: 0
+[2025-12-15 14:48:22] [INFO] ============================================================
+[2025-12-15 14:48:22] [INFO] Processing: JN Pizza (V3: 328, V1: 489)
+[2025-12-15 14:48:22] [INFO] ============================================================
+[2025-12-15 14:48:23] [INFO] Found 158 dishes in database for restaurant 328
+[2025-12-15 14:48:23] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=489&load=menu&showLang=en
+[2025-12-15 14:48:28] [INFO] Found 158 non-combo dishes
+[2025-12-15 14:48:28] [INFO] Found 158 dish links on menu page
+[2025-12-15 14:53:13] [INFO] Results for JN Pizza:
+[2025-12-15 14:53:13] [INFO]   - Dishes processed: 158
+[2025-12-15 14:53:13] [INFO]   - Modifier groups updated: 165
+[2025-12-15 14:53:13] [INFO]   - Dish availability records: 0
+[2025-12-15 14:53:13] [INFO]   - Errors: 0
+[2025-12-15 14:53:13] [INFO] ============================================================
+[2025-12-15 14:53:13] [INFO] Processing: Milano (V3: 349, V1: 512)
+[2025-12-15 14:53:13] [INFO] ============================================================
+[2025-12-15 14:53:13] [INFO] Found 181 dishes in database for restaurant 349
+[2025-12-15 14:53:13] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=512&load=menu&showLang=en
+[2025-12-15 14:53:18] [INFO] Found 180 non-combo dishes
+[2025-12-15 14:53:18] [INFO] Found 180 dish links on menu page
+[2025-12-15 14:59:55] [INFO] Results for Milano:
+[2025-12-15 14:59:55] [INFO]   - Dishes processed: 180
+[2025-12-15 14:59:55] [INFO]   - Modifier groups updated: 309
+[2025-12-15 14:59:55] [INFO]   - Dish availability records: 7
+[2025-12-15 14:59:55] [INFO]   - Errors: 0
+[2025-12-15 14:59:55] [INFO] ============================================================
+[2025-12-15 14:59:55] [INFO] Processing: Milano (V3: 350, V1: 513)
+[2025-12-15 14:59:55] [INFO] ============================================================
+[2025-12-15 14:59:56] [INFO] Found 125 dishes in database for restaurant 350
+[2025-12-15 14:59:56] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=513&load=menu&showLang=en
+[2025-12-15 15:00:01] [INFO] Found 122 non-combo dishes
+[2025-12-15 15:00:01] [INFO] Found 122 dish links on menu page
+[2025-12-15 15:04:28] [INFO] Results for Milano:
+[2025-12-15 15:04:28] [INFO]   - Dishes processed: 122
+[2025-12-15 15:04:28] [INFO]   - Modifier groups updated: 184
+[2025-12-15 15:04:28] [INFO]   - Dish availability records: 7
+[2025-12-15 15:04:28] [INFO]   - Errors: 0
+[2025-12-15 15:04:28] [INFO] ============================================================
+[2025-12-15 15:04:28] [INFO] Processing: Xtreme Pizza (V3: 367, V1: 532)
+[2025-12-15 15:04:28] [INFO] ============================================================
+[2025-12-15 15:04:28] [INFO] Found 99 dishes in database for restaurant 367
+[2025-12-15 15:04:28] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=532&load=menu&showLang=en
+[2025-12-15 15:04:33] [INFO] Found 99 non-combo dishes
+[2025-12-15 15:04:33] [INFO] Found 99 dish links on menu page
+[2025-12-15 15:07:43] [INFO] Results for Xtreme Pizza:
+[2025-12-15 15:07:43] [INFO]   - Dishes processed: 98
+[2025-12-15 15:07:43] [INFO]   - Modifier groups updated: 68
+[2025-12-15 15:07:43] [INFO]   - Dish availability records: 0
+[2025-12-15 15:07:43] [INFO]   - Errors: 0
+[2025-12-15 15:07:43] [INFO] ============================================================
+[2025-12-15 15:07:43] [INFO] Processing: Sachi Sushi (V3: 376, V1: 542)
+[2025-12-15 15:07:43] [INFO] ============================================================
+[2025-12-15 15:07:43] [INFO] Found 180 dishes in database for restaurant 376
+[2025-12-15 15:07:43] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=542&load=menu&showLang=en
+[2025-12-15 15:07:50] [INFO] Found 180 non-combo dishes
+[2025-12-15 15:07:50] [INFO] Found 180 dish links on menu page
+[2025-12-15 15:12:46] [INFO] Results for Sachi Sushi:
+[2025-12-15 15:12:46] [INFO]   - Dishes processed: 180
+[2025-12-15 15:12:46] [INFO]   - Modifier groups updated: 0
+[2025-12-15 15:12:46] [INFO]   - Dish availability records: 0
+[2025-12-15 15:12:46] [INFO]   - Errors: 0
+[2025-12-15 15:12:46] [INFO] ============================================================
+[2025-12-15 15:12:46] [INFO] Processing: Papa Joe's Fried Chicken - Downtown (V3: 437, V1: 612)
+[2025-12-15 15:12:46] [INFO] ============================================================
+[2025-12-15 15:12:46] [INFO] Found 28 dishes in database for restaurant 437
+[2025-12-15 15:12:46] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=612&load=menu&showLang=en
+[2025-12-15 15:12:52] [INFO] Found 28 non-combo dishes
+[2025-12-15 15:12:52] [INFO] Found 28 dish links on menu page
+[2025-12-15 15:13:41] [INFO] Results for Papa Joe's Fried Chicken - Downtown:
+[2025-12-15 15:13:41] [INFO]   - Dishes processed: 28
+[2025-12-15 15:13:41] [INFO]   - Modifier groups updated: 16
+[2025-12-15 15:13:41] [INFO]   - Dish availability records: 0
+[2025-12-15 15:13:41] [INFO]   - Errors: 0
+[2025-12-15 15:13:41] [INFO] ============================================================
+[2025-12-15 15:13:41] [INFO] Processing: iCook Pho You (V3: 479, V1: 669)
+[2025-12-15 15:13:41] [INFO] ============================================================
+[2025-12-15 15:13:41] [INFO] Found 195 dishes in database for restaurant 479
+[2025-12-15 15:13:41] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=669&load=menu&showLang=en
+[2025-12-15 15:13:47] [INFO] Found 195 non-combo dishes
+[2025-12-15 15:13:47] [INFO] Found 195 dish links on menu page
+[2025-12-15 15:20:13] [INFO] Results for iCook Pho You:
+[2025-12-15 15:20:13] [INFO]   - Dishes processed: 195
+[2025-12-15 15:20:13] [INFO]   - Modifier groups updated: 229
+[2025-12-15 15:20:13] [INFO]   - Dish availability records: 0
+[2025-12-15 15:20:13] [INFO]   - Errors: 0
+[2025-12-15 15:20:13] [INFO] ============================================================
+[2025-12-15 15:20:13] [INFO] Processing: Light of India (V3: 491, V1: 695)
+[2025-12-15 15:20:13] [INFO] ============================================================
+[2025-12-15 15:20:13] [INFO] Found 66 dishes in database for restaurant 491
+[2025-12-15 15:20:13] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=695&load=menu&showLang=en
+[2025-12-15 15:20:19] [INFO] Found 66 non-combo dishes
+[2025-12-15 15:20:19] [INFO] Found 66 dish links on menu page
+[2025-12-15 15:22:07] [INFO] Results for Light of India:
+[2025-12-15 15:22:07] [INFO]   - Dishes processed: 66
+[2025-12-15 15:22:07] [INFO]   - Modifier groups updated: 0
+[2025-12-15 15:22:07] [INFO]   - Dish availability records: 0
+[2025-12-15 15:22:07] [INFO]   - Errors: 0
+[2025-12-15 15:22:07] [INFO] ============================================================
+[2025-12-15 15:22:07] [INFO] Processing: Rangoli (V3: 497, V1: 701)
+[2025-12-15 15:22:07] [INFO] ============================================================
+[2025-12-15 15:22:07] [INFO] Found 133 dishes in database for restaurant 497
+[2025-12-15 15:22:07] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=701&load=menu&showLang=en
+[2025-12-15 15:22:12] [INFO] Found 133 non-combo dishes
+[2025-12-15 15:22:12] [INFO] Found 133 dish links on menu page
+[2025-12-15 15:25:59] [INFO] Results for Rangoli:
+[2025-12-15 15:25:59] [INFO]   - Dishes processed: 133
+[2025-12-15 15:25:59] [INFO]   - Modifier groups updated: 4
+[2025-12-15 15:25:59] [INFO]   - Dish availability records: 0
+[2025-12-15 15:25:59] [INFO]   - Errors: 0
+[2025-12-15 15:25:59] [INFO] ============================================================
+[2025-12-15 15:25:59] [INFO] Processing: New Hong Kong (V3: 502, V1: 707)
+[2025-12-15 15:25:59] [INFO] ============================================================
+[2025-12-15 15:25:59] [INFO] Found 185 dishes in database for restaurant 502
+[2025-12-15 15:25:59] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=707&load=menu&showLang=en
+[2025-12-15 15:26:05] [INFO] Found 185 non-combo dishes
+[2025-12-15 15:26:05] [INFO] Found 185 dish links on menu page
+[2025-12-15 15:31:12] [INFO] Results for New Hong Kong:
+[2025-12-15 15:31:12] [INFO]   - Dishes processed: 185
+[2025-12-15 15:31:12] [INFO]   - Modifier groups updated: 0
+[2025-12-15 15:31:12] [INFO]   - Dish availability records: 12
+[2025-12-15 15:31:12] [INFO]   - Errors: 0
+[2025-12-15 15:31:12] [INFO] ============================================================
+[2025-12-15 15:31:12] [INFO] Processing: Pizza Lovers Hunt Club (V3: 507, V1: 712)
+[2025-12-15 15:31:12] [INFO] ============================================================
+[2025-12-15 15:31:12] [INFO] Found 84 dishes in database for restaurant 507
+[2025-12-15 15:31:12] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=712&load=menu&showLang=en
+[2025-12-15 15:31:17] [INFO] Found 84 non-combo dishes
+[2025-12-15 15:31:17] [INFO] Found 84 dish links on menu page
+[2025-12-15 15:34:06] [INFO] Results for Pizza Lovers Hunt Club:
+[2025-12-15 15:34:06] [INFO]   - Dishes processed: 84
+[2025-12-15 15:34:06] [INFO]   - Modifier groups updated: 93
+[2025-12-15 15:34:06] [INFO]   - Dish availability records: 0
+[2025-12-15 15:34:06] [INFO]   - Errors: 0
+[2025-12-15 15:34:06] [INFO] ============================================================
+[2025-12-15 15:34:06] [INFO] Processing: Egg Roll Factory (V3: 511, V1: 716)
+[2025-12-15 15:34:06] [INFO] ============================================================
+[2025-12-15 15:34:06] [INFO] Found 103 dishes in database for restaurant 511
+[2025-12-15 15:34:06] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=716&load=menu&showLang=en
+[2025-12-15 15:34:11] [INFO] Found 103 non-combo dishes
+[2025-12-15 15:34:11] [INFO] Found 103 dish links on menu page
+[2025-12-15 15:37:05] [INFO] Results for Egg Roll Factory:
+[2025-12-15 15:37:05] [INFO]   - Dishes processed: 103
+[2025-12-15 15:37:05] [INFO]   - Modifier groups updated: 12
+[2025-12-15 15:37:05] [INFO]   - Dish availability records: 0
+[2025-12-15 15:37:05] [INFO]   - Errors: 0
+[2025-12-15 15:37:05] [INFO] ============================================================
+[2025-12-15 15:37:05] [INFO] Processing: Napolis (V3: 515, V1: 721)
+[2025-12-15 15:37:05] [INFO] ============================================================
+[2025-12-15 15:37:05] [INFO] Found 82 dishes in database for restaurant 515
+[2025-12-15 15:37:05] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=721&load=menu&showLang=en
+[2025-12-15 15:37:13] [INFO] Found 82 non-combo dishes
+[2025-12-15 15:37:13] [INFO] Found 82 dish links on menu page
+[2025-12-15 15:39:55] [INFO] Results for Napolis:
+[2025-12-15 15:39:55] [INFO]   - Dishes processed: 82
+[2025-12-15 15:39:55] [INFO]   - Modifier groups updated: 92
+[2025-12-15 15:39:55] [INFO]   - Dish availability records: 0
+[2025-12-15 15:39:55] [INFO]   - Errors: 0
+[2025-12-15 15:39:55] [INFO] ============================================================
+[2025-12-15 15:39:55] [INFO] Processing: HaNoi Pho (V3: 519, V1: 727)
+[2025-12-15 15:39:55] [INFO] ============================================================
+[2025-12-15 15:39:55] [INFO] Found 81 dishes in database for restaurant 519
+[2025-12-15 15:39:55] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=727&load=menu&showLang=en
+[2025-12-15 15:40:00] [INFO] Found 81 non-combo dishes
+[2025-12-15 15:40:00] [INFO] Found 81 dish links on menu page
+[2025-12-15 15:42:20] [INFO] Results for HaNoi Pho:
+[2025-12-15 15:42:20] [INFO]   - Dishes processed: 81
+[2025-12-15 15:42:20] [INFO]   - Modifier groups updated: 24
+[2025-12-15 15:42:20] [INFO]   - Dish availability records: 0
+[2025-12-15 15:42:20] [INFO]   - Errors: 0
+[2025-12-15 15:42:20] [INFO] ============================================================
+[2025-12-15 15:42:20] [INFO] Processing: Palermo Pizzeria (V3: 521, V1: 729)
+[2025-12-15 15:42:20] [INFO] ============================================================
+[2025-12-15 15:42:21] [INFO] Found 142 dishes in database for restaurant 521
+[2025-12-15 15:42:21] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=729&load=menu&showLang=en
+[2025-12-15 15:42:26] [INFO] Found 142 non-combo dishes
+[2025-12-15 15:42:26] [INFO] Found 142 dish links on menu page
+[2025-12-15 15:47:10] [INFO] Results for Palermo Pizzeria:
+[2025-12-15 15:47:10] [INFO]   - Dishes processed: 142
+[2025-12-15 15:47:10] [INFO]   - Modifier groups updated: 131
+[2025-12-15 15:47:10] [INFO]   - Dish availability records: 0
+[2025-12-15 15:47:10] [INFO]   - Errors: 0
+[2025-12-15 15:47:10] [INFO] ============================================================
+[2025-12-15 15:47:10] [INFO] Processing: Papa Grecque des Flandres (V3: 540, V1: 758)
+[2025-12-15 15:47:10] [INFO] ============================================================
+[2025-12-15 15:47:10] [INFO] Found 49 dishes in database for restaurant 540
+[2025-12-15 15:47:10] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=758&load=menu&showLang=en
+[2025-12-15 15:47:15] [INFO] Found 0 non-combo dishes
+[2025-12-15 15:47:15] [INFO] Found 0 dish links on menu page
+[2025-12-15 15:47:15] [INFO] Results for Papa Grecque des Flandres:
+[2025-12-15 15:47:15] [INFO]   - Dishes processed: 0
+[2025-12-15 15:47:15] [INFO]   - Modifier groups updated: 0
+[2025-12-15 15:47:15] [INFO]   - Dish availability records: 0
+[2025-12-15 15:47:15] [INFO]   - Errors: 0
+[2025-12-15 15:47:15] [INFO] ============================================================
+[2025-12-15 15:47:15] [INFO] Processing: Aahar The Taste of India (V3: 561, V1: 781)
+[2025-12-15 15:47:15] [INFO] ============================================================
+[2025-12-15 15:47:15] [INFO] Found 108 dishes in database for restaurant 561
+[2025-12-15 15:47:15] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=781&load=menu&showLang=en
+[2025-12-15 15:47:20] [INFO] Found 108 non-combo dishes
+[2025-12-15 15:47:20] [INFO] Found 108 dish links on menu page
+[2025-12-15 15:50:21] [INFO] Results for Aahar The Taste of India:
+[2025-12-15 15:50:21] [INFO]   - Dishes processed: 108
+[2025-12-15 15:50:21] [INFO]   - Modifier groups updated: 14
+[2025-12-15 15:50:21] [INFO]   - Dish availability records: 0
+[2025-12-15 15:50:21] [INFO]   - Errors: 0
+[2025-12-15 15:50:21] [INFO] ============================================================
+[2025-12-15 15:50:21] [INFO] Processing: Pizza des Hautes Plaines (V3: 562, V1: 782)
+[2025-12-15 15:50:21] [INFO] ============================================================
+[2025-12-15 15:50:21] [INFO] Found 102 dishes in database for restaurant 562
+[2025-12-15 15:50:21] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=782&load=menu&showLang=en
+[2025-12-15 15:50:29] [INFO] Found 0 non-combo dishes
+[2025-12-15 15:50:29] [INFO] Found 0 dish links on menu page
+[2025-12-15 15:50:29] [INFO] Results for Pizza des Hautes Plaines:
+[2025-12-15 15:50:29] [INFO]   - Dishes processed: 0
+[2025-12-15 15:50:29] [INFO]   - Modifier groups updated: 0
+[2025-12-15 15:50:29] [INFO]   - Dish availability records: 0
+[2025-12-15 15:50:29] [INFO]   - Errors: 0
+[2025-12-15 15:50:29] [INFO] ============================================================
+[2025-12-15 15:50:29] [INFO] Processing: Milano (V3: 565, V1: 785)
+[2025-12-15 15:50:29] [INFO] ============================================================
+[2025-12-15 15:50:29] [INFO] Found 210 dishes in database for restaurant 565
+[2025-12-15 15:50:29] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=785&load=menu&showLang=en
+[2025-12-15 15:50:34] [INFO] Found 210 non-combo dishes
+[2025-12-15 15:50:34] [INFO] Found 210 dish links on menu page
+[2025-12-15 15:57:55] [INFO] Results for Milano:
+[2025-12-15 15:57:55] [INFO]   - Dishes processed: 210
+[2025-12-15 15:57:55] [INFO]   - Modifier groups updated: 293
+[2025-12-15 15:57:55] [INFO]   - Dish availability records: 7
+[2025-12-15 15:57:55] [INFO]   - Errors: 0
+[2025-12-15 15:57:55] [INFO] ============================================================
+[2025-12-15 15:57:55] [INFO] Processing: Milano (V3: 569, V1: 789)
+[2025-12-15 15:57:55] [INFO] ============================================================
+[2025-12-15 15:57:55] [INFO] Found 284 dishes in database for restaurant 569
+[2025-12-15 15:57:55] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=789&load=menu&showLang=en
+[2025-12-15 15:58:01] [INFO] Found 284 non-combo dishes
+[2025-12-15 15:58:01] [INFO] Found 284 dish links on menu page
+[2025-12-15 16:08:43] [INFO] Results for Milano:
+[2025-12-15 16:08:43] [INFO]   - Dishes processed: 284
+[2025-12-15 16:08:43] [INFO]   - Modifier groups updated: 419
+[2025-12-15 16:08:43] [INFO]   - Dish availability records: 14
+[2025-12-15 16:08:43] [INFO]   - Errors: 0
+[2025-12-15 16:08:43] [INFO] ============================================================
+[2025-12-15 16:08:43] [INFO] Processing: Crispy's (V3: 584, V1: 805)
+[2025-12-15 16:08:43] [INFO] ============================================================
+[2025-12-15 16:08:43] [INFO] Found 123 dishes in database for restaurant 584
+[2025-12-15 16:08:43] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=805&load=menu&showLang=en
+[2025-12-15 16:08:48] [INFO] Found 123 non-combo dishes
+[2025-12-15 16:08:48] [INFO] Found 123 dish links on menu page
+[2025-12-15 16:12:52] [INFO] Results for Crispy's:
+[2025-12-15 16:12:52] [INFO]   - Dishes processed: 123
+[2025-12-15 16:12:52] [INFO]   - Modifier groups updated: 184
+[2025-12-15 16:12:52] [INFO]   - Dish availability records: 0
+[2025-12-15 16:12:52] [INFO]   - Errors: 0
+[2025-12-15 16:12:52] [INFO] ============================================================
+[2025-12-15 16:12:52] [INFO] Processing: Milano (V3: 586, V1: 807)
+[2025-12-15 16:12:52] [INFO] ============================================================
+[2025-12-15 16:12:52] [INFO] Found 178 dishes in database for restaurant 586
+[2025-12-15 16:12:52] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=807&load=menu&showLang=en
+[2025-12-15 16:12:57] [INFO] Found 176 non-combo dishes
+[2025-12-15 16:12:57] [INFO] Found 176 dish links on menu page
+[2025-12-15 16:18:44] [INFO] Results for Milano:
+[2025-12-15 16:18:44] [INFO]   - Dishes processed: 175
+[2025-12-15 16:18:44] [INFO]   - Modifier groups updated: 294
+[2025-12-15 16:18:44] [INFO]   - Dish availability records: 7
+[2025-12-15 16:18:44] [INFO]   - Errors: 0
+[2025-12-15 16:18:44] [INFO] ============================================================
+[2025-12-15 16:18:44] [INFO] Processing: Milano (V3: 593, V1: 815)
+[2025-12-15 16:18:44] [INFO] ============================================================
+[2025-12-15 16:18:44] [INFO] Found 81 dishes in database for restaurant 593
+[2025-12-15 16:18:44] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=815&load=menu&showLang=en
+[2025-12-15 16:18:48] [INFO] Found 81 non-combo dishes
+[2025-12-15 16:18:48] [INFO] Found 81 dish links on menu page
+[2025-12-15 16:21:22] [INFO] Results for Milano:
+[2025-12-15 16:21:22] [INFO]   - Dishes processed: 81
+[2025-12-15 16:21:22] [INFO]   - Modifier groups updated: 122
+[2025-12-15 16:21:22] [INFO]   - Dish availability records: 7
+[2025-12-15 16:21:22] [INFO]   - Errors: 0
+[2025-12-15 16:21:22] [INFO] ============================================================
+[2025-12-15 16:21:22] [INFO] Processing: Supreme Pizzeria (V3: 595, V1: 817)
+[2025-12-15 16:21:22] [INFO] ============================================================
+[2025-12-15 16:21:22] [INFO] Found 101 dishes in database for restaurant 595
+[2025-12-15 16:21:22] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=817&load=menu&showLang=en
+[2025-12-15 16:21:26] [INFO] Found 100 non-combo dishes
+[2025-12-15 16:21:26] [INFO] Found 100 dish links on menu page
+[2025-12-15 16:24:17] [INFO] Results for Supreme Pizzeria:
+[2025-12-15 16:24:17] [INFO]   - Dishes processed: 100
+[2025-12-15 16:24:17] [INFO]   - Modifier groups updated: 71
+[2025-12-15 16:24:17] [INFO]   - Dish availability records: 0
+[2025-12-15 16:24:17] [INFO]   - Errors: 0
+[2025-12-15 16:24:17] [INFO] ============================================================
+[2025-12-15 16:24:17] [INFO] Processing: Sushi Fleury (V3: 596, V1: 818)
+[2025-12-15 16:24:17] [INFO] ============================================================
+[2025-12-15 16:24:17] [INFO] Found 169 dishes in database for restaurant 596
+[2025-12-15 16:24:17] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=818&load=menu&showLang=en
+[2025-12-15 16:24:22] [INFO] Found 169 non-combo dishes
+[2025-12-15 16:24:22] [INFO] Found 169 dish links on menu page
+[2025-12-15 16:29:06] [INFO] Results for Sushi Fleury:
+[2025-12-15 16:29:06] [INFO]   - Dishes processed: 169
+[2025-12-15 16:29:06] [INFO]   - Modifier groups updated: 5
+[2025-12-15 16:29:06] [INFO]   - Dish availability records: 94
+[2025-12-15 16:29:06] [INFO]   - Errors: 0
+[2025-12-15 16:29:06] [INFO] ============================================================
+[2025-12-15 16:29:06] [INFO] Processing: Milano (V3: 601, V1: 824)
+[2025-12-15 16:29:06] [INFO] ============================================================
+[2025-12-15 16:29:06] [INFO] Found 171 dishes in database for restaurant 601
+[2025-12-15 16:29:06] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=824&load=menu&showLang=en
+[2025-12-15 16:29:10] [INFO] Found 170 non-combo dishes
+[2025-12-15 16:29:10] [INFO] Found 170 dish links on menu page
+[2025-12-15 16:35:07] [INFO] Results for Milano:
+[2025-12-15 16:35:07] [INFO]   - Dishes processed: 170
+[2025-12-15 16:35:07] [INFO]   - Modifier groups updated: 360
+[2025-12-15 16:35:07] [INFO]   - Dish availability records: 7
+[2025-12-15 16:35:07] [INFO]   - Errors: 0
+[2025-12-15 16:35:07] [INFO] ============================================================
+[2025-12-15 16:35:07] [INFO] Processing: Papa Pizza Cantley (V3: 602, V1: 825)
+[2025-12-15 16:35:07] [INFO] ============================================================
+[2025-12-15 16:35:07] [INFO] Found 134 dishes in database for restaurant 602
+[2025-12-15 16:35:07] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=825&load=menu&showLang=en
+[2025-12-15 16:35:11] [INFO] Found 0 non-combo dishes
+[2025-12-15 16:35:11] [INFO] Found 0 dish links on menu page
+[2025-12-15 16:35:11] [INFO] Results for Papa Pizza Cantley:
+[2025-12-15 16:35:11] [INFO]   - Dishes processed: 0
+[2025-12-15 16:35:11] [INFO]   - Modifier groups updated: 0
+[2025-12-15 16:35:11] [INFO]   - Dish availability records: 0
+[2025-12-15 16:35:11] [INFO]   - Errors: 0
+[2025-12-15 16:35:11] [INFO] ============================================================
+[2025-12-15 16:35:11] [INFO] Processing: Marina Pizza des Flandres (V3: 614, V1: 838)
+[2025-12-15 16:35:11] [INFO] ============================================================
+[2025-12-15 16:35:11] [INFO] Found 73 dishes in database for restaurant 614
+[2025-12-15 16:35:11] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=838&load=menu&showLang=en
+[2025-12-15 16:35:16] [INFO] Found 0 non-combo dishes
+[2025-12-15 16:35:16] [INFO] Found 0 dish links on menu page
+[2025-12-15 16:35:16] [INFO] Results for Marina Pizza des Flandres:
+[2025-12-15 16:35:16] [INFO]   - Dishes processed: 0
+[2025-12-15 16:35:16] [INFO]   - Modifier groups updated: 0
+[2025-12-15 16:35:16] [INFO]   - Dish availability records: 0
+[2025-12-15 16:35:16] [INFO]   - Errors: 0
+[2025-12-15 16:35:16] [INFO] ============================================================
+[2025-12-15 16:35:16] [INFO] Processing: Papa Grecque Maloney (V3: 616, V1: 840)
+[2025-12-15 16:35:16] [INFO] ============================================================
+[2025-12-15 16:35:17] [INFO] Found 55 dishes in database for restaurant 616
+[2025-12-15 16:35:17] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=840&load=menu&showLang=en
+[2025-12-15 16:35:21] [INFO] Found 0 non-combo dishes
+[2025-12-15 16:35:21] [INFO] Found 0 dish links on menu page
+[2025-12-15 16:35:21] [INFO] Results for Papa Grecque Maloney:
+[2025-12-15 16:35:21] [INFO]   - Dishes processed: 0
+[2025-12-15 16:35:21] [INFO]   - Modifier groups updated: 0
+[2025-12-15 16:35:21] [INFO]   - Dish availability records: 0
+[2025-12-15 16:35:21] [INFO]   - Errors: 0
+[2025-12-15 16:35:21] [INFO] ============================================================
+[2025-12-15 16:35:21] [INFO] Processing: Milano (V3: 624, V1: 850)
+[2025-12-15 16:35:21] [INFO] ============================================================
+[2025-12-15 16:35:21] [INFO] Found 111 dishes in database for restaurant 624
+[2025-12-15 16:35:21] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=850&load=menu&showLang=en
+[2025-12-15 16:35:25] [INFO] Found 110 non-combo dishes
+[2025-12-15 16:35:25] [INFO] Found 110 dish links on menu page
+[2025-12-15 16:38:53] [INFO] Results for Milano:
+[2025-12-15 16:38:53] [INFO]   - Dishes processed: 110
+[2025-12-15 16:38:53] [INFO]   - Modifier groups updated: 159
+[2025-12-15 16:38:53] [INFO]   - Dish availability records: 7
+[2025-12-15 16:38:53] [INFO]   - Errors: 0
+[2025-12-15 16:38:53] [INFO] ============================================================
+[2025-12-15 16:38:53] [INFO] Processing: Asia Garden Ottawa (V3: 630, V1: 856)
+[2025-12-15 16:38:53] [INFO] ============================================================
+[2025-12-15 16:38:53] [INFO] Found 156 dishes in database for restaurant 630
+[2025-12-15 16:38:53] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=856&load=menu&showLang=en
+[2025-12-15 16:38:58] [INFO] Found 156 non-combo dishes
+[2025-12-15 16:38:58] [INFO] Found 156 dish links on menu page
+[2025-12-15 16:42:56] [INFO] Results for Asia Garden Ottawa:
+[2025-12-15 16:42:56] [INFO]   - Dishes processed: 156
+[2025-12-15 16:42:56] [INFO]   - Modifier groups updated: 7
+[2025-12-15 16:42:56] [INFO]   - Dish availability records: 0
+[2025-12-15 16:42:56] [INFO]   - Errors: 0
+[2025-12-15 16:42:56] [INFO] ============================================================
+[2025-12-15 16:42:56] [INFO] Processing: Digby's Restaurant (V3: 638, V1: 865)
+[2025-12-15 16:42:56] [INFO] ============================================================
+[2025-12-15 16:42:56] [INFO] Found 89 dishes in database for restaurant 638
+[2025-12-15 16:42:56] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=865&load=menu&showLang=en
+[2025-12-15 16:43:00] [INFO] Found 89 non-combo dishes
+[2025-12-15 16:43:00] [INFO] Found 89 dish links on menu page
+[2025-12-15 16:45:34] [INFO] Results for Digby's Restaurant:
+[2025-12-15 16:45:34] [INFO]   - Dishes processed: 89
+[2025-12-15 16:45:34] [INFO]   - Modifier groups updated: 68
+[2025-12-15 16:45:34] [INFO]   - Dish availability records: 6
+[2025-12-15 16:45:34] [INFO]   - Errors: 0
+[2025-12-15 16:45:34] [INFO] ============================================================
+[2025-12-15 16:45:34] [INFO] Processing: China Moon (V3: 641, V1: 869)
+[2025-12-15 16:45:34] [INFO] ============================================================
+[2025-12-15 16:45:34] [INFO] Found 157 dishes in database for restaurant 641
+[2025-12-15 16:45:34] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=869&load=menu&showLang=en
+[2025-12-15 16:45:39] [INFO] Found 157 non-combo dishes
+[2025-12-15 16:45:39] [INFO] Found 157 dish links on menu page
+[2025-12-15 16:49:46] [INFO] Results for China Moon:
+[2025-12-15 16:49:46] [INFO]   - Dishes processed: 157
+[2025-12-15 16:49:46] [INFO]   - Modifier groups updated: 1
+[2025-12-15 16:49:46] [INFO]   - Dish availability records: 0
+[2025-12-15 16:49:46] [INFO]   - Errors: 0
+[2025-12-15 16:49:46] [INFO] ============================================================
+[2025-12-15 16:49:46] [INFO] Processing: Mozza Pizza Hull (V3: 644, V1: 872)
+[2025-12-15 16:49:46] [INFO] ============================================================
+[2025-12-15 16:49:46] [INFO] Found 122 dishes in database for restaurant 644
+[2025-12-15 16:49:46] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=872&load=menu&showLang=en
+[2025-12-15 16:49:51] [INFO] Found 0 non-combo dishes
+[2025-12-15 16:49:51] [INFO] Found 0 dish links on menu page
+[2025-12-15 16:49:51] [INFO] Results for Mozza Pizza Hull:
+[2025-12-15 16:49:51] [INFO]   - Dishes processed: 0
+[2025-12-15 16:49:51] [INFO]   - Modifier groups updated: 0
+[2025-12-15 16:49:51] [INFO]   - Dish availability records: 0
+[2025-12-15 16:49:51] [INFO]   - Errors: 0
+[2025-12-15 16:49:51] [INFO] ============================================================
+[2025-12-15 16:49:51] [INFO] Processing: JC Royal Thai Cuisine (V3: 646, V1: 874)
+[2025-12-15 16:49:51] [INFO] ============================================================
+[2025-12-15 16:49:51] [INFO] Found 152 dishes in database for restaurant 646
+[2025-12-15 16:49:51] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=874&load=menu&showLang=en
+[2025-12-15 16:49:55] [INFO] Found 152 non-combo dishes
+[2025-12-15 16:49:55] [INFO] Found 152 dish links on menu page
+[2025-12-15 16:54:15] [INFO] Results for JC Royal Thai Cuisine:
+[2025-12-15 16:54:15] [INFO]   - Dishes processed: 152
+[2025-12-15 16:54:15] [INFO]   - Modifier groups updated: 40
+[2025-12-15 16:54:15] [INFO]   - Dish availability records: 26
+[2025-12-15 16:54:15] [INFO]   - Errors: 0
+[2025-12-15 16:54:15] [INFO] ============================================================
+[2025-12-15 16:54:15] [INFO] Processing: Milano (V3: 651, V1: 879)
+[2025-12-15 16:54:15] [INFO] ============================================================
+[2025-12-15 16:54:16] [INFO] Found 303 dishes in database for restaurant 651
+[2025-12-15 16:54:16] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=879&load=menu&showLang=en
+[2025-12-15 16:54:21] [INFO] Found 300 non-combo dishes
+[2025-12-15 16:54:21] [INFO] Found 300 dish links on menu page
+[2025-12-15 17:06:25] [INFO] Results for Milano:
+[2025-12-15 17:06:25] [INFO]   - Dishes processed: 299
+[2025-12-15 17:06:25] [INFO]   - Modifier groups updated: 467
+[2025-12-15 17:06:25] [INFO]   - Dish availability records: 273
+[2025-12-15 17:06:25] [INFO]   - Errors: 0
+[2025-12-15 17:06:25] [INFO] ============================================================
+[2025-12-15 17:06:25] [INFO] Processing: Milano (V3: 660, V1: 889)
+[2025-12-15 17:06:25] [INFO] ============================================================
+[2025-12-15 17:06:25] [INFO] Found 156 dishes in database for restaurant 660
+[2025-12-15 17:06:25] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=889&load=menu&showLang=en
+[2025-12-15 17:06:30] [INFO] Found 155 non-combo dishes
+[2025-12-15 17:06:30] [INFO] Found 155 dish links on menu page
+[2025-12-15 17:11:14] [INFO] Results for Milano:
+[2025-12-15 17:11:14] [INFO]   - Dishes processed: 155
+[2025-12-15 17:11:14] [INFO]   - Modifier groups updated: 140
+[2025-12-15 17:11:14] [INFO]   - Dish availability records: 7
+[2025-12-15 17:11:14] [INFO]   - Errors: 0
+[2025-12-15 17:11:14] [INFO] ============================================================
+[2025-12-15 17:11:14] [INFO] Processing: Milano (V3: 680, V1: 913)
+[2025-12-15 17:11:14] [INFO] ============================================================
+[2025-12-15 17:11:14] [INFO] Found 265 dishes in database for restaurant 680
+[2025-12-15 17:11:14] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=913&load=menu&showLang=en
+[2025-12-15 17:11:23] [INFO] Found 264 non-combo dishes
+[2025-12-15 17:11:23] [INFO] Found 264 dish links on menu page
+[2025-12-15 17:21:17] [INFO] Results for Milano:
+[2025-12-15 17:21:17] [INFO]   - Dishes processed: 264
+[2025-12-15 17:21:17] [INFO]   - Modifier groups updated: 502
+[2025-12-15 17:21:17] [INFO]   - Dish availability records: 18
+[2025-12-15 17:21:17] [INFO]   - Errors: 0
+[2025-12-15 17:21:17] [INFO] ============================================================
+[2025-12-15 17:21:17] [INFO] Processing: Oka's Hull (V3: 681, V1: 914)
+[2025-12-15 17:21:17] [INFO] ============================================================
+[2025-12-15 17:21:17] [INFO] Found 130 dishes in database for restaurant 681
+[2025-12-15 17:21:17] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=914&load=menu&showLang=en
+[2025-12-15 17:21:22] [INFO] Found 0 non-combo dishes
+[2025-12-15 17:21:22] [INFO] Found 0 dish links on menu page
+[2025-12-15 17:21:22] [INFO] Results for Oka's Hull:
+[2025-12-15 17:21:22] [INFO]   - Dishes processed: 0
+[2025-12-15 17:21:22] [INFO]   - Modifier groups updated: 0
+[2025-12-15 17:21:22] [INFO]   - Dish availability records: 0
+[2025-12-15 17:21:22] [INFO]   - Errors: 0
+[2025-12-15 17:21:22] [INFO] ============================================================
+[2025-12-15 17:21:22] [INFO] Processing: Pizza Maisonneuve (V3: 696, V1: 930)
+[2025-12-15 17:21:22] [INFO] ============================================================
+[2025-12-15 17:21:22] [INFO] Found 138 dishes in database for restaurant 696
+[2025-12-15 17:21:22] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=930&load=menu&showLang=en
+[2025-12-15 17:21:27] [INFO] Found 0 non-combo dishes
+[2025-12-15 17:21:27] [INFO] Found 0 dish links on menu page
+[2025-12-15 17:21:27] [INFO] Results for Pizza Maisonneuve:
+[2025-12-15 17:21:27] [INFO]   - Dishes processed: 0
+[2025-12-15 17:21:27] [INFO]   - Modifier groups updated: 0
+[2025-12-15 17:21:27] [INFO]   - Dish availability records: 0
+[2025-12-15 17:21:27] [INFO]   - Errors: 0
+[2025-12-15 17:21:27] [INFO] ============================================================
+[2025-12-15 17:21:27] [INFO] Processing: Milano (V3: 701, V1: 937)
+[2025-12-15 17:21:27] [INFO] ============================================================
+[2025-12-15 17:21:27] [INFO] Found 125 dishes in database for restaurant 701
+[2025-12-15 17:21:27] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=937&load=menu&showLang=en
+[2025-12-15 17:21:31] [INFO] Found 124 non-combo dishes
+[2025-12-15 17:21:31] [INFO] Found 124 dish links on menu page
+[2025-12-15 17:25:19] [INFO] Results for Milano:
+[2025-12-15 17:25:19] [INFO]   - Dishes processed: 124
+[2025-12-15 17:25:19] [INFO]   - Modifier groups updated: 164
+[2025-12-15 17:25:19] [INFO]   - Dish availability records: 7
+[2025-12-15 17:25:19] [INFO]   - Errors: 0
+[2025-12-15 17:25:19] [INFO] ============================================================
+[2025-12-15 17:25:19] [INFO] Processing: Supreme Pizzeria (V3: 711, V1: 947)
+[2025-12-15 17:25:19] [INFO] ============================================================
+[2025-12-15 17:25:19] [INFO] Found 56 dishes in database for restaurant 711
+[2025-12-15 17:25:19] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=947&load=menu&showLang=en
+[2025-12-15 17:25:25] [INFO] Found 56 non-combo dishes
+[2025-12-15 17:25:25] [INFO] Found 56 dish links on menu page
+[2025-12-15 17:27:04] [INFO] Results for Supreme Pizzeria:
+[2025-12-15 17:27:04] [INFO]   - Dishes processed: 56
+[2025-12-15 17:27:04] [INFO]   - Modifier groups updated: 62
+[2025-12-15 17:27:04] [INFO]   - Dish availability records: 4
+[2025-12-15 17:27:04] [INFO]   - Errors: 0
+[2025-12-15 17:27:04] [INFO] ============================================================
+[2025-12-15 17:27:04] [INFO] Processing: Patate Lou Lou (V3: 712, V1: 948)
+[2025-12-15 17:27:04] [INFO] ============================================================
+[2025-12-15 17:27:04] [INFO] Found 104 dishes in database for restaurant 712
+[2025-12-15 17:27:04] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=948&load=menu&showLang=en
+[2025-12-15 17:27:09] [INFO] Found 0 non-combo dishes
+[2025-12-15 17:27:09] [INFO] Found 0 dish links on menu page
+[2025-12-15 17:27:09] [INFO] Results for Patate Lou Lou:
+[2025-12-15 17:27:09] [INFO]   - Dishes processed: 0
+[2025-12-15 17:27:09] [INFO]   - Modifier groups updated: 0
+[2025-12-15 17:27:09] [INFO]   - Dish availability records: 0
+[2025-12-15 17:27:09] [INFO]   - Errors: 0
+[2025-12-15 17:27:09] [INFO] ============================================================
+[2025-12-15 17:27:09] [INFO] Processing: Ogilvie Pizza (V3: 714, V1: 951)
+[2025-12-15 17:27:09] [INFO] ============================================================
+[2025-12-15 17:27:09] [INFO] Found 99 dishes in database for restaurant 714
+[2025-12-15 17:27:09] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=951&load=menu&showLang=en
+[2025-12-15 17:27:14] [INFO] Found 99 non-combo dishes
+[2025-12-15 17:27:14] [INFO] Found 99 dish links on menu page
+[2025-12-15 17:29:55] [INFO] Results for Ogilvie Pizza:
+[2025-12-15 17:29:55] [INFO]   - Dishes processed: 99
+[2025-12-15 17:29:55] [INFO]   - Modifier groups updated: 48
+[2025-12-15 17:29:55] [INFO]   - Dish availability records: 0
+[2025-12-15 17:29:55] [INFO]   - Errors: 0
+[2025-12-15 17:29:55] [INFO] ============================================================
+[2025-12-15 17:29:55] [INFO] Processing: La Poutinerie Ogilvie (V3: 715, V1: 952)
+[2025-12-15 17:29:55] [INFO] ============================================================
+[2025-12-15 17:29:55] [INFO] Found 67 dishes in database for restaurant 715
+[2025-12-15 17:29:55] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=952&load=menu&showLang=en
+[2025-12-15 17:29:59] [INFO] Found 67 non-combo dishes
+[2025-12-15 17:29:59] [INFO] Found 67 dish links on menu page
+[2025-12-15 17:31:46] [INFO] Results for La Poutinerie Ogilvie:
+[2025-12-15 17:31:46] [INFO]   - Dishes processed: 67
+[2025-12-15 17:31:46] [INFO]   - Modifier groups updated: 15
+[2025-12-15 17:31:46] [INFO]   - Dish availability records: 0
+[2025-12-15 17:31:46] [INFO]   - Errors: 0
+[2025-12-15 17:31:46] [INFO] ============================================================
+[2025-12-15 17:31:46] [INFO] Processing: PizzaRama (V3: 716, V1: 953)
+[2025-12-15 17:31:46] [INFO] ============================================================
+[2025-12-15 17:31:46] [INFO] Found 122 dishes in database for restaurant 716
+[2025-12-15 17:31:46] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=953&load=menu&showLang=en
+[2025-12-15 17:31:51] [INFO] Found 0 non-combo dishes
+[2025-12-15 17:31:51] [INFO] Found 0 dish links on menu page
+[2025-12-15 17:31:51] [INFO] Results for PizzaRama:
+[2025-12-15 17:31:51] [INFO]   - Dishes processed: 0
+[2025-12-15 17:31:51] [INFO]   - Modifier groups updated: 0
+[2025-12-15 17:31:51] [INFO]   - Dish availability records: 0
+[2025-12-15 17:31:51] [INFO]   - Errors: 0
+[2025-12-15 17:31:51] [INFO] ============================================================
+[2025-12-15 17:31:51] [INFO] Processing: La Maison Pho (V3: 721, V1: 959)
+[2025-12-15 17:31:51] [INFO] ============================================================
+[2025-12-15 17:31:51] [INFO] Found 68 dishes in database for restaurant 721
+[2025-12-15 17:31:51] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=959&load=menu&showLang=en
+[2025-12-15 17:31:56] [INFO] Found 68 non-combo dishes
+[2025-12-15 17:31:56] [INFO] Found 68 dish links on menu page
+[2025-12-15 17:33:42] [INFO] Results for La Maison Pho:
+[2025-12-15 17:33:42] [INFO]   - Dishes processed: 68
+[2025-12-15 17:33:42] [INFO]   - Modifier groups updated: 20
+[2025-12-15 17:33:42] [INFO]   - Dish availability records: 0
+[2025-12-15 17:33:42] [INFO]   - Errors: 0
+[2025-12-15 17:33:42] [INFO] ============================================================
+[2025-12-15 17:33:42] [INFO] Processing: Pizza Joanna (V3: 726, V1: 964)
+[2025-12-15 17:33:42] [INFO] ============================================================
+[2025-12-15 17:33:42] [INFO] Found 113 dishes in database for restaurant 726
+[2025-12-15 17:33:42] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=964&load=menu&showLang=en
+[2025-12-15 17:33:47] [INFO] Found 0 non-combo dishes
+[2025-12-15 17:33:47] [INFO] Found 0 dish links on menu page
+[2025-12-15 17:33:47] [INFO] Results for Pizza Joanna:
+[2025-12-15 17:33:47] [INFO]   - Dishes processed: 0
+[2025-12-15 17:33:47] [INFO]   - Modifier groups updated: 0
+[2025-12-15 17:33:47] [INFO]   - Dish availability records: 0
+[2025-12-15 17:33:47] [INFO]   - Errors: 0
+[2025-12-15 17:33:47] [INFO] ============================================================
+[2025-12-15 17:33:47] [INFO] Processing: La Maison du Burger (V3: 727, V1: 965)
+[2025-12-15 17:33:47] [INFO] ============================================================
+[2025-12-15 17:33:47] [INFO] Found 100 dishes in database for restaurant 727
+[2025-12-15 17:33:47] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=965&load=menu&showLang=en
+[2025-12-15 17:33:51] [INFO] Found 0 non-combo dishes
+[2025-12-15 17:33:51] [INFO] Found 0 dish links on menu page
+[2025-12-15 17:33:51] [INFO] Results for La Maison du Burger:
+[2025-12-15 17:33:51] [INFO]   - Dishes processed: 0
+[2025-12-15 17:33:51] [INFO]   - Modifier groups updated: 0
+[2025-12-15 17:33:51] [INFO]   - Dish availability records: 0
+[2025-12-15 17:33:51] [INFO]   - Errors: 0
+[2025-12-15 17:33:51] [INFO] ============================================================
+[2025-12-15 17:33:51] [INFO] Processing: Friendly Restaurant and Pizzeria (V3: 730, V1: 968)
+[2025-12-15 17:33:51] [INFO] ============================================================
+[2025-12-15 17:33:52] [INFO] Found 156 dishes in database for restaurant 730
+[2025-12-15 17:33:52] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=968&load=menu&showLang=en
+[2025-12-15 17:33:56] [INFO] Found 156 non-combo dishes
+[2025-12-15 17:33:56] [INFO] Found 156 dish links on menu page
+[2025-12-15 17:38:26] [INFO] Results for Friendly Restaurant and Pizzeria:
+[2025-12-15 17:38:26] [INFO]   - Dishes processed: 156
+[2025-12-15 17:38:26] [INFO]   - Modifier groups updated: 124
+[2025-12-15 17:38:26] [INFO]   - Dish availability records: 0
+[2025-12-15 17:38:26] [INFO]   - Errors: 0
+[2025-12-15 17:38:26] [INFO] ============================================================
+[2025-12-15 17:38:26] [INFO] Processing: Amicci Pizza (V3: 735, V1: 973)
+[2025-12-15 17:38:26] [INFO] ============================================================
+[2025-12-15 17:38:26] [INFO] Found 92 dishes in database for restaurant 735
+[2025-12-15 17:38:26] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=973&load=menu&showLang=en
+[2025-12-15 17:38:30] [INFO] Found 92 non-combo dishes
+[2025-12-15 17:38:30] [INFO] Found 92 dish links on menu page
+[2025-12-15 17:41:10] [INFO] Results for Amicci Pizza:
+[2025-12-15 17:41:10] [INFO]   - Dishes processed: 92
+[2025-12-15 17:41:10] [INFO]   - Modifier groups updated: 76
+[2025-12-15 17:41:10] [INFO]   - Dish availability records: 0
+[2025-12-15 17:41:10] [INFO]   - Errors: 0
+[2025-12-15 17:41:10] [INFO] ============================================================
+[2025-12-15 17:41:10] [INFO] Processing: Greber Pizza et Shawarma (V3: 736, V1: 974)
+[2025-12-15 17:41:10] [INFO] ============================================================
+[2025-12-15 17:41:11] [INFO] Found 105 dishes in database for restaurant 736
+[2025-12-15 17:41:11] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=974&load=menu&showLang=en
+[2025-12-15 17:41:16] [INFO] Found 0 non-combo dishes
+[2025-12-15 17:41:16] [INFO] Found 0 dish links on menu page
+[2025-12-15 17:41:16] [INFO] Results for Greber Pizza et Shawarma:
+[2025-12-15 17:41:16] [INFO]   - Dishes processed: 0
+[2025-12-15 17:41:16] [INFO]   - Modifier groups updated: 0
+[2025-12-15 17:41:16] [INFO]   - Dish availability records: 0
+[2025-12-15 17:41:16] [INFO]   - Errors: 0
+[2025-12-15 17:41:16] [INFO] ============================================================
+[2025-12-15 17:41:16] [INFO] Processing: Sala Thai (V3: 745, V1: 983)
+[2025-12-15 17:41:16] [INFO] ============================================================
+[2025-12-15 17:41:16] [INFO] Found 94 dishes in database for restaurant 745
+[2025-12-15 17:41:16] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=983&load=menu&showLang=en
+[2025-12-15 17:41:20] [INFO] Found 94 non-combo dishes
+[2025-12-15 17:41:20] [INFO] Found 94 dish links on menu page
+[2025-12-15 17:43:43] [INFO] Results for Sala Thai:
+[2025-12-15 17:43:43] [INFO]   - Dishes processed: 94
+[2025-12-15 17:43:43] [INFO]   - Modifier groups updated: 2
+[2025-12-15 17:43:43] [INFO]   - Dish availability records: 0
+[2025-12-15 17:43:43] [INFO]   - Errors: 0
+[2025-12-15 17:43:43] [INFO] ============================================================
+[2025-12-15 17:43:43] [INFO] Processing: Milano (V3: 749, V1: 987)
+[2025-12-15 17:43:43] [INFO] ============================================================
+[2025-12-15 17:43:43] [INFO] Found 122 dishes in database for restaurant 749
+[2025-12-15 17:43:43] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=987&load=menu&showLang=en
+[2025-12-15 17:43:49] [INFO] Found 121 non-combo dishes
+[2025-12-15 17:43:49] [INFO] Found 121 dish links on menu page
+[2025-12-15 17:47:53] [INFO] Results for Milano:
+[2025-12-15 17:47:53] [INFO]   - Dishes processed: 121
+[2025-12-15 17:47:53] [INFO]   - Modifier groups updated: 163
+[2025-12-15 17:47:53] [INFO]   - Dish availability records: 7
+[2025-12-15 17:47:53] [INFO]   - Errors: 0
+[2025-12-15 17:47:53] [INFO] ============================================================
+[2025-12-15 17:47:53] [INFO] Processing: Milano (V3: 751, V1: 989)
+[2025-12-15 17:47:53] [INFO] ============================================================
+[2025-12-15 17:47:54] [INFO] Found 211 dishes in database for restaurant 751
+[2025-12-15 17:47:54] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=989&load=menu&showLang=en
+[2025-12-15 17:47:59] [INFO] Found 209 non-combo dishes
+[2025-12-15 17:47:59] [INFO] Found 209 dish links on menu page
+[2025-12-15 17:54:37] [INFO] Results for Milano:
+[2025-12-15 17:54:37] [INFO]   - Dishes processed: 209
+[2025-12-15 17:54:37] [INFO]   - Modifier groups updated: 256
+[2025-12-15 17:54:37] [INFO]   - Dish availability records: 7
+[2025-12-15 17:54:37] [INFO]   - Errors: 0
+[2025-12-15 17:54:37] [INFO] ============================================================
+[2025-12-15 17:54:37] [INFO] Processing: Little Gyros Greek Grill (V3: 756, V1: 998)
+[2025-12-15 17:54:37] [INFO] ============================================================
+[2025-12-15 17:54:37] [INFO] Found 112 dishes in database for restaurant 756
+[2025-12-15 17:54:37] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=998&load=menu&showLang=en
+[2025-12-15 17:54:42] [INFO] Found 112 non-combo dishes
+[2025-12-15 17:54:42] [INFO] Found 112 dish links on menu page
+[2025-12-15 17:58:36] [INFO] Results for Little Gyros Greek Grill:
+[2025-12-15 17:58:36] [INFO]   - Dishes processed: 112
+[2025-12-15 17:58:36] [INFO]   - Modifier groups updated: 135
+[2025-12-15 17:58:36] [INFO]   - Dish availability records: 128
+[2025-12-15 17:58:36] [INFO]   - Errors: 0
+[2025-12-15 17:58:36] [INFO] ============================================================
+[2025-12-15 17:58:36] [INFO] Processing: Colonnade Pizza (V3: 783, V1: 1025)
+[2025-12-15 17:58:36] [INFO] ============================================================
+[2025-12-15 17:58:36] [INFO] Found 93 dishes in database for restaurant 783
+[2025-12-15 17:58:36] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1025&load=menu&showLang=en
+[2025-12-15 17:58:41] [INFO] Found 93 non-combo dishes
+[2025-12-15 17:58:41] [INFO] Found 93 dish links on menu page
+[2025-12-15 18:01:23] [INFO] Results for Colonnade Pizza:
+[2025-12-15 18:01:23] [INFO]   - Dishes processed: 93
+[2025-12-15 18:01:23] [INFO]   - Modifier groups updated: 75
+[2025-12-15 18:01:23] [INFO]   - Dish availability records: 0
+[2025-12-15 18:01:23] [INFO]   - Errors: 0
+[2025-12-15 18:01:23] [INFO] ============================================================
+[2025-12-15 18:01:23] [INFO] Processing: Colonnade Pizza (V3: 784, V1: 1027)
+[2025-12-15 18:01:23] [INFO] ============================================================
+[2025-12-15 18:01:23] [INFO] Found 101 dishes in database for restaurant 784
+[2025-12-15 18:01:23] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1027&load=menu&showLang=en
+[2025-12-15 18:01:27] [INFO] Found 101 non-combo dishes
+[2025-12-15 18:01:27] [INFO] Found 101 dish links on menu page
+[2025-12-15 18:04:26] [INFO] Results for Colonnade Pizza:
+[2025-12-15 18:04:26] [INFO]   - Dishes processed: 101
+[2025-12-15 18:04:26] [INFO]   - Modifier groups updated: 93
+[2025-12-15 18:04:26] [INFO]   - Dish availability records: 0
+[2025-12-15 18:04:26] [INFO]   - Errors: 0
+[2025-12-15 18:04:26] [INFO] ============================================================
+[2025-12-15 18:04:26] [INFO] Processing: Colonnade Pizza (V3: 785, V1: 1028)
+[2025-12-15 18:04:26] [INFO] ============================================================
+[2025-12-15 18:04:26] [INFO] Found 92 dishes in database for restaurant 785
+[2025-12-15 18:04:26] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1028&load=menu&showLang=en
+[2025-12-15 18:04:30] [INFO] Found 92 non-combo dishes
+[2025-12-15 18:04:30] [INFO] Found 92 dish links on menu page
+[2025-12-15 18:07:08] [INFO] Results for Colonnade Pizza:
+[2025-12-15 18:07:08] [INFO]   - Dishes processed: 92
+[2025-12-15 18:07:08] [INFO]   - Modifier groups updated: 73
+[2025-12-15 18:07:08] [INFO]   - Dish availability records: 0
+[2025-12-15 18:07:08] [INFO]   - Errors: 0
+[2025-12-15 18:07:08] [INFO] ============================================================
+[2025-12-15 18:07:08] [INFO] Processing: Poutinerie Québecurds Hull (V3: 789, V1: 1032)
+[2025-12-15 18:07:08] [INFO] ============================================================
+[2025-12-15 18:07:09] [INFO] Found 27 dishes in database for restaurant 789
+[2025-12-15 18:07:09] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1032&load=menu&showLang=en
+[2025-12-15 18:07:13] [INFO] Found 27 non-combo dishes
+[2025-12-15 18:07:13] [INFO] Found 27 dish links on menu page
+[2025-12-15 18:07:56] [INFO] Results for Poutinerie Québecurds Hull:
+[2025-12-15 18:07:56] [INFO]   - Dishes processed: 27
+[2025-12-15 18:07:56] [INFO]   - Modifier groups updated: 4
+[2025-12-15 18:07:56] [INFO]   - Dish availability records: 0
+[2025-12-15 18:07:56] [INFO]   - Errors: 0
+[2025-12-15 18:07:56] [INFO] ============================================================
+[2025-12-15 18:07:56] [INFO] Processing: Nachos Loco Hull (V3: 790, V1: 1033)
+[2025-12-15 18:07:56] [INFO] ============================================================
+[2025-12-15 18:07:56] [INFO] Found 44 dishes in database for restaurant 790
+[2025-12-15 18:07:56] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1033&load=menu&showLang=en
+[2025-12-15 18:08:01] [INFO] Found 44 non-combo dishes
+[2025-12-15 18:08:01] [INFO] Found 44 dish links on menu page
+[2025-12-15 18:09:22] [INFO] Results for Nachos Loco Hull:
+[2025-12-15 18:09:22] [INFO]   - Dishes processed: 44
+[2025-12-15 18:09:22] [INFO]   - Modifier groups updated: 64
+[2025-12-15 18:09:22] [INFO]   - Dish availability records: 0
+[2025-12-15 18:09:22] [INFO]   - Errors: 0
+[2025-12-15 18:09:22] [INFO] ============================================================
+[2025-12-15 18:09:22] [INFO] Processing: Dumpling Bowl (V3: 792, V1: 1035)
+[2025-12-15 18:09:22] [INFO] ============================================================
+[2025-12-15 18:09:22] [INFO] Found 79 dishes in database for restaurant 792
+[2025-12-15 18:09:22] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1035&load=menu&showLang=en
+[2025-12-15 18:09:28] [INFO] Found 79 non-combo dishes
+[2025-12-15 18:09:28] [INFO] Found 79 dish links on menu page
+[2025-12-15 18:11:42] [INFO] Results for Dumpling Bowl:
+[2025-12-15 18:11:42] [INFO]   - Dishes processed: 79
+[2025-12-15 18:11:42] [INFO]   - Modifier groups updated: 70
+[2025-12-15 18:11:42] [INFO]   - Dish availability records: 0
+[2025-12-15 18:11:42] [INFO]   - Errors: 0
+[2025-12-15 18:11:42] [INFO] ============================================================
+[2025-12-15 18:11:42] [INFO] Processing: Papa Pizza Chem. de Masson (V3: 795, V1: 1039)
+[2025-12-15 18:11:42] [INFO] ============================================================
+[2025-12-15 18:11:42] [INFO] Found 70 dishes in database for restaurant 795
+[2025-12-15 18:11:42] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1039&load=menu&showLang=en
+[2025-12-15 18:11:46] [INFO] Found 0 non-combo dishes
+[2025-12-15 18:11:46] [INFO] Found 0 dish links on menu page
+[2025-12-15 18:11:46] [INFO] Results for Papa Pizza Chem. de Masson:
+[2025-12-15 18:11:46] [INFO]   - Dishes processed: 0
+[2025-12-15 18:11:46] [INFO]   - Modifier groups updated: 0
+[2025-12-15 18:11:46] [INFO]   - Dish availability records: 0
+[2025-12-15 18:11:46] [INFO]   - Errors: 0
+[2025-12-15 18:11:46] [INFO] ============================================================
+[2025-12-15 18:11:46] [INFO] Processing: Papa Burger (V3: 797, V1: 1041)
+[2025-12-15 18:11:46] [INFO] ============================================================
+[2025-12-15 18:11:47] [INFO] Found 69 dishes in database for restaurant 797
+[2025-12-15 18:11:47] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1041&load=menu&showLang=en
+[2025-12-15 18:11:51] [INFO] Found 0 non-combo dishes
+[2025-12-15 18:11:51] [INFO] Found 0 dish links on menu page
+[2025-12-15 18:11:51] [INFO] Results for Papa Burger:
+[2025-12-15 18:11:51] [INFO]   - Dishes processed: 0
+[2025-12-15 18:11:51] [INFO]   - Modifier groups updated: 0
+[2025-12-15 18:11:51] [INFO]   - Dish availability records: 0
+[2025-12-15 18:11:51] [INFO]   - Errors: 0
+[2025-12-15 18:11:51] [INFO] ============================================================
+[2025-12-15 18:11:51] [INFO] Processing: Kabylie Pizza (V3: 798, V1: 1042)
+[2025-12-15 18:11:51] [INFO] ============================================================
+[2025-12-15 18:11:51] [INFO] Found 135 dishes in database for restaurant 798
+[2025-12-15 18:11:51] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1042&load=menu&showLang=en
+[2025-12-15 18:11:55] [INFO] Found 0 non-combo dishes
+[2025-12-15 18:11:55] [INFO] Found 0 dish links on menu page
+[2025-12-15 18:11:55] [INFO] Results for Kabylie Pizza:
+[2025-12-15 18:11:55] [INFO]   - Dishes processed: 0
+[2025-12-15 18:11:55] [INFO]   - Modifier groups updated: 0
+[2025-12-15 18:11:55] [INFO]   - Dish availability records: 0
+[2025-12-15 18:11:55] [INFO]   - Errors: 0
+[2025-12-15 18:11:55] [INFO] ============================================================
+[2025-12-15 18:11:55] [INFO] Processing: Nachos Loco Gatineau (V3: 801, V1: 1045)
+[2025-12-15 18:11:55] [INFO] ============================================================
+[2025-12-15 18:11:55] [INFO] Found 44 dishes in database for restaurant 801
+[2025-12-15 18:11:55] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1045&load=menu&showLang=en
+[2025-12-15 18:11:59] [INFO] Found 44 non-combo dishes
+[2025-12-15 18:11:59] [INFO] Found 44 dish links on menu page
+[2025-12-15 18:13:22] [INFO] Results for Nachos Loco Gatineau:
+[2025-12-15 18:13:22] [INFO]   - Dishes processed: 44
+[2025-12-15 18:13:22] [INFO]   - Modifier groups updated: 64
+[2025-12-15 18:13:22] [INFO]   - Dish availability records: 0
+[2025-12-15 18:13:22] [INFO]   - Errors: 0
+[2025-12-15 18:13:22] [INFO] ============================================================
+[2025-12-15 18:13:22] [INFO] Processing: Crispy's Bank Street (V3: 806, V1: 1050)
+[2025-12-15 18:13:22] [INFO] ============================================================
+[2025-12-15 18:13:23] [INFO] Found 123 dishes in database for restaurant 806
+[2025-12-15 18:13:23] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1050&load=menu&showLang=en
+[2025-12-15 18:13:27] [INFO] Found 123 non-combo dishes
+[2025-12-15 18:13:27] [INFO] Found 123 dish links on menu page
+[2025-12-15 18:17:15] [INFO] Results for Crispy's Bank Street:
+[2025-12-15 18:17:15] [INFO]   - Dishes processed: 123
+[2025-12-15 18:17:15] [INFO]   - Modifier groups updated: 184
+[2025-12-15 18:17:15] [INFO]   - Dish availability records: 0
+[2025-12-15 18:17:15] [INFO]   - Errors: 0
+[2025-12-15 18:17:15] [INFO] ============================================================
+[2025-12-15 18:17:15] [INFO] Processing: Oh My Grill (V3: 807, V1: 1051)
+[2025-12-15 18:17:15] [INFO] ============================================================
+[2025-12-15 18:17:16] [INFO] Found 81 dishes in database for restaurant 807
+[2025-12-15 18:17:16] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1051&load=menu&showLang=en
+[2025-12-15 18:17:20] [INFO] Found 81 non-combo dishes
+[2025-12-15 18:17:20] [INFO] Found 81 dish links on menu page
+[2025-12-15 18:19:39] [INFO] Results for Oh My Grill:
+[2025-12-15 18:19:39] [INFO]   - Dishes processed: 81
+[2025-12-15 18:19:39] [INFO]   - Modifier groups updated: 71
+[2025-12-15 18:19:39] [INFO]   - Dish availability records: 0
+[2025-12-15 18:19:39] [INFO]   - Errors: 0
+[2025-12-15 18:19:39] [INFO] ============================================================
+[2025-12-15 18:19:39] [INFO] Processing: Papa Grecque Cantley (V3: 810, V1: 1054)
+[2025-12-15 18:19:39] [INFO] ============================================================
+[2025-12-15 18:19:39] [INFO] Found 45 dishes in database for restaurant 810
+[2025-12-15 18:19:39] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1054&load=menu&showLang=en
+[2025-12-15 18:19:43] [INFO] Found 0 non-combo dishes
+[2025-12-15 18:19:43] [INFO] Found 0 dish links on menu page
+[2025-12-15 18:19:43] [INFO] Results for Papa Grecque Cantley:
+[2025-12-15 18:19:43] [INFO]   - Dishes processed: 0
+[2025-12-15 18:19:43] [INFO]   - Modifier groups updated: 0
+[2025-12-15 18:19:43] [INFO]   - Dish availability records: 0
+[2025-12-15 18:19:43] [INFO]   - Errors: 0
+[2025-12-15 18:19:43] [INFO] ============================================================
+[2025-12-15 18:19:43] [INFO] Processing: Golden Center Pizza (V3: 815, V1: 1059)
+[2025-12-15 18:19:43] [INFO] ============================================================
+[2025-12-15 18:19:44] [INFO] Found 92 dishes in database for restaurant 815
+[2025-12-15 18:19:44] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1059&load=menu&showLang=en
+[2025-12-15 18:19:48] [INFO] Found 92 non-combo dishes
+[2025-12-15 18:19:48] [INFO] Found 92 dish links on menu page
+[2025-12-15 18:22:28] [INFO] Results for Golden Center Pizza:
+[2025-12-15 18:22:28] [INFO]   - Dishes processed: 92
+[2025-12-15 18:22:28] [INFO]   - Modifier groups updated: 80
+[2025-12-15 18:22:28] [INFO]   - Dish availability records: 0
+[2025-12-15 18:22:28] [INFO]   - Errors: 0
+[2025-12-15 18:22:28] [INFO] ============================================================
+[2025-12-15 18:22:28] [INFO] Processing: Dépanneur Généreux (V3: 816, V1: 1060)
+[2025-12-15 18:22:28] [INFO] ============================================================
+[2025-12-15 18:22:28] [INFO] Found 863 dishes in database for restaurant 816
+[2025-12-15 18:22:28] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1060&load=menu&showLang=en
+[2025-12-15 18:22:32] [INFO] Found 0 non-combo dishes
+[2025-12-15 18:22:32] [INFO] Found 0 dish links on menu page
+[2025-12-15 18:22:32] [INFO] Results for Dépanneur Généreux:
+[2025-12-15 18:22:32] [INFO]   - Dishes processed: 0
+[2025-12-15 18:22:32] [INFO]   - Modifier groups updated: 0
+[2025-12-15 18:22:32] [INFO]   - Dish availability records: 0
+[2025-12-15 18:22:32] [INFO]   - Errors: 0
+[2025-12-15 18:22:32] [INFO] ============================================================
+[2025-12-15 18:22:32] [INFO] Processing: Milano (V3: 818, V1: 1062)
+[2025-12-15 18:22:32] [INFO] ============================================================
+[2025-12-15 18:22:32] [INFO] Found 135 dishes in database for restaurant 818
+[2025-12-15 18:22:32] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1062&load=menu&showLang=en
+[2025-12-15 18:22:37] [INFO] Found 135 non-combo dishes
+[2025-12-15 18:22:37] [INFO] Found 135 dish links on menu page
+[2025-12-15 18:27:14] [INFO] Results for Milano:
+[2025-12-15 18:27:14] [INFO]   - Dishes processed: 135
+[2025-12-15 18:27:14] [INFO]   - Modifier groups updated: 169
+[2025-12-15 18:27:14] [INFO]   - Dish availability records: 168
+[2025-12-15 18:27:14] [INFO]   - Errors: 0
+[2025-12-15 18:27:14] [INFO] ============================================================
+[2025-12-15 18:27:14] [INFO] Processing: Milano (V3: 819, V1: 1063)
+[2025-12-15 18:27:14] [INFO] ============================================================
+[2025-12-15 18:27:14] [INFO] Found 117 dishes in database for restaurant 819
+[2025-12-15 18:27:14] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1063&load=menu&showLang=en
+[2025-12-15 18:27:19] [INFO] Found 117 non-combo dishes
+[2025-12-15 18:27:19] [INFO] Found 117 dish links on menu page
+[2025-12-15 18:30:46] [INFO] Results for Milano:
+[2025-12-15 18:30:46] [INFO]   - Dishes processed: 117
+[2025-12-15 18:30:46] [INFO]   - Modifier groups updated: 109
+[2025-12-15 18:30:46] [INFO]   - Dish availability records: 0
+[2025-12-15 18:30:46] [INFO]   - Errors: 0
+[2025-12-15 18:30:46] [INFO] ============================================================
+[2025-12-15 18:30:46] [INFO] Processing: Vieux Hull Pizza (V3: 820, V1: 1064)
+[2025-12-15 18:30:46] [INFO] ============================================================
+[2025-12-15 18:30:46] [INFO] Found 150 dishes in database for restaurant 820
+[2025-12-15 18:30:46] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1064&load=menu&showLang=en
+[2025-12-15 18:30:51] [INFO] Found 0 non-combo dishes
+[2025-12-15 18:30:51] [INFO] Found 0 dish links on menu page
+[2025-12-15 18:30:51] [INFO] Results for Vieux Hull Pizza:
+[2025-12-15 18:30:51] [INFO]   - Dishes processed: 0
+[2025-12-15 18:30:51] [INFO]   - Modifier groups updated: 0
+[2025-12-15 18:30:51] [INFO]   - Dish availability records: 0
+[2025-12-15 18:30:51] [INFO]   - Errors: 0
+[2025-12-15 18:30:51] [INFO] ============================================================
+[2025-12-15 18:30:51] [INFO] Processing: Milano (V3: 821, V1: 1065)
+[2025-12-15 18:30:51] [INFO] ============================================================
+[2025-12-15 18:30:51] [INFO] Found 80 dishes in database for restaurant 821
+[2025-12-15 18:30:51] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1065&load=menu&showLang=en
+[2025-12-15 18:30:55] [INFO] Found 81 non-combo dishes
+[2025-12-15 18:30:55] [INFO] Found 81 dish links on menu page
+[2025-12-15 18:33:13] [INFO] Results for Milano:
+[2025-12-15 18:33:13] [INFO]   - Dishes processed: 80
+[2025-12-15 18:33:13] [INFO]   - Modifier groups updated: 74
+[2025-12-15 18:33:13] [INFO]   - Dish availability records: 0
+[2025-12-15 18:33:13] [INFO]   - Errors: 0
+[2025-12-15 18:33:13] [INFO] ============================================================
+[2025-12-15 18:33:13] [INFO] Processing: Papa Burger Maloney (V3: 822, V1: 1066)
+[2025-12-15 18:33:13] [INFO] ============================================================
+[2025-12-15 18:33:13] [INFO] Found 64 dishes in database for restaurant 822
+[2025-12-15 18:33:13] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1066&load=menu&showLang=en
+[2025-12-15 18:33:18] [INFO] Found 0 non-combo dishes
+[2025-12-15 18:33:18] [INFO] Found 0 dish links on menu page
+[2025-12-15 18:33:18] [INFO] Results for Papa Burger Maloney:
+[2025-12-15 18:33:18] [INFO]   - Dishes processed: 0
+[2025-12-15 18:33:18] [INFO]   - Modifier groups updated: 0
+[2025-12-15 18:33:18] [INFO]   - Dish availability records: 0
+[2025-12-15 18:33:18] [INFO]   - Errors: 0
+[2025-12-15 18:33:18] [INFO] ============================================================
+[2025-12-15 18:33:18] [INFO] Processing: Prima Pizza (V3: 824, V1: 1069)
+[2025-12-15 18:33:18] [INFO] ============================================================
+[2025-12-15 18:33:18] [INFO] Found 111 dishes in database for restaurant 824
+[2025-12-15 18:33:18] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1069&load=menu&showLang=en
+[2025-12-15 18:33:24] [INFO] Found 111 non-combo dishes
+[2025-12-15 18:33:24] [INFO] Found 111 dish links on menu page
+[2025-12-15 18:37:06] [INFO] Results for Prima Pizza:
+[2025-12-15 18:37:06] [INFO]   - Dishes processed: 111
+[2025-12-15 18:37:06] [INFO]   - Modifier groups updated: 229
+[2025-12-15 18:37:06] [INFO]   - Dish availability records: 0
+[2025-12-15 18:37:06] [INFO]   - Errors: 0
+[2025-12-15 18:37:06] [INFO] ============================================================
+[2025-12-15 18:37:06] [INFO] Processing: La Nawab V2 (V3: 825, V1: 1070)
+[2025-12-15 18:37:06] [INFO] ============================================================
+[2025-12-15 18:37:06] [INFO] Found 50 dishes in database for restaurant 825
+[2025-12-15 18:37:06] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1070&load=menu&showLang=en
+[2025-12-15 18:37:10] [INFO] Found 0 non-combo dishes
+[2025-12-15 18:37:10] [INFO] Found 0 dish links on menu page
+[2025-12-15 18:37:10] [INFO] Results for La Nawab V2:
+[2025-12-15 18:37:10] [INFO]   - Dishes processed: 0
+[2025-12-15 18:37:10] [INFO]   - Modifier groups updated: 0
+[2025-12-15 18:37:10] [INFO]   - Dish availability records: 0
+[2025-12-15 18:37:10] [INFO]   - Errors: 0
+[2025-12-15 18:37:10] [INFO] ============================================================
+[2025-12-15 18:37:10] [INFO] Processing: Pizzalicious (V3: 829, V1: 1074)
+[2025-12-15 18:37:10] [INFO] ============================================================
+[2025-12-15 18:37:10] [INFO] Found 72 dishes in database for restaurant 829
+[2025-12-15 18:37:10] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1074&load=menu&showLang=en
+[2025-12-15 18:37:14] [INFO] Found 72 non-combo dishes
+[2025-12-15 18:37:14] [INFO] Found 72 dish links on menu page
+[2025-12-15 18:39:23] [INFO] Results for Pizzalicious:
+[2025-12-15 18:39:23] [INFO]   - Dishes processed: 72
+[2025-12-15 18:39:23] [INFO]   - Modifier groups updated: 79
+[2025-12-15 18:39:23] [INFO]   - Dish availability records: 0
+[2025-12-15 18:39:23] [INFO]   - Errors: 0
+[2025-12-15 18:39:23] [INFO] ============================================================
+[2025-12-15 18:39:23] [INFO] Processing: All Out Burger (V3: 833, V1: 1080)
+[2025-12-15 18:39:23] [INFO] ============================================================
+[2025-12-15 18:39:23] [INFO] Found 111 dishes in database for restaurant 833
+[2025-12-15 18:39:23] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1080&load=menu&showLang=en
+[2025-12-15 18:39:28] [INFO] Found 110 non-combo dishes
+[2025-12-15 18:39:28] [INFO] Found 110 dish links on menu page
+[2025-12-15 18:40:38] [INFO] Results for All Out Burger:
+[2025-12-15 18:40:38] [INFO]   - Dishes processed: 34
+[2025-12-15 18:40:38] [INFO]   - Modifier groups updated: 87
+[2025-12-15 18:40:38] [INFO]   - Dish availability records: 0
+[2025-12-15 18:40:38] [INFO]   - Errors: 0
+[2025-12-15 18:40:38] [INFO] ============================================================
+[2025-12-15 18:40:38] [INFO] Processing: Milano (V3: 835, V1: 1082)
+[2025-12-15 18:40:38] [INFO] ============================================================
+[2025-12-15 18:40:38] [INFO] Found 89 dishes in database for restaurant 835
+[2025-12-15 18:40:38] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1082&load=menu&showLang=en
+[2025-12-15 18:40:42] [INFO] Found 89 non-combo dishes
+[2025-12-15 18:40:42] [INFO] Found 89 dish links on menu page
+[2025-12-15 18:43:23] [INFO] Results for Milano:
+[2025-12-15 18:43:23] [INFO]   - Dishes processed: 89
+[2025-12-15 18:43:23] [INFO]   - Modifier groups updated: 94
+[2025-12-15 18:43:23] [INFO]   - Dish availability records: 0
+[2025-12-15 18:43:23] [INFO]   - Errors: 0
+[2025-12-15 18:43:23] [INFO] ============================================================
+[2025-12-15 18:43:23] [INFO] Processing: Souvlaki Souvlaki (V3: 836, V1: 1083)
+[2025-12-15 18:43:23] [INFO] ============================================================
+[2025-12-15 18:43:23] [INFO] Found 26 dishes in database for restaurant 836
+[2025-12-15 18:43:23] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1083&load=menu&showLang=en
+[2025-12-15 18:43:28] [INFO] Found 26 non-combo dishes
+[2025-12-15 18:43:28] [INFO] Found 26 dish links on menu page
+[2025-12-15 18:44:11] [INFO] Results for Souvlaki Souvlaki:
+[2025-12-15 18:44:11] [INFO]   - Dishes processed: 26
+[2025-12-15 18:44:11] [INFO]   - Modifier groups updated: 19
+[2025-12-15 18:44:11] [INFO]   - Dish availability records: 0
+[2025-12-15 18:44:11] [INFO]   - Errors: 0
+[2025-12-15 18:44:11] [INFO] ============================================================
+[2025-12-15 18:44:11] [INFO] Processing: Milano (V3: 837, V1: 1084)
+[2025-12-15 18:44:11] [INFO] ============================================================
+[2025-12-15 18:44:11] [INFO] Found 83 dishes in database for restaurant 837
+[2025-12-15 18:44:11] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1084&load=menu&showLang=en
+[2025-12-15 18:44:15] [INFO] Found 83 non-combo dishes
+[2025-12-15 18:44:15] [INFO] Found 83 dish links on menu page
+[2025-12-15 18:46:44] [INFO] Results for Milano:
+[2025-12-15 18:46:44] [INFO]   - Dishes processed: 83
+[2025-12-15 18:46:44] [INFO]   - Modifier groups updated: 79
+[2025-12-15 18:46:44] [INFO]   - Dish availability records: 7
+[2025-12-15 18:46:44] [INFO]   - Errors: 0
+[2025-12-15 18:46:44] [INFO] ============================================================
+[2025-12-15 18:46:44] [INFO] Processing: Milano (V3: 840, V1: 1087)
+[2025-12-15 18:46:44] [INFO] ============================================================
+[2025-12-15 18:46:44] [INFO] Found 186 dishes in database for restaurant 840
+[2025-12-15 18:46:44] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1087&load=menu&showLang=en
+[2025-12-15 18:46:49] [INFO] Found 186 non-combo dishes
+[2025-12-15 18:46:49] [INFO] Found 186 dish links on menu page
+[2025-12-15 18:52:38] [INFO] Results for Milano:
+[2025-12-15 18:52:38] [INFO]   - Dishes processed: 186
+[2025-12-15 18:52:38] [INFO]   - Modifier groups updated: 269
+[2025-12-15 18:52:38] [INFO]   - Dish availability records: 0
+[2025-12-15 18:52:38] [INFO]   - Errors: 0
+[2025-12-15 18:52:38] [INFO] ============================================================
+[2025-12-15 18:52:38] [INFO] Processing: All Out Burger (V3: 841, V1: 1088)
+[2025-12-15 18:52:38] [INFO] ============================================================
+[2025-12-15 18:52:38] [INFO] Found 110 dishes in database for restaurant 841
+[2025-12-15 18:52:38] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1088&load=menu&showLang=en
+[2025-12-15 18:52:43] [INFO] Found 110 non-combo dishes
+[2025-12-15 18:52:43] [INFO] Found 110 dish links on menu page
+[2025-12-15 18:56:00] [INFO] Results for All Out Burger:
+[2025-12-15 18:56:00] [INFO]   - Dishes processed: 110
+[2025-12-15 18:56:00] [INFO]   - Modifier groups updated: 130
+[2025-12-15 18:56:00] [INFO]   - Dish availability records: 0
+[2025-12-15 18:56:00] [INFO]   - Errors: 0
+[2025-12-15 18:56:00] [INFO] ============================================================
+[2025-12-15 18:56:00] [INFO] Processing: Milano (V3: 842, V1: 1089)
+[2025-12-15 18:56:00] [INFO] ============================================================
+[2025-12-15 18:56:01] [INFO] Found 84 dishes in database for restaurant 842
+[2025-12-15 18:56:01] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1089&load=menu&showLang=en
+[2025-12-15 18:56:05] [INFO] Found 84 non-combo dishes
+[2025-12-15 18:56:05] [INFO] Found 84 dish links on menu page
+[2025-12-15 18:58:35] [INFO] Results for Milano:
+[2025-12-15 18:58:35] [INFO]   - Dishes processed: 84
+[2025-12-15 18:58:35] [INFO]   - Modifier groups updated: 85
+[2025-12-15 18:58:35] [INFO]   - Dish availability records: 0
+[2025-12-15 18:58:35] [INFO]   - Errors: 0
+[2025-12-15 18:58:35] [INFO] ============================================================
+[2025-12-15 18:58:35] [INFO] Processing: Mykonos Greek Grill (V3: 845, V1: 1092)
+[2025-12-15 18:58:35] [INFO] ============================================================
+[2025-12-15 18:58:35] [INFO] Found 41 dishes in database for restaurant 845
+[2025-12-15 18:58:35] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1092&load=menu&showLang=en
+[2025-12-15 18:58:39] [INFO] Found 41 non-combo dishes
+[2025-12-15 18:58:39] [INFO] Found 41 dish links on menu page
+[2025-12-15 18:59:40] [INFO] Results for Mykonos Greek Grill:
+[2025-12-15 18:59:40] [INFO]   - Dishes processed: 41
+[2025-12-15 18:59:40] [INFO]   - Modifier groups updated: 0
+[2025-12-15 18:59:40] [INFO]   - Dish availability records: 0
+[2025-12-15 18:59:40] [INFO]   - Errors: 0
+[2025-12-15 18:59:40] [INFO] ============================================================
+[2025-12-15 18:59:40] [INFO] Processing: Mykonos Greek Grill (V3: 846, V1: 1093)
+[2025-12-15 18:59:40] [INFO] ============================================================
+[2025-12-15 18:59:40] [INFO] Found 42 dishes in database for restaurant 846
+[2025-12-15 18:59:40] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1093&load=menu&showLang=en
+[2025-12-15 18:59:45] [INFO] Found 42 non-combo dishes
+[2025-12-15 18:59:45] [INFO] Found 42 dish links on menu page
+[2025-12-15 19:00:49] [INFO] Results for Mykonos Greek Grill:
+[2025-12-15 19:00:49] [INFO]   - Dishes processed: 42
+[2025-12-15 19:00:49] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:00:49] [INFO]   - Dish availability records: 0
+[2025-12-15 19:00:49] [INFO]   - Errors: 0
+[2025-12-15 19:00:49] [INFO] ============================================================
+[2025-12-15 19:00:49] [INFO] Processing: Sushiyana (V3: 847, V1: 1094)
+[2025-12-15 19:00:49] [INFO] ============================================================
+[2025-12-15 19:00:49] [INFO] Found 127 dishes in database for restaurant 847
+[2025-12-15 19:00:49] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1094&load=menu&showLang=en
+[2025-12-15 19:00:53] [INFO] Found 128 non-combo dishes
+[2025-12-15 19:00:53] [INFO] Found 128 dish links on menu page
+[2025-12-15 19:04:08] [INFO] Results for Sushiyana:
+[2025-12-15 19:04:08] [INFO]   - Dishes processed: 127
+[2025-12-15 19:04:08] [INFO]   - Modifier groups updated: 8
+[2025-12-15 19:04:08] [INFO]   - Dish availability records: 0
+[2025-12-15 19:04:08] [INFO]   - Errors: 0
+[2025-12-15 19:04:08] [INFO] ============================================================
+[2025-12-15 19:04:08] [INFO] Processing: Ting's Kitchen (V3: 941, V1: 694)
+[2025-12-15 19:04:08] [INFO] ============================================================
+[2025-12-15 19:04:09] [INFO] Found 191 dishes in database for restaurant 941
+[2025-12-15 19:04:09] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=694&load=menu&showLang=en
+[2025-12-15 19:04:14] [INFO] Found 192 non-combo dishes
+[2025-12-15 19:04:14] [INFO] Found 192 dish links on menu page
+[2025-12-15 19:09:10] [INFO] Results for Ting's Kitchen:
+[2025-12-15 19:09:10] [INFO]   - Dishes processed: 191
+[2025-12-15 19:09:10] [INFO]   - Modifier groups updated: 7
+[2025-12-15 19:09:10] [INFO]   - Dish availability records: 12
+[2025-12-15 19:09:10] [INFO]   - Errors: 0
+[2025-12-15 19:09:10] [INFO] ============================================================
+[2025-12-15 19:09:10] [INFO] Processing: Charm Thai Cuisine (V3: 943, V1: 323)
+[2025-12-15 19:09:10] [INFO] ============================================================
+[2025-12-15 19:09:10] [INFO] Found 79 dishes in database for restaurant 943
+[2025-12-15 19:09:10] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=323&load=menu&showLang=en
+[2025-12-15 19:09:15] [INFO] Found 79 non-combo dishes
+[2025-12-15 19:09:15] [INFO] Found 79 dish links on menu page
+[2025-12-15 19:11:16] [INFO] Results for Charm Thai Cuisine:
+[2025-12-15 19:11:16] [INFO]   - Dishes processed: 79
+[2025-12-15 19:11:16] [INFO]   - Modifier groups updated: 8
+[2025-12-15 19:11:16] [INFO]   - Dish availability records: 0
+[2025-12-15 19:11:16] [INFO]   - Errors: 0
+[2025-12-15 19:11:16] [INFO] ============================================================
+[2025-12-15 19:11:16] [INFO] Processing: Wandee Thai (V3: 954, V1: 686)
+[2025-12-15 19:11:16] [INFO] ============================================================
+[2025-12-15 19:11:16] [INFO] Found 94 dishes in database for restaurant 954
+[2025-12-15 19:11:16] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=686&load=menu&showLang=en
+[2025-12-15 19:11:22] [INFO] Found 98 non-combo dishes
+[2025-12-15 19:11:22] [INFO] Found 98 dish links on menu page
+[2025-12-15 19:11:22] [INFO] Results for Wandee Thai:
+[2025-12-15 19:11:22] [INFO]   - Dishes processed: 0
+[2025-12-15 19:11:22] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:11:22] [INFO]   - Dish availability records: 0
+[2025-12-15 19:11:22] [INFO]   - Errors: 0
+[2025-12-15 19:11:22] [INFO] ============================================================
+[2025-12-15 19:11:22] [INFO] Processing: Little Gyros Greek Grill (V3: 971, V1: 998)
+[2025-12-15 19:11:22] [INFO] ============================================================
+[2025-12-15 19:11:22] [INFO] Found 95 dishes in database for restaurant 971
+[2025-12-15 19:11:22] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=998&load=menu&showLang=en
+[2025-12-15 19:11:27] [INFO] Found 112 non-combo dishes
+[2025-12-15 19:11:27] [INFO] Found 112 dish links on menu page
+[2025-12-15 19:11:27] [INFO] Results for Little Gyros Greek Grill:
+[2025-12-15 19:11:27] [INFO]   - Dishes processed: 0
+[2025-12-15 19:11:27] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:11:27] [INFO]   - Dish availability records: 0
+[2025-12-15 19:11:27] [INFO]   - Errors: 0
+[2025-12-15 19:11:27] [INFO] ============================================================
+[2025-12-15 19:11:27] [INFO] Processing: La Famiglia on the Danforth (V3: 984, V1: 364)
+[2025-12-15 19:11:27] [INFO] ============================================================
+[2025-12-15 19:11:27] [INFO] Found 120 dishes in database for restaurant 984
+[2025-12-15 19:11:27] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=364&load=menu&showLang=en
+[2025-12-15 19:11:31] [INFO] Found 120 non-combo dishes
+[2025-12-15 19:11:31] [INFO] Found 120 dish links on menu page
+[2025-12-15 19:15:01] [INFO] Results for La Famiglia on the Danforth:
+[2025-12-15 19:15:01] [INFO]   - Dishes processed: 120
+[2025-12-15 19:15:01] [INFO]   - Modifier groups updated: 117
+[2025-12-15 19:15:01] [INFO]   - Dish availability records: 0
+[2025-12-15 19:15:01] [INFO]   - Errors: 0
+[2025-12-15 19:15:01] [INFO] ============================================================
+[2025-12-15 19:15:01] [INFO] Processing: Yorgo's - Nepean (V3: 985, V1: 547)
+[2025-12-15 19:15:01] [INFO] ============================================================
+[2025-12-15 19:15:01] [INFO] Found 129 dishes in database for restaurant 985
+[2025-12-15 19:15:01] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=547&load=menu&showLang=en
+[2025-12-15 19:15:05] [INFO] Found 127 non-combo dishes
+[2025-12-15 19:15:05] [INFO] Found 127 dish links on menu page
+[2025-12-15 19:18:43] [INFO] Results for Yorgo's - Nepean:
+[2025-12-15 19:18:43] [INFO]   - Dishes processed: 127
+[2025-12-15 19:18:43] [INFO]   - Modifier groups updated: 94
+[2025-12-15 19:18:43] [INFO]   - Dish availability records: 0
+[2025-12-15 19:18:43] [INFO]   - Errors: 0
+[2025-12-15 19:18:43] [INFO] ============================================================
+[2025-12-15 19:18:43] [INFO] Processing: Econo Pizza (V3: 1009, V1: 1095)
+[2025-12-15 19:18:43] [INFO] ============================================================
+[2025-12-15 19:18:43] [WARNING] No dishes found in database for restaurant 1009
+[2025-12-15 19:18:43] [INFO] Results for Econo Pizza:
+[2025-12-15 19:18:43] [INFO]   - Dishes processed: 0
+[2025-12-15 19:18:43] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:18:43] [INFO]   - Dish availability records: 0
+[2025-12-15 19:18:43] [INFO]   - Errors: 0
+[2025-12-15 19:18:43] [INFO] ============================================================
+[2025-12-15 19:18:43] [INFO] Processing: Lemongrass Thai Cuisine (V3: 1010, V1: 219)
+[2025-12-15 19:18:43] [INFO] ============================================================
+[2025-12-15 19:18:43] [INFO] Found 68 dishes in database for restaurant 1010
+[2025-12-15 19:18:43] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=219&load=menu&showLang=en
+[2025-12-15 19:18:47] [INFO] Found 68 non-combo dishes
+[2025-12-15 19:18:47] [INFO] Found 68 dish links on menu page
+[2025-12-15 19:20:31] [INFO] Results for Lemongrass Thai Cuisine:
+[2025-12-15 19:20:31] [INFO]   - Dishes processed: 68
+[2025-12-15 19:20:31] [INFO]   - Modifier groups updated: 2
+[2025-12-15 19:20:31] [INFO]   - Dish availability records: 0
+[2025-12-15 19:20:31] [INFO]   - Errors: 0
+[2025-12-15 19:20:31] [INFO] ============================================================
+[2025-12-15 19:20:31] [INFO] Processing: Mozza Pizza Gatineau (V3: 1011, V1: 132)
+[2025-12-15 19:20:31] [INFO] ============================================================
+[2025-12-15 19:20:31] [INFO] Found 105 dishes in database for restaurant 1011
+[2025-12-15 19:20:31] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=132&load=menu&showLang=en
+[2025-12-15 19:20:35] [INFO] Found 0 non-combo dishes
+[2025-12-15 19:20:35] [INFO] Found 0 dish links on menu page
+[2025-12-15 19:20:35] [INFO] Results for Mozza Pizza Gatineau:
+[2025-12-15 19:20:35] [INFO]   - Dishes processed: 0
+[2025-12-15 19:20:35] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:20:35] [INFO]   - Dish availability records: 0
+[2025-12-15 19:20:35] [INFO]   - Errors: 0
+[2025-12-15 19:20:35] [INFO] ============================================================
+[2025-12-15 19:20:35] [INFO] Processing: Papa Pizza Des Flandres (V3: 1012, V1: 231)
+[2025-12-15 19:20:35] [INFO] ============================================================
+[2025-12-15 19:20:35] [INFO] Found 176 dishes in database for restaurant 1012
+[2025-12-15 19:20:35] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=231&load=menu&showLang=en
+[2025-12-15 19:20:39] [INFO] Found 0 non-combo dishes
+[2025-12-15 19:20:39] [INFO] Found 0 dish links on menu page
+[2025-12-15 19:20:39] [INFO] Results for Papa Pizza Des Flandres:
+[2025-12-15 19:20:39] [INFO]   - Dishes processed: 0
+[2025-12-15 19:20:39] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:20:39] [INFO]   - Dish availability records: 0
+[2025-12-15 19:20:39] [INFO]   - Errors: 0
+[2025-12-15 19:20:39] [INFO] ============================================================
+[2025-12-15 19:20:39] [INFO] Processing: Papa Pizza Maloney (V3: 1013, V1: 346)
+[2025-12-15 19:20:39] [INFO] ============================================================
+[2025-12-15 19:20:39] [INFO] Found 148 dishes in database for restaurant 1013
+[2025-12-15 19:20:39] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=346&load=menu&showLang=en
+[2025-12-15 19:20:44] [INFO] Found 0 non-combo dishes
+[2025-12-15 19:20:44] [INFO] Found 0 dish links on menu page
+[2025-12-15 19:20:44] [INFO] Results for Papa Pizza Maloney:
+[2025-12-15 19:20:44] [INFO]   - Dishes processed: 0
+[2025-12-15 19:20:44] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:20:44] [INFO]   - Dish availability records: 0
+[2025-12-15 19:20:44] [INFO]   - Errors: 0
+[2025-12-15 19:20:44] [INFO] ============================================================
+[2025-12-15 19:20:44] [INFO] Processing: Papa Pizza Val-Des-Monts (V3: 1014, V1: 703)
+[2025-12-15 19:20:44] [INFO] ============================================================
+[2025-12-15 19:20:44] [INFO] Found 157 dishes in database for restaurant 1014
+[2025-12-15 19:20:44] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=703&load=menu&showLang=en
+[2025-12-15 19:20:48] [INFO] Found 0 non-combo dishes
+[2025-12-15 19:20:48] [INFO] Found 0 dish links on menu page
+[2025-12-15 19:20:48] [INFO] Results for Papa Pizza Val-Des-Monts:
+[2025-12-15 19:20:48] [INFO]   - Dishes processed: 0
+[2025-12-15 19:20:48] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:20:48] [INFO]   - Dish availability records: 0
+[2025-12-15 19:20:48] [INFO]   - Errors: 0
+[2025-12-15 19:20:48] [INFO] ============================================================
+[2025-12-15 19:20:48] [INFO] Processing: Poutinerie Québecurds Gatineau (V3: 1015, V1: 1046)
+[2025-12-15 19:20:48] [INFO] ============================================================
+[2025-12-15 19:20:48] [INFO] Found 27 dishes in database for restaurant 1015
+[2025-12-15 19:20:48] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1046&load=menu&showLang=en
+[2025-12-15 19:20:53] [INFO] Found 27 non-combo dishes
+[2025-12-15 19:20:53] [INFO] Found 27 dish links on menu page
+[2025-12-15 19:21:36] [INFO] Results for Poutinerie Québecurds Gatineau:
+[2025-12-15 19:21:36] [INFO]   - Dishes processed: 27
+[2025-12-15 19:21:36] [INFO]   - Modifier groups updated: 4
+[2025-12-15 19:21:36] [INFO]   - Dish availability records: 0
+[2025-12-15 19:21:36] [INFO]   - Errors: 0
+[2025-12-15 19:21:36] [INFO] ============================================================
+[2025-12-15 19:21:36] [INFO] Processing: Roulas Grecque et Pizza (V3: 1016, V1: 173)
+[2025-12-15 19:21:36] [INFO] ============================================================
+[2025-12-15 19:21:36] [INFO] Found 118 dishes in database for restaurant 1016
+[2025-12-15 19:21:36] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=173&load=menu&showLang=en
+[2025-12-15 19:21:41] [INFO] Found 0 non-combo dishes
+[2025-12-15 19:21:41] [INFO] Found 0 dish links on menu page
+[2025-12-15 19:21:41] [INFO] Results for Roulas Grecque et Pizza:
+[2025-12-15 19:21:41] [INFO]   - Dishes processed: 0
+[2025-12-15 19:21:41] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:21:41] [INFO]   - Dish availability records: 0
+[2025-12-15 19:21:41] [INFO]   - Errors: 0
+[2025-12-15 19:21:41] [INFO] ============================================================
+[2025-12-15 19:21:41] [INFO] Processing: Sushi Express Chambly (V3: 1017, V1: 511)
+[2025-12-15 19:21:41] [INFO] ============================================================
+[2025-12-15 19:21:41] [INFO] Found 133 dishes in database for restaurant 1017
+[2025-12-15 19:21:41] [INFO] Navigating to menu: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=511&load=menu&showLang=en
+[2025-12-15 19:21:45] [INFO] Found 0 non-combo dishes
+[2025-12-15 19:21:45] [INFO] Found 0 dish links on menu page
+[2025-12-15 19:21:45] [INFO] Results for Sushi Express Chambly:
+[2025-12-15 19:21:45] [INFO]   - Dishes processed: 0
+[2025-12-15 19:21:45] [INFO]   - Modifier groups updated: 0
+[2025-12-15 19:21:45] [INFO]   - Dish availability records: 0
+[2025-12-15 19:21:45] [INFO]   - Errors: 0
+[2025-12-15 19:21:45] [INFO] Stopping Modifier Group Details Scraper...
+[2025-12-15 19:21:45] [INFO] Database connection closed
+[2025-12-15 19:21:45] [INFO] All connections closed
+[2025-12-15 19:21:45] [INFO] ============================================================
+[2025-12-15 19:21:45] [INFO] MODIFIER GROUP DETAILS SCRAPER COMPLETE
+[2025-12-15 19:21:45] [INFO] ============================================================
+[2025-12-15 19:21:45] [INFO] Restaurants processed: 163
+[2025-12-15 19:21:45] [INFO] Total dishes processed: 17159
+[2025-12-15 19:21:45] [INFO] Total modifier groups updated: 16713
+[2025-12-15 19:21:45] [INFO] Total dish availability records: 1025
+[2025-12-15 19:21:45] [INFO] Total errors: 0

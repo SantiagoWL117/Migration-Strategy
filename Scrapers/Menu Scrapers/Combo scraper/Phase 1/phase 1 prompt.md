@@ -1904,7 +1904,9 @@ Notice that only 4 combo groups were assigned to this dish:
 
 I want you to only use the combo groups of that were checked (<input checked="">) to assign each combo group to each dish.
 
-6. Some combos a drink modifier: <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px">Drinks</p> if you see this element you need to:
+6. Some combos a drink modifier:
+
+ <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px">Drinks</p> if you see this element you need to:
 a. Scrape the modifier group: <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	<input checked="" onclick="$$('#uld ul[class=\'d\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_d_2052').show();}" type="radio" name="d_radio" value="2052" id="radio_d_2052">
 	<label for="radio_d_2052">Drinks can</label>

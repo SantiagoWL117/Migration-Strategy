@@ -789,3 +789,4 @@ class ComboDatabase:
         stats['prices'] = self.cursor.fetchone()['count']
 
         return stats
+
