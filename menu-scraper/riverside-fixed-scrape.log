@@ -1,0 +1,277 @@
+
+> menu-scraper@1.0.0 scrape
+> ts-node src/cli.ts riverside-pizzeria
+
+
+🍔 Scraping: Riverside Pizzeria
+🔗 URL: https://riversidepizzeriaottawa.ca/?p=menu
+📦 Version: v1
+👁️  Headless: true
+
+[V1-Simple] Navigating to https://riversidepizzeriaottawa.ca/?p=menu
+[V1-Simple] Closed modal detected - clicking View Menu
+[V1-Simple] Extracting dish names from DOM...
+[V1-Simple] Found 89 dishes on page
+
+[V1-Simple] Sample dishes:
+  1. Melina’s Famous Calzones ($15.95)
+  2. 30 Wings Special ($32.95)
+  3. Riverside Special ($14.95)
+  4. Canadian ($14.95)
+  5. Vegetarian ($14.95)
+  6. Greek ($14.95)
+  7. Meat Lovers ($14.95)
+  8. Santina ($14.95)
+  9. Aloha ($14.95)
+  10. Hawaiian Island ($14.95)
+  ... and 79 more
+
+[V1-Simple] [1/89] Melina’s Famous Calzones
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [2/89] 30 Wings Special
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 8 options
+[V1-Simple] [3/89] Riverside Special
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [4/89] Canadian
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [5/89] Vegetarian
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [6/89] Greek
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [7/89] Meat Lovers
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [8/89] Santina
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [9/89] Aloha
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [10/89] Hawaiian Island
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [11/89] Parmesan Chicken Pizza
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [12/89] Steak and Veggie
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [13/89] Tango Special
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [14/89] Combination with Olives
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [15/89] Deluxe
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [16/89] BBQ Chicken
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [17/89] Pepperoni Lovers
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [18/89] Double Trouble
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [19/89] Poutine Pizza
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [20/89] Prosciutto White Pizza
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [21/89] Godfather
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] Removing overlay: [id="oc"]
+[V1-Simple] [22/89] La Margherita
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [23/89] Garlic Lovers Pizza
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [24/89] Dani Boy Special
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [25/89] New Yorker Pizza
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [26/89] Nacho Pizza
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [27/89] Woww Pizza
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [28/89] Soprano Pizza
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [29/89] Butter Chicken Pizza
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [30/89] Plain
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [31/89] One Topping
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [32/89] Two Toppings
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [33/89] Three Toppings
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 3 options
+[V1-Simple] [34/89] Big D’S Favourites
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [35/89] Cheese Steak
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [36/89] Club Sub
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [37/89] Meatball Sub
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [38/89] Chicken Parmesan Sub
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [39/89] Pizza Sub
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [40/89] Greek Sub
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [41/89] Heart Attack Supreme
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [42/89] Crispy Chicken Sub
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [43/89] Spaghetti with Meat Sauce
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 2 options
+[V1-Simple] [44/89] Chicken Parmesan with Spaghetti
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 2 options
+[V1-Simple] [45/89] Lasagna
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [46/89] Riverside Lasagna
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [47/89] Fettuccine Alfredo
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] [48/89] Tortellini Three Cheese
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [49/89] Chef's Salad
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] [50/89] Greek Salad
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] [51/89] Caesar Salad
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] Removing overlay: #oc
+[V1-Simple] [52/89] Classic Wings
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 8 options
+[V1-Simple] [53/89] Breaded Wings
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 8 options
+[V1-Simple] [54/89] Boneless Wings
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 8 options
+[V1-Simple] [55/89] Hamburger with Fries
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] [56/89] Cheeseburger with Fries
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] [57/89] Bacon Cheeseburger with Fries
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] [58/89] Cheddar & Mushroom Jalapeno Burger Melt with Fries
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] [59/89] Club Sandwich
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] [60/89] Chicken Fingers and Fries
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 8 options
+[V1-Simple] [61/89] Chicken Burger with Fries
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 1 options
+[V1-Simple] [62/89] Hamburger
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [63/89] Cheeseburger
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [64/89] Bacon Cheeseburger
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [65/89] Cheddar & Mushroom Jalapeno Burger Melt
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [66/89] Pop Curds
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [67/89] Onion Rings
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [68/89] French Fries
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 2 options
+[V1-Simple] [69/89] Daniel's Famous Poutine
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 2 groups, 25 options
+[V1-Simple] [70/89] Deep Fried Pickles (8 pcs)
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [71/89] Jalapeno Poppers (8 pcs)
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [72/89] Mac N Cheese Bites (8)
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [73/89] Nachos
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [74/89] Chicken Nachos
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [75/89] Beef Nachos
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [76/89] Mozzarella Sticks
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 8 options
+[V1-Simple] [77/89] Zucchini Sticks
+[V1-Simple]   Wizard complete (same step repeated)
+[V1-Simple]   ✓ 1 groups, 8 options
+[V1-Simple] [78/89] Garlic Sticks
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [79/89] Garlic Bread
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [80/89] Dipping Sauce
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [81/89] Nutella Calzone
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [82/89] Cinnamon Balls
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [83/89] Caramel Apple Cheesecake
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [84/89] Reese's Peanut Butter Blondie
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [85/89] Strawberry Cheesecake
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [86/89] Coke
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [87/89] Diet Coke
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [88/89] A&W Root Beer
+[V1-Simple]   ✓ 0 groups, 0 options
+[V1-Simple] [89/89] Ginger Ale
+[V1-Simple]   ✓ 0 groups, 0 options
+
+[V1-Simple] Complete: 89/89 dishes
+
+[V1-Simple] Results saved to: /Users/brianlapp/Documents/GitHub/Migration-Strategy/menu-scraper/output/riverside-pizzeria/riverside-pizzeria-2025-11-18T16-58-21-509Z.json
+
+=== V1 SIMPLE SCRAPE SUMMARY ===
+Total dishes:   89
+Scraped:        89
+Errors:         0
+Total Groups:   53
+Total Options:  190
+Success rate:   100.0%
+
+✅ Done!
+📁 Output: ./output/riverside-pizzeria/
+📸 Screenshots: ./screenshots/riverside-pizzeria/
+
