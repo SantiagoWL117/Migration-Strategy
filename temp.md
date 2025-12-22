@@ -1,3 +1,17 @@
+La Maison du Burger (ID: 727) - 574 Boulevard Saint-Joseph, Hull
+⚠️ Data Inconsistency Found:
+Restaurant: NOT deleted ✅
+All 12 courses: Soft-deleted on 2025-11-10 ❌
+81 active dishes still reference deleted courses
+This is an orphaned data situation. The combo duplicates exist but won't be visible to customers because their parent courses are deleted.
+Options:
+Fix the data structure first - Restore courses (or the restaurant may need a menu re-import)
+Clean up duplicates anyway - Keep 1 combo per type, delete the other 12
+Skip for now - Since the whole menu is in a broken state
+What would you like to do with La Maison du Burger?
+
+
+______________________________________________________________________
 ok these are three perfect examples of the current logic of the legacy V1 CRM for special combo groups. 
 
 Some special combo groups can have the dish_selections populated, like the case of Little Gyros and some don't, like the case of Centretown Donair & Pizza. 
