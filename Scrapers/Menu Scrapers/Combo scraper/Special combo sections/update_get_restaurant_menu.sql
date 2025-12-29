@@ -1,5 +1,8 @@
--- Update get_restaurant_menu function to use renamed columns
--- NOTE: Special section fields (has_special_section, dish_selections) will be added once data is scraped
+-- Update get_restaurant_menu function to include dish_modifier_groups with modifiers and prices
+-- Schema relationships:
+--   dishes → dish_modifier_groups (link) → modifier_groups (shared)
+--   modifier_groups → modifiers → modifier_prices
+--   dish_modifier_groups → modifier_group_details (per-dish config: min/max, free_items)
 
 CREATE OR REPLACE FUNCTION menuca_v3.get_restaurant_menu(p_restaurant_id bigint, p_language_code text DEFAULT 'en'::text, p_combo_default_only boolean DEFAULT false)
  RETURNS jsonb
@@ -17,7 +20,7 @@ BEGIN
     RAISE EXCEPTION 'Restaurant not found or inactive';
   END IF;
 
-  -- Build complete menu structure with modifiers AND combo data
+  -- Build complete menu structure with modifier groups AND combo data
   SELECT jsonb_build_object(
     'restaurant_id', p_restaurant_id,
     'combo_default_only', p_combo_default_only,
@@ -52,51 +55,54 @@ BEGIN
                     AND dp.is_active = true
                     AND dp.deleted_at IS NULL
                 ),
-                -- Regular modifier groups (existing)
+                -- Modifier groups linked via dish_modifier_groups
                 'modifier_groups', COALESCE((
                   SELECT jsonb_agg(
                     jsonb_build_object(
                       'id', mg.id,
-                      'name', mg.name,
-                      'is_required', mg.is_required,
-                      'min_selections', mg.min_selections,
-                      'max_selections', mg.max_selections,
-                      'display_order', mg.display_order,
-                      'free_items', mg.free_items,
-                      'modifiers', (
+                      'name', COALESCE(mgd.name, mg.name),  -- Use details name (display), fallback to group name
+                      'category', mg.category,
+                      -- Per-dish configuration from modifier_group_details
+                      'min_selections', COALESCE(mgd.min_selections, 0),
+                      'max_selections', COALESCE(mgd.max_selections, 1),
+                      'free_items', COALESCE(mgd.free_items, 0),
+                      'display_order', COALESCE(mgd.display_order, 0),
+                      -- Modifiers within this group
+                      'modifiers', COALESCE((
                         SELECT jsonb_agg(
                           jsonb_build_object(
-                            'id', dm.id,
-                            'name', dm.name,
-                            'modifier_type', dm.modifier_type,
-                            'is_default', dm.is_default,
-                            'is_included', dm.is_included,
-                            'display_order', dm.display_order,
+                            'id', m.id,
+                            'name', m.name,
+                            'display_order', m.display_order,
+                            'is_active', m.is_active,
                             'prices', COALESCE((
                               SELECT jsonb_agg(
                                 jsonb_build_object(
-                                  'id', dmp.id,
-                                  'size_variant', dmp.size_variant,
-                                  'price', dmp.price,
-                                  'display_order', dmp.display_order
-                                ) ORDER BY dmp.display_order
+                                  'id', mp.id,
+                                  'size_variant', mp.size_variant,
+                                  'price', mp.price,
+                                  'display_order', mp.display_order
+                                ) ORDER BY mp.display_order
                               )
-                              FROM menuca_v3.dish_modifier_prices dmp
-                              WHERE dmp.dish_modifier_id = dm.id
-                                AND dmp.is_active = true
-                                AND dmp.deleted_at IS NULL
+                              FROM menuca_v3.modifier_prices mp
+                              WHERE mp.modifier_id = m.id
+                                AND mp.deleted_at IS NULL
                             ), '[]'::jsonb)
-                          ) ORDER BY dm.display_order
+                          ) ORDER BY m.display_order
                         )
-                        FROM menuca_v3.dish_modifiers dm
-                        WHERE dm.modifier_group_id = mg.id
-                          AND dm.deleted_at IS NULL
-                      )
-                    ) ORDER BY mg.display_order
+                        FROM menuca_v3.modifiers m
+                        WHERE m.modifier_group_id = mg.id
+                          AND m.deleted_at IS NULL
+                      ), '[]'::jsonb)
+                    ) ORDER BY COALESCE(mgd.display_order, 0)
                   )
-                  FROM menuca_v3.modifier_groups mg
-                  WHERE mg.dish_id = d.id
+                  FROM menuca_v3.dish_modifier_groups dmg
+                  JOIN menuca_v3.modifier_groups mg ON mg.id = dmg.modifier_group_id
                     AND mg.deleted_at IS NULL
+                  LEFT JOIN menuca_v3.modifier_group_details mgd ON mgd.dish_modifier_group_id = dmg.id
+                    AND mgd.deleted_at IS NULL
+                  WHERE dmg.dish_id = d.id
+                    AND dmg.deleted_at IS NULL
                 ), '[]'::jsonb),
                 -- Combo groups for this dish
                 'combo_groups', COALESCE((

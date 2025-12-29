@@ -1,0 +1,858 @@
+2025-12-28 11:43:55,999 - INFO - Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Menu Scrapers\V1 Scrapper\logs\missing_english_dish_linker_20251228_114355.log
+2025-12-28 11:43:55,999 - INFO - ============================================================
+2025-12-28 11:43:55,999 - INFO - ENGLISH DISH-MODIFIER LINKER - Missing Restaurants
+2025-12-28 11:43:56,000 - INFO - ============================================================
+2025-12-28 11:43:56,333 - INFO - Database connected (attempt 1)
+2025-12-28 11:43:56,635 - INFO - Found 7513 dishes with existing modifier_group_details
+2025-12-28 11:43:56,638 - INFO - Found 7513 already processed dishes
+2025-12-28 11:43:57,077 - INFO - Navigating to CRM login page (attempt 1)...
+2025-12-28 11:43:58,191 - INFO - Filling login credentials...
+2025-12-28 11:43:59,183 - INFO - Login successful
+2025-12-28 11:43:59,183 - INFO - ----------------------------------------
+2025-12-28 11:43:59,183 - INFO - [1/6] Processing: Aroy Thai (V3: 607, V1: 830)
+2025-12-28 11:44:01,621 - DEBUG -   No active modifier groups for dish A1. Por Pia Pak (4 pcs)
+2025-12-28 11:44:03,476 - DEBUG -   No active modifier groups for dish A2. Por Pia Goong (4 pcs)
+2025-12-28 11:44:05,314 - DEBUG -   No active modifier groups for dish A3. Por Pia Sot (2 pcs)
+2025-12-28 11:44:07,160 - DEBUG -   No active modifier groups for dish A4. Yum Ma Muang
+2025-12-28 11:44:08,998 - DEBUG -   No active modifier groups for dish C1. Combo 1
+2025-12-28 11:44:10,838 - DEBUG -   No active modifier groups for dish C2. Combo 2
+2025-12-28 11:44:12,690 - DEBUG -   No active modifier groups for dish Coconut Juice
+2025-12-28 11:44:14,538 - DEBUG -   No active modifier groups for dish G1. Gaeng Khiao Wan
+2025-12-28 11:44:16,380 - DEBUG -   No active modifier groups for dish G2. Gaeng Garee Gai
+2025-12-28 11:44:16,380 - INFO -   Progress: 10/39 dishes
+2025-12-28 11:44:18,241 - DEBUG -   No active modifier groups for dish G3. Gaeng Dang
+2025-12-28 11:44:20,099 - DEBUG -   No active modifier groups for dish G4. Gaeng Panang
+2025-12-28 11:44:21,937 - DEBUG -   No active modifier groups for dish L1. Pad Thai
+2025-12-28 11:44:23,781 - DEBUG -   No active modifier groups for dish L2. Pad See Ew
+2025-12-28 11:44:25,625 - DEBUG -   No active modifier groups for dish L3. Pad Bai Grapow
+2025-12-28 11:44:27,466 - DEBUG -   No active modifier groups for dish L4. Pad Pak Ruam Mit
+2025-12-28 11:44:29,314 - DEBUG -   No active modifier groups for dish L5. Pad Khing
+2025-12-28 11:44:31,175 - DEBUG -   No active modifier groups for dish L6. Gaeng Khiao Wan
+2025-12-28 11:44:33,021 - DEBUG -   No active modifier groups for dish Mango Juice
+2025-12-28 11:44:34,902 - DEBUG -   No active modifier groups for dish N1.  Pad Thai
+2025-12-28 11:44:34,902 - INFO -   Progress: 20/39 dishes
+2025-12-28 11:44:36,764 - DEBUG -   No active modifier groups for dish N2. Pad Kee Maow
+2025-12-28 11:44:38,647 - DEBUG -   No active modifier groups for dish N3. Pad See Ew
+2025-12-28 11:44:41,039 - DEBUG -   No active modifier groups for dish N4. Khao Pad Supparod
+2025-12-28 11:44:42,914 - DEBUG -   No active modifier groups for dish N5. Khao Pad Thai Style
+2025-12-28 11:44:44,770 - DEBUG -   No active modifier groups for dish P1. Pad Bai Grapow
+2025-12-28 11:44:46,633 - DEBUG -   No active modifier groups for dish P2. Pad Med Ma'Muang
+2025-12-28 11:44:48,526 - DEBUG -   No active modifier groups for dish P3. Pad Khing
+2025-12-28 11:44:50,371 - DEBUG -   No active modifier groups for dish P4. Pad Kra Tiam Prick Thai
+2025-12-28 11:44:52,248 - DEBUG -   No active modifier groups for dish P5. Pad Pak Ruam Mit
+2025-12-28 11:44:54,114 - DEBUG -   No active modifier groups for dish P6. Pad Ma-Kua Yaow
+2025-12-28 11:44:54,114 - INFO -   Progress: 30/39 dishes
+2025-12-28 11:44:55,941 - DEBUG -   No active modifier groups for dish P7. Pad Nam Man Hoy
+2025-12-28 11:44:57,815 - DEBUG -   No active modifier groups for dish Rice
+2025-12-28 11:44:59,688 - DEBUG -   No active modifier groups for dish Rice
+2025-12-28 11:45:01,554 - DEBUG -   No active modifier groups for dish Rice
+2025-12-28 11:45:03,411 - DEBUG -   No active modifier groups for dish S1. Tom Yum Gai
+2025-12-28 11:45:05,261 - DEBUG -   No active modifier groups for dish S2. Tom Yum Goong
+2025-12-28 11:45:07,115 - DEBUG -   No active modifier groups for dish S3. Tom Kha Gai
+2025-12-28 11:45:08,975 - DEBUG -   No active modifier groups for dish S4. Tom Kha Goong
+2025-12-28 11:45:10,847 - DEBUG -   No active modifier groups for dish Thai Milk Tea
+2025-12-28 11:45:12,683 - DEBUG -   No active modifier groups for dish Tip for the chef
+2025-12-28 11:45:12,683 - INFO -   Result: 0 processed, 39 skipped, 0 links, 0 details
+2025-12-28 11:45:12,683 - INFO - ----------------------------------------
+2025-12-28 11:45:12,683 - INFO - [2/6] Processing: Champa Thai Cuisine (V3: 87, V1: 203)
+2025-12-28 11:45:14,688 - DEBUG -   No active modifier groups for dish 7 Up
+2025-12-28 11:45:16,548 - DEBUG -   No active modifier groups for dish A1. Deep Fried Vegetarian Spring Rolls
+2025-12-28 11:45:18,382 - DEBUG -   No active modifier groups for dish A2. Deep Fried Shrimp Spring Rolls
+2025-12-28 11:45:20,217 - DEBUG -   No active modifier groups for dish A3. Egg Rolls (4)
+2025-12-28 11:45:22,080 - DEBUG -   No active modifier groups for dish A4. Chicken Satay (4)
+2025-12-28 11:45:23,994 - DEBUG -   No active modifier groups for dish A5. Deep Fried Tofu
+2025-12-28 11:45:26,013 - DEBUG -   No active modifier groups for dish A6. Fresh Spring Rolls (2)
+2025-12-28 11:45:27,981 - DEBUG -   No active modifier groups for dish A7. Fish Cake
+2025-12-28 11:45:29,994 - DEBUG -   No active modifier groups for dish A8. Deep Fried Chicken Wings (8)
+2025-12-28 11:45:29,994 - INFO -   Progress: 10/82 dishes
+2025-12-28 11:45:31,989 - DEBUG -   No active modifier groups for dish A9. Champa Appetizer Combos
+2025-12-28 11:45:33,976 - DEBUG -   No active modifier groups for dish Boiled Noodles
+2025-12-28 11:45:35,938 - DEBUG -   No active modifier groups for dish Bottled Water
+2025-12-28 11:45:37,923 - DEBUG -   No active modifier groups for dish Coconut Juice
+2025-12-28 11:45:39,927 - DEBUG -   No active modifier groups for dish Coke
+2025-12-28 11:45:41,930 - DEBUG -   No active modifier groups for dish Combo 1
+2025-12-28 11:45:43,918 - DEBUG -   No active modifier groups for dish Combo 2
+2025-12-28 11:45:45,881 - DEBUG -   No active modifier groups for dish Combo 3
+2025-12-28 11:45:47,861 - DEBUG -   No active modifier groups for dish Combo 4
+2025-12-28 11:45:50,346 - DEBUG -   No active modifier groups for dish Combo 5
+2025-12-28 11:45:50,346 - INFO -   Progress: 20/82 dishes
+2025-12-28 11:45:52,347 - DEBUG -   No active modifier groups for dish Diet Coke
+2025-12-28 11:45:54,340 - DEBUG -   No active modifier groups for dish Diet Pepsi
+2025-12-28 11:45:56,327 - DEBUG -   No active modifier groups for dish Dinner for 2
+2025-12-28 11:45:58,307 - DEBUG -   No active modifier groups for dish Dinner for 3
+2025-12-28 11:46:00,351 - DEBUG -   No active modifier groups for dish Dinner for 4
+2025-12-28 11:46:02,350 - DEBUG -   No active modifier groups for dish Dr. Pepper
+2025-12-28 11:46:04,317 - DEBUG -   No active modifier groups for dish Fried Egg
+2025-12-28 11:46:06,312 - DEBUG -   No active modifier groups for dish G1. Yellow Curry
+2025-12-28 11:46:08,286 - DEBUG -   No active modifier groups for dish G2. Green Curry
+2025-12-28 11:46:10,216 - DEBUG -   No active modifier groups for dish G3. Panang Curry
+2025-12-28 11:46:10,216 - INFO -   Progress: 30/82 dishes
+2025-12-28 11:46:12,047 - DEBUG -   No active modifier groups for dish G4. Red Curry
+2025-12-28 11:46:13,887 - DEBUG -   No active modifier groups for dish G5. Red Curry Pineapple
+2025-12-28 11:46:15,711 - DEBUG -   No active modifier groups for dish G6. Deep Fried Crispy Chicken with Panang Curry and ground peanuts on top
+2025-12-28 11:46:17,570 - DEBUG -   No active modifier groups for dish Ginger Ale
+2025-12-28 11:46:19,409 - DEBUG -   No active modifier groups for dish Hot Sauce
+2025-12-28 11:46:21,246 - DEBUG -   No active modifier groups for dish K1. Fried Rice
+2025-12-28 11:46:23,099 - DEBUG -   No active modifier groups for dish K2. Fried Rice with Pineapple
+2025-12-28 11:46:24,939 - DEBUG -   No active modifier groups for dish K3. Fried Rice with Sweet Basil
+2025-12-28 11:46:26,795 - DEBUG -   No active modifier groups for dish L1. Stir Fried Chicken with Garlic & Black Pepper
+2025-12-28 11:46:28,659 - DEBUG -   No active modifier groups for dish L2. Stir Fried with Basil Chicken
+2025-12-28 11:46:28,659 - INFO -   Progress: 40/82 dishes
+2025-12-28 11:46:30,500 - DEBUG -   No active modifier groups for dish L3. Stir Fried Ginger
+2025-12-28 11:46:32,338 - DEBUG -   No active modifier groups for dish L4. Yellow Chicken Curry
+2025-12-28 11:46:34,161 - DEBUG -   No active modifier groups for dish L5. Stir Fried Chicken with Basil Topped with Fried Egg
+2025-12-28 11:46:36,022 - DEBUG -   No active modifier groups for dish L6. Chicken Pad Thai
+2025-12-28 11:46:37,871 - DEBUG -   No active modifier groups for dish L7. Fried Rice with Pineapple Chicken
+2025-12-28 11:46:39,704 - DEBUG -   No active modifier groups for dish L8. Stir Fried Mix Vegetable
+2025-12-28 11:46:41,533 - DEBUG -   No active modifier groups for dish Mango Juice
+2025-12-28 11:46:43,374 - DEBUG -   No active modifier groups for dish N1. Pad Thai
+2025-12-28 11:46:45,219 - DEBUG -   No active modifier groups for dish N2. Pad Se-Ieu
+2025-12-28 11:46:47,048 - DEBUG -   No active modifier groups for dish N3. Pad Kee Mao (HOT)
+2025-12-28 11:46:47,049 - INFO -   Progress: 50/82 dishes
+2025-12-28 11:46:48,899 - DEBUG -   No active modifier groups for dish N4. Lad Na
+2025-12-28 11:46:50,746 - DEBUG -   No active modifier groups for dish Nam Pra Prik
+2025-12-28 11:46:52,606 - DEBUG -   No active modifier groups for dish Nestea
+2025-12-28 11:46:54,449 - DEBUG -   No active modifier groups for dish Orange Crush
+2025-12-28 11:46:56,295 - DEBUG -   No active modifier groups for dish P1. Stir Fried with Basil (HOT)
+2025-12-28 11:46:58,140 - DEBUG -   No active modifier groups for dish P10. Deep Fried Filet Tilapia Topped with Sweet & Sour Sauce
+2025-12-28 11:46:59,997 - DEBUG -   No active modifier groups for dish P11. Deep Fried Shrimps Topped with Sweet & Sour Sauce
+2025-12-28 11:47:01,867 - DEBUG -   No active modifier groups for dish P12. Crispy Chicken with Sweet and Sour
+2025-12-28 11:47:03,713 - DEBUG -   No active modifier groups for dish P2. Pad Khing
+2025-12-28 11:47:05,541 - DEBUG -   No active modifier groups for dish P3. Pad Cashew Nut
+2025-12-28 11:47:05,541 - INFO -   Progress: 60/82 dishes
+2025-12-28 11:47:07,836 - DEBUG -   No active modifier groups for dish P4. Pad With Mixed Vegetables
+2025-12-28 11:47:09,700 - DEBUG -   No active modifier groups for dish P5. Pad Garlic & Black Pepper
+2025-12-28 11:47:11,991 - DEBUG -   No active modifier groups for dish P6. Pad Eggplant (Chicken, Beef, Pork)
+2025-12-28 11:47:13,812 - DEBUG -   No active modifier groups for dish P7. Pad Oyster Sauce
+2025-12-28 11:47:15,672 - DEBUG -   No active modifier groups for dish P8. Pad Sweet & Sour
+2025-12-28 11:47:17,538 - DEBUG -   No active modifier groups for dish P9. Pad Woon Sen
+2025-12-28 11:47:19,407 - DEBUG -   No active modifier groups for dish Peanut Sauce
+2025-12-28 11:47:21,261 - DEBUG -   No active modifier groups for dish Pepsi
+2025-12-28 11:47:23,148 - DEBUG -   No active modifier groups for dish Root Beer
+2025-12-28 11:47:25,014 - DEBUG -   No active modifier groups for dish Sprite
+2025-12-28 11:47:25,014 - INFO -   Progress: 70/82 dishes
+2025-12-28 11:47:26,845 - DEBUG -   No active modifier groups for dish Steamed Jasmine Rice
+2025-12-28 11:47:28,669 - DEBUG -   No active modifier groups for dish Sticky Rice
+2025-12-28 11:47:30,509 - DEBUG -   No active modifier groups for dish T1. Hot & Sour Soup (Tom Yum)
+2025-12-28 11:47:32,381 - DEBUG -   No active modifier groups for dish T2. Hot & Sour Soup with Shrimp (Tom Yum)
+2025-12-28 11:47:34,194 - DEBUG -   No active modifier groups for dish T3. Hot & Sour Coconut Soup (Tom Kha)
+2025-12-28 11:47:36,032 - DEBUG -   No active modifier groups for dish T4. Hot & Sour Coconut Soup with shrimp (Tom Kha)
+2025-12-28 11:47:37,878 - DEBUG -   No active modifier groups for dish T5. Chicken Vermicelli Soup
+2025-12-28 11:47:39,716 - DEBUG -   No active modifier groups for dish Thai Iced Tea
+2025-12-28 11:47:41,610 - DEBUG -   No active modifier groups for dish Y1. Chicken Salad (Laab)
+2025-12-28 11:47:43,476 - DEBUG -   No active modifier groups for dish Y2. Beef Salad
+2025-12-28 11:47:43,476 - INFO -   Progress: 80/82 dishes
+2025-12-28 11:47:45,325 - DEBUG -   No active modifier groups for dish Y3. Mango Salad
+2025-12-28 11:47:47,188 - DEBUG -   No active modifier groups for dish Y4. Mango Salad (Shrimp or Fish)
+2025-12-28 11:47:49,051 - DEBUG -   No active modifier groups for dish Y5. Papaya Salad (Som Tum)
+2025-12-28 11:47:49,051 - INFO -   Result: 0 processed, 82 skipped, 0 links, 0 details
+2025-12-28 11:47:49,051 - INFO - ----------------------------------------
+2025-12-28 11:47:49,051 - INFO - [3/6] Processing: Hong Kong Chinese Food Takeout (V3: 160, V1: 294)
+2025-12-28 11:47:51,055 - DEBUG -   No active modifier groups for dish 1. Chicken Chow Mein, Sweet & Sour Chicken Balls.
+2025-12-28 11:47:52,891 - DEBUG -   No active modifier groups for dish 10. Lemon Chicken, Stir Fried Mixed Vegetables.
+2025-12-28 11:47:54,734 - DEBUG -   No active modifier groups for dish 11. Imperial Guy Ding (hot and spicy), Chicken Wings.
+2025-12-28 11:47:56,587 - DEBUG -   No active modifier groups for dish 12. Sweet & Sour Chicken Balls, Beef with Mixed Vegetables.
+2025-12-28 11:47:58,427 - DEBUG -   No active modifier groups for dish 13. Vegetarian Spring Roll (1), Vegetable Fried Rice, Vegetable Chop Suey, Stir Fried Mixed Vegetables.
+2025-12-28 11:48:00,300 - DEBUG -   No active modifier groups for dish 14. Special Combination
+2025-12-28 11:48:02,129 - DEBUG -   No active modifier groups for dish 2. Garlic Spare Ribs,Sweet & Sour Chicken Balls.
+2025-12-28 11:48:03,971 - DEBUG -   No active modifier groups for dish 3. Almond Chicken Guy Ding, Sweet & Sour Chicken Balls.
+2025-12-28 11:48:05,803 - DEBUG -   No active modifier groups for dish 4. Almond Chicken Guy Ding, Garlic Spare Ribs.
+2025-12-28 11:48:05,804 - INFO -   Progress: 10/179 dishes
+2025-12-28 11:48:07,621 - DEBUG -   No active modifier groups for dish 5. BBQ Pork Lo Mein, Sweet & Sour Chicken Balls.
+2025-12-28 11:48:09,483 - DEBUG -   No active modifier groups for dish 6. Chicken Chow Mein, Sweet & Sour Shrimp.
+2025-12-28 11:48:11,325 - DEBUG -   No active modifier groups for dish 7. Almond Chicken Guy Ding, Almond Chicken Soo Guy.
+2025-12-28 11:48:13,169 - DEBUG -   No active modifier groups for dish 8. Chicken Chow Mein, Garlic Spare Ribs.
+2025-12-28 11:48:15,026 - DEBUG -   No active modifier groups for dish 9. General Tao’s Chicken (hot and spicy), Beef and Broccoli.
+2025-12-28 11:48:16,902 - DEBUG -   No active modifier groups for dish Almond Chicken Guy Ding
+2025-12-28 11:48:18,758 - DEBUG -   No active modifier groups for dish Almond Chicken Soo Guy
+2025-12-28 11:48:20,592 - DEBUG -   No active modifier groups for dish Almond Cookie
+2025-12-28 11:48:22,445 - DEBUG -   No active modifier groups for dish Almond Shrimp Ding
+2025-12-28 11:48:24,300 - DEBUG -   No active modifier groups for dish Assorted Seafood Chow Mein
+2025-12-28 11:48:24,300 - INFO -   Progress: 20/179 dishes
+2025-12-28 11:48:26,161 - DEBUG -   No active modifier groups for dish Bacon Chop Suey
+2025-12-28 11:48:27,990 - DEBUG -   No active modifier groups for dish Bacon Chow Mein
+2025-12-28 11:48:29,843 - DEBUG -   No active modifier groups for dish Bacon Fried Rice
+2025-12-28 11:48:31,699 - DEBUG -   No active modifier groups for dish BBQ Pork Egg Foo Yung
+2025-12-28 11:48:33,544 - DEBUG -   No active modifier groups for dish BBQ Pork Fried Rice
+2025-12-28 11:48:35,376 - DEBUG -   No active modifier groups for dish BBQ Pork Slice
+2025-12-28 11:48:37,229 - DEBUG -   No active modifier groups for dish BBQ Pork with Broccoli
+2025-12-28 11:48:39,086 - DEBUG -   No active modifier groups for dish BBQ Pork with Mixed Vegetables
+2025-12-28 11:48:40,959 - DEBUG -   No active modifier groups for dish BBQ Pork with Snow Peas
+2025-12-28 11:48:42,791 - DEBUG -   No active modifier groups for dish Beef & Bean Sprouts on Flat Rice Noodle
+2025-12-28 11:48:42,791 - INFO -   Progress: 30/179 dishes
+2025-12-28 11:48:44,632 - DEBUG -   No active modifier groups for dish Beef Chop Suey
+2025-12-28 11:48:46,445 - DEBUG -   No active modifier groups for dish Beef Chow Mein
+2025-12-28 11:48:48,299 - DEBUG -   No active modifier groups for dish Beef Egg Foo Yung
+2025-12-28 11:48:50,139 - DEBUG -   No active modifier groups for dish Beef Fried Rice
+2025-12-28 11:48:51,971 - DEBUG -   No active modifier groups for dish Beef in Black Bean Sauce
+2025-12-28 11:48:53,815 - DEBUG -   No active modifier groups for dish Beef with Bean Sprout on Flat Rice Noodle
+2025-12-28 11:48:55,675 - DEBUG -   No active modifier groups for dish Beef with Black Bean Sauce on Flat Rice Noodle
+2025-12-28 11:48:57,526 - DEBUG -   No active modifier groups for dish Beef with Black Bean Sauce on Rice
+2025-12-28 11:48:59,361 - DEBUG -   No active modifier groups for dish Beef with Broccoli
+2025-12-28 11:49:01,213 - DEBUG -   No active modifier groups for dish Beef with Chinese Greens
+2025-12-28 11:49:01,213 - INFO -   Progress: 40/179 dishes
+2025-12-28 11:49:03,243 - DEBUG -   No active modifier groups for dish Beef with Ginger & Onion
+2025-12-28 11:49:05,085 - DEBUG -   No active modifier groups for dish Beef with Mixed Vegetables
+2025-12-28 11:49:06,923 - DEBUG -   No active modifier groups for dish Beef with Seasonal Greens on Flat Rice Noodles
+2025-12-28 11:49:08,779 - DEBUG -   No active modifier groups for dish Beef with Snow Peas
+2025-12-28 11:49:10,643 - DEBUG -   No active modifier groups for dish Bottled Water
+2025-12-28 11:49:12,502 - DEBUG -   No active modifier groups for dish Buddha’s Delight
+2025-12-28 11:49:14,344 - DEBUG -   No active modifier groups for dish Butterfly Shrimps
+2025-12-28 11:49:16,184 - DEBUG -   No active modifier groups for dish Cantonese Chow Mein
+2025-12-28 11:49:18,020 - DEBUG -   No active modifier groups for dish Chicken & Cream of Corn Soup
+2025-12-28 11:49:19,856 - DEBUG -   No active modifier groups for dish Chicken Chop Suey
+2025-12-28 11:49:19,856 - INFO -   Progress: 50/179 dishes
+2025-12-28 11:49:21,694 - DEBUG -   No active modifier groups for dish Chicken Chow Mein
+2025-12-28 11:49:23,548 - DEBUG -   No active modifier groups for dish Chicken Egg Foo Yung
+2025-12-28 11:49:25,410 - DEBUG -   No active modifier groups for dish Chicken Fried Rice
+2025-12-28 11:49:27,252 - DEBUG -   No active modifier groups for dish Chicken in Black Bean Sauce
+2025-12-28 11:49:29,072 - DEBUG -   No active modifier groups for dish Chicken Noodle Soup
+2025-12-28 11:49:30,923 - DEBUG -   No active modifier groups for dish Chicken with 3 Kinds of Mushrooms
+2025-12-28 11:49:32,762 - DEBUG -   No active modifier groups for dish Chicken with Broccoli
+2025-12-28 11:49:34,596 - DEBUG -   No active modifier groups for dish Chicken with Cashew Nuts
+2025-12-28 11:49:36,534 - DEBUG -   No active modifier groups for dish Chicken with Ginger & Onion
+2025-12-28 11:49:38,553 - DEBUG -   No active modifier groups for dish Chicken with Mixed Vegetables
+2025-12-28 11:49:38,554 - INFO -   Progress: 60/179 dishes
+2025-12-28 11:49:40,575 - DEBUG -   No active modifier groups for dish Chicken with Snow Peas
+2025-12-28 11:49:42,609 - DEBUG -   No active modifier groups for dish Coke
+2025-12-28 11:49:44,615 - DEBUG -   No active modifier groups for dish Crispy Beef
+2025-12-28 11:49:46,624 - DEBUG -   No active modifier groups for dish Crispy Chicken
+2025-12-28 11:49:48,605 - DEBUG -   No active modifier groups for dish Crispy Chicken on Rice
+2025-12-28 11:49:50,601 - DEBUG -   No active modifier groups for dish Crispy French Fries
+2025-12-28 11:49:52,657 - DEBUG -   No active modifier groups for dish Curry
+2025-12-28 11:49:54,659 - DEBUG -   No active modifier groups for dish Curry Shrimp
+2025-12-28 11:49:56,654 - DEBUG -   No active modifier groups for dish Curry Squid
+2025-12-28 11:49:58,625 - DEBUG -   No active modifier groups for dish Deep Fried Chicken Wings
+2025-12-28 11:49:58,626 - INFO -   Progress: 70/179 dishes
+2025-12-28 11:50:00,611 - DEBUG -   No active modifier groups for dish Deep Fried Dried Won Ton
+2025-12-28 11:50:02,585 - DEBUG -   No active modifier groups for dish Deep Fried Shrimp Roll
+2025-12-28 11:50:04,752 - DEBUG -   No active modifier groups for dish Dried Noodles
+2025-12-28 11:50:06,790 - DEBUG -   No active modifier groups for dish Egg Roll
+2025-12-28 11:50:08,987 - DEBUG -   No active modifier groups for dish Family Dinner A For 2
+2025-12-28 11:50:10,964 - DEBUG -   No active modifier groups for dish Family Dinner A For 3
+2025-12-28 11:50:12,953 - DEBUG -   No active modifier groups for dish Family Dinner A For 4
+2025-12-28 11:50:14,918 - DEBUG -   No active modifier groups for dish Family Dinner B For 2
+2025-12-28 11:50:16,887 - DEBUG -   No active modifier groups for dish Family Dinner B For 3
+2025-12-28 11:50:18,867 - DEBUG -   No active modifier groups for dish Family Dinner B For 4
+2025-12-28 11:50:18,867 - INFO -   Progress: 80/179 dishes
+2025-12-28 11:50:20,860 - DEBUG -   No active modifier groups for dish Family Dinner For 5
+2025-12-28 11:50:22,836 - DEBUG -   No active modifier groups for dish Family Dinner For 6
+2025-12-28 11:50:24,814 - DEBUG -   No active modifier groups for dish Fortune Cookie
+2025-12-28 11:50:26,812 - DEBUG -   No active modifier groups for dish Fried Mixed Vegetables
+2025-12-28 11:50:28,813 - DEBUG -   No active modifier groups for dish Fried Noodles with Bean Sprouts
+2025-12-28 11:50:30,943 - DEBUG -   No active modifier groups for dish Fried Shrimp with Salt & Pepper
+2025-12-28 11:50:32,933 - DEBUG -   No active modifier groups for dish Garlic Chicken Balls
+2025-12-28 11:50:34,924 - DEBUG -   No active modifier groups for dish Garlic Chicken Wings
+2025-12-28 11:50:36,911 - DEBUG -   No active modifier groups for dish Garlic Spare Ribs
+2025-12-28 11:50:38,923 - DEBUG -   No active modifier groups for dish General Tao’s Chicken
+2025-12-28 11:50:38,923 - INFO -   Progress: 90/179 dishes
+2025-12-28 11:50:40,908 - DEBUG -   No active modifier groups for dish Ginger Ale
+2025-12-28 11:50:42,900 - DEBUG -   No active modifier groups for dish Happy Family
+2025-12-28 11:50:44,881 - DEBUG -   No active modifier groups for dish Har Moon Style Fried Vermicelli
+2025-12-28 11:50:46,860 - DEBUG -   No active modifier groups for dish Hot & Sour Soup
+2025-12-28 11:50:48,861 - DEBUG -   No active modifier groups for dish Hot & Spicy Chicken Wings
+2025-12-28 11:50:50,842 - DEBUG -   No active modifier groups for dish House Special Chop Suey
+2025-12-28 11:50:52,812 - DEBUG -   No active modifier groups for dish House Special Chow Mein
+2025-12-28 11:50:54,822 - DEBUG -   No active modifier groups for dish House Special Egg Foo Yung
+2025-12-28 11:50:56,811 - DEBUG -   No active modifier groups for dish House Special Fried Rice
+2025-12-28 11:50:58,778 - DEBUG -   No active modifier groups for dish Hunan Beef
+2025-12-28 11:50:58,778 - INFO -   Progress: 100/179 dishes
+2025-12-28 11:51:00,747 - DEBUG -   No active modifier groups for dish Hunan Dumplings (10 pcs)
+2025-12-28 11:51:02,723 - DEBUG -   No active modifier groups for dish Imperial Chicken Ding
+2025-12-28 11:51:04,922 - DEBUG -   No active modifier groups for dish Imperial Shrimp Ding
+2025-12-28 11:51:06,899 - DEBUG -   No active modifier groups for dish Lemon Chicken
+2025-12-28 11:51:09,135 - DEBUG -   No active modifier groups for dish Lo Mein
+2025-12-28 11:51:11,179 - DEBUG -   No active modifier groups for dish Ma Poh Tofu
+2025-12-28 11:51:13,176 - DEBUG -   No active modifier groups for dish Moo She
+2025-12-28 11:51:15,169 - DEBUG -   No active modifier groups for dish Moo She Shrimp
+2025-12-28 11:51:17,205 - DEBUG -   No active modifier groups for dish Mushroom Chop Suey
+2025-12-28 11:51:19,207 - DEBUG -   No active modifier groups for dish Mushroom Chow Mein
+2025-12-28 11:51:19,207 - INFO -   Progress: 110/179 dishes
+2025-12-28 11:51:21,127 - DEBUG -   No active modifier groups for dish Mushroom Egg Drop Soup
+2025-12-28 11:51:23,107 - DEBUG -   No active modifier groups for dish Mushroom Egg Foo Yung
+2025-12-28 11:51:25,090 - DEBUG -   No active modifier groups for dish Mushroom Fried Rice
+2025-12-28 11:51:27,011 - DEBUG -   No active modifier groups for dish No.1
+2025-12-28 11:51:28,881 - DEBUG -   No active modifier groups for dish No.2
+2025-12-28 11:51:30,739 - DEBUG -   No active modifier groups for dish No.3
+2025-12-28 11:51:32,596 - DEBUG -   No active modifier groups for dish No.4
+2025-12-28 11:51:34,431 - DEBUG -   No active modifier groups for dish No.5
+2025-12-28 11:51:36,300 - DEBUG -   No active modifier groups for dish Open Ended Egg Roll
+2025-12-28 11:51:38,174 - DEBUG -   No active modifier groups for dish Orange Beef
+2025-12-28 11:51:38,174 - INFO -   Progress: 120/179 dishes
+2025-12-28 11:51:40,162 - DEBUG -   No active modifier groups for dish Orange Chicken
+2025-12-28 11:51:42,138 - DEBUG -   No active modifier groups for dish Pad Thai
+2025-12-28 11:51:44,099 - DEBUG -   No active modifier groups for dish Pan Fried Dumplings (12 pcs)
+2025-12-28 11:51:46,070 - DEBUG -   No active modifier groups for dish Pancake
+2025-12-28 11:51:48,066 - DEBUG -   No active modifier groups for dish Pepsi
+2025-12-28 11:51:50,044 - DEBUG -   No active modifier groups for dish Pineapple Chicken Balls
+2025-12-28 11:51:52,035 - DEBUG -   No active modifier groups for dish Plain Fried Rice
+2025-12-28 11:51:54,037 - DEBUG -   No active modifier groups for dish Pork Chop Suey
+2025-12-28 11:51:56,029 - DEBUG -   No active modifier groups for dish Pork Chow Mein
+2025-12-28 11:51:58,008 - DEBUG -   No active modifier groups for dish Poutine
+2025-12-28 11:51:58,008 - INFO -   Progress: 130/179 dishes
+2025-12-28 11:52:00,005 - DEBUG -   No active modifier groups for dish Satay Beef
+2025-12-28 11:52:02,003 - DEBUG -   No active modifier groups for dish Sauce
+2025-12-28 11:52:04,003 - DEBUG -   No active modifier groups for dish Scallops with Broccoli
+2025-12-28 11:52:06,569 - DEBUG -   No active modifier groups for dish Scallops with Mixed Vegetables
+2025-12-28 11:52:08,567 - DEBUG -   No active modifier groups for dish Scallops with Snow Peas
+2025-12-28 11:52:10,540 - DEBUG -   No active modifier groups for dish Seafood on Rice
+2025-12-28 11:52:12,565 - DEBUG -   No active modifier groups for dish Shanghai Noodle with Spicy Meat Sauce
+2025-12-28 11:52:14,561 - DEBUG -   No active modifier groups for dish Shanghai Style Noodle
+2025-12-28 11:52:16,560 - DEBUG -   No active modifier groups for dish Shanghai Style Noodles
+2025-12-28 11:52:18,530 - DEBUG -   No active modifier groups for dish Shrimp & Chicken with 2 Kinds of Sauce on Rice
+2025-12-28 11:52:18,530 - INFO -   Progress: 140/179 dishes
+2025-12-28 11:52:20,525 - DEBUG -   No active modifier groups for dish Shrimp & Chicken with Mixed Vegetables
+2025-12-28 11:52:22,514 - DEBUG -   No active modifier groups for dish Shrimp Chop Suey
+2025-12-28 11:52:24,495 - DEBUG -   No active modifier groups for dish Shrimp Chow Mein
+2025-12-28 11:52:26,468 - DEBUG -   No active modifier groups for dish Shrimp Egg Foo Yung
+2025-12-28 11:52:28,463 - DEBUG -   No active modifier groups for dish Shrimp Fried Rice
+2025-12-28 11:52:30,433 - DEBUG -   No active modifier groups for dish Shrimp in Black Bean Sauce
+2025-12-28 11:52:32,431 - DEBUG -   No active modifier groups for dish Shrimp with Mixed Vegetables
+2025-12-28 11:52:34,388 - DEBUG -   No active modifier groups for dish Shrimp with Snow Peas
+2025-12-28 11:52:36,359 - DEBUG -   No active modifier groups for dish Shrimps in Lobster Sauce
+2025-12-28 11:52:38,360 - DEBUG -   No active modifier groups for dish Singapore Style Vermicelli (Curry)
+2025-12-28 11:52:38,360 - INFO -   Progress: 150/179 dishes
+2025-12-28 11:52:40,341 - DEBUG -   No active modifier groups for dish Singapore Vermicelli
+2025-12-28 11:52:42,311 - DEBUG -   No active modifier groups for dish Spring Roll with Meat
+2025-12-28 11:52:44,287 - DEBUG -   No active modifier groups for dish Sprite
+2025-12-28 11:52:46,263 - DEBUG -   No active modifier groups for dish Squid with Black Bean Sauce
+2025-12-28 11:52:48,248 - DEBUG -   No active modifier groups for dish Squid with Mixed Vegetables
+2025-12-28 11:52:50,230 - DEBUG -   No active modifier groups for dish Squid with Pepper Salt
+2025-12-28 11:52:52,211 - DEBUG -   No active modifier groups for dish Steamed Rice
+2025-12-28 11:52:54,200 - DEBUG -   No active modifier groups for dish Sum See Chow Mein
+2025-12-28 11:52:56,172 - DEBUG -   No active modifier groups for dish Sweet & Sour Chicken Balls
+2025-12-28 11:52:58,153 - DEBUG -   No active modifier groups for dish Sweet & Sour Pork
+2025-12-28 11:52:58,153 - INFO -   Progress: 160/179 dishes
+2025-12-28 11:53:00,145 - DEBUG -   No active modifier groups for dish Sweet & Sour Shrimp
+2025-12-28 11:53:02,108 - DEBUG -   No active modifier groups for dish Szechuan Style Beef
+2025-12-28 11:53:04,182 - DEBUG -   No active modifier groups for dish Szechuan Style Chicken
+2025-12-28 11:53:06,268 - DEBUG -   No active modifier groups for dish Szechuan Style Pork
+2025-12-28 11:53:08,280 - DEBUG -   No active modifier groups for dish Szechuan Style Shrimp
+2025-12-28 11:53:10,237 - DEBUG -   No active modifier groups for dish Tai Dop Voy
+2025-12-28 11:53:12,219 - DEBUG -   No active modifier groups for dish Tai Dop Voy on Rice
+2025-12-28 11:53:14,190 - DEBUG -   No active modifier groups for dish Thai Style Chicken
+2025-12-28 11:53:16,176 - DEBUG -   No active modifier groups for dish Tofu in Oyster Sauce
+2025-12-28 11:53:18,148 - DEBUG -   No active modifier groups for dish Tofu with Mixed Vegetables
+2025-12-28 11:53:18,149 - INFO -   Progress: 170/179 dishes
+2025-12-28 11:53:20,118 - DEBUG -   No active modifier groups for dish Vegetable Chop Suey
+2025-12-28 11:53:22,107 - DEBUG -   No active modifier groups for dish Vegetable Chow Mein
+2025-12-28 11:53:24,062 - DEBUG -   No active modifier groups for dish Vegetable Chow Mein Cantonese Style
+2025-12-28 11:53:26,022 - DEBUG -   No active modifier groups for dish Vegetable Ding
+2025-12-28 11:53:27,980 - DEBUG -   No active modifier groups for dish Vegetable Foo Yung
+2025-12-28 11:53:29,968 - DEBUG -   No active modifier groups for dish Vegetable Fried Rice
+2025-12-28 11:53:31,967 - DEBUG -   No active modifier groups for dish Vegetable Soup
+2025-12-28 11:53:33,949 - DEBUG -   No active modifier groups for dish Vegetarian Spring Roll
+2025-12-28 11:53:35,933 - DEBUG -   No active modifier groups for dish Won Ton Soup
+2025-12-28 11:53:37,923 - DEBUG -   No active modifier groups for dish Young Chow Fried Rice
+2025-12-28 11:53:37,923 - INFO -   Result: 0 processed, 179 skipped, 0 links, 0 details
+2025-12-28 11:53:37,925 - INFO - ----------------------------------------
+2025-12-28 11:53:37,925 - INFO - [4/6] Processing: Hung Mein (V3: 119, V1: 239)
+2025-12-28 11:53:40,049 - DEBUG -   No active modifier groups for dish Almond Beef Ding
+2025-12-28 11:53:41,945 - DEBUG -   No active modifier groups for dish Almond Chicken Guy Ding
+2025-12-28 11:53:43,781 - DEBUG -   No active modifier groups for dish Almond Cookie
+2025-12-28 11:53:45,604 - DEBUG -   No active modifier groups for dish Almond Pork Ding
+2025-12-28 11:53:47,427 - DEBUG -   No active modifier groups for dish Almond Shrimp Ding
+2025-12-28 11:53:49,300 - DEBUG -   No active modifier groups for dish Almond Soo Guy
+2025-12-28 11:53:51,144 - DEBUG -   No active modifier groups for dish Bacon Foo Young
+2025-12-28 11:53:52,979 - DEBUG -   No active modifier groups for dish Bacon Fried Rice
+2025-12-28 11:53:55,355 - DEBUG -   No active modifier groups for dish BBQ Pork Chop Suey
+2025-12-28 11:53:55,355 - INFO -   Progress: 10/178 dishes
+2025-12-28 11:53:57,337 - DEBUG -   No active modifier groups for dish BBQ Pork Chow Mein
+2025-12-28 11:53:59,772 - DEBUG -   No active modifier groups for dish BBQ Pork Foo Young
+2025-12-28 11:54:01,762 - DEBUG -   No active modifier groups for dish BBQ Pork Fried Rice
+2025-12-28 11:54:03,762 - DEBUG -   No active modifier groups for dish BBQ Pork with Bok Choy
+2025-12-28 11:54:05,731 - DEBUG -   No active modifier groups for dish BBQ Pork with Egg Noodle
+2025-12-28 11:54:07,776 - DEBUG -   No active modifier groups for dish BBQ Pork with Mixed Vegetables
+2025-12-28 11:54:09,753 - DEBUG -   No active modifier groups for dish Beef Chop Suey
+2025-12-28 11:54:11,730 - DEBUG -   No active modifier groups for dish Beef Chow Mein
+2025-12-28 11:54:13,707 - DEBUG -   No active modifier groups for dish Beef Foo Young
+2025-12-28 11:54:15,697 - DEBUG -   No active modifier groups for dish Beef Fried Rice
+2025-12-28 11:54:15,697 - INFO -   Progress: 20/178 dishes
+2025-12-28 11:54:17,685 - DEBUG -   No active modifier groups for dish Beef Macaroni
+2025-12-28 11:54:19,673 - DEBUG -   No active modifier groups for dish Beef with Black Bean Sauce
+2025-12-28 11:54:21,674 - DEBUG -   No active modifier groups for dish Beef with Bok Choy
+2025-12-28 11:54:23,637 - DEBUG -   No active modifier groups for dish Beef with Broccoli
+2025-12-28 11:54:25,621 - DEBUG -   No active modifier groups for dish Beef with Cashew Nut
+2025-12-28 11:54:27,623 - DEBUG -   No active modifier groups for dish Beef with Egg Noodle
+2025-12-28 11:54:29,635 - DEBUG -   No active modifier groups for dish Beef with Flat Rice Noodle in Black Bean Sauce
+2025-12-28 11:54:31,630 - DEBUG -   No active modifier groups for dish Beef with Flat Rice Noodle in Curry Sauce
+2025-12-28 11:54:33,583 - DEBUG -   No active modifier groups for dish Beef with Flat Rice Noodle in Soya Sauce
+2025-12-28 11:54:35,556 - DEBUG -   No active modifier groups for dish Beef with Mixed Vegetables
+2025-12-28 11:54:35,557 - INFO -   Progress: 30/178 dishes
+2025-12-28 11:54:37,540 - DEBUG -   No active modifier groups for dish Beef with Pepper and Mushroom
+2025-12-28 11:54:39,523 - DEBUG -   No active modifier groups for dish Butterfly Shrimp
+2025-12-28 11:54:41,505 - DEBUG -   No active modifier groups for dish Cantonese Chow Mein
+2025-12-28 11:54:43,527 - DEBUG -   No active modifier groups for dish Cantonese Lo Mein (Soft Noodle)
+2025-12-28 11:54:45,517 - DEBUG -   No active modifier groups for dish Cantonese Style Sweet and Sour Chicken
+2025-12-28 11:54:47,504 - DEBUG -   No active modifier groups for dish Cantonese Sweet and Sour Pork
+2025-12-28 11:54:49,478 - DEBUG -   No active modifier groups for dish Chicken Balls
+2025-12-28 11:54:51,467 - DEBUG -   No active modifier groups for dish Chicken Chop Suey
+2025-12-28 11:54:53,438 - DEBUG -   No active modifier groups for dish Chicken Chow Mein
+2025-12-28 11:54:55,421 - DEBUG -   No active modifier groups for dish Chicken Foo Young
+2025-12-28 11:54:55,421 - INFO -   Progress: 40/178 dishes
+2025-12-28 11:54:57,477 - DEBUG -   No active modifier groups for dish Chicken Fried Rice
+2025-12-28 11:54:59,453 - DEBUG -   No active modifier groups for dish Chicken Macaroni
+2025-12-28 11:55:01,659 - DEBUG -   No active modifier groups for dish Chicken Noodles Soup
+2025-12-28 11:55:03,643 - DEBUG -   No active modifier groups for dish Chicken Rice Soup
+2025-12-28 11:55:05,610 - DEBUG -   No active modifier groups for dish Chicken with Black Bean Sauce
+2025-12-28 11:55:07,645 - DEBUG -   No active modifier groups for dish Chicken with Bok Choy
+2025-12-28 11:55:09,646 - DEBUG -   No active modifier groups for dish Chicken with Broccoli
+2025-12-28 11:55:11,635 - DEBUG -   No active modifier groups for dish Chicken with Cashew Nut
+2025-12-28 11:55:13,623 - DEBUG -   No active modifier groups for dish Chicken with Egg Noodle
+2025-12-28 11:55:15,584 - DEBUG -   No active modifier groups for dish Chicken with Mixed Vegetables
+2025-12-28 11:55:15,584 - INFO -   Progress: 50/178 dishes
+2025-12-28 11:55:17,575 - DEBUG -   No active modifier groups for dish Chicken with Peppers and Mushroom
+2025-12-28 11:55:19,530 - DEBUG -   No active modifier groups for dish Combo 1
+2025-12-28 11:55:21,530 - DEBUG -   No active modifier groups for dish Combo 10
+2025-12-28 11:55:23,523 - DEBUG -   No active modifier groups for dish Combo 11
+2025-12-28 11:55:25,512 - DEBUG -   No active modifier groups for dish Combo 12
+2025-12-28 11:55:27,506 - DEBUG -   No active modifier groups for dish Combo 2
+2025-12-28 11:55:29,487 - DEBUG -   No active modifier groups for dish Combo 3
+2025-12-28 11:55:31,493 - DEBUG -   No active modifier groups for dish Combo 4
+2025-12-28 11:55:33,673 - DEBUG -   No active modifier groups for dish Combo 5
+2025-12-28 11:55:35,684 - DEBUG -   No active modifier groups for dish Combo 6
+2025-12-28 11:55:35,684 - INFO -   Progress: 60/178 dishes
+2025-12-28 11:55:37,671 - DEBUG -   No active modifier groups for dish Combo 7
+2025-12-28 11:55:39,682 - DEBUG -   No active modifier groups for dish Combo 8
+2025-12-28 11:55:41,662 - DEBUG -   No active modifier groups for dish Combo 9
+2025-12-28 11:55:43,635 - DEBUG -   No active modifier groups for dish Crispy Beef
+2025-12-28 11:55:45,643 - DEBUG -   No active modifier groups for dish Crispy Shrimp
+2025-12-28 11:55:47,626 - DEBUG -   No active modifier groups for dish Curry BBQ Pork Egg Noodle
+2025-12-28 11:55:49,610 - DEBUG -   No active modifier groups for dish Curry Beef
+2025-12-28 11:55:51,570 - DEBUG -   No active modifier groups for dish Curry Beef Egg Noodle
+2025-12-28 11:55:53,578 - DEBUG -   No active modifier groups for dish Curry Chicken
+2025-12-28 11:55:55,552 - DEBUG -   No active modifier groups for dish Curry Chicken Egg Noodle
+2025-12-28 11:55:55,552 - INFO -   Progress: 70/178 dishes
+2025-12-28 11:55:57,557 - DEBUG -   No active modifier groups for dish Curry Pork
+2025-12-28 11:55:59,541 - DEBUG -   No active modifier groups for dish Curry Shrimp
+2025-12-28 11:56:01,531 - DEBUG -   No active modifier groups for dish Curry Tofu
+2025-12-28 11:56:03,500 - DEBUG -   No active modifier groups for dish Curry with Mixed Vegetables
+2025-12-28 11:56:05,565 - DEBUG -   No active modifier groups for dish Deep Fried Beef Dumplings (6pcs)
+2025-12-28 11:56:07,543 - DEBUG -   No active modifier groups for dish Deep Fried Scallops (6pcs)
+2025-12-28 11:56:09,655 - DEBUG -   No active modifier groups for dish Deep Fried Sesame Balls (6pcs red bean)
+2025-12-28 11:56:11,636 - DEBUG -   No active modifier groups for dish Dinner For Five
+2025-12-28 11:56:13,617 - DEBUG -   No active modifier groups for dish Dinner For Four A
+2025-12-28 11:56:15,812 - DEBUG -   No active modifier groups for dish Dinner For Four B
+2025-12-28 11:56:15,813 - INFO -   Progress: 80/178 dishes
+2025-12-28 11:56:17,800 - DEBUG -   No active modifier groups for dish Dinner For Six
+2025-12-28 11:56:19,769 - DEBUG -   No active modifier groups for dish Dinner For Three A
+2025-12-28 11:56:21,761 - DEBUG -   No active modifier groups for dish Dinner for Three B
+2025-12-28 11:56:23,767 - DEBUG -   No active modifier groups for dish Dinner For Two A
+2025-12-28 11:56:25,764 - DEBUG -   No active modifier groups for dish Dinner For Two B
+2025-12-28 11:56:27,762 - DEBUG -   No active modifier groups for dish Dragon and Phoenix
+2025-12-28 11:56:29,761 - DEBUG -   No active modifier groups for dish Egg Roll
+2025-12-28 11:56:31,921 - DEBUG -   No active modifier groups for dish Fortune Cookie
+2025-12-28 11:56:33,905 - DEBUG -   No active modifier groups for dish Four Happiness
+2025-12-28 11:56:35,878 - DEBUG -   No active modifier groups for dish French Fries
+2025-12-28 11:56:35,878 - INFO -   Progress: 90/178 dishes
+2025-12-28 11:56:37,876 - DEBUG -   No active modifier groups for dish Fried Noodles
+2025-12-28 11:56:39,838 - DEBUG -   No active modifier groups for dish Fried Won Ton
+2025-12-28 11:56:41,923 - DEBUG -   No active modifier groups for dish General Tao's Chicken
+2025-12-28 11:56:43,909 - DEBUG -   No active modifier groups for dish Honey Garlic Chicken Wings
+2025-12-28 11:56:45,905 - DEBUG -   No active modifier groups for dish Honey Garlic Spare Ribs
+2025-12-28 11:56:47,939 - DEBUG -   No active modifier groups for dish Hot and Sour Soup
+2025-12-28 11:56:49,920 - DEBUG -   No active modifier groups for dish Hunan Dumplings
+2025-12-28 11:56:51,917 - DEBUG -   No active modifier groups for dish Hung Mein Special Chop Suey
+2025-12-28 11:56:53,903 - DEBUG -   No active modifier groups for dish Hung Mein Special Chow Mein
+2025-12-28 11:56:55,892 - DEBUG -   No active modifier groups for dish Hung Mein Special Foo Young
+2025-12-28 11:56:55,892 - INFO -   Progress: 100/178 dishes
+2025-12-28 11:56:57,863 - DEBUG -   No active modifier groups for dish Hung Mein Special Fried Rice
+2025-12-28 11:56:59,849 - DEBUG -   No active modifier groups for dish Imperial Beef
+2025-12-28 11:57:01,832 - DEBUG -   No active modifier groups for dish Imperial Chicken
+2025-12-28 11:57:03,806 - DEBUG -   No active modifier groups for dish Imperial Pork
+2025-12-28 11:57:05,802 - DEBUG -   No active modifier groups for dish Imperial Shrimp
+2025-12-28 11:57:07,770 - DEBUG -   No active modifier groups for dish Ja-Do Chicken Wings
+2025-12-28 11:57:09,843 - DEBUG -   No active modifier groups for dish Lemon Chicken
+2025-12-28 11:57:11,831 - DEBUG -   No active modifier groups for dish Ma Po Tofu
+2025-12-28 11:57:13,804 - DEBUG -   No active modifier groups for dish Mixed Vegetables with Black Bean Sauce
+2025-12-28 11:57:15,786 - DEBUG -   No active modifier groups for dish Moo Goo Guy Pan
+2025-12-28 11:57:15,787 - INFO -   Progress: 110/178 dishes
+2025-12-28 11:57:17,783 - DEBUG -   No active modifier groups for dish Mushroom Chop Suey
+2025-12-28 11:57:19,865 - DEBUG -   No active modifier groups for dish Mushroom Egg Soup
+2025-12-28 11:57:21,867 - DEBUG -   No active modifier groups for dish Mushroom Foo Young
+2025-12-28 11:57:23,870 - DEBUG -   No active modifier groups for dish Mushroom Fried Rice
+2025-12-28 11:57:26,004 - DEBUG -   No active modifier groups for dish Open End Egg Roll
+2025-12-28 11:57:27,999 - DEBUG -   No active modifier groups for dish Orange Beef
+2025-12-28 11:57:30,010 - DEBUG -   No active modifier groups for dish Orange Chicken
+2025-12-28 11:57:32,001 - DEBUG -   No active modifier groups for dish Orange Pork
+2025-12-28 11:57:34,003 - DEBUG -   No active modifier groups for dish Pepper Salt Chicken Wings
+2025-12-28 11:57:35,974 - DEBUG -   No active modifier groups for dish Pepper Salt Shrimp
+2025-12-28 11:57:35,974 - INFO -   Progress: 120/178 dishes
+2025-12-28 11:57:37,932 - DEBUG -   No active modifier groups for dish Pepper Salt Spare Ribs
+2025-12-28 11:57:39,925 - DEBUG -   No active modifier groups for dish Pepper Salt Tofu
+2025-12-28 11:57:41,918 - DEBUG -   No active modifier groups for dish Plain Fried Rice
+2025-12-28 11:57:43,905 - DEBUG -   No active modifier groups for dish Pork Macaroni
+2025-12-28 11:57:45,881 - DEBUG -   No active modifier groups for dish Pork with Black Bean Sauce
+2025-12-28 11:57:47,854 - DEBUG -   No active modifier groups for dish Pork with Broccoli
+2025-12-28 11:57:49,829 - DEBUG -   No active modifier groups for dish Pork with Cashew Nut
+2025-12-28 11:57:51,825 - DEBUG -   No active modifier groups for dish Pork with Pepper and Mushroom
+2025-12-28 11:57:53,811 - DEBUG -   No active modifier groups for dish Poutine
+2025-12-28 11:57:55,796 - DEBUG -   No active modifier groups for dish Sauce
+2025-12-28 11:57:55,796 - INFO -   Progress: 130/178 dishes
+2025-12-28 11:57:57,782 - DEBUG -   No active modifier groups for dish Scallop Chop Suey
+2025-12-28 11:57:59,750 - DEBUG -   No active modifier groups for dish Scallop Chow Mein
+2025-12-28 11:58:01,728 - DEBUG -   No active modifier groups for dish Scallops with Vegetable
+2025-12-28 11:58:03,709 - DEBUG -   No active modifier groups for dish Seafood Chow Mein
+2025-12-28 11:58:05,708 - DEBUG -   No active modifier groups for dish Seafood Delight
+2025-12-28 11:58:07,715 - DEBUG -   No active modifier groups for dish Seafood Lo Mein (Soft Noodle)
+2025-12-28 11:58:09,727 - DEBUG -   No active modifier groups for dish Shanghai Style Fried Noodle
+2025-12-28 11:58:11,715 - DEBUG -   No active modifier groups for dish Shrimp and Pork Spring Roll
+2025-12-28 11:58:13,706 - DEBUG -   No active modifier groups for dish Shrimp Chop Suey
+2025-12-28 11:58:15,679 - DEBUG -   No active modifier groups for dish Shrimp Chow Mein
+2025-12-28 11:58:15,680 - INFO -   Progress: 140/178 dishes
+2025-12-28 11:58:17,661 - DEBUG -   No active modifier groups for dish Shrimp Foo Young
+2025-12-28 11:58:19,622 - DEBUG -   No active modifier groups for dish Shrimp Fried Rice
+2025-12-28 11:58:21,600 - DEBUG -   No active modifier groups for dish Shrimp with Black Bean Sauce
+2025-12-28 11:58:23,663 - DEBUG -   No active modifier groups for dish Shrimp with Broccoli
+2025-12-28 11:58:25,646 - DEBUG -   No active modifier groups for dish Shrimp with Lobster Sauce
+2025-12-28 11:58:27,609 - DEBUG -   No active modifier groups for dish Shrimp with Mixed Vegetables
+2025-12-28 11:58:29,553 - DEBUG -   No active modifier groups for dish Shrimp with Pepper and Mushroom
+2025-12-28 11:58:31,509 - DEBUG -   No active modifier groups for dish Side order of BBQ Pork
+2025-12-28 11:58:33,467 - DEBUG -   No active modifier groups for dish Singapore Style Fried Vermicelli
+2025-12-28 11:58:35,449 - DEBUG -   No active modifier groups for dish Soft Drinks
+2025-12-28 11:58:35,449 - INFO -   Progress: 150/178 dishes
+2025-12-28 11:58:37,420 - DEBUG -   No active modifier groups for dish Spare Ribs with Black Bean Sauce
+2025-12-28 11:58:39,394 - DEBUG -   No active modifier groups for dish Special Style Tofu
+2025-12-28 11:58:41,355 - DEBUG -   No active modifier groups for dish Spicy Beef with Egg Noodle
+2025-12-28 11:58:43,321 - DEBUG -   No active modifier groups for dish Spicy Chicken with Egg Noodle
+2025-12-28 11:58:45,308 - DEBUG -   No active modifier groups for dish Spicy Pork with Egg Noodle
+2025-12-28 11:58:47,284 - DEBUG -   No active modifier groups for dish Steamed Rice
+2025-12-28 11:58:49,270 - DEBUG -   No active modifier groups for dish Stir Fried Mixed Vegetables
+2025-12-28 11:58:51,243 - DEBUG -   No active modifier groups for dish Sum See Rice Noodle in Soya Sauce
+2025-12-28 11:58:53,216 - DEBUG -   No active modifier groups for dish Sweet and Sour Chicken Wings
+2025-12-28 11:58:55,172 - DEBUG -   No active modifier groups for dish Sweet and Sour Crispy Beef
+2025-12-28 11:58:55,173 - INFO -   Progress: 160/178 dishes
+2025-12-28 11:58:57,142 - DEBUG -   No active modifier groups for dish Sweet and Sour Spare Ribs
+2025-12-28 11:58:59,114 - DEBUG -   No active modifier groups for dish Szechuan Delight
+2025-12-28 11:59:01,078 - DEBUG -   No active modifier groups for dish Szechuan Style Beef
+2025-12-28 11:59:03,066 - DEBUG -   No active modifier groups for dish Szechuan Style Chicken
+2025-12-28 11:59:05,052 - DEBUG -   No active modifier groups for dish Szechuan Style Pork
+2025-12-28 11:59:07,018 - DEBUG -   No active modifier groups for dish Szechuan Style Shrimp
+2025-12-28 11:59:08,990 - DEBUG -   No active modifier groups for dish Szechuan Style Vegetable
+2025-12-28 11:59:11,142 - DEBUG -   No active modifier groups for dish Szechuan Tofu
+2025-12-28 11:59:13,094 - DEBUG -   No active modifier groups for dish Tai Dop Voy
+2025-12-28 11:59:15,077 - DEBUG -   No active modifier groups for dish Tofu with Mixed Vegetables
+2025-12-28 11:59:15,078 - INFO -   Progress: 170/178 dishes
+2025-12-28 11:59:17,054 - DEBUG -   No active modifier groups for dish Vegetable Bok Choy
+2025-12-28 11:59:19,025 - DEBUG -   No active modifier groups for dish Vegetable Chop Suey
+2025-12-28 11:59:21,008 - DEBUG -   No active modifier groups for dish Vegetable Foo Young
+2025-12-28 11:59:22,992 - DEBUG -   No active modifier groups for dish Vegetable Fried Rice
+2025-12-28 11:59:24,974 - DEBUG -   No active modifier groups for dish Vegetable Spring Roll
+2025-12-28 11:59:26,944 - DEBUG -   No active modifier groups for dish Vegetable with Egg Noodle
+2025-12-28 11:59:28,994 - DEBUG -   No active modifier groups for dish Won Ton Noodle Soup
+2025-12-28 11:59:30,958 - DEBUG -   No active modifier groups for dish Won Ton Soup
+2025-12-28 11:59:32,925 - DEBUG -   No active modifier groups for dish Young Chow Fried Rice
+2025-12-28 11:59:32,925 - INFO -   Result: 0 processed, 178 skipped, 0 links, 0 details
+2025-12-28 11:59:32,926 - INFO - ----------------------------------------
+2025-12-28 11:59:32,926 - INFO - [5/6] Processing: Lucky Star Chinese Food (V3: 8, V1: 90)
+2025-12-28 11:59:35,037 - DEBUG -   No active modifier groups for dish 7 Up
+2025-12-28 11:59:37,018 - DEBUG -   No active modifier groups for dish Almond
+2025-12-28 11:59:38,990 - DEBUG -   No active modifier groups for dish Almond Cookies
+2025-12-28 11:59:40,953 - DEBUG -   No active modifier groups for dish B.B.Q. Pork
+2025-12-28 11:59:42,921 - DEBUG -   No active modifier groups for dish B.B.Q. Pork
+2025-12-28 11:59:44,896 - DEBUG -   No active modifier groups for dish B.B.Q. Pork
+2025-12-28 11:59:46,876 - DEBUG -   No active modifier groups for dish B.B.Q. Pork Chinese Greens
+2025-12-28 11:59:48,846 - DEBUG -   No active modifier groups for dish B.B.Q. Pork Guy Ding
+2025-12-28 11:59:50,799 - DEBUG -   No active modifier groups for dish Bacon
+2025-12-28 11:59:50,799 - INFO -   Progress: 10/138 dishes
+2025-12-28 11:59:52,791 - DEBUG -   No active modifier groups for dish Bacon
+2025-12-28 11:59:54,778 - DEBUG -   No active modifier groups for dish Beef
+2025-12-28 11:59:56,761 - DEBUG -   No active modifier groups for dish Beef
+2025-12-28 11:59:58,754 - DEBUG -   No active modifier groups for dish Beef
+2025-12-28 12:00:00,756 - DEBUG -   No active modifier groups for dish Beef
+2025-12-28 12:00:02,795 - DEBUG -   No active modifier groups for dish Beef Hunan Style
+2025-12-28 12:00:04,784 - DEBUG -   No active modifier groups for dish Beef with Black Bean Sauce
+2025-12-28 12:00:06,803 - DEBUG -   No active modifier groups for dish Beef with Brocoli
+2025-12-28 12:00:08,762 - DEBUG -   No active modifier groups for dish Beef with Chinese Greens
+2025-12-28 12:00:10,818 - DEBUG -   No active modifier groups for dish Beef with Flat Noodles (Dry)
+2025-12-28 12:00:10,818 - INFO -   Progress: 20/138 dishes
+2025-12-28 12:00:13,015 - DEBUG -   No active modifier groups for dish Beef with Green Peppers
+2025-12-28 12:00:15,007 - DEBUG -   No active modifier groups for dish Beef with Hot Pepper and Black Bean Sauce
+2025-12-28 12:00:17,003 - DEBUG -   No active modifier groups for dish Beef with Macaroni
+2025-12-28 12:00:18,990 - DEBUG -   No active modifier groups for dish Beef with Mushrooms
+2025-12-28 12:00:20,963 - DEBUG -   No active modifier groups for dish Beef with Orange Flavour
+2025-12-28 12:00:22,944 - DEBUG -   No active modifier groups for dish Beef with Tomatoes
+2025-12-28 12:00:25,306 - DEBUG -   No active modifier groups for dish Beef with Young Corns
+2025-12-28 12:00:27,545 - DEBUG -   No active modifier groups for dish Bottled Water
+2025-12-28 12:00:29,750 - DEBUG -   No active modifier groups for dish Breaded Scallops
+2025-12-28 12:00:30,288 - WARNING -   Network error (attempt 1/10): Page.goto: net::ERR_NAME_NOT_RESOLVED at https://menuadmin.menu.ca/?p=restaurants&display=editRestau
+2025-12-28 12:00:30,288 - INFO -   Retrying in 5 seconds...
+2025-12-28 12:00:37,761 - DEBUG -   No active modifier groups for dish Breaded Shrimp
+2025-12-28 12:00:37,761 - INFO -   Progress: 30/138 dishes
+2025-12-28 12:00:41,406 - DEBUG -   No active modifier groups for dish Butterfly Shrimp
+2025-12-28 12:00:43,973 - DEBUG -   No active modifier groups for dish Cantonese Chow Mein (Noodle)
+2025-12-28 12:00:47,021 - DEBUG -   No active modifier groups for dish Cantonese Chow Mein (Vegetables Only)
+2025-12-28 12:00:49,000 - DEBUG -   No active modifier groups for dish Chicken
+2025-12-28 12:00:51,014 - DEBUG -   No active modifier groups for dish Chicken
+2025-12-28 12:00:53,030 - DEBUG -   No active modifier groups for dish Chicken
+2025-12-28 12:00:55,013 - DEBUG -   No active modifier groups for dish Chicken
+2025-12-28 12:00:56,998 - DEBUG -   No active modifier groups for dish Chicken Guy Ding
+2025-12-28 12:00:59,024 - DEBUG -   No active modifier groups for dish Chicken Livers and Green Peppers
+2025-12-28 12:01:01,041 - DEBUG -   No active modifier groups for dish Chicken Livers and Mushrooms
+2025-12-28 12:01:01,041 - INFO -   Progress: 40/138 dishes
+2025-12-28 12:01:03,041 - DEBUG -   No active modifier groups for dish Chicken Macaroni
+2025-12-28 12:01:05,038 - DEBUG -   No active modifier groups for dish Chicken Rice
+2025-12-28 12:01:07,048 - DEBUG -   No active modifier groups for dish Chicken Tachien Style
+2025-12-28 12:01:09,067 - DEBUG -   No active modifier groups for dish Chicken with Mushrooms
+2025-12-28 12:01:11,611 - DEBUG -   No active modifier groups for dish Chicken with Orange Flavour
+2025-12-28 12:01:13,601 - DEBUG -   No active modifier groups for dish Chicken with Spicy Sauce
+2025-12-28 12:01:15,599 - DEBUG -   No active modifier groups for dish Chinese Greens
+2025-12-28 12:01:17,603 - DEBUG -   No active modifier groups for dish Coke
+2025-12-28 12:01:19,612 - DEBUG -   No active modifier groups for dish Crispy Beef
+2025-12-28 12:01:21,603 - DEBUG -   No active modifier groups for dish Curried Beef
+2025-12-28 12:01:21,603 - INFO -   Progress: 50/138 dishes
+2025-12-28 12:01:23,649 - DEBUG -   No active modifier groups for dish Curried Chicken
+2025-12-28 12:01:25,646 - DEBUG -   No active modifier groups for dish Curried Pork
+2025-12-28 12:01:27,668 - DEBUG -   No active modifier groups for dish Curried Shrimp
+2025-12-28 12:01:29,696 - DEBUG -   No active modifier groups for dish Curried Vegetables
+2025-12-28 12:01:31,694 - DEBUG -   No active modifier groups for dish Diet Coke
+2025-12-28 12:01:33,717 - DEBUG -   No active modifier groups for dish Diet Pepsi
+2025-12-28 12:01:35,722 - DEBUG -   No active modifier groups for dish Diner for Four
+2025-12-28 12:01:37,725 - DEBUG -   No active modifier groups for dish Dinner for Five
+2025-12-28 12:01:39,749 - DEBUG -   No active modifier groups for dish Dinner for Six
+2025-12-28 12:01:41,762 - DEBUG -   No active modifier groups for dish Dinner for Three
+2025-12-28 12:01:41,763 - INFO -   Progress: 60/138 dishes
+2025-12-28 12:01:43,770 - DEBUG -   No active modifier groups for dish Dinner for Two A
+2025-12-28 12:01:45,771 - DEBUG -   No active modifier groups for dish Dinner for Two B
+2025-12-28 12:01:47,800 - DEBUG -   No active modifier groups for dish Dozen Egg Roll Special
+2025-12-28 12:01:49,810 - DEBUG -   No active modifier groups for dish Dozen Open End Egg Roll
+2025-12-28 12:01:51,811 - DEBUG -   No active modifier groups for dish Egg Roll
+2025-12-28 12:01:53,814 - DEBUG -   No active modifier groups for dish Flat Noodles with Beef and Black Bean Sauce (Hot)
+2025-12-28 12:01:55,805 - DEBUG -   No active modifier groups for dish Flat Noodles with Chicken and Chinese Greens
+2025-12-28 12:01:57,809 - DEBUG -   No active modifier groups for dish French Fries
+2025-12-28 12:01:59,810 - DEBUG -   No active modifier groups for dish Fried Dry
+2025-12-28 12:02:01,834 - DEBUG -   No active modifier groups for dish Fried Dry Noodles
+2025-12-28 12:02:01,834 - INFO -   Progress: 70/138 dishes
+2025-12-28 12:02:03,817 - DEBUG -   No active modifier groups for dish Fried Wonton With Sweet and Sour Sauce
+2025-12-28 12:02:05,825 - DEBUG -   No active modifier groups for dish Garlic
+2025-12-28 12:02:07,822 - DEBUG -   No active modifier groups for dish Garlic
+2025-12-28 12:02:09,806 - DEBUG -   No active modifier groups for dish Garlic
+2025-12-28 12:02:11,813 - DEBUG -   No active modifier groups for dish Garlic Pork Balls
+2025-12-28 12:02:13,827 - DEBUG -   No active modifier groups for dish Garlic Spare Ribs
+2025-12-28 12:02:15,822 - DEBUG -   No active modifier groups for dish General Tso's Chicken
+2025-12-28 12:02:17,818 - DEBUG -   No active modifier groups for dish Ginger Beef
+2025-12-28 12:02:19,811 - DEBUG -   No active modifier groups for dish Gingerale
+2025-12-28 12:02:21,815 - DEBUG -   No active modifier groups for dish Hot & Spicy
+2025-12-28 12:02:21,815 - INFO -   Progress: 80/138 dishes
+2025-12-28 12:02:23,812 - DEBUG -   No active modifier groups for dish Hot and Sour
+2025-12-28 12:02:25,793 - DEBUG -   No active modifier groups for dish Hot Sauce
+2025-12-28 12:02:27,807 - DEBUG -   No active modifier groups for dish Kung Pao Chicken
+2025-12-28 12:02:29,809 - DEBUG -   No active modifier groups for dish Lemon
+2025-12-28 12:02:31,822 - DEBUG -   No active modifier groups for dish Mixed Vegetables with Spicy Sauce
+2025-12-28 12:02:33,824 - DEBUG -   No active modifier groups for dish Mo-She Dishes (6 Pancakes)
+2025-12-28 12:02:35,828 - DEBUG -   No active modifier groups for dish Moo Goo Guy Kew
+2025-12-28 12:02:37,815 - DEBUG -   No active modifier groups for dish Moo Goo Guy Pan
+2025-12-28 12:02:39,795 - DEBUG -   No active modifier groups for dish Moo Goo Har Kew
+2025-12-28 12:02:41,930 - DEBUG -   No active modifier groups for dish Mushroom
+2025-12-28 12:02:41,930 - INFO -   Progress: 90/138 dishes
+2025-12-28 12:02:43,921 - DEBUG -   No active modifier groups for dish Mushroom
+2025-12-28 12:02:45,928 - DEBUG -   No active modifier groups for dish Mushroom
+2025-12-28 12:02:48,416 - DEBUG -   No active modifier groups for dish Mushrooms
+2025-12-28 12:02:50,405 - DEBUG -   No active modifier groups for dish Mushrooms Egg
+2025-12-28 12:02:52,411 - DEBUG -   No active modifier groups for dish No 1
+2025-12-28 12:02:54,406 - DEBUG -   No active modifier groups for dish No 2
+2025-12-28 12:02:56,414 - DEBUG -   No active modifier groups for dish No 3
+2025-12-28 12:02:58,403 - DEBUG -   No active modifier groups for dish No 4
+2025-12-28 12:03:00,387 - DEBUG -   No active modifier groups for dish No 5
+2025-12-28 12:03:02,381 - DEBUG -   No active modifier groups for dish No 6
+2025-12-28 12:03:02,381 - INFO -   Progress: 100/138 dishes
+2025-12-28 12:03:04,403 - DEBUG -   No active modifier groups for dish Open End Egg Roll
+2025-12-28 12:03:06,399 - DEBUG -   No active modifier groups for dish Pepsi
+2025-12-28 12:03:08,391 - DEBUG -   No active modifier groups for dish Pineapple
+2025-12-28 12:03:10,396 - DEBUG -   No active modifier groups for dish Pineapple
+2025-12-28 12:03:12,416 - DEBUG -   No active modifier groups for dish Plain
+2025-12-28 12:03:14,413 - DEBUG -   No active modifier groups for dish Plain
+2025-12-28 12:03:16,404 - DEBUG -   No active modifier groups for dish Plain Cantonese Noodles
+2025-12-28 12:03:18,411 - DEBUG -   No active modifier groups for dish Pork
+2025-12-28 12:03:20,419 - DEBUG -   No active modifier groups for dish Scallop
+2025-12-28 12:03:22,423 - DEBUG -   No active modifier groups for dish Sea Food Plates
+2025-12-28 12:03:22,424 - INFO -   Progress: 110/138 dishes
+2025-12-28 12:03:24,400 - DEBUG -   No active modifier groups for dish Shan Koo Guy Pan
+2025-12-28 12:03:26,389 - DEBUG -   No active modifier groups for dish Shanghai Noodles
+2025-12-28 12:03:28,370 - DEBUG -   No active modifier groups for dish Shredded Beef and Vegetable
+2025-12-28 12:03:30,655 - DEBUG -   No active modifier groups for dish Shredded Chicken and Vegetable
+2025-12-28 12:03:32,943 - DEBUG -   No active modifier groups for dish Shredded Pork and Vegetable
+2025-12-28 12:03:34,947 - DEBUG -   No active modifier groups for dish Shrimp
+2025-12-28 12:03:36,946 - DEBUG -   No active modifier groups for dish Shrimp
+2025-12-28 12:03:38,919 - DEBUG -   No active modifier groups for dish Shrimp
+2025-12-28 12:03:40,917 - DEBUG -   No active modifier groups for dish Shrimp
+2025-12-28 12:03:42,942 - DEBUG -   No active modifier groups for dish Shrimp Ding
+2025-12-28 12:03:42,942 - INFO -   Progress: 120/138 dishes
+2025-12-28 12:03:44,958 - DEBUG -   No active modifier groups for dish Shrimp with Black Bean Sauce
+2025-12-28 12:03:46,958 - DEBUG -   No active modifier groups for dish Shrimp with Chinese Greens
+2025-12-28 12:03:48,940 - DEBUG -   No active modifier groups for dish Shrimp with Lobster Sauce
+2025-12-28 12:03:50,912 - DEBUG -   No active modifier groups for dish Shrimp with Tomato Sauce
+2025-12-28 12:03:52,913 - DEBUG -   No active modifier groups for dish Shrimps with Cashew Nuts
+2025-12-28 12:03:54,941 - DEBUG -   No active modifier groups for dish Side Order Sauces
+2025-12-28 12:03:56,953 - DEBUG -   No active modifier groups for dish Singapore Rice Noodle
+2025-12-28 12:03:58,976 - DEBUG -   No active modifier groups for dish Special
+2025-12-28 12:04:00,974 - DEBUG -   No active modifier groups for dish Spring Roll
+2025-12-28 12:04:02,981 - DEBUG -   No active modifier groups for dish Sprite
+2025-12-28 12:04:02,981 - INFO -   Progress: 130/138 dishes
+2025-12-28 12:04:04,991 - DEBUG -   No active modifier groups for dish Steamed Rice
+2025-12-28 12:04:06,987 - DEBUG -   No active modifier groups for dish Sweet and Sour
+2025-12-28 12:04:08,975 - DEBUG -   No active modifier groups for dish Sweet and Sour
+2025-12-28 12:04:10,966 - DEBUG -   No active modifier groups for dish Sweet and Sour Pork (Cantonese Style)
+2025-12-28 12:04:12,947 - DEBUG -   No active modifier groups for dish Vegetable
+2025-12-28 12:04:14,941 - DEBUG -   No active modifier groups for dish Vegetable
+2025-12-28 12:04:17,000 - DEBUG -   No active modifier groups for dish Vegetable
+2025-12-28 12:04:18,983 - DEBUG -   No active modifier groups for dish Won Ton
+2025-12-28 12:04:20,966 - DEBUG -   No active modifier groups for dish Young Chow
+2025-12-28 12:04:20,966 - INFO -   Result: 0 processed, 138 skipped, 0 links, 0 details
+2025-12-28 12:04:20,968 - INFO - ----------------------------------------
+2025-12-28 12:04:20,968 - INFO - [6/6] Processing: Orchid Sushi (V3: 245, V1: 387)
+2025-12-28 12:04:23,134 - DEBUG -   No active modifier groups for dish 1. Sake Salmon
+2025-12-28 12:04:25,135 - DEBUG -   No active modifier groups for dish 10. Tako
+2025-12-28 12:04:27,107 - DEBUG -   No active modifier groups for dish 11. Ika
+2025-12-28 12:04:29,119 - DEBUG -   No active modifier groups for dish 12 Pieces
+2025-12-28 12:04:31,098 - DEBUG -   No active modifier groups for dish 12. Hotate
+2025-12-28 12:04:33,548 - DEBUG -   No active modifier groups for dish 13. Tamago
+2025-12-28 12:04:35,536 - DEBUG -   No active modifier groups for dish 14 Pieces
+2025-12-28 12:04:37,520 - DEBUG -   No active modifier groups for dish 14. Kani-Kama
+2025-12-28 12:04:39,505 - DEBUG -   No active modifier groups for dish 15. Inari
+2025-12-28 12:04:39,505 - INFO -   Progress: 10/134 dishes
+2025-12-28 12:04:41,484 - DEBUG -   No active modifier groups for dish 16 Pieces
+2025-12-28 12:04:43,535 - DEBUG -   No active modifier groups for dish 16. Hokegai
+2025-12-28 12:04:45,522 - DEBUG -   No active modifier groups for dish 17. Ikura
+2025-12-28 12:04:47,519 - DEBUG -   No active modifier groups for dish 18. Tobiko
+2025-12-28 12:04:49,503 - DEBUG -   No active modifier groups for dish 19. Masago
+2025-12-28 12:04:51,479 - DEBUG -   No active modifier groups for dish 2. Maguro
+2025-12-28 12:04:53,433 - DEBUG -   No active modifier groups for dish 20 Pieces
+2025-12-28 12:04:55,423 - DEBUG -   No active modifier groups for dish 20. Sunrise
+2025-12-28 12:04:57,397 - DEBUG -   No active modifier groups for dish 21. Spicy Sake
+2025-12-28 12:04:59,446 - DEBUG -   No active modifier groups for dish 22a. Spicy Maguro
+2025-12-28 12:04:59,447 - INFO -   Progress: 20/134 dishes
+2025-12-28 12:05:01,424 - DEBUG -   No active modifier groups for dish 22b. Spicy Albacore
+2025-12-28 12:05:03,398 - DEBUG -   No active modifier groups for dish 23. Spicy Crab
+2025-12-28 12:05:05,417 - DEBUG -   No active modifier groups for dish 24. Spicy Shrimp
+2025-12-28 12:05:07,405 - DEBUG -   No active modifier groups for dish 25. Spicy Hotate
+2025-12-28 12:05:09,400 - DEBUG -   No active modifier groups for dish 26a. Spicy Tako
+2025-12-28 12:05:11,412 - DEBUG -   No active modifier groups for dish 26b. Spicy Escolar
+2025-12-28 12:05:13,392 - DEBUG -   No active modifier groups for dish 26c. Spicy Tai
+2025-12-28 12:05:15,384 - DEBUG -   No active modifier groups for dish 27. Avocado Hosomaki
+2025-12-28 12:05:17,359 - DEBUG -   No active modifier groups for dish 28. Cucumber Hosomaki
+2025-12-28 12:05:19,350 - DEBUG -   No active modifier groups for dish 29. Oshinko Hosomaki
+2025-12-28 12:05:19,350 - INFO -   Progress: 30/134 dishes
+2025-12-28 12:05:21,337 - DEBUG -   No active modifier groups for dish 3. Hamachi
+2025-12-28 12:05:23,333 - DEBUG -   No active modifier groups for dish 30 Pieces
+2025-12-28 12:05:25,327 - DEBUG -   No active modifier groups for dish 30. Tofu Hosomaki
+2025-12-28 12:05:27,321 - DEBUG -   No active modifier groups for dish 31. Tamago Hosomaki
+2025-12-28 12:05:29,311 - DEBUG -   No active modifier groups for dish 32. Kanikama Hosomaki
+2025-12-28 12:05:31,704 - DEBUG -   No active modifier groups for dish 33a. Sake Hosomaki
+2025-12-28 12:05:33,821 - DEBUG -   No active modifier groups for dish 33b. Kunsei Hosomaki
+2025-12-28 12:05:35,859 - DEBUG -   No active modifier groups for dish 34a. Tekka Hosomaki
+2025-12-28 12:05:37,853 - DEBUG -   No active modifier groups for dish 34b. Escolar Hosomaki
+2025-12-28 12:05:39,845 - DEBUG -   No active modifier groups for dish 34c. Albacore Hosomaki
+2025-12-28 12:05:39,845 - INFO -   Progress: 40/134 dishes
+2025-12-28 12:05:41,859 - DEBUG -   No active modifier groups for dish 35a. Hamachi Hosomaki
+2025-12-28 12:05:43,990 - DEBUG -   No active modifier groups for dish 35b. Tai Hosomaki
+2025-12-28 12:05:45,974 - DEBUG -   No active modifier groups for dish 36. Spicy Salmon
+2025-12-28 12:05:47,977 - DEBUG -   No active modifier groups for dish 37a. Spicy Tuna
+2025-12-28 12:05:49,982 - DEBUG -   No active modifier groups for dish 37b. Spicy Escolar
+2025-12-28 12:05:51,984 - DEBUG -   No active modifier groups for dish 38a. Spicy Hamachi
+2025-12-28 12:05:53,955 - DEBUG -   No active modifier groups for dish 38b. Spicy Albacore
+2025-12-28 12:05:55,938 - DEBUG -   No active modifier groups for dish 38c. Spicy Tai
+2025-12-28 12:05:57,924 - DEBUG -   No active modifier groups for dish 39. Ebi Maki
+2025-12-28 12:05:59,930 - DEBUG -   No active modifier groups for dish 4. Albacore
+2025-12-28 12:05:59,930 - INFO -   Progress: 50/134 dishes
+2025-12-28 12:06:01,921 - DEBUG -   No active modifier groups for dish 40. California Maki
+2025-12-28 12:06:03,921 - DEBUG -   No active modifier groups for dish 41. Nizakama
+2025-12-28 12:06:05,902 - DEBUG -   No active modifier groups for dish 42. Firehouse Maki
+2025-12-28 12:06:07,896 - DEBUG -   No active modifier groups for dish 43. Ottawa Maki
+2025-12-28 12:06:09,871 - DEBUG -   No active modifier groups for dish 44. Philadelphia Maki
+2025-12-28 12:06:11,889 - DEBUG -   No active modifier groups for dish 45. Paradise Maki
+2025-12-28 12:06:13,894 - DEBUG -   No active modifier groups for dish 46a. Unagi Maki
+2025-12-28 12:06:15,874 - DEBUG -   No active modifier groups for dish 46b. Albacore Maki
+2025-12-28 12:06:17,864 - DEBUG -   No active modifier groups for dish 46c. Tai Maki
+2025-12-28 12:06:19,847 - DEBUG -   No active modifier groups for dish 47. Boston Futomaki
+2025-12-28 12:06:19,848 - INFO -   Progress: 60/134 dishes
+2025-12-28 12:06:21,861 - DEBUG -   No active modifier groups for dish 48. California Futomaki
+2025-12-28 12:06:23,885 - DEBUG -   No active modifier groups for dish 49. Veggie Futomaki
+2025-12-28 12:06:25,859 - DEBUG -   No active modifier groups for dish 5. Tai
+2025-12-28 12:06:27,829 - DEBUG -   No active modifier groups for dish 50 Pieces
+2025-12-28 12:06:29,820 - DEBUG -   No active modifier groups for dish 50. Kamikaze Futomaki
+2025-12-28 12:06:31,797 - DEBUG -   No active modifier groups for dish 51. Dynamite Futomaki
+2025-12-28 12:06:33,785 - DEBUG -   No active modifier groups for dish 52. Rainbow Futomaki
+2025-12-28 12:06:35,755 - DEBUG -   No active modifier groups for dish 53. Unagi Futomaki
+2025-12-28 12:06:37,779 - DEBUG -   No active modifier groups for dish 54. Spider Futomaki
+2025-12-28 12:06:39,771 - DEBUG -   No active modifier groups for dish 55. Spicy Crab Futomaki
+2025-12-28 12:06:39,771 - INFO -   Progress: 70/134 dishes
+2025-12-28 12:06:41,754 - DEBUG -   No active modifier groups for dish 56. Spicy Hotate Futomaki
+2025-12-28 12:06:43,755 - DEBUG -   No active modifier groups for dish 57. Spicy Shrimp Futomaki
+2025-12-28 12:06:45,776 - DEBUG -   No active modifier groups for dish 58. Alaska Futomaki
+2025-12-28 12:06:47,781 - DEBUG -   No active modifier groups for dish 59. Sunshine Futomaki
+2025-12-28 12:06:49,779 - DEBUG -   No active modifier groups for dish 6. Kunsei Sake
+2025-12-28 12:06:51,768 - DEBUG -   No active modifier groups for dish 60. Chicken Roll
+2025-12-28 12:06:53,783 - DEBUG -   No active modifier groups for dish 61. Blueberry Futomaki
+2025-12-28 12:06:55,758 - DEBUG -   No active modifier groups for dish 62. Atlantis
+2025-12-28 12:06:57,752 - DEBUG -   No active modifier groups for dish 63. Red Dragon
+2025-12-28 12:06:59,732 - DEBUG -   No active modifier groups for dish 64. Full Moon
+2025-12-28 12:06:59,732 - INFO -   Progress: 80/134 dishes
+2025-12-28 12:07:01,719 - DEBUG -   No active modifier groups for dish 65. Red Tokyo
+2025-12-28 12:07:03,710 - DEBUG -   No active modifier groups for dish 66. Bikini
+2025-12-28 12:07:05,730 - DEBUG -   No active modifier groups for dish 67. Dragon Eye
+2025-12-28 12:07:07,692 - DEBUG -   No active modifier groups for dish 68. Lobster
+2025-12-28 12:07:09,686 - DEBUG -   No active modifier groups for dish 69. Red Orchid
+2025-12-28 12:07:11,707 - DEBUG -   No active modifier groups for dish 7. Escolar with Butter Fish
+2025-12-28 12:07:13,719 - DEBUG -   No active modifier groups for dish 7. Escolar with Oil Fish
+2025-12-28 12:07:15,699 - DEBUG -   No active modifier groups for dish 70 Pieces
+2025-12-28 12:07:17,693 - DEBUG -   No active modifier groups for dish 8. Ebi
+2025-12-28 12:07:19,674 - DEBUG -   No active modifier groups for dish 9. Unagi
+2025-12-28 12:07:19,674 - INFO -   Progress: 90/134 dishes
+2025-12-28 12:07:21,668 - DEBUG -   No active modifier groups for dish Ahi Tuna Poke
+2025-12-28 12:07:23,637 - DEBUG -   No active modifier groups for dish All Sorted Vege Tempura
+2025-12-28 12:07:25,628 - DEBUG -   No active modifier groups for dish Chef's Famous Rolls
+2025-12-28 12:07:27,586 - DEBUG -   No active modifier groups for dish Coke
+2025-12-28 12:07:29,556 - DEBUG -   No active modifier groups for dish Crab Tartar
+2025-12-28 12:07:31,569 - DEBUG -   No active modifier groups for dish Crispy Chicken Poke
+2025-12-28 12:07:33,531 - DEBUG -   No active modifier groups for dish Deluxe Sashimi (42 pcs)
+2025-12-28 12:07:35,510 - DEBUG -   No active modifier groups for dish Diet Coke
+2025-12-28 12:07:37,503 - DEBUG -   No active modifier groups for dish Diet Pepsi
+2025-12-28 12:07:39,511 - DEBUG -   No active modifier groups for dish Edamame
+2025-12-28 12:07:39,511 - INFO -   Progress: 100/134 dishes
+2025-12-28 12:07:41,518 - DEBUG -   No active modifier groups for dish Ginger Ale
+2025-12-28 12:07:43,506 - DEBUG -   No active modifier groups for dish Green Salad
+2025-12-28 12:07:45,476 - DEBUG -   No active modifier groups for dish Iced Tea
+2025-12-28 12:07:47,505 - DEBUG -   No active modifier groups for dish Lobster Salad Roll
+2025-12-28 12:07:49,484 - DEBUG -   No active modifier groups for dish Lobster Tartar
+2025-12-28 12:07:51,504 - DEBUG -   No active modifier groups for dish Miso Soup
+2025-12-28 12:07:53,499 - DEBUG -   No active modifier groups for dish Nigiri and Sashimi Mix (chef's choice 12pcs)
+2025-12-28 12:07:55,496 - DEBUG -   No active modifier groups for dish Octopus Salad
+2025-12-28 12:07:57,471 - DEBUG -   No active modifier groups for dish Orchid Sashimi
+2025-12-28 12:07:59,472 - DEBUG -   No active modifier groups for dish Party Time (Chef's Choice 65 pcs)
+2025-12-28 12:07:59,473 - INFO -   Progress: 110/134 dishes
+2025-12-28 12:08:01,468 - DEBUG -   No active modifier groups for dish Pepsi
+2025-12-28 12:08:03,435 - DEBUG -   No active modifier groups for dish Perrier
+2025-12-28 12:08:05,417 - DEBUG -   No active modifier groups for dish Pizza Sushi
+2025-12-28 12:08:07,406 - DEBUG -   No active modifier groups for dish Prawn and Vege Tempura
+2025-12-28 12:08:09,387 - DEBUG -   No active modifier groups for dish Prawn Tempura
+2025-12-28 12:08:11,373 - DEBUG -   No active modifier groups for dish Red Tuna
+2025-12-28 12:08:13,368 - DEBUG -   No active modifier groups for dish Red Tuna Tartar
+2025-12-28 12:08:15,376 - DEBUG -   No active modifier groups for dish Sakana (all Fish Sashimi 18pcs)
+2025-12-28 12:08:17,373 - DEBUG -   No active modifier groups for dish Salmon Poke
+2025-12-28 12:08:19,358 - DEBUG -   No active modifier groups for dish Salmon Salad Roll
+2025-12-28 12:08:19,358 - INFO -   Progress: 120/134 dishes
+2025-12-28 12:08:21,392 - DEBUG -   No active modifier groups for dish Salmon Tartar
+2025-12-28 12:08:23,406 - DEBUG -   No active modifier groups for dish Sashimi Lover (14pcs)
+2025-12-28 12:08:25,384 - DEBUG -   No active modifier groups for dish Sauces
+2025-12-28 12:08:27,441 - DEBUG -   No active modifier groups for dish Seafood Salad
+2025-12-28 12:08:29,415 - DEBUG -   No active modifier groups for dish Shrimp Salad Roll
+2025-12-28 12:08:31,419 - DEBUG -   No active modifier groups for dish Shrimp Tartar
+2025-12-28 12:08:33,402 - DEBUG -   No active modifier groups for dish Shrimp Tempura Poke
+2025-12-28 12:08:35,390 - DEBUG -   No active modifier groups for dish Tataki Salad
+2025-12-28 12:08:37,373 - DEBUG -   No active modifier groups for dish Tom Yum Soup
+2025-12-28 12:08:39,354 - DEBUG -   No active modifier groups for dish Tuna & Salmon Poke
+2025-12-28 12:08:39,354 - INFO -   Progress: 130/134 dishes
+2025-12-28 12:08:41,368 - DEBUG -   No active modifier groups for dish Tuna Salad Roll
+2025-12-28 12:08:43,342 - DEBUG -   No active modifier groups for dish Vege Poke
+2025-12-28 12:08:45,356 - DEBUG -   No active modifier groups for dish Vegetarian Salad Roll
+2025-12-28 12:08:47,370 - DEBUG -   No active modifier groups for dish Volcano
+2025-12-28 12:08:49,350 - DEBUG -   No active modifier groups for dish Wakame Salad
+2025-12-28 12:08:49,350 - INFO -   Result: 0 processed, 134 skipped, 0 links, 0 details
+2025-12-28 12:08:49,435 - INFO - ============================================================
+2025-12-28 12:08:49,435 - INFO - LINKER COMPLETED
+2025-12-28 12:08:49,435 - INFO - Dishes processed: 0
+2025-12-28 12:08:49,435 - INFO - Dishes skipped: 750
+2025-12-28 12:08:49,436 - INFO - Links created: 0
+2025-12-28 12:08:49,436 - INFO - Details created: 0
+2025-12-28 12:08:49,436 - INFO - ============================================================

@@ -1,275 +1,315 @@
-# Agent Handoff: Special Combo Selections
+# Frontend Handoff: Modifier Groups Integration
 
-> **Purpose:** Document how special combo dish selections work in `menuca_v3`  
-> **Function:** `get_restaurant_menu`  
-> **Last Updated:** 2025-12-15
-
----
-
-## WHAT ARE SPECIAL COMBO SELECTIONS?
-
-Some combo dishes allow customers to **choose from a list of existing dishes** as part of their combo. For example:
-
-- **"Small Nachos with Donuts and Drink"** → Customer picks 1 of 12 nacho varieties
-- **"Any 3 Burgers Special"** → Customer picks 3 burgers from the menu
-- **"Family Special Meal Deal"** → Customer picks 1 salad from 3 options
-
-This is different from regular combo modifier groups (like pizza toppings), where customers select individual modifiers. With special sections, they're selecting **entire dishes**.
+**Date:** December 28, 2024  
+**For:** Brian (Frontend Developer)  
+**From:** Santiago (Database Migration)
 
 ---
 
-## DATABASE SCHEMA
+## Overview
 
-### Key Tables
+The modifier groups system has been migrated to V3 with a **shared architecture**. Modifier groups are now defined at the **restaurant level** and linked to individual dishes, with per-dish configuration for display settings.
+
+---
+
+## 1. Database Schema
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                    SPECIAL COMBO SELECTION HIERARCHY                         │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  dishes (is_combo = true)                                                    │
-│       │                                                                      │
-│       │ via dish_combo_groups                                                │
-│       ▼                                                                      │
-│  combo_groups ─────────────────────────────────────────────┐                 │
-│  (has_special_section = TRUE)                              │                 │
-│       │                                                    │                 │
-│       │ 1:N                                                │                 │
-│       ▼                                                    │                 │
-│  combo_group_dish_selections ──────────────────────────────┤                 │
-│  (The dishes customer can choose from)                     │                 │
-│       │                                                    │                 │
-│       │ FK                                                 │                 │
-│       ▼                                                    │                 │
-│  dishes (the selectable dishes)                            │                 │
-│  courses (for grouping/display)                            │                 │
-│                                                            │                 │
-│  NOTE: combo_groups also have combo_group_sections with    │                 │
-│  combo_modifier_groups for additional customizations       │                 │
-│  (e.g., donut dips, burger toppings)                       │                 │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                              MODIFIER GROUPS SCHEMA (V3)                                     │
+└─────────────────────────────────────────────────────────────────────────────────────────────┘
+
+        RESTAURANT LEVEL                              DISH LEVEL
+      (Shared within restaurant)                   (Dish-specific)
+    ════════════════════════════                ════════════════════════════
+
+┌───────────────────────────┐                  ┌─────────────────────────────────┐
+│     modifier_groups       │                  │         dishes                  │
+│  (Shared at restaurant)   │                  ├─────────────────────────────────┤
+├───────────────────────────┤                  │ id                              │
+│ id            PK          │                  │ name                            │
+│ restaurant_id FK          │                  │ has_customization               │
+│ name          (internal)  │                  └────────────────┬────────────────┘
+│ category      (type code) │                                   │
+└───────────┬───────────────┘                                   │
+            │                                                   │
+            │ 1:N                                               │
+            ▼                                                   ▼
+┌───────────────────────────┐                  ┌─────────────────────────────────┐
+│       modifiers           │                  │     dish_modifier_groups        │
+│  (Shared options)         │                  │  (Link: dish ↔ modifier_group)  │
+├───────────────────────────┤                  ├─────────────────────────────────┤
+│ id            PK          │                  │ id              PK              │
+│ modifier_group_id FK      │                  │ dish_id         FK              │
+│ name                      │                  │ modifier_group_id FK            │
+│ display_order             │                  └────────────────┬────────────────┘
+│ is_active                 │                                   │
+└───────────┬───────────────┘                                   │ 1:1
+            │                                                   ▼
+            │ 1:N                              ┌─────────────────────────────────┐
+            ▼                                  │   modifier_group_details        │
+┌───────────────────────────┐                  │  (Per-dish display settings)    │
+│    modifier_prices        │                  ├─────────────────────────────────┤
+│  (Size-based pricing)     │                  │ id              PK              │
+├───────────────────────────┤                  │ dish_modifier_group_id FK       │
+│ id            PK          │                  │ name            (display name)  │
+│ modifier_id   FK          │                  │ min_selections                  │
+│ size_variant              │                  │ max_selections                  │
+│ price                     │                  │ free_items                      │
+│ display_order             │                  │ display_order                   │
+└───────────────────────────┘                  └─────────────────────────────────┘
 ```
 
-### `combo_groups` Table (Relevant Columns)
+### Key Concepts
 
-| Column | Type | Description |
-|--------|------|-------------|
-| `id` | bigint | Primary key |
-| `restaurant_id` | bigint | FK to restaurants |
-| `name` | text | Group name (e.g., "Small Nacho Selection with Donuts") |
-| `has_special_section` | boolean | **TRUE** if this combo has dish selections |
-| `special_number_of_items` | integer | How many dishes customer must select (e.g., 1, 2, 3) |
-| `special_display_header` | varchar | UI header (e.g., "Choose your Nacho" or "First Burger;Second Burger") |
-| `deleted_at` | timestamp | Soft delete |
-
-### `combo_group_dish_selections` Table
-
-| Column | Type | Description |
-|--------|------|-------------|
-| `id` | integer | Primary key |
-| `combo_group_id` | integer | FK to combo_groups |
-| `dish_id` | integer | FK to dishes (the selectable dish) |
-| `size` | smallint | Size variant: 0=Small, 1=Medium, 2=Large, 3=X-Large, NULL=no size |
-| `course_id` | integer | FK to courses (for UI grouping) |
-| `dish_display_name` | text | Optional override (e.g., "Caesar Salad Large" instead of "Caesar Salad") |
-| `deleted_at` | timestamp | Soft delete |
-
-### Size Mapping
-
-| Value | Size |
-|-------|------|
-| `NULL` | No size variants |
-| `0` | Small |
-| `1` | Medium |
-| `2` | Large |
-| `3` | X-Large |
-
-### Size Distribution in Dish Selections
-
-| Size | Count | Percentage |
-|------|-------|------------|
-| Medium (12") | 277 | 40.8% |
-| Small (9") | 215 | 31.7% |
-| Large (15") | 110 | 16.2% |
-| No size variant | 55 | 8.1% |
-| X-Large | 22 | 3.2% |
-| **Total** | **679** | **100%** |
-
-> **Note:** Medium is the most common size for combo dish selections, followed by Small.
+| Concept | Description |
+|---------|-------------|
+| **modifier_groups** | Shared groups at restaurant level (e.g., "Pizza Toppings", "Sauces") |
+| **modifiers** | Individual options within a group (e.g., "Pepperoni", "Mushrooms") |
+| **modifier_prices** | Size-based pricing for modifiers |
+| **dish_modifier_groups** | Links a dish to a modifier group |
+| **modifier_group_details** | Per-dish config: display name, min/max selections, free items |
 
 ---
 
-## STATISTICS
-
-| Metric | Count |
-|--------|-------|
-| Total combo groups | 2,067 |
-| Combo groups with special sections | 48 |
-| Total dish selections | 679 |
-| Restaurants with special sections | 12 |
-
-### Restaurants with Special Combo Sections
-
-| Restaurant | V3 ID | Special Combo Groups | Total Dish Selections |
-|------------|-------|---------------------|----------------------|
-| Milano | 680 | 21 | 349 |
-| Aroy Thai | 607 | 4 | 116 |
-| Amicci Pizza | 735 | 5 | 60 |
-| Nachos Loco Gatineau | 801 | 3 | 36 |
-| Nachos Loco Hull | 790 | 3 | 36 |
-| Dumpling Bowl | 792 | 1 | 22 |
-| Mano City Pizza | 118 | 3 | 19 |
-| All Out Burger | 833 | 1 | 12 |
-| Little Gyros Greek Grill | 756 | 2 | 10 |
-| Orchid Sushi | 245 | 1 | 8 |
-| Milano | 350 | 2 | 7 |
-| Milano | 123 | 2 | 4 |
-
----
-
-## `get_restaurant_menu` FUNCTION
+## 2. API Function: `get_restaurant_menu`
 
 ### Function Signature
 
 ```sql
 menuca_v3.get_restaurant_menu(
-  p_restaurant_id bigint,
-  p_language_code text DEFAULT 'en',
-  p_combo_default_only boolean DEFAULT false
-) RETURNS jsonb
+  p_restaurant_id bigint,           -- Required: Restaurant ID
+  p_language_code text DEFAULT 'en', -- Optional: Language (future use)
+  p_combo_default_only boolean DEFAULT false  -- Optional: Filter combo groups
+)
+RETURNS jsonb
 ```
 
-### How Special Sections Are Returned
+### How to Call (Supabase RPC)
 
-When a combo group has `has_special_section = true`, the function returns:
+```typescript
+// TypeScript/JavaScript
+const { data, error } = await supabase
+  .rpc('get_restaurant_menu', { 
+    p_restaurant_id: 735  // Amicci Pizza
+  })
 
-```json
-{
-  "id": 2115,
-  "name": "Small Nacho Selection with Donuts",
-  "has_special_section": true,
-  "number_of_items": 1,
-  "display_header": "Choose your Nacho",
-  "dish_selections": [
-    {
-      "id": 632,
-      "dish_id": 145258,
-      "dish_name": "Regular Nachos",
-      "dish_display_name": "Regular Nachos 9\"",
-      "size": 0,
-      "course_id": 3617,
-      "course_name": "Nachos"
-    },
-    {
-      "id": 633,
-      "dish_id": 145259,
-      "dish_name": "Cuatro Queso",
-      "dish_display_name": "Cuatro Queso 9\"",
-      "size": 0,
-      "course_id": 3617,
-      "course_name": "Nachos"
-    }
-    // ... more dish selections
-  ],
-  "sections": [
-    // Regular combo sections with modifier groups (e.g., donut dips)
-  ]
-}
-```
-
-### Key Fields for Frontend
-
-| Field | Purpose |
-|-------|---------|
-| `has_special_section` | **Check this first** - if `true`, render dish selection UI |
-| `number_of_items` | How many dishes customer must select |
-| `display_header` | Header text for UI. If contains `;`, split for multiple selections (e.g., "First Burger;Second Burger") |
-| `dish_selections[]` | Array of dishes customer can choose from |
-| `dish_selections[].dish_display_name` | Use this for display (falls back to `dish_name` if null) |
-| `dish_selections[].size` | Size variant of this selection |
-| `dish_selections[].course_name` | For grouping dishes by category in UI |
-
-### Soft Delete Handling
-
-The function filters out deleted dish selections:
-
-```sql
-WHERE cgds.deleted_at IS NULL
+// With combo filter
+const { data, error } = await supabase
+  .rpc('get_restaurant_menu', { 
+    p_restaurant_id: 735,
+    p_combo_default_only: true  // Only return selected combo options
+  })
 ```
 
 ---
 
-## COMPLETE EXAMPLE: Nachos Loco Gatineau
+## 3. Response Structure
 
-### Dish: "Small Nachos with Donuts and Drink" (ID: 145242)
+```typescript
+interface MenuResponse {
+  restaurant_id: number;
+  combo_default_only: boolean;
+  courses: Course[];
+}
 
-**Price:** $19.95  
-**Description:** 1 small nachos and 6 mini donuts
+interface Course {
+  id: number;
+  name: string;
+  description: string | null;
+  display_order: number;
+  dishes: Dish[];
+}
 
-### JSON Output Structure
+interface Dish {
+  id: number;
+  name: string;
+  description: string | null;
+  display_order: number;
+  is_combo: boolean;
+  has_customization: boolean;
+  image_url: string | null;
+  prices: DishPrice[];
+  modifier_groups: ModifierGroup[];  // ← REGULAR MODIFIERS
+  combo_groups: ComboGroup[];        // ← COMBO-SPECIFIC MODIFIERS
+}
+
+interface DishPrice {
+  id: number;
+  size_variant: string | null;
+  price: number;
+  display_order: number;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// MODIFIER GROUPS (for regular customization like toppings, sauces)
+// ═══════════════════════════════════════════════════════════════
+
+interface ModifierGroup {
+  id: number;
+  name: string;           // Display name (from modifier_group_details)
+  category: string;       // Category code (see table below)
+  min_selections: number; // Minimum required selections
+  max_selections: number; // Maximum allowed selections (0 = unlimited)
+  free_items: number;     // Number of free items before charging
+  display_order: number;
+  modifiers: Modifier[];
+}
+
+interface Modifier {
+  id: number;
+  name: string;
+  display_order: number;
+  is_active: boolean;     // Whether this option is currently available
+  prices: ModifierPrice[];
+}
+
+interface ModifierPrice {
+  id: number;
+  size_variant: string | null;  // Matches dish size_variant
+  price: number;
+  display_order: number;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// COMBO GROUPS (for combo meals with multiple sections)
+// ═══════════════════════════════════════════════════════════════
+
+interface ComboGroup {
+  id: number;
+  name: string;
+  number_of_items: number | null;
+  display_header: string | null;
+  sections: ComboSection[];
+}
+
+interface ComboSection {
+  id: number;
+  section_type: string;
+  use_header: boolean;
+  display_order: number;
+  free_items: number;
+  min_selection: number;
+  max_selection: number;
+  is_active: boolean;
+  modifier_groups: ComboModifierGroup[];
+}
+
+interface ComboModifierGroup {
+  id: number;
+  name: string;
+  type_code: string;
+  is_selected: boolean;   // Default selection state
+  modifiers: ComboModifier[];
+}
+
+interface ComboModifier {
+  id: number;
+  name: string;
+  display_order: number;
+  prices: ComboModifierPrice[];
+}
+
+interface ComboModifierPrice {
+  id: number;
+  size_variant: string | null;
+  price: number;
+}
+```
+
+---
+
+## 4. Category Codes
+
+| Code | Category | Description |
+|------|----------|-------------|
+| `ci` | Custom Ingredients | Toppings, add-ons (e.g., "Add more toppings") |
+| `sa` | Sauces | Sauce selections (e.g., "Dips", "Sauces") |
+| `sd` | Side Dishes | Side dish selections (e.g., "Side Dish", "Plat d'accompagnement") |
+| `e` | Extras | Extra items (e.g., "Extras", "Extra Cheese") |
+
+---
+
+## 5. Example Response
+
+### English Restaurant (Amicci Pizza - ID: 735)
 
 ```json
 {
-  "id": 145242,
-  "name": "Small Nachos with Donuts and Drink",
-  "is_combo": true,
-  "prices": [
-    {"id": 74561, "price": 19.95, "size_variant": "standard"}
-  ],
-  "modifier_groups": [
+  "restaurant_id": 735,
+  "combo_default_only": false,
+  "courses": [
     {
-      "id": 21667,
-      "name": "First two 591ml Drinks Free",
-      "modifiers": [/* 12 drink options */]
-    },
-    {
-      "id": 40861,
-      "name": "Drinks",
-      "modifiers": [/* 12 drink options */]
-    }
-  ],
-  "combo_groups": [
-    {
-      "id": 2115,
-      "name": "Small Nacho Selection with Donuts",
-      "has_special_section": true,
-      "number_of_items": 1,
-      "display_header": "Choose your Nacho",
-      "dish_selections": [
-        {"id": 632, "dish_id": 145258, "dish_name": "Regular Nachos", "dish_display_name": "Regular Nachos 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 633, "dish_id": 145259, "dish_name": "Cuatro Queso", "dish_display_name": "Cuatro Queso 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 634, "dish_id": 145260, "dish_name": "El Vegetariano", "dish_display_name": "El Vegetariano 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 635, "dish_id": 145261, "dish_name": "El Griego", "dish_display_name": "El Griego 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 636, "dish_id": 145262, "dish_name": "Filet de Queso Philly", "dish_display_name": "Filet de Queso Philly 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 637, "dish_id": 145263, "dish_name": "Amante de la Carne", "dish_display_name": "Amante de la Carne 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 638, "dish_id": 145264, "dish_name": "El Pollo", "dish_display_name": "El Pollo 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 639, "dish_id": 145265, "dish_name": "El Chico", "dish_display_name": "El Chico 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 640, "dish_id": 145266, "dish_name": "Loco Especial", "dish_display_name": "Loco Especial 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 641, "dish_id": 145267, "dish_name": "Loco Piquante", "dish_display_name": "Loco Piquante 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 642, "dish_id": 145268, "dish_name": "Loco Amigos", "dish_display_name": "Loco Amigos 9\"", "size": 0, "course_name": "Nachos"},
-        {"id": 643, "dish_id": 145269, "dish_name": "El Cactus", "dish_display_name": "El Cactus 9\"", "size": 0, "course_name": "Nachos"}
-      ],
-      "sections": [
+      "id": 1234,
+      "name": "Pizzas",
+      "display_order": 0,
+      "dishes": [
         {
-          "id": 2805,
-          "section_type": "sauce",
-          "use_header": "Donuts Dips",
+          "id": 132351,
+          "name": "Cheese Pizza",
+          "is_combo": false,
+          "has_customization": true,
+          "prices": [
+            { "id": 56001, "size_variant": "Small", "price": 12.99, "display_order": 0 },
+            { "id": 56002, "size_variant": "Medium", "price": 15.99, "display_order": 1 },
+            { "id": 56003, "size_variant": "Large", "price": 18.99, "display_order": 2 }
+          ],
           "modifier_groups": [
             {
-              "id": 4210,
-              "name": "Mini Donuts Dips",
-              "is_selected": true,
+              "id": 28,
+              "name": "Add more toppings",
+              "category": "ci",
+              "min_selections": 0,
+              "max_selections": 0,
+              "free_items": 0,
+              "display_order": 2,
               "modifiers": [
-                {"name": "Birthday Dip", "prices": [{"price": 2.00}]},
-                {"name": "Salted Caramel Dip", "prices": [{"price": 2.00}]},
-                {"name": "Cookies and Cream Dip", "prices": [{"price": 2.00}]},
-                {"name": "Chocolat Fudge Dip", "prices": [{"price": 2.00}]},
-                {"name": "Honey Glaze Dip", "prices": [{"price": 2.00}]},
-                {"name": "Strawberry Dip", "prices": [{"price": 2.00}]}
+                {
+                  "id": 64774,
+                  "name": "Pepperoni",
+                  "display_order": 0,
+                  "is_active": true,
+                  "prices": [
+                    { "id": 96623, "size_variant": "Small", "price": 1.50, "display_order": 0 },
+                    { "id": 96624, "size_variant": "Medium", "price": 2.00, "display_order": 1 },
+                    { "id": 96625, "size_variant": "Large", "price": 2.50, "display_order": 2 }
+                  ]
+                },
+                {
+                  "id": 64775,
+                  "name": "Mushrooms",
+                  "display_order": 1,
+                  "is_active": true,
+                  "prices": [
+                    { "id": 96626, "size_variant": "Small", "price": 1.50, "display_order": 0 },
+                    { "id": 96627, "size_variant": "Medium", "price": 2.00, "display_order": 1 },
+                    { "id": 96628, "size_variant": "Large", "price": 2.50, "display_order": 2 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 29,
+              "name": "Dips",
+              "category": "sa",
+              "min_selections": 0,
+              "max_selections": 0,
+              "free_items": 0,
+              "display_order": 3,
+              "modifiers": [
+                {
+                  "id": 64800,
+                  "name": "Garlic Dip",
+                  "display_order": 0,
+                  "is_active": true,
+                  "prices": [
+                    { "id": 96700, "size_variant": null, "price": 1.25, "display_order": 0 }
+                  ]
+                }
               ]
             }
-          ]
+          ],
+          "combo_groups": []
         }
       ]
     }
@@ -277,175 +317,160 @@ WHERE cgds.deleted_at IS NULL
 }
 ```
 
-### Visual Structure
+### French Restaurant (Papa Grecque Cantley - ID: 810)
 
-```
-📦 Small Nachos with Donuts and Drink ($19.95)
-│
-├── 🥤 Regular Modifier Groups (for drinks)
-│   ├── First two 591ml Drinks Free (12 options)
-│   └── Drinks (12 options)
-│
-└── 📦 Combo Group: "Small Nacho Selection with Donuts"
-    │   has_special_section: TRUE
-    │   number_of_items: 1
-    │   display_header: "Choose your Nacho"
-    │
-    ├── 🌮 Dish Selections (12 nachos - size 0 = Small/9")
-    │   ├── Regular Nachos 9"
-    │   ├── Cuatro Queso 9"
-    │   ├── El Vegetariano 9"
-    │   ├── El Griego 9"
-    │   ├── Filet de Queso Philly 9"
-    │   ├── Amante de la Carne 9"
-    │   ├── El Pollo 9"
-    │   ├── El Chico 9"
-    │   ├── Loco Especial 9"
-    │   ├── Loco Piquante 9"
-    │   ├── Loco Amigos 9"
-    │   └── El Cactus 9"
-    │
-    └── 📑 Section: "Donuts Dips"
-        └── Mini Donuts Dips (6 dip options @ $2.00 each)
-```
-
----
-
-## FRONTEND IMPLEMENTATION GUIDE
-
-### Step 1: Check for Special Section
-
-```typescript
-const comboGroup = dish.combo_groups[0];
-
-if (comboGroup.has_special_section) {
-  // Render dish selection UI
-  renderDishSelectionUI(comboGroup);
-} else {
-  // Render regular combo modifier UI
-  renderComboModifierUI(comboGroup);
+```json
+{
+  "restaurant_id": 810,
+  "combo_default_only": false,
+  "courses": [
+    {
+      "id": 5678,
+      "name": "Gyros",
+      "display_order": 2,
+      "dishes": [
+        {
+          "id": 153025,
+          "name": "1a. Souvlaki Combo",
+          "is_combo": false,
+          "has_customization": true,
+          "prices": [
+            { "id": 67008, "size_variant": "Poulet", "price": 18.85, "display_order": 0 },
+            { "id": 67009, "size_variant": "Porc", "price": 18.85, "display_order": 1 }
+          ],
+          "modifier_groups": [
+            {
+              "id": 2577,
+              "name": "Plat d'accompagnement",
+              "category": "sd",
+              "min_selections": 1,
+              "max_selections": 1,
+              "free_items": 0,
+              "display_order": 5,
+              "modifiers": [
+                {
+                  "id": 133184,
+                  "name": "Salade",
+                  "display_order": 0,
+                  "is_active": true,
+                  "prices": [
+                    { "id": 219920, "size_variant": null, "price": 0.00, "display_order": 0 }
+                  ]
+                },
+                {
+                  "id": 133185,
+                  "name": "Patates",
+                  "display_order": 1,
+                  "is_active": true,
+                  "prices": [
+                    { "id": 219921, "size_variant": null, "price": 0.00, "display_order": 0 }
+                  ]
+                }
+              ]
+            }
+          ],
+          "combo_groups": []
+        }
+      ]
+    }
+  ]
 }
 ```
 
-### Step 2: Parse Display Header
+---
+
+## 6. Frontend Implementation Notes
+
+### Determining if a Dish Has Customization
 
 ```typescript
-// Single selection: "Choose your Nacho"
-// Multiple selections: "First Burger;Second Burger;Third Burger"
-
-const headers = comboGroup.display_header.split(';');
-const numberOfItems = comboGroup.number_of_items;
-
-// headers.length should equal numberOfItems
+// A dish has customization if:
+const hasCustomization = dish.has_customization || 
+                         dish.modifier_groups.length > 0 || 
+                         dish.combo_groups.length > 0;
 ```
 
-### Step 3: Group Dishes by Course
+### Handling Required Selections
 
 ```typescript
-const dishesByCourse = comboGroup.dish_selections.reduce((acc, dish) => {
-  const courseName = dish.course_name || 'Other';
-  if (!acc[courseName]) acc[courseName] = [];
-  acc[courseName].push(dish);
-  return acc;
-}, {});
+// Check if modifier group is required
+const isRequired = modifierGroup.min_selections > 0;
+
+// Validate selection count
+const isValidSelection = (selectedCount: number, group: ModifierGroup) => {
+  const meetsMin = selectedCount >= group.min_selections;
+  const meetsMax = group.max_selections === 0 || selectedCount <= group.max_selections;
+  return meetsMin && meetsMax;
+};
 ```
 
-### Step 4: Display Dish Name
+### Matching Modifier Prices to Dish Size
 
 ```typescript
-// Use dish_display_name if available, otherwise dish_name
-const displayName = dish.dish_display_name || dish.dish_name;
+// When user selects a dish size, find matching modifier price
+const getModifierPrice = (modifier: Modifier, selectedSizeVariant: string | null) => {
+  // Try to find price matching the dish size
+  const matchingPrice = modifier.prices.find(p => p.size_variant === selectedSizeVariant);
+  
+  // Fallback to null size_variant (universal price)
+  const fallbackPrice = modifier.prices.find(p => p.size_variant === null);
+  
+  return matchingPrice || fallbackPrice || modifier.prices[0];
+};
+```
+
+### Calculating Free Items
+
+```typescript
+// If free_items > 0, first N selections are free
+const calculateModifierTotal = (
+  selectedModifiers: Modifier[], 
+  group: ModifierGroup,
+  selectedSizeVariant: string | null
+) => {
+  let total = 0;
+  selectedModifiers.forEach((modifier, index) => {
+    if (index >= group.free_items) {
+      const price = getModifierPrice(modifier, selectedSizeVariant);
+      total += price?.price || 0;
+    }
+  });
+  return total;
+};
 ```
 
 ---
 
-## VERIFICATION QUERIES
+## 7. Quick Reference
 
-### Check Special Combo Groups for a Restaurant
+| Field | Type | Description |
+|-------|------|-------------|
+| `modifier_groups[].name` | string | **Display name** shown to customers |
+| `modifier_groups[].category` | string | Type code: `ci`, `sa`, `sd`, `e` |
+| `modifier_groups[].min_selections` | number | Minimum required (0 = optional) |
+| `modifier_groups[].max_selections` | number | Maximum allowed (0 = unlimited) |
+| `modifier_groups[].free_items` | number | Free selections before charging |
+| `modifiers[].is_active` | boolean | Whether option is available |
+| `modifier_prices[].size_variant` | string \| null | Matches dish size, null = all sizes |
 
-```sql
-SELECT 
-    cg.id,
-    cg.name,
-    cg.has_special_section,
-    cg.special_number_of_items,
-    cg.special_display_header,
-    COUNT(cgds.id) as dish_selection_count
-FROM menuca_v3.combo_groups cg
-LEFT JOIN menuca_v3.combo_group_dish_selections cgds 
-    ON cgds.combo_group_id = cg.id AND cgds.deleted_at IS NULL
-WHERE cg.restaurant_id = 801  -- Nachos Loco Gatineau
-  AND cg.has_special_section = true
-  AND cg.deleted_at IS NULL
-GROUP BY cg.id, cg.name, cg.has_special_section, 
-         cg.special_number_of_items, cg.special_display_header;
-```
+---
 
-### Get Dish Selections for a Combo Group
+## 8. Testing
 
-```sql
-SELECT 
-    cgds.id,
-    cgds.dish_id,
-    d.name as dish_name,
-    cgds.dish_display_name,
-    cgds.size,
-    c.name as course_name
-FROM menuca_v3.combo_group_dish_selections cgds
-JOIN menuca_v3.dishes d ON d.id = cgds.dish_id
-LEFT JOIN menuca_v3.courses c ON c.id = cgds.course_id
-WHERE cgds.combo_group_id = 2115  -- Small Nacho Selection with Donuts
-  AND cgds.deleted_at IS NULL
-ORDER BY c.display_order, d.name;
-```
+Test with these restaurants:
 
-### Test get_restaurant_menu for Special Sections
+| Restaurant | ID | Notes |
+|------------|-----|-------|
+| Amicci Pizza | 735 | English, many modifier groups |
+| Papa Grecque Cantley | 810 | French, simple modifiers |
+| Aahar | 561 | English, various categories |
 
 ```sql
-WITH menu AS (
-    SELECT menuca_v3.get_restaurant_menu(801::bigint, 'en', false) as data
-),
-dish_data AS (
-    SELECT dish
-    FROM menu,
-         jsonb_array_elements(data->'courses') course,
-         jsonb_array_elements(course->'dishes') dish
-    WHERE dish->>'is_combo' = 'true'
-)
-SELECT 
-    dish->>'name' as dish_name,
-    cg->>'name' as combo_group_name,
-    cg->>'has_special_section' as has_special_section,
-    jsonb_array_length(cg->'dish_selections') as dish_selection_count
-FROM dish_data,
-     jsonb_array_elements(dish->'combo_groups') cg
-WHERE cg->>'has_special_section' = 'true';
+-- Test query in Supabase SQL Editor
+SELECT menuca_v3.get_restaurant_menu(735);
 ```
 
 ---
 
-## IMPORTANT NOTES
+**Questions?** Contact Santiago for database/schema questions.
 
-1. **Not all combo groups have special sections**
-   - Only 48 out of 2,067 combo groups have `has_special_section = true`
-   - Always check this flag before trying to render dish selections
-
-2. **Dish selections are soft-deleted**
-   - Filter by `deleted_at IS NULL` when querying directly
-   - `get_restaurant_menu` handles this automatically
-
-3. **Size matters for dish selections**
-   - The `size` field indicates which size variant is included in the combo
-   - Size 0 (Small) is most common for combo selections
-
-4. **Display name may differ from dish name**
-   - `dish_display_name` often includes size (e.g., "Caesar Salad Large")
-   - Use this for display, fall back to `dish_name` if null
-
-5. **Combo groups can have BOTH dish selections AND modifier sections**
-   - The Nachos example has both dish selections (12 nachos) AND a modifier section (donut dips)
-   - Process both `dish_selections` and `sections` arrays
-
-6. **Multiple selections use semicolon-separated headers**
-   - "First Burger;Second Burger;Third Burger" means 3 separate selections
-   - Split by `;` to get individual headers for each selection step
