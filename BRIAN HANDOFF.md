@@ -14,7 +14,6 @@ The modifier groups system has been migrated to V3 with a **shared architecture*
 
 ## 1. Database Schema
 
-```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────┐
 │                              MODIFIER GROUPS SCHEMA (V3)                                     │
 └─────────────────────────────────────────────────────────────────────────────────────────────┘

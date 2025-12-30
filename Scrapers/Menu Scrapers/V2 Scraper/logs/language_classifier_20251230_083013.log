@@ -1,0 +1,127 @@
+2025-12-30 08:30:13,816 - INFO - ============================================================
+2025-12-30 08:30:13,817 - INFO - V2 Restaurant Language Classifier
+2025-12-30 08:30:13,817 - INFO - ============================================================
+2025-12-30 08:30:14,189 - INFO - Found 21 restaurants with legacy_v2_id
+2025-12-30 08:30:27,894 - INFO - Logging into V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2025-12-30 08:30:32,541 - INFO - Login successful
+2025-12-30 08:30:32,541 - INFO - 
+[1/21] Al-s Drive In (V2: 1678)
+2025-12-30 08:30:32,544 - INFO - Checking restaurant V2 ID: 1678 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1678/menu/restaurant
+2025-12-30 08:30:33,272 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:33,272 - INFO - 
+[2/21] Capital Bites (V2: 1670)
+2025-12-30 08:30:33,272 - INFO - Checking restaurant V2 ID: 1670 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1670/menu/restaurant
+2025-12-30 08:30:34,019 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:34,019 - INFO - 
+[3/21] Capri Pizza (V2: 1674)
+2025-12-30 08:30:34,019 - INFO - Checking restaurant V2 ID: 1674 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1674/menu/restaurant
+2025-12-30 08:30:34,780 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:34,781 - INFO - 
+[4/21] Chicco Pizza de l�Hopital (V2: 1663)
+2025-12-30 08:30:34,781 - INFO - Checking restaurant V2 ID: 1663 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1663/menu/restaurant
+2025-12-30 08:30:35,400 - INFO -   -> Classified as: FR (FR:4, EN:0)
+2025-12-30 08:30:35,400 - INFO - 
+[5/21] Chicco Pizza Maloney (V2: 1661)
+2025-12-30 08:30:35,400 - INFO - Checking restaurant V2 ID: 1661 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1661/menu/restaurant
+2025-12-30 08:30:36,025 - INFO -   -> Classified as: FR (FR:4, EN:0)
+2025-12-30 08:30:36,025 - INFO - 
+[6/21] Chicco Pizza Shawarma Anger (V2: 1660)
+2025-12-30 08:30:36,025 - INFO - Checking restaurant V2 ID: 1660 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1660/menu/restaurant
+2025-12-30 08:30:36,647 - INFO -   -> Classified as: FR (FR:4, EN:0)
+2025-12-30 08:30:36,647 - INFO - 
+[7/21] Chicco Pizza St-Louis (V2: 1664)
+2025-12-30 08:30:36,647 - INFO - Checking restaurant V2 ID: 1664 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1664/menu/restaurant
+2025-12-30 08:30:37,267 - INFO -   -> Classified as: FR (FR:4, EN:0)
+2025-12-30 08:30:37,268 - INFO - 
+[8/21] Chicco Shawarma Cantley (V2: 1658)
+2025-12-30 08:30:37,268 - INFO - Checking restaurant V2 ID: 1658 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1658/menu/restaurant
+2025-12-30 08:30:37,881 - INFO -   -> Classified as: FR (FR:4, EN:0)
+2025-12-30 08:30:37,881 - INFO - 
+[9/21] Chicco Shawarma Maloney (V2: 1662)
+2025-12-30 08:30:37,881 - INFO - Checking restaurant V2 ID: 1662 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1662/menu/restaurant
+2025-12-30 08:30:38,497 - INFO -   -> Classified as: FR (FR:4, EN:0)
+2025-12-30 08:30:38,497 - INFO - 
+[10/21] Cosenza (V2: 1654)
+2025-12-30 08:30:38,497 - INFO - Checking restaurant V2 ID: 1654 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1654/menu/restaurant
+2025-12-30 08:30:39,225 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:39,225 - INFO - 
+[11/21] Cuisine Bombay Indienne (V2: 1657)
+2025-12-30 08:30:39,225 - INFO - Checking restaurant V2 ID: 1657 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1657/menu/restaurant
+2025-12-30 08:30:39,957 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:39,957 - INFO - 
+[12/21] Kirkwood Pizza (V2: 1637)
+2025-12-30 08:30:39,958 - INFO - Checking restaurant V2 ID: 1637 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1637/menu/restaurant
+2025-12-30 08:30:40,729 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:40,729 - INFO - 
+[13/21] La Nawab (V2: 1642)
+2025-12-30 08:30:40,729 - INFO - Checking restaurant V2 ID: 1642 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1642/menu/restaurant
+2025-12-30 08:30:41,361 - INFO -   -> Classified as: FR (FR:4, EN:0)
+2025-12-30 08:30:41,361 - INFO - 
+[14/21] Little Gyros Greek Grill (V2: 1668)
+2025-12-30 08:30:41,361 - INFO - Checking restaurant V2 ID: 1668 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1668/menu/restaurant
+2025-12-30 08:30:42,103 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:42,103 - INFO - 
+[15/21] Pachino Pizza (V2: 1671)
+2025-12-30 08:30:42,103 - INFO - Checking restaurant V2 ID: 1671 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1671/menu/restaurant
+2025-12-30 08:30:42,830 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:42,830 - INFO - 
+[16/21] Pho Dau Bo Restaurant - Kitchener (V2: 1171)
+2025-12-30 08:30:42,830 - INFO - Checking restaurant V2 ID: 1171 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1171/menu/restaurant
+2025-12-30 08:30:43,709 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:43,709 - INFO - 
+[17/21] Pizza Marie (V2: 1673)
+2025-12-30 08:30:43,709 - INFO - Checking restaurant V2 ID: 1673 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1673/menu/restaurant
+2025-12-30 08:30:44,379 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:44,379 - INFO - 
+[18/21] River Pizza (V2: 1639)
+2025-12-30 08:30:44,379 - INFO - Checking restaurant V2 ID: 1639 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1639/menu/restaurant
+2025-12-30 08:30:45,108 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:45,108 - INFO - 
+[19/21] Riverside Pizzeria (V2: 1157)
+2025-12-30 08:30:45,108 - INFO - Checking restaurant V2 ID: 1157 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1157/menu/restaurant
+2025-12-30 08:30:45,725 - INFO -   -> Classified as: FR (FR:4, EN:0)
+2025-12-30 08:30:45,725 - INFO - 
+[20/21] Sushi Presse (V2: 1285)
+2025-12-30 08:30:45,725 - INFO - Checking restaurant V2 ID: 1285 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1285/menu/restaurant
+2025-12-30 08:30:46,496 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:46,496 - INFO - 
+[21/21] Wandee Thai (V2: 1641)
+2025-12-30 08:30:46,496 - INFO - Checking restaurant V2 ID: 1641 at https://aggregator-admin.menu.ca/index.php/restaurants/edit/1641/menu/restaurant
+2025-12-30 08:30:47,252 - INFO -   -> Classified as: UNKNOWN (FR:4, EN:4)
+2025-12-30 08:30:47,373 - INFO - 
+============================================================
+2025-12-30 08:30:47,373 - INFO - CLASSIFICATION RESULTS
+2025-12-30 08:30:47,373 - INFO - ============================================================
+2025-12-30 08:30:47,373 - INFO - English: 0
+2025-12-30 08:30:47,373 - INFO - French:  8
+2025-12-30 08:30:47,373 - INFO - Unknown: 13
+2025-12-30 08:30:47,373 - INFO - 
+French Restaurants:
+2025-12-30 08:30:47,373 - INFO -   - Chicco Pizza de l�Hopital (V3: 966, V2: 1663)
+2025-12-30 08:30:47,374 - INFO -   - Chicco Pizza Maloney (V3: 964, V2: 1661)
+2025-12-30 08:30:47,374 - INFO -   - Chicco Pizza Shawarma Anger (V3: 963, V2: 1660)
+2025-12-30 08:30:47,374 - INFO -   - Chicco Pizza St-Louis (V3: 967, V2: 1664)
+2025-12-30 08:30:47,374 - INFO -   - Chicco Shawarma Cantley (V3: 961, V2: 1658)
+2025-12-30 08:30:47,374 - INFO -   - Chicco Shawarma Maloney (V3: 965, V2: 1662)
+2025-12-30 08:30:47,374 - INFO -   - La Nawab (V3: 825, V2: 1642)
+2025-12-30 08:30:47,374 - INFO -   - Riverside Pizzeria (V3: 133, V2: 1157)
+2025-12-30 08:30:47,374 - INFO - 
+⚠️ Unknown (needs manual review):
+2025-12-30 08:30:47,375 - INFO -   - Al-s Drive In (V3: 981, V2: 1678)
+2025-12-30 08:30:47,375 - INFO -   - Capital Bites (V3: 973, V2: 1670)
+2025-12-30 08:30:47,375 - INFO -   - Capri Pizza (V3: 977, V2: 1674)
+2025-12-30 08:30:47,375 - INFO -   - Cosenza (V3: 957, V2: 1654)
+2025-12-30 08:30:47,375 - INFO -   - Cuisine Bombay Indienne (V3: 960, V2: 1657)
+2025-12-30 08:30:47,375 - INFO -   - Kirkwood Pizza (V3: 950, V2: 1637)
+2025-12-30 08:30:47,375 - INFO -   - Little Gyros Greek Grill (V3: 971, V2: 1668)
+2025-12-30 08:30:47,375 - INFO -   - Pachino Pizza (V3: 974, V2: 1671)
+2025-12-30 08:30:47,375 - INFO -   - Pho Dau Bo Restaurant - Kitchener (V3: 147, V2: 1171)
+2025-12-30 08:30:47,375 - INFO -   - Pizza Marie (V3: 976, V2: 1673)
+2025-12-30 08:30:47,375 - INFO -   - River Pizza (V3: 952, V2: 1639)
+2025-12-30 08:30:47,375 - INFO -   - Sushi Presse (V3: 1020, V2: 1285)
+2025-12-30 08:30:47,375 - INFO -   - Wandee Thai (V3: 954, V2: 1641)
+2025-12-30 08:30:47,376 - INFO - 
+Saved English restaurants to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Menu Scrapers\V2 Scraper\v2_restaurants_english.json
+2025-12-30 08:30:47,376 - INFO - Saved French restaurants to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Menu Scrapers\V2 Scraper\v2_restaurants_french.json
+2025-12-30 08:30:47,376 - INFO - 
+Log file: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Menu Scrapers\V2 Scraper\logs\language_classifier_20251230_083013.log
