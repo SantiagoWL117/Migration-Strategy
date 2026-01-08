@@ -1,375 +1,74 @@
-# Frontend Handoff: Modifier Groups Integration
-
-**Date:** December 28, 2024  
-**For:** Brian (Frontend Developer)  
-**From:** Santiago (Database Migration)
-
----
+# Size-Price Selection Logic - Frontend Implementation Guide
 
 ## Overview
 
-The modifier groups system has been migrated to V3 with a **shared architecture**. Modifier groups are now defined at the **restaurant level** and linked to individual dishes, with per-dish configuration for display settings.
+The V3 schema uses a **normalized size variant system** to match dish prices with modifier/combo modifier prices. Instead of relying on exact string matching (e.g., "Medium" === "Medium"), we now use **foreign key IDs** (`modifier_size_variant_id`) for reliable matching.
 
 ---
 
-## 1. Database Schema
+## Key Concept: `modifier_size_variant_id`
 
-┌─────────────────────────────────────────────────────────────────────────────────────────────┐
-│                              MODIFIER GROUPS SCHEMA (V3)                                     │
-└─────────────────────────────────────────────────────────────────────────────────────────────┘
+Every price record now includes a `modifier_size_variant_id` that maps to a standardized size:
 
-        RESTAURANT LEVEL                              DISH LEVEL
-      (Shared within restaurant)                   (Dish-specific)
-    ════════════════════════════                ════════════════════════════
-
-┌───────────────────────────┐                  ┌─────────────────────────────────┐
-│     modifier_groups       │                  │         dishes                  │
-│  (Shared at restaurant)   │                  ├─────────────────────────────────┤
-├───────────────────────────┤                  │ id                              │
-│ id            PK          │                  │ name                            │
-│ restaurant_id FK          │                  │ has_customization               │
-│ name          (internal)  │                  └────────────────┬────────────────┘
-│ category      (type code) │                                   │
-└───────────┬───────────────┘                                   │
-            │                                                   │
-            │ 1:N                                               │
-            ▼                                                   ▼
-┌───────────────────────────┐                  ┌─────────────────────────────────┐
-│       modifiers           │                  │     dish_modifier_groups        │
-│  (Shared options)         │                  │  (Link: dish ↔ modifier_group)  │
-├───────────────────────────┤                  ├─────────────────────────────────┤
-│ id            PK          │                  │ id              PK              │
-│ modifier_group_id FK      │                  │ dish_id         FK              │
-│ name                      │                  │ modifier_group_id FK            │
-│ display_order             │                  └────────────────┬────────────────┘
-│ is_active                 │                                   │
-└───────────┬───────────────┘                                   │ 1:1
-            │                                                   ▼
-            │ 1:N                              ┌─────────────────────────────────┐
-            ▼                                  │   modifier_group_details        │
-┌───────────────────────────┐                  │  (Per-dish display settings)    │
-│    modifier_prices        │                  ├─────────────────────────────────┤
-│  (Size-based pricing)     │                  │ id              PK              │
-├───────────────────────────┤                  │ dish_modifier_group_id FK       │
-│ id            PK          │                  │ name            (display name)  │
-│ modifier_id   FK          │                  │ min_selections                  │
-│ size_variant              │                  │ max_selections                  │
-│ price                     │                  │ free_items                      │
-│ display_order             │                  │ display_order                   │
-└───────────────────────────┘                  └─────────────────────────────────┘
-```
-
-### Key Concepts
-
-| Concept | Description |
-|---------|-------------|
-| **modifier_groups** | Shared groups at restaurant level (e.g., "Pizza Toppings", "Sauces") |
-| **modifiers** | Individual options within a group (e.g., "Pepperoni", "Mushrooms") |
-| **modifier_prices** | Size-based pricing for modifiers |
-| **dish_modifier_groups** | Links a dish to a modifier group |
-| **modifier_group_details** | Per-dish config: display name, min/max selections, free items |
+| modifier_size_variant_id | Code | English | French |
+|--------------------------|------|---------|--------|
+| 1 | standard | Standard | Standard |
+| 2 | small | Small | Petite |
+| 3 | medium | Medium | Moyenne |
+| 4 | large | Large | Grande |
+| 5 | x-large | X-Large | X-Grande |
 
 ---
 
-## 2. API Function: `get_restaurant_menu`
+## Data Structure in `get_restaurant_menu` Response
 
-### Function Signature
-
-```sql
-menuca_v3.get_restaurant_menu(
-  p_restaurant_id bigint,           -- Required: Restaurant ID
-  p_language_code text DEFAULT 'en', -- Optional: Language (future use)
-  p_combo_default_only boolean DEFAULT false  -- Optional: Filter combo groups
-)
-RETURNS jsonb
-```
-
-### How to Call (Supabase RPC)
-
-```typescript
-// TypeScript/JavaScript
-const { data, error } = await supabase
-  .rpc('get_restaurant_menu', { 
-    p_restaurant_id: 735  // Amicci Pizza
-  })
-
-// With combo filter
-const { data, error } = await supabase
-  .rpc('get_restaurant_menu', { 
-    p_restaurant_id: 735,
-    p_combo_default_only: true  // Only return selected combo options
-  })
-```
-
----
-
-## 3. Response Structure
-
-```typescript
-interface MenuResponse {
-  restaurant_id: number;
-  combo_default_only: boolean;
-  courses: Course[];
-}
-
-interface Course {
-  id: number;
-  name: string;
-  description: string | null;
-  display_order: number;
-  dishes: Dish[];
-}
-
-interface Dish {
-  id: number;
-  name: string;
-  description: string | null;
-  display_order: number;
-  is_combo: boolean;
-  has_customization: boolean;
-  image_url: string | null;
-  prices: DishPrice[];
-  modifier_groups: ModifierGroup[];  // ← REGULAR MODIFIERS
-  combo_groups: ComboGroup[];        // ← COMBO-SPECIFIC MODIFIERS
-}
-
-interface DishPrice {
-  id: number;
-  size_variant: string | null;
-  price: number;
-  display_order: number;
-}
-
-// ═══════════════════════════════════════════════════════════════
-// MODIFIER GROUPS (for regular customization like toppings, sauces)
-// ═══════════════════════════════════════════════════════════════
-
-interface ModifierGroup {
-  id: number;
-  name: string;           // Display name (from modifier_group_details)
-  category: string;       // Category code (see table below)
-  min_selections: number; // Minimum required selections
-  max_selections: number; // Maximum allowed selections (0 = unlimited)
-  free_items: number;     // Number of free items before charging
-  display_order: number;
-  modifiers: Modifier[];
-}
-
-interface Modifier {
-  id: number;
-  name: string;
-  display_order: number;
-  is_active: boolean;     // Whether this option is currently available
-  prices: ModifierPrice[];
-}
-
-interface ModifierPrice {
-  id: number;
-  size_variant: string | null;  // Matches dish size_variant
-  price: number;
-  display_order: number;
-}
-
-// ═══════════════════════════════════════════════════════════════
-// COMBO GROUPS (for combo meals with multiple sections)
-// ═══════════════════════════════════════════════════════════════
-
-interface ComboGroup {
-  id: number;
-  name: string;
-  number_of_items: number | null;
-  display_header: string | null;
-  sections: ComboSection[];
-}
-
-interface ComboSection {
-  id: number;
-  section_type: string;
-  use_header: boolean;
-  display_order: number;
-  free_items: number;
-  min_selection: number;
-  max_selection: number;
-  is_active: boolean;
-  modifier_groups: ComboModifierGroup[];
-}
-
-interface ComboModifierGroup {
-  id: number;
-  name: string;
-  type_code: string;
-  is_selected: boolean;   // Default selection state
-  modifiers: ComboModifier[];
-}
-
-interface ComboModifier {
-  id: number;
-  name: string;
-  display_order: number;
-  prices: ComboModifierPrice[];
-}
-
-interface ComboModifierPrice {
-  id: number;
-  size_variant: string | null;
-  price: number;
-}
-```
-
----
-
-## 4. Category Codes
-
-| Code | Category | Description |
-|------|----------|-------------|
-| `ci` | Custom Ingredients | Toppings, add-ons (e.g., "Add more toppings") |
-| `sa` | Sauces | Sauce selections (e.g., "Dips", "Sauces") |
-| `sd` | Side Dishes | Side dish selections (e.g., "Side Dish", "Plat d'accompagnement") |
-| `e` | Extras | Extra items (e.g., "Extras", "Extra Cheese") |
-
----
-
-## 5. Example Response
-
-### English Restaurant (Amicci Pizza - ID: 735)
+### 1. Dish Prices
 
 ```json
 {
-  "restaurant_id": 735,
-  "combo_default_only": false,
-  "courses": [
+  "id": 172885,
+  "name": "Walk-In Special (Medium Pizza)",
+  "prices": [
     {
-      "id": 1234,
-      "name": "Pizzas",
+      "id": 110178,
+      "price": 15.00,
+      "size_variant": "Standard",
       "display_order": 0,
-      "dishes": [
-        {
-          "id": 132351,
-          "name": "Cheese Pizza",
-          "is_combo": false,
-          "has_customization": true,
-          "prices": [
-            { "id": 56001, "size_variant": "Small", "price": 12.99, "display_order": 0 },
-            { "id": 56002, "size_variant": "Medium", "price": 15.99, "display_order": 1 },
-            { "id": 56003, "size_variant": "Large", "price": 18.99, "display_order": 2 }
-          ],
-          "modifier_groups": [
-            {
-              "id": 28,
-              "name": "Add more toppings",
-              "category": "ci",
-              "min_selections": 0,
-              "max_selections": 0,
-              "free_items": 0,
-              "display_order": 2,
-              "modifiers": [
-                {
-                  "id": 64774,
-                  "name": "Pepperoni",
-                  "display_order": 0,
-                  "is_active": true,
-                  "prices": [
-                    { "id": 96623, "size_variant": "Small", "price": 1.50, "display_order": 0 },
-                    { "id": 96624, "size_variant": "Medium", "price": 2.00, "display_order": 1 },
-                    { "id": 96625, "size_variant": "Large", "price": 2.50, "display_order": 2 }
-                  ]
-                },
-                {
-                  "id": 64775,
-                  "name": "Mushrooms",
-                  "display_order": 1,
-                  "is_active": true,
-                  "prices": [
-                    { "id": 96626, "size_variant": "Small", "price": 1.50, "display_order": 0 },
-                    { "id": 96627, "size_variant": "Medium", "price": 2.00, "display_order": 1 },
-                    { "id": 96628, "size_variant": "Large", "price": 2.50, "display_order": 2 }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": 29,
-              "name": "Dips",
-              "category": "sa",
-              "min_selections": 0,
-              "max_selections": 0,
-              "free_items": 0,
-              "display_order": 3,
-              "modifiers": [
-                {
-                  "id": 64800,
-                  "name": "Garlic Dip",
-                  "display_order": 0,
-                  "is_active": true,
-                  "prices": [
-                    { "id": 96700, "size_variant": null, "price": 1.25, "display_order": 0 }
-                  ]
-                }
-              ]
-            }
-          ],
-          "combo_groups": []
-        }
-      ]
+      "dish_size_variant_id": 3,
+      "modifier_size_variant_id": 3  // ← USE THIS FOR MATCHING
     }
   ]
 }
 ```
 
-### French Restaurant (Papa Grecque Cantley - ID: 810)
+### 2. Regular Modifier Prices (non-combo dishes)
 
 ```json
 {
-  "restaurant_id": 810,
-  "combo_default_only": false,
-  "courses": [
+  "id": 12345,
+  "name": "Extra Cheese",
+  "prices": [
+    { "id": 1, "size_variant": "Small", "modifier_size_variant_id": 2, "price": 1.00 },
+    { "id": 2, "size_variant": "Medium", "modifier_size_variant_id": 3, "price": 2.00 },
+    { "id": 3, "size_variant": "Large", "modifier_size_variant_id": 4, "price": 3.00 }
+  ]
+}
+```
+
+### 3. Combo Modifier Prices
+
+```json
+{
+  "id": 11787,
+  "name": "Pizza Toppings",
+  "modifiers": [
     {
-      "id": 5678,
-      "name": "Gyros",
-      "display_order": 2,
-      "dishes": [
-        {
-          "id": 153025,
-          "name": "1a. Souvlaki Combo",
-          "is_combo": false,
-          "has_customization": true,
-          "prices": [
-            { "id": 67008, "size_variant": "Poulet", "price": 18.85, "display_order": 0 },
-            { "id": 67009, "size_variant": "Porc", "price": 18.85, "display_order": 1 }
-          ],
-          "modifier_groups": [
-            {
-              "id": 2577,
-              "name": "Plat d'accompagnement",
-              "category": "sd",
-              "min_selections": 1,
-              "max_selections": 1,
-              "free_items": 0,
-              "display_order": 5,
-              "modifiers": [
-                {
-                  "id": 133184,
-                  "name": "Salade",
-                  "display_order": 0,
-                  "is_active": true,
-                  "prices": [
-                    { "id": 219920, "size_variant": null, "price": 0.00, "display_order": 0 }
-                  ]
-                },
-                {
-                  "id": 133185,
-                  "name": "Patates",
-                  "display_order": 1,
-                  "is_active": true,
-                  "prices": [
-                    { "id": 219921, "size_variant": null, "price": 0.00, "display_order": 0 }
-                  ]
-                }
-              ]
-            }
-          ],
-          "combo_groups": []
-        }
+      "id": 106813,
+      "name": "Beef Pepperoni",
+      "prices": [
+        { "id": 381824, "size_variant": "Small", "modifier_size_variant_id": 2, "price": 1.00 },
+        { "id": 381890, "size_variant": "Medium", "modifier_size_variant_id": 3, "price": 2.00 },
+        { "id": 381956, "size_variant": "Large", "modifier_size_variant_id": 4, "price": 3.00 }
       ]
     }
   ]
@@ -378,98 +77,142 @@ interface ComboModifierPrice {
 
 ---
 
-## 6. Frontend Implementation Notes
+## Matching Logic
 
-### Determining if a Dish Has Customization
+### For Regular Dishes with Modifiers
 
-```typescript
-// A dish has customization if:
-const hasCustomization = dish.has_customization || 
-                         dish.modifier_groups.length > 0 || 
-                         dish.combo_groups.length > 0;
+```
+1. User selects a dish price (e.g., "Medium Pizza" → dish_price.modifier_size_variant_id = 3)
+2. For each modifier the user selects:
+   - Find the modifier_price where modifier_price.modifier_size_variant_id === dish_price.modifier_size_variant_id
+   - Use that price
 ```
 
-### Handling Required Selections
+**Example:**
+- User orders "Medium Pizza" (`modifier_size_variant_id: 3`)
+- User adds "Extra Cheese"
+- Match: `modifier_price.modifier_size_variant_id === 3` → $2.00
 
-```typescript
-// Check if modifier group is required
-const isRequired = modifierGroup.min_selections > 0;
+### For Combo Dishes with Combo Modifiers
 
-// Validate selection count
-const isValidSelection = (selectedCount: number, group: ModifierGroup) => {
-  const meetsMin = selectedCount >= group.min_selections;
-  const meetsMax = group.max_selections === 0 || selectedCount <= group.max_selections;
-  return meetsMin && meetsMax;
-};
+```
+1. User selects a combo dish price (e.g., "Walk-In Special" → dish_price.modifier_size_variant_id = 3)
+2. For each combo modifier the user selects:
+   - Find the combo_modifier_price where combo_modifier_price.modifier_size_variant_id === dish_price.modifier_size_variant_id
+   - Use that price
 ```
 
-### Matching Modifier Prices to Dish Size
+**Example:**
+- User orders "Walk-In Special (Medium Pizza)" (`modifier_size_variant_id: 3`)
+- User adds "Beef Pepperoni" topping
+- Match: `combo_modifier_price.modifier_size_variant_id === 3` → $2.00
 
-```typescript
-// When user selects a dish size, find matching modifier price
-const getModifierPrice = (modifier: Modifier, selectedSizeVariant: string | null) => {
-  // Try to find price matching the dish size
-  const matchingPrice = modifier.prices.find(p => p.size_variant === selectedSizeVariant);
+---
+
+## Edge Cases
+
+### 1. Single-Price Modifiers (No Size Variants)
+
+When a modifier has only one price with `modifier_size_variant_id: 1` (Standard):
+
+```json
+{
+  "name": "Ranch Dip",
+  "prices": [
+    { "modifier_size_variant_id": 1, "price": 1.50 }
+  ]
+}
+```
+
+**Logic:** Use the single price regardless of dish size.
+
+### 2. No Matching Size Found
+
+If `dish_price.modifier_size_variant_id` doesn't match any `modifier_price.modifier_size_variant_id`:
+
+1. Check if modifier has a `modifier_size_variant_id: 1` (Standard) price → use that
+2. Otherwise, use the first price in the array (fallback)
+
+### 3. Dishes with Multiple Prices (Size Selection)
+
+```json
+{
+  "name": "Pepperoni Pizza",
+  "prices": [
+    { "size_variant": "Small", "modifier_size_variant_id": 2, "price": 12.00 },
+    { "size_variant": "Medium", "modifier_size_variant_id": 3, "price": 15.00 },
+    { "size_variant": "Large", "modifier_size_variant_id": 4, "price": 18.00 }
+  ]
+}
+```
+
+When user selects "Medium" ($15.00), store `modifier_size_variant_id: 3` for all subsequent modifier price lookups.
+
+### 4. Single-Price Dishes
+
+```json
+{
+  "name": "Caesar Salad",
+  "prices": [
+    { "size_variant": "Standard", "modifier_size_variant_id": 1, "price": 9.99 }
+  ]
+}
+```
+
+**Logic:** Use `modifier_size_variant_id: 1` for matching. Modifiers will either:
+- Have a Standard price (`modifier_size_variant_id: 1`) → use it
+- Have no Standard price → use first/only price
+
+---
+
+## Pseudocode Implementation
+
+```javascript
+function getModifierPrice(dishPrice, modifierPrices) {
+  const targetSizeId = dishPrice.modifier_size_variant_id;
   
-  // Fallback to null size_variant (universal price)
-  const fallbackPrice = modifier.prices.find(p => p.size_variant === null);
+  // 1. Try exact match
+  const exactMatch = modifierPrices.find(p => p.modifier_size_variant_id === targetSizeId);
+  if (exactMatch) return exactMatch.price;
   
-  return matchingPrice || fallbackPrice || modifier.prices[0];
-};
-```
+  // 2. Fallback to Standard (id: 1)
+  const standardPrice = modifierPrices.find(p => p.modifier_size_variant_id === 1);
+  if (standardPrice) return standardPrice.price;
+  
+  // 3. Ultimate fallback: first price
+  return modifierPrices[0]?.price ?? 0;
+}
 
-### Calculating Free Items
-
-```typescript
-// If free_items > 0, first N selections are free
-const calculateModifierTotal = (
-  selectedModifiers: Modifier[], 
-  group: ModifierGroup,
-  selectedSizeVariant: string | null
-) => {
-  let total = 0;
-  selectedModifiers.forEach((modifier, index) => {
-    if (index >= group.free_items) {
-      const price = getModifierPrice(modifier, selectedSizeVariant);
-      total += price?.price || 0;
-    }
-  });
-  return total;
-};
+// Same logic works for combo modifiers
+function getComboModifierPrice(dishPrice, comboModifierPrices) {
+  return getModifierPrice(dishPrice, comboModifierPrices); // Identical logic
+}
 ```
 
 ---
 
-## 7. Quick Reference
+## Summary
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `modifier_groups[].name` | string | **Display name** shown to customers |
-| `modifier_groups[].category` | string | Type code: `ci`, `sa`, `sd`, `e` |
-| `modifier_groups[].min_selections` | number | Minimum required (0 = optional) |
-| `modifier_groups[].max_selections` | number | Maximum allowed (0 = unlimited) |
-| `modifier_groups[].free_items` | number | Free selections before charging |
-| `modifiers[].is_active` | boolean | Whether option is available |
-| `modifier_prices[].size_variant` | string \| null | Matches dish size, null = all sizes |
+| Field | Found In | Purpose |
+|-------|----------|---------|
+| `dish_size_variant_id` | dish_prices | Links to expanded dish size table (internal use) |
+| `modifier_size_variant_id` | dish_prices, modifier_prices, combo_modifier_prices | **USE THIS** for price matching |
+
+**The Rule:** Match `dish_price.modifier_size_variant_id` with `modifier_price.modifier_size_variant_id` (or `combo_modifier_price.modifier_size_variant_id`) to get the correct price.
 
 ---
 
-## 8. Testing
+## Test Case: Walk-In Special (Medium Pizza)
 
-Test with these restaurants:
-
-| Restaurant | ID | Notes |
-|------------|-----|-------|
-| Amicci Pizza | 735 | English, many modifier groups |
-| Papa Grecque Cantley | 810 | French, simple modifiers |
-| Aahar | 561 | English, various categories |
+**Restaurant:** Capital Bites (ID: 973)  
+**Dish:** Walk-In Special (Medium Pizza) (ID: 172885)
 
 ```sql
--- Test query in Supabase SQL Editor
-SELECT menuca_v3.get_restaurant_menu(735);
+SELECT menuca_v3.get_restaurant_menu(973);
 ```
 
----
-
-**Questions?** Contact Santiago for database/schema questions.
+**Expected Behavior:**
+- Dish price: `modifier_size_variant_id: 3` (Medium)
+- Pizza Toppings (combo modifiers): Should use prices where `modifier_size_variant_id: 3`
+  - Beef Pepperoni: $2.00 (not $1.00 Small, not $3.00 Large)
 

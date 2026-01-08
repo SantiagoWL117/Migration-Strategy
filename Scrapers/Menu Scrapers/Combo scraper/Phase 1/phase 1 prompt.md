@@ -12,6 +12,7 @@ Go over each dish for each restaurant and verify if it is a combo dish. If it is
 # Mapping for the scraping process:
 We will use the legacy V1 CRM to scrape the data. Each restaurant in the phase 1 has a legacy_v1_id. This should be our primary criteria to determine which restaurant should be scraped in the v1 scraper.
 
+
 # Notable exclusions from this process:
 ## All the 5 MVP Restaurants:
 	- [Restaurant #1: Ginkgo Garden (ID: 105)]

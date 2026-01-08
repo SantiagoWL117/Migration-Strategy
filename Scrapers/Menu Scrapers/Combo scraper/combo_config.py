@@ -8,13 +8,15 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # config.py now finds .env automatically by walking up directories
 from config import (
     CRM_BASE_URL, CRM_USERNAME, CRM_PASSWORD,
-    DB_CONNECTION_STRING, SCHEMA, SCRAPE_DELAY, MAX_RETRIES
+    DB_CONNECTION_STRING, SCHEMA, SCRAPE_DELAY, MAX_RETRIES,
+    PSQL_PATH
 )
 
 # Re-export for convenience
 __all__ = [
     'CRM_BASE_URL', 'CRM_USERNAME', 'CRM_PASSWORD',
     'DB_CONNECTION_STRING', 'SCHEMA', 'SCRAPE_DELAY', 'MAX_RETRIES',
+    'PSQL_PATH',
     'CRM_LOGIN_URL', 'CRM_RESTAURANTS_URL', 'COMBO_GROUPS_URL_PATTERN',
     'MENU_URL_PATTERN', 'COMBO_DISH_URL_PATTERN',
     'SECTION_TYPE_MAPPING', 'DAY_OF_WEEK_MAPPING', 'SIZE_VARIANTS',

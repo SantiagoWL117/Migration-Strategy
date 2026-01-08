@@ -48,6 +48,9 @@ DISH_DETAIL_URL_PATTERN = "https://menuadmin.menu.ca/?p=restaurants&display=edit
 DB_CONNECTION_STRING = os.getenv('DB_CONNECTION_STRING')
 SCHEMA = 'menuca_v3'
 
+# psql path for Windows
+PSQL_PATH = r"C:\Program Files\PostgreSQL\17\bin\psql.exe"
+
 # =============================================================================
 # Scraping Configuration
 # =============================================================================

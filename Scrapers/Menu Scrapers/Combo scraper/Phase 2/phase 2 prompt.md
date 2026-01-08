@@ -1,10 +1,6 @@
-$env:CRM_V1_USERNAME = "santiago@worklocal.ca"
- $env:CRM_V1_PASSWORD = "542sfgsgeerg4%$"
-
-
 # This scraper will have two phases:
 
-## Phase 1: Scrape all Combo Groups
+## Phase 1: Scrape all Combo Groups 
 
 Go over the all the 5 phase 2 restaurants and verify if it has combo groups and if it does store all the combo groups, combo group sections, combo modifier groups, combo modifiers and combo modifier prices for each restaurant
 
@@ -21,12 +17,12 @@ We will use the legacy V1 CRM to scrape the data. Each restaurant in the phase 1
 
 ## The restaurants to be scraped:
 
-    V3 ID	V1 ID	Restaurant	Reason for Phase 2
-    265	411	Milano - 2 Pembroke	19.3% price coverage
-    607	830	Aroy Thai	30.8% price coverage + 0 modifiers
-    924	1013	All Out Burger Bank St.	Completely empty
-    948	1038	All Out Burger Gladstone	Completely empty
-    949	1071	All Out Burger Montreal Rd	Completely empty
+	V3 ID	V1 ID	Restaurant	Reason for Phase 2
+	265	411	Milano - 2 Pembroke	19.3% price coverage
+	607	830	Aroy Thai	30.8% price coverage + 0 modifiers
+	924	1013	All Out Burger Bank St.	Completely empty
+	948	1038	All Out Burger Gladstone	Completely empty
+	949	1071	All Out Burger Montreal Rd	Completely empty
     636 863		Joes Family Pizzeria
 
 # V3 Menu Schema (menuca_v3)
@@ -414,11 +410,11 @@ Each <li> element has an <a> element containing a link to the details page of ea
 
 4. Once you get to the combo groups you must check if the HTML contains any <p> element with a style of margin-top:1px;height:20px;line-height:1.5;background-color: #ccc;padding-left:20px;border:1px solid #aaa. If it doesn't continue with the next restaurant
 
-5. If the page does contain a <p> element with a style of "margin-top:1px;height:20px;line-height:1.5;background-color: #ccc;padding-left:20px;border:1px solid #aaa" that means the current restaurant has Combos with modifiers that need to be scraped. I want you to click on the details of each combo group:
+5. If the page does contain a <p> element with a style of "margin-top:1px;height:20px;line-height:1.5;background-color: #ccc;padding-left:20px;border:1px solid #aaa" that means the current restaurant has Combos with modifiers that need to be scraped. I want you to click on the details of each combo group: 
 
 <p style="margin-top:1px;height:20px;line-height:1.5;background-color: #ccc;padding-left:20px;border:1px solid #aaa">
 	<a href="#" onclick="editGroupJS('6654');return false;">1 Topping Pizza</a>
-</p>
+    </p>
 
 You can extract the COMBO_GROUPS.source_id value from this link. For example, for the 1 Topping Pizza the source_id is 6654.
 
@@ -427,13 +423,13 @@ You can extract the COMBO_GROUPS.source_id value from this link. For example, fo
 ### Scrape the COMBO_GROUPS data:
 
 - name: <input type="text" name="name" id="name" value="1 Topping Pizza" style="height:20px; line-height:20px;margin:2px; border:1px solid #aaa;width:420px">
-- number_of_items:
+- number_of_items: 
 <p>
 	<label for="itemcount">Number of items:</label>
 	<input id="itemcount" type="text" name="itemcount" value="1" size="3">
 </p>
 
-- display_header:
+- display_header: 
 <p>
 	<label for="displayHeader">Display Header</label>
 	<input type="text" name="displayHeader" id="displayHeader" value="">
@@ -463,7 +459,7 @@ For the Custom Ingredients section:
 	<label for="displayOrderCI">Display Order</label><input type="text" name="displayOrderCI" id="displayOrderCI" value="2" size="3">
 </p>
 
-For the Dressing section
+For the Dressing section 
 
 <p><input checked="" type="checkbox" id="hasCustomisation" name="hasCustomisation" value="Y" onclick="if(this.checked){ $('ci_id').appear();$('ciNo').show(); } else {$('ci_id').fade();$('ciNo').hide();}"> <label for="hasCustomisation">Has Custom Ingredients</label></p>
 <p id="ciNo" style="padding-left: 20px;">
@@ -507,7 +503,7 @@ For the Extras
 	<label for="displayOrderExtras">Display Order</label><input type="text" name="displayOrderExtras" id="displayOrderExtras" value="" size="3">
 </p>
 
-For the Cooking method
+For the Cooking method 
 
 <p><input checked="" type="checkbox" id="hasCM" name="hasCM" value="Y" onclick="if(this.checked){ $('cmNo').show();$('cm_id').appear() } else { $('cm_id').fade(); $('cmNo').hide() }"> <label for="hasCM">Has Cooking Method</label></p>
 <p id="cmNo" style="display: none;padding-left:20px">
@@ -539,8 +535,8 @@ Each combo group section appears above its respective combo modifier groups
 Each section has one or more combo modifier groups. For example, for the 1 Medium 3 toppings Combo group, the Custom Ingredients section is active. This section has these modifier groups:
 
 <div id="ci_id" style="border-width: 0px 1px 1px; border-style: solid; border-color: rgb(170, 170, 170); margin-bottom: 2px; padding: 1px;">
-					<ul id="ulci" style="list-style-type:none;overflow: hidden">
-								<li>
+<ul id="ulci" style="list-style-type:none;overflow: hidden">
+	<li>
 									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 										<input class="ci" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()});if(this.checked){ $('list_ci_8173').show();}" type="radio" name="ci_radio" value="8173" id="radio_ci_8173">
 										<label for="radio_ci_8173">Pizza Toppings</label>
@@ -717,7 +713,7 @@ Each section has one or more combo modifier groups. For example, for the 1 Mediu
 										<label for="radio_ci_8177">Toppings for POUTINES</label>
 									</p>
 									<ul style="list-style-type: none; overflow: hidden;display:none" class="ci" id="list_ci_8177">
-																																	<li style="width:30%; float: left;padding-left:2px">
+																							<li style="width:30%; float: left;padding-left:2px">
 													Bacon													<input type="text" size="5" name="ci[8177][37274]" value="1.00,2.00,3.00,4.00">
 												</li>
 																							<li style="width:30%; float: left;padding-left:2px">
@@ -780,7 +776,7 @@ Each section has one or more combo modifier groups. For example, for the 1 Mediu
 										<label for="radio_ci_9691">Meats &amp; CHeese for Nacho Fries</label>
 									</p>
 									<ul style="list-style-type: none; overflow: hidden;display:none" class="ci" id="list_ci_9691">
-																																	<li style="width:30%; float: left;padding-left:2px">
+																							<li style="width:30%; float: left;padding-left:2px">
 													Pepperoni													<input type="text" size="5" name="ci[9691][37062]" value="2.99,3.49,3.99,4.99">
 												</li>
 																							<li style="width:30%; float: left;padding-left:2px">
@@ -868,7 +864,7 @@ Each section has one or more combo modifier groups. For example, for the 1 Mediu
 										<label for="radio_ci_9869">Add Bacon 3.99</label>
 									</p>
 									<ul style="list-style-type: none; overflow: hidden;display:none" class="ci" id="list_ci_9869">
-																																	<li style="width:30%; float: left;padding-left:2px">
+																							<li style="width:30%; float: left;padding-left:2px">
 													Add Bacon													<input type="text" size="5" name="ci[9869][44931]" value="3.99">
 												</li>
 																														</ul>
@@ -886,69 +882,69 @@ Each section has one or more combo modifier groups. For example, for the 1 Mediu
 													Reese's Pizza Tail													<input type="text" size="5" name="ci[9965][45378]" value="0.00">
 												</li>
 																														</ul>
-								</li>
+												</li>
 								<li>
 									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 										<input class="ci" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()});if(this.checked){ $('list_ci_10089').show();}" type="radio" name="ci_radio" value="10089" id="radio_ci_10089">
 										<label for="radio_ci_10089">Chicken 3$</label>
 									</p>
 									<ul style="list-style-type: none; overflow: hidden;display:none" class="ci" id="list_ci_10089">
-																																	<li style="width:30%; float: left;padding-left:2px">
+																							<li style="width:30%; float: left;padding-left:2px">
 													Chicken													<input type="text" size="5" name="ci[10089][46044]" value="3.00">
 												</li>
 																														</ul>
 								</li>
 								<li>
-									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 										<input class="ci" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()});if(this.checked){ $('list_ci_10240').show();}" type="radio" name="ci_radio" value="10240" id="radio_ci_10240">
 										<label for="radio_ci_10240">Cookie dough</label>
-									</p>
+</p>
 									<ul style="list-style-type: none; overflow: hidden;display:none" class="ci" id="list_ci_10240">
-																																	<li style="width:30%; float: left;padding-left:2px">
+																																														<li style="width:30%; float: left;padding-left:2px">
 													Naked													<input type="text" size="5" name="ci[10240][46844]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Fluffernutter													<input type="text" size="5" name="ci[10240][46845]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Cookies &amp; Cream													<input type="text" size="5" name="ci[10240][46846]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Hazelnut with Chocolate &amp; Caramel													<input type="text" size="5" name="ci[10240][46847]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Smore's													<input type="text" size="5" name="ci[10240][46848]" value="0.00">
-												</li>
+													</li>
 																														</ul>
-								</li>
+													</li>
 								<li>
 									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 										<input class="ci" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()});if(this.checked){ $('list_ci_10241').show();}" type="radio" name="ci_radio" value="10241" id="radio_ci_10241">
 										<label for="radio_ci_10241">Pizza TAILS</label>
 									</p>
 									<ul style="list-style-type: none; overflow: hidden;display:none" class="ci" id="list_ci_10241">
-																																	<li style="width:30%; float: left;padding-left:2px">
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Pot of Gold Pizza Tail													<input type="text" size="5" name="ci[10241][42713]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Smores Marshmallow Fluff Tail													<input type="text" size="5" name="ci[10241][42716]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Nutella Pizza Tail													<input type="text" size="5" name="ci[10241][42717]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Chef's Choice Pizza Tail													<input type="text" size="5" name="ci[10241][45519]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Reese's Pieces Parfait Tail													<input type="text" size="5" name="ci[10241][50694]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Chocolate Bar Lovers Tail													<input type="text" size="5" name="ci[10241][50695]" value="0.00">
-												</li>
-																							<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 													Cookies &amp; Cream Tail													<input type="text" size="5" name="ci[10241][50721]" value="0.00">
-												</li>
-																														</ul>
+													</li>
+																																										</ul>
 								</li>
 								<li>
 									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
@@ -971,9 +967,9 @@ Each section has one or more combo modifier groups. For example, for the 1 Mediu
 																							<li style="width:30%; float: left;padding-left:2px">
 													Onion Rings													<input type="text" size="5" name="ci[10534][48364]" value="0.00">
 												</li>
-																														</ul>
-								</li>
-								<li>
+													</ul>
+					</li>
+									<li>
 									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 										<input class="ci" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()});if(this.checked){ $('list_ci_10537').show();}" type="radio" name="ci_radio" value="10537" id="radio_ci_10537">
 										<label for="radio_ci_10537">NEW POUTINE FORMAT Step 4- More Toppings Selection</label>
@@ -1120,9 +1116,9 @@ Each section has one or more combo modifier groups. For example, for the 1 Mediu
 																							<li style="width:30%; float: left;padding-left:2px">
 													Popcorn Chicken													<input type="text" size="5" name="ci[10537][52454]" value="2.00,3.00,4.00,5.00">
 												</li>
-																														</ul>
-								</li>
-								<li>
+													</ul>
+					</li>
+									<li>
 									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 										<input class="ci" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()});if(this.checked){ $('list_ci_11005').show();}" type="radio" name="ci_radio" value="11005" id="radio_ci_11005">
 										<label for="radio_ci_11005">Medium Cheese Pizza for FRIDAY SPECIAL FISH &amp; CHIPS</label>
@@ -1131,9 +1127,9 @@ Each section has one or more combo modifier groups. For example, for the 1 Mediu
 																																	<li style="width:30%; float: left;padding-left:2px">
 													Medium Cheese Pizza													<input type="text" size="5" name="ci[11005][50848]" value="9.95">
 												</li>
-																														</ul>
-								</li>
-								<li>
+													</ul>
+					</li>
+									<li>
 									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 										<input class="ci" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()});if(this.checked){ $('list_ci_11505').show();}" type="radio" name="ci_radio" value="11505" id="radio_ci_11505">
 										<label for="radio_ci_11505">Wing (each 0.69) ( 5 or 10 or 20)</label>
@@ -1151,24 +1147,24 @@ Each section has one or more combo modifier groups. For example, for the 1 Mediu
 																							<li style="width:30%; float: left;padding-left:2px">
 													20 Wings													<input type="text" size="5" name="ci[11505][53416]" value="13.80">
 												</li>
-																														</ul>
-								</li>
+													</ul>
+					</li>
 																		</ul>
 				</div>
-
+							
 Notice that for this example only the Pizza Toppings without Premium was checked:
-
+								
 <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	<input class="ci" checked="" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()});if(this.checked){ $('list_ci_8174').show();}" type="radio" name="ci_radio" value="8174" id="radio_ci_8174">
 	<label for="radio_ci_8174">Pizza Toppings without Premium</label>
 </p>
-		 
+							
 I want you to only scrape the modifier groups that were checked (checked=""). Each combo modifier group have one or more combo modifers each with one or more prices depending on the size:
-
+								
 <ul style="list-style-type: none; overflow: hidden;display:" class="ci" id="list_ci_8174">
 																																														<li style="width:30%; float: left;padding-left:2px">
 														Green Peppers														<input type="text" size="5" name="ci[8174][37052]" value="2.99,3.49,3.99,4.99">
-													</li>
+					</li>
 																																																<li style="width:30%; float: left;padding-left:2px">
 														Onions														<input type="text" size="5" name="ci[8174][37053]" value="2.99,3.49,3.99,4.99">
 													</li>
@@ -1259,11 +1255,11 @@ Each course and its respective dishes are stored in a <ul> element:
 	<li style="margin-left: 10px; position: relative; z-index: 0; top: 0px; left: 0px;" id="li_122796">
 		<img src="../images/css_move.gif" alt="Sort" style="vertical-align: middle; width:15px; height:15px;cursor: move">
 			<a href="?p=restaurants&amp;display=editRestaurant&amp;restaurant=863&amp;load=editCombo&amp;showLang=en&amp;combo=122796">Friday &amp; Saturday Pizza Special HIDE</a> - One large 5 toppings pizza.											
-	</li>
+					</li>
 	<li style="margin-left: 10px; position: relative; z-index: 0; top: 0px; left: 0px;" id="li_122797">
 		<img src="../images/css_move.gif" alt="Sort" style="vertical-align: middle; width:15px; height:15px;cursor: move">
 		<a href="?p=restaurants&amp;display=editRestaurant&amp;restaurant=863&amp;load=editDish&amp;showLang=en&amp;menuEntry=122797">Nacho Tuesdays HIDE</a> - Get a regular size Nacho for a special price. Limit of 2 per order.											
-	</li>
+					</li>
 	<li style="margin-left: 10px; position: relative; z-index: 0; top: 0px; left: 0px;" id="li_122798">
 		<img src="../images/css_move.gif" alt="Sort" style="vertical-align: middle; width:15px; height:15px;cursor: move">
 		<a href="?p=restaurants&amp;display=editRestaurant&amp;restaurant=863&amp;load=editDish&amp;showLang=en&amp;menuEntry=122798">WILD Wednesdays HIDE</a> - Medium cheese pizzas. Limit of 2 per order.											
@@ -1676,8 +1672,8 @@ dish_prices.size_variant:
 <li>
 		<label style="display:block" for="quantity">Quantity - <sub>separate multiple quantities by comma, leave blank for 1</sub></label>
 		<input type="text" name="quantity" id="quantity" class="long" value="">
-	    </li>
-
+					</li>
+							
 ### modifier_groups table:
 
 All modifier groups, modifiers and modifier prices are stored in this div element:
@@ -1687,66 +1683,66 @@ All modifier groups, modifiers and modifier prices are stored in this div elemen
 Each modifier group belong to a given section: bread, custom ingredients, dressing, sauce, side dish, extras, cooking method. This section is important because it guides you to scrape the title, min_selections, max_selections, free_items, display_order.
 
 For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section has these modifier groups:
-
-<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px">Custom Ingredients</p>
+			
+				<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px">Custom Ingredients</p>
 
 <div class="ingredientGroups" id="ci_id" style="border-width: 0px 1px 1px; border-style: solid; border-color: rgb(170, 170, 170); margin-bottom: 2px; padding: 1px;">
-    	    <ul id="ulci" style="list-style-type:none;overflow: hidden">
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+					<ul id="ulci" style="list-style-type:none;overflow: hidden">
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_8173').show();}" type="radio" name="ci_radio" value="8173" id="radio_ci_8173">
 	    			<label for="radio_ci_8173">Pizza Toppings</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_8173">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Green Peppers					    					    <input type="text" size="5" name="ci[8173][37052]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Onions					    					    <input type="text" size="5" name="ci[8173][37053]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Mushrooms					    					    <input type="text" size="5" name="ci[8173][37054]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Green Olives					    					    <input type="text" size="5" name="ci[8173][37055]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Black Olives					    					    <input type="text" size="5" name="ci[8173][37056]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Dill Pickle					    					    <input type="text" size="5" name="ci[8173][37057]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Tomatoes					    					    <input type="text" size="5" name="ci[8173][37058]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Pineapple					    					    <input type="text" size="5" name="ci[8173][37059]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Hot Peppers					    					    <input type="text" size="5" name="ci[8173][37060]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Jalapeno					    					    <input type="text" size="5" name="ci[8173][37061]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Pepperoni					    					    <input type="text" size="5" name="ci[8173][37062]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Italian Sausage					    					    <input type="text" size="5" name="ci[8173][37063]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Bacon					    					    <input type="text" size="5" name="ci[8173][37064]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Ham					    					    <input type="text" size="5" name="ci[8173][37065]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Meatballs					    					    <input type="text" size="5" name="ci[8173][37066]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Chicken					    					    <input type="text" size="5" name="ci[8173][37067]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Ground Beef					    					    <input type="text" size="5" name="ci[8173][37068]" value="2.99,3.49,3.99,4.99">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
@@ -1766,52 +1762,52 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Hot Honey					    					    <input type="text" size="5" name="ci[8173][56143]" value="2.99,3.49,3.99,4.99">
-				</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input checked="" onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_8174').show();}" type="radio" name="ci_radio" value="8174" id="radio_ci_8174">
 	    			<label for="radio_ci_8174">Pizza Toppings without Premium</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:" id="list_ci_8174">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																														<li style="width:30%; float: left;padding-left:2px">
 					    Green Peppers					    					    <input type="text" size="5" name="ci[8174][37052]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Onions					    					    <input type="text" size="5" name="ci[8174][37053]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Mushrooms					    					    <input type="text" size="5" name="ci[8174][37054]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Green Olives					    					    <input type="text" size="5" name="ci[8174][37055]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Black Olives					    					    <input type="text" size="5" name="ci[8174][37056]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Dill Pickle					    					    <input type="text" size="5" name="ci[8174][37057]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Tomatoes					    					    <input type="text" size="5" name="ci[8174][37058]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Pineapple					    					    <input type="text" size="5" name="ci[8174][37059]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Hot Peppers					    					    <input type="text" size="5" name="ci[8174][37060]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Jalapeno					    					    <input type="text" size="5" name="ci[8174][37061]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Pepperoni					    					    <input type="text" size="5" name="ci[8174][37062]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Italian Sausage					    					    <input type="text" size="5" name="ci[8174][37063]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+													</li>
+																																																<li style="width:30%; float: left;padding-left:2px">
 					    Bacon					    					    <input type="text" size="5" name="ci[8174][37064]" value="2.99">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
@@ -1843,24 +1839,24 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Hot Honey					    					    <input type="text" size="5" name="ci[8174][56143]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+													</li>
+																																										</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_8175').show();}" type="radio" name="ci_radio" value="8175" id="radio_ci_8175">
 	    			<label for="radio_ci_8175">Premium Toppings</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_8175">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Extra Cheese					    					    <input type="text" size="5" name="ci[8175][37070]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Double Cheese					    					    <input type="text" size="5" name="ci[8175][37169]" value="5.98,7.58,11.98,14.98">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Extra Vegan Cheese					    					    <input type="text" size="5" name="ci[8175][49543]" value="3.98,4.78,6.98,8.48">
-					</li>
+												</li>
 				    	    		    </ul>
 	    		</li>
 	    		<li>
@@ -1869,7 +1865,7 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 	    			<label for="radio_ci_8177">Toppings for POUTINES</label>
 	    		    </p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_8177">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Bacon					    					    <input type="text" size="5" name="ci[8177][37274]" value="1.00,2.00,3.00,4.00">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
@@ -1877,53 +1873,53 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Chicken					    					    <input type="text" size="5" name="ci[8177][37277]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_9362').show();}" type="radio" name="ci_radio" value="9362" id="radio_ci_9362">
 	    			<label for="radio_ci_9362">Keto Desserts</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_9362">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Pecan Puffs					    					    <input type="text" size="5" name="ci[9362][42473]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Lemon Poppy Leaf					    					    <input type="text" size="5" name="ci[9362][42474]" value="0.00">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Tiramisu Cup Cakes					    					    <input type="text" size="5" name="ci[9362][42475]" value="0.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_9424').show();}" type="radio" name="ci_radio" value="9424" id="radio_ci_9424">
 	    			<label for="radio_ci_9424">All Pizza Tails</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_9424">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Pot of Gold Pizza Tail					    					    <input type="text" size="5" name="ci[9424][42713]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Surprise Pizza Tail					    					    <input type="text" size="5" name="ci[9424][42714]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Smores Marshmallow Fluff Tail					    					    <input type="text" size="5" name="ci[9424][42716]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Nutella Pizza Tail					    					    <input type="text" size="5" name="ci[9424][42717]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Peanutbutter Cup Flutter Nutter Tail					    					    <input type="text" size="5" name="ci[9424][42718]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Cookies &amp; Cream Pizza Tail					    					    <input type="text" size="5" name="ci[9424][42722]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Kinder Surprise Pizza Tail					    					    <input type="text" size="5" name="ci[9424][45379]" value="0.00">
-					</li>
+												</li>
 				    	    		    </ul>
 	    		</li>
 	    		<li>
@@ -1932,34 +1928,34 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 	    			<label for="radio_ci_9691">Meats &amp; CHeese for Nacho Fries</label>
 	    		    </p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_9691">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Pepperoni					    					    <input type="text" size="5" name="ci[9691][37062]" value="2.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Italian Sausage					    					    <input type="text" size="5" name="ci[9691][37063]" value="2.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Bacon					    					    <input type="text" size="5" name="ci[9691][37064]" value="2.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Ham					    					    <input type="text" size="5" name="ci[9691][37065]" value="2.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Meatballs					    					    <input type="text" size="5" name="ci[9691][37066]" value="2.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Chicken					    					    <input type="text" size="5" name="ci[9691][37067]" value="2.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Ground Beef					    					    <input type="text" size="5" name="ci[9691][37068]" value="2.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Donair Meat					    					    <input type="text" size="5" name="ci[9691][37069]" value="2.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Cheddar					    					    <input type="text" size="5" name="ci[9691][44099]" value="2.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Mozzarella					    					    <input type="text" size="5" name="ci[9691][44100]" value="2.00">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
@@ -1967,102 +1963,102 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Asiago					    					    <input type="text" size="5" name="ci[9691][44102]" value="2.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_9692').show();}" type="radio" name="ci_radio" value="9692" id="radio_ci_9692">
 	    			<label for="radio_ci_9692">Vegetables for Nacho Fries</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_9692">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Green Peppers					    					    <input type="text" size="5" name="ci[9692][37052]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Onions					    					    <input type="text" size="5" name="ci[9692][37053]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Mushrooms					    					    <input type="text" size="5" name="ci[9692][37054]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Green Olives					    					    <input type="text" size="5" name="ci[9692][37055]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Black Olives					    					    <input type="text" size="5" name="ci[9692][37056]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Dill Pickle					    					    <input type="text" size="5" name="ci[9692][37057]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Tomatoes					    					    <input type="text" size="5" name="ci[9692][37058]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Pineapple					    					    <input type="text" size="5" name="ci[9692][37059]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Hot Peppers					    					    <input type="text" size="5" name="ci[9692][37060]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Jalapeno					    					    <input type="text" size="5" name="ci[9692][37061]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Jalapeno Crisps					    					    <input type="text" size="5" name="ci[9692][44105]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Onion Crisps					    					    <input type="text" size="5" name="ci[9692][44106]" value="0.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_9869').show();}" type="radio" name="ci_radio" value="9869" id="radio_ci_9869">
 	    			<label for="radio_ci_9869">Add Bacon 3.99</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_9869">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Add Bacon					    					    <input type="text" size="5" name="ci[9869][44931]" value="3.99">
-					</li>
+												</li>
 				    	    		    </ul>
-	    		</li>
+												</li>
 	    		<li>
 	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_9965').show();}" type="radio" name="ci_radio" value="9965" id="radio_ci_9965">
 	    			<label for="radio_ci_9965">Easter Pizza Tail Selection</label>
 	    		    </p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_9965">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Hershey's Pizza Tail					    					    <input type="text" size="5" name="ci[9965][45377]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Reese's Pizza Tail					    					    <input type="text" size="5" name="ci[9965][45378]" value="0.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_10089').show();}" type="radio" name="ci_radio" value="10089" id="radio_ci_10089">
 	    			<label for="radio_ci_10089">Chicken 3$</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_10089">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Chicken					    					    <input type="text" size="5" name="ci[10089][46044]" value="3.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_10240').show();}" type="radio" name="ci_radio" value="10240" id="radio_ci_10240">
 	    			<label for="radio_ci_10240">Cookie dough</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_10240">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Naked					    					    <input type="text" size="5" name="ci[10240][46844]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Fluffernutter					    					    <input type="text" size="5" name="ci[10240][46845]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Cookies &amp; Cream					    					    <input type="text" size="5" name="ci[10240][46846]" value="0.00">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
@@ -2070,28 +2066,28 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Smore's					    					    <input type="text" size="5" name="ci[10240][46848]" value="0.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_10241').show();}" type="radio" name="ci_radio" value="10241" id="radio_ci_10241">
 	    			<label for="radio_ci_10241">Pizza TAILS</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_10241">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Pot of Gold Pizza Tail					    					    <input type="text" size="5" name="ci[10241][42713]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Smores Marshmallow Fluff Tail					    					    <input type="text" size="5" name="ci[10241][42716]" value="0.00">
-					</li>
+												</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Nutella Pizza Tail					    					    <input type="text" size="5" name="ci[10241][42717]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+								</li>
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Chef's Choice Pizza Tail					    					    <input type="text" size="5" name="ci[10241][45519]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Reese's Pieces Parfait Tail					    					    <input type="text" size="5" name="ci[10241][50694]" value="0.00">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
@@ -2099,90 +2095,90 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Cookies &amp; Cream Tail					    					    <input type="text" size="5" name="ci[10241][50721]" value="0.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_10534').show();}" type="radio" name="ci_radio" value="10534" id="radio_ci_10534">
 	    			<label for="radio_ci_10534">NEW POUTINE FORMAT Step 1- Fries Selection</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_10534">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Classic crispy coated					    					    <input type="text" size="5" name="ci[10534][48360]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Home cut spiral					    					    <input type="text" size="5" name="ci[10534][48361]" value="0.00">
-					</li>
+												</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Wedges					    					    <input type="text" size="5" name="ci[10534][48362]" value="0.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+								</li>
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Tots					    					    <input type="text" size="5" name="ci[10534][48363]" value="0.00">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Onion Rings					    					    <input type="text" size="5" name="ci[10534][48364]" value="0.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_10537').show();}" type="radio" name="ci_radio" value="10537" id="radio_ci_10537">
 	    			<label for="radio_ci_10537">NEW POUTINE FORMAT Step 4- More Toppings Selection</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_10537">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Green Peppers					    					    <input type="text" size="5" name="ci[10537][37052]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Onions					    					    <input type="text" size="5" name="ci[10537][37053]" value="1.00,2.00,3.00,4.00">
-					</li>
+												</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Mushrooms					    					    <input type="text" size="5" name="ci[10537][37054]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+								</li>
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Green Olives					    					    <input type="text" size="5" name="ci[10537][37055]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Black Olives					    					    <input type="text" size="5" name="ci[10537][37056]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Dill Pickle					    					    <input type="text" size="5" name="ci[10537][37057]" value="1.00,2.00,3.00,4.00">
-					</li>
+												</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Tomatoes					    					    <input type="text" size="5" name="ci[10537][37058]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+								</li>
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Pineapple					    					    <input type="text" size="5" name="ci[10537][37059]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Hot Peppers					    					    <input type="text" size="5" name="ci[10537][37060]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Jalapeno					    					    <input type="text" size="5" name="ci[10537][37061]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Pepperoni					    					    <input type="text" size="5" name="ci[10537][37062]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Italian Sausage					    					    <input type="text" size="5" name="ci[10537][37063]" value="1.00,2.00,3.00,4.00">
-					</li>
+												</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Bacon					    					    <input type="text" size="5" name="ci[10537][37064]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+								</li>
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Ham					    					    <input type="text" size="5" name="ci[10537][37065]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Meatballs					    					    <input type="text" size="5" name="ci[10537][37066]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Ground Beef					    					    <input type="text" size="5" name="ci[10537][37068]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Donair Meat					    					    <input type="text" size="5" name="ci[10537][37069]" value="1.00,2.00,3.00,4.00">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    Extra Cheese					    					    <input type="text" size="5" name="ci[10537][37070]" value="1.00,2.00,3.00,4.00">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
@@ -2271,30 +2267,30 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Popcorn Chicken					    					    <input type="text" size="5" name="ci[10537][52454]" value="2.00,3.00,4.00,5.00">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_11005').show();}" type="radio" name="ci_radio" value="11005" id="radio_ci_11005">
 	    			<label for="radio_ci_11005">Medium Cheese Pizza for FRIDAY SPECIAL FISH &amp; CHIPS</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_11005">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    Medium Cheese Pizza					    					    <input type="text" size="5" name="ci[11005][50848]" value="9.95">
-					</li>
-				    	    		    </ul>
-	    		</li>
-	    		<li>
-	    		    <p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
+												</li>
+																														</ul>
+								</li>
+								<li>
+									<p style="height:20px;line-height:1.5;background-color: #ccc;padding-left:10px;border:1px solid #aaa;margin-top:1px;">
 	    			<input onclick="$$('#ulci ul[class=\'ci\']').each(function(u){$(u.id).hide()}); if(this.checked){ $('list_ci_11505').show();}" type="radio" name="ci_radio" value="11505" id="radio_ci_11505">
 	    			<label for="radio_ci_11505">Wing (each 0.69) ( 5 or 10 or 20)</label>
-	    		    </p>
+									</p>
 	    		    <ul class="ci" style="list-style-type: none; overflow: hidden;display:none" id="list_ci_11505">
-				    					<li style="width:30%; float: left;padding-left:2px">
+																																	<li style="width:30%; float: left;padding-left:2px">
 					    1 Wing (each)					    					    <input type="text" size="5" name="ci[11505][53413]" value="0.69">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+												</li>
+																							<li style="width:30%; float: left;padding-left:2px">
 					    5 Wings					    					    <input type="text" size="5" name="ci[11505][53414]" value="3.45">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
@@ -2302,11 +2298,11 @@ For example, for the dish Nacho Tuesdays HIDE. The Custom Ingredients section ha
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    20 Wings					    					    <input type="text" size="5" name="ci[11505][53416]" value="13.80">
-					</li>
-				    	    		    </ul>
-	    		</li>
-					        	   </ul>
-</div>
+												</li>
+																														</ul>
+								</li>
+																		</ul>
+				</div>
 
 notice that only the Pizza Toppings without Premium was checked:
 
@@ -2337,32 +2333,32 @@ The modifiers of the Pizza Toppings without Premium modifier group are:
 <ul class="ci" style="list-style-type: none; overflow: hidden;display:" id="list_ci_8174">
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Green Peppers					    					    <input type="text" size="5" name="ci[8174][37052]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+</li>
+                                                                                                                                    <li style="width:30%; float: left;padding-left:2px">
 					    Onions					    					    <input type="text" size="5" name="ci[8174][37053]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+                                                </li>
+                                                                                            <li style="width:30%; float: left;padding-left:2px">
 					    Mushrooms					    					    <input type="text" size="5" name="ci[8174][37054]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+                                                </li>
+                                                                                            <li style="width:30%; float: left;padding-left:2px">
 					    Green Olives					    					    <input type="text" size="5" name="ci[8174][37055]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+                                                </li>
+                                                                                            <li style="width:30%; float: left;padding-left:2px">
 					    Black Olives					    					    <input type="text" size="5" name="ci[8174][37056]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+                                                </li>
+                                                                                            <li style="width:30%; float: left;padding-left:2px">
 					    Dill Pickle					    					    <input type="text" size="5" name="ci[8174][37057]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+                                                </li>
+                                                                                            <li style="width:30%; float: left;padding-left:2px">
 					    Tomatoes					    					    <input type="text" size="5" name="ci[8174][37058]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+                                                </li>
+                                                                                            <li style="width:30%; float: left;padding-left:2px">
 					    Pineapple					    					    <input type="text" size="5" name="ci[8174][37059]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+                                                </li>
+                                                                                            <li style="width:30%; float: left;padding-left:2px">
 					    Hot Peppers					    					    <input type="text" size="5" name="ci[8174][37060]" value="2.99">
-					</li>
-				    					<li style="width:30%; float: left;padding-left:2px">
+                                                </li>
+                                                                                            <li style="width:30%; float: left;padding-left:2px">
 					    Jalapeno					    					    <input type="text" size="5" name="ci[8174][37061]" value="2.99">
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
@@ -2403,8 +2399,8 @@ The modifiers of the Pizza Toppings without Premium modifier group are:
 					</li>
 				    					<li style="width:30%; float: left;padding-left:2px">
 					    Hot Honey					    					    <input type="text" size="5" name="ci[8174][56143]" value="2.99,3.49,3.99,4.99">
-					</li>
-				    	    		    </ul>
+                                                </li>
+                                                                                                                        </ul>
 
 if you find more than one price, it is because each price belongs to a different size variant.
 
@@ -2531,7 +2527,7 @@ Finally, verify if the current dish should be hidden on certain days. By scrapin
 
 <div class="ingredientGroups" style="border-width:0 1px 1px 1px; border-style: solid;border-color: #aaa;margin-bottom:2px;padding:2px">
                             <input type="checkbox" name="hideOnDays[]" value="mon" id="d_mon" style="vertical-align: center" checked=""> <label for="d_mon" style="vertical-align: center">Monday</label>
-                            <input type="checkbox" name="hideOnDays[]" value="tue" id="d_tue" style="vertical-align: center"> <label for="d_tue" style="vertical-align: center">Tuesday</label>
+	<input type="checkbox" name="hideOnDays[]" value="tue" id="d_tue" style="vertical-align: center"> <label for="d_tue" style="vertical-align: center">Tuesday</label>
                             <input type="checkbox" name="hideOnDays[]" value="wed" id="d_wed" style="vertical-align: center" checked=""> <label for="d_wed" style="vertical-align: center">Wednersday</label>
                             <input type="checkbox" name="hideOnDays[]" value="thu" id="d_thu" style="vertical-align: center" checked=""> <label for="d_thu" style="vertical-align: center">Thursday</label>
                             <input type="checkbox" name="hideOnDays[]" value="fri" id="d_fri" style="vertical-align: center" checked=""> <label for="d_fri" style="vertical-align: center">Friday</label>

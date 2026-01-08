@@ -1,80 +1,202 @@
-"""Database operations for the Modifier Group Details scraper."""
-import psycopg2
-from psycopg2.extras import RealDictCursor
-from typing import Optional, Dict, List, Any
+"""Database operations for the Modifier Group Details scraper using psql.
+
+This module uses psql subprocess calls for all CRUD operations per project guidelines.
+"""
+import subprocess
+import json
+import tempfile
+import os
 import logging
+from typing import Optional, Dict, List, Any
 
 from modifier_group_config import DB_CONNECTION_STRING, SCHEMA
 
 logger = logging.getLogger(__name__)
 
+# psql path for Windows
+PSQL_PATH = r"C:\Program Files\PostgreSQL\17\bin\psql.exe"
+
 
 class ModifierGroupDatabase:
-    """Database operations for modifier groups and dish availability."""
+    """Database operations for modifier groups and dish availability using psql."""
 
     def __init__(self):
         self.conn_string = DB_CONNECTION_STRING
         self.schema = SCHEMA
-        self.conn = None
-        self.cursor = None
+        self._connected = False
 
     def connect(self):
-        """Establish database connection."""
+        """Verify database connection via psql."""
         try:
-            self.conn = psycopg2.connect(self.conn_string)
-            self.cursor = self.conn.cursor(cursor_factory=RealDictCursor)
-            logger.info("Database connection established")
+            result = self._execute_query("SELECT 1 as test")
+            if result and len(result) > 0:
+                self._connected = True
+                logger.info("Database connection verified via psql")
+            else:
+                raise Exception("Failed to verify connection")
         except Exception as e:
             logger.error(f"Failed to connect to database: {e}")
             raise
 
     def close(self):
-        """Close database connection."""
-        if self.cursor:
-            self.cursor.close()
-        if self.conn:
-            self.conn.close()
-            logger.info("Database connection closed")
+        """Close database connection (no-op for psql subprocess approach)."""
+        self._connected = False
+        logger.info("Database connection closed")
 
     def is_connected(self) -> bool:
-        """Check if database connection is alive."""
-        if not self.conn or not self.cursor:
-            return False
-        try:
-            self.cursor.execute("SELECT 1")
-            return True
-        except (psycopg2.OperationalError, psycopg2.InterfaceError):
-            return False
+        """Check if database connection is configured."""
+        return self._connected and bool(self.conn_string)
 
     def ensure_connection(self):
-        """Ensure database connection is active, reconnect if needed."""
-        if not self.is_connected():
-            logger.warning("Database connection lost, reconnecting...")
-            try:
-                if self.cursor:
-                    try:
-                        self.cursor.close()
-                    except:
-                        pass
-                if self.conn:
-                    try:
-                        self.conn.close()
-                    except:
-                        pass
-                self.connect()
-                logger.info("Database reconnection successful")
-            except Exception as e:
-                logger.error(f"Failed to reconnect to database: {e}")
-                raise
+        """Ensure database connection is active."""
+        if not self._connected:
+            self.connect()
 
     def __enter__(self):
         self.connect()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        if exc_type:
-            self.conn.rollback()
         self.close()
+
+    # =========================================================================
+    # psql Execution Helper
+    # =========================================================================
+
+    def _execute_query(self, query: str, return_results: bool = True) -> Optional[List[Dict[str, Any]]]:
+        """Execute a SQL query using psql and return results as list of dicts."""
+        if not self.conn_string:
+            logger.error("No database connection string configured")
+            return None
+
+        temp_file = None
+        try:
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.sql', delete=False, encoding='utf-8') as f:
+                if return_results and query.strip().upper().startswith('SELECT'):
+                    json_query = f"""
+SELECT json_agg(row_to_json(t)) 
+FROM ({query.rstrip(';')}) t;
+"""
+                    f.write(json_query)
+                else:
+                    f.write(query)
+                temp_file = f.name
+
+            cmd = [
+                PSQL_PATH,
+                self.conn_string,
+                "-t",
+                "-A",
+                "-f", temp_file
+            ]
+
+            result = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                encoding='utf-8',
+                errors='replace',
+                timeout=30
+            )
+
+            if result.returncode != 0:
+                logger.error(f"psql error: {result.stderr}")
+                return None
+
+            output = result.stdout.strip()
+            
+            if not return_results:
+                return None
+                
+            if not output or output == '' or output == 'null':
+                return []
+
+            try:
+                rows = json.loads(output)
+                return rows if rows else []
+            except json.JSONDecodeError:
+                logger.debug(f"Raw output: {output}")
+                return []
+
+        except subprocess.TimeoutExpired:
+            logger.error("Query timed out")
+            return None
+        except Exception as e:
+            logger.error(f"Error executing query: {e}")
+            return None
+        finally:
+            if temp_file and os.path.exists(temp_file):
+                os.remove(temp_file)
+
+    def _execute_update(self, query: str) -> Optional[Dict[str, Any]]:
+        """Execute an UPDATE/INSERT/DELETE query using psql with RETURNING."""
+        if not self.conn_string:
+            logger.error("No database connection string configured")
+            return None
+
+        temp_file = None
+        try:
+            has_returning = 'RETURNING' in query.upper()
+            if has_returning:
+                wrapped_query = f"""
+SELECT row_to_json(t) FROM (
+{query.rstrip(';')}
+) t;
+"""
+            else:
+                wrapped_query = query
+            
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.sql', delete=False, encoding='utf-8') as f:
+                f.write(wrapped_query)
+                temp_file = f.name
+
+            cmd = [
+                PSQL_PATH,
+                self.conn_string,
+                "-t",
+                "-A",
+                "-v", "ON_ERROR_STOP=1",
+                "-f", temp_file
+            ]
+
+            result = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                encoding='utf-8',
+                errors='replace',
+                timeout=30
+            )
+
+            if result.returncode != 0:
+                logger.error(f"psql error: {result.stderr}")
+                return None
+
+            output = result.stdout.strip()
+            
+            if not has_returning or not output:
+                return {}
+            
+            try:
+                return json.loads(output)
+            except json.JSONDecodeError:
+                return {}
+
+        except subprocess.TimeoutExpired:
+            logger.error("Update query timed out")
+            return None
+        except Exception as e:
+            logger.error(f"Error executing update: {e}")
+            return None
+        finally:
+            if temp_file and os.path.exists(temp_file):
+                os.remove(temp_file)
+
+    def _escape_string(self, value: str) -> str:
+        """Escape single quotes for SQL strings."""
+        if value is None:
+            return "NULL"
+        return value.replace("'", "''")
 
     # =========================================================================
     # Restaurant Methods
@@ -86,12 +208,11 @@ class ModifierGroupDatabase:
         query = f"""
             SELECT id, name, legacy_v1_id
             FROM {self.schema}.restaurants
-            WHERE id = %s AND deleted_at IS NULL
+            WHERE id = {restaurant_id} AND deleted_at IS NULL
             LIMIT 1
         """
-        self.cursor.execute(query, (restaurant_id,))
-        result = self.cursor.fetchone()
-        return dict(result) if result else None
+        results = self._execute_query(query)
+        return results[0] if results else None
 
     # =========================================================================
     # Dish Methods
@@ -107,14 +228,14 @@ class ModifierGroupDatabase:
             SELECT d.id, d.name, d.source_id, d.course_id, c.name as course_name
             FROM {self.schema}.dishes d
             JOIN {self.schema}.courses c ON d.course_id = c.id
-            WHERE d.restaurant_id = %s 
+            WHERE d.restaurant_id = {restaurant_id} 
               AND d.deleted_at IS NULL 
               AND d.is_combo = FALSE
               AND d.source_id IS NOT NULL
             ORDER BY c.display_order, d.display_order
         """
-        self.cursor.execute(query, (restaurant_id,))
-        return [dict(row) for row in self.cursor.fetchall()]
+        results = self._execute_query(query)
+        return results if results else []
 
     def get_dish_by_source_id(self, restaurant_id: int, source_id: int) -> Optional[Dict[str, Any]]:
         """Get dish by V1 source_id."""
@@ -122,12 +243,11 @@ class ModifierGroupDatabase:
         query = f"""
             SELECT id, name, source_id, course_id
             FROM {self.schema}.dishes
-            WHERE restaurant_id = %s AND source_id = %s AND deleted_at IS NULL
+            WHERE restaurant_id = {restaurant_id} AND source_id = {source_id} AND deleted_at IS NULL
             LIMIT 1
         """
-        self.cursor.execute(query, (restaurant_id, source_id))
-        result = self.cursor.fetchone()
-        return dict(result) if result else None
+        results = self._execute_query(query)
+        return results[0] if results else None
 
     # =========================================================================
     # Modifier Group Methods
@@ -139,24 +259,24 @@ class ModifierGroupDatabase:
         query = f"""
             SELECT id, name, min_selections, max_selections, free_items, display_order
             FROM {self.schema}.modifier_groups
-            WHERE dish_id = %s AND deleted_at IS NULL
+            WHERE dish_id = {dish_id} AND deleted_at IS NULL
             ORDER BY display_order, id
         """
-        self.cursor.execute(query, (dish_id,))
-        return [dict(row) for row in self.cursor.fetchall()]
+        results = self._execute_query(query)
+        return results if results else []
 
     def get_modifier_group_by_name(self, dish_id: int, name: str) -> Optional[Dict[str, Any]]:
         """Get modifier group by dish_id and name."""
         self.ensure_connection()
+        escaped_name = self._escape_string(name)
         query = f"""
             SELECT id, name, min_selections, max_selections, free_items, display_order
             FROM {self.schema}.modifier_groups
-            WHERE dish_id = %s AND name = %s AND deleted_at IS NULL
+            WHERE dish_id = {dish_id} AND name = '{escaped_name}' AND deleted_at IS NULL
             LIMIT 1
         """
-        self.cursor.execute(query, (dish_id, name))
-        result = self.cursor.fetchone()
-        return dict(result) if result else None
+        results = self._execute_query(query)
+        return results[0] if results else None
 
     def update_modifier_group_details(self, modifier_group_id: int,
                                       min_selections: Optional[int] = None,
@@ -172,44 +292,37 @@ class ModifierGroupDatabase:
         try:
             # Build dynamic update query
             updates = []
-            params = []
 
             if min_selections is not None:
-                updates.append("min_selections = %s")
-                params.append(min_selections)
+                updates.append(f"min_selections = {min_selections}")
             if max_selections is not None:
-                updates.append("max_selections = %s")
-                params.append(max_selections)
+                updates.append(f"max_selections = {max_selections}")
             if free_items is not None:
-                updates.append("free_items = %s")
-                params.append(free_items)
+                updates.append(f"free_items = {free_items}")
             if display_order is not None:
-                updates.append("display_order = %s")
-                params.append(display_order)
+                updates.append(f"display_order = {display_order}")
             if name is not None:
-                updates.append("name = %s")
-                params.append(name)
+                updates.append(f"name = '{self._escape_string(name)}'")
 
             if not updates:
                 logger.debug(f"No updates for modifier_group {modifier_group_id}")
                 return True
 
             updates.append("updated_at = NOW()")
-            params.append(modifier_group_id)
 
             query = f"""
                 UPDATE {self.schema}.modifier_groups
                 SET {', '.join(updates)}
-                WHERE id = %s
+                WHERE id = {modifier_group_id}
             """
-            self.cursor.execute(query, params)
-            self.conn.commit()
+            result = self._execute_update(query)
 
-            logger.debug(f"Updated modifier_group {modifier_group_id}")
-            return True
+            if result is not None:
+                logger.debug(f"Updated modifier_group {modifier_group_id}")
+                return True
+            return False
 
         except Exception as e:
-            self.conn.rollback()
             logger.error(f"Failed to update modifier_group {modifier_group_id}: {e}")
             return False
 
@@ -220,18 +333,20 @@ class ModifierGroupDatabase:
     def update_dish_hide_option(self, dish_id: int, enabled: bool) -> bool:
         """Set the hide_option_enabled flag on a dish."""
         self.ensure_connection()
+        flag = 'TRUE' if enabled else 'FALSE'
+        
         try:
             query = f"""
                 UPDATE {self.schema}.dishes
-                SET hide_option_enabled = %s, updated_at = NOW()
-                WHERE id = %s
+                SET hide_option_enabled = {flag}, updated_at = NOW()
+                WHERE id = {dish_id}
             """
-            self.cursor.execute(query, (enabled, dish_id))
-            self.conn.commit()
-            logger.debug(f"Set hide_option_enabled={enabled} for dish {dish_id}")
-            return True
+            result = self._execute_update(query)
+            if result is not None:
+                logger.debug(f"Set hide_option_enabled={enabled} for dish {dish_id}")
+                return True
+            return False
         except Exception as e:
-            self.conn.rollback()
             logger.error(f"Failed to update hide_option_enabled for dish {dish_id}: {e}")
             return False
 
@@ -249,42 +364,38 @@ class ModifierGroupDatabase:
             The dish_availability ID if successful, None otherwise
         """
         self.ensure_connection()
+        is_hidden_str = 'TRUE' if is_hidden else 'FALSE'
+        
         try:
             # Check if exists
             check_query = f"""
                 SELECT id FROM {self.schema}.dish_availability
-                WHERE dish_id = %s AND day_of_week = %s
+                WHERE dish_id = {dish_id} AND day_of_week = {day_of_week}
                 LIMIT 1
             """
-            self.cursor.execute(check_query, (dish_id, day_of_week))
-            existing = self.cursor.fetchone()
+            existing = self._execute_query(check_query)
 
             if existing:
                 # Update existing
-                update_query = f"""
+                query = f"""
                     UPDATE {self.schema}.dish_availability
-                    SET is_hidden = %s
-                    WHERE id = %s
+                    SET is_hidden = {is_hidden_str}
+                    WHERE id = {existing[0]['id']}
                     RETURNING id
                 """
-                self.cursor.execute(update_query, (is_hidden, existing['id']))
-                result = self.cursor.fetchone()
             else:
                 # Insert new
-                insert_query = f"""
+                query = f"""
                     INSERT INTO {self.schema}.dish_availability
                     (dish_id, day_of_week, is_hidden)
-                    VALUES (%s, %s, %s)
+                    VALUES ({dish_id}, {day_of_week}, {is_hidden_str})
                     RETURNING id
                 """
-                self.cursor.execute(insert_query, (dish_id, day_of_week, is_hidden))
-                result = self.cursor.fetchone()
 
-            self.conn.commit()
-            return result['id'] if result else None
+            result = self._execute_update(query)
+            return result.get('id') if result else None
 
         except Exception as e:
-            self.conn.rollback()
             logger.error(f"Failed to upsert dish_availability for dish {dish_id}, day {day_of_week}: {e}")
             return None
 
@@ -294,13 +405,11 @@ class ModifierGroupDatabase:
         try:
             query = f"""
                 DELETE FROM {self.schema}.dish_availability
-                WHERE dish_id = %s
+                WHERE dish_id = {dish_id}
             """
-            self.cursor.execute(query, (dish_id,))
-            self.conn.commit()
-            return True
+            result = self._execute_update(query)
+            return result is not None
         except Exception as e:
-            self.conn.rollback()
             logger.error(f"Failed to clear dish_availability for dish {dish_id}: {e}")
             return False
 
@@ -315,13 +424,12 @@ class ModifierGroupDatabase:
             SELECT COUNT(DISTINCT mg.id) as count
             FROM {self.schema}.modifier_groups mg
             JOIN {self.schema}.dishes d ON mg.dish_id = d.id
-            WHERE d.restaurant_id = %s 
+            WHERE d.restaurant_id = {restaurant_id} 
               AND mg.deleted_at IS NULL 
               AND d.deleted_at IS NULL
         """
-        self.cursor.execute(query, (restaurant_id,))
-        result = self.cursor.fetchone()
-        return result['count'] if result else 0
+        result = self._execute_query(query)
+        return result[0]['count'] if result else 0
 
     def get_dish_availability_count(self, restaurant_id: int) -> int:
         """Get count of dish_availability records for a restaurant."""
@@ -330,11 +438,10 @@ class ModifierGroupDatabase:
             SELECT COUNT(da.id) as count
             FROM {self.schema}.dish_availability da
             JOIN {self.schema}.dishes d ON da.dish_id = d.id
-            WHERE d.restaurant_id = %s AND d.deleted_at IS NULL
+            WHERE d.restaurant_id = {restaurant_id} AND d.deleted_at IS NULL
         """
-        self.cursor.execute(query, (restaurant_id,))
-        result = self.cursor.fetchone()
-        return result['count'] if result else 0
+        result = self._execute_query(query)
+        return result[0]['count'] if result else 0
 
     def get_restaurant_stats(self, restaurant_id: int) -> Dict[str, int]:
         """Get statistics for a restaurant."""
@@ -343,4 +450,3 @@ class ModifierGroupDatabase:
             'modifier_groups': self.get_modifier_group_count(restaurant_id),
             'dish_availability_records': self.get_dish_availability_count(restaurant_id),
         }
-

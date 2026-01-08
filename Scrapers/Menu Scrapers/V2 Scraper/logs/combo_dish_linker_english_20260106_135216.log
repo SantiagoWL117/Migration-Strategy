@@ -1,0 +1,339 @@
+2026-01-06 13:52:16,756 - run_english - INFO - Starting V2 Combo Dish Linker for 13 English restaurants
+2026-01-06 13:52:16,756 - run_english - INFO - ============================================================
+2026-01-06 13:52:16,757 - run_english - INFO - Processing: Al's Drive In
+2026-01-06 13:52:16,758 - run_english - INFO -   V3 ID: 981, V2 ID: 1678
+2026-01-06 13:52:16,758 - run_english - INFO - ============================================================
+2026-01-06 13:52:17,173 - V2ComboDishLinker-981 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:52:20,439 - V2ComboDishLinker-981 - INFO - Login successful
+2026-01-06 13:52:20,440 - V2ComboDishLinker-981 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1678/menu/1/restaurant
+2026-01-06 13:52:22,726 - V2ComboDishLinker-981 - INFO - Loaded 37 dishes into cache
+2026-01-06 13:52:23,155 - V2ComboDishLinker-981 - INFO - Loaded 0 combo groups into cache
+2026-01-06 13:52:23,162 - V2ComboDishLinker-981 - INFO - Found 37 total dishes, 0 combo dishes
+2026-01-06 13:52:23,213 - run_english - INFO -   Completed: 0 links created, 0 errors
+2026-01-06 13:52:24,220 - run_english - INFO - ============================================================
+2026-01-06 13:52:24,221 - run_english - INFO - Processing: Capital Bites
+2026-01-06 13:52:24,222 - run_english - INFO -   V3 ID: 973, V2 ID: 1670
+2026-01-06 13:52:24,222 - run_english - INFO - ============================================================
+2026-01-06 13:52:24,651 - V2ComboDishLinker-973 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:52:27,832 - V2ComboDishLinker-973 - INFO - Login successful
+2026-01-06 13:52:27,833 - V2ComboDishLinker-973 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1670/menu/1/restaurant
+2026-01-06 13:52:29,980 - V2ComboDishLinker-973 - INFO - Loaded 96 dishes into cache
+2026-01-06 13:52:30,404 - V2ComboDishLinker-973 - INFO - Loaded 14 combo groups into cache
+2026-01-06 13:52:30,413 - V2ComboDishLinker-973 - INFO - Found 96 total dishes, 12 combo dishes
+2026-01-06 13:52:30,413 - V2ComboDishLinker-973 - INFO - Processing combo dish: Walk-In Special (Medium Pizza) (source_id: 10666)
+2026-01-06 13:52:31,015 - V2ComboDishLinker-973 - INFO -   Found 2 combo groups: ['1 Medium 1 Topping', 'Dips']
+2026-01-06 13:52:31,447 - V2ComboDishLinker-973 - INFO -   Linked dish 172885 to combo_group 2980 (1 Medium 1 Topping)
+2026-01-06 13:52:31,886 - V2ComboDishLinker-973 - INFO -   Linked dish 172885 to combo_group 2957 (Dips)
+2026-01-06 13:52:32,674 - V2ComboDishLinker-973 - INFO - Processing combo dish: Large Pizza 1 Topping with Small Fries and Dipping Sauce (source_id: 10665)
+2026-01-06 13:52:33,283 - V2ComboDishLinker-973 - INFO -   Found 2 combo groups: ['1 Large Pizza 1 Topping', '1st Dip Free']
+2026-01-06 13:52:33,706 - V2ComboDishLinker-973 - INFO -   Linked dish 172886 to combo_group 2978 (1 Large Pizza 1 Topping)
+2026-01-06 13:52:34,117 - V2ComboDishLinker-973 - INFO -   Linked dish 172886 to combo_group 2979 (1st Dip Free)
+2026-01-06 13:52:34,908 - V2ComboDishLinker-973 - INFO - Processing combo dish: Small Pizza and Wings (source_id: 10031)
+2026-01-06 13:52:35,521 - V2ComboDishLinker-973 - INFO -   Found 3 combo groups: ['1 Small Pizza 3 Toppings', 'Wings Sauces', 'Dips']
+2026-01-06 13:52:35,958 - V2ComboDishLinker-973 - INFO -   Linked dish 172887 to combo_group 2958 (1 Small Pizza 3 Toppings)
+2026-01-06 13:52:36,374 - V2ComboDishLinker-973 - INFO -   Linked dish 172887 to combo_group 2964 (Wings Sauces)
+2026-01-06 13:52:36,792 - V2ComboDishLinker-973 - INFO -   Linked dish 172887 to combo_group 2957 (Dips)
+2026-01-06 13:52:37,560 - V2ComboDishLinker-973 - INFO - Processing combo dish: Medium Pizza and Wings (source_id: 10032)
+2026-01-06 13:52:38,165 - V2ComboDishLinker-973 - INFO -   Found 3 combo groups: ['1 Medium Pizza 3 Toppings', 'Wings Sauces', 'Dips']
+2026-01-06 13:52:38,578 - V2ComboDishLinker-973 - INFO -   Linked dish 172888 to combo_group 2959 (1 Medium Pizza 3 Toppings)
+2026-01-06 13:52:39,016 - V2ComboDishLinker-973 - INFO -   Linked dish 172888 to combo_group 2964 (Wings Sauces)
+2026-01-06 13:52:39,460 - V2ComboDishLinker-973 - INFO -   Linked dish 172888 to combo_group 2957 (Dips)
+2026-01-06 13:52:40,228 - V2ComboDishLinker-973 - INFO - Processing combo dish: Large Pizza and Wings (source_id: 10033)
+2026-01-06 13:52:40,834 - V2ComboDishLinker-973 - INFO -   Found 3 combo groups: ['1 Large Pizza 3 Toppings', 'Wings Sauces', 'Dips']
+2026-01-06 13:52:41,257 - V2ComboDishLinker-973 - INFO -   Linked dish 172889 to combo_group 2960 (1 Large Pizza 3 Toppings)
+2026-01-06 13:52:41,668 - V2ComboDishLinker-973 - INFO -   Linked dish 172889 to combo_group 2964 (Wings Sauces)
+2026-01-06 13:52:42,074 - V2ComboDishLinker-973 - INFO -   Linked dish 172889 to combo_group 2957 (Dips)
+2026-01-06 13:52:42,838 - V2ComboDishLinker-973 - INFO - Processing combo dish: 2 Small Pizzas and Wings (source_id: 10034)
+2026-01-06 13:52:43,436 - V2ComboDishLinker-973 - INFO -   Found 3 combo groups: ['2 Small 3 Toppings', 'Wings Sauces', 'Dips']
+2026-01-06 13:52:43,853 - V2ComboDishLinker-973 - INFO -   Linked dish 172890 to combo_group 2961 (2 Small 3 Toppings)
+2026-01-06 13:52:44,275 - V2ComboDishLinker-973 - INFO -   Linked dish 172890 to combo_group 2964 (Wings Sauces)
+2026-01-06 13:52:44,689 - V2ComboDishLinker-973 - INFO -   Linked dish 172890 to combo_group 2957 (Dips)
+2026-01-06 13:52:45,447 - V2ComboDishLinker-973 - INFO - Processing combo dish: 2 Medium Pizzas and Wings (source_id: 10035)
+2026-01-06 13:52:46,054 - V2ComboDishLinker-973 - INFO -   Found 3 combo groups: ['2 Medium Pizzas 3 Toppings', 'Wings Sauces', 'Dips']
+2026-01-06 13:52:46,503 - V2ComboDishLinker-973 - INFO -   Linked dish 172891 to combo_group 2962 (2 Medium Pizzas 3 Toppings)
+2026-01-06 13:52:46,921 - V2ComboDishLinker-973 - INFO -   Linked dish 172891 to combo_group 2964 (Wings Sauces)
+2026-01-06 13:52:47,355 - V2ComboDishLinker-973 - INFO -   Linked dish 172891 to combo_group 2957 (Dips)
+2026-01-06 13:52:48,129 - V2ComboDishLinker-973 - INFO - Processing combo dish: 2 Large Pizzas and Wings (source_id: 10036)
+2026-01-06 13:52:48,743 - V2ComboDishLinker-973 - INFO -   Found 3 combo groups: ['2 Large Pizzas 3 Toppings', 'Wings Sauces', 'Dips']
+2026-01-06 13:52:49,139 - V2ComboDishLinker-973 - INFO -   Linked dish 172892 to combo_group 2963 (2 Large Pizzas 3 Toppings)
+2026-01-06 13:52:49,555 - V2ComboDishLinker-973 - INFO -   Linked dish 172892 to combo_group 2964 (Wings Sauces)
+2026-01-06 13:52:49,970 - V2ComboDishLinker-973 - INFO -   Linked dish 172892 to combo_group 2957 (Dips)
+2026-01-06 13:52:50,727 - V2ComboDishLinker-973 - INFO - Processing combo dish: Large Pizza 3 Toppings and Pop (source_id: 10042)
+2026-01-06 13:52:51,330 - V2ComboDishLinker-973 - INFO -   Found 2 combo groups: ['1 Large Pizza 3 Toppings', 'Dips']
+2026-01-06 13:52:51,767 - V2ComboDishLinker-973 - INFO -   Linked dish 172893 to combo_group 2960 (1 Large Pizza 3 Toppings)
+2026-01-06 13:52:52,226 - V2ComboDishLinker-973 - INFO -   Linked dish 172893 to combo_group 2957 (Dips)
+2026-01-06 13:52:53,029 - V2ComboDishLinker-973 - INFO - Processing combo dish: Twins Pizzas 1 Topping (source_id: 10021)
+2026-01-06 13:52:53,625 - V2ComboDishLinker-973 - INFO -   Found 2 combo groups: ['Twins 1 Topping', 'Dips']
+2026-01-06 13:52:54,042 - V2ComboDishLinker-973 - INFO -   Linked dish 172894 to combo_group 2954 (Twins 1 Topping)
+2026-01-06 13:52:54,487 - V2ComboDishLinker-973 - INFO -   Linked dish 172894 to combo_group 2957 (Dips)
+2026-01-06 13:52:55,245 - V2ComboDishLinker-973 - INFO - Processing combo dish: Twins Pizzas 2 Toppings (source_id: 10022)
+2026-01-06 13:52:55,841 - V2ComboDishLinker-973 - INFO -   Found 2 combo groups: ['Twins 2 Toppings', 'Dips']
+2026-01-06 13:52:56,329 - V2ComboDishLinker-973 - INFO -   Linked dish 172895 to combo_group 2955 (Twins 2 Toppings)
+2026-01-06 13:52:56,769 - V2ComboDishLinker-973 - INFO -   Linked dish 172895 to combo_group 2957 (Dips)
+2026-01-06 13:52:57,553 - V2ComboDishLinker-973 - INFO - Processing combo dish: Twins Pizzas 3 Toppings (source_id: 10023)
+2026-01-06 13:52:58,143 - V2ComboDishLinker-973 - INFO -   Found 2 combo groups: ['Twins 3 Toppings', 'Dips']
+2026-01-06 13:52:58,560 - V2ComboDishLinker-973 - INFO -   Linked dish 172896 to combo_group 2956 (Twins 3 Toppings)
+2026-01-06 13:52:58,986 - V2ComboDishLinker-973 - INFO -   Linked dish 172896 to combo_group 2957 (Dips)
+2026-01-06 13:52:59,797 - run_english - INFO -   Completed: 30 links created, 0 errors
+2026-01-06 13:53:00,800 - run_english - INFO - ============================================================
+2026-01-06 13:53:00,801 - run_english - INFO - Processing: Capri Pizza
+2026-01-06 13:53:00,801 - run_english - INFO -   V3 ID: 977, V2 ID: 1674
+2026-01-06 13:53:00,802 - run_english - INFO - ============================================================
+2026-01-06 13:53:01,236 - V2ComboDishLinker-977 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:53:04,480 - V2ComboDishLinker-977 - INFO - Login successful
+2026-01-06 13:53:04,480 - V2ComboDishLinker-977 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1674/menu/1/restaurant
+2026-01-06 13:53:06,717 - V2ComboDishLinker-977 - INFO - Loaded 122 dishes into cache
+2026-01-06 13:53:07,172 - V2ComboDishLinker-977 - INFO - Loaded 5 combo groups into cache
+2026-01-06 13:53:07,180 - V2ComboDishLinker-977 - INFO - Found 122 total dishes, 4 combo dishes
+2026-01-06 13:53:07,180 - V2ComboDishLinker-977 - INFO - Processing combo dish: Large Pizza and Wings (source_id: 10256)
+2026-01-06 13:53:07,768 - V2ComboDishLinker-977 - INFO -   Found 3 combo groups: ['Large Pizza 3 Toppings', 'Wings Sauces', '2 Dips Free']
+2026-01-06 13:53:08,275 - V2ComboDishLinker-977 - INFO -   Linked dish 171873 to combo_group 2973 (Large Pizza 3 Toppings)
+2026-01-06 13:53:08,683 - V2ComboDishLinker-977 - INFO -   Linked dish 171873 to combo_group 2971 (Wings Sauces)
+2026-01-06 13:53:09,125 - V2ComboDishLinker-977 - INFO -   Linked dish 171873 to combo_group 2972 (2 Dips Free)
+2026-01-06 13:53:09,910 - V2ComboDishLinker-977 - INFO - Processing combo dish: Medium Pizza and Wings (source_id: 10255)
+2026-01-06 13:53:10,523 - V2ComboDishLinker-977 - INFO -   Found 3 combo groups: ['Medium Pizza 3 Toppings', 'Wings Sauces', '2 Dips Free']
+2026-01-06 13:53:10,980 - V2ComboDishLinker-977 - INFO -   Linked dish 171874 to combo_group 2970 (Medium Pizza 3 Toppings)
+2026-01-06 13:53:11,421 - V2ComboDishLinker-977 - INFO -   Linked dish 171874 to combo_group 2971 (Wings Sauces)
+2026-01-06 13:53:11,868 - V2ComboDishLinker-977 - INFO -   Linked dish 171874 to combo_group 2972 (2 Dips Free)
+2026-01-06 13:53:12,634 - V2ComboDishLinker-977 - INFO - Processing combo dish: Pizza Crack Stick Meal (source_id: 10423)
+2026-01-06 13:53:13,215 - V2ComboDishLinker-977 - INFO -   Found 1 combo groups: ['Medium Pizza 3 Toppings']
+2026-01-06 13:53:13,622 - V2ComboDishLinker-977 - INFO -   Linked dish 171875 to combo_group 2970 (Medium Pizza 3 Toppings)
+2026-01-06 13:53:14,399 - V2ComboDishLinker-977 - INFO - Processing combo dish: Twin Pizza Deal (source_id: 10230)
+2026-01-06 13:53:19,976 - V2ComboDishLinker-977 - WARNING - No combo groups found for dish: Twin Pizza Deal
+2026-01-06 13:53:20,473 - run_english - INFO -   Completed: 7 links created, 0 errors
+2026-01-06 13:53:21,478 - run_english - INFO - ============================================================
+2026-01-06 13:53:21,478 - run_english - INFO - Processing: Cosenza
+2026-01-06 13:53:21,478 - run_english - INFO -   V3 ID: 957, V2 ID: 1654
+2026-01-06 13:53:21,479 - run_english - INFO - ============================================================
+2026-01-06 13:53:21,918 - V2ComboDishLinker-957 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:53:25,175 - V2ComboDishLinker-957 - INFO - Login successful
+2026-01-06 13:53:25,175 - V2ComboDishLinker-957 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1654/menu/1/restaurant
+2026-01-06 13:53:27,384 - V2ComboDishLinker-957 - INFO - Loaded 86 dishes into cache
+2026-01-06 13:53:27,835 - V2ComboDishLinker-957 - INFO - Loaded 0 combo groups into cache
+2026-01-06 13:53:27,844 - V2ComboDishLinker-957 - INFO - Found 86 total dishes, 0 combo dishes
+2026-01-06 13:53:27,894 - run_english - INFO -   Completed: 0 links created, 0 errors
+2026-01-06 13:53:28,910 - run_english - INFO - ============================================================
+2026-01-06 13:53:28,910 - run_english - INFO - Processing: Cuisine Bombay Indienne
+2026-01-06 13:53:28,910 - run_english - INFO -   V3 ID: 960, V2 ID: 1657
+2026-01-06 13:53:28,910 - run_english - INFO - ============================================================
+2026-01-06 13:53:29,329 - V2ComboDishLinker-960 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:53:32,580 - V2ComboDishLinker-960 - INFO - Login successful
+2026-01-06 13:53:32,581 - V2ComboDishLinker-960 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1657/menu/1/restaurant
+2026-01-06 13:53:34,816 - V2ComboDishLinker-960 - INFO - Loaded 93 dishes into cache
+2026-01-06 13:53:35,267 - V2ComboDishLinker-960 - INFO - Loaded 0 combo groups into cache
+2026-01-06 13:53:35,275 - V2ComboDishLinker-960 - INFO - Found 93 total dishes, 0 combo dishes
+2026-01-06 13:53:35,309 - run_english - INFO -   Completed: 0 links created, 0 errors
+2026-01-06 13:53:36,311 - run_english - INFO - ============================================================
+2026-01-06 13:53:36,313 - run_english - INFO - Processing: Kirkwood Pizza
+2026-01-06 13:53:36,313 - run_english - INFO -   V3 ID: 950, V2 ID: 1637
+2026-01-06 13:53:36,313 - run_english - INFO - ============================================================
+2026-01-06 13:53:36,731 - V2ComboDishLinker-950 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:53:39,987 - V2ComboDishLinker-950 - INFO - Login successful
+2026-01-06 13:53:39,988 - V2ComboDishLinker-950 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1637/menu/1/restaurant
+2026-01-06 13:53:42,198 - V2ComboDishLinker-950 - INFO - Loaded 162 dishes into cache
+2026-01-06 13:53:42,634 - V2ComboDishLinker-950 - INFO - Loaded 16 combo groups into cache
+2026-01-06 13:53:42,645 - V2ComboDishLinker-950 - INFO - Found 171 total dishes, 25 combo dishes
+2026-01-06 13:53:42,646 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Large Pizzas and Wings (source_id: 7809)
+2026-01-06 13:53:43,250 - V2ComboDishLinker-950 - INFO -   Found 3 combo groups: ['2 Large Pizzas 3 Toppings', 'Wings Sauces', 'Dips']
+2026-01-06 13:53:43,683 - V2ComboDishLinker-950 - INFO -   Linked dish 173074 to combo_group 2902 (2 Large Pizzas 3 Toppings)
+2026-01-06 13:53:44,119 - V2ComboDishLinker-950 - INFO -   Linked dish 173074 to combo_group 2899 (Wings Sauces)
+2026-01-06 13:53:44,564 - V2ComboDishLinker-950 - INFO -   Linked dish 173074 to combo_group 2900 (Dips)
+2026-01-06 13:53:45,335 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Medium Pizzas and Wings (source_id: 7808)
+2026-01-06 13:53:45,952 - V2ComboDishLinker-950 - INFO -   Found 3 combo groups: ['2 Medium Pizzas 3 Toppings', 'Wings Sauces', 'Dips']
+2026-01-06 13:53:46,399 - V2ComboDishLinker-950 - INFO -   Linked dish 173075 to combo_group 2901 (2 Medium Pizzas 3 Toppings)
+2026-01-06 13:53:46,857 - V2ComboDishLinker-950 - INFO -   Linked dish 173075 to combo_group 2899 (Wings Sauces)
+2026-01-06 13:53:47,296 - V2ComboDishLinker-950 - INFO -   Linked dish 173075 to combo_group 2900 (Dips)
+2026-01-06 13:53:48,066 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Small Pizzas and Wings (source_id: 7807)
+2026-01-06 13:53:48,684 - V2ComboDishLinker-950 - INFO -   Found 3 combo groups: ['2 Small 3 Toppings', 'Wings Sauces', 'Dips']
+2026-01-06 13:53:49,132 - V2ComboDishLinker-950 - INFO -   Linked dish 173076 to combo_group 2898 (2 Small 3 Toppings)
+2026-01-06 13:53:49,561 - V2ComboDishLinker-950 - INFO -   Linked dish 173076 to combo_group 2899 (Wings Sauces)
+2026-01-06 13:53:50,026 - V2ComboDishLinker-950 - INFO -   Linked dish 173076 to combo_group 2900 (Dips)
+2026-01-06 13:53:50,780 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Small Pizzas 3 Toppings (source_id: 7806)
+2026-01-06 13:53:56,357 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Small Pizzas 3 Toppings
+2026-01-06 13:53:56,833 - V2ComboDishLinker-950 - INFO - Processing combo dish: Large Pizza and Wings (source_id: 7805)
+2026-01-06 13:53:57,437 - V2ComboDishLinker-950 - INFO -   Found 1 combo groups: ['Large Pizza 3 Toppings']
+2026-01-06 13:53:57,907 - V2ComboDishLinker-950 - INFO -   Linked dish 173078 to combo_group 2897 (Large Pizza 3 Toppings)
+2026-01-06 13:53:58,687 - V2ComboDishLinker-950 - INFO - Processing combo dish: Medium Pizza and Wings (source_id: 7804)
+2026-01-06 13:53:59,284 - V2ComboDishLinker-950 - INFO -   Found 1 combo groups: ['Medium Pizza 3 Toppings']
+2026-01-06 13:53:59,721 - V2ComboDishLinker-950 - INFO -   Linked dish 173079 to combo_group 2896 (Medium Pizza 3 Toppings)
+2026-01-06 13:54:00,499 - V2ComboDishLinker-950 - INFO - Processing combo dish: Medium Pizza 3 Toppings (source_id: 7803)
+2026-01-06 13:54:06,079 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: Medium Pizza 3 Toppings
+2026-01-06 13:54:06,527 - V2ComboDishLinker-950 - INFO - Processing combo dish: Small Pizza and Wings (source_id: 7802)
+2026-01-06 13:54:07,113 - V2ComboDishLinker-950 - INFO -   Found 1 combo groups: ['Small Pizza 3 Toppings']
+2026-01-06 13:54:07,538 - V2ComboDishLinker-950 - INFO -   Linked dish 173081 to combo_group 2895 (Small Pizza 3 Toppings)
+2026-01-06 13:54:08,326 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Wraps with Drink (source_id: 7816)
+2026-01-06 13:54:13,910 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Wraps with Drink
+2026-01-06 13:54:14,360 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Wraps with Drink (source_id: 7815)
+2026-01-06 13:54:19,943 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Wraps with Drink
+2026-01-06 13:54:20,391 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Subs with Drink (source_id: 7814)
+2026-01-06 13:54:25,968 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Subs with Drink
+2026-01-06 13:54:26,439 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Subs with Drink (source_id: 7813)
+2026-01-06 13:54:32,011 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Subs with Drink
+2026-01-06 13:54:32,475 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Subs with Drink (source_id: 7812)
+2026-01-06 13:54:38,050 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Subs with Drink
+2026-01-06 13:54:38,507 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Subs with Drink (source_id: 7811)
+2026-01-06 13:54:44,088 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Subs with Drink
+2026-01-06 13:54:44,540 - V2ComboDishLinker-950 - INFO - Processing combo dish: Perfect Party Deal (source_id: 7810)
+2026-01-06 13:54:45,149 - V2ComboDishLinker-950 - INFO -   Found 3 combo groups: ['2 Large Pizzas 4 Toppings', 'Wings Sauces', '6 Dips Free']
+2026-01-06 13:54:45,620 - V2ComboDishLinker-950 - INFO -   Linked dish 173088 to combo_group 2903 (2 Large Pizzas 4 Toppings)
+2026-01-06 13:54:46,047 - V2ComboDishLinker-950 - INFO -   Linked dish 173088 to combo_group 2899 (Wings Sauces)
+2026-01-06 13:54:46,467 - V2ComboDishLinker-950 - INFO -   Linked dish 173088 to combo_group 2904 (6 Dips Free)
+2026-01-06 13:54:47,243 - V2ComboDishLinker-950 - INFO - Processing combo dish: 1 Topping Pizzas (source_id: 7799)
+2026-01-06 13:54:47,836 - V2ComboDishLinker-950 - INFO -   Found 2 combo groups: ['2 Pizzas 1 Topping', '2 Dips Free']
+2026-01-06 13:54:48,294 - V2ComboDishLinker-950 - INFO -   Linked dish 173090 to combo_group 2891 (2 Pizzas 1 Topping)
+2026-01-06 13:54:48,740 - V2ComboDishLinker-950 - INFO -   Linked dish 173090 to combo_group 2894 (2 Dips Free)
+2026-01-06 13:54:49,526 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Toppings Pizzas (source_id: 7800)
+2026-01-06 13:54:50,121 - V2ComboDishLinker-950 - INFO -   Found 2 combo groups: ['2 Pizzas 2 Toppings', '2 Dips Free']
+2026-01-06 13:54:50,553 - V2ComboDishLinker-950 - INFO -   Linked dish 173091 to combo_group 2892 (2 Pizzas 2 Toppings)
+2026-01-06 13:54:50,975 - V2ComboDishLinker-950 - INFO -   Linked dish 173091 to combo_group 2894 (2 Dips Free)
+2026-01-06 13:54:51,742 - V2ComboDishLinker-950 - INFO - Processing combo dish: 3 Toppings Pizzas (source_id: 7801)
+2026-01-06 13:54:52,337 - V2ComboDishLinker-950 - INFO -   Found 2 combo groups: ['2 Pizzas 3 Toppings', '2 Dips Free']
+2026-01-06 13:54:52,758 - V2ComboDishLinker-950 - INFO -   Linked dish 173092 to combo_group 2893 (2 Pizzas 3 Toppings)
+2026-01-06 13:54:53,206 - V2ComboDishLinker-950 - INFO -   Linked dish 173092 to combo_group 2894 (2 Dips Free)
+2026-01-06 13:54:53,990 - V2ComboDishLinker-950 - INFO - Processing combo dish: test (source_id: 7798)
+2026-01-06 13:54:59,565 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: test
+2026-01-06 13:55:00,030 - V2ComboDishLinker-950 - INFO - Processing combo dish: 3 Toppings Pizzas (source_id: 7797)
+2026-01-06 13:55:05,604 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 3 Toppings Pizzas
+2026-01-06 13:55:06,061 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Toppings Pizzas (source_id: 7796)
+2026-01-06 13:55:11,651 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Toppings Pizzas
+2026-01-06 13:55:12,108 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Toppings Pizzas (source_id: 7795)
+2026-01-06 13:55:17,680 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Toppings Pizzas
+2026-01-06 13:55:18,131 - V2ComboDishLinker-950 - INFO - Processing combo dish: 2 Toppings Pizzas (source_id: 7794)
+2026-01-06 13:55:23,724 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 2 Toppings Pizzas
+2026-01-06 13:55:24,174 - V2ComboDishLinker-950 - INFO - Processing combo dish: 1 Topping Pizzas (source_id: 7793)
+2026-01-06 13:55:29,763 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 1 Topping Pizzas
+2026-01-06 13:55:30,238 - V2ComboDishLinker-950 - INFO - Processing combo dish: 1 Topping (source_id: 7792)
+2026-01-06 13:55:35,812 - V2ComboDishLinker-950 - WARNING - No combo groups found for dish: 1 Topping
+2026-01-06 13:55:36,305 - run_english - INFO -   Completed: 21 links created, 0 errors
+2026-01-06 13:55:37,306 - run_english - INFO - ============================================================
+2026-01-06 13:55:37,307 - run_english - INFO - Processing: Little Gyros Greek Grill
+2026-01-06 13:55:37,307 - run_english - INFO -   V3 ID: 971, V2 ID: 1668
+2026-01-06 13:55:37,307 - run_english - INFO - ============================================================
+2026-01-06 13:55:37,859 - V2ComboDishLinker-971 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:55:41,057 - V2ComboDishLinker-971 - INFO - Login successful
+2026-01-06 13:55:41,058 - V2ComboDishLinker-971 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1668/menu/1/restaurant
+2026-01-06 13:55:43,235 - V2ComboDishLinker-971 - INFO - Loaded 95 dishes into cache
+2026-01-06 13:55:43,628 - V2ComboDishLinker-971 - INFO - Loaded 6 combo groups into cache
+2026-01-06 13:55:43,635 - V2ComboDishLinker-971 - INFO - Found 95 total dishes, 4 combo dishes
+2026-01-06 13:55:43,635 - V2ComboDishLinker-971 - INFO - Processing combo dish: Pita Combo For 4 (source_id: 9609)
+2026-01-06 13:55:44,218 - V2ComboDishLinker-971 - INFO -   Found 2 combo groups: ['Pita Combo for 4', 'Fries or Greek Salad for Pita Combo 4']
+2026-01-06 13:55:44,646 - V2ComboDishLinker-971 - INFO -   Linked dish 173274 to combo_group 2943 (Pita Combo for 4)
+2026-01-06 13:55:45,069 - V2ComboDishLinker-971 - INFO -   Linked dish 173274 to combo_group 2945 (Fries or Greek Salad for Pita Combo 4)
+2026-01-06 13:55:45,853 - V2ComboDishLinker-971 - INFO - Processing combo dish: Pita Combo For 2 (source_id: 9608)
+2026-01-06 13:55:46,464 - V2ComboDishLinker-971 - INFO -   Found 2 combo groups: ['Pita Combo for 2', 'Fries or Greek Salad for Pita Combo 2']
+2026-01-06 13:55:46,934 - V2ComboDishLinker-971 - INFO -   Linked dish 173275 to combo_group 2942 (Pita Combo for 2)
+2026-01-06 13:55:47,346 - V2ComboDishLinker-971 - INFO -   Linked dish 173275 to combo_group 2944 (Fries or Greek Salad for Pita Combo 2)
+2026-01-06 13:55:48,105 - V2ComboDishLinker-971 - INFO - Processing combo dish: Dinner Combo For 4 (source_id: 9607)
+2026-01-06 13:55:48,704 - V2ComboDishLinker-971 - INFO -   Found 1 combo groups: ['Dinner Combo For 4']
+2026-01-06 13:55:49,124 - V2ComboDishLinker-971 - INFO -   Linked dish 173276 to combo_group 2941 (Dinner Combo For 4)
+2026-01-06 13:55:49,873 - V2ComboDishLinker-971 - INFO - Processing combo dish: Dinner Combo For 2 (source_id: 9606)
+2026-01-06 13:55:50,474 - V2ComboDishLinker-971 - INFO -   Found 1 combo groups: ['Dineer Combo For 2']
+2026-01-06 13:55:50,896 - V2ComboDishLinker-971 - INFO -   Linked dish 173277 to combo_group 2940 (Dineer Combo For 2)
+2026-01-06 13:55:51,727 - run_english - INFO -   Completed: 6 links created, 0 errors
+2026-01-06 13:55:52,728 - run_english - INFO - ============================================================
+2026-01-06 13:55:52,729 - run_english - INFO - Processing: Pachino Pizza
+2026-01-06 13:55:52,729 - run_english - INFO -   V3 ID: 974, V2 ID: 1671
+2026-01-06 13:55:52,730 - run_english - INFO - ============================================================
+2026-01-06 13:55:53,173 - V2ComboDishLinker-974 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:55:56,391 - V2ComboDishLinker-974 - INFO - Login successful
+2026-01-06 13:55:56,392 - V2ComboDishLinker-974 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1671/menu/1/restaurant
+2026-01-06 13:55:58,627 - V2ComboDishLinker-974 - INFO - Loaded 98 dishes into cache
+2026-01-06 13:55:59,106 - V2ComboDishLinker-974 - INFO - Loaded 8 combo groups into cache
+2026-01-06 13:55:59,113 - V2ComboDishLinker-974 - INFO - Found 98 total dishes, 5 combo dishes
+2026-01-06 13:55:59,113 - V2ComboDishLinker-974 - INFO - Processing combo dish: Two Large Deal (source_id: 10017)
+2026-01-06 13:55:59,703 - V2ComboDishLinker-974 - INFO -   Found 2 combo groups: ['2 Large Pizzas 3 Toppings', '2 Dips Free']
+2026-01-06 13:56:00,128 - V2ComboDishLinker-974 - INFO -   Linked dish 173333 to combo_group 2950 (2 Large Pizzas 3 Toppings)
+2026-01-06 13:56:00,553 - V2ComboDishLinker-974 - INFO -   Linked dish 173333 to combo_group 2952 (2 Dips Free)
+2026-01-06 13:56:01,330 - V2ComboDishLinker-974 - INFO - Processing combo dish: Small Deal (source_id: 10014)
+2026-01-06 13:56:01,952 - V2ComboDishLinker-974 - INFO -   Found 3 combo groups: ['Small Pizza 3 Toppings', 'Wings Sauces', '1st Dip Free']
+2026-01-06 13:56:02,385 - V2ComboDishLinker-974 - INFO -   Linked dish 173334 to combo_group 2946 (Small Pizza 3 Toppings)
+2026-01-06 13:56:02,808 - V2ComboDishLinker-974 - INFO -   Linked dish 173334 to combo_group 2953 (Wings Sauces)
+2026-01-06 13:56:03,239 - V2ComboDishLinker-974 - INFO -   Linked dish 173334 to combo_group 2951 (1st Dip Free)
+2026-01-06 13:56:04,020 - V2ComboDishLinker-974 - INFO - Processing combo dish: Medium Deal (source_id: 10015)
+2026-01-06 13:56:04,615 - V2ComboDishLinker-974 - INFO -   Found 2 combo groups: ['Medium Pizza 3 Toppings', '2 Dips Free']
+2026-01-06 13:56:05,041 - V2ComboDishLinker-974 - INFO -   Linked dish 173335 to combo_group 2947 (Medium Pizza 3 Toppings)
+2026-01-06 13:56:05,459 - V2ComboDishLinker-974 - INFO -   Linked dish 173335 to combo_group 2952 (2 Dips Free)
+2026-01-06 13:56:06,227 - V2ComboDishLinker-974 - INFO - Processing combo dish: Large Deal (source_id: 10016)
+2026-01-06 13:56:06,840 - V2ComboDishLinker-974 - INFO -   Found 3 combo groups: ['Large Pizza 3 Toppings', 'Wings Sauces', '1st Dip Free']
+2026-01-06 13:56:07,270 - V2ComboDishLinker-974 - INFO -   Linked dish 173336 to combo_group 2948 (Large Pizza 3 Toppings)
+2026-01-06 13:56:07,699 - V2ComboDishLinker-974 - INFO -   Linked dish 173336 to combo_group 2953 (Wings Sauces)
+2026-01-06 13:56:08,121 - V2ComboDishLinker-974 - INFO -   Linked dish 173336 to combo_group 2951 (1st Dip Free)
+2026-01-06 13:56:08,882 - V2ComboDishLinker-974 - INFO - Processing combo dish: XL Deal (source_id: 10018)
+2026-01-06 13:56:09,505 - V2ComboDishLinker-974 - INFO -   Found 2 combo groups: ['X-Large Pizza 3 Toppings', '2 Dips Free']
+2026-01-06 13:56:09,921 - V2ComboDishLinker-974 - INFO -   Linked dish 173337 to combo_group 2949 (X-Large Pizza 3 Toppings)
+2026-01-06 13:56:10,348 - V2ComboDishLinker-974 - INFO -   Linked dish 173337 to combo_group 2952 (2 Dips Free)
+2026-01-06 13:56:11,189 - run_english - INFO -   Completed: 12 links created, 0 errors
+2026-01-06 13:56:12,200 - run_english - INFO - ============================================================
+2026-01-06 13:56:12,201 - run_english - INFO - Processing: Pho Dau Bo Restaurant - Kitchener
+2026-01-06 13:56:12,201 - run_english - INFO -   V3 ID: 147, V2 ID: 1171
+2026-01-06 13:56:12,201 - run_english - INFO - ============================================================
+2026-01-06 13:56:12,634 - V2ComboDishLinker-147 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:56:15,797 - V2ComboDishLinker-147 - INFO - Login successful
+2026-01-06 13:56:15,798 - V2ComboDishLinker-147 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1171/menu/1/restaurant
+2026-01-06 13:56:18,075 - V2ComboDishLinker-147 - INFO - Loaded 225 dishes into cache
+2026-01-06 13:56:18,496 - V2ComboDishLinker-147 - INFO - Loaded 23 combo groups into cache
+2026-01-06 13:56:18,508 - V2ComboDishLinker-147 - INFO - Found 224 total dishes, 0 combo dishes
+2026-01-06 13:56:18,572 - run_english - INFO -   Completed: 0 links created, 0 errors
+2026-01-06 13:56:19,580 - run_english - INFO - ============================================================
+2026-01-06 13:56:19,581 - run_english - INFO - Processing: Pizza Marie
+2026-01-06 13:56:19,581 - run_english - INFO -   V3 ID: 976, V2 ID: 1673
+2026-01-06 13:56:19,581 - run_english - INFO - ============================================================
+2026-01-06 13:56:19,998 - V2ComboDishLinker-976 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:56:23,315 - V2ComboDishLinker-976 - INFO - Login successful
+2026-01-06 13:56:23,315 - V2ComboDishLinker-976 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1673/menu/1/restaurant
+2026-01-06 13:56:25,480 - V2ComboDishLinker-976 - INFO - Loaded 50 dishes into cache
+2026-01-06 13:56:25,898 - V2ComboDishLinker-976 - INFO - Loaded 4 combo groups into cache
+2026-01-06 13:56:25,904 - V2ComboDishLinker-976 - INFO - Found 50 total dishes, 2 combo dishes
+2026-01-06 13:56:25,904 - V2ComboDishLinker-976 - INFO - Processing combo dish: 2 Large Pizza Special (source_id: 10100)
+2026-01-06 13:56:31,471 - V2ComboDishLinker-976 - WARNING - No combo groups found for dish: 2 Large Pizza Special
+2026-01-06 13:56:31,921 - V2ComboDishLinker-976 - INFO - Processing combo dish: 2 Medium Pizzas Special (source_id: 10099)
+2026-01-06 13:56:37,487 - V2ComboDishLinker-976 - WARNING - No combo groups found for dish: 2 Medium Pizzas Special
+2026-01-06 13:56:37,973 - run_english - INFO -   Completed: 0 links created, 0 errors
+2026-01-06 13:56:38,985 - run_english - INFO - ============================================================
+2026-01-06 13:56:38,985 - run_english - INFO - Processing: River Pizza
+2026-01-06 13:56:38,986 - run_english - INFO -   V3 ID: 952, V2 ID: 1639
+2026-01-06 13:56:38,986 - run_english - INFO - ============================================================
+2026-01-06 13:56:39,409 - V2ComboDishLinker-952 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:56:42,600 - V2ComboDishLinker-952 - INFO - Login successful
+2026-01-06 13:56:42,601 - V2ComboDishLinker-952 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1639/menu/1/restaurant
+2026-01-06 13:56:44,910 - V2ComboDishLinker-952 - INFO - Loaded 101 dishes into cache
+2026-01-06 13:56:45,313 - V2ComboDishLinker-952 - INFO - Loaded 5 combo groups into cache
+2026-01-06 13:56:45,321 - V2ComboDishLinker-952 - INFO - Found 101 total dishes, 4 combo dishes
+2026-01-06 13:56:45,322 - V2ComboDishLinker-952 - INFO - Processing combo dish: Family Meal Deal (source_id: 7977)
+2026-01-06 13:56:45,895 - V2ComboDishLinker-952 - INFO -   Found 1 combo groups: ['Large Pizza 3 Toppings']
+2026-01-06 13:56:46,347 - V2ComboDishLinker-952 - INFO -   Linked dish 173431 to combo_group 2907 (Large Pizza 3 Toppings)
+2026-01-06 13:56:47,119 - V2ComboDishLinker-952 - INFO - Processing combo dish: Twins Pizzas 1 Topping (source_id: 7978)
+2026-01-06 13:56:47,716 - V2ComboDishLinker-952 - INFO -   Found 2 combo groups: ['Twins 1 Topping', 'Dipping Sauces']
+2026-01-06 13:56:48,185 - V2ComboDishLinker-952 - INFO -   Linked dish 173450 to combo_group 2908 (Twins 1 Topping)
+2026-01-06 13:56:48,642 - V2ComboDishLinker-952 - INFO -   Linked dish 173450 to combo_group 2911 (Dipping Sauces)
+2026-01-06 13:56:49,442 - V2ComboDishLinker-952 - INFO - Processing combo dish: Twins Pizzas 2 Toppings (source_id: 7979)
+2026-01-06 13:56:50,046 - V2ComboDishLinker-952 - INFO -   Found 2 combo groups: ['Twins 2 Toppings', 'Dipping Sauces']
+2026-01-06 13:56:50,492 - V2ComboDishLinker-952 - INFO -   Linked dish 173451 to combo_group 2909 (Twins 2 Toppings)
+2026-01-06 13:56:50,930 - V2ComboDishLinker-952 - INFO -   Linked dish 173451 to combo_group 2911 (Dipping Sauces)
+2026-01-06 13:56:51,727 - V2ComboDishLinker-952 - INFO - Processing combo dish: Twins Pizzas 3 Toppings (source_id: 7980)
+2026-01-06 13:56:52,319 - V2ComboDishLinker-952 - INFO -   Found 2 combo groups: ['Twins 3 Toppings', 'Dipping Sauces']
+2026-01-06 13:56:52,729 - V2ComboDishLinker-952 - INFO -   Linked dish 173452 to combo_group 2910 (Twins 3 Toppings)
+2026-01-06 13:56:53,166 - V2ComboDishLinker-952 - INFO -   Linked dish 173452 to combo_group 2911 (Dipping Sauces)
+2026-01-06 13:56:53,991 - run_english - INFO -   Completed: 7 links created, 0 errors
+2026-01-06 13:56:54,996 - run_english - INFO - ============================================================
+2026-01-06 13:56:54,996 - run_english - INFO - Processing: Sushi Presse
+2026-01-06 13:56:54,997 - run_english - INFO -   V3 ID: 1020, V2 ID: 1285
+2026-01-06 13:56:54,997 - run_english - INFO - ============================================================
+2026-01-06 13:56:55,433 - V2ComboDishLinker-1020 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:56:59,606 - V2ComboDishLinker-1020 - INFO - Login successful
+2026-01-06 13:56:59,607 - V2ComboDishLinker-1020 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1285/menu/1/restaurant
+2026-01-06 13:57:01,833 - V2ComboDishLinker-1020 - INFO - Loaded 166 dishes into cache
+2026-01-06 13:57:02,270 - V2ComboDishLinker-1020 - INFO - Loaded 0 combo groups into cache
+2026-01-06 13:57:02,281 - V2ComboDishLinker-1020 - INFO - Found 166 total dishes, 0 combo dishes
+2026-01-06 13:57:02,327 - run_english - INFO -   Completed: 0 links created, 0 errors
+2026-01-06 13:57:03,341 - run_english - INFO - ============================================================
+2026-01-06 13:57:03,341 - run_english - INFO - Processing: Wandee Thai
+2026-01-06 13:57:03,341 - run_english - INFO -   V3 ID: 954, V2 ID: 1641
+2026-01-06 13:57:03,342 - run_english - INFO - ============================================================
+2026-01-06 13:57:03,757 - V2ComboDishLinker-954 - INFO - Logging in to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-06 13:57:06,978 - V2ComboDishLinker-954 - INFO - Login successful
+2026-01-06 13:57:06,978 - V2ComboDishLinker-954 - INFO - Navigating to menu page: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1641/menu/1/restaurant
+2026-01-06 13:57:09,177 - V2ComboDishLinker-954 - INFO - Loaded 94 dishes into cache
+2026-01-06 13:57:09,616 - V2ComboDishLinker-954 - INFO - Loaded 0 combo groups into cache
+2026-01-06 13:57:09,625 - V2ComboDishLinker-954 - INFO - Found 94 total dishes, 0 combo dishes
+2026-01-06 13:57:09,666 - run_english - INFO -   Completed: 0 links created, 0 errors

@@ -895,15 +895,15 @@ class ComboScraper:
                     if result:
                         stats['hide_days_set'] += 1
 
-            # Handle drinks modifiers - insert into standard menu tables
-            drinks_data = dish_data['drinks_modifiers']
-            if drinks_data and drinks_data.get('modifiers'):
-                drinks_inserted = self._insert_drinks_modifiers(
-                    restaurant_id=restaurant_id,
-                    dish_id=dish_id,
-                    drinks_data=drinks_data
-                )
-                stats['drinks_modifiers'] += drinks_inserted
+            # Skip drinks modifiers - already handled by V1 dish_modifier_group_scraper
+            # drinks_data = dish_data['drinks_modifiers']
+            # if drinks_data and drinks_data.get('modifiers'):
+            #     drinks_inserted = self._insert_drinks_modifiers(
+            #         restaurant_id=restaurant_id,
+            #         dish_id=dish_id,
+            #         drinks_data=drinks_data
+            #     )
+            #     stats['drinks_modifiers'] += drinks_inserted
 
             time.sleep(SCRAPE_DELAY)
 

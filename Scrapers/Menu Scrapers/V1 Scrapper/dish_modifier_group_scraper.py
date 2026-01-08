@@ -16,7 +16,7 @@ Features:
 
 import asyncio
 from datetime import datetime
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Set
 from playwright.async_api import async_playwright, Page
 
 from scraper_utils import (
@@ -199,15 +199,31 @@ def insert_dish_modifier_group(db: DatabaseConnection, dish_id: int,
                                 modifier_group_id: int, logger) -> Optional[int]:
     """Insert a dish-modifier_group link and return its ID."""
     try:
-        query = """
-            INSERT INTO menuca_v3.dish_modifier_groups (dish_id, modifier_group_id, created_at)
-            VALUES (%s, %s, NOW())
-            ON CONFLICT (dish_id, modifier_group_id) DO UPDATE SET updated_at = NOW()
-            RETURNING id
+        # Check if link already exists
+        check_query = """
+            SELECT id FROM menuca_v3.dish_modifier_groups 
+            WHERE dish_id = %s AND modifier_group_id = %s
         """
-        result = db.execute_with_retry(query, (dish_id, modifier_group_id), fetch=True)
+        result = db.execute_with_retry(check_query, (dish_id, modifier_group_id), fetch=True)
+        
         if result:
-            return result[0][0]
+            # Update existing
+            dmg_id = result[0][0]
+            update_query = """
+                UPDATE menuca_v3.dish_modifier_groups SET updated_at = NOW() WHERE id = %s
+            """
+            db.execute_with_retry(update_query, (dmg_id,))
+            return dmg_id
+        else:
+            # Insert new
+            insert_query = """
+                INSERT INTO menuca_v3.dish_modifier_groups (dish_id, modifier_group_id, created_at, updated_at)
+                VALUES (%s, %s, NOW(), NOW())
+                RETURNING id
+            """
+            result = db.execute_with_retry(insert_query, (dish_id, modifier_group_id), fetch=True)
+            if result:
+                return result[0][0]
         return None
     except Exception as e:
         logger.error(f"Error inserting dish_modifier_group: {e}")
@@ -220,28 +236,44 @@ def insert_modifier_group_details(db: DatabaseConnection, dish_id: int, name: st
                                    dish_modifier_group_id: int, logger) -> Optional[int]:
     """Insert modifier group details for a dish and return its ID."""
     try:
-        query = """
-            INSERT INTO menuca_v3.modifier_group_details 
-            (dish_id, name, min_selections, max_selections, free_items, 
-             display_order, dish_modifier_group_id, created_at, updated_at)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, NOW(), NOW())
-            ON CONFLICT (dish_modifier_group_id) DO UPDATE SET
-                name = EXCLUDED.name,
-                min_selections = EXCLUDED.min_selections,
-                max_selections = EXCLUDED.max_selections,
-                free_items = EXCLUDED.free_items,
-                display_order = EXCLUDED.display_order,
-                updated_at = NOW()
-            RETURNING id
+        # Check if details already exist for this dish_modifier_group
+        check_query = """
+            SELECT id FROM menuca_v3.modifier_group_details 
+            WHERE dish_modifier_group_id = %s
         """
-        result = db.execute_with_retry(
-            query, 
-            (dish_id, name, min_selections, max_selections, free_items, 
-             display_order, dish_modifier_group_id),
-            fetch=True
-        )
+        result = db.execute_with_retry(check_query, (dish_modifier_group_id,), fetch=True)
+        
         if result:
-            return result[0][0]
+            # Update existing
+            detail_id = result[0][0]
+            update_query = """
+                UPDATE menuca_v3.modifier_group_details 
+                SET name = %s, min_selections = %s, max_selections = %s, 
+                    free_items = %s, display_order = %s, updated_at = NOW()
+                WHERE id = %s
+            """
+            db.execute_with_retry(
+                update_query, 
+                (name, min_selections, max_selections, free_items, display_order, detail_id)
+            )
+            return detail_id
+        else:
+            # Insert new
+            insert_query = """
+                INSERT INTO menuca_v3.modifier_group_details 
+                (dish_id, name, min_selections, max_selections, free_items, 
+                 display_order, dish_modifier_group_id, created_at, updated_at)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, NOW(), NOW())
+                RETURNING id
+            """
+            result = db.execute_with_retry(
+                insert_query, 
+                (dish_id, name, min_selections, max_selections, free_items, 
+                 display_order, dish_modifier_group_id),
+                fetch=True
+            )
+            if result:
+                return result[0][0]
         return None
     except Exception as e:
         logger.error(f"Error inserting modifier_group_details: {e}")
@@ -491,8 +523,15 @@ async def scrape_restaurant(page: Page, db: DatabaseConnection,
     return dishes_processed, dishes_skipped, total_links, total_details
 
 
-async def run_dish_modifier_scraper():
-    """Main entry point for the dish-modifier group linker scraper."""
+async def run_dish_modifier_scraper(restaurants: List[Tuple[int, str, int]] = None, skip_processed: bool = True):
+    """
+    Main entry point for the dish-modifier group linker scraper.
+    
+    Args:
+        restaurants: Optional list of (v3_id, name, v1_id) tuples.
+                    If None, processes all English restaurants.
+        skip_processed: If True, skip dishes that already have modifier_group_details
+    """
     logger = setup_logging("dish_modifier_group_scraper")
     
     logger.info("=" * 60)
@@ -504,10 +543,29 @@ async def run_dish_modifier_scraper():
     db.connect()
     
     # Get processed dishes (for auto-resume)
-    processed_dishes = get_processed_dishes(db, logger)
+    processed_dishes = get_processed_dishes(db, logger) if skip_processed else set()
     
-    # Get restaurants
-    restaurants = get_restaurants_with_dishes(db, logger)
+    # Get restaurants - use provided list or fetch all
+    if restaurants:
+        # Use provided restaurant list
+        restaurants_to_process = []
+        for v3_id, name, v1_id in restaurants:
+            # Get dish count for this restaurant
+            query = """
+                SELECT COUNT(*) FROM menuca_v3.dishes 
+                WHERE restaurant_id = %s AND source_id IS NOT NULL AND is_combo = false
+            """
+            result = db.execute_with_retry(query, (v3_id,), fetch=True)
+            dish_count = result[0][0] if result else 0
+            restaurants_to_process.append({
+                'v3_id': v3_id,
+                'name': name,
+                'v1_id': v1_id,
+                'dish_count': dish_count
+            })
+        logger.info(f"Processing {len(restaurants_to_process)} specified restaurants")
+    else:
+        restaurants_to_process = get_restaurants_with_dishes(db, logger)
     
     total_dishes_processed = 0
     total_dishes_skipped = 0
@@ -524,9 +582,9 @@ async def run_dish_modifier_scraper():
             logger.error("Failed to login to CRM")
             return
         
-        for i, restaurant in enumerate(restaurants):
+        for i, restaurant in enumerate(restaurants_to_process):
             logger.info("-" * 40)
-            logger.info(f"[{i+1}/{len(restaurants)}] Processing: {restaurant['name']} (V3: {restaurant['v3_id']}, V1: {restaurant['v1_id']})")
+            logger.info(f"[{i+1}/{len(restaurants_to_process)}] Processing: {restaurant['name']} (V3: {restaurant['v3_id']}, V1: {restaurant['v1_id']})")
             logger.info(f"  {restaurant['dish_count']} dishes to process")
             
             try:
@@ -547,7 +605,7 @@ async def run_dish_modifier_scraper():
             
             # Heartbeat every 10 restaurants
             if (i + 1) % 10 == 0:
-                logger.info(f"*** HEARTBEAT: {i+1}/{len(restaurants)} restaurants, "
+                logger.info(f"*** HEARTBEAT: {i+1}/{len(restaurants_to_process)} restaurants, "
                            f"{total_dishes_processed} dishes processed, "
                            f"{total_links_created} links created ***")
         
@@ -557,7 +615,7 @@ async def run_dish_modifier_scraper():
     logger.info("=" * 60)
     logger.info("SCRAPER COMPLETED")
     logger.info("=" * 60)
-    logger.info(f"Restaurants processed: {len(restaurants)}")
+    logger.info(f"Restaurants processed: {len(restaurants_to_process)}")
     logger.info(f"Dishes processed: {total_dishes_processed}")
     logger.info(f"Dishes skipped (no active modifiers): {total_dishes_skipped}")
     logger.info(f"Links created: {total_links_created}")
