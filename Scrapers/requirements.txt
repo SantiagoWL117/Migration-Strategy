@@ -1,0 +1,13 @@
+# Web Scraping
+playwright>=1.47.0
+beautifulsoup4>=4.12.3
+html5lib>=1.1
+
+# Database
+psycopg2-binary>=2.9.9
+
+# HTTP Async Client (for Supabase API)
+aiohttp>=3.9.0
+
+# Utilities
+python-dotenv>=1.0.1

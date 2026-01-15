@@ -1,0 +1,1469 @@
+2026-01-15 08:26:04,717 - INFO - Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Restaurant Admin Scrapers\V1\logs\v1_admin_contacts_20260115_082604.log
+2026-01-15 08:26:04,717 - INFO - ============================================================
+2026-01-15 08:26:04,717 - INFO - V1 ADMIN CONTACTS SCRAPER
+2026-01-15 08:26:04,717 - INFO - ============================================================
+2026-01-15 08:26:04,717 - INFO - Started at: 2026-01-15 08:26:04
+2026-01-15 08:26:05,029 - DEBUG - Database connected
+2026-01-15 08:26:05,149 - INFO - Found 165 restaurants with V1 IDs to scrape
+2026-01-15 08:26:05,149 - INFO - Total restaurants to process: 165
+2026-01-15 08:26:07,361 - INFO - Navigating to V1 CRM: https://menuadmin.menu.ca/?p=login
+2026-01-15 08:26:08,360 - DEBUG - Filled username field
+2026-01-15 08:26:08,369 - DEBUG - Filled password field
+2026-01-15 08:26:08,804 - DEBUG - Clicked submit button
+2026-01-15 08:26:11,342 - INFO - V1 CRM login successful
+2026-01-15 08:26:11,342 - INFO - ----------------------------------------
+2026-01-15 08:26:11,342 - INFO - [1/165] Imilio's Pizzeria (V3: 7, V1: 89)
+2026-01-15 08:26:11,342 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=89&load=account_information&showLang=en
+2026-01-15 08:26:13,590 - DEBUG - Found 1 contacts with emails for V1 ID 89
+2026-01-15 08:26:13,590 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:14,151 - INFO - Created Supabase Auth user: laham@imiliospizzeria.ca (ID: 43f2b0ec-9281-4ef5-8367-a157a4f677a4)
+2026-01-15 08:26:14,199 - INFO - Created admin_user: laham@imiliospizzeria.ca (ID: 940)
+2026-01-15 08:26:14,273 - INFO - Linked admin 940 to restaurant 7
+2026-01-15 08:26:14,273 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:14,273 - INFO - ----------------------------------------
+2026-01-15 08:26:14,274 - INFO - [2/165] Lucky Star Chinese Food (V3: 8, V1: 90)
+2026-01-15 08:26:14,274 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=90&load=account_information&showLang=en
+2026-01-15 08:26:16,182 - DEBUG - Found 1 contacts with emails for V1 ID 90
+2026-01-15 08:26:16,182 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:16,480 - INFO - Created Supabase Auth user: menu@luckystarchinesefoods.com (ID: 887d916b-5213-4415-bd63-25a9df2f58b1)
+2026-01-15 08:26:16,524 - INFO - Created admin_user: menu@luckystarchinesefoods.com (ID: 941)
+2026-01-15 08:26:16,597 - INFO - Linked admin 941 to restaurant 8
+2026-01-15 08:26:16,598 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:16,598 - INFO - ----------------------------------------
+2026-01-15 08:26:16,598 - INFO - [3/165] Mama Rosa (V3: 12, V1: 94)
+2026-01-15 08:26:16,598 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=94&load=account_information&showLang=en
+2026-01-15 08:26:18,476 - DEBUG - Found 1 contacts with emails for V1 ID 94
+2026-01-15 08:26:18,476 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:18,756 - INFO - Created Supabase Auth user: menu@mamarosa.ca (ID: fcaab538-f001-4ed0-90e6-096167b914c1)
+2026-01-15 08:26:18,801 - INFO - Created admin_user: menu@mamarosa.ca (ID: 942)
+2026-01-15 08:26:18,873 - INFO - Linked admin 942 to restaurant 12
+2026-01-15 08:26:18,873 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:18,873 - INFO - ----------------------------------------
+2026-01-15 08:26:18,873 - INFO - [4/165] Papa Joe's Pizza - Downtown (V3: 13, V1: 95)
+2026-01-15 08:26:18,873 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=95&load=account_information&showLang=en
+2026-01-15 08:26:20,750 - DEBUG - Found 1 contacts with emails for V1 ID 95
+2026-01-15 08:26:20,750 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:21,042 - INFO - Created Supabase Auth user: Bartours1982@hotmail.com (ID: d2386dcb-847a-46cf-9935-b25ff01f4e78)
+2026-01-15 08:26:21,084 - INFO - Created admin_user: Bartours1982@hotmail.com (ID: 943)
+2026-01-15 08:26:21,156 - INFO - Linked admin 943 to restaurant 13
+2026-01-15 08:26:21,156 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:21,156 - INFO - ----------------------------------------
+2026-01-15 08:26:21,156 - INFO - [5/165] New Mee Fung Restaurant (V3: 15, V1: 101)
+2026-01-15 08:26:21,156 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=101&load=account_information&showLang=en
+2026-01-15 08:26:23,031 - DEBUG - Found 1 contacts with emails for V1 ID 101
+2026-01-15 08:26:23,031 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:23,310 - INFO - Created Supabase Auth user: vinh613@gmail.com (ID: fc83257a-2f29-40a3-a04a-ee7a00e53d14)
+2026-01-15 08:26:23,349 - INFO - Created admin_user: vinh613@gmail.com (ID: 944)
+2026-01-15 08:26:23,424 - INFO - Linked admin 944 to restaurant 15
+2026-01-15 08:26:23,425 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:23,425 - INFO - ----------------------------------------
+2026-01-15 08:26:23,425 - INFO - [6/165] House of Lasagna (V3: 22, V1: 117)
+2026-01-15 08:26:23,425 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=117&load=account_information&showLang=en
+2026-01-15 08:26:25,303 - DEBUG - Found 1 contacts with emails for V1 ID 117
+2026-01-15 08:26:25,303 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:25,579 - INFO - Created Supabase Auth user: menu@houseoflasagna.ca (ID: 0432c8f3-6a0d-4471-8cf3-0440e57cc01e)
+2026-01-15 08:26:25,618 - INFO - Created admin_user: menu@houseoflasagna.ca (ID: 945)
+2026-01-15 08:26:25,690 - INFO - Linked admin 945 to restaurant 22
+2026-01-15 08:26:25,690 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:25,690 - INFO - ----------------------------------------
+2026-01-15 08:26:25,690 - INFO - [7/165] Eastview Pizza (V3: 28, V1: 124)
+2026-01-15 08:26:25,690 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=124&load=account_information&showLang=en
+2026-01-15 08:26:27,559 - DEBUG - Found 1 contacts with emails for V1 ID 124
+2026-01-15 08:26:27,559 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:27,825 - INFO - Created Supabase Auth user: menu@eastviewpizza.ca (ID: 679c5f89-8337-427f-b8df-7fed146b487d)
+2026-01-15 08:26:27,863 - INFO - Created admin_user: menu@eastviewpizza.ca (ID: 946)
+2026-01-15 08:26:27,934 - INFO - Linked admin 946 to restaurant 28
+2026-01-15 08:26:27,934 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:27,934 - INFO - ----------------------------------------
+2026-01-15 08:26:27,934 - INFO - [8/165] Milano (V3: 31, V1: 127)
+2026-01-15 08:26:27,934 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=127&load=account_information&showLang=en
+2026-01-15 08:26:29,811 - DEBUG - Found 1 contacts with emails for V1 ID 127
+2026-01-15 08:26:29,811 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:30,083 - INFO - Created Supabase Auth user: siavashr@hotmail.com (ID: 75c65ee7-9bbf-43ed-b678-818b5e2629ee)
+2026-01-15 08:26:30,123 - INFO - Created admin_user: siavashr@hotmail.com (ID: 947)
+2026-01-15 08:26:30,196 - INFO - Linked admin 947 to restaurant 31
+2026-01-15 08:26:30,196 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:30,196 - INFO - ----------------------------------------
+2026-01-15 08:26:30,196 - INFO - [9/165] Mozza Pizza Gatineau (V3: 1011, V1: 132)
+2026-01-15 08:26:30,196 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=132&load=account_information&showLang=en
+2026-01-15 08:26:32,059 - DEBUG - Found 1 contacts with emails for V1 ID 132
+2026-01-15 08:26:32,059 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:32,332 - INFO - Created Supabase Auth user: menu@mozzapizzagatineau.com (ID: 8e4bdc31-e31f-4635-8c7d-1d0cf9b8a42d)
+2026-01-15 08:26:32,375 - INFO - Created admin_user: menu@mozzapizzagatineau.com (ID: 948)
+2026-01-15 08:26:32,455 - INFO - Linked admin 948 to restaurant 1011
+2026-01-15 08:26:32,455 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:32,455 - INFO - ----------------------------------------
+2026-01-15 08:26:32,455 - INFO - [10/165] Kiki Lebanese Pineview Pizza (V3: 44, V1: 142)
+2026-01-15 08:26:32,455 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=142&load=account_information&showLang=en
+2026-01-15 08:26:34,339 - DEBUG - Found 1 contacts with emails for V1 ID 142
+2026-01-15 08:26:34,339 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:34,633 - INFO - Created Supabase Auth user: fadinemr@hotmail.com (ID: d31849a4-06f4-49bf-a662-6bf57791447c)
+2026-01-15 08:26:34,681 - INFO - Created admin_user: fadinemr@hotmail.com (ID: 949)
+2026-01-15 08:26:34,755 - INFO - Linked admin 949 to restaurant 44
+2026-01-15 08:26:34,756 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:34,756 - INFO - ----------------------------------------
+2026-01-15 08:26:34,756 - INFO - [11/165] Bobbie's Pizza & Subs (V3: 45, V1: 143)
+2026-01-15 08:26:34,756 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=143&load=account_information&showLang=en
+2026-01-15 08:26:36,654 - DEBUG - Found 1 contacts with emails for V1 ID 143
+2026-01-15 08:26:36,654 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:37,034 - INFO - Created Supabase Auth user: nathaliezaher@hotmail.com (ID: d473e433-f5e9-4104-9e52-0f78c729919f)
+2026-01-15 08:26:37,071 - INFO - Created admin_user: nathaliezaher@hotmail.com (ID: 950)
+2026-01-15 08:26:37,145 - INFO - Linked admin 950 to restaurant 45
+2026-01-15 08:26:37,146 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:37,146 - INFO - ----------------------------------------
+2026-01-15 08:26:37,146 - INFO - [12/165] Mr Mozzarella - Nepean (V3: 47, V1: 145)
+2026-01-15 08:26:37,146 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=145&load=account_information&showLang=en
+2026-01-15 08:26:39,024 - DEBUG - Found 1 contacts with emails for V1 ID 145
+2026-01-15 08:26:39,024 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:39,314 - INFO - Created Supabase Auth user: Mrmozz.nepean@gmail.com (ID: 23157dfa-9519-4cdb-b70b-7f01fa79e57f)
+2026-01-15 08:26:39,354 - INFO - Created admin_user: Mrmozz.nepean@gmail.com (ID: 951)
+2026-01-15 08:26:39,426 - INFO - Linked admin 951 to restaurant 47
+2026-01-15 08:26:39,426 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:39,426 - INFO - ----------------------------------------
+2026-01-15 08:26:39,426 - INFO - [13/165] Merivale Pizza & Wings (V3: 48, V1: 146)
+2026-01-15 08:26:39,426 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=146&load=account_information&showLang=en
+2026-01-15 08:26:42,220 - DEBUG - Found 1 contacts with emails for V1 ID 146
+2026-01-15 08:26:42,220 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:42,486 - INFO - Created Supabase Auth user: menu@merivalepizzaandwings.com (ID: 2bc3bd45-6311-448f-8c4d-b615daba4788)
+2026-01-15 08:26:42,525 - INFO - Created admin_user: menu@merivalepizzaandwings.com (ID: 952)
+2026-01-15 08:26:42,599 - INFO - Linked admin 952 to restaurant 48
+2026-01-15 08:26:42,599 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:42,599 - INFO - ----------------------------------------
+2026-01-15 08:26:42,599 - INFO - [14/165] Milano (V3: 55, V1: 161)
+2026-01-15 08:26:42,599 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=161&load=account_information&showLang=en
+2026-01-15 08:26:44,480 - DEBUG - Found 1 contacts with emails for V1 ID 161
+2026-01-15 08:26:44,480 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:44,769 - INFO - Created Supabase Auth user: robbie@milanopizzeria.ca (ID: b45074f5-aae6-44f1-8154-86912be01037)
+2026-01-15 08:26:44,808 - INFO - Created admin_user: robbie@milanopizzeria.ca (ID: 953)
+2026-01-15 08:26:44,881 - INFO - Linked admin 953 to restaurant 55
+2026-01-15 08:26:44,881 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:44,881 - INFO - ----------------------------------------
+2026-01-15 08:26:44,881 - INFO - [15/165] Milano (V3: 57, V1: 164)
+2026-01-15 08:26:44,881 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=164&load=account_information&showLang=en
+2026-01-15 08:26:46,780 - DEBUG - Found 1 contacts with emails for V1 ID 164
+2026-01-15 08:26:46,780 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:47,057 - INFO - Created Supabase Auth user: bandar74@hotmail.ca (ID: 36055242-d322-4ece-981c-2b7882911afb)
+2026-01-15 08:26:47,098 - INFO - Created admin_user: bandar74@hotmail.ca (ID: 954)
+2026-01-15 08:26:47,171 - INFO - Linked admin 954 to restaurant 57
+2026-01-15 08:26:47,171 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:47,171 - INFO - ----------------------------------------
+2026-01-15 08:26:47,171 - INFO - [16/165] Milano (V3: 59, V1: 172)
+2026-01-15 08:26:47,171 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=172&load=account_information&showLang=en
+2026-01-15 08:26:49,050 - DEBUG - Found 1 contacts with emails for V1 ID 172
+2026-01-15 08:26:49,050 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:49,337 - INFO - Created Supabase Auth user: abou_wadi323@hotmail.com (ID: b7b0c02b-cae8-4e33-9834-b1be37d3170b)
+2026-01-15 08:26:49,378 - INFO - Created admin_user: abou_wadi323@hotmail.com (ID: 955)
+2026-01-15 08:26:49,450 - INFO - Linked admin 955 to restaurant 59
+2026-01-15 08:26:49,451 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:49,451 - INFO - ----------------------------------------
+2026-01-15 08:26:49,451 - INFO - [17/165] Roulas Grecque et Pizza (V3: 1016, V1: 173)
+2026-01-15 08:26:49,451 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=173&load=account_information&showLang=en
+2026-01-15 08:26:51,320 - DEBUG - Found 1 contacts with emails for V1 ID 173
+2026-01-15 08:26:51,320 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:51,582 - INFO - Created Supabase Auth user: menu@opasgatineau.com (ID: 13a87ae4-5c6e-4e74-bb16-fbc3dc6d49da)
+2026-01-15 08:26:51,623 - INFO - Created admin_user: menu@opasgatineau.com (ID: 956)
+2026-01-15 08:26:51,698 - INFO - Linked admin 956 to restaurant 1016
+2026-01-15 08:26:51,698 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:51,698 - INFO - ----------------------------------------
+2026-01-15 08:26:51,698 - INFO - [18/165] Vanier Pizza & Subs (V3: 62, V1: 175)
+2026-01-15 08:26:51,698 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=175&load=account_information&showLang=en
+2026-01-15 08:26:53,578 - DEBUG - Found 1 contacts with emails for V1 ID 175
+2026-01-15 08:26:53,578 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:53,841 - INFO - Created Supabase Auth user: menu@vanierpizza.ca (ID: 866c8800-5cb1-4e2d-b8f4-cb8ce47de860)
+2026-01-15 08:26:53,888 - INFO - Created admin_user: menu@vanierpizza.ca (ID: 957)
+2026-01-15 08:26:53,959 - INFO - Linked admin 957 to restaurant 62
+2026-01-15 08:26:53,960 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:53,960 - INFO - ----------------------------------------
+2026-01-15 08:26:53,960 - INFO - [19/165] Number One Chinese Take Out (V3: 65, V1: 179)
+2026-01-15 08:26:53,960 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=179&load=account_information&showLang=en
+2026-01-15 08:26:55,822 - DEBUG - Found 1 contacts with emails for V1 ID 179
+2026-01-15 08:26:55,822 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:56,191 - INFO - Created Supabase Auth user: menu@no1chinesefoodottawa.com (ID: e7743784-0900-4a01-a80a-4c4ba852f4d6)
+2026-01-15 08:26:56,232 - INFO - Created admin_user: menu@no1chinesefoodottawa.com (ID: 958)
+2026-01-15 08:26:56,302 - INFO - Linked admin 958 to restaurant 65
+2026-01-15 08:26:56,302 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:56,302 - INFO - ----------------------------------------
+2026-01-15 08:26:56,302 - INFO - [20/165] Aylmer BBQ (V3: 69, V1: 183)
+2026-01-15 08:26:56,302 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=183&load=account_information&showLang=en
+2026-01-15 08:26:58,230 - DEBUG - Found 1 contacts with emails for V1 ID 183
+2026-01-15 08:26:58,230 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:26:58,492 - INFO - Created Supabase Auth user: marwabitar1@gmail.com (ID: 10609625-e290-429b-8a6b-a554d946918e)
+2026-01-15 08:26:58,531 - INFO - Created admin_user: marwabitar1@gmail.com (ID: 959)
+2026-01-15 08:26:58,604 - INFO - Linked admin 959 to restaurant 69
+2026-01-15 08:26:58,605 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:26:58,605 - INFO - === PROGRESS: 20/165 restaurants processed ===
+2026-01-15 08:26:58,605 - INFO - ----------------------------------------
+2026-01-15 08:26:58,605 - INFO - [21/165] Papa Pizza - Hull (V3: 70, V1: 184)
+2026-01-15 08:26:58,605 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=184&load=account_information&showLang=en
+2026-01-15 08:27:00,504 - DEBUG - Found 1 contacts with emails for V1 ID 184
+2026-01-15 08:27:00,504 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:00,770 - INFO - Created Supabase Auth user: Rabih2015_01@hotmail.com (ID: afc682fc-fcc9-4672-b203-fe179d20f352)
+2026-01-15 08:27:00,810 - INFO - Created admin_user: Rabih2015_01@hotmail.com (ID: 960)
+2026-01-15 08:27:00,880 - INFO - Linked admin 960 to restaurant 70
+2026-01-15 08:27:00,881 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:00,881 - INFO - ----------------------------------------
+2026-01-15 08:27:00,881 - INFO - [22/165] Cathay Restaurants (V3: 72, V1: 187)
+2026-01-15 08:27:00,881 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=187&load=account_information&showLang=en
+2026-01-15 08:27:02,739 - DEBUG - Found 1 contacts with emails for V1 ID 187
+2026-01-15 08:27:02,739 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:03,096 - INFO - Created Supabase Auth user: tony74f@hotmail.com (ID: 765cc341-2e8a-4756-9a1a-556967d9e014)
+2026-01-15 08:27:03,137 - INFO - Created admin_user: tony74f@hotmail.com (ID: 961)
+2026-01-15 08:27:03,208 - INFO - Linked admin 961 to restaurant 72
+2026-01-15 08:27:03,208 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:03,208 - INFO - ----------------------------------------
+2026-01-15 08:27:03,208 - INFO - [23/165] Milano (V3: 75, V1: 190)
+2026-01-15 08:27:03,208 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=190&load=account_information&showLang=en
+2026-01-15 08:27:05,086 - DEBUG - Found 1 contacts with emails for V1 ID 190
+2026-01-15 08:27:05,086 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:05,348 - INFO - Created Supabase Auth user: milanopizza2430bank@gmail.com (ID: b735d3fd-8df7-49b8-9ab4-2f93d16c5d9d)
+2026-01-15 08:27:05,391 - INFO - Created admin_user: milanopizza2430bank@gmail.com (ID: 962)
+2026-01-15 08:27:05,464 - INFO - Linked admin 962 to restaurant 75
+2026-01-15 08:27:05,464 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:05,464 - INFO - ----------------------------------------
+2026-01-15 08:27:05,464 - INFO - [24/165] Lorenzo's Pizzeria - Vanier (V3: 77, V1: 192)
+2026-01-15 08:27:05,464 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=192&load=account_information&showLang=en
+2026-01-15 08:27:07,356 - DEBUG - Found 1 contacts with emails for V1 ID 192
+2026-01-15 08:27:07,356 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:07,647 - INFO - Created Supabase Auth user: hicham.961@icloud.com (ID: 9416f17f-6c75-4c28-b84b-b7bb31df4c02)
+2026-01-15 08:27:07,688 - INFO - Created admin_user: hicham.961@icloud.com (ID: 963)
+2026-01-15 08:27:07,761 - INFO - Linked admin 963 to restaurant 77
+2026-01-15 08:27:07,761 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:07,761 - INFO - ----------------------------------------
+2026-01-15 08:27:07,761 - INFO - [25/165] Season's Pizza (V3: 83, V1: 199)
+2026-01-15 08:27:07,761 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=199&load=account_information&showLang=en
+2026-01-15 08:27:09,642 - DEBUG - Found 1 contacts with emails for V1 ID 199
+2026-01-15 08:27:09,642 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:09,939 - INFO - Created Supabase Auth user: georges.labaki@hotmail.com (ID: 4f54aa31-2452-45bb-930f-38f77be3fca1)
+2026-01-15 08:27:09,979 - INFO - Created admin_user: georges.labaki@hotmail.com (ID: 964)
+2026-01-15 08:27:10,052 - INFO - Linked admin 964 to restaurant 83
+2026-01-15 08:27:10,052 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:10,053 - INFO - ----------------------------------------
+2026-01-15 08:27:10,053 - INFO - [26/165] The Original Georgie's (V3: 84, V1: 200)
+2026-01-15 08:27:10,053 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=200&load=account_information&showLang=en
+2026-01-15 08:27:11,919 - DEBUG - Found 1 contacts with emails for V1 ID 200
+2026-01-15 08:27:11,919 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:12,194 - INFO - Created Supabase Auth user: GeorgiesOnCarling@gmail.com (ID: 4e84f332-10fc-4552-987d-a5e16f2c279d)
+2026-01-15 08:27:12,234 - INFO - Created admin_user: GeorgiesOnCarling@gmail.com (ID: 965)
+2026-01-15 08:27:12,308 - INFO - Linked admin 965 to restaurant 84
+2026-01-15 08:27:12,308 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:12,308 - INFO - ----------------------------------------
+2026-01-15 08:27:12,308 - INFO - [27/165] Champa Thai Cuisine (V3: 87, V1: 203)
+2026-01-15 08:27:12,308 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=203&load=account_information&showLang=en
+2026-01-15 08:27:14,658 - DEBUG - Found 2 contacts with emails for V1 ID 203
+2026-01-15 08:27:14,658 - INFO -   Found 2 unique contacts with email
+2026-01-15 08:27:14,941 - INFO - Created Supabase Auth user: usaw658@gmail.com (ID: 96a20d7b-61e4-4312-9bfd-1c79b41b0a41)
+2026-01-15 08:27:14,983 - INFO - Created admin_user: usaw658@gmail.com (ID: 966)
+2026-01-15 08:27:15,059 - INFO - Linked admin 966 to restaurant 87
+2026-01-15 08:27:15,349 - INFO - Created Supabase Auth user: Champa.Thai2022@gmail.com (ID: 30d531e7-deca-457b-8e97-04b83f4b2e1f)
+2026-01-15 08:27:15,391 - INFO - Created admin_user: Champa.Thai2022@gmail.com (ID: 967)
+2026-01-15 08:27:15,463 - INFO - Linked admin 967 to restaurant 87
+2026-01-15 08:27:15,463 - INFO -   Result: 2 created, 0 updated, 2 links
+2026-01-15 08:27:15,463 - INFO - ----------------------------------------
+2026-01-15 08:27:15,463 - INFO - [28/165] Milano (V3: 88, V1: 204)
+2026-01-15 08:27:15,463 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=204&load=account_information&showLang=en
+2026-01-15 08:27:17,340 - DEBUG - Found 1 contacts with emails for V1 ID 204
+2026-01-15 08:27:17,340 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:17,628 - INFO - Created Supabase Auth user: mazent.milano@gmail.com (ID: fd4ea43c-f8ad-4503-9336-bf4fc972e7f1)
+2026-01-15 08:27:17,666 - INFO - Created admin_user: mazent.milano@gmail.com (ID: 968)
+2026-01-15 08:27:17,738 - INFO - Linked admin 968 to restaurant 88
+2026-01-15 08:27:17,739 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:17,739 - INFO - ----------------------------------------
+2026-01-15 08:27:17,739 - INFO - [29/165] Milano (V3: 89, V1: 205)
+2026-01-15 08:27:17,739 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=205&load=account_information&showLang=en
+2026-01-15 08:27:19,621 - DEBUG - Found 1 contacts with emails for V1 ID 205
+2026-01-15 08:27:19,621 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:19,880 - INFO - Created Supabase Auth user: Milano.casselman10@gmail.com (ID: c86b1a22-4338-4d32-999f-9bf525c23849)
+2026-01-15 08:27:19,920 - INFO - Created admin_user: Milano.casselman10@gmail.com (ID: 969)
+2026-01-15 08:27:19,998 - INFO - Linked admin 969 to restaurant 89
+2026-01-15 08:27:19,998 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:19,998 - INFO - ----------------------------------------
+2026-01-15 08:27:19,998 - INFO - [30/165] Milano (V3: 90, V1: 206)
+2026-01-15 08:27:19,998 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=206&load=account_information&showLang=en
+2026-01-15 08:27:21,873 - DEBUG - Found 2 contacts with emails for V1 ID 206
+2026-01-15 08:27:21,873 - DEBUG - Skipping duplicate email: znasr@hotmail.com
+2026-01-15 08:27:21,873 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:22,156 - INFO - Created Supabase Auth user: znasr@hotmail.com (ID: 665e36a3-43af-4222-81e5-9569a504e6ca)
+2026-01-15 08:27:22,196 - INFO - Created admin_user: znasr@hotmail.com (ID: 970)
+2026-01-15 08:27:22,267 - INFO - Linked admin 970 to restaurant 90
+2026-01-15 08:27:22,267 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:22,267 - INFO - ----------------------------------------
+2026-01-15 08:27:22,267 - INFO - [31/165] Milano (V3: 91, V1: 207)
+2026-01-15 08:27:22,267 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=207&load=account_information&showLang=en
+2026-01-15 08:27:24,142 - DEBUG - Found 1 contacts with emails for V1 ID 207
+2026-01-15 08:27:24,142 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:24,425 - INFO - Created Supabase Auth user: ehazara@hotmail.com (ID: c41dfd0a-aa91-4b64-a657-760accffc271)
+2026-01-15 08:27:24,464 - INFO - Created admin_user: ehazara@hotmail.com (ID: 971)
+2026-01-15 08:27:24,534 - INFO - Linked admin 971 to restaurant 91
+2026-01-15 08:27:24,534 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:24,534 - INFO - ----------------------------------------
+2026-01-15 08:27:24,534 - INFO - [32/165] Milano (V3: 92, V1: 208)
+2026-01-15 08:27:24,534 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=208&load=account_information&showLang=en
+2026-01-15 08:27:26,398 - DEBUG - No existing contacts for V1 ID 208
+2026-01-15 08:27:26,399 - INFO -   No contacts found - skipping
+2026-01-15 08:27:26,399 - INFO - ----------------------------------------
+2026-01-15 08:27:26,399 - INFO - [33/165] Milano (V3: 93, V1: 209)
+2026-01-15 08:27:26,399 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=209&load=account_information&showLang=en
+2026-01-15 08:27:28,279 - DEBUG - Found 1 contacts with emails for V1 ID 209
+2026-01-15 08:27:28,279 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:28,560 - INFO - Created Supabase Auth user: milano1287@outlook.com (ID: 5dcee5cd-5a6a-4da3-9dff-7ea925849371)
+2026-01-15 08:27:28,603 - INFO - Created admin_user: milano1287@outlook.com (ID: 972)
+2026-01-15 08:27:28,676 - INFO - Linked admin 972 to restaurant 93
+2026-01-15 08:27:28,676 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:28,676 - INFO - ----------------------------------------
+2026-01-15 08:27:28,676 - INFO - [34/165] Milano (V3: 95, V1: 211)
+2026-01-15 08:27:28,676 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=211&load=account_information&showLang=en
+2026-01-15 08:27:30,553 - DEBUG - Found 1 contacts with emails for V1 ID 211
+2026-01-15 08:27:30,553 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:30,829 - INFO - Created Supabase Auth user: talal.almezel@hotmail.com (ID: cca8a4e1-933a-4f72-b22b-a9313939956f)
+2026-01-15 08:27:30,870 - INFO - Created admin_user: talal.almezel@hotmail.com (ID: 973)
+2026-01-15 08:27:30,944 - INFO - Linked admin 973 to restaurant 95
+2026-01-15 08:27:30,944 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:30,944 - INFO - ----------------------------------------
+2026-01-15 08:27:30,944 - INFO - [35/165] Milano (V3: 97, V1: 213)
+2026-01-15 08:27:30,944 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=213&load=account_information&showLang=en
+2026-01-15 08:27:32,828 - DEBUG - Found 1 contacts with emails for V1 ID 213
+2026-01-15 08:27:32,828 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:33,110 - INFO - Created Supabase Auth user: kemptvillemilanopizza@gmail.com (ID: 1a1e4c16-7eed-48d3-a815-5d2ac3dc6e23)
+2026-01-15 08:27:33,150 - INFO - Created admin_user: kemptvillemilanopizza@gmail.com (ID: 974)
+2026-01-15 08:27:33,225 - INFO - Linked admin 974 to restaurant 97
+2026-01-15 08:27:33,225 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:33,225 - INFO - ----------------------------------------
+2026-01-15 08:27:33,225 - INFO - [36/165] Lemongrass Thai Cuisine (V3: 1010, V1: 219)
+2026-01-15 08:27:33,225 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=219&load=account_information&showLang=en
+2026-01-15 08:27:35,112 - DEBUG - Found 1 contacts with emails for V1 ID 219
+2026-01-15 08:27:35,112 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:35,394 - INFO - Created Supabase Auth user: lemongrasselgin@gmail.com (ID: 9ec945e4-0e66-45df-a29f-916afabedb3c)
+2026-01-15 08:27:35,435 - INFO - Created admin_user: lemongrasselgin@gmail.com (ID: 975)
+2026-01-15 08:27:35,507 - INFO - Linked admin 975 to restaurant 1010
+2026-01-15 08:27:35,507 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:35,507 - INFO - ----------------------------------------
+2026-01-15 08:27:35,507 - INFO - [37/165] Ginkgo Garden (V3: 105, V1: 224)
+2026-01-15 08:27:35,507 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=224&load=account_information&showLang=en
+2026-01-15 08:27:37,408 - DEBUG - Found 1 contacts with emails for V1 ID 224
+2026-01-15 08:27:37,408 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:37,673 - INFO - Created Supabase Auth user: menu@ginkgogarden.ca (ID: e7dd066b-cc37-4499-bf66-b635030e94b7)
+2026-01-15 08:27:37,712 - INFO - Created admin_user: menu@ginkgogarden.ca (ID: 976)
+2026-01-15 08:27:37,788 - INFO - Linked admin 976 to restaurant 105
+2026-01-15 08:27:37,789 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:37,789 - INFO - ----------------------------------------
+2026-01-15 08:27:37,789 - INFO - [38/165] Restaurant Le Choix (V3: 106, V1: 225)
+2026-01-15 08:27:37,789 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=225&load=account_information&showLang=en
+2026-01-15 08:27:39,657 - DEBUG - Found 1 contacts with emails for V1 ID 225
+2026-01-15 08:27:39,657 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:39,910 - INFO - Created Supabase Auth user: Ziadkanaan2013@gmail.com (ID: c3dee4e6-1d10-435e-81d5-7483644ab4c9)
+2026-01-15 08:27:39,952 - INFO - Created admin_user: Ziadkanaan2013@gmail.com (ID: 977)
+2026-01-15 08:27:40,023 - INFO - Linked admin 977 to restaurant 106
+2026-01-15 08:27:40,023 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:40,023 - INFO - ----------------------------------------
+2026-01-15 08:27:40,023 - INFO - [39/165] Restaurant Chez Gerry (V3: 109, V1: 228)
+2026-01-15 08:27:40,023 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=228&load=account_information&showLang=en
+2026-01-15 08:27:41,898 - DEBUG - Found 1 contacts with emails for V1 ID 228
+2026-01-15 08:27:41,898 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:42,215 - INFO - Created Supabase Auth user: restaurantchezgerry@gmail.com (ID: 65507874-fd02-43e7-a78f-df31e0133657)
+2026-01-15 08:27:42,257 - INFO - Created admin_user: restaurantchezgerry@gmail.com (ID: 978)
+2026-01-15 08:27:42,335 - INFO - Linked admin 978 to restaurant 109
+2026-01-15 08:27:42,335 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:42,335 - INFO - ----------------------------------------
+2026-01-15 08:27:42,335 - INFO - [40/165] Papa Pizza Des Flandres (V3: 1012, V1: 231)
+2026-01-15 08:27:42,335 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=231&load=account_information&showLang=en
+2026-01-15 08:27:44,201 - DEBUG - Found 1 contacts with emails for V1 ID 231
+2026-01-15 08:27:44,201 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:44,512 - INFO - Created Supabase Auth user: osman_moudi@hotmail.com (ID: a39cc464-f31e-45d1-9cf4-b0163ed1264a)
+2026-01-15 08:27:44,550 - INFO - Created admin_user: osman_moudi@hotmail.com (ID: 979)
+2026-01-15 08:27:44,621 - INFO - Linked admin 979 to restaurant 1012
+2026-01-15 08:27:44,621 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:44,621 - INFO - === PROGRESS: 40/165 restaurants processed ===
+2026-01-15 08:27:44,621 - INFO - ----------------------------------------
+2026-01-15 08:27:44,622 - INFO - [41/165] Mano City Pizza (V3: 118, V1: 238)
+2026-01-15 08:27:44,622 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=238&load=account_information&showLang=en
+2026-01-15 08:27:46,491 - DEBUG - Found 1 contacts with emails for V1 ID 238
+2026-01-15 08:27:46,491 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:46,757 - INFO - Created Supabase Auth user: Zeintahan@hotmail.com (ID: 9e9a3cbb-904f-487e-8ee9-2cb8d198277b)
+2026-01-15 08:27:46,797 - INFO - Created admin_user: Zeintahan@hotmail.com (ID: 980)
+2026-01-15 08:27:46,866 - INFO - Linked admin 980 to restaurant 118
+2026-01-15 08:27:46,867 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:46,867 - INFO - ----------------------------------------
+2026-01-15 08:27:46,867 - INFO - [42/165] Hung Mein (V3: 119, V1: 239)
+2026-01-15 08:27:46,867 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=239&load=account_information&showLang=en
+2026-01-15 08:27:48,731 - DEBUG - Found 1 contacts with emails for V1 ID 239
+2026-01-15 08:27:48,732 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:49,058 - INFO - Created Supabase Auth user: 449111756@qq.com (ID: 7537e156-1ae9-416f-819c-ee08bf27d44f)
+2026-01-15 08:27:49,100 - INFO - Created admin_user: 449111756@qq.com (ID: 981)
+2026-01-15 08:27:49,177 - INFO - Linked admin 981 to restaurant 119
+2026-01-15 08:27:49,178 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:49,178 - INFO - ----------------------------------------
+2026-01-15 08:27:49,178 - INFO - [43/165] Milano (V3: 123, V1: 245)
+2026-01-15 08:27:49,178 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=245&load=account_information&showLang=en
+2026-01-15 08:27:51,064 - DEBUG - Found 1 contacts with emails for V1 ID 245
+2026-01-15 08:27:51,064 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:51,357 - INFO - Created Supabase Auth user: robertochoueiri@hotmail.com (ID: 58f3c78a-dca4-482d-8e05-af925fadd1c3)
+2026-01-15 08:27:51,400 - INFO - Created admin_user: robertochoueiri@hotmail.com (ID: 982)
+2026-01-15 08:27:51,470 - INFO - Linked admin 982 to restaurant 123
+2026-01-15 08:27:51,470 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:51,470 - INFO - ----------------------------------------
+2026-01-15 08:27:51,470 - INFO - [44/165] Carlo's Pizza (V3: 124, V1: 246)
+2026-01-15 08:27:51,470 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=246&load=account_information&showLang=en
+2026-01-15 08:27:53,352 - DEBUG - Found 1 contacts with emails for V1 ID 246
+2026-01-15 08:27:53,353 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:53,631 - INFO - Created Supabase Auth user: you.karkache@gmail.com (ID: d10bfa35-7ed4-47e5-914d-848cfe28478e)
+2026-01-15 08:27:53,672 - INFO - Created admin_user: you.karkache@gmail.com (ID: 983)
+2026-01-15 08:27:53,746 - INFO - Linked admin 983 to restaurant 124
+2026-01-15 08:27:53,746 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:53,747 - INFO - ----------------------------------------
+2026-01-15 08:27:53,747 - INFO - [45/165] Milano (V3: 126, V1: 248)
+2026-01-15 08:27:53,747 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=248&load=account_information&showLang=en
+2026-01-15 08:27:55,622 - DEBUG - Found 0 contacts with emails for V1 ID 248
+2026-01-15 08:27:55,622 - INFO -   No contacts found - skipping
+2026-01-15 08:27:55,622 - INFO - ----------------------------------------
+2026-01-15 08:27:55,622 - INFO - [46/165] Centertown Donair & Pizza (V3: 131, V1: 255)
+2026-01-15 08:27:55,622 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=255&load=account_information&showLang=en
+2026-01-15 08:27:57,587 - DEBUG - Found 1 contacts with emails for V1 ID 255
+2026-01-15 08:27:57,587 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:27:57,862 - INFO - Created Supabase Auth user: scottd.budden@gmail.com (ID: 666de895-4dcf-4abb-829d-d032ebb4511b)
+2026-01-15 08:27:57,902 - INFO - Created admin_user: scottd.budden@gmail.com (ID: 984)
+2026-01-15 08:27:57,974 - INFO - Linked admin 984 to restaurant 131
+2026-01-15 08:27:57,975 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:27:57,975 - INFO - ----------------------------------------
+2026-01-15 08:27:57,975 - INFO - [47/165] Riverside Pizzeria (V3: 133, V1: 257)
+2026-01-15 08:27:57,975 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=257&load=account_information&showLang=en
+2026-01-15 08:27:59,842 - DEBUG - Found 1 contacts with emails for V1 ID 257
+2026-01-15 08:27:59,842 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:00,119 - INFO - Created Supabase Auth user: Riversidepizzeria8@gmail.com (ID: f716e90f-71cf-4d30-8488-a6a2886aabff)
+2026-01-15 08:28:00,159 - INFO - Created admin_user: Riversidepizzeria8@gmail.com (ID: 985)
+2026-01-15 08:28:00,233 - INFO - Linked admin 985 to restaurant 133
+2026-01-15 08:28:00,233 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:00,233 - INFO - ----------------------------------------
+2026-01-15 08:28:00,233 - INFO - [48/165] Pizza Bravo (V3: 139, V1: 264)
+2026-01-15 08:28:00,233 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=264&load=account_information&showLang=en
+2026-01-15 08:28:02,102 - DEBUG - Found 1 contacts with emails for V1 ID 264
+2026-01-15 08:28:02,102 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:02,391 - INFO - Created Supabase Auth user: crystal_geinoz@hotmail.com (ID: 5c05c7e5-d9bf-4835-b6ae-572d6713c815)
+2026-01-15 08:28:02,434 - INFO - Created admin_user: crystal_geinoz@hotmail.com (ID: 986)
+2026-01-15 08:28:02,507 - INFO - Linked admin 986 to restaurant 139
+2026-01-15 08:28:02,507 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:02,507 - INFO - ----------------------------------------
+2026-01-15 08:28:02,507 - INFO - [49/165] Tony's Pizza (V3: 143, V1: 275)
+2026-01-15 08:28:02,507 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=275&load=account_information&showLang=en
+2026-01-15 08:28:04,388 - DEBUG - Found 1 contacts with emails for V1 ID 275
+2026-01-15 08:28:04,388 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:04,655 - INFO - Created Supabase Auth user: pizzatony51@gmail.com (ID: 9a458d5e-bcf6-4dfb-8321-1223cc98aa9e)
+2026-01-15 08:28:04,696 - INFO - Created admin_user: pizzatony51@gmail.com (ID: 987)
+2026-01-15 08:28:04,767 - INFO - Linked admin 987 to restaurant 143
+2026-01-15 08:28:04,767 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:04,767 - INFO - ----------------------------------------
+2026-01-15 08:28:04,767 - INFO - [50/165] Hong Kong Chinese Food Takeout (V3: 160, V1: 294)
+2026-01-15 08:28:04,767 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=294&load=account_information&showLang=en
+2026-01-15 08:28:06,659 - DEBUG - Found 2 contacts with emails for V1 ID 294
+2026-01-15 08:28:06,659 - DEBUG - Skipping duplicate email: hui3820@hotmail.com
+2026-01-15 08:28:06,659 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:06,934 - INFO - Created Supabase Auth user: hui3820@hotmail.com (ID: 4baeb867-796a-415a-9b52-820884683de6)
+2026-01-15 08:28:06,977 - INFO - Created admin_user: hui3820@hotmail.com (ID: 988)
+2026-01-15 08:28:07,050 - INFO - Linked admin 988 to restaurant 160
+2026-01-15 08:28:07,050 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:07,050 - INFO - ----------------------------------------
+2026-01-15 08:28:07,050 - INFO - [51/165] Lucky King Take Out (V3: 174, V1: 312)
+2026-01-15 08:28:07,050 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=312&load=account_information&showLang=en
+2026-01-15 08:28:08,947 - DEBUG - Found 1 contacts with emails for V1 ID 312
+2026-01-15 08:28:08,947 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:09,208 - INFO - Created Supabase Auth user: mikisitu9138@gmail.com (ID: 05d58cf7-972f-4ff9-b15e-43968f78037a)
+2026-01-15 08:28:09,246 - INFO - Created admin_user: mikisitu9138@gmail.com (ID: 989)
+2026-01-15 08:28:09,321 - INFO - Linked admin 989 to restaurant 174
+2026-01-15 08:28:09,321 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:09,321 - INFO - ----------------------------------------
+2026-01-15 08:28:09,321 - INFO - [52/165] Indian Punjabi Clay Oven (V3: 180, V1: 318)
+2026-01-15 08:28:09,321 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=318&load=account_information&showLang=en
+2026-01-15 08:28:11,202 - DEBUG - Found 1 contacts with emails for V1 ID 318
+2026-01-15 08:28:11,202 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:11,463 - INFO - Created Supabase Auth user: indianpunjabiclayoven@gmail.com (ID: b9bcef8d-3d69-441e-b625-a5e25895488b)
+2026-01-15 08:28:11,502 - INFO - Created admin_user: indianpunjabiclayoven@gmail.com (ID: 990)
+2026-01-15 08:28:11,573 - INFO - Linked admin 990 to restaurant 180
+2026-01-15 08:28:11,573 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:11,573 - INFO - ----------------------------------------
+2026-01-15 08:28:11,573 - INFO - [53/165] Charm Thai Cuisine (V3: 943, V1: 323)
+2026-01-15 08:28:11,573 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=323&load=account_information&showLang=en
+2026-01-15 08:28:13,465 - DEBUG - Found 1 contacts with emails for V1 ID 323
+2026-01-15 08:28:13,465 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:13,741 - INFO - Created Supabase Auth user: charmthaicuisineottawa@gmail.com (ID: 20f55ea4-4b48-4197-b552-46a77d22f09c)
+2026-01-15 08:28:13,781 - INFO - Created admin_user: charmthaicuisineottawa@gmail.com (ID: 991)
+2026-01-15 08:28:13,853 - INFO - Linked admin 991 to restaurant 943
+2026-01-15 08:28:13,853 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:13,853 - INFO - ----------------------------------------
+2026-01-15 08:28:13,853 - INFO - [54/165] Milano (V3: 190, V1: 328)
+2026-01-15 08:28:13,853 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=328&load=account_information&showLang=en
+2026-01-15 08:28:15,730 - DEBUG - Found 1 contacts with emails for V1 ID 328
+2026-01-15 08:28:15,730 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:16,022 - INFO - Created Supabase Auth user: mtoufaely@gmail.com (ID: eb62c958-e68b-43ba-89dc-38ef7d0ac272)
+2026-01-15 08:28:16,062 - INFO - Created admin_user: mtoufaely@gmail.com (ID: 992)
+2026-01-15 08:28:16,134 - INFO - Linked admin 992 to restaurant 190
+2026-01-15 08:28:16,135 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:16,135 - INFO - ----------------------------------------
+2026-01-15 08:28:16,135 - INFO - [55/165] Colonnade Pizza (V3: 196, V1: 334)
+2026-01-15 08:28:16,135 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=334&load=account_information&showLang=en
+2026-01-15 08:28:18,007 - DEBUG - Found 1 contacts with emails for V1 ID 334
+2026-01-15 08:28:18,007 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:18,277 - INFO - Created Supabase Auth user: colonnadepizza@rogers.com (ID: 19077ba1-f3d0-4c78-99ad-bb8c57b3a79b)
+2026-01-15 08:28:18,317 - INFO - Created admin_user: colonnadepizza@rogers.com (ID: 993)
+2026-01-15 08:28:18,388 - INFO - Linked admin 993 to restaurant 196
+2026-01-15 08:28:18,388 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:18,388 - INFO - ----------------------------------------
+2026-01-15 08:28:18,388 - INFO - [56/165] Pho Bo Ga King - Somerset (V3: 199, V1: 337)
+2026-01-15 08:28:18,389 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=337&load=account_information&showLang=en
+2026-01-15 08:28:20,280 - DEBUG - Found 1 contacts with emails for V1 ID 337
+2026-01-15 08:28:20,280 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:20,678 - INFO - Created Supabase Auth user: allannguyen79@hotmail.com (ID: ac27c2f9-41fd-4956-8cf9-4d0712b46730)
+2026-01-15 08:28:20,719 - INFO - Created admin_user: allannguyen79@hotmail.com (ID: 994)
+2026-01-15 08:28:20,794 - INFO - Linked admin 994 to restaurant 199
+2026-01-15 08:28:20,794 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:20,794 - INFO - ----------------------------------------
+2026-01-15 08:28:20,794 - INFO - [57/165] Mont Liban Bakery & Shawarma (V3: 205, V1: 344)
+2026-01-15 08:28:20,794 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=344&load=account_information&showLang=en
+2026-01-15 08:28:22,679 - DEBUG - Found 0 contacts with emails for V1 ID 344
+2026-01-15 08:28:22,680 - INFO -   No contacts found - skipping
+2026-01-15 08:28:22,680 - INFO - ----------------------------------------
+2026-01-15 08:28:22,680 - INFO - [58/165] Papa Pizza Maloney (V3: 1013, V1: 346)
+2026-01-15 08:28:22,680 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=346&load=account_information&showLang=en
+2026-01-15 08:28:24,574 - DEBUG - Found 1 contacts with emails for V1 ID 346
+2026-01-15 08:28:24,574 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:24,844 - INFO - Created Supabase Auth user: kaled.alkhatib11@gmail.com (ID: d7e27855-c772-4463-b7bd-c2ddbbb73a50)
+2026-01-15 08:28:24,885 - INFO - Created admin_user: kaled.alkhatib11@gmail.com (ID: 995)
+2026-01-15 08:28:24,956 - INFO - Linked admin 995 to restaurant 1013
+2026-01-15 08:28:24,956 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:24,956 - INFO - ----------------------------------------
+2026-01-15 08:28:24,956 - INFO - [59/165] Erman Pizza (V3: 211, V1: 350)
+2026-01-15 08:28:24,956 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=350&load=account_information&showLang=en
+2026-01-15 08:28:26,831 - DEBUG - Found 0 contacts with emails for V1 ID 350
+2026-01-15 08:28:26,831 - INFO -   No contacts found - skipping
+2026-01-15 08:28:26,831 - INFO - ----------------------------------------
+2026-01-15 08:28:26,831 - INFO - [60/165] La Famiglia on the Danforth (V3: 984, V1: 364)
+2026-01-15 08:28:26,831 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=364&load=account_information&showLang=en
+2026-01-15 08:28:28,704 - DEBUG - Found 1 contacts with emails for V1 ID 364
+2026-01-15 08:28:28,704 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:28,998 - INFO - Created Supabase Auth user: rozadalipaj@yahoo.com (ID: 81cf7220-360f-40c9-8265-38a9ba8872f6)
+2026-01-15 08:28:29,037 - INFO - Created admin_user: rozadalipaj@yahoo.com (ID: 996)
+2026-01-15 08:28:29,110 - INFO - Linked admin 996 to restaurant 984
+2026-01-15 08:28:29,110 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:29,110 - INFO - === PROGRESS: 60/165 restaurants processed ===
+2026-01-15 08:28:29,110 - INFO - ----------------------------------------
+2026-01-15 08:28:29,110 - INFO - [61/165] New Mukut Restaurant Indian Cuisine (V3: 234, V1: 374)
+2026-01-15 08:28:29,110 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=374&load=account_information&showLang=en
+2026-01-15 08:28:30,971 - DEBUG - Found 1 contacts with emails for V1 ID 374
+2026-01-15 08:28:30,971 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:31,223 - INFO - Created Supabase Auth user: rezamusa18@gmail.com (ID: 267ab71f-db2a-4576-90b9-c771e34f11ac)
+2026-01-15 08:28:31,262 - INFO - Created admin_user: rezamusa18@gmail.com (ID: 997)
+2026-01-15 08:28:31,333 - INFO - Linked admin 997 to restaurant 234
+2026-01-15 08:28:31,334 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:31,334 - INFO - ----------------------------------------
+2026-01-15 08:28:31,334 - INFO - [62/165] Beneci Pizza (V3: 241, V1: 383)
+2026-01-15 08:28:31,334 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=383&load=account_information&showLang=en
+2026-01-15 08:28:33,203 - DEBUG - Found 2 contacts with emails for V1 ID 383
+2026-01-15 08:28:33,204 - DEBUG - Skipping duplicate email: benecipizzeria@gmail.com
+2026-01-15 08:28:33,204 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:33,501 - INFO - Created Supabase Auth user: benecipizzeria@gmail.com (ID: ad90f32d-0d84-4717-b5c0-dfb52f5cba1f)
+2026-01-15 08:28:33,540 - INFO - Created admin_user: benecipizzeria@gmail.com (ID: 998)
+2026-01-15 08:28:33,612 - INFO - Linked admin 998 to restaurant 241
+2026-01-15 08:28:33,612 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:33,612 - INFO - ----------------------------------------
+2026-01-15 08:28:33,612 - INFO - [63/165] Orchid Sushi (V3: 245, V1: 387)
+2026-01-15 08:28:33,612 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=387&load=account_information&showLang=en
+2026-01-15 08:28:35,518 - DEBUG - Found 1 contacts with emails for V1 ID 387
+2026-01-15 08:28:35,518 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:35,776 - INFO - Created Supabase Auth user: orchid_sushi@yahoo.ca (ID: fd02183a-b385-4231-9b34-8fb8267e5021)
+2026-01-15 08:28:35,815 - INFO - Created admin_user: orchid_sushi@yahoo.ca (ID: 999)
+2026-01-15 08:28:35,888 - INFO - Linked admin 999 to restaurant 245
+2026-01-15 08:28:35,888 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:35,888 - INFO - ----------------------------------------
+2026-01-15 08:28:35,888 - INFO - [64/165] Milano (V3: 265, V1: 411)
+2026-01-15 08:28:35,888 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=411&load=account_information&showLang=en
+2026-01-15 08:28:37,761 - DEBUG - Found 1 contacts with emails for V1 ID 411
+2026-01-15 08:28:37,761 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:38,022 - INFO - Created Supabase Auth user: brian@crustandbeanholdings.ca (ID: 35565ad8-32d1-4ad3-8b74-9b9be17420a2)
+2026-01-15 08:28:38,061 - INFO - Created admin_user: brian@crustandbeanholdings.ca (ID: 1000)
+2026-01-15 08:28:38,133 - INFO - Linked admin 1000 to restaurant 265
+2026-01-15 08:28:38,133 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:38,133 - INFO - ----------------------------------------
+2026-01-15 08:28:38,133 - INFO - [65/165] Lucky Fortune (V3: 267, V1: 413)
+2026-01-15 08:28:38,133 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=413&load=account_information&showLang=en
+2026-01-15 08:28:40,014 - DEBUG - Found 1 contacts with emails for V1 ID 413
+2026-01-15 08:28:40,014 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:40,285 - INFO - Created Supabase Auth user: elita0303@yahoo.com (ID: a0bc6028-ebd2-454e-91ea-1ae410395bc0)
+2026-01-15 08:28:40,327 - INFO - Created admin_user: elita0303@yahoo.com (ID: 1001)
+2026-01-15 08:28:40,401 - INFO - Linked admin 1001 to restaurant 267
+2026-01-15 08:28:40,401 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:40,401 - INFO - ----------------------------------------
+2026-01-15 08:28:40,401 - INFO - [66/165] Shaan Tandoori (V3: 269, V1: 415)
+2026-01-15 08:28:40,401 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=415&load=account_information&showLang=en
+2026-01-15 08:28:42,275 - DEBUG - Found 1 contacts with emails for V1 ID 415
+2026-01-15 08:28:42,275 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:42,530 - INFO - Created Supabase Auth user: tamara.zc@hotmail.com (ID: 6af63cb0-a4ad-4c99-b0f7-fabf911fd59a)
+2026-01-15 08:28:42,571 - INFO - Created admin_user: tamara.zc@hotmail.com (ID: 1002)
+2026-01-15 08:28:42,651 - INFO - Linked admin 1002 to restaurant 269
+2026-01-15 08:28:42,652 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:42,652 - INFO - ----------------------------------------
+2026-01-15 08:28:42,652 - INFO - [67/165] JN Pizza (V3: 328, V1: 489)
+2026-01-15 08:28:42,652 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=489&load=account_information&showLang=en
+2026-01-15 08:28:44,565 - DEBUG - Found 2 contacts with emails for V1 ID 489
+2026-01-15 08:28:44,566 - INFO -   Found 2 unique contacts with email
+2026-01-15 08:28:44,825 - INFO - Created Supabase Auth user: vivo555@hotmail.com (ID: c0a38e8a-1c9f-47ad-8b38-d3f0bc58c61c)
+2026-01-15 08:28:44,866 - INFO - Created admin_user: vivo555@hotmail.com (ID: 1003)
+2026-01-15 08:28:44,937 - INFO - Linked admin 1003 to restaurant 328
+2026-01-15 08:28:45,208 - INFO - Created Supabase Auth user: jnray3377@gmail.com (ID: 368954f0-60c6-4c34-8076-df2d237e347c)
+2026-01-15 08:28:45,252 - INFO - Created admin_user: jnray3377@gmail.com (ID: 1004)
+2026-01-15 08:28:45,325 - INFO - Linked admin 1004 to restaurant 328
+2026-01-15 08:28:45,325 - INFO -   Result: 2 created, 0 updated, 2 links
+2026-01-15 08:28:45,325 - INFO - ----------------------------------------
+2026-01-15 08:28:45,325 - INFO - [68/165] Sushi Express Chambly (V3: 1017, V1: 511)
+2026-01-15 08:28:45,325 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=511&load=account_information&showLang=en
+2026-01-15 08:28:47,216 - DEBUG - Found 1 contacts with emails for V1 ID 511
+2026-01-15 08:28:47,216 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:47,480 - INFO - Created Supabase Auth user: shen_yichao@hotmail.com (ID: 08d66836-802d-43a6-a0b2-6750ba18269d)
+2026-01-15 08:28:47,519 - INFO - Created admin_user: shen_yichao@hotmail.com (ID: 1005)
+2026-01-15 08:28:47,591 - INFO - Linked admin 1005 to restaurant 1017
+2026-01-15 08:28:47,591 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:47,591 - INFO - ----------------------------------------
+2026-01-15 08:28:47,591 - INFO - [69/165] Milano (V3: 349, V1: 512)
+2026-01-15 08:28:47,591 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=512&load=account_information&showLang=en
+2026-01-15 08:28:49,478 - DEBUG - Found 1 contacts with emails for V1 ID 512
+2026-01-15 08:28:49,478 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:49,741 - INFO - Created Supabase Auth user: milanoosgoode@gmail.com (ID: 3782a2f6-d438-495c-af02-54a242f57014)
+2026-01-15 08:28:49,781 - INFO - Created admin_user: milanoosgoode@gmail.com (ID: 1006)
+2026-01-15 08:28:49,855 - INFO - Linked admin 1006 to restaurant 349
+2026-01-15 08:28:49,855 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:49,855 - INFO - ----------------------------------------
+2026-01-15 08:28:49,855 - INFO - [70/165] Milano (V3: 350, V1: 513)
+2026-01-15 08:28:49,855 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=513&load=account_information&showLang=en
+2026-01-15 08:28:51,725 - DEBUG - Found 2 contacts with emails for V1 ID 513
+2026-01-15 08:28:51,725 - DEBUG - Skipping duplicate email: abuakram_2@hotmail.com
+2026-01-15 08:28:51,725 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:51,987 - INFO - Created Supabase Auth user: abuakram_2@hotmail.com (ID: c60d77e2-ae66-45fe-a499-563fd8f0b675)
+2026-01-15 08:28:52,026 - INFO - Created admin_user: abuakram_2@hotmail.com (ID: 1007)
+2026-01-15 08:28:52,100 - INFO - Linked admin 1007 to restaurant 350
+2026-01-15 08:28:52,100 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:52,100 - INFO - ----------------------------------------
+2026-01-15 08:28:52,100 - INFO - [71/165] Xtreme Pizza (V3: 367, V1: 532)
+2026-01-15 08:28:52,100 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=532&load=account_information&showLang=en
+2026-01-15 08:28:54,008 - DEBUG - Found 1 contacts with emails for V1 ID 532
+2026-01-15 08:28:54,008 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:54,283 - INFO - Created Supabase Auth user: middlett76@gmail.com (ID: 8317bbd5-5fdd-494c-accf-70f94b1a9578)
+2026-01-15 08:28:54,321 - INFO - Created admin_user: middlett76@gmail.com (ID: 1008)
+2026-01-15 08:28:54,390 - INFO - Linked admin 1008 to restaurant 367
+2026-01-15 08:28:54,390 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:54,390 - INFO - ----------------------------------------
+2026-01-15 08:28:54,390 - INFO - [72/165] Sachi Sushi (V3: 376, V1: 542)
+2026-01-15 08:28:54,390 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=542&load=account_information&showLang=en
+2026-01-15 08:28:56,277 - DEBUG - Found 1 contacts with emails for V1 ID 542
+2026-01-15 08:28:56,278 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:56,543 - INFO - Created Supabase Auth user: sachisushi@yahoo.com (ID: 5296f0b1-7a16-48bb-9471-4164fc61dc43)
+2026-01-15 08:28:56,581 - INFO - Created admin_user: sachisushi@yahoo.com (ID: 1009)
+2026-01-15 08:28:56,653 - INFO - Linked admin 1009 to restaurant 376
+2026-01-15 08:28:56,653 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:56,653 - INFO - ----------------------------------------
+2026-01-15 08:28:56,653 - INFO - [73/165] Yorgo's - Nepean (V3: 985, V1: 547)
+2026-01-15 08:28:56,653 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=547&load=account_information&showLang=en
+2026-01-15 08:28:58,515 - DEBUG - Found 2 contacts with emails for V1 ID 547
+2026-01-15 08:28:58,515 - DEBUG - Skipping duplicate email: yorgosgreekfood@gmail.com
+2026-01-15 08:28:58,515 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:28:58,765 - INFO - Created Supabase Auth user: yorgosgreekfood@gmail.com (ID: ef9403c7-4d88-4663-ad23-20053eca05d2)
+2026-01-15 08:28:58,806 - INFO - Created admin_user: yorgosgreekfood@gmail.com (ID: 1010)
+2026-01-15 08:28:58,880 - INFO - Linked admin 1010 to restaurant 985
+2026-01-15 08:28:58,880 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:28:58,880 - INFO - ----------------------------------------
+2026-01-15 08:28:58,880 - INFO - [74/165] Papa Joe's Fried Chicken - Downtown (V3: 437, V1: 612)
+2026-01-15 08:28:58,880 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=612&load=account_information&showLang=en
+2026-01-15 08:29:00,746 - DEBUG - Found 1 contacts with emails for V1 ID 612
+2026-01-15 08:29:00,746 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:00,824 - INFO - Updated admin_user ID 943: Bartours1982@hotmail.com
+2026-01-15 08:29:00,897 - INFO - Linked admin 943 to restaurant 437
+2026-01-15 08:29:00,897 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:29:00,897 - INFO - ----------------------------------------
+2026-01-15 08:29:00,897 - INFO - [75/165] iCook Pho You (V3: 479, V1: 669)
+2026-01-15 08:29:00,897 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=669&load=account_information&showLang=en
+2026-01-15 08:29:02,854 - DEBUG - Found 1 contacts with emails for V1 ID 669
+2026-01-15 08:29:02,854 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:03,276 - INFO - Created Supabase Auth user: thainguyen3142@gmail.com (ID: 40b0fa19-7eaf-48ab-9a9b-8a577239d21b)
+2026-01-15 08:29:03,344 - INFO - Created admin_user: thainguyen3142@gmail.com (ID: 1011)
+2026-01-15 08:29:03,481 - INFO - Linked admin 1011 to restaurant 479
+2026-01-15 08:29:03,481 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:03,481 - INFO - ----------------------------------------
+2026-01-15 08:29:03,481 - INFO - [76/165] Ting's Kitchen (V3: 941, V1: 694)
+2026-01-15 08:29:03,481 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=694&load=account_information&showLang=en
+2026-01-15 08:29:05,460 - DEBUG - Found 1 contacts with emails for V1 ID 694
+2026-01-15 08:29:05,460 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:05,786 - INFO - Created Supabase Auth user: Caiyang8602@gmail.com (ID: 50401937-af83-43ac-9aaa-06a796620784)
+2026-01-15 08:29:05,851 - INFO - Created admin_user: Caiyang8602@gmail.com (ID: 1012)
+2026-01-15 08:29:05,923 - INFO - Linked admin 1012 to restaurant 941
+2026-01-15 08:29:05,923 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:05,923 - INFO - ----------------------------------------
+2026-01-15 08:29:05,923 - INFO - [77/165] Light of India (V3: 491, V1: 695)
+2026-01-15 08:29:05,923 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=695&load=account_information&showLang=en
+2026-01-15 08:29:07,825 - DEBUG - Found 1 contacts with emails for V1 ID 695
+2026-01-15 08:29:07,825 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:08,100 - INFO - Created Supabase Auth user: Barnali.deb@gmail.com (ID: 8be3822b-1ed7-4fce-a225-e1c495194f95)
+2026-01-15 08:29:08,143 - INFO - Created admin_user: Barnali.deb@gmail.com (ID: 1013)
+2026-01-15 08:29:08,216 - INFO - Linked admin 1013 to restaurant 491
+2026-01-15 08:29:08,216 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:08,216 - INFO - ----------------------------------------
+2026-01-15 08:29:08,216 - INFO - [78/165] Rangoli (V3: 497, V1: 701)
+2026-01-15 08:29:08,216 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=701&load=account_information&showLang=en
+2026-01-15 08:29:10,104 - DEBUG - Found 1 contacts with emails for V1 ID 701
+2026-01-15 08:29:10,104 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:10,357 - INFO - Created Supabase Auth user: charanjit65@hotmail.com (ID: d742786c-cea4-47c9-a19e-b099d185c749)
+2026-01-15 08:29:10,397 - INFO - Created admin_user: charanjit65@hotmail.com (ID: 1014)
+2026-01-15 08:29:10,470 - INFO - Linked admin 1014 to restaurant 497
+2026-01-15 08:29:10,470 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:10,470 - INFO - ----------------------------------------
+2026-01-15 08:29:10,470 - INFO - [79/165] Papa Pizza Val-Des-Monts (V3: 1014, V1: 703)
+2026-01-15 08:29:10,470 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=703&load=account_information&showLang=en
+2026-01-15 08:29:12,354 - DEBUG - Found 1 contacts with emails for V1 ID 703
+2026-01-15 08:29:12,354 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:12,630 - INFO - Created Supabase Auth user: hima.ca@hotmail.com (ID: f715b327-a706-4fb8-8636-de73da1f7a50)
+2026-01-15 08:29:12,668 - INFO - Created admin_user: hima.ca@hotmail.com (ID: 1015)
+2026-01-15 08:29:12,743 - INFO - Linked admin 1015 to restaurant 1014
+2026-01-15 08:29:12,743 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:12,743 - INFO - ----------------------------------------
+2026-01-15 08:29:12,743 - INFO - [80/165] New Hong Kong (V3: 502, V1: 707)
+2026-01-15 08:29:12,743 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=707&load=account_information&showLang=en
+2026-01-15 08:29:14,615 - DEBUG - Found 1 contacts with emails for V1 ID 707
+2026-01-15 08:29:14,615 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:14,899 - INFO - Created Supabase Auth user: jtam048@uottawa.ca (ID: 92adc14b-f7b8-454b-88f0-c236fb0c38d6)
+2026-01-15 08:29:14,939 - INFO - Created admin_user: jtam048@uottawa.ca (ID: 1016)
+2026-01-15 08:29:15,012 - INFO - Linked admin 1016 to restaurant 502
+2026-01-15 08:29:15,012 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:15,012 - INFO - === PROGRESS: 80/165 restaurants processed ===
+2026-01-15 08:29:15,012 - INFO - ----------------------------------------
+2026-01-15 08:29:15,012 - INFO - [81/165] Pizza Lovers Hunt Club (V3: 507, V1: 712)
+2026-01-15 08:29:15,013 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=712&load=account_information&showLang=en
+2026-01-15 08:29:16,888 - DEBUG - Found 1 contacts with emails for V1 ID 712
+2026-01-15 08:29:16,888 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:17,163 - INFO - Created Supabase Auth user: sarwarhazara@hotmail.com (ID: 01660de9-35d5-4c2e-a05f-2fc1a79b00f4)
+2026-01-15 08:29:17,203 - INFO - Created admin_user: sarwarhazara@hotmail.com (ID: 1017)
+2026-01-15 08:29:17,277 - INFO - Linked admin 1017 to restaurant 507
+2026-01-15 08:29:17,277 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:17,277 - INFO - ----------------------------------------
+2026-01-15 08:29:17,277 - INFO - [82/165] Egg Roll Factory (V3: 511, V1: 716)
+2026-01-15 08:29:17,277 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=716&load=account_information&showLang=en
+2026-01-15 08:29:19,148 - DEBUG - Found 1 contacts with emails for V1 ID 716
+2026-01-15 08:29:19,148 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:19,403 - INFO - Created Supabase Auth user: shi00063@algonquinlive.com (ID: 2b587960-8bb1-4a53-9d1d-41fb75d5f350)
+2026-01-15 08:29:19,442 - INFO - Created admin_user: shi00063@algonquinlive.com (ID: 1018)
+2026-01-15 08:29:19,515 - INFO - Linked admin 1018 to restaurant 511
+2026-01-15 08:29:19,515 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:19,515 - INFO - ----------------------------------------
+2026-01-15 08:29:19,515 - INFO - [83/165] Napolis (V3: 515, V1: 721)
+2026-01-15 08:29:19,515 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=721&load=account_information&showLang=en
+2026-01-15 08:29:21,395 - DEBUG - Found 1 contacts with emails for V1 ID 721
+2026-01-15 08:29:21,395 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:21,671 - INFO - Created Supabase Auth user: ray_napolis@hotmail.com (ID: 7aedee0c-314e-480d-947e-10dd3e76925e)
+2026-01-15 08:29:21,710 - INFO - Created admin_user: ray_napolis@hotmail.com (ID: 1019)
+2026-01-15 08:29:21,779 - INFO - Linked admin 1019 to restaurant 515
+2026-01-15 08:29:21,779 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:21,779 - INFO - ----------------------------------------
+2026-01-15 08:29:21,779 - INFO - [84/165] HaNoi Pho (V3: 519, V1: 727)
+2026-01-15 08:29:21,779 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=727&load=account_information&showLang=en
+2026-01-15 08:29:23,670 - DEBUG - Found 1 contacts with emails for V1 ID 727
+2026-01-15 08:29:23,670 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:23,932 - INFO - Created Supabase Auth user: camvan73@gmail.com (ID: 1363d75f-7a1d-47e2-8fb3-b8a9dd3191be)
+2026-01-15 08:29:23,972 - INFO - Created admin_user: camvan73@gmail.com (ID: 1020)
+2026-01-15 08:29:24,042 - INFO - Linked admin 1020 to restaurant 519
+2026-01-15 08:29:24,042 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:24,042 - INFO - ----------------------------------------
+2026-01-15 08:29:24,042 - INFO - [85/165] Palermo Pizzeria (V3: 521, V1: 729)
+2026-01-15 08:29:24,042 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=729&load=account_information&showLang=en
+2026-01-15 08:29:25,926 - DEBUG - Found 1 contacts with emails for V1 ID 729
+2026-01-15 08:29:25,926 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:26,191 - INFO - Created Supabase Auth user: eljammalali073@gmail.com (ID: 802e8f48-0dbe-4fe0-b6b7-d6eafc6f2297)
+2026-01-15 08:29:26,230 - INFO - Created admin_user: eljammalali073@gmail.com (ID: 1021)
+2026-01-15 08:29:26,302 - INFO - Linked admin 1021 to restaurant 521
+2026-01-15 08:29:26,302 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:26,302 - INFO - ----------------------------------------
+2026-01-15 08:29:26,302 - INFO - [86/165] Papa Grecque des Flandres (V3: 540, V1: 758)
+2026-01-15 08:29:26,302 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=758&load=account_information&showLang=en
+2026-01-15 08:29:28,185 - DEBUG - Found 1 contacts with emails for V1 ID 758
+2026-01-15 08:29:28,186 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:28,266 - INFO - Updated admin_user ID 979: osman_moudi@hotmail.com
+2026-01-15 08:29:28,339 - INFO - Linked admin 979 to restaurant 540
+2026-01-15 08:29:28,340 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:29:28,340 - INFO - ----------------------------------------
+2026-01-15 08:29:28,340 - INFO - [87/165] Aahar The Taste of India (V3: 561, V1: 781)
+2026-01-15 08:29:28,340 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=781&load=account_information&showLang=en
+2026-01-15 08:29:30,237 - DEBUG - Found 1 contacts with emails for V1 ID 781
+2026-01-15 08:29:30,237 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:30,308 - INFO - Updated admin_user ID 939: rupinder.pal@hotmail.com
+2026-01-15 08:29:30,344 - DEBUG -     Admin 939 already linked to restaurant 561
+2026-01-15 08:29:30,344 - INFO -   Result: 0 created, 1 updated, 0 links
+2026-01-15 08:29:30,344 - INFO - ----------------------------------------
+2026-01-15 08:29:30,344 - INFO - [88/165] Pizza des Hautes Plaines (V3: 562, V1: 782)
+2026-01-15 08:29:30,344 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=782&load=account_information&showLang=en
+2026-01-15 08:29:32,255 - DEBUG - Found 1 contacts with emails for V1 ID 782
+2026-01-15 08:29:32,255 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:32,519 - INFO - Created Supabase Auth user: pizzadhp@hotmail.com (ID: d3565098-5b49-4f87-b36e-eec236984a7e)
+2026-01-15 08:29:32,556 - INFO - Created admin_user: pizzadhp@hotmail.com (ID: 1022)
+2026-01-15 08:29:32,628 - INFO - Linked admin 1022 to restaurant 562
+2026-01-15 08:29:32,628 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:32,628 - INFO - ----------------------------------------
+2026-01-15 08:29:32,628 - INFO - [89/165] Milano (V3: 565, V1: 785)
+2026-01-15 08:29:32,628 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=785&load=account_information&showLang=en
+2026-01-15 08:29:34,514 - DEBUG - Found 1 contacts with emails for V1 ID 785
+2026-01-15 08:29:34,514 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:34,758 - INFO - Created Supabase Auth user: kalalnab7@gmail.com (ID: d1b1236d-b0da-485e-9ec1-41c9f7f2d348)
+2026-01-15 08:29:34,797 - INFO - Created admin_user: kalalnab7@gmail.com (ID: 1023)
+2026-01-15 08:29:34,869 - INFO - Linked admin 1023 to restaurant 565
+2026-01-15 08:29:34,869 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:34,869 - INFO - ----------------------------------------
+2026-01-15 08:29:34,869 - INFO - [90/165] Milano (V3: 569, V1: 789)
+2026-01-15 08:29:34,869 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=789&load=account_information&showLang=en
+2026-01-15 08:29:36,734 - DEBUG - Found 1 contacts with emails for V1 ID 789
+2026-01-15 08:29:36,734 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:37,009 - INFO - Created Supabase Auth user: krishnavaru8989@gmail.com (ID: f4c10a58-3787-4736-bfb2-bb6ca15a859f)
+2026-01-15 08:29:37,047 - INFO - Created admin_user: krishnavaru8989@gmail.com (ID: 1024)
+2026-01-15 08:29:37,118 - INFO - Linked admin 1024 to restaurant 569
+2026-01-15 08:29:37,118 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:37,118 - INFO - ----------------------------------------
+2026-01-15 08:29:37,118 - INFO - [91/165] Crispy's (V3: 584, V1: 805)
+2026-01-15 08:29:37,118 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=805&load=account_information&showLang=en
+2026-01-15 08:29:38,996 - DEBUG - Found 1 contacts with emails for V1 ID 805
+2026-01-15 08:29:38,996 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:39,292 - INFO - Created Supabase Auth user: m.lezzeik@gmail.com (ID: b4f3f723-3b36-447d-b88e-ed6d5307a859)
+2026-01-15 08:29:39,331 - INFO - Created admin_user: m.lezzeik@gmail.com (ID: 1025)
+2026-01-15 08:29:39,407 - INFO - Linked admin 1025 to restaurant 584
+2026-01-15 08:29:39,407 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:39,407 - INFO - ----------------------------------------
+2026-01-15 08:29:39,407 - INFO - [92/165] Milano (V3: 586, V1: 807)
+2026-01-15 08:29:39,407 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=807&load=account_information&showLang=en
+2026-01-15 08:29:41,291 - DEBUG - Found 1 contacts with emails for V1 ID 807
+2026-01-15 08:29:41,291 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:41,550 - INFO - Created Supabase Auth user: milanoarnprior@gmail.com (ID: 5e081c6e-653f-4066-9ae1-e69f374393ee)
+2026-01-15 08:29:41,590 - INFO - Created admin_user: milanoarnprior@gmail.com (ID: 1026)
+2026-01-15 08:29:41,661 - INFO - Linked admin 1026 to restaurant 586
+2026-01-15 08:29:41,662 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:41,662 - INFO - ----------------------------------------
+2026-01-15 08:29:41,662 - INFO - [93/165] Milano (V3: 593, V1: 815)
+2026-01-15 08:29:41,662 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=815&load=account_information&showLang=en
+2026-01-15 08:29:43,532 - DEBUG - Found 2 contacts with emails for V1 ID 815
+2026-01-15 08:29:43,532 - INFO -   Found 2 unique contacts with email
+2026-01-15 08:29:43,794 - INFO - Created Supabase Auth user: janke_78@hotmail.com (ID: 3ce66ad7-3681-4db2-889c-9aaa206203fb)
+2026-01-15 08:29:43,834 - INFO - Created admin_user: janke_78@hotmail.com (ID: 1027)
+2026-01-15 08:29:43,905 - INFO - Linked admin 1027 to restaurant 593
+2026-01-15 08:29:44,168 - INFO - Created Supabase Auth user: shirleefrench@gmail.com (ID: e2310ec1-d839-4675-bda4-fe1fbccbb233)
+2026-01-15 08:29:44,209 - INFO - Created admin_user: shirleefrench@gmail.com (ID: 1028)
+2026-01-15 08:29:44,281 - INFO - Linked admin 1028 to restaurant 593
+2026-01-15 08:29:44,281 - INFO -   Result: 2 created, 0 updated, 2 links
+2026-01-15 08:29:44,281 - INFO - ----------------------------------------
+2026-01-15 08:29:44,281 - INFO - [94/165] Supreme Pizzeria (V3: 595, V1: 817)
+2026-01-15 08:29:44,281 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=817&load=account_information&showLang=en
+2026-01-15 08:29:46,173 - DEBUG - Found 1 contacts with emails for V1 ID 817
+2026-01-15 08:29:46,173 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:46,440 - INFO - Created Supabase Auth user: supremepizzadonald@gmail.com (ID: ab8e5ef9-f0f4-4817-a4f7-30a637b2771f)
+2026-01-15 08:29:46,481 - INFO - Created admin_user: supremepizzadonald@gmail.com (ID: 1029)
+2026-01-15 08:29:46,550 - INFO - Linked admin 1029 to restaurant 595
+2026-01-15 08:29:46,550 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:46,550 - INFO - ----------------------------------------
+2026-01-15 08:29:46,550 - INFO - [95/165] Sushi Fleury (V3: 596, V1: 818)
+2026-01-15 08:29:46,551 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=818&load=account_information&showLang=en
+2026-01-15 08:29:48,443 - DEBUG - Found 1 contacts with emails for V1 ID 818
+2026-01-15 08:29:48,443 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:48,684 - INFO - Created Supabase Auth user: vutranmanhtuan@gmail.com (ID: 43354c38-4d79-4cd0-b865-a1352999b947)
+2026-01-15 08:29:48,724 - INFO - Created admin_user: vutranmanhtuan@gmail.com (ID: 1030)
+2026-01-15 08:29:48,795 - INFO - Linked admin 1030 to restaurant 596
+2026-01-15 08:29:48,796 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:48,796 - INFO - ----------------------------------------
+2026-01-15 08:29:48,796 - INFO - [96/165] Milano (V3: 601, V1: 824)
+2026-01-15 08:29:48,796 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=824&load=account_information&showLang=en
+2026-01-15 08:29:50,686 - DEBUG - Found 1 contacts with emails for V1 ID 824
+2026-01-15 08:29:50,686 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:50,944 - INFO - Created Supabase Auth user: milano-st@hotmail.com (ID: 131d7c58-6338-493b-a8a0-5aa90c36012b)
+2026-01-15 08:29:50,985 - INFO - Created admin_user: milano-st@hotmail.com (ID: 1031)
+2026-01-15 08:29:51,055 - INFO - Linked admin 1031 to restaurant 601
+2026-01-15 08:29:51,055 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:51,055 - INFO - ----------------------------------------
+2026-01-15 08:29:51,055 - INFO - [97/165] Papa Pizza Cantley (V3: 602, V1: 825)
+2026-01-15 08:29:51,055 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=825&load=account_information&showLang=en
+2026-01-15 08:29:52,938 - DEBUG - Found 1 contacts with emails for V1 ID 825
+2026-01-15 08:29:52,938 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:53,230 - INFO - Created Supabase Auth user: nicof1995@hotmail.com (ID: d7a62882-8cf9-4200-b4c5-f46a1947690f)
+2026-01-15 08:29:53,271 - INFO - Created admin_user: nicof1995@hotmail.com (ID: 1032)
+2026-01-15 08:29:53,346 - INFO - Linked admin 1032 to restaurant 602
+2026-01-15 08:29:53,346 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:53,346 - INFO - ----------------------------------------
+2026-01-15 08:29:53,346 - INFO - [98/165] Aroy Thai (V3: 607, V1: 830)
+2026-01-15 08:29:53,346 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=830&load=account_information&showLang=en
+2026-01-15 08:29:55,237 - DEBUG - Found 1 contacts with emails for V1 ID 830
+2026-01-15 08:29:55,237 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:55,524 - INFO - Created Supabase Auth user: happy_pat29@hotmail.com (ID: 9a6fe7ee-5f0f-4429-af83-3850fe51f300)
+2026-01-15 08:29:55,565 - INFO - Created admin_user: happy_pat29@hotmail.com (ID: 1033)
+2026-01-15 08:29:55,642 - INFO - Linked admin 1033 to restaurant 607
+2026-01-15 08:29:55,642 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:29:55,642 - INFO - ----------------------------------------
+2026-01-15 08:29:55,642 - INFO - [99/165] Marina Pizza des Flandres  (V3: 614, V1: 838)
+2026-01-15 08:29:55,642 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=838&load=account_information&showLang=en
+2026-01-15 08:29:57,555 - DEBUG - Found 1 contacts with emails for V1 ID 838
+2026-01-15 08:29:57,555 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:57,631 - INFO - Updated admin_user ID 979: osman_moudi@hotmail.com
+2026-01-15 08:29:57,703 - INFO - Linked admin 979 to restaurant 614
+2026-01-15 08:29:57,703 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:29:57,703 - INFO - ----------------------------------------
+2026-01-15 08:29:57,703 - INFO - [100/165] Papa Grecque Maloney  (V3: 616, V1: 840)
+2026-01-15 08:29:57,703 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=840&load=account_information&showLang=en
+2026-01-15 08:29:59,578 - DEBUG - Found 1 contacts with emails for V1 ID 840
+2026-01-15 08:29:59,578 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:29:59,652 - INFO - Updated admin_user ID 979: osman_moudi@hotmail.com
+2026-01-15 08:29:59,722 - INFO - Linked admin 979 to restaurant 616
+2026-01-15 08:29:59,722 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:29:59,722 - INFO - === PROGRESS: 100/165 restaurants processed ===
+2026-01-15 08:29:59,722 - INFO - ----------------------------------------
+2026-01-15 08:29:59,722 - INFO - [101/165] Milano (V3: 624, V1: 850)
+2026-01-15 08:29:59,723 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=850&load=account_information&showLang=en
+2026-01-15 08:30:01,629 - DEBUG - Found 1 contacts with emails for V1 ID 850
+2026-01-15 08:30:01,629 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:01,890 - INFO - Created Supabase Auth user: 8215557mainstreet@gmail.com (ID: 3bc80428-83b9-4878-8f5d-52e90d133b4c)
+2026-01-15 08:30:01,931 - INFO - Created admin_user: 8215557mainstreet@gmail.com (ID: 1034)
+2026-01-15 08:30:02,005 - INFO - Linked admin 1034 to restaurant 624
+2026-01-15 08:30:02,006 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:02,006 - INFO - ----------------------------------------
+2026-01-15 08:30:02,006 - INFO - [102/165] Asia Garden Ottawa (V3: 630, V1: 856)
+2026-01-15 08:30:02,006 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=856&load=account_information&showLang=en
+2026-01-15 08:30:03,892 - DEBUG - Found 1 contacts with emails for V1 ID 856
+2026-01-15 08:30:03,892 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:04,334 - INFO - Created Supabase Auth user: asiagardenottawa@gmail.com (ID: 4a9dbfa6-9991-4265-98b0-b451151a66bd)
+2026-01-15 08:30:04,375 - INFO - Created admin_user: asiagardenottawa@gmail.com (ID: 1035)
+2026-01-15 08:30:04,449 - INFO - Linked admin 1035 to restaurant 630
+2026-01-15 08:30:04,449 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:04,449 - INFO - ----------------------------------------
+2026-01-15 08:30:04,449 - INFO - [103/165] Joes Family Pizzeria (V3: 636, V1: 863)
+2026-01-15 08:30:04,449 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=863&load=account_information&showLang=en
+2026-01-15 08:30:06,335 - DEBUG - Found 2 contacts with emails for V1 ID 863
+2026-01-15 08:30:06,335 - INFO -   Found 2 unique contacts with email
+2026-01-15 08:30:06,602 - INFO - Created Supabase Auth user: Joesfamilypizzeria9900@gmail.com (ID: 305fa9b2-51b8-4733-bc8b-1b8c61674aed)
+2026-01-15 08:30:06,643 - INFO - Created admin_user: Joesfamilypizzeria9900@gmail.com (ID: 1036)
+2026-01-15 08:30:06,714 - INFO - Linked admin 1036 to restaurant 636
+2026-01-15 08:30:06,974 - INFO - Created Supabase Auth user: joesfamilypizzeria@live.ca (ID: e8e8d178-a93d-4f21-8579-308523e902b1)
+2026-01-15 08:30:07,015 - INFO - Created admin_user: joesfamilypizzeria@live.ca (ID: 1037)
+2026-01-15 08:30:07,091 - INFO - Linked admin 1037 to restaurant 636
+2026-01-15 08:30:07,091 - INFO -   Result: 2 created, 0 updated, 2 links
+2026-01-15 08:30:07,091 - INFO - ----------------------------------------
+2026-01-15 08:30:07,091 - INFO - [104/165] Digby's Restaurant (V3: 638, V1: 865)
+2026-01-15 08:30:07,091 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=865&load=account_information&showLang=en
+2026-01-15 08:30:08,972 - DEBUG - Found 1 contacts with emails for V1 ID 865
+2026-01-15 08:30:08,972 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:09,232 - INFO - Created Supabase Auth user: almotayam20@hotmail.com (ID: d038aa3b-047a-4e98-88d8-267aadb43ab9)
+2026-01-15 08:30:09,274 - INFO - Created admin_user: almotayam20@hotmail.com (ID: 1038)
+2026-01-15 08:30:09,345 - INFO - Linked admin 1038 to restaurant 638
+2026-01-15 08:30:09,345 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:09,345 - INFO - ----------------------------------------
+2026-01-15 08:30:09,345 - INFO - [105/165] China Moon (V3: 641, V1: 869)
+2026-01-15 08:30:09,345 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=869&load=account_information&showLang=en
+2026-01-15 08:30:11,231 - DEBUG - Found 1 contacts with emails for V1 ID 869
+2026-01-15 08:30:11,232 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:11,510 - INFO - Created Supabase Auth user: 416100842@qq.com (ID: ef1915c6-4913-402d-a79d-7f43f3c020c8)
+2026-01-15 08:30:11,548 - INFO - Created admin_user: 416100842@qq.com (ID: 1039)
+2026-01-15 08:30:11,621 - INFO - Linked admin 1039 to restaurant 641
+2026-01-15 08:30:11,621 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:11,621 - INFO - ----------------------------------------
+2026-01-15 08:30:11,621 - INFO - [106/165] Mozza Pizza Hull (V3: 644, V1: 872)
+2026-01-15 08:30:11,621 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=872&load=account_information&showLang=en
+2026-01-15 08:30:13,506 - DEBUG - Found 1 contacts with emails for V1 ID 872
+2026-01-15 08:30:13,506 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:13,763 - INFO - Created Supabase Auth user: mozzapizza@live.ca (ID: 52301045-720e-40ca-b6db-9e9698908e62)
+2026-01-15 08:30:13,801 - INFO - Created admin_user: mozzapizza@live.ca (ID: 1040)
+2026-01-15 08:30:13,873 - INFO - Linked admin 1040 to restaurant 644
+2026-01-15 08:30:13,874 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:13,874 - INFO - ----------------------------------------
+2026-01-15 08:30:13,874 - INFO - [107/165] JC Royal Thai Cuisine (V3: 646, V1: 874)
+2026-01-15 08:30:13,874 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=874&load=account_information&showLang=en
+2026-01-15 08:30:15,745 - DEBUG - Found 1 contacts with emails for V1 ID 874
+2026-01-15 08:30:15,745 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:16,032 - INFO - Created Supabase Auth user: johnnyv@sentex.ca (ID: 9c91941f-6afb-4fc4-8d4d-38b48d1a67a8)
+2026-01-15 08:30:16,072 - INFO - Created admin_user: johnnyv@sentex.ca (ID: 1041)
+2026-01-15 08:30:16,147 - INFO - Linked admin 1041 to restaurant 646
+2026-01-15 08:30:16,147 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:16,147 - INFO - ----------------------------------------
+2026-01-15 08:30:16,147 - INFO - [108/165] Milano (V3: 651, V1: 879)
+2026-01-15 08:30:16,147 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=879&load=account_information&showLang=en
+2026-01-15 08:30:18,044 - DEBUG - Found 1 contacts with emails for V1 ID 879
+2026-01-15 08:30:18,044 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:18,323 - INFO - Created Supabase Auth user: bandarabdallah@gmail.com (ID: 9f496dfb-fd9c-4afe-940f-74c95e1073d8)
+2026-01-15 08:30:18,363 - INFO - Created admin_user: bandarabdallah@gmail.com (ID: 1042)
+2026-01-15 08:30:18,432 - INFO - Linked admin 1042 to restaurant 651
+2026-01-15 08:30:18,432 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:18,432 - INFO - ----------------------------------------
+2026-01-15 08:30:18,432 - INFO - [109/165] Milano (V3: 660, V1: 889)
+2026-01-15 08:30:18,432 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=889&load=account_information&showLang=en
+2026-01-15 08:30:20,298 - DEBUG - Found 1 contacts with emails for V1 ID 889
+2026-01-15 08:30:20,298 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:20,567 - INFO - Created Supabase Auth user: omnamahshivay.milano@gmail.com (ID: 11fe765f-d186-4355-9fd6-873bd458e565)
+2026-01-15 08:30:20,603 - INFO - Created admin_user: omnamahshivay.milano@gmail.com (ID: 1043)
+2026-01-15 08:30:20,674 - INFO - Linked admin 1043 to restaurant 660
+2026-01-15 08:30:20,675 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:20,675 - INFO - ----------------------------------------
+2026-01-15 08:30:20,675 - INFO - [110/165] Milano (V3: 680, V1: 913)
+2026-01-15 08:30:20,675 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=913&load=account_information&showLang=en
+2026-01-15 08:30:22,557 - DEBUG - Found 1 contacts with emails for V1 ID 913
+2026-01-15 08:30:22,557 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:22,812 - INFO - Created Supabase Auth user: khalifejack@gmail.com (ID: 295cbc57-189c-46a4-8e4c-12d68d382f9b)
+2026-01-15 08:30:22,855 - INFO - Created admin_user: khalifejack@gmail.com (ID: 1044)
+2026-01-15 08:30:22,923 - INFO - Linked admin 1044 to restaurant 680
+2026-01-15 08:30:22,923 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:22,923 - INFO - ----------------------------------------
+2026-01-15 08:30:22,923 - INFO - [111/165] Oka's Hull (V3: 681, V1: 914)
+2026-01-15 08:30:22,924 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=914&load=account_information&showLang=en
+2026-01-15 08:30:24,795 - DEBUG - Found 1 contacts with emails for V1 ID 914
+2026-01-15 08:30:24,795 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:25,067 - INFO - Created Supabase Auth user: Ayasrah69@hotmail.com (ID: 7aee418b-eadb-46f1-97f5-ba15c81ec9ae)
+2026-01-15 08:30:25,104 - INFO - Created admin_user: Ayasrah69@hotmail.com (ID: 1045)
+2026-01-15 08:30:25,175 - INFO - Linked admin 1045 to restaurant 681
+2026-01-15 08:30:25,175 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:25,175 - INFO - ----------------------------------------
+2026-01-15 08:30:25,175 - INFO - [112/165] Pizza Maisonneuve (V3: 696, V1: 930)
+2026-01-15 08:30:25,176 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=930&load=account_information&showLang=en
+2026-01-15 08:30:27,046 - DEBUG - Found 1 contacts with emails for V1 ID 930
+2026-01-15 08:30:27,046 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:27,118 - INFO - Updated admin_user ID 960: Rabih2015_01@hotmail.com
+2026-01-15 08:30:27,187 - INFO - Linked admin 960 to restaurant 696
+2026-01-15 08:30:27,187 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:30:27,187 - INFO - ----------------------------------------
+2026-01-15 08:30:27,187 - INFO - [113/165] Milano (V3: 701, V1: 937)
+2026-01-15 08:30:27,187 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=937&load=account_information&showLang=en
+2026-01-15 08:30:29,071 - DEBUG - Found 1 contacts with emails for V1 ID 937
+2026-01-15 08:30:29,072 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:29,321 - INFO - Created Supabase Auth user: selmonum@gmail.com (ID: ae943ee9-7d71-49b5-b845-8249fb1bdd0e)
+2026-01-15 08:30:29,358 - INFO - Created admin_user: selmonum@gmail.com (ID: 1046)
+2026-01-15 08:30:29,430 - INFO - Linked admin 1046 to restaurant 701
+2026-01-15 08:30:29,430 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:29,430 - INFO - ----------------------------------------
+2026-01-15 08:30:29,430 - INFO - [114/165] Supreme Pizzeria (V3: 711, V1: 947)
+2026-01-15 08:30:29,430 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=947&load=account_information&showLang=en
+2026-01-15 08:30:31,313 - DEBUG - Found 1 contacts with emails for V1 ID 947
+2026-01-15 08:30:31,313 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:31,576 - INFO - Created Supabase Auth user: joeayoub67@outlook.com (ID: d153ab3b-f6a9-4788-bc21-6cfae6ec2f73)
+2026-01-15 08:30:31,617 - INFO - Created admin_user: joeayoub67@outlook.com (ID: 1047)
+2026-01-15 08:30:31,693 - INFO - Linked admin 1047 to restaurant 711
+2026-01-15 08:30:31,693 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:31,693 - INFO - ----------------------------------------
+2026-01-15 08:30:31,693 - INFO - [115/165] Patate Lou Lou (V3: 712, V1: 948)
+2026-01-15 08:30:31,693 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=948&load=account_information&showLang=en
+2026-01-15 08:30:33,566 - DEBUG - Found 1 contacts with emails for V1 ID 948
+2026-01-15 08:30:33,566 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:33,842 - INFO - Created Supabase Auth user: patateloulou@hotmail.ca (ID: c2f75811-9e4a-4af6-b7a5-35da96875f0a)
+2026-01-15 08:30:33,895 - INFO - Created admin_user: patateloulou@hotmail.ca (ID: 1048)
+2026-01-15 08:30:33,967 - INFO - Linked admin 1048 to restaurant 712
+2026-01-15 08:30:33,967 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:33,967 - INFO - ----------------------------------------
+2026-01-15 08:30:33,967 - INFO - [116/165] Ogilvie Pizza (V3: 714, V1: 951)
+2026-01-15 08:30:33,967 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=951&load=account_information&showLang=en
+2026-01-15 08:30:35,842 - DEBUG - Found 1 contacts with emails for V1 ID 951
+2026-01-15 08:30:35,842 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:36,108 - INFO - Created Supabase Auth user: hani_soueid613@live.com (ID: 0236b53a-216d-4d7f-8300-a93a8a7cb9ae)
+2026-01-15 08:30:36,150 - INFO - Created admin_user: hani_soueid613@live.com (ID: 1049)
+2026-01-15 08:30:36,227 - INFO - Linked admin 1049 to restaurant 714
+2026-01-15 08:30:36,228 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:36,228 - INFO - ----------------------------------------
+2026-01-15 08:30:36,228 - INFO - [117/165] La Poutinerie Ogilvie (V3: 715, V1: 952)
+2026-01-15 08:30:36,228 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=952&load=account_information&showLang=en
+2026-01-15 08:30:38,107 - DEBUG - Found 1 contacts with emails for V1 ID 952
+2026-01-15 08:30:38,107 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:38,182 - INFO - Updated admin_user ID 950: nathaliezaher@hotmail.com
+2026-01-15 08:30:38,259 - INFO - Linked admin 950 to restaurant 715
+2026-01-15 08:30:38,259 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:30:38,259 - INFO - ----------------------------------------
+2026-01-15 08:30:38,259 - INFO - [118/165] PizzaRama (V3: 716, V1: 953)
+2026-01-15 08:30:38,259 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=953&load=account_information&showLang=en
+2026-01-15 08:30:40,134 - DEBUG - Found 1 contacts with emails for V1 ID 953
+2026-01-15 08:30:40,134 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:40,207 - INFO - Updated admin_user ID 995: kaled.alkhatib11@gmail.com
+2026-01-15 08:30:40,281 - INFO - Linked admin 995 to restaurant 716
+2026-01-15 08:30:40,281 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:30:40,281 - INFO - ----------------------------------------
+2026-01-15 08:30:40,281 - INFO - [119/165] La Maison Pho (V3: 721, V1: 959)
+2026-01-15 08:30:40,281 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=959&load=account_information&showLang=en
+2026-01-15 08:30:42,155 - DEBUG - Found 1 contacts with emails for V1 ID 959
+2026-01-15 08:30:42,155 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:42,470 - INFO - Created Supabase Auth user: minhkhuu03@gmail.com (ID: aa5f75bd-fe19-4102-ade6-e6bf4fe1c03d)
+2026-01-15 08:30:42,510 - INFO - Created admin_user: minhkhuu03@gmail.com (ID: 1050)
+2026-01-15 08:30:42,584 - INFO - Linked admin 1050 to restaurant 721
+2026-01-15 08:30:42,585 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:42,585 - INFO - ----------------------------------------
+2026-01-15 08:30:42,585 - INFO - [120/165] Pizza Joanna (V3: 726, V1: 964)
+2026-01-15 08:30:42,585 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=964&load=account_information&showLang=en
+2026-01-15 08:30:44,462 - DEBUG - Found 1 contacts with emails for V1 ID 964
+2026-01-15 08:30:44,463 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:44,722 - INFO - Created Supabase Auth user: joannapizza@hotmail.com (ID: 6a75cbe5-b876-4094-88c7-30323a26f749)
+2026-01-15 08:30:44,765 - INFO - Created admin_user: joannapizza@hotmail.com (ID: 1051)
+2026-01-15 08:30:44,838 - INFO - Linked admin 1051 to restaurant 726
+2026-01-15 08:30:44,839 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:44,839 - INFO - === PROGRESS: 120/165 restaurants processed ===
+2026-01-15 08:30:44,839 - INFO - ----------------------------------------
+2026-01-15 08:30:44,839 - INFO - [121/165] La Maison du Burger (V3: 727, V1: 965)
+2026-01-15 08:30:44,839 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=965&load=account_information&showLang=en
+2026-01-15 08:30:46,718 - DEBUG - Found 1 contacts with emails for V1 ID 965
+2026-01-15 08:30:46,718 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:46,792 - INFO - Updated admin_user ID 960: Rabih2015_01@hotmail.com
+2026-01-15 08:30:46,869 - INFO - Linked admin 960 to restaurant 727
+2026-01-15 08:30:46,869 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:30:46,869 - INFO - ----------------------------------------
+2026-01-15 08:30:46,869 - INFO - [122/165] Friendly Restaurant and Pizzeria (V3: 730, V1: 968)
+2026-01-15 08:30:46,869 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=968&load=account_information&showLang=en
+2026-01-15 08:30:48,750 - DEBUG - Found 1 contacts with emails for V1 ID 968
+2026-01-15 08:30:48,750 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:49,034 - INFO - Created Supabase Auth user: info@friendlypizza.ca (ID: 2e9e0fcb-e6a3-4099-8de7-dcd01971f953)
+2026-01-15 08:30:49,075 - INFO - Created admin_user: info@friendlypizza.ca (ID: 1052)
+2026-01-15 08:30:49,148 - INFO - Linked admin 1052 to restaurant 730
+2026-01-15 08:30:49,148 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:49,148 - INFO - ----------------------------------------
+2026-01-15 08:30:49,148 - INFO - [123/165] Amicci Pizza (V3: 735, V1: 973)
+2026-01-15 08:30:49,148 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=973&load=account_information&showLang=en
+2026-01-15 08:30:51,023 - DEBUG - Found 1 contacts with emails for V1 ID 973
+2026-01-15 08:30:51,023 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:51,276 - INFO - Created Supabase Auth user: michelkanaan@live.com (ID: eb35da2e-1825-43f3-8487-1e3858f1848e)
+2026-01-15 08:30:51,315 - INFO - Created admin_user: michelkanaan@live.com (ID: 1053)
+2026-01-15 08:30:51,386 - INFO - Linked admin 1053 to restaurant 735
+2026-01-15 08:30:51,386 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:51,386 - INFO - ----------------------------------------
+2026-01-15 08:30:51,386 - INFO - [124/165] Greber Pizza et Shawarma (V3: 736, V1: 974)
+2026-01-15 08:30:51,386 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=974&load=account_information&showLang=en
+2026-01-15 08:30:53,273 - DEBUG - Found 1 contacts with emails for V1 ID 974
+2026-01-15 08:30:53,273 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:53,539 - INFO - Created Supabase Auth user: francoiskharrat@gmail.com (ID: 73127710-5b19-4727-abfe-b96cdc31c96a)
+2026-01-15 08:30:53,574 - INFO - Created admin_user: francoiskharrat@gmail.com (ID: 1054)
+2026-01-15 08:30:53,645 - INFO - Linked admin 1054 to restaurant 736
+2026-01-15 08:30:53,646 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:53,646 - INFO - ----------------------------------------
+2026-01-15 08:30:53,646 - INFO - [125/165] Sala Thai (V3: 745, V1: 983)
+2026-01-15 08:30:53,646 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=983&load=account_information&showLang=en
+2026-01-15 08:30:55,517 - DEBUG - Found 2 contacts with emails for V1 ID 983
+2026-01-15 08:30:55,517 - INFO -   Found 2 unique contacts with email
+2026-01-15 08:30:55,769 - INFO - Created Supabase Auth user: cnakhle80@gmail.com (ID: 036a0fe0-3846-4d6e-ade0-1deca9124a12)
+2026-01-15 08:30:55,811 - INFO - Created admin_user: cnakhle80@gmail.com (ID: 1055)
+2026-01-15 08:30:55,884 - INFO - Linked admin 1055 to restaurant 745
+2026-01-15 08:30:56,144 - INFO - Created Supabase Auth user: salathaicuisineinfo@gmail.com (ID: d40d6130-1850-465f-afc4-5009e44fafab)
+2026-01-15 08:30:56,184 - INFO - Created admin_user: salathaicuisineinfo@gmail.com (ID: 1056)
+2026-01-15 08:30:56,257 - INFO - Linked admin 1056 to restaurant 745
+2026-01-15 08:30:56,257 - INFO -   Result: 2 created, 0 updated, 2 links
+2026-01-15 08:30:56,257 - INFO - ----------------------------------------
+2026-01-15 08:30:56,257 - INFO - [126/165] Milano (V3: 749, V1: 987)
+2026-01-15 08:30:56,257 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=987&load=account_information&showLang=en
+2026-01-15 08:30:58,161 - DEBUG - Found 1 contacts with emails for V1 ID 987
+2026-01-15 08:30:58,161 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:30:58,422 - INFO - Created Supabase Auth user: milanomerrickville@hotmail.com (ID: 90743111-7558-4d5c-b946-ed6163cdcf45)
+2026-01-15 08:30:58,459 - INFO - Created admin_user: milanomerrickville@hotmail.com (ID: 1057)
+2026-01-15 08:30:58,531 - INFO - Linked admin 1057 to restaurant 749
+2026-01-15 08:30:58,531 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:30:58,531 - INFO - ----------------------------------------
+2026-01-15 08:30:58,532 - INFO - [127/165] Milano (V3: 751, V1: 989)
+2026-01-15 08:30:58,532 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=989&load=account_information&showLang=en
+2026-01-15 08:31:00,425 - DEBUG - Found 1 contacts with emails for V1 ID 989
+2026-01-15 08:31:00,425 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:00,683 - INFO - Created Supabase Auth user: Khaledyalaoui@outlook.fr (ID: 8490ab7f-4b0d-461e-a3a1-2dd0fb6ad02f)
+2026-01-15 08:31:00,724 - INFO - Created admin_user: Khaledyalaoui@outlook.fr (ID: 1058)
+2026-01-15 08:31:00,801 - INFO - Linked admin 1058 to restaurant 751
+2026-01-15 08:31:00,801 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:00,801 - INFO - ----------------------------------------
+2026-01-15 08:31:00,802 - INFO - [128/165] Little Gyros Greek Grill (V3: 756, V1: 998)
+2026-01-15 08:31:00,802 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=998&load=account_information&showLang=en
+2026-01-15 08:31:02,688 - DEBUG - Found 1 contacts with emails for V1 ID 998
+2026-01-15 08:31:02,688 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:02,947 - INFO - Created Supabase Auth user: Fariedliv@hotmail.com (ID: 75e3f289-abe7-4e02-8685-5d3a25c547f5)
+2026-01-15 08:31:02,990 - INFO - Created admin_user: Fariedliv@hotmail.com (ID: 1059)
+2026-01-15 08:31:03,066 - INFO - Linked admin 1059 to restaurant 756
+2026-01-15 08:31:03,066 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:03,066 - INFO - ----------------------------------------
+2026-01-15 08:31:03,066 - INFO - [129/165] All Out Burger Bank St. (V3: 924, V1: 1013)
+2026-01-15 08:31:03,066 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1013&load=account_information&showLang=en
+2026-01-15 08:31:04,950 - DEBUG - Found 1 contacts with emails for V1 ID 1013
+2026-01-15 08:31:04,950 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:05,228 - INFO - Created Supabase Auth user: mahde_ghandour@hotmail.com (ID: 3c902497-a5da-4ec9-966e-a7d62c5c9caf)
+2026-01-15 08:31:05,271 - INFO - Created admin_user: mahde_ghandour@hotmail.com (ID: 1060)
+2026-01-15 08:31:05,339 - INFO - Linked admin 1060 to restaurant 924
+2026-01-15 08:31:05,339 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:05,339 - INFO - ----------------------------------------
+2026-01-15 08:31:05,339 - INFO - [130/165] Colonnade Pizza (V3: 783, V1: 1025)
+2026-01-15 08:31:05,339 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1025&load=account_information&showLang=en
+2026-01-15 08:31:09,275 - DEBUG - Found 1 contacts with emails for V1 ID 1025
+2026-01-15 08:31:09,275 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:09,534 - INFO - Created Supabase Auth user: Pulkit@colonnadepizzas.com (ID: 1814f6b9-0531-4caa-9134-931bf6a528bc)
+2026-01-15 08:31:09,574 - INFO - Created admin_user: Pulkit@colonnadepizzas.com (ID: 1061)
+2026-01-15 08:31:09,645 - INFO - Linked admin 1061 to restaurant 783
+2026-01-15 08:31:09,645 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:09,645 - INFO - ----------------------------------------
+2026-01-15 08:31:09,645 - INFO - [131/165] Colonnade Pizza (V3: 784, V1: 1027)
+2026-01-15 08:31:09,645 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1027&load=account_information&showLang=en
+2026-01-15 08:31:11,553 - DEBUG - Found 1 contacts with emails for V1 ID 1027
+2026-01-15 08:31:11,553 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:11,811 - INFO - Created Supabase Auth user: colonnadecarling@gmail.com (ID: 10ceedb7-696e-44fc-933b-09810114d667)
+2026-01-15 08:31:11,850 - INFO - Created admin_user: colonnadecarling@gmail.com (ID: 1062)
+2026-01-15 08:31:11,923 - INFO - Linked admin 1062 to restaurant 784
+2026-01-15 08:31:11,923 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:11,923 - INFO - ----------------------------------------
+2026-01-15 08:31:11,923 - INFO - [132/165] Colonnade Pizza (V3: 785, V1: 1028)
+2026-01-15 08:31:11,923 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1028&load=account_information&showLang=en
+2026-01-15 08:31:13,809 - DEBUG - Found 1 contacts with emails for V1 ID 1028
+2026-01-15 08:31:13,809 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:14,065 - INFO - Created Supabase Auth user: maamoun@Araji.com (ID: e08c29c0-9b12-4460-bf4b-3c158433cb70)
+2026-01-15 08:31:14,103 - INFO - Created admin_user: maamoun@Araji.com (ID: 1063)
+2026-01-15 08:31:14,175 - INFO - Linked admin 1063 to restaurant 785
+2026-01-15 08:31:14,175 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:14,175 - INFO - ----------------------------------------
+2026-01-15 08:31:14,175 - INFO - [133/165] Poutinerie Quï¿½becurds Hull (V3: 789, V1: 1032)
+2026-01-15 08:31:14,175 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1032&load=account_information&showLang=en
+2026-01-15 08:31:16,046 - DEBUG - No existing contacts for V1 ID 1032
+2026-01-15 08:31:16,046 - INFO -   No contacts found - skipping
+2026-01-15 08:31:16,046 - INFO - ----------------------------------------
+2026-01-15 08:31:16,046 - INFO - [134/165] Nachos Loco Hull (V3: 790, V1: 1033)
+2026-01-15 08:31:16,047 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1033&load=account_information&showLang=en
+2026-01-15 08:31:17,920 - DEBUG - No existing contacts for V1 ID 1033
+2026-01-15 08:31:17,920 - INFO -   No contacts found - skipping
+2026-01-15 08:31:17,920 - INFO - ----------------------------------------
+2026-01-15 08:31:17,920 - INFO - [135/165] Dumpling Bowl (V3: 792, V1: 1035)
+2026-01-15 08:31:17,920 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1035&load=account_information&showLang=en
+2026-01-15 08:31:19,813 - DEBUG - Found 1 contacts with emails for V1 ID 1035
+2026-01-15 08:31:19,813 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:20,103 - INFO - Created Supabase Auth user: xibaoqin@yahoo.ca (ID: c329d71c-de8a-475c-ae98-c782b6920e01)
+2026-01-15 08:31:20,142 - INFO - Created admin_user: xibaoqin@yahoo.ca (ID: 1064)
+2026-01-15 08:31:20,215 - INFO - Linked admin 1064 to restaurant 792
+2026-01-15 08:31:20,215 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:20,215 - INFO - ----------------------------------------
+2026-01-15 08:31:20,215 - INFO - [136/165] All Out Burger Gladstone (V3: 948, V1: 1038)
+2026-01-15 08:31:20,215 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1038&load=account_information&showLang=en
+2026-01-15 08:31:22,096 - DEBUG - Found 1 contacts with emails for V1 ID 1038
+2026-01-15 08:31:22,096 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:22,168 - INFO - Updated admin_user ID 1060: mahde_ghandour@hotmail.com
+2026-01-15 08:31:22,239 - INFO - Linked admin 1060 to restaurant 948
+2026-01-15 08:31:22,239 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:31:22,239 - INFO - ----------------------------------------
+2026-01-15 08:31:22,239 - INFO - [137/165] Papa Pizza Chem. de Masson (V3: 795, V1: 1039)
+2026-01-15 08:31:22,239 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1039&load=account_information&showLang=en
+2026-01-15 08:31:24,114 - DEBUG - Found 1 contacts with emails for V1 ID 1039
+2026-01-15 08:31:24,114 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:24,373 - INFO - Created Supabase Auth user: Khairullahfaizi@gmail.com (ID: 34ee7f6d-edb7-4b86-b8d3-9685754a0fa2)
+2026-01-15 08:31:24,411 - INFO - Created admin_user: Khairullahfaizi@gmail.com (ID: 1065)
+2026-01-15 08:31:24,489 - INFO - Linked admin 1065 to restaurant 795
+2026-01-15 08:31:24,489 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:24,490 - INFO - ----------------------------------------
+2026-01-15 08:31:24,490 - INFO - [138/165] Papa Burger (V3: 797, V1: 1041)
+2026-01-15 08:31:24,490 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1041&load=account_information&showLang=en
+2026-01-15 08:31:26,360 - DEBUG - Found 1 contacts with emails for V1 ID 1041
+2026-01-15 08:31:26,360 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:26,445 - INFO - Updated admin_user ID 979: osman_moudi@hotmail.com
+2026-01-15 08:31:26,519 - INFO - Linked admin 979 to restaurant 797
+2026-01-15 08:31:26,519 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:31:26,520 - INFO - ----------------------------------------
+2026-01-15 08:31:26,520 - INFO - [139/165] Kabylie Pizza (V3: 798, V1: 1042)
+2026-01-15 08:31:26,520 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1042&load=account_information&showLang=en
+2026-01-15 08:31:28,405 - DEBUG - Found 1 contacts with emails for V1 ID 1042
+2026-01-15 08:31:28,405 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:28,679 - INFO - Created Supabase Auth user: mohandkacimi@yahoo.com (ID: f8da1852-e681-473f-9ee9-8da8b7af6652)
+2026-01-15 08:31:28,719 - INFO - Created admin_user: mohandkacimi@yahoo.com (ID: 1066)
+2026-01-15 08:31:28,796 - INFO - Linked admin 1066 to restaurant 798
+2026-01-15 08:31:28,796 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:28,796 - INFO - ----------------------------------------
+2026-01-15 08:31:28,796 - INFO - [140/165] Nachos Loco Gatineau (V3: 801, V1: 1045)
+2026-01-15 08:31:28,796 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1045&load=account_information&showLang=en
+2026-01-15 08:31:30,663 - DEBUG - No existing contacts for V1 ID 1045
+2026-01-15 08:31:30,663 - INFO -   No contacts found - skipping
+2026-01-15 08:31:30,664 - INFO - === PROGRESS: 140/165 restaurants processed ===
+2026-01-15 08:31:30,664 - INFO - ----------------------------------------
+2026-01-15 08:31:30,664 - INFO - [141/165] Poutinerie Québecurds Gatineau (V3: 1015, V1: 1046)
+2026-01-15 08:31:30,664 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1046&load=account_information&showLang=en
+2026-01-15 08:31:32,538 - DEBUG - No existing contacts for V1 ID 1046
+2026-01-15 08:31:32,538 - INFO -   No contacts found - skipping
+2026-01-15 08:31:32,538 - INFO - ----------------------------------------
+2026-01-15 08:31:32,538 - INFO - [142/165] Crispy's Bank Street (V3: 806, V1: 1050)
+2026-01-15 08:31:32,538 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1050&load=account_information&showLang=en
+2026-01-15 08:31:34,423 - DEBUG - Found 1 contacts with emails for V1 ID 1050
+2026-01-15 08:31:34,424 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:34,494 - INFO - Updated admin_user ID 1025: m.lezzeik@gmail.com
+2026-01-15 08:31:34,574 - INFO - Linked admin 1025 to restaurant 806
+2026-01-15 08:31:34,575 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:31:34,575 - INFO - ----------------------------------------
+2026-01-15 08:31:34,575 - INFO - [143/165] Oh My Grill (V3: 807, V1: 1051)
+2026-01-15 08:31:34,575 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1051&load=account_information&showLang=en
+2026-01-15 08:31:36,451 - DEBUG - Found 1 contacts with emails for V1 ID 1051
+2026-01-15 08:31:36,451 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:36,727 - INFO - Created Supabase Auth user: aaltawil94@gmail.com (ID: 386e2e5f-41d3-4ed4-ab65-02ad5c6c1875)
+2026-01-15 08:31:36,769 - INFO - Created admin_user: aaltawil94@gmail.com (ID: 1067)
+2026-01-15 08:31:36,839 - INFO - Linked admin 1067 to restaurant 807
+2026-01-15 08:31:36,839 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:36,839 - INFO - ----------------------------------------
+2026-01-15 08:31:36,840 - INFO - [144/165] Papa Grecque Cantley (V3: 810, V1: 1054)
+2026-01-15 08:31:36,840 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1054&load=account_information&showLang=en
+2026-01-15 08:31:38,722 - DEBUG - Found 1 contacts with emails for V1 ID 1054
+2026-01-15 08:31:38,722 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:38,807 - INFO - Updated admin_user ID 1032: nicof1995@hotmail.com
+2026-01-15 08:31:38,878 - INFO - Linked admin 1032 to restaurant 810
+2026-01-15 08:31:38,879 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:31:38,879 - INFO - ----------------------------------------
+2026-01-15 08:31:38,879 - INFO - [145/165] Golden Center Pizza (V3: 815, V1: 1059)
+2026-01-15 08:31:38,879 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1059&load=account_information&showLang=en
+2026-01-15 08:31:40,892 - DEBUG - Found 1 contacts with emails for V1 ID 1059
+2026-01-15 08:31:40,892 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:41,160 - INFO - Created Supabase Auth user: Goldencenterpizza@gmail.com (ID: a3186f66-bd24-4431-b724-27aefe2f5b1e)
+2026-01-15 08:31:41,204 - INFO - Created admin_user: Goldencenterpizza@gmail.com (ID: 1068)
+2026-01-15 08:31:41,279 - INFO - Linked admin 1068 to restaurant 815
+2026-01-15 08:31:41,279 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:41,279 - INFO - ----------------------------------------
+2026-01-15 08:31:41,279 - INFO - [146/165] Dï¿½panneur Gï¿½nï¿½reux (V3: 816, V1: 1060)
+2026-01-15 08:31:41,279 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1060&load=account_information&showLang=en
+2026-01-15 08:31:43,173 - DEBUG - Found 1 contacts with emails for V1 ID 1060
+2026-01-15 08:31:43,173 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:43,435 - INFO - Created Supabase Auth user: Josephnicolas@live.ca (ID: 534a2224-5478-4724-a2dd-89ab28d468e2)
+2026-01-15 08:31:43,476 - INFO - Created admin_user: Josephnicolas@live.ca (ID: 1069)
+2026-01-15 08:31:43,550 - INFO - Linked admin 1069 to restaurant 816
+2026-01-15 08:31:43,550 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:43,550 - INFO - ----------------------------------------
+2026-01-15 08:31:43,550 - INFO - [147/165] Milano (V3: 818, V1: 1062)
+2026-01-15 08:31:43,550 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1062&load=account_information&showLang=en
+2026-01-15 08:31:45,442 - DEBUG - Found 1 contacts with emails for V1 ID 1062
+2026-01-15 08:31:45,442 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:45,697 - INFO - Created Supabase Auth user: milanorockland@gmail.com (ID: 3c6549e0-76ed-422f-b33a-8f22dfc241e0)
+2026-01-15 08:31:45,734 - INFO - Created admin_user: milanorockland@gmail.com (ID: 1070)
+2026-01-15 08:31:45,809 - INFO - Linked admin 1070 to restaurant 818
+2026-01-15 08:31:45,810 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:45,810 - INFO - ----------------------------------------
+2026-01-15 08:31:45,810 - INFO - [148/165] Milano (V3: 819, V1: 1063)
+2026-01-15 08:31:45,810 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1063&load=account_information&showLang=en
+2026-01-15 08:31:47,709 - DEBUG - Found 1 contacts with emails for V1 ID 1063
+2026-01-15 08:31:47,709 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:48,087 - INFO - Created Supabase Auth user: northgowermilano@gmail.com (ID: 6554c1af-93e8-4c15-bcdb-e5a14fc573b9)
+2026-01-15 08:31:48,125 - INFO - Created admin_user: northgowermilano@gmail.com (ID: 1071)
+2026-01-15 08:31:48,212 - INFO - Linked admin 1071 to restaurant 819
+2026-01-15 08:31:48,212 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:48,212 - INFO - ----------------------------------------
+2026-01-15 08:31:48,212 - INFO - [149/165] Vieux Hull Pizza (V3: 820, V1: 1064)
+2026-01-15 08:31:48,212 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1064&load=account_information&showLang=en
+2026-01-15 08:31:50,087 - DEBUG - No existing contacts for V1 ID 1064
+2026-01-15 08:31:50,087 - INFO -   No contacts found - skipping
+2026-01-15 08:31:50,087 - INFO - ----------------------------------------
+2026-01-15 08:31:50,087 - INFO - [150/165] Milano (V3: 821, V1: 1065)
+2026-01-15 08:31:50,087 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1065&load=account_information&showLang=en
+2026-01-15 08:31:51,968 - DEBUG - No existing contacts for V1 ID 1065
+2026-01-15 08:31:51,968 - INFO -   No contacts found - skipping
+2026-01-15 08:31:51,968 - INFO - ----------------------------------------
+2026-01-15 08:31:51,968 - INFO - [151/165] Papa Burger Maloney (V3: 822, V1: 1066)
+2026-01-15 08:31:51,968 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1066&load=account_information&showLang=en
+2026-01-15 08:31:53,858 - DEBUG - No existing contacts for V1 ID 1066
+2026-01-15 08:31:53,858 - INFO -   No contacts found - skipping
+2026-01-15 08:31:53,858 - INFO - ----------------------------------------
+2026-01-15 08:31:53,858 - INFO - [152/165] Prima Pizza (V3: 824, V1: 1069)
+2026-01-15 08:31:53,858 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1069&load=account_information&showLang=en
+2026-01-15 08:31:55,735 - DEBUG - Found 1 contacts with emails for V1 ID 1069
+2026-01-15 08:31:55,735 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:56,019 - INFO - Created Supabase Auth user: pankitpvp@gmail.com (ID: 12ff1a58-604d-4197-95e2-d4c2b23e8abd)
+2026-01-15 08:31:56,052 - INFO - Created admin_user: pankitpvp@gmail.com (ID: 1072)
+2026-01-15 08:31:56,125 - INFO - Linked admin 1072 to restaurant 824
+2026-01-15 08:31:56,126 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:31:56,126 - INFO - ----------------------------------------
+2026-01-15 08:31:56,126 - INFO - [153/165] All Out Burger Montreal Rd (V3: 949, V1: 1071)
+2026-01-15 08:31:56,126 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1071&load=account_information&showLang=en
+2026-01-15 08:31:58,003 - DEBUG - Found 1 contacts with emails for V1 ID 1071
+2026-01-15 08:31:58,003 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:31:58,084 - INFO - Updated admin_user ID 1060: mahde_ghandour@hotmail.com
+2026-01-15 08:31:58,159 - INFO - Linked admin 1060 to restaurant 949
+2026-01-15 08:31:58,159 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:31:58,159 - INFO - ----------------------------------------
+2026-01-15 08:31:58,159 - INFO - [154/165] Pizzalicious (V3: 829, V1: 1074)
+2026-01-15 08:31:58,159 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1074&load=account_information&showLang=en
+2026-01-15 08:32:00,044 - DEBUG - Found 1 contacts with emails for V1 ID 1074
+2026-01-15 08:32:00,044 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:32:00,309 - INFO - Created Supabase Auth user: vvpatel2196@gmail.com (ID: ef91f04a-9065-4cc0-8d7a-f8644a122d7b)
+2026-01-15 08:32:00,360 - INFO - Created admin_user: vvpatel2196@gmail.com (ID: 1073)
+2026-01-15 08:32:00,436 - INFO - Linked admin 1073 to restaurant 829
+2026-01-15 08:32:00,436 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:32:00,436 - INFO - ----------------------------------------
+2026-01-15 08:32:00,436 - INFO - [155/165] All Out Burger (V3: 833, V1: 1080)
+2026-01-15 08:32:00,436 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1080&load=account_information&showLang=en
+2026-01-15 08:32:02,336 - DEBUG - No existing contacts for V1 ID 1080
+2026-01-15 08:32:02,336 - INFO -   No contacts found - skipping
+2026-01-15 08:32:02,336 - INFO - ----------------------------------------
+2026-01-15 08:32:02,336 - INFO - [156/165] Milano (V3: 835, V1: 1082)
+2026-01-15 08:32:02,336 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1082&load=account_information&showLang=en
+2026-01-15 08:32:04,231 - DEBUG - Found 1 contacts with emails for V1 ID 1082
+2026-01-15 08:32:04,231 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:32:04,489 - INFO - Created Supabase Auth user: bankstreetmilano@gmail.com (ID: 0006ba7a-0548-4e54-9b68-3f8314aefff9)
+2026-01-15 08:32:04,531 - INFO - Created admin_user: bankstreetmilano@gmail.com (ID: 1074)
+2026-01-15 08:32:04,606 - INFO - Linked admin 1074 to restaurant 835
+2026-01-15 08:32:04,606 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:32:04,606 - INFO - ----------------------------------------
+2026-01-15 08:32:04,606 - INFO - [157/165] Souvlaki Souvlaki (V3: 836, V1: 1083)
+2026-01-15 08:32:04,606 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1083&load=account_information&showLang=en
+2026-01-15 08:32:06,498 - DEBUG - Found 1 contacts with emails for V1 ID 1083
+2026-01-15 08:32:06,498 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:32:06,578 - INFO - Updated admin_user ID 1074: Bankstreetmilano@gmail.com
+2026-01-15 08:32:06,651 - INFO - Linked admin 1074 to restaurant 836
+2026-01-15 08:32:06,651 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:32:06,651 - INFO - ----------------------------------------
+2026-01-15 08:32:06,651 - INFO - [158/165] Milano (V3: 837, V1: 1084)
+2026-01-15 08:32:06,651 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1084&load=account_information&showLang=en
+2026-01-15 08:32:08,528 - DEBUG - No existing contacts for V1 ID 1084
+2026-01-15 08:32:08,528 - INFO -   No contacts found - skipping
+2026-01-15 08:32:08,528 - INFO - ----------------------------------------
+2026-01-15 08:32:08,528 - INFO - [159/165] Milano (V3: 840, V1: 1087)
+2026-01-15 08:32:08,528 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1087&load=account_information&showLang=en
+2026-01-15 08:32:10,423 - DEBUG - No existing contacts for V1 ID 1087
+2026-01-15 08:32:10,423 - INFO -   No contacts found - skipping
+2026-01-15 08:32:10,423 - INFO - ----------------------------------------
+2026-01-15 08:32:10,423 - INFO - [160/165] All Out Burger (V3: 841, V1: 1088)
+2026-01-15 08:32:10,423 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1088&load=account_information&showLang=en
+2026-01-15 08:32:12,300 - DEBUG - No existing contacts for V1 ID 1088
+2026-01-15 08:32:12,300 - INFO -   No contacts found - skipping
+2026-01-15 08:32:12,300 - INFO - === PROGRESS: 160/165 restaurants processed ===
+2026-01-15 08:32:12,300 - INFO - ----------------------------------------
+2026-01-15 08:32:12,300 - INFO - [161/165] Milano (V3: 842, V1: 1089)
+2026-01-15 08:32:12,300 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1089&load=account_information&showLang=en
+2026-01-15 08:32:15,224 - DEBUG - Found 2 contacts with emails for V1 ID 1089
+2026-01-15 08:32:15,224 - INFO -   Found 2 unique contacts with email
+2026-01-15 08:32:15,501 - INFO - Created Supabase Auth user: sanket9590@gmail.com (ID: 7fea49ca-4a32-4c61-aec2-295c6fa7f0e1)
+2026-01-15 08:32:15,541 - INFO - Created admin_user: sanket9590@gmail.com (ID: 1075)
+2026-01-15 08:32:15,622 - INFO - Linked admin 1075 to restaurant 842
+2026-01-15 08:32:15,873 - INFO - Created Supabase Auth user: milanopizzaprescott@gmail.com (ID: e078c268-49a6-46e6-b11a-295ab50f8d50)
+2026-01-15 08:32:15,911 - INFO - Created admin_user: milanopizzaprescott@gmail.com (ID: 1076)
+2026-01-15 08:32:15,988 - INFO - Linked admin 1076 to restaurant 842
+2026-01-15 08:32:15,988 - INFO -   Result: 2 created, 0 updated, 2 links
+2026-01-15 08:32:15,988 - INFO - ----------------------------------------
+2026-01-15 08:32:15,988 - INFO - [162/165] Mykonos Greek Grill (V3: 845, V1: 1092)
+2026-01-15 08:32:15,988 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1092&load=account_information&showLang=en
+2026-01-15 08:32:17,889 - DEBUG - Found 1 contacts with emails for V1 ID 1092
+2026-01-15 08:32:17,889 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:32:18,178 - INFO - Created Supabase Auth user: mykonosgreekgrillz@gmail.com (ID: d31f845d-8c88-412f-a556-5cd22b2bc846)
+2026-01-15 08:32:18,219 - INFO - Created admin_user: mykonosgreekgrillz@gmail.com (ID: 1077)
+2026-01-15 08:32:18,293 - INFO - Linked admin 1077 to restaurant 845
+2026-01-15 08:32:18,293 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:32:18,293 - INFO - ----------------------------------------
+2026-01-15 08:32:18,293 - INFO - [163/165] Mykonos Greek Grill (V3: 846, V1: 1093)
+2026-01-15 08:32:18,293 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1093&load=account_information&showLang=en
+2026-01-15 08:32:20,170 - DEBUG - Found 1 contacts with emails for V1 ID 1093
+2026-01-15 08:32:20,170 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:32:20,447 - INFO - Created Supabase Auth user: mitulkakani1996@gmail.com (ID: 9fd1d0b1-f714-4009-972f-7d4a94de2b1a)
+2026-01-15 08:32:20,489 - INFO - Created admin_user: mitulkakani1996@gmail.com (ID: 1078)
+2026-01-15 08:32:20,562 - INFO - Linked admin 1078 to restaurant 846
+2026-01-15 08:32:20,562 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:32:20,562 - INFO - ----------------------------------------
+2026-01-15 08:32:20,562 - INFO - [164/165] Sushiyana (V3: 847, V1: 1094)
+2026-01-15 08:32:20,562 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1094&load=account_information&showLang=en
+2026-01-15 08:32:22,454 - DEBUG - Found 1 contacts with emails for V1 ID 1094
+2026-01-15 08:32:22,454 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:32:22,722 - INFO - Created Supabase Auth user: sushiyanagatineau@gmail.com (ID: d9d094f5-57de-4ee0-9a06-8b0cddd25593)
+2026-01-15 08:32:22,758 - INFO - Created admin_user: sushiyanagatineau@gmail.com (ID: 1079)
+2026-01-15 08:32:22,832 - INFO - Linked admin 1079 to restaurant 847
+2026-01-15 08:32:22,832 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 08:32:22,832 - INFO - ----------------------------------------
+2026-01-15 08:32:22,832 - INFO - [165/165] Econo Pizza (V3: 1009, V1: 1095)
+2026-01-15 08:32:22,832 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=1095&load=account_information&showLang=en
+2026-01-15 08:32:24,695 - DEBUG - Found 1 contacts with emails for V1 ID 1095
+2026-01-15 08:32:24,696 - INFO -   Found 1 unique contacts with email
+2026-01-15 08:32:24,776 - INFO - Updated admin_user ID 948: menu@mozzapizzagatineau.com
+2026-01-15 08:32:24,852 - INFO - Linked admin 948 to restaurant 1009
+2026-01-15 08:32:24,852 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 08:32:26,633 - DEBUG - Database connection closed
+2026-01-15 08:32:26,642 - INFO - ============================================================
+2026-01-15 08:32:26,642 - INFO - SCRAPER SUMMARY
+2026-01-15 08:32:26,642 - INFO - ============================================================
+2026-01-15 08:32:26,642 - INFO - Completed at: 2026-01-15 08:32:26
+2026-01-15 08:32:26,642 - INFO - Restaurants processed: 165
+2026-01-15 08:32:26,642 - INFO - Contacts found: 161
+2026-01-15 08:32:26,642 - INFO - Contacts with email: 156
+2026-01-15 08:32:26,642 - INFO - Admins created: 140
+2026-01-15 08:32:26,642 - INFO - Admins updated: 16
+2026-01-15 08:32:26,642 - INFO - Restaurant links created: 155
+2026-01-15 08:32:26,642 - INFO - Restaurants skipped (no contacts): 15
+2026-01-15 08:32:26,642 - INFO - Errors: 0
+2026-01-15 08:32:26,642 - INFO - ============================================================
+2026-01-15 08:32:26,642 - INFO - SCRAPER COMPLETED SUCCESSFULLY
+2026-01-15 08:32:26,642 - INFO - ============================================================

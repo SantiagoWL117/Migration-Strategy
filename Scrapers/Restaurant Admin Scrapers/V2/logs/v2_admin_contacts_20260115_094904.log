@@ -1,0 +1,299 @@
+2026-01-15 09:49:04,033 - INFO - Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Restaurant Admin Scrapers\V2\logs\v2_admin_contacts_20260115_094904.log
+2026-01-15 09:49:04,034 - INFO - ============================================================
+2026-01-15 09:49:04,034 - INFO - V2 ADMIN CONTACTS SCRAPER
+2026-01-15 09:49:04,034 - INFO - ============================================================
+2026-01-15 09:49:04,034 - INFO - Started at: 2026-01-15 09:49:04
+2026-01-15 09:49:04,362 - DEBUG - Database connected
+2026-01-15 09:49:04,365 - INFO - Total restaurants to process: 20
+2026-01-15 09:49:04,861 - INFO - Navigating to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-15 09:49:07,881 - DEBUG - Filled email field
+2026-01-15 09:49:07,891 - DEBUG - Filled password field
+2026-01-15 09:49:08,348 - DEBUG - Clicked submit button
+2026-01-15 09:49:11,310 - INFO - V2 CRM login successful
+2026-01-15 09:49:11,310 - INFO - ----------------------------------------
+2026-01-15 09:49:11,311 - INFO - [1/20] Pho Dau Bo Restaurant - Kitchener (V3: 147, V2: 1171)
+2026-01-15 09:49:11,311 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1171/info
+2026-01-15 09:49:13,451 - DEBUG - Found 1 valid contacts for V2 ID 1171
+2026-01-15 09:49:13,451 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:49:14,425 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:49:21,712 - DEBUG - No existing auth user found for jimmyto0303@gmail.com
+2026-01-15 09:49:21,712 - INFO - Auth user exists for jimmyto0303@gmail.com, will create admin without auth link
+2026-01-15 09:49:21,793 - INFO - Created admin_user: jimmyto0303@gmail.com (ID: 1086)
+2026-01-15 09:49:21,879 - INFO - Linked admin 1086 to restaurant 147
+2026-01-15 09:49:21,879 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:49:21,879 - INFO - ----------------------------------------
+2026-01-15 09:49:21,879 - INFO - [2/20] Sushi Presse (V3: 1020, V2: 1285)
+2026-01-15 09:49:21,879 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1285/info
+2026-01-15 09:49:23,657 - DEBUG - Found 3 valid contacts for V2 ID 1285
+2026-01-15 09:49:23,657 - INFO -   Found 3 unique contacts with email
+2026-01-15 09:49:23,894 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:49:30,434 - DEBUG - No existing auth user found for alexandra.nicolae000@gmail.com
+2026-01-15 09:49:30,434 - INFO - Auth user exists for alexandra.nicolae000@gmail.com, will create admin without auth link
+2026-01-15 09:49:30,493 - INFO - Created admin_user: alexandra.nicolae000@gmail.com (ID: 1087)
+2026-01-15 09:49:30,573 - INFO - Linked admin 1087 to restaurant 1020
+2026-01-15 09:49:30,756 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:49:36,770 - DEBUG - No existing auth user found for laura_paniagua513@hotmail.com
+2026-01-15 09:49:36,770 - INFO - Auth user exists for laura_paniagua513@hotmail.com, will create admin without auth link
+2026-01-15 09:49:36,814 - INFO - Created admin_user: laura_paniagua513@hotmail.com (ID: 1088)
+2026-01-15 09:49:36,888 - INFO - Linked admin 1088 to restaurant 1020
+2026-01-15 09:49:36,970 - INFO - Updated admin_user ID 1081: sushipressebeaubien@hotmail.com
+2026-01-15 09:49:37,005 - DEBUG -     Admin 1081 already linked to restaurant 1020
+2026-01-15 09:49:37,005 - INFO -   Result: 2 created, 1 updated, 2 links
+2026-01-15 09:49:37,005 - INFO - ----------------------------------------
+2026-01-15 09:49:37,005 - INFO - [3/20] Kirkwood Pizza (V3: 950, V2: 1637)
+2026-01-15 09:49:37,005 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1637/info
+2026-01-15 09:49:38,761 - DEBUG - Skipping test contact: test alex / alexandra9nicolae@gmail.com
+2026-01-15 09:49:38,761 - DEBUG - Skipping test contact: TEST ALEX / alexandra9nicolae@gmail.com
+2026-01-15 09:49:38,761 - DEBUG - Found 1 valid contacts for V2 ID 1637
+2026-01-15 09:49:38,762 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:49:38,837 - INFO - Updated admin_user ID 1080: kirkwoodottawapizza@gmail.com
+2026-01-15 09:49:38,877 - DEBUG -     Admin 1080 already linked to restaurant 950
+2026-01-15 09:49:38,877 - INFO -   Result: 0 created, 1 updated, 0 links
+2026-01-15 09:49:38,877 - INFO - ----------------------------------------
+2026-01-15 09:49:38,877 - INFO - [4/20] River Pizza (V3: 952, V2: 1639)
+2026-01-15 09:49:38,877 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1639/info
+2026-01-15 09:49:40,646 - DEBUG - Found 2 valid contacts for V2 ID 1639
+2026-01-15 09:49:40,646 - INFO -   Found 2 unique contacts with email
+2026-01-15 09:49:40,804 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:49:47,506 - DEBUG - No existing auth user found for riverpizzaottawa@gmail.com
+2026-01-15 09:49:47,506 - INFO - Auth user exists for riverpizzaottawa@gmail.com, will create admin without auth link
+2026-01-15 09:49:47,553 - INFO - Created admin_user: riverpizzaottawa@gmail.com (ID: 1089)
+2026-01-15 09:49:47,625 - INFO - Linked admin 1089 to restaurant 952
+2026-01-15 09:49:47,698 - INFO - Updated admin_user ID 1082: eric@emgervais.ca
+2026-01-15 09:49:47,737 - DEBUG -     Admin 1082 already linked to restaurant 952
+2026-01-15 09:49:47,737 - INFO -   Result: 1 created, 1 updated, 1 links
+2026-01-15 09:49:47,737 - INFO - ----------------------------------------
+2026-01-15 09:49:47,737 - INFO - [5/20] Wandee Thai (V3: 954, V2: 1641)
+2026-01-15 09:49:47,737 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1641/info
+2026-01-15 09:49:49,514 - DEBUG - Found 1 valid contacts for V2 ID 1641
+2026-01-15 09:49:49,514 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:49:49,695 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:49:56,049 - DEBUG - No existing auth user found for seanandnid@gmail.com
+2026-01-15 09:49:56,049 - INFO - Auth user exists for seanandnid@gmail.com, will create admin without auth link
+2026-01-15 09:49:56,092 - INFO - Created admin_user: seanandnid@gmail.com (ID: 1090)
+2026-01-15 09:49:56,166 - INFO - Linked admin 1090 to restaurant 954
+2026-01-15 09:49:56,167 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:49:56,167 - INFO - ----------------------------------------
+2026-01-15 09:49:56,167 - INFO - [6/20] La Nawab (V3: 825, V2: 1642)
+2026-01-15 09:49:56,167 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1642/info
+2026-01-15 09:49:57,918 - DEBUG - Found 1 valid contacts for V2 ID 1642
+2026-01-15 09:49:57,918 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:49:58,077 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:50:04,398 - DEBUG - No existing auth user found for lanawab4@gmail.com
+2026-01-15 09:50:04,398 - INFO - Auth user exists for lanawab4@gmail.com, will create admin without auth link
+2026-01-15 09:50:04,445 - INFO - Created admin_user: lanawab4@gmail.com (ID: 1091)
+2026-01-15 09:50:04,519 - INFO - Linked admin 1091 to restaurant 825
+2026-01-15 09:50:04,519 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:50:04,519 - INFO - ----------------------------------------
+2026-01-15 09:50:04,519 - INFO - [7/20] Cosenza (V3: 957, V2: 1654)
+2026-01-15 09:50:04,519 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1654/info
+2026-01-15 09:50:06,266 - DEBUG - Found 2 valid contacts for V2 ID 1654
+2026-01-15 09:50:06,266 - INFO -   Found 2 unique contacts with email
+2026-01-15 09:50:06,344 - INFO - Updated admin_user ID 1083: smdi.gujarat@gmail.com
+2026-01-15 09:50:06,378 - DEBUG -     Admin 1083 already linked to restaurant 957
+2026-01-15 09:50:06,455 - INFO - Updated admin_user ID 1084: houseofpizzaorleans1@gmail.com
+2026-01-15 09:50:06,491 - DEBUG -     Admin 1084 already linked to restaurant 957
+2026-01-15 09:50:06,492 - INFO -   Result: 0 created, 2 updated, 0 links
+2026-01-15 09:50:06,492 - INFO - ----------------------------------------
+2026-01-15 09:50:06,492 - INFO - [8/20] Cuisine Bombay Indienne (V3: 960, V2: 1657)
+2026-01-15 09:50:06,492 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1657/info
+2026-01-15 09:50:08,248 - DEBUG - Found 1 valid contacts for V2 ID 1657
+2026-01-15 09:50:08,248 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:50:08,339 - INFO - Updated admin_user ID 1085: uddinsantino@gmail.com
+2026-01-15 09:50:08,370 - DEBUG -     Admin 1085 already linked to restaurant 960
+2026-01-15 09:50:08,370 - INFO -   Result: 0 created, 1 updated, 0 links
+2026-01-15 09:50:08,370 - INFO - ----------------------------------------
+2026-01-15 09:50:08,370 - INFO - [9/20] Chicco Shawarma Cantley (V3: 961, V2: 1658)
+2026-01-15 09:50:08,370 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1658/info
+2026-01-15 09:50:10,124 - DEBUG - Found 1 valid contacts for V2 ID 1658
+2026-01-15 09:50:10,124 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:50:10,291 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:50:16,686 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:50:16,686 - INFO - Auth user exists for chiccokhalife@icloud.com, will create admin without auth link
+2026-01-15 09:50:16,733 - INFO - Created admin_user: chiccokhalife@icloud.com (ID: 1092)
+2026-01-15 09:50:16,808 - INFO - Linked admin 1092 to restaurant 961
+2026-01-15 09:50:16,809 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:50:16,809 - INFO - ----------------------------------------
+2026-01-15 09:50:16,809 - INFO - [10/20] Chicco Pizza Shawarma Anger (V3: 963, V2: 1660)
+2026-01-15 09:50:16,809 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1660/info
+2026-01-15 09:50:18,583 - DEBUG - Found 1 valid contacts for V2 ID 1660
+2026-01-15 09:50:18,583 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:50:18,751 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:50:25,436 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:50:25,436 - INFO - Auth user exists for chiccokhalife@icloud.com, will create admin without auth link
+2026-01-15 09:50:25,487 - ERROR - Query error: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:50:25,487 - ERROR - Error updating admin_user 1092: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:50:25,562 - INFO - Linked admin 1092 to restaurant 963
+2026-01-15 09:50:25,562 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 09:50:25,562 - INFO - ----------------------------------------
+2026-01-15 09:50:25,562 - INFO - [11/20] Chicco Pizza Maloney (V3: 964, V2: 1661)
+2026-01-15 09:50:25,562 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1661/info
+2026-01-15 09:50:27,323 - DEBUG - Found 1 valid contacts for V2 ID 1661
+2026-01-15 09:50:27,323 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:50:27,538 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:50:34,203 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:50:34,204 - INFO - Auth user exists for chiccokhalife@icloud.com, will create admin without auth link
+2026-01-15 09:50:34,252 - ERROR - Query error: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:50:34,253 - ERROR - Error updating admin_user 1092: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:50:34,328 - INFO - Linked admin 1092 to restaurant 964
+2026-01-15 09:50:34,328 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 09:50:34,328 - INFO - ----------------------------------------
+2026-01-15 09:50:34,329 - INFO - [12/20] Chicco Shawarma Maloney (V3: 965, V2: 1662)
+2026-01-15 09:50:34,329 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1662/info
+2026-01-15 09:50:36,065 - DEBUG - Found 1 valid contacts for V2 ID 1662
+2026-01-15 09:50:36,065 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:50:36,283 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:50:43,220 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:50:43,221 - INFO - Auth user exists for chiccokhalife@icloud.com, will create admin without auth link
+2026-01-15 09:50:43,267 - ERROR - Query error: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:50:43,267 - ERROR - Error updating admin_user 1092: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:50:43,342 - INFO - Linked admin 1092 to restaurant 965
+2026-01-15 09:50:43,342 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 09:50:43,342 - INFO - ----------------------------------------
+2026-01-15 09:50:43,342 - INFO - [13/20] Chicco Pizza de l'Hopital (V3: 966, V2: 1663)
+2026-01-15 09:50:43,342 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1663/info
+2026-01-15 09:50:45,094 - DEBUG - Found 1 valid contacts for V2 ID 1663
+2026-01-15 09:50:45,094 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:50:45,251 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:50:51,422 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:50:51,423 - INFO - Auth user exists for chiccokhalife@icloud.com, will create admin without auth link
+2026-01-15 09:50:51,467 - ERROR - Query error: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:50:51,468 - ERROR - Error updating admin_user 1092: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:50:51,544 - INFO - Linked admin 1092 to restaurant 966
+2026-01-15 09:50:51,544 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 09:50:51,544 - INFO - ----------------------------------------
+2026-01-15 09:50:51,544 - INFO - [14/20] Chicco Pizza St-Louis (V3: 967, V2: 1664)
+2026-01-15 09:50:51,545 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1664/info
+2026-01-15 09:50:53,305 - DEBUG - Found 1 valid contacts for V2 ID 1664
+2026-01-15 09:50:53,305 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:50:53,473 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:50:59,931 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:50:59,931 - INFO - Auth user exists for chiccokhalife@icloud.com, will create admin without auth link
+2026-01-15 09:50:59,979 - ERROR - Query error: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:50:59,979 - ERROR - Error updating admin_user 1092: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:51:00,051 - INFO - Linked admin 1092 to restaurant 967
+2026-01-15 09:51:00,052 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 09:51:00,052 - INFO - ----------------------------------------
+2026-01-15 09:51:00,052 - INFO - [15/20] Little Gyros Greek Grill (V3: 971, V2: 1668)
+2026-01-15 09:51:00,052 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1668/info
+2026-01-15 09:51:01,809 - DEBUG - Found 1 valid contacts for V2 ID 1668
+2026-01-15 09:51:01,809 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:51:02,007 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:51:08,346 - DEBUG - No existing auth user found for farid0823@yahoo.com
+2026-01-15 09:51:08,346 - INFO - Auth user exists for farid0823@yahoo.com, will create admin without auth link
+2026-01-15 09:51:08,391 - INFO - Created admin_user: farid0823@yahoo.com (ID: 1093)
+2026-01-15 09:51:08,462 - INFO - Linked admin 1093 to restaurant 971
+2026-01-15 09:51:08,462 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:51:08,462 - INFO - ----------------------------------------
+2026-01-15 09:51:08,462 - INFO - [16/20] Capital Bites (V3: 973, V2: 1670)
+2026-01-15 09:51:08,462 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1670/info
+2026-01-15 09:51:10,202 - DEBUG - Found 1 valid contacts for V2 ID 1670
+2026-01-15 09:51:10,202 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:51:10,369 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:51:16,826 - DEBUG - No existing auth user found for capitalbites2@gmail.com
+2026-01-15 09:51:16,826 - INFO - Auth user exists for capitalbites2@gmail.com, will create admin without auth link
+2026-01-15 09:51:16,875 - INFO - Created admin_user: capitalbites2@gmail.com (ID: 1094)
+2026-01-15 09:51:16,948 - INFO - Linked admin 1094 to restaurant 973
+2026-01-15 09:51:16,948 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:51:16,948 - INFO - ----------------------------------------
+2026-01-15 09:51:16,948 - INFO - [17/20] Pachino Pizza (V3: 974, V2: 1671)
+2026-01-15 09:51:16,949 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1671/info
+2026-01-15 09:51:18,697 - DEBUG - Found 2 valid contacts for V2 ID 1671
+2026-01-15 09:51:18,697 - INFO -   Found 2 unique contacts with email
+2026-01-15 09:51:18,860 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:51:25,082 - DEBUG - No existing auth user found for yassernazar@hotmail.com
+2026-01-15 09:51:25,083 - INFO - Auth user exists for yassernazar@hotmail.com, will create admin without auth link
+2026-01-15 09:51:25,135 - INFO - Created admin_user: yassernazar@hotmail.com (ID: 1095)
+2026-01-15 09:51:25,216 - INFO - Linked admin 1095 to restaurant 974
+2026-01-15 09:51:25,416 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:51:31,639 - DEBUG - No existing auth user found for albionzwz@gmail.com
+2026-01-15 09:51:31,639 - INFO - Auth user exists for albionzwz@gmail.com, will create admin without auth link
+2026-01-15 09:51:31,684 - INFO - Created admin_user: albionzwz@gmail.com (ID: 1096)
+2026-01-15 09:51:31,761 - INFO - Linked admin 1096 to restaurant 974
+2026-01-15 09:51:31,761 - INFO -   Result: 2 created, 0 updated, 2 links
+2026-01-15 09:51:31,761 - INFO - ----------------------------------------
+2026-01-15 09:51:31,761 - INFO - [18/20] Pizza Marie (V3: 976, V2: 1673)
+2026-01-15 09:51:31,761 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1673/info
+2026-01-15 09:51:33,515 - DEBUG - Found 1 valid contacts for V2 ID 1673
+2026-01-15 09:51:33,515 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:51:33,727 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:51:40,100 - DEBUG - No existing auth user found for michel_sabbagh63@hotmail.com
+2026-01-15 09:51:40,101 - INFO - Auth user exists for michel_sabbagh63@hotmail.com, will create admin without auth link
+2026-01-15 09:51:40,143 - INFO - Created admin_user: michel_sabbagh63@hotmail.com (ID: 1097)
+2026-01-15 09:51:40,215 - INFO - Linked admin 1097 to restaurant 976
+2026-01-15 09:51:40,216 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:51:40,216 - INFO - ----------------------------------------
+2026-01-15 09:51:40,216 - INFO - [19/20] Capri Pizza (V3: 977, V2: 1674)
+2026-01-15 09:51:40,216 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1674/info
+2026-01-15 09:51:41,978 - DEBUG - Found 1 valid contacts for V2 ID 1674
+2026-01-15 09:51:41,978 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:51:42,176 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:51:48,434 - DEBUG - No existing auth user found for callamer@gmail.com
+2026-01-15 09:51:48,434 - INFO - Auth user exists for callamer@gmail.com, will create admin without auth link
+2026-01-15 09:51:48,481 - INFO - Created admin_user: callamer@gmail.com (ID: 1098)
+2026-01-15 09:51:48,556 - INFO - Linked admin 1098 to restaurant 977
+2026-01-15 09:51:48,556 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:51:48,556 - INFO - ----------------------------------------
+2026-01-15 09:51:48,556 - INFO - [20/20] Al-s Drive In (V3: 981, V2: 1678)
+2026-01-15 09:51:48,556 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1678/info
+2026-01-15 09:51:50,302 - DEBUG - Found 1 valid contacts for V2 ID 1678
+2026-01-15 09:51:50,302 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:51:50,496 - DEBUG - Auth user already exists: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:51:57,288 - DEBUG - No existing auth user found for callamer@gmail.com
+2026-01-15 09:51:57,288 - INFO - Auth user exists for callamer@gmail.com, will create admin without auth link
+2026-01-15 09:51:57,329 - ERROR - Query error: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:51:57,329 - ERROR - Error updating admin_user 1098: invalid input syntax for type uuid: "EXISTS"
+LINE 6: ...            auth_user_id = COALESCE(auth_user_id, 'EXISTS'),
+                                                             ^
+
+2026-01-15 09:51:57,403 - INFO - Linked admin 1098 to restaurant 981
+2026-01-15 09:51:57,404 - INFO -   Result: 0 created, 1 updated, 1 links
+2026-01-15 09:51:57,457 - DEBUG - Database connection closed
+2026-01-15 09:51:57,465 - INFO - ============================================================
+2026-01-15 09:51:57,465 - INFO - SCRAPER SUMMARY
+2026-01-15 09:51:57,465 - INFO - ============================================================
+2026-01-15 09:51:57,465 - INFO - Completed at: 2026-01-15 09:51:57
+2026-01-15 09:51:57,466 - INFO - Restaurants processed: 20
+2026-01-15 09:51:57,466 - INFO - Contacts found: 25
+2026-01-15 09:51:57,466 - INFO - Contacts with email: 25
+2026-01-15 09:51:57,466 - INFO - Admins created: 13
+2026-01-15 09:51:57,466 - INFO - Admins updated: 12
+2026-01-15 09:51:57,466 - INFO - Restaurant links created: 19
+2026-01-15 09:51:57,466 - INFO - Restaurants skipped (no contacts): 0
+2026-01-15 09:51:57,466 - INFO - Errors: 0
+2026-01-15 09:51:57,466 - INFO - ============================================================
+2026-01-15 09:51:57,466 - INFO - SCRAPER COMPLETED SUCCESSFULLY
+2026-01-15 09:51:57,466 - INFO - ============================================================

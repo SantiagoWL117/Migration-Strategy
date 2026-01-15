@@ -1,0 +1,38 @@
+2026-01-15 09:25:35,736 - INFO - Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Restaurant Admin Scrapers\V2\logs\v2_admin_contacts_20260115_092535.log
+2026-01-15 09:25:35,737 - INFO - ============================================================
+2026-01-15 09:25:35,737 - INFO - V2 ADMIN CONTACTS SCRAPER
+2026-01-15 09:25:35,737 - INFO - ============================================================
+2026-01-15 09:25:35,737 - INFO - Started at: 2026-01-15 09:25:35
+2026-01-15 09:25:35,737 - INFO - DRY RUN MODE - No database changes will be made
+2026-01-15 09:25:36,079 - DEBUG - Database connected
+2026-01-15 09:25:36,079 - INFO - TEST MODE: Processing single restaurant V2 ID 1637
+2026-01-15 09:25:36,079 - INFO - Total restaurants to process: 1
+2026-01-15 09:25:45,708 - INFO - Navigating to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-15 09:25:48,748 - DEBUG - Filled email field
+2026-01-15 09:25:48,757 - DEBUG - Filled password field
+2026-01-15 09:25:49,218 - DEBUG - Clicked submit button
+2026-01-15 09:25:52,221 - INFO - V2 CRM login successful
+2026-01-15 09:25:52,221 - INFO - ----------------------------------------
+2026-01-15 09:25:52,221 - INFO - [1/1] Kirkwood Pizza (V3: 950, V2: 1637)
+2026-01-15 09:25:52,221 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1637/info
+2026-01-15 09:25:54,908 - DEBUG - Skipping test contact: test alex / alexandra9nicolae@gmail.com
+2026-01-15 09:25:54,908 - DEBUG - Skipping test contact: TEST ALEX / alexandra9nicolae@gmail.com
+2026-01-15 09:25:54,908 - DEBUG - Found 1 valid contacts for V2 ID 1637
+2026-01-15 09:25:54,908 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:25:54,908 - INFO -     [DRY RUN] Would process: kirkwoodottawapizza@gmail.com
+2026-01-15 09:25:54,946 - DEBUG - Database connection closed
+2026-01-15 09:25:54,953 - INFO - ============================================================
+2026-01-15 09:25:54,953 - INFO - SCRAPER SUMMARY
+2026-01-15 09:25:54,954 - INFO - ============================================================
+2026-01-15 09:25:54,954 - INFO - Completed at: 2026-01-15 09:25:54
+2026-01-15 09:25:54,954 - INFO - Restaurants processed: 1
+2026-01-15 09:25:54,954 - INFO - Contacts found: 1
+2026-01-15 09:25:54,954 - INFO - Contacts with email: 1
+2026-01-15 09:25:54,954 - INFO - Admins created: 0
+2026-01-15 09:25:54,954 - INFO - Admins updated: 0
+2026-01-15 09:25:54,954 - INFO - Restaurant links created: 0
+2026-01-15 09:25:54,954 - INFO - Restaurants skipped (no contacts): 0
+2026-01-15 09:25:54,954 - INFO - Errors: 0
+2026-01-15 09:25:54,954 - INFO - ============================================================
+2026-01-15 09:25:54,954 - INFO - DRY RUN COMPLETED - No changes were made
+2026-01-15 09:25:54,954 - INFO - ============================================================

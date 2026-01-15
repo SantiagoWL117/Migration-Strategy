@@ -1,6 +1,6 @@
 # 03 - Menu Management Entity
 
-> **Product Catalog** - Dishes, categories, modifiers, and pricing
+> **Product Catalog** - Dishes, categories, modifiers, combos, and pricing
 
 ---
 
@@ -8,30 +8,34 @@
 
 The Menu Management Entity is the **largest entity by data volume** (~450 MB), managing all aspects of restaurant menus:
 - **Menu Structure** - Categories (courses) and dishes
-- **Pricing** - Base prices and size variants
-- **Customization** - Modifiers, toppings, and options
+- **Pricing** - Base prices with normalized size variants
+- **Customization** - Shared modifier groups with size-based pricing
+- **Combos** - Combo meals with sections, modifier groups, and modifiers
+- **Availability** - Day-of-week visibility restrictions
 - **Templates** - Reusable modifier configurations
-- **Inventory** - Stock tracking and availability
 
 **Key Responsibilities:**
 - Product catalog management
-- Modifier/customization system
-- Multi-size pricing
-- Combo meal configuration
-- Category templates for efficiency
+- Shared modifier/customization system
+- Two-tier size-price matching (dish → modifier)
+- Combo meal configuration with V1/V2 migration support
+- Day-of-week dish availability
 
 ---
 
 ## 📑 Index
 
 - [Tables](#tables)
+  - [Menu Structure](#menu-structure-tables)
+  - [Size Variant Normalization](#size-variant-normalization-tables)
+  - [Dish Pricing](#dish-pricing-tables)
+  - [Modifier System](#modifier-system-tables)
+  - [Combo System](#combo-system-tables)
+  - [Availability](#availability-tables)
 - [SQL Functions](#sql-functions)
-- [Edge Functions](#edge-functions)
+- [Size-Price Matching Logic](#size-price-matching-logic)
 - [Indexes](#indexes)
 - [RLS Policies](#rls-policies)
-- [Triggers](#triggers)
-- [Removed Functionalities](#removed-functionalities)
-- [New Functionalities](#new-functionalities)
 - [Schema Fixes Applied](#schema-fixes-applied)
 
 ---
@@ -48,24 +52,21 @@ The Menu Management Entity is the **largest entity by data volume** (~450 MB), m
 | `id` | bigint | NO | identity | Primary key |
 | `uuid` | uuid | NO | gen_random_uuid() | External identifier |
 | `restaurant_id` | bigint | NO | - | FK to restaurants |
-| `name` | varchar(255) | NO | - | Category name |
-| `description` | text | YES | - | Category description |
+| `name_en` | varchar(255) | NO | - | Category name (English) |
+| `name_fr` | varchar(255) | YES | - | Category name (French) |
+| `description_en` | text | YES | - | Category description (English) |
+| `description_fr` | text | YES | - | Category description (French) |
 | `display_order` | integer | YES | 0 | Sort order |
 | `is_active` | boolean | YES | true | Active status |
-| `image_url` | varchar(500) | YES | - | Category image |
-| `parent_course_id` | bigint | YES | - | For subcategories |
-| `source_system` | varchar(10) | YES | - | v1 or v2 |
-| `source_id` | bigint | YES | - | Original system ID |
-| `legacy_v1_id` | integer | YES | - | V1 migration reference |
-| `legacy_v2_id` | integer | YES | - | V2 migration reference |
+| `source_id` | bigint | YES | - | Original V1/V2 system ID |
 | `created_at` | timestamptz | NO | now() | Creation timestamp |
 | `updated_at` | timestamptz | YES | now() | Last update timestamp |
 | `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
-| `deleted_by` | bigint | YES | - | Admin who deleted |
+| `deleted_by` | bigint | YES | - | User who deleted |
 
 ---
 
-#### `dishes` (38 MB - LARGEST TABLE)
+#### `dishes`
 **Purpose:** Individual menu items/products
 
 | Column | Type | Nullable | Default | Description |
@@ -74,343 +75,698 @@ The Menu Management Entity is the **largest entity by data volume** (~450 MB), m
 | `uuid` | uuid | NO | gen_random_uuid() | External identifier |
 | `restaurant_id` | bigint | NO | - | FK to restaurants |
 | `course_id` | bigint | YES | - | FK to courses |
-| `name` | varchar(255) | NO | - | Dish name |
-| `description` | text | YES | - | Dish description |
-| `ingredients` | text | YES | - | Ingredient list |
-| `sku` | varchar(50) | YES | - | Stock keeping unit |
+| `name_en` | varchar(255) | NO | - | Dish name (English) |
+| `name_fr` | varchar(255) | YES | - | Dish name (French) |
+| `description_en` | text | YES | - | Dish description (English) |
+| `description_fr` | text | YES | - | Dish description (French) |
 | `display_order` | integer | YES | 0 | Sort order |
-| `image_url` | varchar(500) | YES | - | Dish image |
 | `is_combo` | boolean | YES | false | Is combo meal |
 | `has_customization` | boolean | YES | false | Has modifiers |
-| `quantity` | varchar(255) | YES | - | Quantity description |
 | `is_upsell` | boolean | YES | false | Upsell item |
 | `is_active` | boolean | YES | true | Active status |
-| `source_system` | varchar(10) | YES | - | v1 or v2 |
-| `source_id` | bigint | YES | - | Original system ID |
-| `legacy_v1_id` | integer | YES | - | V1 migration reference |
-| `legacy_v2_id` | integer | YES | - | V2 migration reference |
-| `notes` | text | YES | - | Internal notes |
-| `allergen_info` | jsonb | YES | - | Allergen data |
-| `nutritional_info` | jsonb | YES | - | Nutrition data |
-| `search_vector` | tsvector | YES | generated | Full-text search |
-| `unavailable_until_at` | timestamptz | YES | - | Temporary unavailability |
+| `is_featured` | boolean | NO | false | Featured dish |
+| `hide_option_enabled` | boolean | NO | false | Hide option flag |
+| `source_id` | bigint | YES | - | Original V1/V2 system ID |
 | `created_at` | timestamptz | NO | now() | Creation timestamp |
 | `updated_at` | timestamptz | YES | now() | Last update timestamp |
 | `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
-| `deleted_by` | bigint | YES | - | Admin who deleted |
+| `deleted_by` | bigint | YES | - | User who deleted |
 
 ---
 
-#### `combo_steps`
-**Purpose:** Combo meal step configurations
+### Size Variant Normalization Tables
+
+> **Two-Tier System:** Standardized size matching between dish prices and modifier prices using foreign key IDs instead of string matching.
+
+#### `modifier_size_variants`
+**Purpose:** Global standardized sizes for modifiers (8 tiers)
 
 | Column | Type | Nullable | Default | Description |
 |--------|------|----------|---------|-------------|
-| `id` | bigint | NO | identity | Primary key |
-| `dish_id` | bigint | NO | - | FK to dishes (combo) |
-| `step_number` | integer | NO | - | Step order |
-| `step_name` | varchar | NO | - | Step display name |
-| `min_selections` | integer | NO | 0 | Minimum required |
-| `max_selections` | integer | NO | 1 | Maximum allowed |
-| `available_items` | jsonb | YES | - | Items available in step |
-| `created_at` | timestamptz | NO | now() | Creation timestamp |
+| `id` | SERIAL | NO | - | Primary key |
+| `code` | varchar(20) | NO | - | Unique code (e.g., 'small', 'medium') |
+| `name_en` | varchar(50) | NO | - | English name |
+| `name_fr` | varchar(50) | NO | - | French name |
+| `display_order` | int | NO | 0 | Sort order |
+| `created_at` | timestamptz | YES | now() | Creation timestamp |
+
+**Standard Values:**
+
+| id | code | name_en | name_fr |
+|----|------|---------|---------|
+| 1 | standard | Standard | Standard |
+| 2 | small | Small | Petite |
+| 3 | medium | Medium | Moyenne |
+| 4 | large | Large | Grande |
+| 5 | x-large | X-Large | X-Grande |
+| 6 | size-5 | Size 5 | Taille 5 |
+| 7 | size-6 | Size 6 | Taille 6 |
+| 8 | size-7 | Size 7 | Taille 7 |
 
 ---
 
-### Pricing Tables
+#### `dish_size_variants`
+**Purpose:** Expanded dish sizes (~50 variants) with FK mapping to modifier sizes
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | SERIAL | NO | - | Primary key |
+| `code` | varchar(30) | NO | - | Unique code |
+| `name_en` | varchar(50) | NO | - | English name |
+| `name_fr` | varchar(50) | NO | - | French name |
+| `category` | varchar(20) | NO | - | Category: size, dimension, volume, container, combo, portion |
+| `modifier_size_variant_id` | int | YES | - | FK to modifier_size_variants (NULL for non-mappable) |
+| `display_order` | int | NO | 0 | Sort order |
+| `created_at` | timestamptz | YES | now() | Creation timestamp |
+
+**Example Mappings:**
+
+| Dish Size | Category | Maps To (modifier_size_variant_id) |
+|-----------|----------|-----------------------------------|
+| 10" | dimension | 2 (Small) |
+| 12" | dimension | 3 (Medium) |
+| 14" | dimension | 4 (Large) |
+| 591ml | volume | 3 (Medium) |
+| 1L | volume | 4 (Large) |
+| 6 pcs | portion | 2 (Small) |
+| 12 pcs | portion | 3 (Medium) |
+| Chicken | protein | NULL (no mapping) |
+| Ranch | flavor | NULL (no mapping) |
+
+---
+
+### Dish Pricing Tables
 
 #### `dish_prices`
-**Purpose:** Base dish pricing with size variants
+**Purpose:** Base dish pricing with size variant FK
 
 | Column | Type | Nullable | Default | Description |
 |--------|------|----------|---------|-------------|
 | `id` | bigint | NO | identity | Primary key |
 | `dish_id` | bigint | NO | - | FK to dishes |
-| `size_code` | varchar(50) | YES | - | Size identifier |
-| `size_label` | varchar(100) | YES | - | Size display name |
+| `size_variant` | varchar(50) | YES | - | Display name (legacy) |
+| `dish_size_variant_id` | int | YES | - | FK to dish_size_variants |
 | `price` | numeric(10,2) | NO | - | Price amount |
-| `is_default` | boolean | NO | false | Default size |
 | `display_order` | integer | YES | 0 | Sort order |
-| `created_at` | timestamptz | NO | now() | Creation timestamp |
-| `updated_at` | timestamptz | YES | - | Last update timestamp |
-
----
-
-#### `dish_modifier_prices` (181 MB - LARGEST)
-**Purpose:** Modifier pricing with size variants
-
-| Column | Type | Nullable | Default | Description |
-|--------|------|----------|---------|-------------|
-| `id` | bigint | NO | identity | Primary key |
-| `uuid` | uuid | NO | gen_random_uuid() | External identifier |
-| `dish_modifier_id` | bigint | NO | - | FK to dish_modifiers |
-| `dish_id` | bigint | NO | - | FK to dishes |
-| `restaurant_id` | bigint | NO | - | FK to restaurants |
-| `size_variant` | varchar(50) | YES | - | Size (Small/Medium/Large) |
-| `price` | numeric(10,2) | NO | 0.00 | Price amount |
-| `display_order` | integer | YES | 1 | Sort order |
-| `is_active` | boolean | NO | true | Active status |
-| `source_system` | varchar(20) | YES | - | v1 or v2 |
+| `is_active` | boolean | YES | true | Active status |
 | `created_at` | timestamptz | NO | now() | Creation timestamp |
 | `updated_at` | timestamptz | YES | - | Last update timestamp |
 | `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
-| `deleted_by` | bigint | YES | - | Admin who deleted |
+
+**Size Matching:** The `dish_size_variant_id` links to `dish_size_variants.modifier_size_variant_id` for matching with modifier prices.
 
 ---
 
-#### `combo_group_modifier_pricing`
-**Purpose:** Combo-specific modifier pricing
+### Modifier System Tables
 
-| Column | Type | Nullable | Default | Description |
-|--------|------|----------|---------|-------------|
-| `id` | bigint | NO | identity | Primary key |
-| `combo_step_id` | bigint | NO | - | FK to combo_steps |
-| `modifier_id` | bigint | NO | - | FK to dish_modifiers |
-| `price_adjustment` | numeric(10,2) | NO | 0 | Price change |
-| `created_at` | timestamptz | NO | now() | Creation timestamp |
-
----
-
-### Customization System Tables
+> **Shared Modifier Groups:** Modifier groups are defined at the restaurant level and linked to dishes via `dish_modifier_groups`. This allows the same modifier group (e.g., "Pizza Toppings") to be reused across multiple dishes.
 
 #### `modifier_groups`
-**Purpose:** Groups of related modifiers (e.g., "Size", "Toppings")
+**Purpose:** Restaurant-level shared modifier groups
 
 | Column | Type | Nullable | Default | Description |
 |--------|------|----------|---------|-------------|
 | `id` | bigint | NO | identity | Primary key |
-| `dish_id` | bigint | NO | - | FK to dishes |
-| `name` | varchar(100) | NO | - | Group name |
-| `is_required` | boolean | NO | false | Selection required |
-| `min_selections` | integer | NO | 0 | Minimum selections |
-| `max_selections` | integer | NO | 1 | Maximum selections |
-| `display_order` | integer | NO | 0 | Sort order |
-| `parent_modifier_id` | bigint | YES | - | For nested groups |
-| `instructions` | text | YES | - | User instructions |
-| `course_template_id` | integer | YES | - | FK to template |
-| `is_custom` | boolean | YES | true | Custom or template |
-| `created_at` | timestamptz | NO | now() | Creation timestamp |
-| `updated_at` | timestamptz | NO | now() | Last update timestamp |
-| `deleted_at` | timestamp | YES | - | Soft delete timestamp |
-
----
-
-#### `dish_modifiers` (216 MB - 2ND LARGEST)
-**Purpose:** Individual modifier options
-
-| Column | Type | Nullable | Default | Description |
-|--------|------|----------|---------|-------------|
-| `id` | bigint | NO | identity | Primary key |
-| `uuid` | uuid | NO | gen_random_uuid() | External identifier |
 | `restaurant_id` | bigint | NO | - | FK to restaurants |
-| `dish_id` | bigint | NO | - | FK to dishes |
-| `modifier_group_id` | bigint | YES | - | FK to modifier_groups |
-| `name` | varchar(100) | YES | - | Modifier name |
-| `modifier_type` | varchar(50) | YES | - | Type classification |
-| `display_order` | integer | YES | - | Sort order |
-| `is_default` | boolean | NO | false | Pre-selected |
-| `is_included` | boolean | YES | false | Included in base price |
-| `source_system` | varchar(10) | YES | - | v1 or v2 |
-| `source_id` | bigint | YES | - | Original system ID |
+| `name_en` | varchar(255) | NO | - | Group name (English) |
+| `name_fr` | varchar(255) | YES | - | Group name (French) |
+| `category` | varchar(50) | YES | - | Category type |
+| `source_id` | bigint | YES | - | V1/V2 source ID |
 | `created_at` | timestamptz | NO | now() | Creation timestamp |
 | `updated_at` | timestamptz | YES | now() | Last update timestamp |
 | `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
-| `deleted_by` | bigint | YES | - | Admin who deleted |
-
-**Modifier Types:**
-- `custom_ingredients` - Toppings, add-ons
-- `extras` - Extra items
-- `side_dishes` - Side options
-- `drinks` - Beverage options
-- `sauces` - Sauce choices
-- `bread` - Bread/crust options
-- `dressing` - Salad dressings
-- `cooking_method` - Preparation style
-- `other` - Miscellaneous
 
 ---
 
-### Template System Tables
-
-#### `course_modifier_templates`
-**Purpose:** Reusable modifier group configurations
-
-| Column | Type | Nullable | Default | Description |
-|--------|------|----------|---------|-------------|
-| `id` | bigint | NO | identity | Primary key |
-| `course_id` | bigint | NO | - | FK to courses |
-| `name` | varchar(100) | NO | - | Template name |
-| `is_required` | boolean | NO | false | Selection required |
-| `min_selections` | integer | NO | 0 | Minimum selections |
-| `max_selections` | integer | NO | 1 | Maximum selections |
-| `display_order` | integer | YES | 0 | Sort order |
-| `library_template_id` | bigint | YES | - | Parent library template |
-| `created_at` | timestamptz | NO | now() | Creation timestamp |
-
----
-
-#### `course_template_modifiers`
-**Purpose:** Modifiers within a template
-
-| Column | Type | Nullable | Default | Description |
-|--------|------|----------|---------|-------------|
-| `id` | bigint | NO | identity | Primary key |
-| `template_id` | bigint | NO | - | FK to course_modifier_templates |
-| `name` | varchar(100) | NO | - | Modifier name |
-| `price` | numeric(10,2) | YES | 0 | Price amount |
-| `display_order` | integer | YES | 0 | Sort order |
-| `created_at` | timestamptz | NO | now() | Creation timestamp |
-
----
-
-### Inventory Tables
-
-#### `dish_inventory`
-**Purpose:** Stock tracking and availability
+#### `dish_modifier_groups`
+**Purpose:** Links dishes to modifier groups (many-to-many)
 
 | Column | Type | Nullable | Default | Description |
 |--------|------|----------|---------|-------------|
 | `id` | bigint | NO | identity | Primary key |
 | `dish_id` | bigint | NO | - | FK to dishes |
-| `quantity_available` | integer | YES | - | Stock count |
-| `is_available` | boolean | NO | true | Availability flag |
-| `unavailable_reason` | text | YES | - | Reason if unavailable |
-| `marked_unavailable_by` | bigint | YES | - | Admin who marked |
-| `marked_unavailable_at` | timestamptz | YES | - | When marked |
-| `auto_restore_at` | timestamptz | YES | - | Auto-restore time |
+| `modifier_group_id` | bigint | NO | - | FK to modifier_groups |
 | `created_at` | timestamptz | NO | now() | Creation timestamp |
-| `updated_at` | timestamptz | YES | - | Last update timestamp |
+| `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
+
+---
+
+#### `modifier_group_details`
+**Purpose:** Per-dish configuration for modifier groups
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | bigint | NO | identity | Primary key |
+| `dish_modifier_group_id` | bigint | NO | - | FK to dish_modifier_groups |
+| `name_en` | varchar(100) | YES | - | Display name override (English) |
+| `name_fr` | varchar(100) | YES | - | Display name override (French) |
+| `min_selections` | int | YES | 0 | Minimum required |
+| `max_selections` | int | YES | 1 | Maximum allowed |
+| `free_items` | int | YES | 0 | Free items allowed |
+| `display_order` | int | YES | 0 | Sort order |
+| `created_at` | timestamptz | NO | now() | Creation timestamp |
+| `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
+
+---
+
+#### `modifiers`
+**Purpose:** Individual modifier options within a group
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | bigint | NO | identity | Primary key |
+| `modifier_group_id` | bigint | NO | - | FK to modifier_groups |
+| `name_en` | varchar(255) | NO | - | Modifier name (English) |
+| `name_fr` | varchar(255) | YES | - | Modifier name (French) |
+| `display_order` | integer | YES | 0 | Sort order |
+| `is_active` | boolean | YES | true | Active status |
+| `source_id` | bigint | YES | - | V1/V2 source ID |
+| `created_at` | timestamptz | NO | now() | Creation timestamp |
+| `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
+
+---
+
+#### `modifier_prices`
+**Purpose:** Modifier pricing with size variant FK
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | bigint | NO | identity | Primary key |
+| `modifier_id` | bigint | NO | - | FK to modifiers |
+| `size_variant` | varchar(50) | YES | - | Display name (legacy) |
+| `modifier_size_variant_id` | int | YES | - | FK to modifier_size_variants |
+| `price` | numeric(10,2) | NO | 0.00 | Price amount |
+| `display_order` | integer | YES | 0 | Sort order |
+| `created_at` | timestamptz | NO | now() | Creation timestamp |
+| `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
+
+---
+
+### Combo System Tables
+
+> **Combo Architecture:** Combos are structured as: `dishes` → `dish_combo_groups` → `combo_groups` → `combo_group_sections` → `combo_modifier_groups` → `combo_modifiers` → `combo_modifier_prices`
+
+#### `combo_groups`
+**Purpose:** Combo meal configurations
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | bigint | NO | identity | Primary key |
+| `restaurant_id` | bigint | NO | - | FK to restaurants |
+| `name_en` | text | NO | - | Combo group name (English) |
+| `name_fr` | text | YES | - | Combo group name (French) |
+| `special_number_of_items` | int | YES | - | Number of items in combo |
+| `special_display_header_en` | varchar(255) | YES | - | Display header (English) |
+| `special_display_header_fr` | varchar(255) | YES | - | Display header (French) |
+| `source_id` | bigint | YES | - | V1/V2 source ID |
+| `created_at` | timestamptz | NO | now() | Creation timestamp |
+| `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
+
+---
+
+#### `dish_combo_groups`
+**Purpose:** Links dishes to combo groups (many-to-many)
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | bigint | NO | identity | Primary key |
+| `dish_id` | bigint | NO | - | FK to dishes |
+| `combo_group_id` | bigint | NO | - | FK to combo_groups |
+| `is_active` | boolean | YES | true | Active status |
+| `created_at` | timestamptz | NO | now() | Creation timestamp |
+
+---
+
+#### `combo_group_sections`
+**Purpose:** Sections within a combo group (e.g., "Crust Type", "Toppings", "Drinks")
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | bigint | NO | identity | Primary key |
+| `combo_group_id` | bigint | NO | - | FK to combo_groups |
+| `section_type` | varchar(50) | NO | - | Type: crust, custom_ingredients, dip, drinks, etc. |
+| `use_header_en` | varchar(255) | YES | - | Display header (English) |
+| `use_header_fr` | varchar(255) | YES | - | Display header (French) |
+| `display_order` | int | YES | 0 | Sort order |
+| `free_items` | int | YES | 0 | Free items allowed |
+| `min_selection` | int | YES | 0 | Minimum required |
+| `max_selection` | int | YES | 0 | Maximum allowed |
+| `is_active` | boolean | YES | true | Active status |
+| `source_id` | bigint | YES | - | V1/V2 source ID |
+| `created_at` | timestamptz | NO | now() | Creation timestamp |
+
+**Section Types:**
+- `crust` - Crust/bread selection
+- `custom_ingredients` - Toppings, add-ons
+- `dip` - Dipping sauces
+- `drinks` - Beverage selection
+- `side` - Side dishes
+- `size` - Size selection
+
+---
+
+#### `combo_modifier_groups`
+**Purpose:** Modifier groups within a combo section
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | bigint | NO | identity | Primary key |
+| `combo_group_section_id` | bigint | NO | - | FK to combo_group_sections |
+| `name_en` | text | NO | - | Group name (English) |
+| `name_fr` | text | YES | - | Group name (French) |
+| `type_code` | varchar(50) | YES | - | Type: CI, RADIO, etc. |
+| `is_selected` | boolean | YES | false | Default selected group |
+| `source_id` | bigint | YES | - | V1/V2 modifier group source ID |
+| `created_at` | timestamptz | NO | now() | Creation timestamp |
+
+**Note:** `is_selected = true` indicates this is the default modifier group for the section.
+
+---
+
+#### `combo_modifiers`
+**Purpose:** Individual modifiers within a combo modifier group
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | bigint | NO | identity | Primary key |
+| `combo_modifier_group_id` | bigint | NO | - | FK to combo_modifier_groups |
+| `name_en` | text | NO | - | Modifier name (English) |
+| `name_fr` | text | YES | - | Modifier name (French) |
+| `display_order` | int | YES | 0 | Sort order |
+| `source_id` | bigint | YES | - | V1/V2 modifier source ID |
+| `created_at` | timestamptz | NO | now() | Creation timestamp |
+
+---
+
+#### `combo_modifier_prices`
+**Purpose:** Pricing for combo modifiers with size variant FK
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | bigint | NO | identity | Primary key |
+| `combo_modifier_id` | bigint | NO | - | FK to combo_modifiers |
+| `size_variant` | varchar(50) | YES | - | Display name (legacy) |
+| `modifier_size_variant_id` | int | YES | - | FK to modifier_size_variants |
+| `price` | numeric(10,2) | NO | 0.00 | Price amount |
+| `display_order` | int | YES | 0 | Sort order |
+| `created_at` | timestamptz | NO | now() | Creation timestamp |
+
+---
+
+### Availability Tables
+
+#### `dish_availability`
+**Purpose:** Day-of-week visibility restrictions for dishes
+
+| Column | Type | Nullable | Default | Description |
+|--------|------|----------|---------|-------------|
+| `id` | SERIAL | NO | - | Primary key |
+| `dish_id` | bigint | NO | - | FK to dishes |
+| `day_of_week` | smallint | NO | - | 0=Sunday, 1=Monday, ..., 6=Saturday |
+| `is_hidden` | boolean | NO | true | true = dish is hidden on this day |
+
+**Constraint:** Unique on `(dish_id, day_of_week)`
+
+**Example:**
+- Dish hidden on Saturday & Sunday: `[(dish_id, 0, true), (dish_id, 6, true)]`
+- Dish visible only on Monday: `[(dish_id, 0, true), (dish_id, 2, true), (dish_id, 3, true), (dish_id, 4, true), (dish_id, 5, true), (dish_id, 6, true)]`
+
+---
 
 ---
 
 ## 🔧 SQL Functions
 
-### Menu Retrieval
+### Overview (9 functions)
 
-```sql
--- Function: Get full menu for restaurant
-CREATE OR REPLACE FUNCTION menuca_v3.get_restaurant_menu(
-    p_restaurant_id bigint
-)
-RETURNS jsonb
-```
-
-```sql
--- Function: Search dishes
-CREATE OR REPLACE FUNCTION menuca_v3.search_dishes(
-    p_restaurant_id bigint,
-    p_query text
-)
-RETURNS TABLE(...)
-```
-
-### Modifier Management
-
-```sql
--- Function: Get dish with all modifiers
-CREATE OR REPLACE FUNCTION menuca_v3.get_dish_with_modifiers(
-    p_dish_id bigint
-)
-RETURNS jsonb
-```
-
-**TODO:** Document all SQL functions after database query
+| Category | Function | Purpose |
+|----------|----------|---------|
+| **Menu Retrieval** | `get_restaurant_menu` | Returns complete menu with courses, dishes, prices, modifiers, combos |
+| **Availability** | `get_dish_availability` | Get hidden days for a dish |
+| **Availability** | `update_dish_availability` | Update hidden days for a dish |
+| **Dish CRUD** | `soft_delete_dish` | Soft delete a dish |
+| **Dish CRUD** | `restore_dish` | Restore a soft-deleted dish |
+| **Onboarding** | `add_menu_item_onboarding` | Add menu item during restaurant onboarding |
+| **Onboarding** | `copy_franchise_menu_onboarding` | Copy menu from franchise parent |
+| **Triggers** | `enforce_dish_pricing` | Warn if dish activated without pricing |
+| **Triggers** | `notify_menu_change` | Send pg_notify on menu changes |
 
 ---
 
-## ⚡ Edge Functions
+### Menu Retrieval
 
-| Function Name | Endpoint | Purpose |
-|--------------|----------|---------|
-| - | - | No dedicated Edge Functions yet |
+#### `get_restaurant_menu(p_restaurant_id, p_language_code, p_combo_default_only)`
+
+Returns the complete menu structure with all pricing, modifiers, combos, and availability. **Supports bilingual output (English/French).**
+
+**Parameters:**
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `p_restaurant_id` | bigint | - | Restaurant ID |
+| `p_language_code` | text | `'en'` | Language: `'en'` or `'fr'` |
+| `p_combo_default_only` | boolean | `false` | Only selected combo modifier groups |
+
+```sql
+SELECT menuca_v3.get_restaurant_menu(973);              -- English menu (default)
+SELECT menuca_v3.get_restaurant_menu(973, 'fr');        -- French menu
+SELECT menuca_v3.get_restaurant_menu(973, 'en', true);  -- English, selected combos only
+```
+
+**Language Fallback:** If the requested language is NULL, falls back to the other language using COALESCE.
+
+**Returns:** JSONB with structure:
+```json
+{
+  "restaurant_id": 973,
+  "courses": [
+    {
+      "id": 123,
+      "name": "Pizzas",
+      "dishes": [
+        {
+          "id": 172885,
+          "name": "Walk-In Special (Medium Pizza)",
+          "hidden_days": null,
+          "prices": [
+            {
+              "id": 110178,
+              "size_variant": "Standard",
+              "dish_size_variant_id": 3,
+              "modifier_size_variant_id": 3,
+              "price": 15.00
+            }
+          ],
+          "modifier_groups": [...],
+          "combo_groups": [...]
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+### Dish Availability
+
+#### `get_dish_availability(p_dish_id)`
+
+Returns current hidden days for a dish.
+
+```sql
+SELECT menuca_v3.get_dish_availability(172885);
+```
+
+**Returns:**
+```json
+{
+  "success": true,
+  "dish_id": 172885,
+  "dish_name": "Walk-In Special (Medium Pizza)",
+  "hidden_days": []
+}
+```
+
+---
+
+#### `update_dish_availability(p_dish_id, p_hidden_days)`
+
+Updates hidden days for a dish.
+
+```sql
+-- Hide on weekends
+SELECT menuca_v3.update_dish_availability(172885, ARRAY[0, 6]);
+
+-- Remove all restrictions
+SELECT menuca_v3.update_dish_availability(172885, ARRAY[]::INT[]);
+```
+
+**Returns:**
+```json
+{
+  "success": true,
+  "dish_id": 172885,
+  "hidden_days": [0, 6],
+  "message": "Availability updated",
+  "deleted_count": 0,
+  "inserted_count": 2
+}
+```
+
+---
+
+### Dish CRUD
+
+#### `soft_delete_dish(p_dish_id)`
+
+Soft delete a dish by setting `deleted_at` timestamp and marking as inactive.
+
+```sql
+SELECT menuca_v3.soft_delete_dish(172885);
+```
+
+**Returns:**
+```json
+{
+  "success": true,
+  "dish_id": 172885,
+  "restaurant_id": 973,
+  "deleted_at": "2026-01-12T...",
+  "message": "Dish soft deleted successfully"
+}
+```
+
+---
+
+#### `restore_dish(p_dish_id)`
+
+Restore a soft-deleted dish by clearing `deleted_at` and marking as active.
+
+```sql
+SELECT menuca_v3.restore_dish(172885);
+```
+
+**Returns:**
+```json
+{
+  "success": true,
+  "dish_id": 172885,
+  "restaurant_id": 973,
+  "restored_at": "2026-01-12T...",
+  "message": "Dish restored successfully"
+}
+```
+
+---
+
+### Onboarding Functions
+
+#### `add_menu_item_onboarding(p_restaurant_id, p_name, p_description, p_price, p_category, p_created_by)`
+
+Add a menu item during restaurant onboarding. Marks menu step complete when first item is added.
+
+```sql
+SELECT * FROM menuca_v3.add_menu_item_onboarding(123, 'Pepperoni Pizza', 'Classic pizza', 14.99);
+```
+
+---
+
+#### `copy_franchise_menu_onboarding(p_target_restaurant_id, p_source_restaurant_id, p_created_by)`
+
+Copy entire menu from franchise parent restaurant to a new location.
+
+```sql
+SELECT * FROM menuca_v3.copy_franchise_menu_onboarding(124, 123);  -- Copy from 123 to 124
+```
+
+---
+
+### Trigger Functions
+
+#### `enforce_dish_pricing()`
+
+Trigger function that warns when dishes are activated without pricing.
+
+#### `notify_menu_change()`
+
+Trigger function that sends `pg_notify` events when menu data changes.
+
+---
+
+## 🌐 Edge Functions
+
+| Edge Function | SQL Function Called | Purpose |
+|---------------|---------------------|---------|
+| `copy-franchise-menu` | `copy_franchise_menu_onboarding` | Copy menu between franchise locations |
+| `check-restaurant-availability` | `get_restaurant_availability` | Check if restaurant can accept orders |
+
+---
+
+## 🎯 Size-Price Matching Logic
+
+### How It Works
+
+The system uses `modifier_size_variant_id` to match dish prices with modifier/combo modifier prices:
+
+```
+dish_prices.dish_size_variant_id 
+    → dish_size_variants.modifier_size_variant_id 
+    → modifier_prices.modifier_size_variant_id (MATCH!)
+```
+
+### Frontend Implementation
+
+```javascript
+function getModifierPrice(dishPrice, modifierPrices) {
+  const targetSizeId = dishPrice.modifier_size_variant_id;
+  
+  // 1. Try exact match
+  const exactMatch = modifierPrices.find(p => p.modifier_size_variant_id === targetSizeId);
+  if (exactMatch) return exactMatch.price;
+  
+  // 2. Fallback to Standard (id: 1)
+  const standardPrice = modifierPrices.find(p => p.modifier_size_variant_id === 1);
+  if (standardPrice) return standardPrice.price;
+  
+  // 3. Ultimate fallback: first price
+  return modifierPrices[0]?.price ?? 0;
+}
+```
+
+### Example
+
+**Dish:** "Walk-In Special (Medium Pizza)"
+- `dish_price.modifier_size_variant_id = 3` (Medium)
+
+**Combo Modifier:** "Beef Pepperoni"
+- Small: `modifier_size_variant_id: 2` → $1.00
+- **Medium: `modifier_size_variant_id: 3` → $2.00** ← MATCH!
+- Large: `modifier_size_variant_id: 4` → $3.00
+
+**Result:** Frontend uses $2.00 for this topping.
 
 ---
 
 ## 📇 Indexes
 
-### `dishes` Table Indexes
+### Key Indexes
 
-| Index Name | Columns | Type | Condition |
-|------------|---------|------|-----------|
-| `dishes_pkey` | `id` | PRIMARY KEY | - |
-| `dishes_uuid_key` | `uuid` | UNIQUE | - |
-| `idx_dishes_restaurant` | `restaurant_id` | BTREE | - |
-| `idx_dishes_course` | `course_id` | BTREE | - |
-| `idx_dishes_active` | `is_active` | BTREE | `is_active = true` |
-| `idx_dishes_search` | `search_vector` | GIN | - |
-| `idx_dishes_legacy_v1` | `legacy_v1_id` | BTREE | `legacy_v1_id IS NOT NULL` |
-| `idx_dishes_legacy_v2` | `legacy_v2_id` | BTREE | `legacy_v2_id IS NOT NULL` |
-
-### `dish_modifiers` Table Indexes
-
-| Index Name | Columns | Type | Condition |
-|------------|---------|------|-----------|
-| `dish_modifiers_pkey` | `id` | PRIMARY KEY | - |
-| `idx_dish_modifiers_dish` | `dish_id` | BTREE | - |
-| `idx_dish_modifiers_group` | `modifier_group_id` | BTREE | `deleted_at IS NULL` |
-| `idx_dish_modifiers_restaurant` | `restaurant_id` | BTREE | - |
+| Table | Index | Columns | Purpose |
+|-------|-------|---------|---------|
+| `dishes` | `idx_dishes_restaurant` | `restaurant_id` | Restaurant lookup |
+| `dishes` | `idx_dishes_course` | `course_id` | Category lookup |
+| `dish_prices` | `idx_dish_prices_dish` | `dish_id` | Price lookup |
+| `modifier_prices` | `idx_modifier_prices_modifier` | `modifier_id` | Price lookup |
+| `combo_modifier_prices` | `idx_combo_modifier_prices_modifier` | `combo_modifier_id` | Price lookup |
+| `dish_availability` | `idx_dish_availability_dish` | `dish_id` | Availability lookup |
 
 ---
 
 ## 🔒 RLS Policies
 
-### `dishes` Table Policies
+### Overview
 
-| Policy Name | Operation | Roles | Description |
-|-------------|-----------|-------|-------------|
-| `dishes_public_read` | SELECT | anon, authenticated | Read active dishes |
-| `dishes_select_restaurant_admin` | SELECT | authenticated | Admin reads their dishes |
-| `dishes_insert_restaurant_admin` | INSERT | authenticated | Admin creates dishes |
-| `dishes_update_restaurant_admin` | UPDATE | authenticated | Admin updates dishes |
-| `dishes_delete_restaurant_admin` | DELETE | authenticated | Admin soft-deletes dishes |
-| `dishes_service_role_all` | ALL | service_role | Full access |
+**Major RLS Cleanup (2026-01-12):** Removed 33 policies from core menu tables (`courses`, `dishes`, `dish_prices`, `modifier_group_details`) because menu data is accessed exclusively via `get_restaurant_menu()` function (SECURITY DEFINER, bypasses RLS).
 
-### `dish_modifiers` Table Policies
+### RLS Status by Table Group
 
-| Policy Name | Operation | Roles | Description |
-|-------------|-----------|-------|-------------|
-| `dish_modifiers_public_read` | SELECT | anon, authenticated | Read active modifiers |
-| `dish_modifiers_select_restaurant_admin` | SELECT | authenticated | Admin reads modifiers |
-| `dish_modifiers_insert_restaurant_admin` | INSERT | authenticated | Admin creates modifiers |
-| `dish_modifiers_update_restaurant_admin` | UPDATE | authenticated | Admin updates modifiers |
-| `dish_modifiers_delete_restaurant_admin` | DELETE | authenticated | Admin deletes modifiers |
-| `dish_modifiers_service_role_all` | ALL | service_role | Full access |
+| Table Group | RLS Status | Reason |
+|------------|-----------|---------|
+| **Core Menu Tables** | ❌ **Disabled** | All access via `get_restaurant_menu()` |
+| `courses` | No RLS | Function-based access only |
+| `dishes` | No RLS | Function-based access only |
+| `dish_prices` | No RLS | Function-based access only |
+| `modifier_group_details` | No RLS | Function-based access only |
+| **Supporting Tables** | ✅ **Enabled** | Direct queries allowed |
+| `modifier_size_variants` | Public SELECT | Global reference data |
+| `dish_size_variants` | Public SELECT | Global reference data |
+| `dish_modifiers` | Public SELECT + Service Role | Direct customer queries |
+| `dish_modifier_prices` | Public SELECT + Service Role | Price lookups |
+| `combo_*` tables | Public SELECT + Service Role | Combo configuration |
+| `course_*` templates | Public SELECT + Service Role | Modifier templates |
 
----
+### Remaining Policies (11 total)
 
-## ⚙️ Triggers
+| Table | Policy | Roles | Command | Purpose |
+|-------|--------|-------|---------|---------|
+| **combo_group_modifier_pricing** | `public_view_combo_modifier_pricing` | public | SELECT | Customer access |
+| | `combo_modifier_pricing_service_role_all` | service_role | ALL | Super admin bypass |
+| **combo_group_translations** | `combo_group_translations_service_role` | service_role | ALL | Super admin bypass |
+| **combo_steps** | `public_view_combo_steps` | public | SELECT | Customer access |
+| | `combo_steps_service_role_all` | service_role | ALL | Super admin bypass |
+| **course_modifier_templates** | `public_read_category_modifier_groups` | anon, authenticated | SELECT | Template access |
+| **course_template_modifiers** | `public_read_modifier_options` | anon, authenticated | SELECT | Template access |
+| **dish_modifier_prices** | `public_view_active_modifier_prices` | public | SELECT | Customer access |
+| | `dish_modifier_prices_service_role_all` | service_role | ALL | Super admin bypass |
+| **dish_modifiers** | `public_view_dish_modifiers` | public | SELECT | Customer access |
+| | `dish_modifiers_service_role_all` | service_role | ALL | Super admin bypass |
 
-### `dishes` Table Triggers
+### Policies Deleted (33 total - 2026-01-12)
 
-| Trigger Name | Event | Timing | Function | Description |
-|--------------|-------|--------|----------|-------------|
-| `audit_dishes_changes` | INSERT, UPDATE, DELETE | AFTER | `audit_trigger_func()` | Audit logging |
-| `check_dish_pricing` | INSERT, UPDATE | BEFORE | `enforce_dish_pricing()` | Validate pricing |
-| `notify_dishes_change` | INSERT, UPDATE, DELETE | AFTER | `notify_menu_change()` | Real-time updates |
+**Core Menu Tables (24 policies)**:
+- `courses`: 6 policies (2 public + 4 admin)
+- `dishes`: 6 policies (2 public + 4 admin)
+- `dish_prices`: 6 policies (2 public + 4 admin)
+- `modifier_group_details`: 6 policies (2 public + 4 admin)
 
----
+**Supporting Tables (9 policies)**:
+- `course_modifier_templates`: 1 admin policy
+- `course_template_modifiers`: 1 admin policy
+- `dish_modifier_prices`: 2 admin policies
+- `dish_modifiers`: 5 admin/authenticated policies
 
-## 🗑️ Removed Functionalities
-
-| Date | Functionality | Reason | Migration Notes |
-|------|--------------|--------|-----------------|
-| - | - | - | No removed functionalities yet |
-
----
-
-## ✨ New Functionalities
-
-| Date | Functionality | Status | Notes |
-|------|--------------|--------|-------|
-| - | Template-based modifiers | Complete | 61% of groups use templates |
+**Rationale**: No admin portal exists; all CRUD operations performed by super admins via psql/Supabase CLI
 
 ---
 
 ## 🔧 Schema Fixes Applied
 
-| Date | Fix Description | SQL Applied | Impact |
-|------|-----------------|-------------|--------|
-| - | - | - | No fixes applied yet |
+| Date | Fix Description | Impact |
+|------|-----------------|--------|
+| 2026-01-12 | Removed `source_system`, `legacy_v1_id`, `legacy_v2_id` from `courses` | Schema cleanup |
+| 2026-01-12 | Removed `sku`, `image_url`, `source_system`, `unavailable_until_at`, `legacy_v1_id`, `legacy_v2_id` from `dishes` | Schema cleanup |
+| 2026-01-12 | Dropped `dish_inventory` table (0 rows) | Removed unused table |
+| 2026-01-12 | Dropped 10 broken SQL functions referencing deleted tables/columns | Function cleanup |
+| 2026-01-12 | Dropped 6 unused menu functions (templates, franchise coverage, utilities) | Function cleanup |
+| 2026-01-12 | Fixed `add_menu_item_onboarding` and `copy_franchise_menu_onboarding` | Updated to use correct column names |
+| 2026-01-12 | **RLS Cleanup:** Removed 33 policies from menu tables | Disabled RLS on `courses`, `dishes`, `dish_prices`, `modifier_group_details` |
+| 2026-01-12 | **RLS Cleanup:** Removed 9 admin policies from supporting tables | Deleted unused admin/authenticated policies |
+| 2026-01-09 | Added bilingual columns (`name_en`, `name_fr`, `description_en`, `description_fr`) | French/English menu support |
+| 2026-01-09 | Updated `get_restaurant_menu()` with `p_language_code` parameter | Language selection with fallback |
+| 2026-01-09 | Migrated French restaurant data to `name_fr` columns | 19 French restaurants (1,729 dishes) |
+| 2026-01-08 | Created `modifier_size_variants` table (8 standard sizes) | Standardized size matching |
+| 2026-01-08 | Created `dish_size_variants` table (~50 expanded sizes) | Dish → Modifier size mapping |
+| 2026-01-08 | Added `modifier_size_variant_id` FK to `modifier_prices` | 100% coverage |
+| 2026-01-08 | Added `modifier_size_variant_id` FK to `combo_modifier_prices` | 100% coverage |
+| 2026-01-08 | Added `dish_size_variant_id` FK to `dish_prices` | 87% coverage (non-size variants NULL) |
+| 2026-01-08 | Created `dish_availability` table | Day-of-week visibility |
+| 2026-01-08 | Updated V2 combo dish prices with `use_price` mapping | 42 dishes fixed |
+| 2026-01-08 | Added `hidden_days` to `get_restaurant_menu()` | Frontend visibility control |
+| 2026-01-08 | Created `get_dish_availability()` RPC | Read availability |
+| 2026-01-08 | Created `update_dish_availability()` RPC | Update availability |
+
+### Functions Dropped (2026-01-12)
+
+The following functions were removed because they referenced deleted tables/columns:
+
+| Function | Reason |
+|----------|--------|
+| `auto_expire_unavailable_dishes()` | Referenced `dish_inventory` |
+| `check_cart_availability(jsonb)` | Referenced `dish_inventory` |
+| `decrement_dish_inventory(bigint, integer)` | Referenced `dish_inventory` |
+| `is_dish_available_now(bigint, timestamptz)` | Referenced `dish_inventory`, `unavailable_until_at` |
+| `update_dish_availability(bigint, boolean, ...)` | Referenced `dish_inventory` (inventory version) |
+| `calculate_combo_price(bigint, jsonb)` | Referenced non-existent `combo_price`, `combo_rules` |
+| `validate_combo_configuration(bigint)` | Referenced non-existent `combo_items`, `combo_price` |
+| `validate_dish_modifiers(bigint, jsonb)` | Referenced non-existent `base_price` |
+| `get_dish_size_options(bigint)` | Referenced non-existent `dish_size_options` |
+| `calculate_order_total(jsonb, bigint, ...)` | Referenced non-existent `base_price` |
+| `get_franchise_menu_coverage(bigint)` | Unused - removed |
+| `apply_template_to_dish(integer, integer)` | Unused - removed |
+| `apply_all_templates_to_dish(integer)` | Unused - removed |
+| `break_modifier_inheritance(integer)` | Unused - removed |
+| `refresh_menu_summary()` | Unused - removed |
+| `validate_order_dishes(integer[], integer)` | Unused - removed |
 
 ---
 
@@ -418,15 +774,18 @@ RETURNS jsonb
 
 | Metric | Value |
 |--------|-------|
-| Total Tables | 12 |
 | Total Dishes | ~24,277 |
 | Total Courses | ~2,500 |
 | Total Modifier Groups | ~22,632 |
-| Total Dish Modifiers | ~358,499 |
+| Total Modifiers | ~358,499 |
 | Total Modifier Prices | ~606,492 |
+| Total Combo Groups | ~500 |
+| Total Combo Modifiers | ~15,000 |
+| Total Combo Modifier Prices | ~45,000 |
+| Dishes with Availability Restrictions | ~300 (V1 + V2) |
 | Entity Size | ~450 MB (60% of database) |
+| SQL Functions (Menu) | 9 active |
 
 ---
 
-**Last Updated:** 2025-11-27
-
+**Last Updated:** 2026-01-12

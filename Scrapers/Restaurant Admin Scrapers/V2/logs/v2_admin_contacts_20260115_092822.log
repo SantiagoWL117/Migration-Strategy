@@ -1,0 +1,230 @@
+2026-01-15 09:28:22,174 - INFO - Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Restaurant Admin Scrapers\V2\logs\v2_admin_contacts_20260115_092822.log
+2026-01-15 09:28:22,174 - INFO - ============================================================
+2026-01-15 09:28:22,174 - INFO - V2 ADMIN CONTACTS SCRAPER
+2026-01-15 09:28:22,174 - INFO - ============================================================
+2026-01-15 09:28:22,174 - INFO - Started at: 2026-01-15 09:28:22
+2026-01-15 09:28:22,485 - DEBUG - Database connected
+2026-01-15 09:28:22,487 - INFO - Total restaurants to process: 20
+2026-01-15 09:28:22,987 - INFO - Navigating to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-15 09:28:23,751 - DEBUG - Filled email field
+2026-01-15 09:28:23,761 - DEBUG - Filled password field
+2026-01-15 09:28:24,203 - DEBUG - Clicked submit button
+2026-01-15 09:28:27,200 - INFO - V2 CRM login successful
+2026-01-15 09:28:27,201 - INFO - ----------------------------------------
+2026-01-15 09:28:27,201 - INFO - [1/20] Pho Dau Bo Restaurant - Kitchener (V3: 147, V2: 1171)
+2026-01-15 09:28:27,201 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1171/info
+2026-01-15 09:28:29,289 - DEBUG - Found 1 valid contacts for V2 ID 1171
+2026-01-15 09:28:29,289 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:28:29,772 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:28:36,022 - DEBUG - No existing auth user found for jimmyto0303@gmail.com
+2026-01-15 09:28:36,023 - ERROR -     Failed to create auth user for jimmyto0303@gmail.com
+2026-01-15 09:28:36,023 - INFO - ----------------------------------------
+2026-01-15 09:28:36,023 - INFO - [2/20] Sushi Presse (V3: 1020, V2: 1285)
+2026-01-15 09:28:36,023 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1285/info
+2026-01-15 09:28:37,791 - DEBUG - Found 3 valid contacts for V2 ID 1285
+2026-01-15 09:28:37,791 - INFO -   Found 3 unique contacts with email
+2026-01-15 09:28:37,973 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:28:44,368 - DEBUG - No existing auth user found for alexandra.nicolae000@gmail.com
+2026-01-15 09:28:44,369 - ERROR -     Failed to create auth user for alexandra.nicolae000@gmail.com
+2026-01-15 09:28:44,611 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:28:51,609 - DEBUG - No existing auth user found for laura_paniagua513@hotmail.com
+2026-01-15 09:28:51,610 - ERROR -     Failed to create auth user for laura_paniagua513@hotmail.com
+2026-01-15 09:28:52,136 - INFO - Created Supabase Auth user: sushipressebeaubien@hotmail.com (ID: 4f280ac7-3cd9-4725-9798-9c3cdc5faac1)
+2026-01-15 09:28:52,186 - INFO - Created admin_user: sushipressebeaubien@hotmail.com (ID: 1081)
+2026-01-15 09:28:52,258 - INFO - Linked admin 1081 to restaurant 1020
+2026-01-15 09:28:52,259 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:28:52,259 - INFO - ----------------------------------------
+2026-01-15 09:28:52,259 - INFO - [3/20] Kirkwood Pizza (V3: 950, V2: 1637)
+2026-01-15 09:28:52,259 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1637/info
+2026-01-15 09:28:54,016 - DEBUG - Skipping test contact: test alex / alexandra9nicolae@gmail.com
+2026-01-15 09:28:54,016 - DEBUG - Skipping test contact: TEST ALEX / alexandra9nicolae@gmail.com
+2026-01-15 09:28:54,017 - DEBUG - Found 1 valid contacts for V2 ID 1637
+2026-01-15 09:28:54,017 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:28:54,099 - INFO - Updated admin_user ID 1080: kirkwoodottawapizza@gmail.com
+2026-01-15 09:28:54,136 - DEBUG -     Admin 1080 already linked to restaurant 950
+2026-01-15 09:28:54,136 - INFO -   Result: 0 created, 1 updated, 0 links
+2026-01-15 09:28:54,136 - INFO - ----------------------------------------
+2026-01-15 09:28:54,136 - INFO - [4/20] River Pizza (V3: 952, V2: 1639)
+2026-01-15 09:28:54,136 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1639/info
+2026-01-15 09:28:55,896 - DEBUG - Found 2 valid contacts for V2 ID 1639
+2026-01-15 09:28:55,896 - INFO -   Found 2 unique contacts with email
+2026-01-15 09:28:56,063 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:29:02,410 - DEBUG - No existing auth user found for riverpizzaottawa@gmail.com
+2026-01-15 09:29:02,410 - ERROR -     Failed to create auth user for riverpizzaottawa@gmail.com
+2026-01-15 09:29:02,730 - INFO - Created Supabase Auth user: eric@emgervais.ca (ID: 56ddb0df-fd0d-44ee-8aa1-7c63acdbcb87)
+2026-01-15 09:29:02,772 - INFO - Created admin_user: eric@emgervais.ca (ID: 1082)
+2026-01-15 09:29:02,844 - INFO - Linked admin 1082 to restaurant 952
+2026-01-15 09:29:02,844 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:29:02,844 - INFO - ----------------------------------------
+2026-01-15 09:29:02,844 - INFO - [5/20] Wandee Thai (V3: 954, V2: 1641)
+2026-01-15 09:29:02,844 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1641/info
+2026-01-15 09:29:04,584 - DEBUG - Found 1 valid contacts for V2 ID 1641
+2026-01-15 09:29:04,584 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:29:04,765 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:29:12,301 - DEBUG - No existing auth user found for seanandnid@gmail.com
+2026-01-15 09:29:12,302 - ERROR -     Failed to create auth user for seanandnid@gmail.com
+2026-01-15 09:29:12,302 - INFO - ----------------------------------------
+2026-01-15 09:29:12,302 - INFO - [6/20] La Nawab (V3: 825, V2: 1642)
+2026-01-15 09:29:12,302 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1642/info
+2026-01-15 09:29:14,110 - DEBUG - Found 1 valid contacts for V2 ID 1642
+2026-01-15 09:29:14,110 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:29:14,289 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:29:20,788 - DEBUG - No existing auth user found for lanawab4@gmail.com
+2026-01-15 09:29:20,789 - ERROR -     Failed to create auth user for lanawab4@gmail.com
+2026-01-15 09:29:20,789 - INFO - ----------------------------------------
+2026-01-15 09:29:20,789 - INFO - [7/20] Cosenza (V3: 957, V2: 1654)
+2026-01-15 09:29:20,789 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1654/info
+2026-01-15 09:29:22,545 - DEBUG - Found 2 valid contacts for V2 ID 1654
+2026-01-15 09:29:22,545 - INFO -   Found 2 unique contacts with email
+2026-01-15 09:29:22,712 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:29:26,429 - DEBUG - Found existing auth user for smdi.gujarat@gmail.com
+2026-01-15 09:29:26,478 - INFO - Created admin_user: smdi.gujarat@gmail.com (ID: 1083)
+2026-01-15 09:29:26,555 - INFO - Linked admin 1083 to restaurant 957
+2026-01-15 09:29:26,820 - INFO - Created Supabase Auth user: houseofpizzaorleans1@gmail.com (ID: cab6f218-c31d-4dd5-8d72-135afc9f0fda)
+2026-01-15 09:29:26,863 - INFO - Created admin_user: houseofpizzaorleans1@gmail.com (ID: 1084)
+2026-01-15 09:29:26,936 - INFO - Linked admin 1084 to restaurant 957
+2026-01-15 09:29:26,936 - INFO -   Result: 2 created, 0 updated, 2 links
+2026-01-15 09:29:26,936 - INFO - ----------------------------------------
+2026-01-15 09:29:26,936 - INFO - [8/20] Cuisine Bombay Indienne (V3: 960, V2: 1657)
+2026-01-15 09:29:26,936 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1657/info
+2026-01-15 09:29:28,701 - DEBUG - Found 1 valid contacts for V2 ID 1657
+2026-01-15 09:29:28,701 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:29:28,974 - INFO - Created Supabase Auth user: uddinsantino@gmail.com (ID: 17bf47e5-c6e2-412e-a910-db8371f48dd2)
+2026-01-15 09:29:29,020 - INFO - Created admin_user: uddinsantino@gmail.com (ID: 1085)
+2026-01-15 09:29:29,094 - INFO - Linked admin 1085 to restaurant 960
+2026-01-15 09:29:29,094 - INFO -   Result: 1 created, 0 updated, 1 links
+2026-01-15 09:29:29,094 - INFO - ----------------------------------------
+2026-01-15 09:29:29,094 - INFO - [9/20] Chicco Shawarma Cantley (V3: 961, V2: 1658)
+2026-01-15 09:29:29,094 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1658/info
+2026-01-15 09:29:30,879 - DEBUG - Found 1 valid contacts for V2 ID 1658
+2026-01-15 09:29:30,879 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:29:31,042 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:29:37,750 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:29:37,751 - ERROR -     Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:29:37,751 - INFO - ----------------------------------------
+2026-01-15 09:29:37,751 - INFO - [10/20] Chicco Pizza Shawarma Anger (V3: 963, V2: 1660)
+2026-01-15 09:29:37,751 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1660/info
+2026-01-15 09:29:39,508 - DEBUG - Found 1 valid contacts for V2 ID 1660
+2026-01-15 09:29:39,508 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:29:39,686 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:29:46,313 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:29:46,313 - ERROR -     Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:29:46,314 - INFO - ----------------------------------------
+2026-01-15 09:29:46,314 - INFO - [11/20] Chicco Pizza Maloney (V3: 964, V2: 1661)
+2026-01-15 09:29:46,314 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1661/info
+2026-01-15 09:29:48,085 - DEBUG - Found 1 valid contacts for V2 ID 1661
+2026-01-15 09:29:48,085 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:29:48,254 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:29:54,800 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:29:54,800 - ERROR -     Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:29:54,801 - INFO - ----------------------------------------
+2026-01-15 09:29:54,801 - INFO - [12/20] Chicco Shawarma Maloney (V3: 965, V2: 1662)
+2026-01-15 09:29:54,801 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1662/info
+2026-01-15 09:29:56,559 - DEBUG - Found 1 valid contacts for V2 ID 1662
+2026-01-15 09:29:56,559 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:29:56,728 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:30:03,639 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:30:03,640 - ERROR -     Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:30:03,640 - INFO - ----------------------------------------
+2026-01-15 09:30:03,640 - INFO - [13/20] Chicco Pizza de l'Hopital (V3: 966, V2: 1663)
+2026-01-15 09:30:03,640 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1663/info
+2026-01-15 09:30:05,395 - DEBUG - Found 1 valid contacts for V2 ID 1663
+2026-01-15 09:30:05,395 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:30:05,590 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:30:12,149 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:30:12,149 - ERROR -     Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:30:12,150 - INFO - ----------------------------------------
+2026-01-15 09:30:12,150 - INFO - [14/20] Chicco Pizza St-Louis (V3: 967, V2: 1664)
+2026-01-15 09:30:12,150 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1664/info
+2026-01-15 09:30:13,895 - DEBUG - Found 1 valid contacts for V2 ID 1664
+2026-01-15 09:30:13,895 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:30:14,109 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:30:20,221 - DEBUG - No existing auth user found for chiccokhalife@icloud.com
+2026-01-15 09:30:20,222 - ERROR -     Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:30:20,222 - INFO - ----------------------------------------
+2026-01-15 09:30:20,222 - INFO - [15/20] Little Gyros Greek Grill (V3: 971, V2: 1668)
+2026-01-15 09:30:20,222 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1668/info
+2026-01-15 09:30:22,004 - DEBUG - Found 1 valid contacts for V2 ID 1668
+2026-01-15 09:30:22,004 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:30:22,187 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:30:28,565 - DEBUG - No existing auth user found for farid0823@yahoo.com
+2026-01-15 09:30:28,566 - ERROR -     Failed to create auth user for farid0823@yahoo.com
+2026-01-15 09:30:28,566 - INFO - ----------------------------------------
+2026-01-15 09:30:28,566 - INFO - [16/20] Capital Bites (V3: 973, V2: 1670)
+2026-01-15 09:30:28,566 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1670/info
+2026-01-15 09:30:30,312 - DEBUG - Found 1 valid contacts for V2 ID 1670
+2026-01-15 09:30:30,312 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:30:30,478 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:30:36,966 - DEBUG - No existing auth user found for capitalbites2@gmail.com
+2026-01-15 09:30:36,966 - ERROR -     Failed to create auth user for capitalbites2@gmail.com
+2026-01-15 09:30:36,966 - INFO - ----------------------------------------
+2026-01-15 09:30:36,966 - INFO - [17/20] Pachino Pizza (V3: 974, V2: 1671)
+2026-01-15 09:30:36,967 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1671/info
+2026-01-15 09:30:38,720 - DEBUG - Found 2 valid contacts for V2 ID 1671
+2026-01-15 09:30:38,720 - INFO -   Found 2 unique contacts with email
+2026-01-15 09:30:38,901 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:30:45,071 - DEBUG - No existing auth user found for yassernazar@hotmail.com
+2026-01-15 09:30:45,071 - ERROR -     Failed to create auth user for yassernazar@hotmail.com
+2026-01-15 09:30:45,263 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:30:51,948 - DEBUG - No existing auth user found for albionzwz@gmail.com
+2026-01-15 09:30:51,949 - ERROR -     Failed to create auth user for albionzwz@gmail.com
+2026-01-15 09:30:51,949 - INFO - ----------------------------------------
+2026-01-15 09:30:51,949 - INFO - [18/20] Pizza Marie (V3: 976, V2: 1673)
+2026-01-15 09:30:51,949 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1673/info
+2026-01-15 09:30:53,702 - DEBUG - Found 1 valid contacts for V2 ID 1673
+2026-01-15 09:30:53,702 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:30:53,874 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:31:00,163 - DEBUG - No existing auth user found for michel_sabbagh63@hotmail.com
+2026-01-15 09:31:00,164 - ERROR -     Failed to create auth user for michel_sabbagh63@hotmail.com
+2026-01-15 09:31:00,164 - INFO - ----------------------------------------
+2026-01-15 09:31:00,164 - INFO - [19/20] Capri Pizza (V3: 977, V2: 1674)
+2026-01-15 09:31:00,164 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1674/info
+2026-01-15 09:31:01,924 - DEBUG - Found 1 valid contacts for V2 ID 1674
+2026-01-15 09:31:01,924 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:31:02,100 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:31:08,877 - DEBUG - No existing auth user found for callamer@gmail.com
+2026-01-15 09:31:08,878 - ERROR -     Failed to create auth user for callamer@gmail.com
+2026-01-15 09:31:08,878 - INFO - ----------------------------------------
+2026-01-15 09:31:08,878 - INFO - [20/20] Al-s Drive In (V3: 981, V2: 1678)
+2026-01-15 09:31:08,878 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1678/info
+2026-01-15 09:31:10,616 - DEBUG - Found 1 valid contacts for V2 ID 1678
+2026-01-15 09:31:10,616 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:31:10,786 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:31:17,240 - DEBUG - No existing auth user found for callamer@gmail.com
+2026-01-15 09:31:17,240 - ERROR -     Failed to create auth user for callamer@gmail.com
+2026-01-15 09:31:17,284 - DEBUG - Database connection closed
+2026-01-15 09:31:17,292 - INFO - ============================================================
+2026-01-15 09:31:17,292 - INFO - SCRAPER SUMMARY
+2026-01-15 09:31:17,292 - INFO - ============================================================
+2026-01-15 09:31:17,292 - INFO - Completed at: 2026-01-15 09:31:17
+2026-01-15 09:31:17,292 - INFO - Restaurants processed: 20
+2026-01-15 09:31:17,292 - INFO - Contacts found: 25
+2026-01-15 09:31:17,292 - INFO - Contacts with email: 25
+2026-01-15 09:31:17,292 - INFO - Admins created: 5
+2026-01-15 09:31:17,292 - INFO - Admins updated: 1
+2026-01-15 09:31:17,292 - INFO - Restaurant links created: 5
+2026-01-15 09:31:17,292 - INFO - Restaurants skipped (no contacts): 0
+2026-01-15 09:31:17,292 - INFO - Errors: 19
+2026-01-15 09:31:17,292 - WARNING - Errors encountered:
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for jimmyto0303@gmail.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for alexandra.nicolae000@gmail.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for laura_paniagua513@hotmail.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for riverpizzaottawa@gmail.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for seanandnid@gmail.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for lanawab4@gmail.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for chiccokhalife@icloud.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for farid0823@yahoo.com
+2026-01-15 09:31:17,292 - WARNING -   - Failed to create auth user for capitalbites2@gmail.com
+2026-01-15 09:31:17,293 - WARNING -   - Failed to create auth user for yassernazar@hotmail.com
+2026-01-15 09:31:17,293 - WARNING -   - Failed to create auth user for albionzwz@gmail.com
+2026-01-15 09:31:17,293 - WARNING -   - Failed to create auth user for michel_sabbagh63@hotmail.com
+2026-01-15 09:31:17,293 - WARNING -   - Failed to create auth user for callamer@gmail.com
+2026-01-15 09:31:17,293 - WARNING -   - Failed to create auth user for callamer@gmail.com
+2026-01-15 09:31:17,293 - INFO - ============================================================
+2026-01-15 09:31:17,293 - INFO - SCRAPER COMPLETED SUCCESSFULLY
+2026-01-15 09:31:17,293 - INFO - ============================================================

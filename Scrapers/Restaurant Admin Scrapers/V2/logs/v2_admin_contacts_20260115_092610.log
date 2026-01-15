@@ -1,0 +1,41 @@
+2026-01-15 09:26:10,238 - INFO - Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Restaurant Admin Scrapers\V2\logs\v2_admin_contacts_20260115_092610.log
+2026-01-15 09:26:10,238 - INFO - ============================================================
+2026-01-15 09:26:10,238 - INFO - V2 ADMIN CONTACTS SCRAPER
+2026-01-15 09:26:10,238 - INFO - ============================================================
+2026-01-15 09:26:10,239 - INFO - Started at: 2026-01-15 09:26:10
+2026-01-15 09:26:10,546 - DEBUG - Database connected
+2026-01-15 09:26:10,548 - INFO - TEST MODE: Processing single restaurant V2 ID 1637
+2026-01-15 09:26:10,548 - INFO - Total restaurants to process: 1
+2026-01-15 09:26:11,014 - INFO - Navigating to V2 CRM: https://aggregator-admin.menu.ca/index.php/auth/index
+2026-01-15 09:26:11,773 - DEBUG - Filled email field
+2026-01-15 09:26:11,781 - DEBUG - Filled password field
+2026-01-15 09:26:12,261 - DEBUG - Clicked submit button
+2026-01-15 09:26:15,195 - INFO - V2 CRM login successful
+2026-01-15 09:26:15,195 - INFO - ----------------------------------------
+2026-01-15 09:26:15,195 - INFO - [1/1] Kirkwood Pizza (V3: 950, V2: 1637)
+2026-01-15 09:26:15,195 - DEBUG - Navigating to: https://aggregator-admin.menu.ca/index.php/restaurants/edit/1637/info
+2026-01-15 09:26:17,272 - DEBUG - Skipping test contact: test alex / alexandra9nicolae@gmail.com
+2026-01-15 09:26:17,272 - DEBUG - Skipping test contact: TEST ALEX / alexandra9nicolae@gmail.com
+2026-01-15 09:26:17,272 - DEBUG - Found 1 valid contacts for V2 ID 1637
+2026-01-15 09:26:17,272 - INFO -   Found 1 unique contacts with email
+2026-01-15 09:26:18,819 - DEBUG - Auth user may already exist: {'code': 422, 'error_code': 'email_exists', 'msg': 'A user with this email address has already been registered'}
+2026-01-15 09:26:20,733 - DEBUG - No existing auth user found for kirkwoodottawapizza@gmail.com
+2026-01-15 09:26:20,734 - ERROR -     Failed to create auth user for kirkwoodottawapizza@gmail.com
+2026-01-15 09:26:20,788 - DEBUG - Database connection closed
+2026-01-15 09:26:20,795 - INFO - ============================================================
+2026-01-15 09:26:20,795 - INFO - SCRAPER SUMMARY
+2026-01-15 09:26:20,795 - INFO - ============================================================
+2026-01-15 09:26:20,796 - INFO - Completed at: 2026-01-15 09:26:20
+2026-01-15 09:26:20,796 - INFO - Restaurants processed: 1
+2026-01-15 09:26:20,796 - INFO - Contacts found: 1
+2026-01-15 09:26:20,796 - INFO - Contacts with email: 1
+2026-01-15 09:26:20,796 - INFO - Admins created: 0
+2026-01-15 09:26:20,796 - INFO - Admins updated: 0
+2026-01-15 09:26:20,796 - INFO - Restaurant links created: 0
+2026-01-15 09:26:20,796 - INFO - Restaurants skipped (no contacts): 0
+2026-01-15 09:26:20,796 - INFO - Errors: 1
+2026-01-15 09:26:20,796 - WARNING - Errors encountered:
+2026-01-15 09:26:20,796 - WARNING -   - Failed to create auth user for kirkwoodottawapizza@gmail.com
+2026-01-15 09:26:20,796 - INFO - ============================================================
+2026-01-15 09:26:20,796 - INFO - SCRAPER COMPLETED SUCCESSFULLY
+2026-01-15 09:26:20,796 - INFO - ============================================================

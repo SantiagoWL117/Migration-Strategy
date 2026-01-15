@@ -218,6 +218,80 @@ VALUES
 ON CONFLICT (dish_id, day_of_week) DO NOTHING;
 
 -- ============================================================
+-- IMILIO'S PIZZERIA - Lunch Menu (Hidden on Sun/Sat)
+-- V2 dish_ids: 3932-3959 -> Missing days: 0, 6
+-- ============================================================
+
+INSERT INTO menuca_v3.dish_availability (dish_id, day_of_week, is_hidden)
+VALUES
+  -- Super Steak (pepperoni) - v3_id: 136008
+  (136008, 0, true), (136008, 6, true),
+  -- Pizza Sub - v3_id: 136009
+  (136009, 0, true), (136009, 6, true),
+  -- Smoked Meat - v3_id: 136010
+  (136010, 0, true), (136010, 6, true),
+  -- B.L.T. - v3_id: 136012
+  (136012, 0, true), (136012, 6, true),
+  -- Caesar Salad - v3_id: 136013
+  (136013, 0, true), (136013, 6, true),
+  -- Chicken Caesar Salad - v3_id: 136014
+  (136014, 0, true), (136014, 6, true),
+  -- Greek Salad - v3_id: 136015
+  (136015, 0, true), (136015, 6, true),
+  -- Julienne Salad - v3_id: 136016
+  (136016, 0, true), (136016, 6, true),
+  -- Chef Salad - v3_id: 136017
+  (136017, 0, true), (136017, 6, true),
+  -- Fatoosh Salad - v3_id: 136018
+  (136018, 0, true), (136018, 6, true),
+  -- Combo 1 - v3_id: 136019
+  (136019, 0, true), (136019, 6, true),
+  -- Combo 2 - v3_id: 136020
+  (136020, 0, true), (136020, 6, true),
+  -- Special Imilio Basket - v3_id: 136021
+  (136021, 0, true), (136021, 6, true),
+  -- Chicken Caesar Pita - v3_id: 136022
+  (136022, 0, true), (136022, 6, true),
+  -- Greek Classic Pita - v3_id: 136023
+  (136023, 0, true), (136023, 6, true),
+  -- Crispy Vegetable Pita - v3_id: 136024
+  (136024, 0, true), (136024, 6, true),
+  -- Fish and Chips - v3_id: 136025
+  (136025, 0, true), (136025, 6, true),
+  -- Shrimp In A Basket - v3_id: 136026
+  (136026, 0, true), (136026, 6, true),
+  -- Chicken Quesadilla - v3_id: 136027
+  (136027, 0, true), (136027, 6, true),
+  -- Nachos With Salsa and Sour Cream - v3_id: 136028
+  (136028, 0, true), (136028, 6, true),
+  -- Nachos With Salsa and Sour Cream - v3_id: 136029
+  (136029, 0, true), (136029, 6, true),
+  -- Imilio's Super Nachos - v3_id: 136030
+  (136030, 0, true), (136030, 6, true),
+  -- Vegetable Nachos - v3_id: 136031
+  (136031, 0, true), (136031, 6, true),
+  -- Chicken Taco Dinner - v3_id: 136032
+  (136032, 0, true), (136032, 6, true),
+  -- Beef Taco Dinner - v3_id: 136033
+  (136033, 0, true), (136033, 6, true),
+  -- Fajita Plate - v3_id: 136034
+  (136034, 0, true), (136034, 6, true),
+  -- Chicken Shawarma Sandwich - v3_id: 136035
+  (136035, 0, true), (136035, 6, true)
+ON CONFLICT (dish_id, day_of_week) DO NOTHING;
+
+-- ============================================================
+-- MILANO - Saturday Special (only visible on Saturday)
+-- V2 dish_id: 10196 -> Missing days: 0,1,2,3,4,5 (visible only on 6=Saturday)
+-- ============================================================
+
+INSERT INTO menuca_v3.dish_availability (dish_id, day_of_week, is_hidden)
+VALUES
+  -- Canadian - v3_id: 158137 (only Sat: hide 0,1,2,3,4,5)
+  (158137, 0, true), (158137, 1, true), (158137, 2, true), (158137, 3, true), (158137, 4, true), (158137, 5, true)
+ON CONFLICT (dish_id, day_of_week) DO NOTHING;
+
+-- ============================================================
 -- VERIFICATION
 -- ============================================================
 
