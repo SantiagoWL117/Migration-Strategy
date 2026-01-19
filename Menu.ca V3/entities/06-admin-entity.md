@@ -68,7 +68,7 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 
 ### Core Admin Tables (Active)
 
-#### `admin_users` (457 records)
+#### `admin_users` (175 records)
 **Purpose:** Platform administrators - linked to Supabase Auth
 
 | Column | Type | Description |
@@ -78,13 +78,11 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 | `email` | varchar | Admin email (unique) |
 | `first_name` | varchar | First name |
 | `last_name` | varchar | Last name |
+| `phone` | varchar | Phone number |
+| `preferred_language` | char(2) | Communication language (default 'en') |
 | `role_id` | bigint | FK to admin_roles |
 | `status` | admin_user_status | active/suspended/inactive |
 | `is_active` | boolean | Account active (default true) |
-| `mfa_enabled` | boolean | MFA enabled |
-| `mfa_secret` | varchar | MFA secret key |
-| `mfa_backup_codes` | text[] | MFA backup codes |
-| `password_hash` | varchar | Legacy password hash |
 | `last_login_at` | timestamptz | Last login |
 | `suspended_at` | timestamptz | Suspension date |
 | `suspended_reason` | text | Suspension reason |
@@ -97,7 +95,7 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 
 ---
 
-#### `admin_user_restaurants` (167 records)
+#### `admin_user_restaurants` (186 records)
 **Purpose:** Admin-to-restaurant assignments (multi-tenancy)
 
 | Column | Type | Description |
@@ -105,12 +103,11 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 | `id` | bigint | Primary key |
 | `admin_user_id` | bigint | FK to admin_users | 
 | `restaurant_id` | integer | FK to restaurants |
-| `role` | varchar | Access role (default 'staff') |
 | `created_at` | timestamptz | Assignment date |
 
 ---
 
-#### `admin_roles` (5 records)
+#### `admin_roles` (2 records)
 **Purpose:** Role definitions with JSONB permissions
 
 | Column | Type | Description |
@@ -123,13 +120,10 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 | `created_at` | timestamptz | Created date |
 
 **Defined Roles:**
-| ID | Name | Description | Access |
-|----|------|-------------|--------|
-| 1 | Super Admin | Full platform access | All pages, all restaurants |
-| 2 | Manager | Manager access | restaurants, orders (assigned) |
-| 3 | Support | Support access | orders, customers (all restaurants) |
-| 5 | Restaurant Manager | Manage assigned restaurants | menu, deals, orders (assigned) |
-| 6 | Staff | View-only access | orders (assigned) |
+| ID | Name | Description | Admin Count |
+|----|------|-------------|-------------|
+| 1 | Super Admin | Full platform access | 3 |
+| 2 | Restaurant Admin | Full menu management for assigned restaurants | 162 |
 
 ---
 
@@ -205,7 +199,7 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 
 ## 👁️ Views
 
-#### `active_admin_users` (457 records)
+#### `active_admin_users` (175 records)
 **Purpose:** Active admins filter
 
 ```sql
@@ -293,7 +287,6 @@ SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 | `idx_admin_users_auth_user_id` | admin_users | auth_user_id | BTREE |
 | `idx_admin_users_auth_unique` | admin_users | auth_user_id | UNIQUE (where not null) |
 | `idx_admin_users_deleted_at` | admin_users | deleted_at | PARTIAL (where null) |
-| `idx_admin_users_mfa` | admin_users | id | PARTIAL (where mfa_enabled) |
 | `idx_admin_users_v1_id` | admin_users | v1_admin_id | BTREE |
 | `idx_admin_users_v2_id` | admin_users | v2_admin_id | BTREE |
 
@@ -319,39 +312,63 @@ SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 
 ## 📊 Data Quality
 
-### Statistics (as of 2026-01-14)
+### Statistics (as of 2026-01-16)
 
 | Metric | Value | Notes |
 |--------|-------|-------|
-| Total admin users | 457 | |
-| Active (is_active=true) | 457 | 100% |
-| With Supabase auth linked | 453 | 99% |
-| With MFA enabled | 4 | 0.9% |
-| Migrated from v1 | 404 | 88% |
-| Never logged in | 457 | 100% ⚠️ |
-| With restaurant access | 157 | 34% |
-| Without restaurant access | 300 | 66% ⚠️ |
+| Total admin users | 175 | |
+| Active (is_active=true) | 175 | 100% |
+| With Supabase auth linked | 160 | 91.4% |
+| Without auth linked | 15 | 8.6% |
+| Migrated from V1 | 143 | 81.7% |
+| Migrated from V2 | 30 | 17.1% |
+| Never logged in | 175 | 100% ⚠️ |
+| With restaurant access | 162 | 92.6% ✅ |
+| Without restaurant access | 13 | 7.4% (internal accounts) |
+| Restaurants with admins | 175 | 94.1% |
+| Restaurants without admins | 11 | 5.9% |
 
 ### Known Issues
 
 | Issue | Count | Severity |
 |-------|-------|----------|
 | Duplicate emails | 0 | ✅ Clean |
+| Missing phone (restaurant admins) | 0 | ✅ Clean |
+| Missing phone (internal accounts) | 12 | ✅ Expected |
 | Missing first_name | 4 | 🟡 Low |
-| Missing last_name | 40 | 🟡 Low |
-| Test admin accounts | 7 | 🟠 Medium |
-| Admins without restaurant access | 300 | 🟠 Medium |
+| Missing last_name | 26 | 🟡 Low |
+| Test admin accounts | 0 | ✅ Clean |
+| Admins without restaurant access | 13 | ✅ Expected (internal/system) |
 
-### Test Admin Users (7)
-| ID | Email |
-|----|-------|
-| 917 | test.admin@menu.ca |
-| 918 | test.admin.FI9Smuit@menu.ca |
-| 920 | final.test.PyT_P-kQ@menu.ca |
-| 921 | complete.test.rW8K97@menu.ca |
-| 922 | test.admin@worklocal.ca |
-| 927 | testadmin@menu.ca |
-| 931 | test-complete@menu.ca |
+### Internal Admins Without Restaurant Access (13)
+
+These are internal Menu.ca/Worklocal staff accounts - no restaurant assignment needed:
+
+| ID | Email | Role |
+|----|-------|------|
+| 18 | james.walker@menu.ca | Super Admin |
+| 932 | santiago@worklocal.ca | Super Admin |
+| 1099 | brian+1@worklocal.ca | Super Admin |
+| 12 | chris@menu.ca | Internal |
+| 16 | george@menu.ca | Internal |
+| 19 | james@menu.ca | Internal |
+| 23 | jordan@worklocal.ca | Internal |
+| 33 | razvan@menu.ca | Internal |
+| 40 | stefan@menu.ca | Internal |
+| 41 | stephane@menu.ca | Internal |
+| 43 | system@menu.ca | System |
+| 49 | vendor2@menu.ca | Vendor |
+| 50 | yanni@menu.ca | Internal |
+
+### Restaurants Without Admin (11)
+
+| V3 ID | Restaurant Name |
+|-------|-----------------|
+| 1021 | JJ's Shawarma |
+| 126, 837, 92, 840, 821 | Milano (5 locations) |
+| 801, 790 | Nachos Loco (2 locations) |
+| 1015, 789 | Poutinerie Québecurds (2 locations) |
+| 820 | Vieux Hull Pizza |
 
 ---
 
@@ -367,7 +384,15 @@ SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 
 | Date | Fix | Impact |
 |------|-----|--------|
-| - | - | None yet |
+| 2026-01-16 | Removed MFA columns (mfa_enabled, mfa_secret, mfa_backup_codes) | MFA handled by Supabase Auth |
+| 2026-01-16 | Removed password_hash column | Auth handled by Supabase |
+| 2026-01-16 | Added phone column | Admin contact info |
+| 2026-01-16 | Consolidated roles to 2 (Super Admin, Restaurant Admin) | Simplified RBAC |
+| 2026-01-16 | Cleaned up test accounts | 0 test accounts remaining |
+| 2026-01-16 | Dropped `role` column from `admin_user_restaurants` | Unused (all 186 rows had same default 'staff' value) |
+| 2026-01-16 | Added `preferred_language` column to `admin_users` | Merged from `restaurant_contacts` (default 'en') |
+| 2026-01-16 | Dropped `restaurant_contacts` table | Data merged into `admin_users`; table no longer needed |
+| 2026-01-16 | Filled missing phone numbers for 15 restaurant admins | All 162 restaurant admins now have phone numbers |
 
 ---
 
@@ -379,9 +404,9 @@ SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 | Views | 1 |
 | SQL Functions | 7 |
 | Edge Functions | 3 |
-| Indexes | 10 |
+| Indexes | 9 |
 | Custom Types | 2 |
 
 ---
 
-**Last Updated:** 2026-01-14
+**Last Updated:** 2026-01-16

@@ -1,0 +1,100 @@
+2026-01-16 11:47:16,600 | INFO     | ======================================================================
+2026-01-16 11:47:16,600 | INFO     | V2 CRM Restaurant Contact Scraper
+2026-01-16 11:47:16,600 | INFO     | Started: 2026-01-16T11:47:16.600425
+2026-01-16 11:47:16,600 | INFO     | Dry Run: False
+2026-01-16 11:47:16,600 | INFO     | Limit: None
+2026-01-16 11:47:16,600 | INFO     | ======================================================================
+2026-01-16 11:47:16,600 | INFO     | Found 20 V2 restaurants to scrape
+2026-01-16 11:47:17,079 | INFO     | Logging into V2 CRM...
+2026-01-16 11:47:21,604 | INFO     | [OK] Login successful
+2026-01-16 11:47:21,604 | INFO     | [1/20] Pho Dau Bo Restaurant - Kitchener (V3:147, V2:1171)
+2026-01-16 11:47:24,068 | INFO     |   Scraped: phone=(519) 576-9996, email=noemail@noemial.ca
+2026-01-16 11:47:24,068 | INFO     |   Current: phone=(519) 576-9996, email=noemail@noemial.ca
+2026-01-16 11:47:24,069 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:24,576 | INFO     | [2/20] Sushi Presse (V3:1020, V2:1285)
+2026-01-16 11:47:26,737 | INFO     |   Scraped: phone=(514) 313-6291, email=laura_paniagua513@hotmail.com
+2026-01-16 11:47:26,738 | INFO     |   Current: phone=(514) 313-6291, email=laura_paniagua513@hotmail.com
+2026-01-16 11:47:26,738 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:27,242 | INFO     | [3/20] Kirkwood Pizza (V3:950, V2:1637)
+2026-01-16 11:47:30,017 | INFO     |   Scraped: phone=(613) 722-7777, email=kirkwoodottawapizza@gmail.com
+2026-01-16 11:47:30,017 | INFO     |   Current: phone=(613) 722-7777, email=kirkwoodottawapizza@gmail.com
+2026-01-16 11:47:30,017 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:30,529 | INFO     | [4/20] River Pizza (V3:952, V2:1639)
+2026-01-16 11:47:32,631 | INFO     |   Scraped: phone=(613) 841-4999, email=info@riverpizza.ca
+2026-01-16 11:47:32,631 | INFO     |   Current: phone=(613) 841-4999, email=info@riverpizza.ca
+2026-01-16 11:47:32,631 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:33,137 | INFO     | [5/20] Wandee Thai (V3:954, V2:1641)
+2026-01-16 11:47:35,269 | INFO     |   Scraped: phone=(613) 237-1641, email=wandeethaicuisine@gmail.com
+2026-01-16 11:47:35,270 | INFO     |   Current: phone=(613) 237-1641, email=george@menu.ca
+2026-01-16 11:47:35,270 | INFO     |   [EMAIL] Change: george@menu.ca -> wandeethaicuisine@gmail.com
+2026-01-16 11:47:36,128 | INFO     | [6/20] La Nawab (V3:825, V2:1642)
+2026-01-16 11:47:38,247 | INFO     |   Scraped: phone=(819) 775-4343, email=lanawab4@gmail.com
+2026-01-16 11:47:38,247 | INFO     |   Current: phone=(819) 775-4343, email=lanawab4@gmail.com
+2026-01-16 11:47:38,247 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:38,754 | INFO     | [7/20] Cosenza (V3:957, V2:1654)
+2026-01-16 11:47:40,926 | INFO     |   Scraped: phone=(613) 837-8000, email=cosenzapizzas@gmail.com
+2026-01-16 11:47:40,926 | INFO     |   Current: phone=(613) 837-8000, email=cosenzapizzas@gmail.com
+2026-01-16 11:47:40,926 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:41,437 | INFO     | [8/20] Cuisine Bombay Indienne (V3:960, V2:1657)
+2026-01-16 11:47:43,522 | INFO     |   Scraped: phone=(450) 346-5535, email=uddinsantino@gmail.com
+2026-01-16 11:47:43,523 | INFO     |   Current: phone=(450) 346-5535, email=uddinsantino@gmail.com
+2026-01-16 11:47:43,523 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:44,034 | INFO     | [9/20] Chicco Shawarma Cantley (V3:961, V2:1658)
+2026-01-16 11:47:46,160 | INFO     |   Scraped: phone=(819) 607-0712, email=alexandra@menu.ca
+2026-01-16 11:47:46,160 | INFO     |   Current: phone=(819) 607-0712, email=alexandra@menu.ca
+2026-01-16 11:47:46,160 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:46,675 | INFO     | [10/20] Chicco Pizza Shawarma Anger (V3:963, V2:1660)
+2026-01-16 11:47:48,787 | INFO     |   Scraped: phone=(819) 617-3434, email=alexandra@menu.ca
+2026-01-16 11:47:48,787 | INFO     |   Current: phone=(819) 617-3434, email=alexandra@menu.ca
+2026-01-16 11:47:48,787 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:49,296 | INFO     | [11/20] Chicco Pizza Maloney (V3:964, V2:1661)
+2026-01-16 11:47:51,463 | INFO     |   Scraped: phone=(819) 893-1555, email=alexandra@menu.ca
+2026-01-16 11:47:51,463 | INFO     |   Current: phone=(819) 893-1555, email=alexandra@menu.ca
+2026-01-16 11:47:51,463 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:51,979 | INFO     | [12/20] Chicco Shawarma Maloney (V3:965, V2:1662)
+2026-01-16 11:47:54,163 | INFO     |   Scraped: phone=(819) 893-3434, email=alexandra@menu.ca
+2026-01-16 11:47:54,163 | INFO     |   Current: phone=(819) 893-3434, email=alexandra@menu.ca
+2026-01-16 11:47:54,163 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:54,670 | INFO     | [13/20] Chicco Pizza de l'Hopital (V3:966, V2:1663)
+2026-01-16 11:47:56,782 | INFO     |   Scraped: phone=(819) 568-1109, email=alexandra@menu.ca
+2026-01-16 11:47:56,783 | INFO     |   Current: phone=(819) 568-1109, email=alexandra@menu.ca
+2026-01-16 11:47:56,783 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:57,292 | INFO     | [14/20] Chicco Pizza St-Louis (V3:967, V2:1664)
+2026-01-16 11:47:59,395 | INFO     |   Scraped: phone=(819) 568-0000, email=alexandra@menu.ca
+2026-01-16 11:47:59,395 | INFO     |   Current: phone=(819) 568-0000, email=alexandra@menu.ca
+2026-01-16 11:47:59,395 | INFO     |   [OK] No changes needed
+2026-01-16 11:47:59,911 | INFO     | [15/20] Little Gyros Greek Grill (V3:971, V2:1668)
+2026-01-16 11:48:02,065 | INFO     |   Scraped: phone=(519) 894-0002, email=farid0823@yahoo.com
+2026-01-16 11:48:02,065 | INFO     |   Current: phone=(519) 894-0002, email=farid0823@yahoo.com
+2026-01-16 11:48:02,065 | INFO     |   [OK] No changes needed
+2026-01-16 11:48:02,577 | INFO     | [16/20] Capital Bites (V3:973, V2:1670)
+2026-01-16 11:48:04,649 | INFO     |   Scraped: phone=(613) 225-2224, email=capitalbites2@gmail.com
+2026-01-16 11:48:04,649 | INFO     |   Current: phone=(613) 225-2224, email=capitalbites2@gmail.com
+2026-01-16 11:48:04,649 | INFO     |   [OK] No changes needed
+2026-01-16 11:48:05,161 | INFO     | [17/20] Pachino Pizza (V3:974, V2:1671)
+2026-01-16 11:48:07,280 | INFO     |   Scraped: phone=(613) 248-1111, email=yassernazar@hotmail.com
+2026-01-16 11:48:07,281 | INFO     |   Current: phone=(613) 248-1111, email=yassernazar@hotmail.com
+2026-01-16 11:48:07,281 | INFO     |   [OK] No changes needed
+2026-01-16 11:48:07,788 | INFO     | [18/20] Pizza Marie (V3:976, V2:1673)
+2026-01-16 11:48:09,895 | INFO     |   Scraped: phone=(819) 568-8333, email=michel_sabbagh63@hotmail.com
+2026-01-16 11:48:09,895 | INFO     |   Current: phone=(819) 568-8333, email=michel_sabbagh63@hotmail.com
+2026-01-16 11:48:09,895 | INFO     |   [OK] No changes needed
+2026-01-16 11:48:10,406 | INFO     | [19/20] Capri Pizza (V3:977, V2:1674)
+2026-01-16 11:48:12,509 | INFO     |   Scraped: phone=(613) 680-8484, email=callamer@gmail.com
+2026-01-16 11:48:12,509 | INFO     |   Current: phone=(613) 680-8484, email=callamer@gmail.com
+2026-01-16 11:48:12,509 | INFO     |   [OK] No changes needed
+2026-01-16 11:48:13,022 | INFO     | [20/20] Al-s Drive In (V3:981, V2:1678)
+2026-01-16 11:48:15,144 | INFO     |   Scraped: phone=(613) 878-9898, email=callamer@gmail.com
+2026-01-16 11:48:15,145 | INFO     |   Current: phone=(613) 878-9898, email=callamer@gmail.com
+2026-01-16 11:48:15,145 | INFO     |   [OK] No changes needed
+2026-01-16 11:48:15,742 | INFO     | 
+2026-01-16 11:48:15,742 | INFO     | ======================================================================
+2026-01-16 11:48:15,742 | INFO     | SCRAPING COMPLETE
+2026-01-16 11:48:15,742 | INFO     | ======================================================================
+2026-01-16 11:48:15,742 | INFO     | Total restaurants:  20
+2026-01-16 11:48:15,743 | INFO     | Successfully scraped: 20
+2026-01-16 11:48:15,743 | INFO     | Phone updates:      0
+2026-01-16 11:48:15,743 | INFO     | Email updates:      1
+2026-01-16 11:48:15,743 | INFO     | No changes needed:  19
+2026-01-16 11:48:15,743 | INFO     | Errors:             0
+2026-01-16 11:48:15,743 | INFO     | ======================================================================

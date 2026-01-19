@@ -84,7 +84,6 @@ Deno.serve(async (req) => {
 
     const validTables = [
       'restaurant_locations',
-      'restaurant_contacts',
       'restaurant_domains',
       'restaurant_schedules',
       'restaurant_service_configs'

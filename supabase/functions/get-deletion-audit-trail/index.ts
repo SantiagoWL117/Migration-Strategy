@@ -54,7 +54,6 @@ Deno.serve(async (req) => {
     // Validate table name
     const validTables = [
       'restaurant_locations',
-      'restaurant_contacts',
       'restaurant_domains',
       'restaurant_schedules',
       'restaurant_service_configs',

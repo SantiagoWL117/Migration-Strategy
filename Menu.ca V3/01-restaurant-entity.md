@@ -107,24 +107,6 @@ The Restaurant Entity represents the **core business unit** in the Menu.ca platf
 
 ---
 
-#### `restaurant_contacts`
-**Purpose:** Additional contact information
-
-| Column | Type | Nullable | Description |
-|--------|------|----------|-------------|
-| `id` | bigint | NO | Primary key |
-| `restaurant_id` | bigint | NO | FK to restaurants |
-| `contact_type` | varchar | YES | Type of contact (owner, manager, etc.) |
-| `name` | varchar | YES | Contact name |
-| `phone` | varchar | YES | Phone number |
-| `email` | varchar | YES | Email address |
-| `is_primary` | boolean | NO | Primary contact flag |
-| `created_at` | timestamptz | NO | Creation timestamp |
-| `deleted_at` | timestamptz | YES | Soft delete timestamp |
-| `deleted_by` | bigint | YES | Admin who deleted |
-
----
-
 #### `restaurant_service_configs`
 **Purpose:** Service settings (delivery, takeout, tips)
 
@@ -440,6 +422,7 @@ RETURNS void
 | 2025-11-27 | Updated restaurant 949 legacy_v1_id | `UPDATE menuca_v3.restaurants SET legacy_v1_id = 1071 WHERE id = 949` | Low |
 | 2025-11-27 | Merged Sushi Presse duplicates (1019→1020) | SEO metadata copied, 1019 hard deleted | Low |
 | 2025-11-27 | Added location for Yorgo's - Nepean (985) | `INSERT INTO restaurant_locations...` | Low |
+| 2026-01-16 | Dropped `restaurant_contacts` table | Contact data merged into `admin_users`; table dropped with CASCADE (also dropped `v_restaurant_contact_info` view, `get_restaurant_primary_contact` and `add_primary_contact_onboarding` functions) | Medium |
 
 ---
 
@@ -447,7 +430,7 @@ RETURNS void
 
 | Metric | Value |
 |--------|-------|
-| Total Tables | 15 |
+| Total Tables | 14 |
 | Total Records (restaurants) | ~1,020 |
 | Active Restaurants | ~250 |
 | With Legacy V1 ID | ~165 |
@@ -455,5 +438,5 @@ RETURNS void
 
 ---
 
-**Last Updated:** 2025-11-27
+**Last Updated:** 2026-01-16
 
