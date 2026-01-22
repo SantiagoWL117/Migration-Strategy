@@ -30,7 +30,7 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 │ last_sign_in_at     │         │ last_name           │
 │ created_at          │         │ role_id             │
 │ user_metadata       │         │ status              │
-│                     │         │ mfa_enabled         │
+│                     │         │ preferred_language  │
 └─────────────────────┘         └─────────────────────┘
 ```
 
@@ -147,64 +147,14 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 
 ---
 
-#### `admin_user_preferences` (0 records)
-**Purpose:** Admin UI preferences (empty - not yet used)
-
----
-
-#### `admin_action_logs` (0 records)
-**Purpose:** Detailed action logs (empty - not yet used)
-
----
-
-### Legacy Tables (Migration)
-
-#### `restaurant_admin_users` (163 records)
-**Purpose:** Legacy restaurant-specific admin system (pre-consolidation)
-
-| Column | Type | Description |
-|--------|------|-------------|
-| `id` | bigint | Primary key |
-| `uuid` | uuid | External identifier |
-| `restaurant_id` | bigint | FK to restaurants |
-| `user_type` | varchar | User type (default 'r') |
-| `first_name` | varchar | First name |
-| `last_name` | varchar | Last name |
-| `email` | varchar | Email |
-| `password_hash` | varchar | Password hash |
-| `last_login_at` | timestamptz | Last login |
-| `login_count` | integer | Login count |
-| `is_active` | boolean | Active |
-| `sends_statements` | boolean | Receives statements |
-| `migrated_to_admin_user_id` | bigint | Link to migrated admin_user |
-| `created_at` | timestamptz | Created |
-| `updated_at` | timestamptz | Updated |
-
----
-
-#### `restaurant_admin_users_archive` (438 records)
-**Purpose:** Archived legacy restaurant admins
-
----
-
-#### `restaurant_admin_users_analytics` (1 record)
-**Purpose:** Legacy analytics (migration tracking)
-
----
-
-#### `admin_consolidation_summary` (1 record)
-**Purpose:** Migration summary from legacy to unified admin system
-
----
-
 ## 👁️ Views
 
 #### `active_admin_users` (175 records)
 **Purpose:** Active admins filter
 
 ```sql
-SELECT id, email, first_name, last_name, mfa_enabled, 
-       is_active, status, last_login_at, auth_user_id, 
+SELECT id, email, first_name, last_name, is_active, 
+       status, last_login_at, auth_user_id, role_id,
        created_at, updated_at
 FROM menuca_v3.admin_users
 WHERE deleted_at IS NULL 
@@ -234,15 +184,39 @@ ENUM (
 
 ## 🔧 SQL Functions
 
-| Function | Arguments | Returns | Purpose |
-|----------|-----------|---------|---------|
-| `get_admin_profile` | (none) | TABLE | Get current admin's profile using `auth.uid()` |
-| `get_admin_restaurants` | (none) | TABLE | Get restaurants assigned to current admin |
-| `get_admin_devices` | (none) | TABLE | Get devices for current admin |
-| `get_my_admin_info` | (none) | TABLE | Get admin info |
-| `check_admin_restaurant_access` | (p_restaurant_id) | boolean | Verify current admin has access to restaurant |
-| `assign_restaurants_to_admin` | (p_admin_user_id, p_restaurant_ids[], p_action) | void | Assign/remove restaurant access |
-| `log_admin_audit` | (...params) | void | Log audit event |
+| Function | Arguments | Returns | Purpose | Status |
+|----------|-----------|---------|---------|--------|
+| `get_admin_profile` | (none) | TABLE | Get current admin's profile using `auth.uid()` | ⚠️ Needs fix |
+| `get_admin_restaurants` | (none) | TABLE | Get restaurants assigned to current admin | ⚠️ Needs fix |
+| `get_admin_devices` | (none) | TABLE | Get devices for current admin | ✅ Working |
+| `get_my_admin_info` | (none) | TABLE | Get admin info | ✅ Working |
+| `check_admin_restaurant_access` | (p_restaurant_id) | boolean | Verify current admin has access to restaurant | ✅ Working |
+| `assign_restaurants_to_admin` | (p_admin_user_id, p_restaurant_ids[], p_action) | void | Assign/remove restaurant access | ✅ Working |
+| `log_admin_audit` | (...params) | void | Log audit event | ✅ Working |
+
+### ⚠️ Functions Needing Updates
+
+#### 1. `get_admin_profile` - References non-existent column
+```sql
+-- Current (broken):
+a.mfa_enabled,  -- Column doesn't exist in admin_users!
+
+-- Suggested fix - replace with:
+a.phone,
+a.preferred_language,
+```
+
+#### 2. `get_admin_restaurants` - Returns NULL for contact data
+```sql
+-- Current (incomplete):
+NULL::VARCHAR AS restaurant_phone,
+NULL::VARCHAR AS restaurant_email,
+
+-- Suggested fix - fetch from restaurant_locations:
+rl.phone AS restaurant_phone,
+rl.email AS restaurant_email,
+-- Add JOIN: LEFT JOIN restaurant_locations rl ON rl.restaurant_id = r.id AND rl.is_primary = true
+```
 
 **Example - Get Current Admin Profile:**
 ```sql
@@ -304,9 +278,7 @@ SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 
 ## ⚙️ Triggers
 
-| Trigger | Table | Event | Purpose |
-|---------|-------|-------|---------|
-| `trg_admin_users_updated_at` | restaurant_admin_users | UPDATE | Auto-update `updated_at` |
+*No triggers remaining after dropping legacy tables.*
 
 ---
 
@@ -376,7 +348,17 @@ These are internal Menu.ca/Worklocal staff accounts - no restaurant assignment n
 
 | Date | Functionality | Reason |
 |------|--------------|--------|
-| - | - | None yet |
+| 2026-01-19 | Table `admin_user_preferences` | Never used (0 records) |
+| 2026-01-19 | Table `admin_action_logs` | Never used (0 records), replaced by `admin_audit_log` |
+| 2026-01-19 | Table `restaurant_admin_users` | Migration complete (163→admin_users) |
+| 2026-01-19 | Table `restaurant_admin_users_archive` | Legacy archive no longer needed |
+| 2026-01-19 | Table `restaurant_admin_users_analytics` | Migration tracking complete |
+| 2026-01-19 | Table `admin_consolidation_summary` | Migration audit complete |
+| 2026-01-19 | Trigger `trg_admin_users_updated_at` | Was on dropped `restaurant_admin_users` table |
+| 2026-01-18 | `get_restaurant_primary_contact(bigint, text, integer, boolean)` | Function dependent on deleted `restaurant_contacts` table |
+| 2026-01-18 | `add_primary_contact_onboarding(bigint, varchar, varchar, varchar, varchar, char)` | Function dependent on deleted `restaurant_contacts` table |
+| 2026-01-18 | Trigger `trg_contacts_updated_at` | Trigger on deleted `restaurant_contacts` table |
+| 2026-01-18 | RLS Policy `contacts_service_role_all` | Policy on deleted `restaurant_contacts` table |
 
 ---
 
@@ -393,6 +375,9 @@ These are internal Menu.ca/Worklocal staff accounts - no restaurant assignment n
 | 2026-01-16 | Added `preferred_language` column to `admin_users` | Merged from `restaurant_contacts` (default 'en') |
 | 2026-01-16 | Dropped `restaurant_contacts` table | Data merged into `admin_users`; table no longer needed |
 | 2026-01-16 | Filled missing phone numbers for 15 restaurant admins | All 162 restaurant admins now have phone numbers |
+| 2026-01-18 | Dropped functions for `restaurant_contacts` | `get_restaurant_primary_contact`, `add_primary_contact_onboarding` |
+| 2026-01-18 | Updated `active_admin_users` view | Removed `mfa_enabled`, added `role_id` |
+| 2026-01-19 | Dropped 6 unused/legacy tables | `admin_user_preferences`, `admin_action_logs`, `restaurant_admin_users`, `restaurant_admin_users_archive`, `restaurant_admin_users_analytics`, `admin_consolidation_summary` |
 
 ---
 
@@ -400,13 +385,13 @@ These are internal Menu.ca/Worklocal staff accounts - no restaurant assignment n
 
 | Metric | Value |
 |--------|-------|
-| Total Tables | 9 |
+| Total Tables | 4 |
 | Views | 1 |
-| SQL Functions | 7 |
+| SQL Functions | 7 (5 working, 2 need fixes) |
 | Edge Functions | 3 |
 | Indexes | 9 |
 | Custom Types | 2 |
 
 ---
 
-**Last Updated:** 2026-01-16
+**Last Updated:** 2026-01-19

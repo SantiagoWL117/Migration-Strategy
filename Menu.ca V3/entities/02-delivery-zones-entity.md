@@ -149,6 +149,7 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | `closing_warning_minutes` | integer     | YES      | -                  | Warning before closing        |
 | `twilio_call`             | boolean     | YES      | -                  | Enable Twilio call on order   |
 | `distance_based_delivery_fee` | boolean | NO       | false              | Uses distance-based fees      |
+| `twilio_call`             | boolean     | YES      | -                  | Enable Twilio call on order   |
 | `created_at`              | timestamptz | NO       | now()              | Creation timestamp            |
 | `created_by`              | integer     | YES      | -                  | Admin who created             |
 | `updated_at`              | timestamptz | YES      | -                  | Last update timestamp         |
@@ -508,6 +509,9 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | 2025-12-03 | 2 broken Edge functions              | Called deleted SQL functions                  | Deleted: create-delivery-zone, update-delivery-zone (called deleted SQL functions)                                                                                                                                                        |
 | 2025-12-03 | Renamed indexes/triggers/policies    | Table renamed to delivery_and_pickup_configs  | Renamed 8 indexes, 2 triggers, 6 RLS policies to match new table name.                                                                                                                                                                    |
 | 2025-12-03 | Renamed distance fees indexes        | Table renamed to restaurant_distance_based... | Renamed 3 indexes, 1 trigger, 2 RLS policies. Dropped 2 duplicate indexes.                                                                                                                                                                |
+| 2026-01-19 | `commission_enabled` column          | Migrated to Order Management Entity           | Removed from `delivery_and_pickup_configs` - commission config now in `restaurant_commission_configs`.                                                                                                                                    |
+| 2026-01-19 | `commission_rate` column             | Migrated to Order Management Entity           | Removed from `delivery_and_pickup_configs` - commission config now in `restaurant_commission_configs`.                                                                                                                                    |
+| 2026-01-19 | `commission_base` column             | Migrated to Order Management Entity           | Removed from `delivery_and_pickup_configs` - commission config now in `restaurant_commission_configs`.                                                                                                                                    |
 
 ---
 
@@ -678,4 +682,4 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 
 ---
 
-**Last Updated:** 2025-12-03 (Moved distance_based_delivery_fee to delivery_and_pickup_configs for optimized lookups)
+**Last Updated:** 2026-01-19 (Removed commission columns - migrated to Order Management Entity)

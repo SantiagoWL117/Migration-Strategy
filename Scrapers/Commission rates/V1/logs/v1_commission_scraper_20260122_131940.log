@@ -1,0 +1,57 @@
+2026-01-22 13:19:40,804 - INFO - Logging to: C:\Users\santi\Menu.ca\Legacy Database\Migration Strategy\Scrapers\Commission rates\V1\logs\v1_commission_scraper_20260122_131940.log
+2026-01-22 13:19:40,804 - INFO - ============================================================
+2026-01-22 13:19:40,805 - INFO - V1 Commission Rates Scraper
+2026-01-22 13:19:40,805 - INFO - ============================================================
+2026-01-22 13:19:40,805 - INFO - DRY RUN MODE - No database changes will be made
+2026-01-22 13:19:40,805 - INFO - TEST MODE - Processing first 5 restaurants only
+2026-01-22 13:19:41,177 - DEBUG - Database connected
+2026-01-22 13:19:41,215 - INFO - Found 165 V1 restaurants to scrape
+2026-01-22 13:19:41,215 - INFO - Test mode: limited to 5 restaurants
+2026-01-22 13:19:41,215 - INFO - Processing 5 restaurants
+2026-01-22 13:19:41,215 - INFO - ------------------------------------------------------------
+2026-01-22 13:19:50,373 - INFO - Logging in to V1 CRM...
+2026-01-22 13:19:50,373 - INFO - Navigating to V1 CRM: https://menuadmin.menu.ca/?p=login
+2026-01-22 13:19:53,874 - DEBUG - Filled username field
+2026-01-22 13:19:53,886 - DEBUG - Filled password field
+2026-01-22 13:19:54,407 - DEBUG - Clicked submit button
+2026-01-22 13:19:56,943 - INFO - V1 CRM login successful
+2026-01-22 13:19:56,943 - INFO - Login successful. Starting scrape...
+2026-01-22 13:19:56,943 - INFO - ------------------------------------------------------------
+2026-01-22 13:19:56,943 - INFO - [1/5] Imilio's Pizzeria (V3 ID: 7, V1 ID: 89)
+2026-01-22 13:19:56,943 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=89&load=cfg&showLang=en
+2026-01-22 13:19:59,503 - DEBUG - Commission base: net (V1 ID 89)
+2026-01-22 13:19:59,503 - DEBUG - Scraped commission for V1 ID 89: rate=10.0%, base=net
+2026-01-22 13:19:59,543 - INFO -   [DRY RUN] Would update: rate 0.0% -> 10.0%, base gross -> net
+2026-01-22 13:20:00,048 - INFO - [2/5] Lucky Star Chinese Food (V3 ID: 8, V1 ID: 90)
+2026-01-22 13:20:00,048 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=90&load=cfg&showLang=en
+2026-01-22 13:20:01,907 - DEBUG - Commission base: net (V1 ID 90)
+2026-01-22 13:20:01,907 - DEBUG - Scraped commission for V1 ID 90: rate=0.0%, base=net
+2026-01-22 13:20:01,945 - INFO -   [DRY RUN] Would update: rate 0.0% -> 0.0%, base gross -> net
+2026-01-22 13:20:02,447 - INFO - [3/5] Mama Rosa (V3 ID: 12, V1 ID: 94)
+2026-01-22 13:20:02,447 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=94&load=cfg&showLang=en
+2026-01-22 13:20:04,302 - DEBUG - Commission base: net (V1 ID 94)
+2026-01-22 13:20:04,303 - DEBUG - Scraped commission for V1 ID 94: rate=8.0%, base=net
+2026-01-22 13:20:04,341 - INFO -   [DRY RUN] Would update: rate 0.0% -> 8.0%, base gross -> net
+2026-01-22 13:20:04,842 - INFO - [4/5] Papa Joe's Pizza - Downtown (V3 ID: 13, V1 ID: 95)
+2026-01-22 13:20:04,842 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=95&load=cfg&showLang=en
+2026-01-22 13:20:06,678 - DEBUG - Commission base: net (V1 ID 95)
+2026-01-22 13:20:06,678 - DEBUG - Scraped commission for V1 ID 95: rate=8.0%, base=net
+2026-01-22 13:20:06,721 - INFO -   [DRY RUN] Would update: rate 0.0% -> 8.0%, base gross -> net
+2026-01-22 13:20:07,223 - INFO - [5/5] New Mee Fung Restaurant (V3 ID: 15, V1 ID: 101)
+2026-01-22 13:20:07,223 - DEBUG - Navigating to: https://menuadmin.menu.ca/?p=restaurants&display=editRestaurant&restaurant=101&load=cfg&showLang=en
+2026-01-22 13:20:09,073 - DEBUG - Commission base: gross (V1 ID 101)
+2026-01-22 13:20:09,073 - DEBUG - Scraped commission for V1 ID 101: rate=0.0%, base=gross
+2026-01-22 13:20:09,110 - DEBUG -   No change needed (rate=0.0%, base=gross)
+2026-01-22 13:20:09,695 - INFO - ============================================================
+2026-01-22 13:20:09,695 - INFO - SCRAPE COMPLETE
+2026-01-22 13:20:09,695 - INFO - ============================================================
+2026-01-22 13:20:09,696 - INFO - Total V1 restaurants: 165
+2026-01-22 13:20:09,696 - INFO - Processed: 5
+2026-01-22 13:20:09,696 - INFO - Successfully scraped: 5
+2026-01-22 13:20:09,696 - INFO - Updated: 4
+2026-01-22 13:20:09,696 - INFO - Skipped (no change): 1
+2026-01-22 13:20:09,696 - INFO - Errors: 0
+2026-01-22 13:20:09,696 - INFO - 
+2026-01-22 13:20:09,696 - INFO - This was a DRY RUN - no database changes were made
+2026-01-22 13:20:09,696 - INFO - Run without --dry-run to apply changes
+2026-01-22 13:20:09,697 - DEBUG - Database connection closed

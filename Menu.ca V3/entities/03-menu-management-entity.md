@@ -770,22 +770,82 @@ The following functions were removed because they referenced deleted tables/colu
 
 ---
 
+## 🌐 Bilingual Functionality
+
+### Overview
+
+The Menu Management Entity supports **English/French bilingual menus** with excellent coverage across all menu tables.
+
+### Bilingual Columns by Table
+
+| Table | Name Columns | Description Columns |
+|-------|--------------|---------------------|
+| `courses` | `name_en`, `name_fr` | `description_en`, `description_fr` |
+| `dishes` | `name_en`, `name_fr` | `description_en`, `description_fr` |
+| `modifier_groups` | `name_en`, `name_fr` | - |
+| `modifiers` | `name_en`, `name_fr` | - |
+| `combo_groups` | `name_en`, `name_fr` | `special_display_header_en`, `special_display_header_fr` |
+| `combo_group_sections` | `use_header_en`, `use_header_fr` | - |
+| `combo_modifier_groups` | `name_en`, `name_fr` | - |
+| `combo_modifiers` | `name_en`, `name_fr` | - |
+
+### Translation Coverage (Verified 2026-01-22)
+
+| Table | Total Records | Has Both Languages | Actually Translated | % Translated |
+|-------|---------------|--------------------|--------------------|--------------|
+| `dishes` | 24,037 | 24,036 (99.9%) | 18,681 | **77.7%** |
+| `courses` | 2,954 | 2,954 (100%) | 2,359 | **79.9%** |
+| `modifier_groups` | 2,873 | 2,873 (100%) | 2,638 | **91.8%** |
+| `modifiers` | 68,895 | 68,895 (100%) | 55,127 | **80.0%** |
+| `combo_groups` | 2,182 | 2,182 (100%) | TBD | TBD |
+| `combo_modifiers` | 76,885 | 76,885 (100%) | TBD | TBD |
+
+**Note:** "Actually Translated" = records where `name_en != name_fr` (not just copied)
+
+### Restaurant Translation Status
+
+- **185 of 186 restaurants** (99.5%) have French translations
+- Top translated restaurants: Supreme Pizzeria (98.4%), Number One Chinese (96.7%), Milano locations (93-96%)
+- Bilingual data populated during V1/V2 migration (2026-01-09)
+
+### Language Selection in `get_restaurant_menu()`
+
+```sql
+-- English menu (default)
+SELECT menuca_v3.get_restaurant_menu(973);
+
+-- French menu
+SELECT menuca_v3.get_restaurant_menu(973, 'fr');
+```
+
+**Fallback Logic:** If requested language column is NULL, falls back to the other language using COALESCE.
+
+---
+
 ## 📈 Statistics
 
 | Metric | Value |
 |--------|-------|
-| Total Dishes | ~24,277 |
-| Total Courses | ~2,500 |
-| Total Modifier Groups | ~22,632 |
-| Total Modifiers | ~358,499 |
-| Total Modifier Prices | ~606,492 |
-| Total Combo Groups | ~500 |
-| Total Combo Modifiers | ~15,000 |
-| Total Combo Modifier Prices | ~45,000 |
-| Dishes with Availability Restrictions | ~300 (V1 + V2) |
-| Entity Size | ~450 MB (60% of database) |
+| **Core Tables** | |
+| Total Dishes | 24,037 |
+| Total Courses | 2,954 |
+| Total Dish Prices | 41,525 |
+| **Modifier System** | |
+| Total Modifier Groups | 2,873 |
+| Total Modifiers | 68,895 |
+| Total Modifier Prices | 125,258 |
+| **Combo System** | |
+| Total Combo Groups | 2,182 |
+| Total Combo Modifiers | 76,885 |
+| Total Combo Modifier Prices | 198,906 |
+| **Size Normalization** | |
+| Modifier Size Variants | 8 |
+| Dish Size Variants | 72 |
+| **Other** | |
+| Dishes with Availability Restrictions | 1,232 |
 | SQL Functions (Menu) | 9 active |
+| Restaurants with French Translations | 185/186 (99.5%) |
 
 ---
 
-**Last Updated:** 2026-01-12
+**Last Updated:** 2026-01-22
