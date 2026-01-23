@@ -190,6 +190,7 @@ ENUM (
 | `get_admin_restaurants` | (none) | TABLE | Get restaurants assigned to current admin (with contact data) | ✅ Working |
 | `check_admin_restaurant_access` | (p_restaurant_id bigint) | boolean | Verify current admin has access to restaurant | ✅ Working |
 | `assign_restaurants_to_admin` | (p_admin_user_id bigint, p_restaurant_ids bigint[], p_action text) | TABLE | Assign/remove restaurant access (returns result summary) | ✅ Working |
+| `current_admin_restaurant_ids` | (none) | SETOF bigint | Returns restaurant IDs the current admin has access to (used by RLS policies) | ✅ Working |
 
 ### Function Details
 
@@ -230,6 +231,23 @@ SELECT * FROM menuca_v3.assign_restaurants_to_admin(
   ARRAY[349, 350]::bigint[],  -- restaurant_ids
   'add'                   -- action: add, remove, or replace
 );
+```
+
+#### 5. `current_admin_restaurant_ids()`
+Returns the restaurant IDs that the current admin user has access to. **Used by RLS policies** to enforce multi-tenancy.
+
+**Security:** `SECURITY DEFINER` - bypasses RLS to access `admin_user_restaurants`, returns only restaurant IDs.
+
+```sql
+SELECT * FROM menuca_v3.current_admin_restaurant_ids();
+-- Returns: 349, 350, 351 (restaurant IDs the current admin can access)
+```
+
+**Used in RLS policies:**
+```sql
+CREATE POLICY "admin_crud_own_restaurants" ON menuca_v3.restaurants
+FOR ALL TO authenticated
+USING (id IN (SELECT menuca_v3.current_admin_restaurant_ids()));
 ```
 
 ---
@@ -298,12 +316,57 @@ SELECT * FROM menuca_v3.assign_restaurants_to_admin(
 
 ## 🔒 RLS Policies
 
+### Admin Entity Core Tables
+
 | Table | Policy | Operation | Description |
 |-------|--------|-----------|-------------|
 | admin_users | `admin_users_service_role_all` | ALL | Service role full access |
 | admin_user_restaurants | `admin_user_restaurants_service_role_all` | ALL | Service role full access |
 
-**Note:** Admin access is controlled via Edge Functions (service role) and SQL functions with `SECURITY DEFINER`. RLS is minimal as admins should only access their own data via controlled functions.
+**Note:** Core admin tables use service_role policies. Direct access controlled via Edge Functions and `SECURITY DEFINER` SQL functions.
+
+### Restaurant Admin Access Policies (Created 2026-01-23)
+
+Restaurant Admins can now perform CRUD operations on their assigned restaurants' data through RLS policies that use the `current_admin_restaurant_ids()` helper function.
+
+#### Full CRUD Access (13 tables)
+
+| Table | Policy | Description |
+|-------|--------|-------------|
+| restaurants | `admin_crud_own_restaurants` | Manage assigned restaurants (uses `id` column) |
+| restaurant_locations | `admin_crud_own_restaurant_locations` | Manage location details |
+| restaurant_domains | `admin_crud_own_restaurant_domains` | Manage custom domains |
+| restaurant_subdomains | `admin_crud_own_restaurant_subdomains` | Manage subdomains |
+| restaurant_onboarding | `admin_crud_own_restaurant_onboarding` | Manage onboarding status |
+| restaurant_payment_options | `admin_crud_own_restaurant_payment_options` | Manage payment options |
+| restaurant_cuisines | `admin_crud_own_restaurant_cuisines` | Manage cuisine assignments |
+| restaurant_schedules | `admin_crud_own_restaurant_schedules` | Manage operating hours |
+| restaurant_special_schedules | `admin_crud_own_restaurant_special_schedules` | Manage holiday hours |
+| restaurant_delivery_areas | `admin_crud_own_restaurant_delivery_areas` | Manage delivery zones |
+| delivery_and_pickup_configs | `admin_crud_own_delivery_and_pickup_configs` | Manage delivery/pickup settings |
+| restaurant_delivery_companies | `admin_crud_own_restaurant_delivery_companies` | Manage delivery providers |
+| restaurant_distance_based_delivery_fees | `admin_crud_own_restaurant_distance_based_delivery_fees` | Manage distance-based fees |
+
+**Policy Pattern:**
+```sql
+FOR ALL TO authenticated
+USING (restaurant_id IN (SELECT menuca_v3.current_admin_restaurant_ids()))
+WITH CHECK (restaurant_id IN (SELECT menuca_v3.current_admin_restaurant_ids()))
+```
+
+#### Read-Only Access (3 tables)
+
+| Table | Policy | Description |
+|-------|--------|-------------|
+| restaurant_analytics_configs | `admin_select_own_restaurant_analytics_configs` | View analytics settings |
+| restaurant_reviews | `admin_select_own_restaurant_reviews` | View customer reviews |
+| delivery_company_emails | `admin_select_delivery_emails` | View delivery company emails (global lookup) |
+
+#### Global Lookup Tables
+
+| Table | Policy | Description |
+|-------|--------|-------------|
+| restaurant_tags | `authenticated_read_tags` | All authenticated users can read tags |
 
 ---
 
@@ -427,6 +490,10 @@ These accounts have `role_id = NULL` and may need a role assignment:
 | 2026-01-19 | Dropped 6 unused/legacy tables | `admin_user_preferences`, `admin_action_logs`, `restaurant_admin_users`, `restaurant_admin_users_archive`, `restaurant_admin_users_analytics`, `admin_consolidation_summary` |
 | 2026-01-23 | Dropped 5 redundant indexes on `admin_user_restaurants` | Removed `idx_admin_restaurants_admin`, `idx_admin_restaurants_restaurant`, `idx_admin_user_restaurants_admin`, `idx_admin_user_restaurants_admin_user`, `idx_admin_user_restaurants_restaurant`; created clean indexes `idx_admin_user_restaurants_admin_user_id` and `idx_admin_user_restaurants_restaurant_id` |
 | 2026-01-23 | Soft deleted system@menu.ca (id=43) | Internal system account - unused, no role assigned |
+| 2026-01-23 | Created `current_admin_restaurant_ids()` helper function | SECURITY DEFINER function for RLS policies, returns restaurant IDs for current admin |
+| 2026-01-23 | Enabled RLS on 7 tables | restaurant_subdomains, restaurant_onboarding, restaurant_analytics_configs, restaurant_payment_options, restaurant_cuisines, restaurant_reviews, restaurant_tags |
+| 2026-01-23 | Created 17 Restaurant Admin RLS policies | 13 CRUD + 3 SELECT-only + 1 global read policy for multi-tenant access control |
+| 2026-01-23 | Fixed overly-permissive `delivery_company_emails` policy | Replaced `ALL authenticated` with `SELECT` only |
 
 ---
 
@@ -436,11 +503,11 @@ These accounts have `role_id = NULL` and may need a role assignment:
 |--------|-------|
 | Total Tables | 4 |
 | Views | 1 |
-| SQL Functions | 4 (all working) |
+| SQL Functions | 5 (all working) |
 | Edge Functions | 3 |
 | Indexes | 20 |
 | Custom Types | 2 |
-| RLS Policies | 2 |
+| RLS Policies | 19 (2 core + 17 restaurant admin access) |
 
 ---
 
