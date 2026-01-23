@@ -243,11 +243,14 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 
 **Current Data:**
 
-| ID | Code      | Name      | API URL              | Fee API | Dispatch | Tracking |
-|----|-----------|-----------|----------------------|---------|----------|----------|
-| 1  | restozone | RestoZone | https://restozone.ca | ✅      | ✅       | ❌       |
+| ID | Code           | Name           | API URL                      | Fee API | Dispatch | Tracking |
+|----|----------------|----------------|------------------------------|---------|----------|----------|
+| 1  | restozone      | RestoZone      | https://restozone.ca         | ✅      | ✅       | ❌       |
+| 2  | tookan         | Tookan         | https://api.tookanapp.com    | ✅      | ✅       | ✅       |
+| 3  | doordash_drive | DoorDash Drive | https://openapi.doordash.com | ✅      | ✅       | ✅       |
+| 4  | uber_direct    | Uber Direct    | https://api.uber.com         | ✅      | ✅       | ✅       |
 
-**Note:** `delivery_and_pickup_configs.delivery_provider_id` references this table to link restaurants to their provider. Additional providers (Tookan, DoorDash Drive, Uber Direct) can be added when needed.
+**Note:** `delivery_and_pickup_configs.delivery_provider_id` references this table to link restaurants to their provider.
 
 ---
 
@@ -582,7 +585,6 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | 2026-01-23 | Added delivery provider columns        | `ALTER TABLE delivery_and_pickup_configs ADD COLUMN delivery_provider_id, delivery_provider_external_id`                   | Link restaurant to external delivery provider               |
 | 2026-01-23 | Seeded delivery providers              | `INSERT INTO delivery_providers (restozone, tookan, doordash_drive, uber_direct)`                                          | 4 providers configured                                      |
 | 2026-01-23 | Populated RestoZone mappings           | `UPDATE delivery_and_pickup_configs SET delivery_provider_id = 1, delivery_provider_external_id = ... WHERE ...`           | 8 restaurants mapped to RestoZone with external IDs         |
-| 2026-01-23 | Removed unused providers               | `DELETE FROM delivery_providers WHERE code != 'restozone'`                                                                  | Kept only RestoZone; others can be added when needed        |
 
 ---
 
@@ -598,7 +600,7 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | **restaurant_delivery_companies**           | 18 rows                    |
 | **restaurant_distance_based_delivery_fees** | 44 rows                    |
 | **delivery_company_emails**                 | 9 rows                     |
-| **delivery_providers**                      | 1 row (RestoZone only)     |
+| **delivery_providers**                      | 4 rows (extensible)        |
 
 ### Distance-Based Delivery Fees
 
