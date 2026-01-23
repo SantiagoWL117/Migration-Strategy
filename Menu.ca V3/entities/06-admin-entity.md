@@ -68,7 +68,7 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 
 ### Core Admin Tables (Active)
 
-#### `admin_users` (175 records)
+#### `admin_users` (174 records)
 **Purpose:** Platform administrators - linked to Supabase Auth
 
 | Column | Type | Description |
@@ -149,7 +149,7 @@ The Admin Entity extends Supabase Auth (`auth.users`) with platform-specific dat
 
 ## 👁️ Views
 
-#### `active_admin_users` (175 records)
+#### `active_admin_users` (174 records)
 **Purpose:** Active admins filter
 
 ```sql
@@ -186,48 +186,50 @@ ENUM (
 
 | Function | Arguments | Returns | Purpose | Status |
 |----------|-----------|---------|---------|--------|
-| `get_admin_profile` | (none) | TABLE | Get current admin's profile using `auth.uid()` | ⚠️ Needs fix |
-| `get_admin_restaurants` | (none) | TABLE | Get restaurants assigned to current admin | ⚠️ Needs fix |
-| `get_admin_devices` | (none) | TABLE | Get devices for current admin | ✅ Working |
-| `get_my_admin_info` | (none) | TABLE | Get admin info | ✅ Working |
-| `check_admin_restaurant_access` | (p_restaurant_id) | boolean | Verify current admin has access to restaurant | ✅ Working |
-| `assign_restaurants_to_admin` | (p_admin_user_id, p_restaurant_ids[], p_action) | void | Assign/remove restaurant access | ✅ Working |
-| `log_admin_audit` | (...params) | void | Log audit event | ✅ Working |
+| `get_admin_profile` | (none) | TABLE | Get current admin's profile using `auth.uid()` | ✅ Working |
+| `get_admin_restaurants` | (none) | TABLE | Get restaurants assigned to current admin (with contact data) | ✅ Working |
+| `check_admin_restaurant_access` | (p_restaurant_id bigint) | boolean | Verify current admin has access to restaurant | ✅ Working |
+| `assign_restaurants_to_admin` | (p_admin_user_id bigint, p_restaurant_ids bigint[], p_action text) | TABLE | Assign/remove restaurant access (returns result summary) | ✅ Working |
 
-### ⚠️ Functions Needing Updates
+### Function Details
 
-#### 1. `get_admin_profile` - References non-existent column
-```sql
--- Current (broken):
-a.mfa_enabled,  -- Column doesn't exist in admin_users!
+#### 1. `get_admin_profile()`
+Returns current admin's profile based on JWT `auth.uid()`.
 
--- Suggested fix - replace with:
-a.phone,
-a.preferred_language,
-```
+**Returns:** id, auth_user_id, email, first_name, last_name, phone, preferred_language, role_id, status, created_at, updated_at
 
-#### 2. `get_admin_restaurants` - Returns NULL for contact data
-```sql
--- Current (incomplete):
-NULL::VARCHAR AS restaurant_phone,
-NULL::VARCHAR AS restaurant_email,
-
--- Suggested fix - fetch from restaurant_locations:
-rl.phone AS restaurant_phone,
-rl.email AS restaurant_email,
--- Add JOIN: LEFT JOIN restaurant_locations rl ON rl.restaurant_id = r.id AND rl.is_primary = true
-```
-
-**Example - Get Current Admin Profile:**
 ```sql
 SELECT * FROM menuca_v3.get_admin_profile();
--- Uses auth.uid() to find the admin_user matching current JWT
 ```
 
-**Example - Check Restaurant Access:**
+#### 2. `get_admin_restaurants()`
+Returns restaurants assigned to the current admin with contact info from `restaurant_locations`.
+
+**Returns:** restaurant_id, restaurant_name, restaurant_slug, restaurant_phone, restaurant_email, assigned_at
+
+```sql
+SELECT * FROM menuca_v3.get_admin_restaurants();
+```
+
+#### 3. `check_admin_restaurant_access(p_restaurant_id)`
+Verifies if the current admin (via JWT) has access to a specific restaurant.
+
 ```sql
 SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 -- Returns TRUE if current admin has access to restaurant 123
+```
+
+#### 4. `assign_restaurants_to_admin(...)`
+Assigns, removes, or replaces restaurant access for an admin. Actions: `add`, `remove`, `replace`.
+
+**Returns:** success, action, admin_user_id, admin_email, assignments_before, assignments_after, affected_count, message
+
+```sql
+SELECT * FROM menuca_v3.assign_restaurants_to_admin(
+  123,                    -- admin_user_id
+  ARRAY[349, 350]::bigint[],  -- restaurant_ids
+  'add'                   -- action: add, remove, or replace
+);
 ```
 
 ---
@@ -252,17 +254,45 @@ SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 
 ## 📇 Indexes
 
-| Index | Table | Columns | Type |
-|-------|-------|---------|------|
-| `admin_users_pkey` | admin_users | id | PRIMARY |
-| `admin_users_email_key` | admin_users | email | UNIQUE |
-| `idx_admin_users_email` | admin_users | email | BTREE |
-| `idx_admin_users_email_lower` | admin_users | lower(email) | BTREE |
-| `idx_admin_users_auth_user_id` | admin_users | auth_user_id | BTREE |
-| `idx_admin_users_auth_unique` | admin_users | auth_user_id | UNIQUE (where not null) |
-| `idx_admin_users_deleted_at` | admin_users | deleted_at | PARTIAL (where null) |
-| `idx_admin_users_v1_id` | admin_users | v1_admin_id | BTREE |
-| `idx_admin_users_v2_id` | admin_users | v2_admin_id | BTREE |
+### `admin_users` (9 indexes)
+
+| Index | Columns | Type |
+|-------|---------|------|
+| `admin_users_pkey` | id | PRIMARY |
+| `admin_users_email_key` | email | UNIQUE |
+| `idx_admin_users_email` | email | BTREE |
+| `idx_admin_users_email_lower` | lower(email) | BTREE |
+| `idx_admin_users_auth_user_id` | auth_user_id | BTREE |
+| `idx_admin_users_auth_unique` | auth_user_id | UNIQUE (where not null) |
+| `idx_admin_users_deleted_at` | deleted_at | PARTIAL (where null) |
+| `idx_admin_users_v1_id` | v1_admin_id | BTREE |
+| `idx_admin_users_v2_id` | v2_admin_id | BTREE |
+
+### `admin_user_restaurants` (4 indexes)
+
+| Index | Columns | Type |
+|-------|---------|------|
+| `admin_user_restaurants_pkey` | id | PRIMARY |
+| `admin_user_restaurants_admin_user_id_restaurant_id_key` | (admin_user_id, restaurant_id) | UNIQUE |
+| `idx_admin_user_restaurants_admin_user_id` | admin_user_id | BTREE |
+| `idx_admin_user_restaurants_restaurant_id` | restaurant_id | BTREE |
+
+### `admin_roles` (2 indexes)
+
+| Index | Columns | Type |
+|-------|---------|------|
+| `admin_roles_pkey` | id | PRIMARY |
+| `admin_roles_name_key` | name | UNIQUE |
+
+### `admin_audit_log` (5 indexes)
+
+| Index | Columns | Type |
+|-------|---------|------|
+| `admin_audit_log_pkey` | id | PRIMARY |
+| `idx_audit_log_performed_by` | performed_by_admin_id | BTREE |
+| `idx_audit_log_performed_action_date` | (performed_by_admin_id, action, created_at DESC) | BTREE |
+| `idx_audit_log_target_admin` | target_admin_id | BTREE |
+| `idx_audit_log_success` | success | BTREE |
 
 ---
 
@@ -271,6 +301,7 @@ SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 | Table | Policy | Operation | Description |
 |-------|--------|-----------|-------------|
 | admin_users | `admin_users_service_role_all` | ALL | Service role full access |
+| admin_user_restaurants | `admin_user_restaurants_service_role_all` | ALL | Service role full access |
 
 **Note:** Admin access is controlled via Edge Functions (service role) and SQL functions with `SECURITY DEFINER`. RLS is minimal as admins should only access their own data via controlled functions.
 
@@ -284,19 +315,19 @@ SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 
 ## 📊 Data Quality
 
-### Statistics (as of 2026-01-16)
+### Statistics (as of 2026-01-23)
 
 | Metric | Value | Notes |
 |--------|-------|-------|
-| Total admin users | 175 | |
-| Active (is_active=true) | 175 | 100% |
+| Total admin users | 174 | |
+| Active (is_active=true) | 174 | 100% |
 | With Supabase auth linked | 160 | 91.4% |
 | Without auth linked | 15 | 8.6% |
 | Migrated from V1 | 143 | 81.7% |
 | Migrated from V2 | 30 | 17.1% |
 | Never logged in | 175 | 100% ⚠️ |
 | With restaurant access | 162 | 92.6% ✅ |
-| Without restaurant access | 13 | 7.4% (internal accounts) |
+| Without restaurant access | 12 | 6.9% (internal accounts) |
 | Restaurants with admins | 175 | 94.1% |
 | Restaurants without admins | 11 | 5.9% |
 
@@ -308,11 +339,12 @@ SELECT menuca_v3.check_admin_restaurant_access(123::bigint);
 | Missing phone (restaurant admins) | 0 | ✅ Clean |
 | Missing phone (internal accounts) | 12 | ✅ Expected |
 | Missing first_name | 4 | 🟡 Low |
-| Missing last_name | 26 | 🟡 Low |
+| Missing last_name | 30 | 🟡 Low |
 | Test admin accounts | 0 | ✅ Clean |
 | Admins without restaurant access | 13 | ✅ Expected (internal/system) |
+| Internal admins without role_id | 9 | 🟡 Consider assigning role |
 
-### Internal Admins Without Restaurant Access (13)
+### Internal Admins Without Restaurant Access (12)
 
 These are internal Menu.ca/Worklocal staff accounts - no restaurant assignment needed:
 
@@ -321,16 +353,31 @@ These are internal Menu.ca/Worklocal staff accounts - no restaurant assignment n
 | 18 | james.walker@menu.ca | Super Admin |
 | 932 | santiago@worklocal.ca | Super Admin |
 | 1099 | brian+1@worklocal.ca | Super Admin |
-| 12 | chris@menu.ca | Internal |
-| 16 | george@menu.ca | Internal |
-| 19 | james@menu.ca | Internal |
-| 23 | jordan@worklocal.ca | Internal |
-| 33 | razvan@menu.ca | Internal |
-| 40 | stefan@menu.ca | Internal |
-| 41 | stephane@menu.ca | Internal |
-| 43 | system@menu.ca | System |
-| 49 | vendor2@menu.ca | Vendor |
-| 50 | yanni@menu.ca | Internal |
+| 12 | chris@menu.ca | ⚠️ No role assigned |
+| 16 | george@menu.ca | ⚠️ No role assigned |
+| 19 | james@menu.ca | ⚠️ No role assigned |
+| 23 | jordan@worklocal.ca | ⚠️ No role assigned |
+| 33 | razvan@menu.ca | ⚠️ No role assigned |
+| 40 | stefan@menu.ca | ⚠️ No role assigned |
+| 41 | stephane@menu.ca | ⚠️ No role assigned |
+| 49 | vendor2@menu.ca | ⚠️ No role assigned |
+| 50 | yanni@menu.ca | ⚠️ No role assigned |
+
+### Internal Admins Without Role (9)
+
+These accounts have `role_id = NULL` and may need a role assignment:
+
+| ID | Email | First Name | Last Name |
+|----|-------|------------|-----------|
+| 12 | chris@menu.ca | Christos | Bouziotas |
+| 16 | george@menu.ca | george | nicolae |
+| 19 | james@menu.ca | James | Walker |
+| 23 | jordan@worklocal.ca | Jordan | James |
+| 33 | razvan@menu.ca | razvan | c |
+| 40 | stefan@menu.ca | Stefan | Dragos |
+| 41 | stephane@menu.ca | Soupa | Stephane |
+| 49 | vendor2@menu.ca | vendor | 2 |
+| 50 | yanni@menu.ca | yanni | bouziotas |
 
 ### Restaurants Without Admin (11)
 
@@ -378,6 +425,8 @@ These are internal Menu.ca/Worklocal staff accounts - no restaurant assignment n
 | 2026-01-18 | Dropped functions for `restaurant_contacts` | `get_restaurant_primary_contact`, `add_primary_contact_onboarding` |
 | 2026-01-18 | Updated `active_admin_users` view | Removed `mfa_enabled`, added `role_id` |
 | 2026-01-19 | Dropped 6 unused/legacy tables | `admin_user_preferences`, `admin_action_logs`, `restaurant_admin_users`, `restaurant_admin_users_archive`, `restaurant_admin_users_analytics`, `admin_consolidation_summary` |
+| 2026-01-23 | Dropped 5 redundant indexes on `admin_user_restaurants` | Removed `idx_admin_restaurants_admin`, `idx_admin_restaurants_restaurant`, `idx_admin_user_restaurants_admin`, `idx_admin_user_restaurants_admin_user`, `idx_admin_user_restaurants_restaurant`; created clean indexes `idx_admin_user_restaurants_admin_user_id` and `idx_admin_user_restaurants_restaurant_id` |
+| 2026-01-23 | Soft deleted system@menu.ca (id=43) | Internal system account - unused, no role assigned |
 
 ---
 
@@ -387,11 +436,12 @@ These are internal Menu.ca/Worklocal staff accounts - no restaurant assignment n
 |--------|-------|
 | Total Tables | 4 |
 | Views | 1 |
-| SQL Functions | 7 (5 working, 2 need fixes) |
+| SQL Functions | 4 (all working) |
 | Edge Functions | 3 |
-| Indexes | 9 |
+| Indexes | 20 |
 | Custom Types | 2 |
+| RLS Policies | 2 |
 
 ---
 
-**Last Updated:** 2026-01-19
+**Last Updated:** 2026-01-23

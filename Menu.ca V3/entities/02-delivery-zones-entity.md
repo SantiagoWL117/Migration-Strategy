@@ -133,29 +133,31 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 **Purpose:** Restaurant-level service configuration (delivery, pickup, ordering settings)  
 **Row Count:** 185 (100% of restaurants)
 
-| Column                    | Type        | Nullable | Default            | Description                   |
-| ------------------------- | ----------- | -------- | ------------------ | ----------------------------- |
-| `id`                      | bigint      | NO       | identity           | Primary key                   |
-| `uuid`                    | uuid        | NO       | uuid_generate_v4() | External identifier           |
-| `restaurant_id`           | bigint      | NO       | -                  | FK to restaurants             |
-| `has_delivery_enabled`    | boolean     | NO       | false              | Delivery service enabled      |
-| `pickup_enabled`          | boolean     | NO       | false              | Pickup service enabled        |
-| `takeout_time_minutes`    | integer     | YES      | -                  | Average pickup time           |
-| `allows_preorders`        | boolean     | YES      | false              | Accept future orders          |
-| `is_bilingual`            | boolean     | YES      | false              | Supports both EN/FR           |
-| `default_language`        | varchar     | YES      | 'en'               | Primary language              |
-| `accepts_tips`            | boolean     | YES      | true               | Accept tips on orders         |
-| `requires_phone`          | boolean     | YES      | true               | Phone required for orders     |
-| `closing_warning_minutes` | integer     | YES      | -                  | Warning before closing        |
-| `twilio_call`             | boolean     | YES      | -                  | Enable Twilio call on order   |
-| `distance_based_delivery_fee` | boolean | NO       | false              | Uses distance-based fees      |
-| `twilio_call`             | boolean     | YES      | -                  | Enable Twilio call on order   |
-| `created_at`              | timestamptz | NO       | now()              | Creation timestamp            |
-| `created_by`              | integer     | YES      | -                  | Admin who created             |
-| `updated_at`              | timestamptz | YES      | -                  | Last update timestamp         |
-| `updated_by`              | integer     | YES      | -                  | Admin who updated             |
-| `deleted_at`              | timestamptz | YES      | -                  | Soft delete timestamp         |
-| `deleted_by`              | bigint      | YES      | -                  | Admin who deleted             |
+| Column                          | Type        | Nullable | Default            | Description                              |
+| ------------------------------- | ----------- | -------- | ------------------ | ---------------------------------------- |
+| `id`                            | bigint      | NO       | identity           | Primary key                              |
+| `uuid`                          | uuid        | NO       | uuid_generate_v4() | External identifier                      |
+| `restaurant_id`                 | bigint      | NO       | -                  | FK to restaurants                        |
+| `has_delivery_enabled`          | boolean     | NO       | false              | Delivery service enabled                 |
+| `pickup_enabled`                | boolean     | NO       | false              | Pickup service enabled                   |
+| `takeout_time_minutes`          | integer     | YES      | -                  | Average pickup time                      |
+| `allows_preorders`              | boolean     | YES      | false              | Accept future orders                     |
+| `is_bilingual`                  | boolean     | YES      | false              | Supports both EN/FR                      |
+| `default_language`              | varchar     | YES      | 'en'               | Primary language                         |
+| `accepts_tips`                  | boolean     | YES      | true               | Accept tips on orders                    |
+| `requires_phone`                | boolean     | YES      | true               | Phone required for orders                |
+| `closing_warning_minutes`       | integer     | YES      | -                  | Warning before closing                   |
+| `twilio_call`                   | boolean     | YES      | -                  | Enable Twilio call on order              |
+| `distance_based_delivery_fee`   | boolean     | NO       | false              | Uses distance-based fees                 |
+| `delivery_provider_id`          | smallint    | YES      | -                  | FK to delivery_providers                 |
+| `delivery_provider_external_id` | varchar(100)| YES      | -                  | Restaurant's ID in provider's system     |
+| `payment_mode`                  | text        | YES      | -                  | Payment mode configuration               |
+| `created_at`                    | timestamptz | NO       | now()              | Creation timestamp                       |
+| `created_by`                    | integer     | YES      | -                  | Admin who created                        |
+| `updated_at`                    | timestamptz | YES      | -                  | Last update timestamp                    |
+| `updated_by`                    | integer     | YES      | -                  | Admin who updated                        |
+| `deleted_at`                    | timestamptz | YES      | -                  | Soft delete timestamp                    |
+| `deleted_by`                    | bigint      | YES      | -                  | Admin who deleted                        |
 
 **Data Quality:**
 
@@ -165,6 +167,7 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 - `closing_warning_minutes`: 158/185 populated (85%)
 - `twilio_call`: 169 = true (91%), 16 = false (9%)
 - `distance_based_delivery_fee`: 8 = true, 177 = false
+- `delivery_provider_id`: 8 = RestoZone, 177 = NULL (no external provider)
 
 ---
 
@@ -219,6 +222,35 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 
 ### Supporting Tables
 
+#### `delivery_providers`
+
+**Purpose:** Master list of third-party delivery provider companies (RestoZone, Tookan, DoorDash Drive, etc.)  
+**Row Count:** 4
+
+| Column                  | Type        | Nullable | Default            | Description                         |
+| ----------------------- | ----------- | -------- | ------------------ | ----------------------------------- |
+| `id`                    | smallint    | NO       | identity           | Primary key                         |
+| `uuid`                  | uuid        | NO       | uuid_generate_v4() | External identifier                 |
+| `code`                  | varchar(50) | NO       | -                  | Unique provider code (e.g., 'restozone') |
+| `name`                  | varchar(100)| NO       | -                  | Display name (e.g., 'RestoZone')    |
+| `api_base_url`          | varchar(255)| YES      | -                  | Provider's API base URL             |
+| `is_active`             | boolean     | YES      | true               | Provider is available               |
+| `supports_fee_api`      | boolean     | YES      | false              | Can query fees from their API       |
+| `supports_dispatch_api` | boolean     | YES      | false              | Can dispatch drivers via API        |
+| `supports_tracking`     | boolean     | YES      | false              | Provides driver tracking            |
+| `created_at`            | timestamptz | YES      | now()              | Creation timestamp                  |
+| `updated_at`            | timestamptz | YES      | -                  | Last update timestamp               |
+
+**Current Data:**
+
+| ID | Code      | Name      | API URL              | Fee API | Dispatch | Tracking |
+|----|-----------|-----------|----------------------|---------|----------|----------|
+| 1  | restozone | RestoZone | https://restozone.ca | ✅      | ✅       | ❌       |
+
+**Note:** `delivery_and_pickup_configs.delivery_provider_id` references this table to link restaurants to their provider. Additional providers (Tookan, DoorDash Drive, Uber Direct) can be added when needed.
+
+---
+
 #### `delivery_company_emails`
 
 **Purpose:** Delivery company contact information (shared across restaurants)  
@@ -243,29 +275,6 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | 1   | deliveryzonecanada@gmail.com | Deliveryzonecanada |
 | 2   | mattmenuottawa2@gmail.com    | Mattmenuottawa2    |
 | 3   | restozonedispatch@gmail.com  | Restozonedispatch  |
-
----
-
-#### `user_delivery_addresses`
-
-**Purpose:** Customer saved delivery addresses  
-**Row Count:** 0 (cleared test data)
-
-| Column                  | Type        | Nullable | Default  | Description              |
-| ----------------------- | ----------- | -------- | -------- | ------------------------ |
-| `id`                    | bigint      | NO       | identity | Primary key              |
-| `user_id`               | bigint      | NO       | -        | FK to users              |
-| `address_label`         | varchar     | YES      | -        | Label (Home, Work, etc.) |
-| `street_address`        | varchar     | NO       | -        | Street address           |
-| `unit`                  | varchar     | YES      | -        | Unit/apartment number    |
-| `city_id`               | bigint      | YES      | -        | FK to cities             |
-| `postal_code`           | varchar     | NO       | -        | Postal code              |
-| `latitude`              | numeric     | YES      | -        | Address latitude         |
-| `longitude`             | numeric     | YES      | -        | Address longitude        |
-| `delivery_instructions` | text        | YES      | -        | Special instructions     |
-| `is_default`            | boolean     | NO       | false    | Default address          |
-| `created_at`            | timestamptz | NO       | now()    | Creation timestamp       |
-| `updated_at`            | timestamptz | NO       | -        | Last update timestamp    |
 
 ---
 
@@ -351,16 +360,26 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 
 ### `delivery_and_pickup_configs` Table Indexes
 
-| Index Name                             | Columns                | Type        | Notes                            |
-| -------------------------------------- | ---------------------- | ----------- | -------------------------------- |
-| `delivery_and_pickup_configs_pkey`     | `id`                   | PRIMARY KEY | -                                |
-| `delivery_and_pickup_configs_uuid_key` | `uuid`                 | UNIQUE      | -                                |
-| `u_delivery_pickup_restaurant`         | `restaurant_id`        | UNIQUE      | One config per restaurant        |
-| `idx_delivery_pickup_restaurant`       | `restaurant_id`        | BTREE       | -                                |
-| `idx_delivery_pickup_configs_deleted`  | `restaurant_id`        | BTREE       | WHERE deleted_at IS NULL         |
-| `idx_delivery_pickup_delivery_enabled` | `has_delivery_enabled` | BTREE       | WHERE has_delivery_enabled=true  |
-| `idx_delivery_pickup_takeout_enabled`  | `pickup_enabled`       | BTREE       | WHERE pickup_enabled=true        |
-| `idx_delivery_pickup_distance_based`   | `restaurant_id`        | BTREE       | WHERE distance_based_delivery_fee=true |
+| Index Name                             | Columns                   | Type        | Notes                                    |
+| -------------------------------------- | ------------------------- | ----------- | ---------------------------------------- |
+| `delivery_and_pickup_configs_pkey`     | `id`                      | PRIMARY KEY | -                                        |
+| `delivery_and_pickup_configs_uuid_key` | `uuid`                    | UNIQUE      | -                                        |
+| `u_delivery_pickup_restaurant`         | `restaurant_id`           | UNIQUE      | One config per restaurant                |
+| `idx_delivery_pickup_restaurant`       | `restaurant_id`           | BTREE       | -                                        |
+| `idx_delivery_pickup_configs_deleted`  | `restaurant_id`           | BTREE       | WHERE deleted_at IS NULL                 |
+| `idx_delivery_pickup_delivery_enabled` | `has_delivery_enabled`    | BTREE       | WHERE has_delivery_enabled=true          |
+| `idx_delivery_pickup_takeout_enabled`  | `pickup_enabled`          | BTREE       | WHERE pickup_enabled=true                |
+| `idx_delivery_pickup_distance_based`   | `restaurant_id`           | BTREE       | WHERE distance_based_delivery_fee=true   |
+| `idx_dpc_delivery_provider`            | `delivery_provider_id`    | BTREE       | WHERE delivery_provider_id IS NOT NULL   |
+
+### `delivery_providers` Table Indexes
+
+| Index Name                      | Columns      | Type        | Notes                  |
+| ------------------------------- | ------------ | ----------- | ---------------------- |
+| `delivery_providers_pkey`       | `id`         | PRIMARY KEY | -                      |
+| `delivery_providers_uuid_key`   | `uuid`       | UNIQUE      | -                      |
+| `delivery_providers_code_key`   | `code`       | UNIQUE      | Unique provider code   |
+| `idx_delivery_providers_active` | `is_active`  | BTREE       | WHERE is_active = true |
 
 ---
 
@@ -408,15 +427,12 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | `delivery_pickup_delete_admin`   | DELETE    | authenticated | Admin can delete           |
 | `delivery_pickup_service_role_all` | ALL     | service_role  | Service role full access   |
 
-### `user_delivery_addresses` Table Policies
+### `delivery_providers` Table Policies
 
-| Policy Name                  | Operation | Roles         | Description                    |
-| ---------------------------- | --------- | ------------- | ------------------------------ |
-| `addresses_select_own`       | SELECT    | authenticated | Users can read own addresses   |
-| `addresses_insert_own`       | INSERT    | authenticated | Users can create addresses     |
-| `addresses_update_own`       | UPDATE    | authenticated | Users can update own addresses |
-| `addresses_delete_own`       | DELETE    | authenticated | Users can delete own addresses |
-| `addresses_service_role_all` | ALL       | service_role  | Service role full access       |
+| Policy Name                          | Operation | Roles        | Description                     |
+| ------------------------------------ | --------- | ------------ | ------------------------------- |
+| `delivery_providers_public_read`     | SELECT    | public       | Public can read active providers|
+| `delivery_providers_service_role_all`| ALL       | service_role | Service role full access        |
 
 ---
 
@@ -474,6 +490,12 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | ---------------------------------------- | ------ | ------ | ------------------ | --------------------- |
 | `trg_delivery_company_emails_updated_at` | UPDATE | BEFORE | `set_updated_at()` | Auto-update timestamp |
 
+### `delivery_providers` Table Triggers
+
+| Trigger Name                         | Event  | Timing | Function           | Description           |
+| ------------------------------------ | ------ | ------ | ------------------ | --------------------- |
+| `trg_delivery_providers_updated_at`  | UPDATE | BEFORE | `set_updated_at()` | Auto-update timestamp |
+
 ---
 
 ## 🗑️ Removed Functionalities
@@ -504,7 +526,6 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | 2025-12-02 | `schedule_translations` table        | Static lookup, translations in frontend       | Dropped table - day-of-week translations handled by frontend i18n.                                                                                     |
 | 2025-12-02 | `restaurant_special_schedules` data  | Historical/stale data cleanup                 | Deleted all 24 records - contained outdated vacation closures from 2024-2025.                                                                          |
 | 2025-12-03 | `restaurant_delivery_config` table   | Legacy table, all data unused or migrated     | Dropped table - 185 rows with legacy V1 flags and empty partner credentials.                                                                            |
-| 2025-12-03 | `user_delivery_addresses` data       | Test data cleanup                             | Deleted 7 test records - table ready for production user data.                                                                                           |
 | 2025-12-03 | 8 broken SQL functions               | Referenced deleted/renamed columns            | Dropped: create_delivery_zone, create_delivery_zone_onboarding, update_delivery_zone, get_restaurant_delivery_summary, is_address_in_delivery_zone, get_restaurant_schedule, get_delivery_zone_area_sq_km, get_upcoming_schedule_changes |
 | 2025-12-03 | 2 broken Edge functions              | Called deleted SQL functions                  | Deleted: create-delivery-zone, update-delivery-zone (called deleted SQL functions)                                                                                                                                                        |
 | 2025-12-03 | Renamed indexes/triggers/policies    | Table renamed to delivery_and_pickup_configs  | Renamed 8 indexes, 2 triggers, 6 RLS policies to match new table name.                                                                                                                                                                    |
@@ -526,6 +547,7 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | 2025-11-27 | Data Population                | ✅ Complete | `delivery_fee` populated from `restaurant_delivery_fees`, `min_order_value` populated from `restaurant_service_configs` |
 | 2025-12-02 | Distance-Based Fee Flag        | ✅ Complete | Added `distance_based_delivery_fee` boolean column to `restaurant_delivery_areas`                                       |
 | 2025-12-02 | V1 Distance-Based Fee Scraper  | ✅ Complete | Scraped 8 restaurants with distance-based fees from V1 CRM, populated fee tiers and company links                       |
+| 2026-01-23 | Delivery Providers System      | ✅ Complete | Extensible third-party provider integration (RestoZone, Tookan, DoorDash, Uber)                                         |
 
 ---
 
@@ -556,6 +578,11 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | 2025-12-03 | Renamed service configs table          | `ALTER TABLE restaurant_service_configs RENAME TO delivery_and_pickup_configs`                                             | Clearer table name reflecting its purpose                   |
 | 2025-12-03 | Added twilio_call column               | `ALTER TABLE delivery_and_pickup_configs ADD COLUMN twilio_call boolean`                                                   | Enable Twilio call notifications per restaurant             |
 | 2025-12-03 | Populated twilio_call from legacy      | `UPDATE ... FROM v1_twillio_call.csv, v2_twillio_call.csv`                                                                 | 155 = true, 7 = false, 23 = NULL (not in legacy data)       |
+| 2026-01-23 | Created `delivery_providers` table     | `CREATE TABLE menuca_v3.delivery_providers (...)`                                                                          | Master list of third-party delivery provider companies      |
+| 2026-01-23 | Added delivery provider columns        | `ALTER TABLE delivery_and_pickup_configs ADD COLUMN delivery_provider_id, delivery_provider_external_id`                   | Link restaurant to external delivery provider               |
+| 2026-01-23 | Seeded delivery providers              | `INSERT INTO delivery_providers (restozone, tookan, doordash_drive, uber_direct)`                                          | 4 providers configured                                      |
+| 2026-01-23 | Populated RestoZone mappings           | `UPDATE delivery_and_pickup_configs SET delivery_provider_id = 1, delivery_provider_external_id = ... WHERE ...`           | 8 restaurants mapped to RestoZone with external IDs         |
+| 2026-01-23 | Removed unused providers               | `DELETE FROM delivery_providers WHERE code != 'restozone'`                                                                  | Kept only RestoZone; others can be added when needed        |
 
 ---
 
@@ -563,7 +590,7 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 
 | Metric                                      | Value                      |
 | ------------------------------------------- | -------------------------- |
-| **Total Tables**                            | 6 (+ 3 views)              |
+| **Total Tables**                            | 7 (+ 3 views)              |
 | **restaurant_schedules**                    | 1,735 rows                 |
 | **restaurant_special_schedules**            | 0 rows (cleared)           |
 | **delivery_and_pickup_configs**             | 185 rows (100% coverage)   |
@@ -571,6 +598,7 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 | **restaurant_delivery_companies**           | 18 rows                    |
 | **restaurant_distance_based_delivery_fees** | 44 rows                    |
 | **delivery_company_emails**                 | 9 rows                     |
+| **delivery_providers**                      | 1 row (RestoZone only)     |
 
 ### Distance-Based Delivery Fees
 
@@ -650,10 +678,23 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 │ distance_based_         │  │ delivery_fee (flat)         │  │ distance_in_km                 ││
 │ delivery_fee (bool)     │  │ delivery_min_order          │  │ total_delivery_fee             ││
 │ pickup_enabled          │  │ estimated_delivery_minutes  │  │ driver_earning                 ││
-└────────────┬────────────┘  └─────────────────────────────┘  │ restaurant_pays                ││
-             │                                                │ vendor_pays                    ││
-             │ IF distance_based_delivery_fee = true          └────────────────────────────────┼┘
-             └────────────────────────────────────────────────────────────────────────────────►│
+│ delivery_provider_id ──►│  └─────────────────────────────┘  │ restaurant_pays                ││
+│ delivery_provider_      │                                   │ vendor_pays                    ││
+│ external_id             │                                   └────────────────────────────────┼┘
+└────────────┬────────────┘                                                                    │
+             │                                                                                 │
+             │ FK                                                                              │
+             ▼                                                                                 │
+┌─────────────────────────────┐                                                                │
+│  delivery_providers (4)     │                                                                │
+├─────────────────────────────┤                                                                │
+│ code (restozone, tookan...) │                                                                │
+│ name                        │                                                                │
+│ api_base_url                │                                                                │
+│ supports_fee_api            │                                                                │
+│ supports_dispatch_api       │                                                                │
+│ supports_tracking           │                                                                │
+└─────────────────────────────┘                                                                │
                                                                                                │
 ┌──────────────────────────────────────┐                                                       │
 │ restaurant_delivery_companies (18)   │                                                       │
@@ -676,10 +717,12 @@ The Delivery & Zones Entity manages all aspects of **delivery availability**:
 **Flow:**
 
 1. `delivery_and_pickup_configs.distance_based_delivery_fee = true` → Restaurant uses distance-based pricing
-2. `restaurant_delivery_companies` → Links restaurant to delivery company with commission terms
-3. `restaurant_distance_based_delivery_fees` → Fee tiers (5-10 km) with driver/restaurant/vendor split
-4. `delivery_company_emails` → Shared delivery company contact info
+2. `delivery_and_pickup_configs.delivery_provider_id` → Links restaurant to third-party provider (RestoZone, Tookan, etc.)
+3. `delivery_and_pickup_configs.delivery_provider_external_id` → Restaurant's ID in the external provider's system
+4. `restaurant_delivery_companies` → Links restaurant to delivery company with commission terms
+5. `restaurant_distance_based_delivery_fees` → Fee tiers (5-10 km) with driver/restaurant/vendor split
+6. `delivery_company_emails` → Shared delivery company contact info
 
 ---
 
-**Last Updated:** 2026-01-19 (Removed commission columns - migrated to Order Management Entity)
+**Last Updated:** 2026-01-23 (Added delivery_providers table and external provider integration)

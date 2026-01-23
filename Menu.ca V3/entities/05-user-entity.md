@@ -260,13 +260,15 @@ The User Entity manages **customer accounts and data**:
 | `user_favorites_delete_own` | authenticated | DELETE | User's own favorites via auth.uid() |
 | `user_favorites_service_role_all` | service_role | ALL | Full access for backend |
 
-### User Payment Methods Table (0 policies) ⚠️
+### User Payment Methods Table (5 policies)
 
 | Policy | Roles | Command | Logic |
 |--------|-------|---------|-------|
-| - | - | - | **No RLS policies defined!** |
-
-> ⚠️ **Security Issue:** `user_payment_methods` has no RLS policies. This table should be protected.
+| `payment_methods_select_own` | authenticated | SELECT | User's own payment methods via auth.uid() |
+| `payment_methods_insert_own` | authenticated | INSERT | (no qual - checked via WITH CHECK) |
+| `payment_methods_update_own` | authenticated | UPDATE | User's own payment methods via auth.uid() |
+| `payment_methods_delete_own` | authenticated | DELETE | User's own payment methods via auth.uid() |
+| `payment_methods_service_role_all` | service_role | ALL | Full access for backend |
 
 ---
 
@@ -325,8 +327,8 @@ The User Entity manages **customer accounts and data**:
 | Issue | Description | Recommendation |
 |-------|-------------|----------------|
 | Duplicate address tables | Both `user_addresses` and `user_delivery_addresses` exist | Consider consolidating - newer table has lat/lng |
-| Missing 3 tables in docs | `user_delivery_addresses`, `user_favorite_restaurants`, `user_payment_methods` not documented | ✅ Added in this update |
-| **No RLS on payment_methods** | `user_payment_methods` has zero RLS policies | 🔴 **Security risk** - add RLS policies |
+| ~~Missing 3 tables in docs~~ | ~~`user_delivery_addresses`, `user_favorite_restaurants`, `user_payment_methods` not documented~~ | ✅ Fixed 2026-01-19 |
+| ~~No RLS on payment_methods~~ | ~~`user_payment_methods` has zero RLS policies~~ | ✅ Fixed 2026-01-23 |
 
 ---
 
@@ -350,10 +352,12 @@ The User Entity manages **customer accounts and data**:
 | 2026-01-19 | Documentation audit - added 3 missing tables | `user_delivery_addresses`, `user_favorite_restaurants`, `user_payment_methods` |
 | 2026-01-19 | Documentation audit - added 13 missing indexes | Indexes on new tables |
 | 2026-01-19 | Documentation audit - added 9 missing RLS policies | Policies on new tables (except payment_methods) |
-| 2026-01-19 | **Security issue found** | `user_payment_methods` has no RLS policies |
+| 2026-01-19 | ~~**Security issue found**~~ | ~~`user_payment_methods` has no RLS policies~~ → Fixed 2026-01-23 |
 | 2026-01-19 | Dropped 7 unused columns from `users` | `credit_earned_at`, `facebook_id`, `origin_source`, `display_name`, `v2_user_id`, `is_newsletter_subscribed`, `is_vegan_newsletter_subscribed` |
 | 2026-01-19 | Recreated `active_users` view | Removed dropped columns from view |
 | 2026-01-19 | Auto-dropped 2 indexes | `idx_users_display_name`, `idx_users_v2_id` |
+| 2026-01-23 | Fixed `get_user_profile()` function | Removed reference to dropped `newsletter_subscribed` column |
+| 2026-01-23 | Added RLS policies to `user_payment_methods` | 5 policies: SELECT, INSERT, UPDATE, DELETE for authenticated + ALL for service_role |
 
 ---
 
@@ -369,7 +373,7 @@ The User Entity manages **customer accounts and data**:
 | Favorite Restaurants | 0 |
 | Payment Methods | 0 |
 | Indexes | 32 |
-| RLS Policies | 18 (⚠️ 0 on payment_methods) |
+| RLS Policies | 23 |
 | Triggers | 1 |
 | SQL Functions | 2 |
 
@@ -382,11 +386,9 @@ The User Entity manages **customer accounts and data**:
 | Email verified | 8,910 | 27.4% |
 | With Supabase auth | 29,368 | 90.5% |
 | Migrated from v1 | 23,406 | 72.1% |
-| Migrated from v2 | 8,910 | 27.4% |
-| Newsletter subscribers | 7,526 | 23.2% |
 | Ever logged in | 23,406 | 72.1% |
 | Has Stripe customer ID | 5 | 0.02% |
 
 ---
 
-**Last Updated:** 2026-01-19
+**Last Updated:** 2026-01-23

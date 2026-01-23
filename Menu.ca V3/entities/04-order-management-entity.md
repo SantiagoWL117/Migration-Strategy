@@ -160,18 +160,7 @@ The Order Management Entity handles **all transactional data**:
 
 **Partitions:** Monthly partitions aligned with orders
 
----
 
-#### `order_item_modifiers` ❌ DROPPED
-**Status:** Dropped on 2026-01-20
-
-**Reason:** Modifiers are now stored in:
-- `order_items.customizations` (JSONB) - for relational queries
-- `orders.items[].modifiers` (JSONB) - for fast display
-
-This table was never populated and has been removed from the schema.
-
----
 
 #### `order_status_history`
 **Purpose:** Order status change audit trail
