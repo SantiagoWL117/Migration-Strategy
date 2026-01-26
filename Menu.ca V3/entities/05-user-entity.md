@@ -17,6 +17,8 @@ The User Entity manages **customer accounts and data**:
 ## 📑 Index
 
 - [Tables](#tables)
+- [Constraints](#constraints)
+- [Foreign Key References](#foreign-key-references)
 - [SQL Functions](#sql-functions)
 - [Edge Functions](#edge-functions)
 - [Indexes](#indexes)
@@ -35,29 +37,29 @@ The User Entity manages **customer accounts and data**:
 #### `users` (21 columns)
 **Purpose:** User profile extension of auth.users
 
-| Column | Type | Nullable | Default | Description |
-|--------|------|----------|---------|-------------|
-| `id` | bigint | NO | nextval | Primary key |
-| `email` | varchar | NO | - | User email (unique) |
-| `has_email_verified` | boolean | YES | false | Email verification flag |
-| `first_name` | varchar | YES | - | First name |
-| `last_name` | varchar | YES | - | Last name |
-| `phone` | varchar | YES | - | Phone number |
-| `language` | varchar | YES | 'EN' | Preferred language |
-| `login_count` | integer | YES | 0 | Total login count |
-| `last_login_at` | timestamptz | YES | - | Last login timestamp |
-| `last_login_ip` | inet | YES | - | Last login IP address |
-| `credit_balance` | numeric | YES | 0.00 | Store credit balance |
-| `origin_restaurant_id` | integer | YES | - | Restaurant where user signed up |
-| `auth_user_id` | uuid | YES | - | FK to auth.users |
-| `auth_provider` | varchar | YES | 'email' | Auth method (email, google, etc.) |
-| `email_verified_at` | timestamptz | YES | - | Email verification timestamp |
-| `stripe_customer_id` | varchar | YES | - | Stripe customer ID (unique) |
-| `v1_user_id` | integer | YES | - | Legacy v1 system ID |
-| `created_at` | timestamptz | YES | now() | Registration time |
-| `updated_at` | timestamptz | YES | now() | Last update time |
-| `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
-| `deleted_by` | bigint | YES | - | User who deleted |
+| Column | Type | Max Len | Nullable | Default | Description |
+|--------|------|---------|----------|---------|-------------|
+| `id` | bigint | - | NO | nextval | Primary key |
+| `email` | varchar | 255 | NO | - | User email (unique) |
+| `has_email_verified` | boolean | - | YES | false | Email verification flag |
+| `first_name` | varchar | 100 | YES | - | First name |
+| `last_name` | varchar | 100 | YES | - | Last name |
+| `phone` | varchar | 20 | YES | - | Phone number |
+| `language` | varchar | 5 | YES | 'EN' | Preferred language (EN, FR) |
+| `login_count` | integer | - | YES | 0 | Total login count |
+| `last_login_at` | timestamptz | - | YES | - | Last login timestamp |
+| `last_login_ip` | inet | - | YES | - | Last login IP address |
+| `credit_balance` | numeric | - | YES | 0.00 | Store credit balance |
+| `origin_restaurant_id` | integer | - | YES | - | Restaurant where user signed up |
+| `auth_user_id` | uuid | - | YES | - | FK to auth.users (CASCADE DELETE) |
+| `auth_provider` | varchar | 50 | YES | 'email' | Auth method (email, google, etc.) |
+| `email_verified_at` | timestamptz | - | YES | - | Email verification timestamp |
+| `stripe_customer_id` | varchar | 255 | YES | - | Stripe customer ID (unique) |
+| `v1_user_id` | integer | - | YES | - | Legacy v1 system ID |
+| `created_at` | timestamptz | - | YES | now() | Registration time |
+| `updated_at` | timestamptz | - | YES | now() | Last update time |
+| `deleted_at` | timestamptz | - | YES | - | Soft delete timestamp |
+| `deleted_by` | bigint | - | YES | - | FK to admin_users (who deleted) |
 
 ---
 
@@ -139,6 +141,45 @@ The User Entity manages **customer accounts and data**:
 | Table | Purpose | Status |
 |-------|---------|--------|
 | `user_preferences` | Dietary restrictions, allergies | Not created |
+
+---
+
+## 🔗 Constraints
+
+### Users Table (5 constraints)
+
+| Constraint | Type | Definition |
+|------------|------|------------|
+| `users_pkey` | PRIMARY KEY | `(id)` |
+| `users_email_key` | UNIQUE | `(email)` |
+| `users_stripe_customer_id_key` | UNIQUE | `(stripe_customer_id)` |
+| `users_auth_user_id_fkey` | FOREIGN KEY | `auth_user_id → auth.users(id) ON DELETE CASCADE` |
+| `users_deleted_by_fkey` | FOREIGN KEY | `deleted_by → admin_users(id)` |
+
+---
+
+## 🔀 Foreign Key References
+
+### Tables Referencing `users` (27 references)
+
+These tables have foreign keys pointing to the `users` table. Important for understanding cascade effects.
+
+| Table | Column(s) | Notes |
+|-------|-----------|-------|
+| `orders` | `user_id`, `cancelled_by` | Order ownership and cancellation tracking |
+| `orders_2025_10` through `orders_2026_03` | `user_id`, `cancelled_by` | Partitioned order tables |
+| `cart_sessions` | `user_id` | Shopping cart sessions |
+| `autologin_tokens` | `user_id` | Remember-me tokens |
+| `password_reset_tokens` | `user_id` | Password reset flow |
+| `payment_transactions` | `user_id` | Payment history |
+| `coupon_usage_log` | `user_id` | Coupon redemption tracking |
+| `promotion_codes` | `generated_for_user_id`, `referrer_user_id` | Referral program |
+| `promotion_redemptions` | `user_id` | Promotion usage |
+| `restaurant_reviews` | `user_id` | User reviews |
+| `user_addresses` | `user_id` | Legacy addresses |
+| `user_delivery_addresses` | `user_id` | New addresses with geolocation |
+| `user_favorite_restaurants` | `user_id` | Favorite restaurants |
+| `user_payment_methods` | `user_id` | Saved payment methods |
 
 ---
 
@@ -321,6 +362,10 @@ The User Entity manages **customer accounts and data**:
 | Few addresses (new table) | 3 | 🟡 Medium | `user_delivery_addresses` has 3 records |
 | No favorites | 0 | ✅ Expected | Feature not launched |
 | No payment methods | 0 | ✅ Expected | Feature not launched |
+| **NULL language** | 89 | 🟡 Medium | Should default to 'EN' |
+| **origin_restaurant_id = 0** | 8,910 | 🟡 Medium | 0 is not valid, should be NULL |
+| **deleted_at without deleted_by** | 2 | ✅ Low | Minor inconsistency |
+| **Only 3 users have phone** | 3 | ✅ Info | Phone rarely collected |
 
 ### Schema Issues
 
@@ -358,6 +403,10 @@ The User Entity manages **customer accounts and data**:
 | 2026-01-19 | Auto-dropped 2 indexes | `idx_users_display_name`, `idx_users_v2_id` |
 | 2026-01-23 | Fixed `get_user_profile()` function | Removed reference to dropped `newsletter_subscribed` column |
 | 2026-01-23 | Added RLS policies to `user_payment_methods` | 5 policies: SELECT, INSERT, UPDATE, DELETE for authenticated + ALL for service_role |
+| 2026-01-26 | Documentation audit - added Constraints section | 5 constraints on users table |
+| 2026-01-26 | Documentation audit - added Foreign Key References | 27 tables reference users |
+| 2026-01-26 | Documentation audit - added column max lengths | varchar columns now show max_length |
+| 2026-01-26 | Documentation audit - added new data quality issues | NULL language, origin_restaurant_id=0, etc. |
 
 ---
 
@@ -376,6 +425,8 @@ The User Entity manages **customer accounts and data**:
 | RLS Policies | 23 |
 | Triggers | 1 |
 | SQL Functions | 2 |
+| Constraints | 5 |
+| FK References (from other tables) | 27 |
 
 ### User Breakdown
 
@@ -385,10 +436,29 @@ The User Entity manages **customer accounts and data**:
 | Active (not deleted) | 32,465 | 99.99% |
 | Email verified | 8,910 | 27.4% |
 | With Supabase auth | 29,368 | 90.5% |
+| Without Supabase auth | 3,099 | 9.5% |
 | Migrated from v1 | 23,406 | 72.1% |
 | Ever logged in | 23,406 | 72.1% |
+| Never logged in | 9,061 | 27.9% |
 | Has Stripe customer ID | 5 | 0.02% |
+| Has first name | 32,465 | 99.99% |
+| Has phone number | 3 | 0.01% |
+| Has credit balance > 0 | 0 | 0% |
+
+### Language Distribution
+
+| Language | Count | Percentage |
+|----------|-------|------------|
+| EN (English) | 30,339 | 93.4% |
+| FR (French) | 2,039 | 6.3% |
+| NULL | 89 | 0.3% |
+
+### Auth Provider Distribution
+
+| Provider | Count | Percentage |
+|----------|-------|------------|
+| email | 32,467 | 100% |
 
 ---
 
-**Last Updated:** 2026-01-23
+**Last Updated:** 2026-01-26

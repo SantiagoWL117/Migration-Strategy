@@ -1,31 +1,7 @@
 ---
-name: Restaurant Admin RLS Access
-overview: Implement a hybrid RLS approach for Restaurant Admin access to 18 tables across Restaurant and Delivery Zones entities, using a shared helper function for consistent access control.
-todos:
-  - id: helper-function
-    content: Create current_admin_restaurant_ids() helper function
-    status: completed
-  - id: enable-rls
-    content: Enable RLS on 6 tables without it
-    status: completed
-  - id: crud-policies
-    content: Create CRUD policies for 13 tables
-    status: completed
-  - id: readonly-policies
-    content: Create SELECT-only policies for 3 tables
-    status: completed
-  - id: fix-overpermissive
-    content: Fix overly-permissive delivery_company_emails policy
-    status: completed
-  - id: service-role
-    content: Ensure service_role policies exist on all tables
-    status: completed
-  - id: update-docs
-    content: Update 06-admin-entity.md with new access control documentation
-    status: completed
-    dependencies:
-      - crud-policies
-      - readonly-policies
+name: ""
+overview: ""
+todos: []
 ---
 
 # Restaurant Admin Access Control Plan
@@ -205,7 +181,9 @@ Special case - `user_delivery_addresses`: Admin access not typically needed (use
 ```sql
 -- restaurant_analytics_configs (SELECT only)
 CREATE POLICY "admin_select_analytics_configs" ON menuca_v3.restaurant_analytics_configs
-FOR SELECT TO authenticated
+FOR SELECT TO authentica
+ted
+
 USING (restaurant_id IN (SELECT menuca_v3.current_admin_restaurant_ids()));
 
 -- restaurant_reviews (SELECT only)
