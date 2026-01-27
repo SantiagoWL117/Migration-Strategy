@@ -1,4 +1,4 @@
-FOR TOMORROW: VALIDATE THAT PROMOTIONS ARE WORKING AND CAN BE IMPLEMENTED
+
 # 07 - Marketing Entity
 
 > **Promotions & Coupons** - Deals, discount codes, campaigns, and marketing tags
@@ -41,7 +41,6 @@ The Marketing Entity manages **promotional activities and customer incentives**:
   - [Legacy Promotion Tables](#legacy-promotion-tables)
   - [Campaign System Tables](#campaign-system-tables)
   - [Marketing Tags](#marketing-tags-tables)
-  - [Translation Tables](#translation-tables)
 - [Views](#views)
 - [SQL Functions](#sql-functions)
 - [Indexes](#indexes)
@@ -106,16 +105,16 @@ The Marketing Entity manages **promotional activities and customer incentives**:
 
 #### `promotional_coupons`
 **Purpose:** Discount codes for restaurants  
-**Row Count:** 456
+**Row Count:** 352
 
 | Column | Type | Nullable | Default | Description |
 |--------|------|----------|---------|-------------|
 | `id` | integer | NO | identity | Primary key |
 | `restaurant_id` | integer | NO | - | FK to restaurants |
-| `name` | varchar(125) | NO | - | Coupon name (LEGACY - use name_en) |
-| `name_en` | varchar(125) | YES | - | 🆕 **Feature 1** - English name (required) |
+| `name_en` | varchar(125) | NO | - | 🆕 **Feature 1** - English name (required) |
 | `name_fr` | varchar(125) | YES | - | 🆕 **Feature 1** - French name (nullable, falls back to English) |
-| `description` | text | YES | - | Description |
+| `description_en` | text | YES | - | 🆕 **Feature 1** - English description |
+| `description_fr` | text | YES | - | 🆕 **Feature 1** - French description (nullable, falls back to English) |
 | `max_uses_per_customer` | integer | YES | - | 🆕 **Feature 2/4** - Per-customer usage limit (null = unlimited) |
 | `order_types` | jsonb | YES | - | 🆕 **Feature 2** - Valid order types: ["delivery", "pickup", "dine_in"] (null = all) |
 | `discount_tiers` | jsonb | YES | - | 🆕 **Feature 5** - Tiered discounts: [{minimum_amount, discount_value, discount_type}] |
@@ -129,21 +128,12 @@ The Marketing Entity manages **promotional activities and customer incentives**:
 | `discount_type` | varchar(20) | NO | - | percent, amount, free_item |
 | `discount_amount` | numeric(8,2) | YES | - | Discount value |
 | `minimum_purchase` | numeric(8,2) | YES | - | Minimum order required |
-| `applies_to_items` | jsonb | YES | - | Specific items only |
-| `item_count` | integer | YES | - | Items for discount |
 | `max_redemptions` | integer | YES | - | Total usage limit |
 | `redeem_value_limit` | numeric(8,2) | YES | - | Max discount per use |
-| `coupon_scope` | varchar(20) | YES | 'restaurant' | Scope of coupon |
 | `is_one_time_use` | boolean | YES | false | Single use per customer |
 | `is_reorder_coupon` | boolean | YES | false | Reorder incentive |
 | `includes_in_email` | boolean | YES | false | Include in emails |
-| `email_text` | text | YES | - | Email text |
 | `is_active` | boolean | NO | true | Coupon active |
-| `is_used` | boolean | YES | false | Has been used |
-| `language_code` | varchar(2) | YES | 'en' | Primary language |
-| `v1_coupon_id` | integer | YES | - | Legacy V1 ID |
-| `v2_coupon_id` | integer | YES | - | Legacy V2 ID |
-| `source_table` | varchar(50) | YES | - | Migration source |
 | `created_at` | timestamptz | NO | now() | Creation timestamp |
 | `updated_at` | timestamptz | YES | now() | Last update |
 | `deleted_at` | timestamptz | YES | - | Soft delete timestamp |
@@ -153,7 +143,7 @@ The Marketing Entity manages **promotional activities and customer incentives**:
 
 #### `coupon_usage_log`
 **Purpose:** Tracks coupon redemptions  
-**Row Count:** 1
+**Row Count:** 0
 
 | Column | Type | Nullable | Default | Description |
 |--------|------|----------|---------|-------------|
@@ -340,45 +330,31 @@ The Marketing Entity manages **promotional activities and customer incentives**:
 | Column | Type | Nullable | Default | Description |
 |--------|------|----------|---------|-------------|
 | `id` | integer | NO | identity | Primary key |
-| `name` | varchar(255) | NO | - | Tag name |
+| `name_en` | varchar(255) | NO | - | English tag name |
+| `name_fr` | varchar(255) | YES | - | French tag name |
 | `slug` | varchar(255) | NO | - | URL-friendly slug (UNIQUE) |
-| `description` | text | YES | - | Tag description |
-| `v1_tag_id` | integer | YES | - | Legacy V1 ID |
-| `v2_tag_id` | integer | YES | - | Legacy V2 ID |
 | `source_table` | varchar(50) | YES | - | Migration source |
 | `created_at` | timestamptz | NO | now() | Creation timestamp |
 | `updated_at` | timestamptz | YES | now() | Last update |
 
-**Referenced by:** `restaurant_tag_associations`
+**Referenced by:** `restaurant_tag_associations` (1,625 associations linking 186 restaurants to marketing tags)
 
----
-
-### Translation Tables
-
-> **Note (2026-01-26):** `promotional_deals_translations` and `promotional_coupons_translations` tables  
-> have been **DELETED**. Bilingual support is now via direct columns on the main tables:
-> - `promotional_deals`: `title_en`, `title_fr`, `description_en`, `description_fr`
-> - `promotional_coupons`: `name_en`, `name_fr`
-
-#### `marketing_tags_translations`
-**Purpose:** French translations for marketing tags
-
-| Column | Type | Nullable | Description |
-|--------|------|----------|-------------|
-| `id` | bigint | NO | Primary key |
-| `tag_id` | integer | NO | FK to marketing_tags |
-| `language_code` | varchar(2) | NO | 'fr' |
-| `name` | varchar(255) | YES | Translated name |
-| `description` | text | YES | Translated description |
+> **Note (2026-01-27):** All translation tables have been **DELETED**. Bilingual support is now via direct columns:
+> - `promotional_deals`: `name_en`, `name_fr`, `description_en`, `description_fr`
+> - `promotional_coupons`: `name_en`, `name_fr`, `description_en`, `description_fr`
+> - `marketing_tags`: `name_en`, `name_fr`
 
 ---
 
 ## 👁️ Views
 
 #### `active_promotional_coupons`
-**Purpose:** Filters active, unused coupons
+**Purpose:** Filters active, non-expired coupons
 
-Returns all columns from `promotional_coupons` where `is_active = true` and `is_used = false`.
+Returns all columns from `promotional_coupons` where:
+- `deleted_at IS NULL`
+- `is_active = true`
+- `valid_until_at IS NULL OR valid_until_at >= CURRENT_DATE`
 
 ---
 
@@ -393,8 +369,7 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 | `redeem_coupon` | coupon_id, order_id, user_id, amount | jsonb | Process redemption |
 | `check_coupon_usage_limit` | coupon_code, user_id | TABLE | Returns: total_limit, total_used, **per_customer_limit**, customer_used, can_use |
 | `get_coupon_redemption_rate` | coupon_id | numeric | Calculate redemption rate |
-| `get_coupon_with_translation` | coupon_id, lang | jsonb | Get coupon with i18n (⚠️ uses deprecated translation table) |
-| `get_coupons_i18n` | restaurant_id, **lang** | TABLE | Get all coupons with bilingual support (uses name_en/name_fr columns) |
+| `get_coupons_i18n` | restaurant_id, **lang** | TABLE | Get all coupons with bilingual support (uses name_en/name_fr, description_en/description_fr) |
 | `soft_delete_coupon` | coupon_id | jsonb | Soft delete coupon |
 | `restore_coupon` | coupon_id | jsonb | Restore deleted coupon |
 
@@ -409,8 +384,8 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 | `validate_deal_eligibility` | deal_id, order_data | jsonb | Check if order qualifies |
 | `get_deal_usage_stats` | deal_id | jsonb | Get deal usage statistics |
 | `get_popular_deals` | limit | TABLE | Get most popular deals |
-| `get_deal_with_translation` | deal_id, lang | jsonb | Get deal with i18n (⚠️ uses deprecated translation table) |
-| `get_deals_i18n` | restaurant_id, **lang**, service_type? | TABLE | Get all deals with bilingual support (uses title_en/title_fr columns) |
+| `get_deal_with_translation` | deal_id, lang | jsonb | Get deal with bilingual support (uses name_en/name_fr columns) |
+| `get_deals_i18n` | restaurant_id, **lang**, service_type? | TABLE | Get all deals with bilingual support (uses name_en/name_fr columns) |
 | `clone_deal` | deal_id, new_restaurant_id | bigint | Clone deal to another restaurant |
 | `soft_delete_deal` | deal_id | jsonb | Soft delete deal |
 | `restore_deal` | deal_id | jsonb | Restore deleted deal |
@@ -433,12 +408,6 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 |----------|------------|---------|-------------|
 | `update_promotion_updated_at` | - | trigger | Auto-update timestamp |
 
-### Marketing Tag Functions
-
-| Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `translate_marketing_tag` | tag_id, lang | jsonb | Get tag with translation |
-
 ---
 
 ## 📇 Indexes
@@ -457,7 +426,7 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 | `idx_promotional_deals_v1_id` | `v1_deal_id` | BTREE | `v1_deal_id IS NOT NULL` |
 | `idx_promotional_deals_v2_id` | `v2_deal_id` | BTREE | `v2_deal_id IS NOT NULL` |
 
-### `promotional_coupons` Table Indexes (7)
+### `promotional_coupons` Table Indexes (6)
 
 | Index Name | Columns | Type | Condition |
 |------------|---------|------|-----------|
@@ -467,7 +436,6 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 | `idx_promotional_coupons_active` | `is_active` | BTREE | `is_active = true` |
 | `idx_promotional_coupons_deleted_at` | `deleted_at` | BTREE | `deleted_at IS NULL` |
 | `idx_promotional_coupons_updated_at` | `updated_at DESC` | BTREE | - |
-| `idx_promotional_coupons_v1_id` | `v1_coupon_id` | BTREE | `v1_coupon_id IS NOT NULL` |
 
 ### `promotion_campaigns` Table Indexes (7)
 
@@ -491,15 +459,13 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 | `idx_coupon_usage_user` | `user_id, used_at DESC` | BTREE | - |
 | `idx_coupon_usage_order` | `order_id` | BTREE | `order_id IS NOT NULL` |
 
-### `marketing_tags` Table Indexes (5)
+### `marketing_tags` Table Indexes (3)
 
 | Index Name | Columns | Type | Condition |
 |------------|---------|------|-----------|
 | `marketing_tags_pkey` | `id` | PRIMARY KEY | - |
 | `marketing_tags_slug_key` | `slug` | UNIQUE | - |
 | `idx_marketing_tags_slug` | `slug` | BTREE | - |
-| `idx_marketing_tags_v1_id` | `v1_tag_id` | BTREE | `v1_tag_id IS NOT NULL` |
-| `idx_marketing_tags_v2_id` | `v2_tag_id` | BTREE | `v2_tag_id IS NOT NULL` |
 
 ### `promotion_codes` Table Indexes (6)
 
@@ -545,17 +511,6 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 |------------|---------|------|-----------|
 | `promotion_templates_pkey` | `id` | PRIMARY KEY | - |
 
-### Translation Table Indexes
-
-#### `marketing_tags_translations` (4)
-
-| Index Name | Columns | Type | Condition |
-|------------|---------|------|-----------|
-| `marketing_tags_translations_pkey` | `id` | PRIMARY KEY | - |
-| `unique_tag_translation` | `tag_id, language_code` | UNIQUE | - |
-| `idx_tags_translations_lookup` | `tag_id, language_code` | BTREE | - |
-| `idx_tags_translations_language` | `language_code` | BTREE | - |
-
 ---
 
 ## 🔒 RLS Policies
@@ -571,7 +526,7 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 
 | Policy Name | Operation | Roles | Description |
 |-------------|-----------|-------|-------------|
-| `public_view_active_coupons` | SELECT | public | View active, unused coupons |
+| `public_view_active_coupons` | SELECT | public | View active coupons (is_active = true) |
 | `coupons_service_role_all` | ALL | service_role | Full access |
 
 ### `coupon_usage_log` Table Policies
@@ -618,12 +573,6 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 | `public_read_tags` | SELECT | public | Public can read tags |
 | `tags_service_role_all` | ALL | service_role | Full access |
 
-### Translation Table Policies
-
-| Table | Policy Name | Operation | Roles | Description |
-|-------|-------------|-----------|-------|-------------|
-| `marketing_tags_translations` | `public_read_tag_translations` | SELECT | public | Public can read translations |
-
 ---
 
 ## ⚙️ Triggers
@@ -633,7 +582,6 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 | `audit_promotional_deals_changes` | promotional_deals | INSERT, UPDATE, DELETE | AFTER | `audit_trigger_func()` | Audit trail |
 | `audit_promotional_coupons_changes` | promotional_coupons | INSERT, UPDATE, DELETE | AFTER | `audit_trigger_func()` | Audit trail |
 | `update_promotion_campaigns_updated_at` | promotion_campaigns | UPDATE | BEFORE | `update_promotion_updated_at()` | Auto-timestamp |
-| `set_updated_at_tags_translations` | marketing_tags_translations | UPDATE | BEFORE | `set_updated_at()` | Auto-timestamp |
 
 ---
 
@@ -702,6 +650,33 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 | 2026-01-26 | **Added included_items_legacy column** | Preserves original legacy IDs for reference |
 | 2026-01-26 | **DELETED 12 unused columns from promotional_deals** | Removed: type, description, order_count_required, required_items, free_item_count, image_url, is_customizable, is_split_deal, shows_on_thankyou, sends_in_email, email_body_html, language_code |
 | 2026-01-26 | **DELETED translation tables** | promotional_deals_translations, promotional_coupons_translations permanently removed |
+| 2026-01-27 | **FIXED get_active_deals function** | Removed deleted columns (description, image_url), now uses name_en/description_en |
+| 2026-01-27 | **FIXED get_deals_i18n function** | Removed deleted columns (type, image_url), fixed description fallback |
+| 2026-01-27 | **FIXED get_deal_with_translation function** | Rewrote to use bilingual columns instead of deleted translation table |
+| 2026-01-27 | **DELETED name column from promotional_coupons** | Duplicate of name_en; view active_promotional_coupons updated |
+| 2026-01-27 | **DELETED 100 expired coupons** | Removed coupons with valid_until_at < 2025-01-01 (358 remaining) |
+| 2026-01-27 | **DELETED applies_to_items, item_count columns** | Unused columns removed from promotional_coupons |
+| 2026-01-27 | **DELETED coupon_scope column** | All values were 'restaurant' - no variation |
+| 2026-01-27 | **DELETED email_text column** | Unused email marketing column |
+| 2026-01-27 | **DELETED 5 legacy columns** | is_used, language_code, v1_coupon_id, v2_coupon_id, source_table |
+| 2026-01-27 | **Updated RLS policy public_view_active_coupons** | Removed is_used check (now just is_active = true) |
+| 2026-01-27 | **Renamed description to description_en** | Bilingual support for coupon descriptions |
+| 2026-01-27 | **Added description_fr column** | French description for coupons |
+| 2026-01-27 | **Translated coupon names/descriptions to French** | All coupons now have name_fr and description_fr values |
+| 2026-01-27 | **DELETED columns from marketing_tags** | Removed: description, v1_tag_id, v2_tag_id |
+| 2026-01-27 | **Renamed name to name_en in marketing_tags** | Bilingual support for tags |
+| 2026-01-27 | **Added name_fr column to marketing_tags** | French tag names |
+| 2026-01-27 | **Translated all 36 marketing tags to French** | Complete bilingual tag support |
+| 2026-01-27 | **DROPPED marketing_tags_translations table** | Replaced by direct bilingual columns |
+| 2026-01-27 | **DELETED v2_association_id from restaurant_tag_associations** | Legacy migration column removed |
+| 2026-01-27 | **Auto-assigned marketing tags to restaurants** | 1,625 associations created for 186 restaurants based on dish analysis |
+| 2026-01-27 | **FIXED get_coupons_i18n function** | Removed refs to deleted columns (name, description, is_used) |
+| 2026-01-27 | **FIXED get_top_coupons function** | Removed refs to deleted column (name) |
+| 2026-01-27 | **DROPPED get_coupon_with_translation function** | Deprecated - use get_coupons_i18n instead |
+| 2026-01-27 | **DROPPED translate_marketing_tag function** | Deprecated - query marketing_tags directly with name_en/name_fr |
+| 2026-01-27 | **DROPPED duplicate validate_coupon function** | Removed 5-param version, kept 6-param with p_language |
+| 2026-01-27 | **DROPPED duplicate clone_deal function** | Removed integer version, kept bigint version |
+| 2026-01-27 | **Updated active_promotional_coupons view** | Now filters by valid_until_at >= CURRENT_DATE |
 | 2026-01-23 | Documentation completely rewritten | All 14 tables now documented |
 | 2026-01-23 | Added missing indexes for campaign tables | 23 additional indexes documented |
 | 2026-01-23 | Added translation table indexes | 12 indexes documented |
@@ -714,21 +689,22 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 
 | Metric | Value |
 |--------|-------|
-| **Tables** | 12 |
+| **Tables** | 11 |
 | **Views** | 1 |
 | **SQL Functions** | 28 |
-| **Indexes** | 56 |
-| **RLS Policies** | 14 |
-| **Triggers** | 4 |
+| **Indexes** | 49 |
+| **RLS Policies** | 13 |
+| **Triggers** | 3 |
 
 ### Data Counts
 
 | Table | Rows |
 |-------|------|
 | `promotional_deals` | 53 |
-| `promotional_coupons` | 456 |
-| `coupon_usage_log` | 1 |
+| `promotional_coupons` | 352 |
+| `coupon_usage_log` | 0 |
 | `marketing_tags` | 36 |
+| `restaurant_tag_associations` | 1,625 |
 | `promotion_templates` | 8 |
 | `promotion_campaigns` | 0 |
 | `promotion_codes` | 0 |
@@ -747,4 +723,4 @@ Returns all columns from `promotional_coupons` where `is_active = true` and `is_
 
 ---
 
-**Last Updated:** 2026-01-26
+**Last Updated:** 2026-01-27
