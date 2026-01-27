@@ -10,12 +10,77 @@ The User Entity manages **customer accounts and data**:
 - **User Profiles** - Account information and preferences
 - **Addresses** - Saved delivery locations
 - **Authentication** - Via Supabase Auth (auth_user_id link)
-- **Migration History** - Links to legacy v1/v2 systems
+- **Payments** - Stripe customer integration
+
+---
+
+## 🔐 Authentication Flow
+
+### Login Flow
+
+```
+1. User enters email + password
+        ↓
+2. Supabase Auth validates against auth.users
+        ↓
+3. Returns JWT with user.id (auth_user_id)
+        ↓
+4. Frontend calls get_user_profile()
+        ↓
+5. RLS policy: WHERE auth_user_id = auth.uid()
+        ↓
+6. User gets their profile data ✅
+```
+
+### Password Reset Flow
+
+```
+1. User clicks "Forgot Password"
+        ↓
+2. Frontend: supabase.auth.resetPasswordForEmail(email)
+        ↓
+3. Supabase sends reset email (configured in Dashboard)
+        ↓
+4. User clicks link, enters new password
+        ↓
+5. Frontend: supabase.auth.updateUser({ password })
+        ↓
+6. Password updated in auth.users.encrypted_password ✅
+```
+
+### Frontend Code Examples
+
+```javascript
+// Sign in
+const { data, error } = await supabase.auth.signInWithPassword({
+  email: 'user@example.com',
+  password: 'password123'
+});
+
+// Reset password (sends email)
+await supabase.auth.resetPasswordForEmail('user@example.com');
+
+// Update password (after reset link)
+await supabase.auth.updateUser({ password: 'newPassword123' });
+
+// Get user profile
+const { data: profile } = await supabase.rpc('get_user_profile');
+```
+
+### Authentication Status (verified 2026-01-27)
+
+| Metric | Count | Status |
+|--------|-------|--------|
+| Active users | 29,368 | ✅ |
+| With auth_user_id | 29,368 (100%) | ✅ |
+| With password set | 29,368 (100%) | ✅ |
+| Can reset password | 29,368 (100%) | ✅ |
 
 ---
 
 ## 📑 Index
 
+- [Authentication Flow](#authentication-flow)
 - [Tables](#tables)
 - [Constraints](#constraints)
 - [Foreign Key References](#foreign-key-references)
@@ -34,7 +99,7 @@ The User Entity manages **customer accounts and data**:
 
 ### Core User Tables
 
-#### `users` (21 columns)
+#### `users` (15 columns)
 **Purpose:** User profile extension of auth.users
 
 | Column | Type | Max Len | Nullable | Default | Description |
@@ -45,17 +110,11 @@ The User Entity manages **customer accounts and data**:
 | `first_name` | varchar | 100 | YES | - | First name |
 | `last_name` | varchar | 100 | YES | - | Last name |
 | `phone` | varchar | 20 | YES | - | Phone number |
-| `language` | varchar | 5 | YES | 'EN' | Preferred language (EN, FR) |
-| `login_count` | integer | - | YES | 0 | Total login count |
 | `last_login_at` | timestamptz | - | YES | - | Last login timestamp |
-| `last_login_ip` | inet | - | YES | - | Last login IP address |
 | `credit_balance` | numeric | - | YES | 0.00 | Store credit balance |
-| `origin_restaurant_id` | integer | - | YES | - | Restaurant where user signed up |
+| `origin_restaurant_id` | integer | - | YES | - | Restaurant where user signed up (all NULL) |
 | `auth_user_id` | uuid | - | YES | - | FK to auth.users (CASCADE DELETE) |
-| `auth_provider` | varchar | 50 | YES | 'email' | Auth method (email, google, etc.) |
-| `email_verified_at` | timestamptz | - | YES | - | Email verification timestamp |
 | `stripe_customer_id` | varchar | 255 | YES | - | Stripe customer ID (unique) |
-| `v1_user_id` | integer | - | YES | - | Legacy v1 system ID |
 | `created_at` | timestamptz | - | YES | now() | Registration time |
 | `updated_at` | timestamptz | - | YES | now() | Last update time |
 | `deleted_at` | timestamptz | - | YES | - | Soft delete timestamp |
@@ -202,24 +261,20 @@ These tables have foreign keys pointing to the `users` table. Important for unde
 
 ## 📇 Indexes
 
-### Users Table (14 indexes)
+### Users Table (10 indexes)
 
 | Index Name | Columns | Type | Condition | Purpose |
 |------------|---------|------|-----------|---------|
 | `users_pkey` | (id) | UNIQUE | - | Primary key |
 | `users_email_key` | (email) | UNIQUE | - | Email uniqueness |
-| `idx_users_email` | (email) | BTREE | - | Email lookup |
 | `idx_users_email_lower` | (lower(email)) | BTREE | - | Case-insensitive email lookup |
 | `idx_users_auth_user_id` | (auth_user_id) | BTREE | - | Supabase auth lookup |
 | `idx_users_auth_user_unique` | (auth_user_id) | UNIQUE | WHERE auth_user_id IS NOT NULL | Unique auth link |
 | `users_stripe_customer_id_key` | (stripe_customer_id) | UNIQUE | - | Stripe uniqueness |
-| `idx_users_stripe_customer` | (stripe_customer_id) | BTREE | - | Stripe lookup |
 | `idx_users_last_login` | (last_login_at DESC) | BTREE | - | Recent activity |
 | `idx_users_created_at` | (created_at DESC) | BTREE | - | Registration timeline |
 | `idx_users_updated_at` | (updated_at DESC) | BTREE | - | Recent updates |
 | `idx_users_deleted_at` | (deleted_at) | BTREE | WHERE deleted_at IS NULL | Active users filter |
-| `idx_users_v1_id` | (v1_user_id) | BTREE | - | Legacy v1 lookup |
-| `idx_users_origin` | (origin_restaurant_id) | BTREE | - | Signup origin |
 
 ### User Addresses Table (legacy)
 
@@ -334,6 +389,16 @@ These tables have foreign keys pointing to the `users` table. Important for unde
 | 2026-01-19 | Column `is_vegan_newsletter_subscribed` | Feature not used |
 | 2026-01-19 | Index `idx_users_display_name` | Column dropped |
 | 2026-01-19 | Index `idx_users_v2_id` | Column dropped |
+| 2026-01-27 | Column `language` | Moved to Supabase Auth user metadata |
+| 2026-01-27 | Column `login_count` | Redundant with `last_login_at` |
+| 2026-01-27 | Column `last_login_ip` | Privacy concern, rarely used |
+| 2026-01-27 | Column `auth_provider` | All users use email (future: use Supabase Auth metadata) |
+| 2026-01-27 | Column `email_verified_at` | Use `has_email_verified` boolean instead |
+| 2026-01-27 | Column `v1_user_id` | Legacy migration complete |
+| 2026-01-27 | Index `idx_users_email` | Redundant with `users_email_key` UNIQUE |
+| 2026-01-27 | Index `idx_users_stripe_customer` | Redundant with `users_stripe_customer_id_key` UNIQUE |
+| 2026-01-27 | Index `idx_users_origin` | All `origin_restaurant_id` values set to NULL |
+| 2026-01-27 | Index `idx_users_v1_id` | Column dropped |
 
 ---
 
@@ -354,18 +419,16 @@ These tables have foreign keys pointing to the `users` table. Important for unde
 | Issue | Count | Severity | Notes |
 |-------|-------|----------|-------|
 | Deleted users | 2 | ✅ Low | Soft-deleted accounts |
-| Users without auth | 3,099 | 🟡 Medium | 9.5% have no Supabase auth link |
-| Users never logged in | 9,061 | 🟡 Medium | 27.9% never logged in |
-| No email verification | 23,557 | 🟡 Medium | 72.6% unverified emails |
+| ~~Users without auth~~ | ~~3,097~~ | ✅ Fixed | Soft-deleted 2026-01-27 (no orders, couldn't login) |
 | No Stripe customer | 32,462 | ✅ Expected | Most users haven't paid |
 | Zero addresses (old table) | 0 | 🟡 Medium | `user_addresses` is empty |
 | Few addresses (new table) | 3 | 🟡 Medium | `user_delivery_addresses` has 3 records |
 | No favorites | 0 | ✅ Expected | Feature not launched |
 | No payment methods | 0 | ✅ Expected | Feature not launched |
-| **NULL language** | 89 | 🟡 Medium | Should default to 'EN' |
-| **origin_restaurant_id = 0** | 8,910 | 🟡 Medium | 0 is not valid, should be NULL |
 | **deleted_at without deleted_by** | 2 | ✅ Low | Minor inconsistency |
 | **Only 3 users have phone** | 3 | ✅ Info | Phone rarely collected |
+| ~~NULL language~~ | ~~89~~ | ✅ Fixed | Column dropped 2026-01-27 |
+| ~~origin_restaurant_id = 0~~ | ~~8,910~~ | ✅ Fixed | All set to NULL 2026-01-27 |
 
 ### Schema Issues
 
@@ -407,6 +470,15 @@ These tables have foreign keys pointing to the `users` table. Important for unde
 | 2026-01-26 | Documentation audit - added Foreign Key References | 27 tables reference users |
 | 2026-01-26 | Documentation audit - added column max lengths | varchar columns now show max_length |
 | 2026-01-26 | Documentation audit - added new data quality issues | NULL language, origin_restaurant_id=0, etc. |
+| 2026-01-27 | Dropped 6 columns from `users` | `language`, `login_count`, `last_login_ip`, `auth_provider`, `email_verified_at`, `v1_user_id` |
+| 2026-01-27 | Set all `origin_restaurant_id` to NULL | 23,400 records updated |
+| 2026-01-27 | Dropped 4 redundant indexes | `idx_users_email`, `idx_users_stripe_customer`, `idx_users_origin`, `idx_users_v1_id` |
+| 2026-01-27 | Fixed `get_user_profile()` function | Removed `language` column reference |
+| 2026-01-27 | Recreated `active_users` view | Removed dropped columns |
+| 2026-01-27 | Linked 2 orphaned users to auth.users | Fixed users with matching emails |
+| 2026-01-27 | Set all `has_email_verified` to false | 8,910 records updated |
+| 2026-01-27 | Soft-deleted 3,097 users without auth | No orders, can't login - cleaned up |
+| 2026-01-27 | Added Authentication Flow section | Documented login/password reset flows with code examples |
 
 ---
 
@@ -416,12 +488,12 @@ These tables have foreign keys pointing to the `users` table. Important for unde
 |--------|-------|
 | Total Tables | 5 |
 | Total Users | 32,467 |
-| Active Users | 32,465 |
+| Active Users | 29,368 |
 | User Addresses (legacy) | 0 |
 | User Delivery Addresses (new) | 3 |
 | Favorite Restaurants | 0 |
 | Payment Methods | 0 |
-| Indexes | 32 |
+| Indexes | 28 |
 | RLS Policies | 23 |
 | Triggers | 1 |
 | SQL Functions | 2 |
@@ -433,32 +505,15 @@ These tables have foreign keys pointing to the `users` table. Important for unde
 | Metric | Count | Percentage |
 |--------|-------|------------|
 | Total users | 32,467 | 100% |
-| Active (not deleted) | 32,465 | 99.99% |
-| Email verified | 8,910 | 27.4% |
-| With Supabase auth | 29,368 | 90.5% |
-| Without Supabase auth | 3,099 | 9.5% |
-| Migrated from v1 | 23,406 | 72.1% |
-| Ever logged in | 23,406 | 72.1% |
-| Never logged in | 9,061 | 27.9% |
+| Active (not deleted) | 29,368 | 90.5% |
+| Soft-deleted | 3,099 | 9.5% |
+| Email verified | 0 | 0% (reset) |
+| **With Supabase auth** | **29,368** | **100%** ✅ |
 | Has Stripe customer ID | 5 | 0.02% |
-| Has first name | 32,465 | 99.99% |
+| Has first name | 29,366 | 99.99% |
 | Has phone number | 3 | 0.01% |
 | Has credit balance > 0 | 0 | 0% |
 
-### Language Distribution
-
-| Language | Count | Percentage |
-|----------|-------|------------|
-| EN (English) | 30,339 | 93.4% |
-| FR (French) | 2,039 | 6.3% |
-| NULL | 89 | 0.3% |
-
-### Auth Provider Distribution
-
-| Provider | Count | Percentage |
-|----------|-------|------------|
-| email | 32,467 | 100% |
-
 ---
 
-**Last Updated:** 2026-01-26
+**Last Updated:** 2026-01-27
