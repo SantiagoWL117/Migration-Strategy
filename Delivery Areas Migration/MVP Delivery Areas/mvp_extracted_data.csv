@@ -1,6 +1,0 @@
-v1_id,v3_id,restaurant_name,delivery_enabled,min_order,delivery_time,multipleDeliveryArea,use_delivery_areas,deliveryArea_blob_length,delivery_schedule_blob_length,fee_blob_length
-90,8,Lucky Star Chinese Food,1,10,60,N,NULL,1507,1207,141
-203,87,Champa Thai Cuisine,1,30,55,N,,472,1267,141
-224,105,Ginkgo Garden,1,17,60,N,,518,1198,141
-239,119,Hung Mein,1,20,55,N,,652,1227,141
-387,245,Orchid Sushi,1,20,45,N,,796,1207,1

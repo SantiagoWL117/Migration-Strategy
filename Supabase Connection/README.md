@@ -9,7 +9,6 @@ This directory contains quick setup scripts to initialize Supabase environment v
 - **`mac_setup_supabase_session.sh`** - Bash/Git Bash/WSL/macOS setup script
 - **`windows_setup_supabase_session.ps1`** - PowerShell/Windows setup script
 - **`SUPABASE-QUICKSTART-CONNECTION.md`** - Agent-friendly quick start guide
-- **`FINAL-DECISION-GITHUB-ACTIONS.md`** - GitHub Actions cron job recommendation
 - **`README.md`** - This file (comprehensive guide)
 
 ---
@@ -128,11 +127,14 @@ Before we start, read Supabase Connection/SUPABASE-QUICKSTART-CONNECTION.md and 
 
 ### Option 3: Direct Connection (No Setup Needed)
 
-Claude can always connect directly without setup by using the full connection string:
+Claude can always connect directly without setup by using the connection string from `.env files/.env`:
 
 ```bash
-"C:\Program Files\PostgreSQL\17\bin\psql.exe" "postgresql://postgres:Gz35CPTom1RnsmGM@db.nthpbtdjhhnwfxqsxbvy.supabase.co:5432/postgres" -c "YOUR SQL"
+# Load connection string from .env first, then use it
+& "C:\Program Files\PostgreSQL\17\bin\psql.exe" $env:DB_CONNECTION_STRING -c "YOUR SQL"
 ```
+
+**⚠️ NEVER hardcode credentials in files. Always load from `.env files/.env`.**
 
 ---
 
