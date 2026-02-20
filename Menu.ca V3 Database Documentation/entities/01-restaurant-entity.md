@@ -547,6 +547,7 @@ The Restaurant Entity represents the **core business unit** in the Menu.ca platf
 
 | Policy Name | Operation | Roles | Description |
 |-------------|-----------|-------|-------------|
+| `anyone_can_view_restaurant_payment_options` | SELECT | anon, authenticated | Anyone can view enabled payment options (for checkout) |
 | `admin_crud_own_restaurant_payment_options` | ALL | authenticated | Admin can manage payment options for their restaurants |
 | `restaurant_payment_options_service_role_all` | ALL | service_role | Service role has full access |
 

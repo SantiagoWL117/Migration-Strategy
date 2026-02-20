@@ -539,6 +539,7 @@ The Order Management Entity handles **all transactional data**:
 | `restaurant_commission_configs` | `restaurant_commission_configs_service_role_all` | service_role | ALL |
 | `platform_commission_reports` | `platform_commission_reports_admin_select` | authenticated | SELECT |
 | `platform_commission_reports` | `platform_commission_reports_service_role_all` | service_role | ALL |
+| `restaurant_payment_options` | `anyone_can_view_restaurant_payment_options` | anon, authenticated | SELECT |
 | `restaurant_payment_options` | `admin_crud_own_restaurant_payment_options` | authenticated | ALL |
 | `restaurant_payment_options` | `restaurant_payment_options_service_role_all` | service_role | ALL |
 | `user_payment_methods` | `payment_methods_select_own` | authenticated | SELECT |
